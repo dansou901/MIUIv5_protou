@@ -11,6 +11,14 @@
 .end annotation
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/UiModeManagerService$Injector;
+    }
+.end annotation
+
+
 # static fields
 .field private static final ACTION_UPDATE_NIGHT_MODE:Ljava/lang/String; = "com.android.server.action.UPDATE_NIGHT_MODE"
 
@@ -128,6 +136,12 @@
 
 .field private mNightMode:I
 
+.field mNormalType:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mNotificationManager:Landroid/app/NotificationManager;
 
 .field private final mResultReceiver:Landroid/content/BroadcastReceiver;
@@ -184,6 +198,9 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 12
     .parameter "context"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v2, 0x0
@@ -3216,6 +3233,9 @@
 .method final updateConfigurationLocked(Z)V
     .locals 4
     .parameter "sendIt"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 950
@@ -3260,54 +3280,45 @@
     :goto_2
     or-int/2addr v1, v2
 
-    .line 975
     :goto_3
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDmbDongleEnabled:Z
 
     if-eqz v2, :cond_8
 
-    .line 1004
     :cond_1
     :goto_4
     return-void
 
-    .line 950
     .end local v1           #uiMode:I
     :cond_2
-    iget v1, p0, Lcom/android/server/UiModeManagerService;->mDefaultUiModeType:I
+    iget v1, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
 
     goto :goto_0
 
-    .line 955
     .restart local v1       #uiMode:I
     :cond_3
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDeskModeEnabled:Z
 
     if-eqz v2, :cond_4
 
-    .line 957
     const/4 v1, 0x2
 
     goto :goto_1
 
-    .line 958
     :cond_4
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mKidModeEnabled:Z
 
     if-eqz v2, :cond_0
 
-    .line 959
     const/16 v1, 0xe
 
     goto :goto_1
 
-    .line 964
     :cond_5
     const/16 v2, 0x10
 
     goto :goto_2
 
-    .line 967
     :cond_6
     iget v2, p0, Lcom/android/server/UiModeManagerService;->mNightMode:I
 

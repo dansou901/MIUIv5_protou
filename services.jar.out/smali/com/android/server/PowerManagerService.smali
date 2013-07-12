@@ -21,7 +21,8 @@
         Lcom/android/server/PowerManagerService$DockReceiver;,
         Lcom/android/server/PowerManagerService$BootCompletedReceiver;,
         Lcom/android/server/PowerManagerService$BatteryReceiver;,
-        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
+        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;,
+        Lcom/android/server/PowerManagerService$Injector;
     }
 .end annotation
 
@@ -39,7 +40,11 @@
 
 .field static final AUTOBRIGHTNESS_ANIM_STEPS:I = 0x78
 
-.field static final AUTODIMNESS_ANIM_STEPS:I = 0x147ae1
+.field static final AUTODIMNESS_ANIM_STEPS:I = 0x78
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private static final AUTO_BRIGHTNESS_ALG_DEFAULT:I = 0x0
 
@@ -3704,6 +3709,9 @@
 
 .method private enableProximityLockLocked()V
     .locals 6
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 4915
@@ -3765,6 +3773,14 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
+
+    .end local v0           #identity:J
+    :cond_0
+    iget-boolean v2, p0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
+
+    invoke-direct {p0, v2}, Lcom/android/server/PowerManagerService;->proximityChangedLocked(Z)V
+
+    goto :goto_0
 .end method
 
 .method private forceReenableScreen()V
@@ -3807,29 +3823,28 @@
     .locals 4
 
     .prologue
-    .line 3704
     invoke-direct {p0}, Lcom/android/server/PowerManagerService;->isScreenTurningOffLocked()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 3706
     iget-object v1, p0, Lcom/android/server/PowerManagerService;->mScreenBrightnessAnimator:Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;
 
-    invoke-virtual {v1}, Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;->cancelAnimation()V
+    const/4 v2, 0x2
 
-    .line 3708
+    const/4 v3, 0x0
+
+    invoke-static {p0, v1, v3, v2, v3}, Lcom/android/server/PowerManagerService$Injector;->animateTo(Lcom/android/server/PowerManagerService;Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;III)V
+
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/PowerManagerService;->mUserActivityAllowed:Z
 
-    .line 3709
     .local v0, savedActivityAllowed:Z
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/PowerManagerService;->mUserActivityAllowed:Z
 
-    .line 3710
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
@@ -7463,6 +7478,9 @@
     .parameter "newState"
     .parameter "noChangeLights"
     .parameter "reason"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 2829
@@ -10558,111 +10576,86 @@
 
     if-eqz v19, :cond_1
 
-    .line 3097
-    and-int/lit8 p1, p1, -0x4
-
-    .line 3101
     :cond_1
     and-int/lit8 v19, p1, 0x1
 
     if-eqz v19, :cond_2
 
-    .line 3104
     invoke-direct/range {p0 .. p1}, Lcom/android/server/PowerManagerService;->applyButtonState(I)I
 
     move-result p1
 
-    .line 3105
     invoke-direct/range {p0 .. p1}, Lcom/android/server/PowerManagerService;->applyKeyboardState(I)I
 
     move-result p1
 
-    .line 3107
     :cond_2
     xor-int v15, p1, v11
 
-    .line 3108
     .local v15, realDifference:I
     or-int v4, v15, p2
 
-    .line 3109
     .local v4, difference:I
     if-nez v4, :cond_4
 
-    .line 3262
     :cond_3
     :goto_0
     return-void
 
-    .line 3113
     :cond_4
     const/4 v10, 0x0
 
-    .line 3114
     .local v10, offMask:I
     const/4 v5, 0x0
 
-    .line 3115
     .local v5, dimMask:I
     const/4 v12, 0x0
 
-    .line 3117
     .local v12, onMask:I
     invoke-direct/range {p0 .. p0}, Lcom/android/server/PowerManagerService;->getPreferredBrightness()I
 
     move-result v13
 
-    .line 3119
     .local v13, preferredBrightness:I
     and-int/lit8 v19, v4, 0x8
 
     if-eqz v19, :cond_5
 
-    .line 3120
     and-int/lit8 v19, p1, 0x8
 
     if-nez v19, :cond_15
 
-    .line 3121
     or-int/lit8 v10, v10, 0x8
 
-    .line 3127
     :cond_5
     :goto_1
     and-int/lit8 v19, v4, 0x4
 
     if-eqz v19, :cond_6
 
-    .line 3128
     and-int/lit8 v19, p1, 0x4
 
     if-nez v19, :cond_16
 
-    .line 3129
     or-int/lit8 v10, v10, 0x4
 
-    .line 3135
     :cond_6
     :goto_2
     and-int/lit8 v19, v4, 0x3
 
     if-eqz v19, :cond_c
 
-    .line 3136
     const/4 v9, -0x1
 
-    .line 3142
     .local v9, nominalCurrentValue:I
     and-int/lit8 v19, v15, 0x3
 
     if-eqz v19, :cond_7
 
-    .line 3143
     and-int/lit8 v19, v11, 0x3
 
     packed-switch v19, :pswitch_data_0
 
-    .line 3156
     :pswitch_0
     move-object/from16 v0, p0
 
@@ -18100,6 +18093,9 @@
 .method public setAblActive(I)V
     .locals 1
     .parameter "on"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 4814
@@ -19972,6 +19968,9 @@
     .locals 8
     .parameter "lock"
     .parameter "ws"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 1686

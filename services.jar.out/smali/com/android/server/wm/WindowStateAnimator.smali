@@ -110,6 +110,12 @@
 
 .field mLocalAnimating:Z
 
+.field mMiuiHidden:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field mPendingDestroySurface:Landroid/view/Surface;
 
 .field final mPolicy:Landroid/view/WindowManagerPolicy;
@@ -6070,23 +6076,17 @@
 
     const/4 v1, 0x1
 
-    .line 1460
     :try_start_0
     iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurface:Landroid/view/Surface;
 
     if-eqz v3, :cond_1
 
-    .line 1461
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurfaceShown:Z
 
-    .line 1462
-    iget-object v3, p0, Lcom/android/server/wm/WindowStateAnimator;->mSurface:Landroid/view/Surface;
+    invoke-static {p0}, Lcom/android/server/wm/WindowStateAnimator$Injector;->showSurface(Lcom/android/server/wm/WindowStateAnimator;)V
 
-    invoke-virtual {v3}, Landroid/view/Surface;->show()V
-
-    .line 1465
     sget-boolean v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v3, :cond_0
