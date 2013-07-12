@@ -33,12 +33,6 @@
 
 .field private mChangingConfigurations:I
 
-.field mId:I
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-.end field
-
 .field private mLevel:I
 
 .field private mStateSet:[I
@@ -67,32 +61,36 @@
     .prologue
     const/4 v1, 0x0
 
+    .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 120
     sget-object v0, Landroid/util/StateSet;->WILD_CARD:[I
 
     iput-object v0, p0, Landroid/graphics/drawable/Drawable;->mStateSet:[I
 
+    .line 121
     iput v1, p0, Landroid/graphics/drawable/Drawable;->mLevel:I
 
+    .line 122
     iput v1, p0, Landroid/graphics/drawable/Drawable;->mChangingConfigurations:I
 
+    .line 123
     sget-object v0, Landroid/graphics/drawable/Drawable;->ZERO_BOUNDS_RECT:Landroid/graphics/Rect;
 
     iput-object v0, p0, Landroid/graphics/drawable/Drawable;->mBounds:Landroid/graphics/Rect;
 
+    .line 124
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/graphics/drawable/Drawable;->mCallback:Ljava/lang/ref/WeakReference;
 
+    .line 125
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/graphics/drawable/Drawable;->mVisible:Z
 
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroid/graphics/drawable/Drawable;->mId:I
-
+    .line 940
     return-void
 .end method
 
@@ -967,24 +965,11 @@
     return-object p0
 .end method
 
-.method public getId()I
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iget v0, p0, Landroid/graphics/drawable/Drawable;->mId:I
-
-    return v0
-.end method
-
 .method public getIntrinsicHeight()I
     .locals 1
 
     .prologue
     .line 666
-    .line 658
     const/4 v0, -0x1
 
     return v0
@@ -994,6 +979,7 @@
     .locals 1
 
     .prologue
+    .line 658
     const/4 v0, -0x1
 
     return v0
@@ -1459,19 +1445,6 @@
 
     .prologue
     .line 251
-    return-void
-.end method
-
-.method public setId(I)V
-    .locals 0
-    .parameter "id"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iput p1, p0, Landroid/graphics/drawable/Drawable;->mId:I
-
     return-void
 .end method
 

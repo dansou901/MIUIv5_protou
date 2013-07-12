@@ -2074,27 +2074,25 @@
 .end method
 
 .method public getResources(Landroid/app/ActivityThread;)Landroid/content/res/Resources;
-    .locals 2
+    .locals 1
     .parameter "mainThread"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
+    .line 515
     iget-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
+    .line 516
+    iget-object v0, p0, Landroid/app/LoadedApk;->mResDir:Ljava/lang/String;
 
-    iget-object v1, p0, Landroid/app/LoadedApk;->mResDir:Ljava/lang/String;
-
-    invoke-virtual {p1, v0, v1, p0}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/app/LoadedApk;)Landroid/content/res/Resources;
+    invoke-virtual {p1, v0, p0}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/app/LoadedApk;)Landroid/content/res/Resources;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
 
+    .line 518
     :cond_0
     iget-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
 
@@ -2107,12 +2105,12 @@
     .parameter "allowSkinChange"
 
     .prologue
-    .line 515
+    .line 507
     iget-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
 
     if-nez v0, :cond_0
 
-    .line 516
+    .line 508
     iget-object v0, p0, Landroid/app/LoadedApk;->mResDir:Ljava/lang/String;
 
     invoke-virtual {p1, v0, p0, p2}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/app/LoadedApk;Z)Landroid/content/res/Resources;
@@ -2121,7 +2119,6 @@
 
     iput-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
 
-    .line 518
     .line 510
     :cond_0
     iget-object v0, p0, Landroid/app/LoadedApk;->mResources:Landroid/content/res/Resources;
