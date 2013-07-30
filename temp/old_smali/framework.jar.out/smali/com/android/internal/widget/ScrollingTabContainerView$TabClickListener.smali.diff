@@ -1,0 +1,14 @@
+*** ./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-12 21:42:48.265167091 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-12 21:40:38.828489752 +0000
+***************
+*** 111,115 ****
+--- 111,119 ----
+  
+      .end local v0           #child:Landroid/view/View;
+      :cond_1
++     iget-object v4, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabClickListener;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
++ 
++     invoke-static {v4, p1}, Lcom/android/internal/widget/ScrollingTabContainerView$Injector;->onTabViewClick(Lcom/android/internal/widget/ScrollingTabContainerView;Landroid/view/View;)V
++ 
+      return-void
+  .end method

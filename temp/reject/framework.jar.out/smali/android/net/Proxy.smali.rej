@@ -1,0 +1,19 @@
+*** Proxy.smali	2013-07-12 21:43:45.451838473 +0000
+--- Proxy.smali	2013-07-12 21:41:24.981826890 +0000
+***************
+*** 291,297 ****
+      .local v1, sa:Ljava/net/InetSocketAddress;
+      new-instance v2, Lorg/apache/http/HttpHost;
+  
+!     invoke-virtual {v1}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
+  
+      move-result-object v3
+  
+--- 295,301 ----
+      .local v1, sa:Ljava/net/InetSocketAddress;
+      new-instance v2, Lorg/apache/http/HttpHost;
+  
+!     invoke-static {v1}, Landroid/net/Proxy$Injector;->getHostName(Ljava/net/InetSocketAddress;)Ljava/lang/String;
+  
+      move-result-object v3
+  

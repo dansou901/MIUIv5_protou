@@ -1,0 +1,15 @@
+*** ./smali/android/hardware/SensorManager.smali	2013-07-12 21:43:38.408504559 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/hardware/SensorManager.smali	2013-07-12 21:41:19.341826425 +0000
+***************
+*** 240,245 ****
+--- 240,249 ----
+      const v0, 0x3e42dcae
+  
+      .local v0, coef:F
++     invoke-static {p0}, Landroid/hardware/SensorManager$Injector;->getSeaLevelPressure(F)F
++ 
++     move-result p0
++ 
+      const v1, 0x472d2a00
+  
+      const/high16 v2, 0x3f80

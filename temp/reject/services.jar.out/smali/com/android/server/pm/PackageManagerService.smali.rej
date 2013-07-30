@@ -1,0 +1,107 @@
+*** PackageManagerService.smali	2013-07-12 21:42:42.395166607 +0000
+--- PackageManagerService.smali	2013-07-12 21:40:34.798489419 +0000
+***************
+*** 2940,2945 ****
+  
+      iput-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
+  
+      monitor-exit v43
+      :try_end_9
+      .catchall {:try_start_9 .. :try_end_9} :catchall_0
+--- 2958,2965 ----
+  
+      iput-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
+  
++     invoke-static {}, Lcom/android/server/pm/ExtraPackageManagerServices;->postScanPackages()V
++ 
+      monitor-exit v43
+      :try_end_9
+      .catchall {:try_start_9 .. :try_end_9} :catchall_0
+***************
+*** 8280,8285 ****
+  
+      .restart local v4       #allowed:Z
+      :goto_6
+      if-nez v4, :cond_b
+  
+      iget v0, v6, Lcom/android/server/pm/BasePermission;->protectionLevel:I
+--- 8317,8334 ----
+  
+      .restart local v4       #allowed:Z
+      :goto_6
++     move-object/from16 v0, p1
++ 
++     iget-object v0, v0, Landroid/content/pm/PackageParser$Package;->mSignatures:[Landroid/content/pm/Signature;
++ 
++     move-object/from16 v19, v0
++ 
++     invoke-static/range {v19 .. v19}, Lmiui/content/pm/ExtraPackageManager;->isTrustedSystemSignature([Landroid/content/pm/Signature;)Z
++ 
++     move-result v19
++ 
++     or-int v4, v4, v19
++ 
+      if-nez v4, :cond_b
+  
+      iget v0, v6, Lcom/android/server/pm/BasePermission;->protectionLevel:I
+***************
+*** 9186,9191 ****
+      goto :goto_0
+  
+      :cond_4
+      invoke-direct {p0, v7, p4, p5}, Lcom/android/server/pm/PackageManagerService;->updateSettingsLI(Landroid/content/pm/PackageParser$Package;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
+  
+      iget v0, p5, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
+--- 9235,9246 ----
+      goto :goto_0
+  
+      :cond_4
++     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
++ 
++     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
++ 
++     invoke-static {v0, v1}, Lcom/android/server/pm/ExtraPackageManagerServices;->postProcessNewInstall(Landroid/content/pm/ApplicationInfo;Lcom/android/server/pm/Settings;)V
++ 
+      invoke-direct {p0, v7, p4, p5}, Lcom/android/server/pm/PackageManagerService;->updateSettingsLI(Landroid/content/pm/PackageParser$Package;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
+  
+      iget v0, p5, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
+***************
+*** 14637,14642 ****
+      .end local v23           #i:I
+      .end local v45           #renamed:Ljava/lang/String;
+      :cond_18
+      move-object/from16 v0, v41
+  
+      iget-object v3, v0, Lcom/android/server/pm/PackageSetting;->origPackage:Lcom/android/server/pm/PackageSettingBase;
+--- 14695,14706 ----
+      .end local v23           #i:I
+      .end local v45           #renamed:Ljava/lang/String;
+      :cond_18
++     move-object/from16 v0, p1
++ 
++     move-object/from16 v1, v41
++ 
++     invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService$Injector;->addMiuiExtendFlags(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PackageSetting;)V
++ 
+      move-object/from16 v0, v41
+  
+      iget-object v3, v0, Lcom/android/server/pm/PackageSetting;->origPackage:Lcom/android/server/pm/PackageSettingBase;
+***************
+*** 26721,26727 ****
+      :goto_3
+      if-eqz v9, :cond_5
+  
+!     invoke-virtual {v5, v9}, Landroid/content/pm/ParceledListSlice;->append(Landroid/os/Parcelable;)Z
+  
+      move-result v12
+  
+--- 26799,26807 ----
+      :goto_3
+      if-eqz v9, :cond_5
+  
+!     move/from16 v0, p1
+! 
+!     invoke-static {v5, v9, v0}, Lcom/android/server/pm/PackageManagerService$Injector;->addPackageToSlice(Landroid/content/pm/ParceledListSlice;Landroid/content/pm/PackageInfo;I)Z
+  
+      move-result v12
+  

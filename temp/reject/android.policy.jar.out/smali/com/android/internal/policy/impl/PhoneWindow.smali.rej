@@ -1,0 +1,87 @@
+*** PhoneWindow.smali	2013-07-12 21:44:51.738510606 +0000
+--- PhoneWindow.smali	2013-07-12 21:42:28.705165478 +0000
+***************
+*** 1127,1132 ****
+      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
+  
+      :cond_7
+      const/4 v2, 0x0
+  
+      .local v2, splitActionBar:Z
+--- 1128,1137 ----
+      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
+  
+      :cond_7
++     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
++ 
++     invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
++ 
+      const/4 v2, 0x0
+  
+      .local v2, splitActionBar:Z
+***************
+*** 2999,3005 ****
+  
+      if-eqz v19, :cond_19
+  
+!     const/16 v19, -0x2
+  
+      const/16 v20, -0x2
+  
+--- 3043,3055 ----
+  
+      if-eqz v19, :cond_19
+  
+!     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+! 
+!     move-result-object v19
+! 
+!     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getFloatingWindowWidth(Landroid/content/Context;)I
+! 
+!     move-result v19
+  
+      const/16 v20, -0x2
+  
+***************
+*** 4125,4138 ****
+  
+      if-eqz v19, :cond_26
+  
+!     const v10, 0x1090098
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+  
+      .end local v10           #layoutResource:I
+      :cond_26
+!     const v10, 0x1090097
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+--- 4175,4200 ----
+  
+      if-eqz v19, :cond_26
+  
+!     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+! 
+!     move-result-object v19
+! 
+!     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarOverlayResourceId(Landroid/content/Context;)I
+! 
+!     move-result v10
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+  
+      .end local v10           #layoutResource:I
+      :cond_26
+!     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+! 
+!     move-result-object v19
+! 
+!     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarResourceId(Landroid/content/Context;)I
+! 
+!     move-result v10
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8

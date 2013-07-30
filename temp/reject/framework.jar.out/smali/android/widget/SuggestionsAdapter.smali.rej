@@ -1,0 +1,21 @@
+*** SuggestionsAdapter.smali	2013-07-12 21:43:22.701836597 +0000
+--- SuggestionsAdapter.smali	2013-07-12 21:41:06.441825362 +0000
+***************
+*** 342,350 ****
+      move-result-object v4
+  
+      .local v4, pkg:Ljava/lang/String;
+!     iget-object v7, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+! 
+!     invoke-virtual {v5, v4, v3, v7}, Landroid/content/pm/PackageManager;->getDrawable(Ljava/lang/String;ILandroid/content/pm/ApplicationInfo;)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v1
+  
+--- 346,352 ----
+      move-result-object v4
+  
+      .local v4, pkg:Ljava/lang/String;
+!     invoke-static {v5, v4, v3, v0}, Landroid/widget/SuggestionsAdapter$Injector;->getDrawable(Landroid/content/pm/PackageManager;Ljava/lang/String;ILandroid/content/pm/ActivityInfo;)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v1
+  

@@ -1,0 +1,22 @@
+*** ./smali/com/android/server/pm/ShutdownThread$CloseDialogReceiver.smali	2013-07-12 21:42:42.011833242 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/ShutdownThread$CloseDialogReceiver.smali	2013-07-12 21:40:34.528489397 +0000
+***************
+*** 50,61 ****
+--- 50,66 ----
+  .method public onDismiss(Landroid/content/DialogInterface;)V
+      .locals 1
+      .parameter "unused"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+      iget-object v0, p0, Lcom/android/server/pm/ShutdownThread$CloseDialogReceiver;->mContext:Landroid/content/Context;
+  
+      invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+  
++     invoke-static {p1}, Lcom/android/server/pm/ShutdownThread$Injector;->onDismiss(Landroid/content/DialogInterface;)V
++ 
+      return-void
+  .end method
+  

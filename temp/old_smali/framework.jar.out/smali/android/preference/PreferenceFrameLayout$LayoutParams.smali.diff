@@ -1,0 +1,19 @@
+*** ./smali/android/preference/PreferenceFrameLayout$LayoutParams.smali	2013-07-12 21:43:33.928504190 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceFrameLayout$LayoutParams.smali	2013-07-12 21:41:16.121826160 +0000
+***************
+*** 59,64 ****
+--- 59,72 ----
+  
+      iput-boolean v1, p0, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
+  
++     iget-boolean v1, p0, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
++ 
++     invoke-static {p1, v1}, Landroid/preference/PreferenceFrameLayout$LayoutParams$Injector;->isRemoveBorders(Landroid/content/Context;Z)Z
++ 
++     move-result v1
++ 
++     iput-boolean v1, p0, Landroid/preference/PreferenceFrameLayout$LayoutParams;->removeBorders:Z
++ 
+      invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+  
+      return-void

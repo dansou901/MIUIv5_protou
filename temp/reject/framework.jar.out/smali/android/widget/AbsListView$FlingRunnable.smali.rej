@@ -1,0 +1,19 @@
+*** AbsListView$FlingRunnable.smali	2013-07-12 21:43:20.188503057 +0000
+--- AbsListView$FlingRunnable.smali	2013-07-12 21:41:04.381825192 +0000
+***************
+*** 945,951 ****
+      .end local v9           #scrollY:I
+      .end local v19           #currY:I
+      :cond_11
+!     invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView$FlingRunnable;->endFling()V
+  
+      goto/16 :goto_0
+  
+--- 1036,1042 ----
+      .end local v9           #scrollY:I
+      .end local v19           #currY:I
+      :cond_11
+!     invoke-direct/range {p0 .. p0}, Landroid/widget/AbsListView$FlingRunnable;->endFling2()V
+  
+      goto/16 :goto_0
+  

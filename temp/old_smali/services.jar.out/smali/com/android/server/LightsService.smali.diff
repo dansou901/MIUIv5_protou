@@ -1,0 +1,24 @@
+*** ./smali/com/android/server/LightsService.smali	2013-07-12 21:42:34.461832620 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/LightsService.smali	2013-07-12 21:40:29.308488967 +0000
+***************
+*** 207,209 ****
+--- 207,225 ----
+  
+      return-object v0
+  .end method
++ 
++ .method setLight(ILcom/android/server/LightsService$Light;)V
++     .locals 1
++     .parameter "id"
++     .parameter "light"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
++ 
++     .prologue
++     iget-object v0, p0, Lcom/android/server/LightsService;->mLights:[Lcom/android/server/LightsService$Light;
++ 
++     aput-object p2, v0, p1
++ 
++     return-void
++ .end method

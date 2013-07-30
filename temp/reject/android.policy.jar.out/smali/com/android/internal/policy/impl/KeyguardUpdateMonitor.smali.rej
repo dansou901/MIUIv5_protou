@@ -1,0 +1,19 @@
+*** KeyguardUpdateMonitor.smali	2013-07-12 21:44:51.751843940 +0000
+--- KeyguardUpdateMonitor.smali	2013-07-12 21:42:28.725165480 +0000
+***************
+*** 116,121 ****
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
+  
+      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
+--- 123,130 ----
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
++     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
++ 
+      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
+  
+      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;

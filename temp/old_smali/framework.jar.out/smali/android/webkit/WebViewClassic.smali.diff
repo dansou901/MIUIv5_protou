@@ -1,0 +1,68 @@
+*** ./smali/android/webkit/WebViewClassic.smali	2013-07-12 21:44:38.201842823 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/webkit/WebViewClassic.smali	2013-07-12 21:42:14.831831001 +0000
+***************
+*** 15811,15816 ****
+--- 15811,15825 ----
+      goto :goto_0
+  .end method
+  
++ .method public isHitSelectionHandle()Z
++     .locals 1
++ 
++     .prologue
++     const/4 v0, 0x0
++ 
++     return v0
++ .end method
++ 
+  .method public isPaused()Z
+      .locals 1
+  
+***************
+*** 15963,15968 ****
+--- 15972,15986 ----
+      goto :goto_0
+  .end method
+  
++ .method public isSelectingText()Z
++     .locals 1
++ 
++     .prologue
++     iget-boolean v0, p0, Landroid/webkit/WebViewClassic;->mSelectingText:Z
++ 
++     return v0
++ .end method
++ 
+  .method public loadData(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+      .locals 0
+      .parameter "data"
+***************
+*** 20952,20958 ****
+      goto :goto_0
+  .end method
+  
+! .method sendOurVisibleRect()Landroid/graphics/Rect;
+      .locals 4
+  
+      .prologue
+--- 20970,20976 ----
+      goto :goto_0
+  .end method
+  
+! .method public sendOurVisibleRect()Landroid/graphics/Rect;
+      .locals 4
+  
+      .prologue
+***************
+*** 22898,22900 ****
+--- 22916,22925 ----
+  
+      return v0
+  .end method
++ 
++ .method public hideFloatView()V
++     .locals 0
++ 
++     .prologue
++     return-void
++ .end method

@@ -1,0 +1,59 @@
+*** ConnectivityService.smali	2013-07-12 21:42:44.745166801 +0000
+--- ConnectivityService.smali	2013-07-12 21:40:36.358489548 +0000
+***************
+*** 347,352 ****
+  
+      invoke-direct {v0, v2}, Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
+  
+      new-instance v13, Landroid/os/HandlerThread;
+  
+      const-string v2, "ConnectivityServiceThread"
+--- 351,358 ----
+  
+      invoke-direct {v0, v2}, Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
+  
++     invoke-static/range {p1 .. p1}, Lcom/miui/server/FirewallService;->setupService(Landroid/content/Context;)V
++ 
+      new-instance v13, Landroid/os/HandlerThread;
+  
+      const-string v2, "ConnectivityServiceThread"
+***************
+*** 6869,6874 ****
+      move-result v8
+  
+      .local v8, usedNetworkType:I
+      iget-object v10, p0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+  
+      aget-object v6, v10, v8
+--- 6875,6882 ----
+      move-result v8
+  
+      .local v8, usedNetworkType:I
++     invoke-static {p1, v8}, Lcom/android/server/ConnectivityService$Injector;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;I)V
++ 
+      iget-object v10, p0, Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
+  
+      aget-object v6, v10, v8
+***************
+*** 10830,10838 ****
+      :try_end_7
+      .catchall {:try_start_7 .. :try_end_7} :catchall_2
+  
+      if-ltz v13, :cond_c
+  
+-     :try_start_8
+      move-object/from16 v0, p0
+  
+      iget-object v0, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;
+--- 10841,10851 ----
+      :try_end_7
+      .catchall {:try_start_7 .. :try_end_7} :catchall_2
+  
++     :try_start_8
++     invoke-static/range {v20 .. v20}, Lcom/android/server/ConnectivityService$Injector;->startUsingNetworkFeature(I)V
++ 
+      if-ltz v13, :cond_c
+  
+      move-object/from16 v0, p0
+  
+      iget-object v0, v0, Lcom/android/server/ConnectivityService;->mHandler:Landroid/os/Handler;

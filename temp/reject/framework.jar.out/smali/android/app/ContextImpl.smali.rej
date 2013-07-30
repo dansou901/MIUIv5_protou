@@ -1,0 +1,53 @@
+*** ContextImpl.smali	2013-07-12 21:44:45.518510093 +0000
+--- ContextImpl.smali	2013-07-12 21:42:22.485164965 +0000
+***************
+*** 3481,3492 ****
+  .end method
+  
+  .method final init(Landroid/app/LoadedApk;Landroid/os/IBinder;Landroid/app/ActivityThread;Landroid/content/res/Resources;Ljava/lang/String;)V
+!     .locals 2
+      .parameter "packageInfo"
+      .parameter "activityToken"
+      .parameter "mainThread"
+      .parameter "container"
+      .parameter "basePackageName"
+  
+      .prologue
+      iput-object p1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+--- 3487,3501 ----
+  .end method
+  
+  .method final init(Landroid/app/LoadedApk;Landroid/os/IBinder;Landroid/app/ActivityThread;Landroid/content/res/Resources;Ljava/lang/String;)V
+!     .locals 3
+      .parameter "packageInfo"
+      .parameter "activityToken"
+      .parameter "mainThread"
+      .parameter "container"
+      .parameter "basePackageName"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+      iput-object p1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+***************
+*** 3539,3545 ****
+  
+      move-result-object v1
+  
+!     invoke-virtual {p3, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+  
+      move-result-object v0
+  
+--- 3548,3558 ----
+  
+      move-result-object v1
+  
+!     iget-object v2, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+! 
+!     iget-object v2, v2, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
+! 
+!     invoke-virtual {p3, v2, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+  
+      move-result-object v0
+  

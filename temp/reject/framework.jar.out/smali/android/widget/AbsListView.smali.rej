@@ -1,0 +1,55 @@
+*** AbsListView.smali	2013-07-12 21:43:26.075170209 +0000
+--- AbsListView.smali	2013-07-12 21:41:09.715158965 +0000
+***************
+*** 29,35 ****
+          Landroid/widget/AbsListView$ListItemAccessibilityDelegate;,
+          Landroid/widget/AbsListView$SavedState;,
+          Landroid/widget/AbsListView$SelectionBoundsAdjuster;,
+!         Landroid/widget/AbsListView$OnScrollListener;
+      }
+  .end annotation
+  
+--- 29,36 ----
+          Landroid/widget/AbsListView$ListItemAccessibilityDelegate;,
+          Landroid/widget/AbsListView$SavedState;,
+          Landroid/widget/AbsListView$SelectionBoundsAdjuster;,
+!         Landroid/widget/AbsListView$OnScrollListener;,
+!         Landroid/widget/AbsListView$Injector;
+      }
+  .end annotation
+  
+***************
+*** 10221,10241 ****
+  
+      invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->reportScrollStateChange(I)V
+  
+!     invoke-static {v15}, Ljava/lang/Math;->abs(I)I
+  
+      move-result v26
+  
+!     move-object/from16 v0, p0
+! 
+!     iget v0, v0, Landroid/widget/AbsListView;->mMinimumVelocity:I
+! 
+!     move/from16 v27, v0
+! 
+!     move/from16 v0, v26
+! 
+!     move/from16 v1, v27
+! 
+!     if-le v0, v1, :cond_24
+  
+      move-object/from16 v0, p0
+  
+--- 10535,10545 ----
+  
+      invoke-virtual {v0, v1}, Landroid/widget/AbsListView;->reportScrollStateChange(I)V
+  
+!     invoke-virtual/range {p0 .. p0}, Landroid/widget/AbsListView;->isSpringOverScrollEnabled()Z
+  
+      move-result v26
+  
+!     if-eqz v26, :cond_24
+  
+      move-object/from16 v0, p0
+  
