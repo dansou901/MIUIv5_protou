@@ -7,3 +7,5 @@ Current Status:
 ==============
 
 make firstpatch is applied now for the first time again.
+
+added temp folder after doing the make firstpatch (without MIUI smalis from xpirt)
