@@ -43,7 +43,7 @@
     .prologue
     .line 110
     :try_start_0
-    const-string v2, "window"
+    const-string/jumbo v2, "window"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

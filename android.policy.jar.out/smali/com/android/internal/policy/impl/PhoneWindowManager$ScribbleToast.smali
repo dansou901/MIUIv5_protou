@@ -38,27 +38,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6998
+    .line 6994
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6993
+    .line 6989
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->init:Z
 
-    .line 6999
+    .line 6995
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mContext:Landroid/content/Context;
 
-    .line 7000
+    .line 6996
     invoke-virtual {p2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 7002
+    .line 6998
     .local v1, pm:Landroid/content/pm/PackageManager;
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->init:Z
 
-    .line 7004
+    .line 7000
     :try_start_0
     iget-object v3, p1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScribblePackageName:Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 
     move-result-object v2
 
-    .line 7005
+    .line 7001
     .local v2, res:Landroid/content/res/Resources;
     iget-object v3, p1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScribbleMessageName:Ljava/lang/String;
 
@@ -78,18 +78,18 @@
 
     move-result v0
 
-    .line 7006
+    .line 7002
     .local v0, id:I
     if-eqz v0, :cond_0
 
-    .line 7007
+    .line 7003
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mMessage:Ljava/lang/String;
 
-    .line 7008
+    .line 7004
     const/4 v3, 0x1
 
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->init:Z
@@ -97,20 +97,20 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7013
+    .line 7009
     .end local v0           #id:I
     .end local v2           #res:Landroid/content/res/Resources;
     :cond_0
     :goto_0
     return-void
 
-    .line 7011
+    .line 7007
     :catch_0
     move-exception v3
 
     goto :goto_0
 
-    .line 7010
+    .line 7006
     :catch_1
     move-exception v3
 
@@ -123,12 +123,12 @@
     .locals 3
 
     .prologue
-    .line 7016
+    .line 7012
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mToast:Landroid/widget/Toast;
 
     if-nez v0, :cond_0
 
-    .line 7017
+    .line 7013
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mMessage:Ljava/lang/String;
@@ -141,12 +141,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mToast:Landroid/widget/Toast;
 
-    .line 7019
+    .line 7015
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ScribbleToast;->mToast:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 7020
+    .line 7016
     return-void
 .end method

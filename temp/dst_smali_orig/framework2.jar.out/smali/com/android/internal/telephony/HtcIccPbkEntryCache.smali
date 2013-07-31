@@ -1475,12 +1475,6 @@
 
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v4, 0x243
-
-    if-eq v3, v4, :cond_2
-
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
     const/16 v4, 0x4a
 
     if-ne v3, v4, :cond_3
@@ -3891,11 +3885,20 @@
     :cond_4
     move-object/from16 v0, p0
 
-    iget v4, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
+    move-object/from16 v1, p3
 
-    if-gtz v4, :cond_5
+    move-object/from16 v2, p4
 
-    const-string v4, "error"
+    move-object/from16 v3, p5
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->getFirstEmptyPbkRecord(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/internal/telephony/PhoneBookEntry;
+
+    move-result-object v9
+
+    .local v9, entry:Lcom/android/internal/telephony/PhoneBookEntry;
+    if-nez v9, :cond_5
+
+    const-string v4, "AdnFull"
 
     move-object/from16 v0, p0
 
@@ -3908,20 +3911,11 @@
     :cond_5
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p3
+    iget v4, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
 
-    move-object/from16 v2, p4
+    if-gtz v4, :cond_6
 
-    move-object/from16 v3, p5
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->getFirstEmptyPbkRecord(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/internal/telephony/PhoneBookEntry;
-
-    move-result-object v9
-
-    .local v9, entry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-nez v9, :cond_6
-
-    const-string v4, "AdnFull"
+    const-string v4, "error"
 
     move-object/from16 v0, p0
 
@@ -5008,11 +5002,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
-
-    if-gtz v0, :cond_1
+    if-nez v0, :cond_1
 
     :cond_0
     move-object v0, v7
@@ -5762,102 +5752,9 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sLog(Ljava/lang/String;)V
 
-    const/16 v37, 0x6f3a
-
-    move/from16 v0, v37
-
-    if-ne v13, v0, :cond_c
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
-
-    move/from16 v37, v0
-
-    move/from16 v0, v37
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
-
-    :cond_b
-    :goto_2
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
-
-    :cond_c
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
-
-    move/from16 v37, v0
-
-    if-lez v37, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
-
-    move-object/from16 v37, v0
-
-    if-eqz v37, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
-
-    move-object/from16 v37, v0
-
-    invoke-virtual/range {v37 .. v37}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->isPbrPresent()Z
-
-    move-result v37
-
-    const/16 v38, 0x1
-
-    move/from16 v0, v37
-
-    move/from16 v1, v38
-
-    if-ne v0, v1, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
-
-    move-object/from16 v37, v0
-
-    invoke-virtual/range {v37 .. v37}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->getPBRNum()I
-
-    move-result v37
-
-    if-lez v37, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
-
-    move/from16 v37, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
-
-    move-object/from16 v38, v0
-
-    invoke-virtual/range {v38 .. v38}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->getPBRNum()I
-
-    move-result v38
-
-    div-int v37, v37, v38
-
-    move/from16 v0, v37
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
-
-    goto :goto_2
 
     .end local v11           #ar:Landroid/os/AsyncResult;
     .end local v13           #efid:I
@@ -5919,7 +5816,7 @@
 
     cmp-long v37, v30, v37
 
-    if-gez v37, :cond_d
+    if-gez v37, :cond_b
 
     const-string v37, "EVENT_LOAD_PB_IAP_DONE: queryTimeStamp < mDropSIMTimeStamp"
 
@@ -5931,20 +5828,20 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_16
+    if-eqz v37, :cond_14
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_10
+    if-nez v37, :cond_e
 
     iget-object v0, v11, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -5987,7 +5884,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_e
+    if-ge v0, v1, :cond_c
 
     const/16 v37, 0x9
 
@@ -6003,7 +5900,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->handleNextSequence(III)V
 
-    :goto_3
+    :goto_2
     if-eqz v17, :cond_0
 
     const/16 v37, 0x0
@@ -6023,7 +5920,7 @@
     move-result v26
 
     .local v26, next_event:I
-    if-eqz v26, :cond_f
+    if-eqz v26, :cond_d
 
     const-string v37, "HtcIccPbkEntryCache"
 
@@ -6068,20 +5965,20 @@
     goto/16 :goto_0
 
     .end local v26           #next_event:I
-    :cond_e
+    :cond_c
     const/16 v17, 0xa
 
-    goto :goto_3
+    goto :goto_2
 
     .restart local v26       #next_event:I
-    :cond_f
+    :cond_d
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
     .end local v21           #iapRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/IAPRecord;>;"
     .end local v26           #next_event:I
-    :cond_10
+    :cond_e
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -6160,7 +6057,7 @@
 
     move-result v37
 
-    if-eqz v37, :cond_11
+    if-eqz v37, :cond_f
 
     const/16 v17, 0xb
 
@@ -6182,7 +6079,7 @@
 
     invoke-virtual/range {v37 .. v39}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->removeEFId(II)V
 
-    :cond_11
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
@@ -6195,7 +6092,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_12
+    if-nez v37, :cond_10
 
     move-object/from16 v0, p0
 
@@ -6209,9 +6106,9 @@
 
     move-result v37
 
-    if-eqz v37, :cond_13
+    if-eqz v37, :cond_11
 
-    :cond_12
+    :cond_10
     const/16 v17, 0x0
 
     const-string v37, "HtcIccPbkEntryCache"
@@ -6250,8 +6147,8 @@
 
     invoke-virtual/range {v37 .. v39}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->removeEFId(II)V
 
-    :cond_13
-    if-eqz v17, :cond_15
+    :cond_11
+    if-eqz v17, :cond_13
 
     const/16 v37, 0x0
 
@@ -6270,7 +6167,7 @@
     move-result v26
 
     .restart local v26       #next_event:I
-    if-eqz v26, :cond_14
+    if-eqz v26, :cond_12
 
     const-string v37, "HtcIccPbkEntryCache"
 
@@ -6314,18 +6211,18 @@
 
     goto/16 :goto_0
 
-    :cond_14
+    :cond_12
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
     .end local v26           #next_event:I
-    :cond_15
+    :cond_13
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
-    :cond_16
+    :cond_14
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "mPBRParser is null"
@@ -6400,7 +6297,7 @@
 
     cmp-long v37, v30, v37
 
-    if-gez v37, :cond_17
+    if-gez v37, :cond_15
 
     const-string v37, "EVENT_LOAD_PB_IAP_DONE: queryTimeStamp < mDropSIMTimeStamp"
 
@@ -6412,14 +6309,14 @@
 
     goto/16 :goto_0
 
-    :cond_17
+    :cond_15
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_22
+    if-eqz v37, :cond_20
 
     move-object/from16 v0, p0
 
@@ -6427,13 +6324,13 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_22
+    if-eqz v37, :cond_20
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_20
+    if-nez v37, :cond_1e
 
     iget-object v0, v11, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -6476,7 +6373,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_1d
+    if-ge v0, v1, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -6495,7 +6392,7 @@
     const/16 v20, 0x0
 
     .local v20, i:I
-    :goto_4
+    :goto_3
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mEmailRecordList:Ljava/util/ArrayList;
@@ -6520,7 +6417,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_1c
+    if-ge v0, v1, :cond_1a
 
     move-object/from16 v0, p0
 
@@ -6553,7 +6450,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_18
+    if-nez v37, :cond_16
 
     const/4 v5, 0x0
 
@@ -6574,7 +6471,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_19
+    if-ne v0, v1, :cond_17
 
     move-object/from16 v0, p0
 
@@ -6591,7 +6488,7 @@
     move-result v32
 
     .local v32, recNum:I
-    if-lez v32, :cond_1a
+    if-lez v32, :cond_18
 
     add-int/lit8 v37, v32, -0x1
 
@@ -6609,7 +6506,7 @@
 
     add-int v5, v37, v38
 
-    if-lez v5, :cond_1a
+    if-lez v5, :cond_18
 
     move-object/from16 v0, p0
 
@@ -6623,7 +6520,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_1a
+    if-gt v5, v0, :cond_18
 
     move-object/from16 v0, p0
 
@@ -6640,13 +6537,13 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .local v28, pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_1a
+    if-eqz v28, :cond_18
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/internal/telephony/PhoneBookEntry;->isEmpty()Z
 
     move-result v37
 
-    if-eqz v37, :cond_1a
+    if-eqz v37, :cond_18
 
     new-instance v37, Ljava/lang/StringBuilder;
 
@@ -6727,14 +6624,14 @@
     .end local v5           #adnRecordNumber:I
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
     .end local v32           #recNum:I
-    :cond_18
-    :goto_5
+    :cond_16
+    :goto_4
     add-int/lit8 v20, v20, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     .restart local v5       #adnRecordNumber:I
-    :cond_19
+    :cond_17
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
@@ -6749,8 +6646,8 @@
 
     add-int v5, v37, v38
 
-    :cond_1a
-    if-lez v5, :cond_1b
+    :cond_18
+    if-lez v5, :cond_19
 
     move-object/from16 v0, p0
 
@@ -6764,7 +6661,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_1b
+    if-gt v5, v0, :cond_19
 
     move-object/from16 v0, p0
 
@@ -6899,21 +6796,21 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sLog(Ljava/lang/String;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_1b
+    :cond_19
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "update pbkEntry failed - index out of mSimPbkEntryList size"
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     .end local v5           #adnRecordNumber:I
     .end local v14           #emailRecord:Lcom/android/internal/telephony/EmailRecord;
-    :cond_1c
+    :cond_1a
     new-instance v37, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v37 .. v37}, Ljava/lang/StringBuilder;-><init>()V
@@ -6967,7 +6864,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sLog(Ljava/lang/String;)V
 
     .end local v20           #i:I
-    :cond_1d
+    :cond_1b
     const/16 v37, 0x1
 
     move/from16 v0, v37
@@ -7032,7 +6929,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_1f
+    if-ge v0, v1, :cond_1d
 
     const/16 v37, 0xa
 
@@ -7049,7 +6946,7 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->handleNextSequence(III)V
 
     .end local v23           #mailRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/EmailRecord;>;"
-    :goto_6
+    :goto_5
     if-eqz v17, :cond_0
 
     const/16 v37, 0x0
@@ -7075,7 +6972,7 @@
 
     move/from16 v1, v37
 
-    if-eq v0, v1, :cond_1e
+    if-eq v0, v1, :cond_1c
 
     const/16 v37, 0x1
 
@@ -7095,8 +6992,8 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1e
-    if-eqz v26, :cond_21
+    :cond_1c
+    if-eqz v26, :cond_1f
 
     const/16 v37, 0x0
 
@@ -7116,13 +7013,13 @@
 
     .end local v26           #next_event:I
     .restart local v23       #mailRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/EmailRecord;>;"
-    :cond_1f
+    :cond_1d
     const/16 v17, 0xb
 
-    goto :goto_6
+    goto :goto_5
 
     .end local v23           #mailRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/EmailRecord;>;"
-    :cond_20
+    :cond_1e
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -7211,16 +7108,16 @@
 
     invoke-virtual/range {v37 .. v39}, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;->removeEFId(II)V
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
     .restart local v26       #next_event:I
-    :cond_21
+    :cond_1f
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
     .end local v26           #next_event:I
-    :cond_22
+    :cond_20
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "mPBRParser or mSimPbkEntryList is null"
@@ -7255,7 +7152,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_23
+    if-nez v37, :cond_21
 
     const/16 v37, 0x1
 
@@ -7269,12 +7166,12 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->setSIMSystemProperties(II)V
 
-    :goto_7
+    :goto_6
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
-    :cond_23
+    :cond_21
     const/16 v37, 0x1
 
     const/16 v38, 0x14
@@ -7293,7 +7190,7 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_7
+    goto :goto_6
 
     .end local v11           #ar:Landroid/os/AsyncResult;
     :pswitch_5
@@ -7342,7 +7239,7 @@
 
     cmp-long v37, v30, v37
 
-    if-gez v37, :cond_24
+    if-gez v37, :cond_22
 
     const-string v37, "EVENT_LOAD_PB_IAP_DONE: queryTimeStamp < mDropSIMTimeStamp"
 
@@ -7354,7 +7251,7 @@
 
     goto/16 :goto_0
 
-    :cond_24
+    :cond_22
     invoke-direct/range {p0 .. p1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->handleExt1loaded(Landroid/os/Message;)V
 
     const/16 v37, 0xc
@@ -7376,7 +7273,7 @@
     move-result v17
 
     .restart local v17       #event:I
-    if-eqz v17, :cond_25
+    if-eqz v17, :cond_23
 
     const/16 v37, 0x0
 
@@ -7394,7 +7291,7 @@
 
     goto/16 :goto_0
 
-    :cond_25
+    :cond_23
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
@@ -7431,7 +7328,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_36
+    if-eqz v37, :cond_34
 
     move-object/from16 v0, p0
 
@@ -7439,7 +7336,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_36
+    if-eqz v37, :cond_34
 
     :try_start_0
     move-object/from16 v0, p1
@@ -7506,7 +7403,7 @@
 
     cmp-long v37, v30, v37
 
-    if-gez v37, :cond_26
+    if-gez v37, :cond_24
 
     const-string v37, "EVENT_LOAD_PB_IAP_DONE: queryTimeStamp < mDropSIMTimeStamp"
 
@@ -7551,15 +7448,15 @@
     .restart local v27       #num:I
     .restart local v29       #queryTimeBundle:Landroid/os/Bundle;
     .restart local v30       #queryTimeStamp:J
-    :cond_26
+    :cond_24
     :try_start_1
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_35
+    if-nez v37, :cond_33
 
-    if-eqz v13, :cond_27
+    if-eqz v13, :cond_25
 
     move-object/from16 v0, p0
 
@@ -7573,7 +7470,7 @@
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_29
+    if-ge v6, v0, :cond_27
 
     move-object/from16 v0, p0
 
@@ -7590,8 +7487,8 @@
     check-cast v7, Ljava/util/HashMap;
 
     .local v7, anrFileList:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :goto_8
-    if-eqz v7, :cond_27
+    :goto_7
+    if-eqz v7, :cond_25
 
     invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -7619,7 +7516,7 @@
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_2a
+    if-ge v6, v0, :cond_28
 
     move-object/from16 v0, p0
 
@@ -7632,8 +7529,8 @@
     invoke-virtual {v0, v6, v7}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     .end local v7           #anrFileList:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    :cond_27
-    :goto_9
+    :cond_25
+    :goto_8
     iget-object v0, v11, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     move-object/from16 v37, v0
@@ -7647,19 +7544,19 @@
     move-object v10, v0
 
     .local v10, anrRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;"
-    if-nez v6, :cond_2b
+    if-nez v6, :cond_29
 
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
     .local v8, anrLists:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;>;"
-    :goto_a
-    if-eqz v8, :cond_34
+    :goto_9
+    if-eqz v8, :cond_32
 
     invoke-virtual {v8, v6, v10}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    if-nez v6, :cond_2c
+    if-nez v6, :cond_2a
 
     move-object/from16 v0, p0
 
@@ -7673,11 +7570,11 @@
 
     invoke-virtual {v0, v1, v8}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    :goto_b
+    :goto_a
     const/16 v20, 0x0
 
     .restart local v20       #i:I
-    :goto_c
+    :goto_b
     invoke-virtual {v10}, Ljava/util/ArrayList;->size()I
 
     move-result v37
@@ -7686,7 +7583,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_30
+    if-ge v0, v1, :cond_2e
 
     move/from16 v0, v20
 
@@ -7701,7 +7598,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_28
+    if-nez v37, :cond_26
 
     const/4 v5, 0x0
 
@@ -7724,7 +7621,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_2d
+    if-ne v0, v1, :cond_2b
 
     move-object/from16 v0, p0
 
@@ -7741,7 +7638,7 @@
     move-result v32
 
     .restart local v32       #recNum:I
-    if-lez v32, :cond_2e
+    if-lez v32, :cond_2c
 
     add-int/lit8 v37, v32, -0x1
 
@@ -7759,7 +7656,7 @@
 
     add-int v5, v37, v38
 
-    if-lez v5, :cond_2e
+    if-lez v5, :cond_2c
 
     move-object/from16 v0, p0
 
@@ -7773,7 +7670,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_2e
+    if-gt v5, v0, :cond_2c
 
     move-object/from16 v0, p0
 
@@ -7790,13 +7687,13 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .restart local v28       #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_2e
+    if-eqz v28, :cond_2c
 
     invoke-virtual/range {v28 .. v28}, Lcom/android/internal/telephony/PhoneBookEntry;->isEmpty()Z
 
     move-result v37
 
-    if-eqz v37, :cond_2e
+    if-eqz v37, :cond_2c
 
     new-instance v37, Ljava/lang/StringBuilder;
 
@@ -7877,25 +7774,25 @@
     .end local v5           #adnRecordNumber:I
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
     .end local v32           #recNum:I
-    :cond_28
-    :goto_d
+    :cond_26
+    :goto_c
     add-int/lit8 v20, v20, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_b
 
     .end local v8           #anrLists:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;>;"
     .end local v9           #anrRecord:Lcom/android/internal/telephony/AnrRecord;
     .end local v10           #anrRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;"
     .end local v20           #i:I
-    :cond_29
+    :cond_27
     new-instance v7, Ljava/util/HashMap;
 
     invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
 
     .restart local v7       #anrFileList:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;"
-    goto/16 :goto_8
+    goto/16 :goto_7
 
-    :cond_2a
+    :cond_28
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mAnrFileList:Ljava/util/ArrayList;
@@ -7906,11 +7803,11 @@
 
     invoke-virtual {v0, v6, v7}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 
     .end local v7           #anrFileList:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;"
     .restart local v10       #anrRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;"
-    :cond_2b
+    :cond_29
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mAnrRecordLists:Ljava/util/ArrayList;
@@ -7928,9 +7825,9 @@
     check-cast v8, Ljava/util/ArrayList;
 
     .restart local v8       #anrLists:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;>;"
-    goto/16 :goto_a
+    goto/16 :goto_9
 
-    :cond_2c
+    :cond_2a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mAnrRecordLists:Ljava/util/ArrayList;
@@ -7943,12 +7840,12 @@
 
     invoke-virtual {v0, v1, v8}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_b
+    goto/16 :goto_a
 
     .restart local v5       #adnRecordNumber:I
     .restart local v9       #anrRecord:Lcom/android/internal/telephony/AnrRecord;
     .restart local v20       #i:I
-    :cond_2d
+    :cond_2b
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mRecordNums:I
@@ -7963,8 +7860,8 @@
 
     add-int v5, v37, v38
 
-    :cond_2e
-    if-lez v5, :cond_2f
+    :cond_2c
+    if-lez v5, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -7978,7 +7875,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_2f
+    if-gt v5, v0, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -8121,26 +8018,26 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sLog(Ljava/lang/String;)V
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_2f
+    :cond_2d
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "update pbkEntry failed - index out of mSimPbkEntryList size"
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_d
+    goto/16 :goto_c
 
     .end local v5           #adnRecordNumber:I
     .end local v9           #anrRecord:Lcom/android/internal/telephony/AnrRecord;
-    :cond_30
+    :cond_2e
     const/16 v37, 0x2
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_31
+    if-ge v6, v0, :cond_2f
 
     move-object/from16 v0, p0
 
@@ -8164,7 +8061,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->setSIMSystemProperties(II)V
 
-    :cond_31
+    :cond_2f
     new-instance v37, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v37 .. v37}, Ljava/lang/StringBuilder;-><init>()V
@@ -8267,13 +8164,13 @@
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_32
+    if-ge v6, v0, :cond_30
 
     const/16 v37, 0x2
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_32
+    if-ge v6, v0, :cond_30
 
     const/16 v37, 0xc
 
@@ -8287,7 +8184,7 @@
 
     goto/16 :goto_0
 
-    :cond_32
+    :cond_30
     add-int/lit8 v27, v27, 0x1
 
     move-object/from16 v0, p0
@@ -8304,7 +8201,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_33
+    if-ge v0, v1, :cond_31
 
     const/4 v6, 0x0
 
@@ -8320,20 +8217,20 @@
 
     goto/16 :goto_0
 
-    :cond_33
+    :cond_31
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
     .end local v20           #i:I
-    :cond_34
+    :cond_32
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->notifySimPbkWaiter()V
 
     goto/16 :goto_0
 
     .end local v8           #anrLists:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;>;"
     .end local v10           #anrRecordList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/AnrRecord;>;"
-    :cond_35
+    :cond_33
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -8466,7 +8363,7 @@
     .end local v27           #num:I
     .end local v29           #queryTimeBundle:Landroid/os/Bundle;
     .end local v30           #queryTimeStamp:J
-    :cond_36
+    :cond_34
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "mPBRParser or mSimPbkEntryList is null"
@@ -8495,7 +8392,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_39
+    if-nez v37, :cond_37
 
     iget-object v0, v11, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -8658,12 +8555,12 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_37
+    if-eqz v37, :cond_35
 
     const/16 v20, 0x0
 
     .restart local v20       #i:I
-    :goto_e
+    :goto_d
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
@@ -8674,7 +8571,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_37
+    if-ge v0, v1, :cond_35
 
     new-instance v15, Lcom/android/internal/telephony/PhoneBookEntry;
 
@@ -8699,24 +8596,24 @@
 
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_e
+    goto :goto_d
 
     .end local v15           #entry:Lcom/android/internal/telephony/PhoneBookEntry;
     .end local v20           #i:I
-    :cond_37
+    :cond_35
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
 
     move/from16 v37, v0
 
-    if-lez v37, :cond_38
+    if-lez v37, :cond_36
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->pollPBList()V
 
     goto/16 :goto_0
 
-    :cond_38
+    :cond_36
     const-string v37, "load PB complete!! mTotal = 0"
 
     move-object/from16 v0, p0
@@ -8746,7 +8643,7 @@
     goto/16 :goto_0
 
     .end local v22           #mPBMemory:Lcom/android/internal/telephony/PhoneBookMemory;
-    :cond_39
+    :cond_37
     const-string v37, "Cannot get PB memory"
 
     move-object/from16 v0, p0
@@ -8769,7 +8666,7 @@
 
     move/from16 v37, v0
 
-    if-lez v37, :cond_3b
+    if-lez v37, :cond_39
 
     new-instance v37, Ljava/util/ArrayList;
 
@@ -8793,12 +8690,12 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_3a
+    if-eqz v37, :cond_38
 
     const/16 v20, 0x0
 
     .restart local v20       #i:I
-    :goto_f
+    :goto_e
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mTotal:I
@@ -8809,7 +8706,7 @@
 
     move/from16 v1, v37
 
-    if-ge v0, v1, :cond_3a
+    if-ge v0, v1, :cond_38
 
     new-instance v15, Lcom/android/internal/telephony/PhoneBookEntry;
 
@@ -8834,16 +8731,16 @@
 
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_f
+    goto :goto_e
 
     .end local v15           #entry:Lcom/android/internal/telephony/PhoneBookEntry;
     .end local v20           #i:I
-    :cond_3a
+    :cond_38
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->pollPBList()V
 
     goto/16 :goto_0
 
-    :cond_3b
+    :cond_39
     const-string v37, "load PB complete!! mTotal = 0"
 
     move-object/from16 v0, p0
@@ -8893,7 +8790,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_3c
+    if-nez v37, :cond_3a
 
     const-string v37, "EVENT_LOAD_PB_ENTRIES_DONE"
 
@@ -8915,7 +8812,7 @@
 
     invoke-direct {v0, v1, v11}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->handlePollPBResult(ILandroid/os/AsyncResult;)V
 
-    :goto_10
+    :goto_f
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->pollingContext:[I
@@ -8964,7 +8861,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_3d
+    if-nez v37, :cond_3b
 
     move-object/from16 v0, p0
 
@@ -9004,7 +8901,7 @@
 
     goto/16 :goto_0
 
-    :cond_3c
+    :cond_3a
     const-string v37, "Error on loading PB"
 
     move-object/from16 v0, p0
@@ -9013,16 +8910,16 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sLog(Ljava/lang/String;)V
 
-    goto :goto_10
+    goto :goto_f
 
-    :cond_3d
+    :cond_3b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_3e
+    if-eqz v37, :cond_3c
 
     new-instance v37, Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
 
@@ -9060,7 +8957,7 @@
 
     goto/16 :goto_0
 
-    :cond_3e
+    :cond_3c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mSimPbkWaiters:Ljava/util/ArrayList;
@@ -9137,7 +9034,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_42
+    if-nez v37, :cond_40
 
     move-object/from16 v0, p0
 
@@ -9145,7 +9042,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_41
+    if-eqz v37, :cond_3f
 
     iget v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->index:I
 
@@ -9192,7 +9089,7 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .restart local v28       #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_3f
+    if-eqz v28, :cond_3d
 
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->text:Ljava/lang/String;
 
@@ -9216,7 +9113,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_40
+    if-ne v0, v1, :cond_3e
 
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
@@ -9226,7 +9123,7 @@
 
     move-result v37
 
-    if-nez v37, :cond_40
+    if-nez v37, :cond_3e
 
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
@@ -9242,8 +9139,8 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
-    :cond_3f
-    :goto_11
+    :cond_3d
+    :goto_10
     const/16 v37, 0x0
 
     const/16 v38, 0x0
@@ -9270,7 +9167,7 @@
 
     goto/16 :goto_0
 
-    :cond_40
+    :cond_3e
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
     move-object/from16 v37, v0
@@ -9281,10 +9178,10 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
-    goto :goto_11
+    goto :goto_10
 
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_41
+    :cond_3f
     const-string v37, "mSimPbkEntryList is null"
 
     move-object/from16 v0, p0
@@ -9295,7 +9192,7 @@
 
     goto/16 :goto_0
 
-    :cond_42
+    :cond_40
     const-string v37, "Cannot add PB entry"
 
     move-object/from16 v0, p0
@@ -9316,7 +9213,7 @@
 
     move/from16 v37, v0
 
-    if-eqz v37, :cond_43
+    if-eqz v37, :cond_41
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -9337,7 +9234,7 @@
 
     move-object/from16 v1, v37
 
-    if-ne v0, v1, :cond_43
+    if-ne v0, v1, :cond_41
 
     const-string v37, "Cannot add PB entry PB_MEM_FULL"
 
@@ -9360,7 +9257,7 @@
     goto/16 :goto_0
 
     .end local v16           #err:Lcom/android/internal/telephony/CommandException$Error;
-    :cond_43
+    :cond_41
     const-string v37, "add falied"
 
     move-object/from16 v0, p0
@@ -9438,7 +9335,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_47
+    if-nez v37, :cond_45
 
     move-object/from16 v0, p0
 
@@ -9446,7 +9343,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_46
+    if-eqz v37, :cond_44
 
     iget v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->index:I
 
@@ -9493,7 +9390,7 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .restart local v28       #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_44
+    if-eqz v28, :cond_42
 
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->text:Ljava/lang/String;
 
@@ -9517,7 +9414,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_45
+    if-ne v0, v1, :cond_43
 
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
@@ -9533,8 +9430,8 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
-    :cond_44
-    :goto_12
+    :cond_42
+    :goto_11
     const/16 v37, 0x0
 
     const/16 v38, 0x0
@@ -9561,7 +9458,7 @@
 
     goto/16 :goto_0
 
-    :cond_45
+    :cond_43
     iget-object v0, v15, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
     move-object/from16 v37, v0
@@ -9572,10 +9469,10 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/PhoneBookEntry;->number:Ljava/lang/String;
 
-    goto :goto_12
+    goto :goto_11
 
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_46
+    :cond_44
     const-string v37, "mSimPbkEntryList is null"
 
     move-object/from16 v0, p0
@@ -9586,7 +9483,7 @@
 
     goto/16 :goto_0
 
-    :cond_47
+    :cond_45
     const-string v37, "Cannot update PB entry"
 
     move-object/from16 v0, p0
@@ -9605,7 +9502,7 @@
 
     move/from16 v37, v0
 
-    if-eqz v37, :cond_48
+    if-eqz v37, :cond_46
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -9626,7 +9523,7 @@
 
     move-object/from16 v1, v37
 
-    if-ne v0, v1, :cond_48
+    if-ne v0, v1, :cond_46
 
     const-string v37, "Cannot update PB entry PB_MEM_FULL"
 
@@ -9649,7 +9546,7 @@
     goto/16 :goto_0
 
     .end local v16           #err:Lcom/android/internal/telephony/CommandException$Error;
-    :cond_48
+    :cond_46
     const-string v37, "update falied"
 
     move-object/from16 v0, p0
@@ -9729,7 +9626,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_4a
+    if-nez v37, :cond_48
 
     move-object/from16 v0, p0
 
@@ -9737,7 +9634,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_49
+    if-eqz v37, :cond_47
 
     move-object/from16 v0, p0
 
@@ -9783,7 +9680,7 @@
     goto/16 :goto_0
 
     .end local v15           #entry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_49
+    :cond_47
     const-string v37, "mSimPbkEntryList is null"
 
     move-object/from16 v0, p0
@@ -9794,7 +9691,7 @@
 
     goto/16 :goto_0
 
-    :cond_4a
+    :cond_48
     const-string v37, "Cannot delete PB entry"
 
     move-object/from16 v0, p0
@@ -9848,13 +9745,13 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_4d
+    if-eqz v37, :cond_4b
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_4c
+    if-nez v37, :cond_4a
 
     iget-object v15, v11, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -9865,7 +9762,7 @@
 
     move/from16 v37, v0
 
-    if-lez v37, :cond_4b
+    if-lez v37, :cond_49
 
     iget v0, v15, Lcom/android/internal/telephony/IAPRecord;->mRecordNumber:I
 
@@ -9895,7 +9792,7 @@
 
     move/from16 v1, v37
 
-    if-gt v0, v1, :cond_4b
+    if-gt v0, v1, :cond_49
 
     move-object/from16 v0, p0
 
@@ -9979,7 +9876,7 @@
 
     goto/16 :goto_0
 
-    :cond_4b
+    :cond_49
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -10009,7 +9906,7 @@
     goto/16 :goto_0
 
     .end local v15           #entry:Lcom/android/internal/telephony/IAPRecord;
-    :cond_4c
+    :cond_4a
     const-string v37, "Update IAP entry failed"
 
     move-object/from16 v0, p0
@@ -10020,7 +9917,7 @@
 
     goto/16 :goto_0
 
-    :cond_4d
+    :cond_4b
     const-string v37, "mPBRParser is null"
 
     move-object/from16 v0, p0
@@ -10062,7 +9959,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_52
+    if-eqz v37, :cond_50
 
     move-object/from16 v0, p0
 
@@ -10070,13 +9967,13 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_52
+    if-eqz v37, :cond_50
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_51
+    if-nez v37, :cond_4f
 
     iget-object v15, v11, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -10087,13 +9984,13 @@
 
     move-result v37
 
-    if-nez v37, :cond_4e
+    if-nez v37, :cond_4c
 
     iget v0, v15, Lcom/android/internal/telephony/EmailRecord;->mRecordNumber:I
 
     move/from16 v37, v0
 
-    if-lez v37, :cond_50
+    if-lez v37, :cond_4e
 
     iget v0, v15, Lcom/android/internal/telephony/EmailRecord;->mRecordNumber:I
 
@@ -10123,7 +10020,7 @@
 
     move/from16 v1, v37
 
-    if-gt v0, v1, :cond_50
+    if-gt v0, v1, :cond_4e
 
     move-object/from16 v0, p0
 
@@ -10168,7 +10065,7 @@
     add-int v5, v37, v38
 
     .restart local v5       #adnRecordNumber:I
-    if-lez v5, :cond_4f
+    if-lez v5, :cond_4d
 
     move-object/from16 v0, p0
 
@@ -10182,7 +10079,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_4f
+    if-gt v5, v0, :cond_4d
 
     move-object/from16 v0, p0
 
@@ -10199,7 +10096,7 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .restart local v28       #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_4e
+    if-eqz v28, :cond_4c
 
     iget v0, v15, Lcom/android/internal/telephony/EmailRecord;->mRecordNumber:I
 
@@ -10223,8 +10120,8 @@
 
     .end local v5           #adnRecordNumber:I
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_4e
-    :goto_13
+    :cond_4c
+    :goto_12
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -10338,17 +10235,17 @@
     goto/16 :goto_0
 
     .restart local v5       #adnRecordNumber:I
-    :cond_4f
+    :cond_4d
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "update pbkEntry failed - index out of mSimPbkEntryList size"
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_13
+    goto :goto_12
 
     .end local v5           #adnRecordNumber:I
-    :cond_50
+    :cond_4e
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -10375,10 +10272,10 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_13
+    goto/16 :goto_12
 
     .end local v15           #entry:Lcom/android/internal/telephony/EmailRecord;
-    :cond_51
+    :cond_4f
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "updateEmailRecord failed"
@@ -10387,7 +10284,7 @@
 
     goto/16 :goto_0
 
-    :cond_52
+    :cond_50
     const-string v37, "mPBRParser or mSimPbkEntryList is null"
 
     move-object/from16 v0, p0
@@ -10420,7 +10317,7 @@
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_53
+    if-nez v37, :cond_51
 
     const-string v37, "Update EF-EXT1 entry"
 
@@ -10456,7 +10353,7 @@
 
     goto/16 :goto_0
 
-    :cond_53
+    :cond_51
     const-string v37, "Cannot update EF-EXT1 entry"
 
     move-object/from16 v0, p0
@@ -10502,7 +10399,7 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_5c
+    if-eqz v37, :cond_5a
 
     move-object/from16 v0, p0
 
@@ -10510,19 +10407,19 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_5c
+    if-eqz v37, :cond_5a
 
     iget-object v0, v11, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     move-object/from16 v37, v0
 
-    if-nez v37, :cond_5b
+    if-nez v37, :cond_59
 
     const/16 v37, 0x2
 
     move/from16 v0, v37
 
-    if-ge v6, v0, :cond_5b
+    if-ge v6, v0, :cond_59
 
     iget-object v15, v11, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -10547,13 +10444,13 @@
 
     move-result v37
 
-    if-nez v37, :cond_54
+    if-nez v37, :cond_52
 
     iget v0, v15, Lcom/android/internal/telephony/AnrRecord;->mRecordNumber:I
 
     move/from16 v37, v0
 
-    if-lez v37, :cond_59
+    if-lez v37, :cond_57
 
     iget v0, v15, Lcom/android/internal/telephony/AnrRecord;->mRecordNumber:I
 
@@ -10591,7 +10488,7 @@
 
     move/from16 v1, v37
 
-    if-gt v0, v1, :cond_59
+    if-gt v0, v1, :cond_57
 
     move-object/from16 v0, p0
 
@@ -10644,7 +10541,7 @@
     add-int v5, v37, v38
 
     .restart local v5       #adnRecordNumber:I
-    if-lez v5, :cond_58
+    if-lez v5, :cond_56
 
     move-object/from16 v0, p0
 
@@ -10658,7 +10555,7 @@
 
     move/from16 v0, v37
 
-    if-gt v5, v0, :cond_58
+    if-gt v5, v0, :cond_56
 
     move-object/from16 v0, p0
 
@@ -10675,7 +10572,7 @@
     check-cast v28, Lcom/android/internal/telephony/PhoneBookEntry;
 
     .restart local v28       #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-eqz v28, :cond_54
+    if-eqz v28, :cond_52
 
     move-object/from16 v0, v28
 
@@ -10703,15 +10600,15 @@
 
     .end local v5           #adnRecordNumber:I
     .end local v28           #pbkEntry:Lcom/android/internal/telephony/PhoneBookEntry;
-    :cond_54
-    :goto_14
+    :cond_52
+    :goto_13
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->mPBRParser:Lcom/android/internal/telephony/gsm/HtcUsimPBRParser;
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_56
+    if-eqz v37, :cond_54
 
     move-object/from16 v0, p0
 
@@ -10729,7 +10626,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_56
+    if-ne v0, v1, :cond_54
 
     move-object/from16 v0, p0
 
@@ -10750,7 +10647,7 @@
     move-result v13
 
     .restart local v13       #efid:I
-    if-eqz v13, :cond_56
+    if-eqz v13, :cond_54
 
     iget v0, v15, Lcom/android/internal/telephony/AnrRecord;->mExtRecord:I
 
@@ -10789,9 +10686,9 @@
 
     move-object/from16 v37, v0
 
-    if-eqz v37, :cond_5a
+    if-eqz v37, :cond_58
 
-    if-lez v19, :cond_56
+    if-lez v19, :cond_54
 
     move-object/from16 v0, p0
 
@@ -10807,7 +10704,7 @@
 
     move/from16 v1, v37
 
-    if-gt v0, v1, :cond_56
+    if-gt v0, v1, :cond_54
 
     move-object/from16 v0, p0
 
@@ -10859,7 +10756,7 @@
 
     move/from16 v1, v38
 
-    if-ne v0, v1, :cond_55
+    if-ne v0, v1, :cond_53
 
     const/16 v37, 0xff
 
@@ -10873,7 +10770,7 @@
 
     iput-boolean v0, v15, Lcom/android/internal/telephony/AnrRecord;->mClearExt1Record:Z
 
-    :cond_55
+    :cond_53
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -10934,19 +10831,19 @@
     .end local v18           #ext1Record:Lcom/android/internal/telephony/HtcExt1Record;
     .end local v19           #ext1index:I
     .end local v35           #res:Landroid/os/Message;
-    :cond_56
-    :goto_15
+    :cond_54
+    :goto_14
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->reloadExt1_count:I
 
     move/from16 v37, v0
 
-    if-nez v37, :cond_57
+    if-nez v37, :cond_55
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->reloadEFEXT1()V
 
-    :cond_57
+    :cond_55
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -11084,17 +10981,17 @@
     goto/16 :goto_0
 
     .restart local v5       #adnRecordNumber:I
-    :cond_58
+    :cond_56
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "update pbkEntry failed - index out of mSimPbkEntryList size"
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_14
+    goto/16 :goto_13
 
     .end local v5           #adnRecordNumber:I
-    :cond_59
+    :cond_57
     const-string v37, "HtcIccPbkEntryCache"
 
     new-instance v38, Ljava/lang/StringBuilder;
@@ -11121,23 +11018,23 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_14
+    goto/16 :goto_13
 
     .restart local v13       #efid:I
     .restart local v19       #ext1index:I
-    :cond_5a
+    :cond_58
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "mExt1RecordList is null, but it shall not"
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_15
+    goto/16 :goto_14
 
     .end local v13           #efid:I
     .end local v15           #entry:Lcom/android/internal/telephony/AnrRecord;
     .end local v19           #ext1index:I
-    :cond_5b
+    :cond_59
     const-string v37, "HtcIccPbkEntryCache"
 
     const-string v38, "updateAnrRecord failed"
@@ -11146,7 +11043,7 @@
 
     goto/16 :goto_0
 
-    :cond_5c
+    :cond_5a
     const-string v37, "mPBRParser or mSimPbkEntryList is null"
 
     move-object/from16 v0, p0
@@ -12534,6 +12431,8 @@
     invoke-direct {p0, v0, v2}, Lcom/android/internal/telephony/HtcIccPbkEntryCache;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

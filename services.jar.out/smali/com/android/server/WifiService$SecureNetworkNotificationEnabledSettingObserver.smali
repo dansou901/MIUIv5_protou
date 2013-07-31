@@ -25,13 +25,13 @@
     .parameter "handler"
 
     .prologue
-    .line 4135
+    .line 4014
     iput-object p1, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
-    .line 4136
+    .line 4015
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 4137
+    .line 4016
     return-void
 .end method
 
@@ -43,14 +43,14 @@
 
     const/4 v0, 0x1
 
-    .line 4156
+    .line 4035
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v3, 0x94
 
     if-ne v2, v3, :cond_2
 
-    .line 4157
+    .line 4036
     iget-object v2, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
@@ -70,7 +70,7 @@
 
     if-ne v2, v0, :cond_1
 
-    .line 4160
+    .line 4039
     :cond_0
     :goto_0
     return v0
@@ -78,10 +78,10 @@
     :cond_1
     move v0, v1
 
-    .line 4157
+    .line 4036
     goto :goto_0
 
-    .line 4160
+    .line 4039
     :cond_2
     iget-object v2, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
@@ -114,10 +114,10 @@
     .parameter "selfChange"
 
     .prologue
-    .line 4148
+    .line 4027
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 4150
+    .line 4029
     iget-object v0, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->getValue()Z
@@ -125,25 +125,25 @@
     move-result v1
 
     #setter for: Lcom/android/server/WifiService;->mSecureNetworkNotificationEnabled:Z
-    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$8102(Lcom/android/server/WifiService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$7902(Lcom/android/server/WifiService;Z)Z
 
-    .line 4151
+    .line 4030
     iget-object v0, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mNotificationEnabled:Z
-    invoke-static {v0}, Lcom/android/server/WifiService;->access$8000(Lcom/android/server/WifiService;)Z
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$7800(Lcom/android/server/WifiService;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 4152
+    .line 4031
     iget-object v0, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->resetNotification()V
     invoke-static {v0}, Lcom/android/server/WifiService;->access$2600(Lcom/android/server/WifiService;)V
 
-    .line 4153
+    .line 4032
     :cond_0
     return-void
 .end method
@@ -152,7 +152,7 @@
     .locals 3
 
     .prologue
-    .line 4140
+    .line 4019
     iget-object v1, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
@@ -164,7 +164,7 @@
 
     move-result-object v0
 
-    .line 4141
+    .line 4020
     .local v0, cr:Landroid/content/ContentResolver;
     const-string v1, "wifi_secure_networks_available_notification_on"
 
@@ -176,7 +176,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 4143
+    .line 4022
     iget-object v1, p0, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Lcom/android/server/WifiService$SecureNetworkNotificationEnabledSettingObserver;->getValue()Z
@@ -184,8 +184,8 @@
     move-result v2
 
     #setter for: Lcom/android/server/WifiService;->mSecureNetworkNotificationEnabled:Z
-    invoke-static {v1, v2}, Lcom/android/server/WifiService;->access$8102(Lcom/android/server/WifiService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/WifiService;->access$7902(Lcom/android/server/WifiService;Z)Z
 
-    .line 4144
+    .line 4023
     return-void
 .end method

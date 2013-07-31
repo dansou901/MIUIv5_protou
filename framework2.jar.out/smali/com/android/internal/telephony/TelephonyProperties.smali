@@ -50,10 +50,6 @@
 
 .field public static final PROPERTY_GSM_DATA_NETWORK_TYPE:Ljava/lang/String; = "gsm.data.network.type"
 
-.field public static final PROPERTY_HTTP_PROXY_ADDR:Ljava/lang/String; = "ril.default.httpproxy.addr"
-
-.field public static final PROPERTY_HTTP_PROXY_PORT:Ljava/lang/String; = "ril.default.httpproxy.port"
-
 .field public static final PROPERTY_ICC_APN_OPERATOR_NUMERIC:Ljava/lang/String; = "gsm.apn.operator.numeric"
 
 .field public static final PROPERTY_ICC_OPERATOR_ALPHA:Ljava/lang/String; = "gsm.sim.operator.alpha"

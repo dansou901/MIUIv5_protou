@@ -161,6 +161,10 @@
     .parameter "context"
     .parameter "layoutId"
     .parameter "fieldId"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -179,11 +183,25 @@
     move-result-object v15
 
     .local v15, resources:Landroid/content/res/Resources;
-    invoke-static/range {p0 .. p0}, Lcom/htc/customize/storage/customize/HtcCustomizedLocale;->getLocalList(Landroid/content/Context;)[Ljava/lang/String;
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Landroid/content/res/AssetManager;->getLocales()[Ljava/lang/String;
 
     move-result-object v12
 
     .local v12, locales:[Ljava/lang/String;
+    move-object/from16 v0, v15
+
+    invoke-static {v0, v12}, Lmiui/util/ExtraLocalePicker;->filterLocale(Landroid/content/res/Resources;[Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v12
+
     const v19, 0x1070007
 
     move/from16 v0, v19
@@ -518,6 +536,8 @@
 
     :cond_5
     invoke-static {v11}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
+
+    invoke-static {v11}, Lmiui/util/ExtraLocalePicker;->adjustLocaleOrder([Lcom/android/internal/app/LocalePicker$LocaleInfo;)V
 
     move-object/from16 v0, p0
 

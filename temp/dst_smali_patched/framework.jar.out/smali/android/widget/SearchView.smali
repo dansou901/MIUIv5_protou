@@ -1404,20 +1404,21 @@
 
     move-result v3
 
-    if-eqz v3, :cond_miui_0
+    if-eqz v3, :cond_0
 
     return-object p1
-    :cond_miui_0
+
+    :cond_0
     iget-boolean v3, p0, Landroid/widget/SearchView;->mIconifiedByDefault:Z
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     .end local p1
     :goto_0
     return-object p1
 
     .restart local p1
-    :cond_0
+    :cond_1
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
     const-string v3, "   "
@@ -2678,6 +2679,16 @@
     :goto_0
     if-nez v0, :cond_0
 
+    iget-object v3, p0, Landroid/widget/SearchView;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_miui_0
+
+    return-object p1
+    :cond_miui_0
     iget-boolean v3, p0, Landroid/widget/SearchView;->mIconifiedByDefault:Z
 
     if-eqz v3, :cond_2
@@ -2744,11 +2755,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_miui_0
+    if-eqz v1, :cond_0
 
     return-void
 
-    :cond_miui_0
+    :cond_0
     iget-object v1, p0, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
     invoke-virtual {v1}, Landroid/widget/SearchView$SearchAutoComplete;->hasFocus()Z
@@ -2762,7 +2773,7 @@
 
     move-result-object v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     sget-object v1, Landroid/widget/SearchView;->FOCUSED_STATE_SET:[I
 
@@ -2775,7 +2786,7 @@
 
     move-result-object v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     sget-object v1, Landroid/widget/SearchView;->FOCUSED_STATE_SET:[I
 
@@ -2786,12 +2797,12 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     sget-object v1, Landroid/widget/SearchView;->EMPTY_STATE_SET:[I
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     sget-object v1, Landroid/widget/SearchView;->EMPTY_STATE_SET:[I
 
     goto :goto_1
@@ -3212,6 +3223,8 @@
     iget-object v1, p0, Landroid/widget/SearchView;->mVoiceButton:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-direct {p0}, Landroid/widget/SearchView;->miuiUpdateSubmitArea()V
 
     return-void
 .end method

@@ -867,12 +867,6 @@
 
     iget-object v5, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
-    iget v6, p0, Landroid/graphics/drawable/BitmapDrawable;->mTargetDensity:I
-
-    iput v6, v5, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
-
-    iget-object v5, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
-
     iget-object v3, v5, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mPaint:Landroid/graphics/Paint;
 
     .local v3, paint:Landroid/graphics/Paint;

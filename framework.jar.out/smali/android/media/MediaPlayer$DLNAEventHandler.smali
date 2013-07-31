@@ -28,16 +28,16 @@
     .parameter "looper"
 
     .prologue
-    .line 3188
+    .line 3144
     iput-object p1, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
-    .line 3189
+    .line 3145
     invoke-direct {p0, p3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 3190
+    .line 3146
     iput-object p2, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    .line 3191
+    .line 3147
     return-void
 .end method
 
@@ -50,12 +50,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 3195
+    .line 3151
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 3231
+    .line 3187
     const-string v0, "MediaPlayer"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -80,12 +80,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3232
+    .line 3188
     :cond_0
     :goto_0
     return-void
 
-    .line 3197
+    .line 3153
     :sswitch_0
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -96,7 +96,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3198
+    .line 3154
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mOnPreparedListener:Landroid/media/MediaPlayer$OnPreparedListener;
@@ -110,7 +110,7 @@
 
     goto :goto_0
 
-    .line 3201
+    .line 3157
     :sswitch_1
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -121,7 +121,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 3202
+    .line 3158
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mOnCompletionListener:Landroid/media/MediaPlayer$OnCompletionListener;
@@ -133,7 +133,7 @@
 
     invoke-interface {v0, v1}, Landroid/media/MediaPlayer$OnCompletionListener;->onCompletion(Landroid/media/MediaPlayer;)V
 
-    .line 3203
+    .line 3159
     :cond_1
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -142,7 +142,7 @@
 
     goto :goto_0
 
-    .line 3207
+    .line 3163
     :sswitch_2
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -153,7 +153,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3208
+    .line 3164
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mOnBufferingUpdateListener:Landroid/media/MediaPlayer$OnBufferingUpdateListener;
@@ -169,7 +169,7 @@
 
     goto :goto_0
 
-    .line 3212
+    .line 3168
     :sswitch_3
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -180,7 +180,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3213
+    .line 3169
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mOnSeekCompleteListener:Landroid/media/MediaPlayer$OnSeekCompleteListener;
@@ -194,7 +194,7 @@
 
     goto :goto_0
 
-    .line 3217
+    .line 3173
     :sswitch_4
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -205,7 +205,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 3218
+    .line 3174
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mOnErrorListener:Landroid/media/MediaPlayer$OnErrorListener;
@@ -221,7 +221,7 @@
 
     invoke-interface {v0, v1, v2, v3}, Landroid/media/MediaPlayer$OnErrorListener;->onError(Landroid/media/MediaPlayer;II)Z
 
-    .line 3219
+    .line 3175
     :cond_2
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -230,7 +230,7 @@
 
     goto :goto_0
 
-    .line 3223
+    .line 3179
     :sswitch_5
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -241,7 +241,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 3224
+    .line 3180
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     #getter for: Landroid/media/MediaPlayer;->mDLNAAgent:Landroid/media/MediaPluginDLNA;
@@ -251,7 +251,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 3225
+    .line 3181
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
     iget-object v1, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
@@ -268,7 +268,7 @@
     #setter for: Landroid/media/MediaPlayer;->mDLNAThumbnail:Landroid/graphics/Bitmap;
     invoke-static {v0, v1}, Landroid/media/MediaPlayer;->access$1302(Landroid/media/MediaPlayer;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
 
-    .line 3226
+    .line 3182
     :cond_3
     iget-object v0, p0, Landroid/media/MediaPlayer$DLNAEventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -284,7 +284,7 @@
 
     goto/16 :goto_0
 
-    .line 3195
+    .line 3151
     nop
 
     :sswitch_data_0

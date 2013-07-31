@@ -237,7 +237,7 @@
 
     .line 70
     :cond_0
-    const-string v7, "slot1_card_enabled"
+    const-string/jumbo v7, "slot1_card_enabled"
 
     invoke-interface {v5, v7, v9}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 

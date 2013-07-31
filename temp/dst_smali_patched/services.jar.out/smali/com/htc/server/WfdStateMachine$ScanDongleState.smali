@@ -78,7 +78,7 @@
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->forceDisableAp()V
-    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1700(Lcom/htc/server/WfdStateMachine;)V
 
     :cond_0
     return-void
@@ -476,7 +476,7 @@
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->finish()V
-    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1500(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)V
 
     goto/16 :goto_0
 

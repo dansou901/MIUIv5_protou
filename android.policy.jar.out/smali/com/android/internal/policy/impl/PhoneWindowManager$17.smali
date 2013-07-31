@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 5236
+    .line 5241
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
@@ -47,17 +47,10 @@
     .parameter "windowToken"
 
     .prologue
-    .line 5239
-    const-string v0, "WindowManager"
-
-    const-string v1, "Check Keyguard window and wait for drawn."
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 5241
+    .line 5243
     if-eqz p1, :cond_0
 
-    .line 5243
+    .line 5245
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -71,11 +64,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 5262
+    .line 5264
     :goto_0
     return-void
 
-    .line 5256
+    .line 5258
     :cond_0
     const-string v0, "WindowManager"
 
@@ -83,19 +76,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5257
+    .line 5259
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$ScreenOnListener;->onScreenOn()V
 
-    .line 5258
+    .line 5260
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 5259
+    .line 5261
     :try_start_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -103,7 +96,7 @@
 
     iput-boolean v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenOnFully:Z
 
-    .line 5260
+    .line 5262
     monitor-exit v1
 
     goto :goto_0
@@ -117,7 +110,7 @@
 
     throw v0
 
-    .line 5253
+    .line 5255
     :catch_0
     move-exception v0
 

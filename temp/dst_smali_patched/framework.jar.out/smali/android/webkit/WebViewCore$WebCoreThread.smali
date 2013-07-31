@@ -20,8 +20,6 @@
 # static fields
 .field private static final INITIALIZE:I = 0x0
 
-.field private static final RAISE_PRIORITY:I = 0x3
-
 .field private static final REDUCE_PRIORITY:I = 0x1
 
 .field private static final RESUME_PRIORITY:I = 0x2

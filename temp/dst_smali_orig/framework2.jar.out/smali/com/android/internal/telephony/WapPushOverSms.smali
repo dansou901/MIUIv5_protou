@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;
+        Lcom/android/internal/telephony/WapPushOverSms$WapPushConnection;,
+        Lcom/android/internal/telephony/WapPushOverSms$Injector;
     }
 .end annotation
 
@@ -27,6 +28,12 @@
 .field private final BIND_RETRY_INTERVAL:I
 
 .field private final WAKE_LOCK_TIMEOUT:I
+
+.field mAddress:Ljava/lang/String;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private final mContext:Landroid/content/Context;
 
@@ -118,7 +125,7 @@
     .prologue
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([BLjava/lang/String;)I
+    invoke-virtual {p0, p1, v0}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu_htc([BLjava/lang/String;)I
 
     move-result v0
 
@@ -126,6 +133,24 @@
 .end method
 
 .method public dispatchWapPdu([BLjava/lang/String;)I
+    .locals 1
+    .parameter "pdu"
+    .parameter "address"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-object p2, p0, Lcom/android/internal/telephony/WapPushOverSms;->mAddress:Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu([B)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public dispatchWapPdu_htc([BLjava/lang/String;)I
     .locals 26
     .parameter "pdu"
     .parameter "Oriaddr"
@@ -395,12 +420,12 @@
 
     move-result v21
 
-    if-eqz v21, :cond_b
+    if-eqz v21, :cond_c
 
     move-object/from16 v14, p1
 
     .local v14, intentData:[B
-    :goto_1
+    :cond_5
     const-string v21, "application/vnd.wap.mms-message"
 
     move-object/from16 v0, v21
@@ -409,11 +434,11 @@
 
     move-result v21
 
-    if-eqz v21, :cond_5
+    if-eqz v21, :cond_6
 
     const-string v17, "android.permission.RECEIVE_MMS"
 
-    :cond_5
+    :cond_6
     const/4 v6, 0x0
 
     .local v6, dispatched:Z
@@ -425,7 +450,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_8
+    if-eqz v21, :cond_9
 
     sget-short v21, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
@@ -435,7 +460,7 @@
 
     move/from16 v1, v22
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_7
 
     sget-short v21, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
@@ -445,9 +470,9 @@
 
     move/from16 v1, v22
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_9
 
-    :cond_6
+    :cond_7
     const-string v21, "WAP PUSH"
 
     const-string v22, "STEricsson GPS flag"
@@ -468,7 +493,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_8
+    if-eqz v21, :cond_9
 
     const/16 v20, 0x0
 
@@ -484,7 +509,7 @@
     move-result-object v3
 
     .local v3, applicationId:Ljava/lang/String;
-    if-nez v3, :cond_d
+    if-nez v3, :cond_e
 
     move-object/from16 v0, p0
 
@@ -529,12 +554,12 @@
 
     move/from16 v0, v21
 
-    if-ne v0, v4, :cond_c
+    if-ne v0, v4, :cond_d
 
     const/16 v20, 0x1
 
     .end local v4           #applicationIdAsInt:I
-    :goto_2
+    :goto_1
     const-string v21, "WAP PUSH"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -561,7 +586,7 @@
 
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v20, :cond_7
+    if-eqz v20, :cond_8
 
     const-string v21, "WAP PUSH"
 
@@ -571,7 +596,7 @@
 
     const-string v17, "android.permission.RECEIVE_SUPL_PUSH"
 
-    :cond_7
+    :cond_8
     :try_start_0
     const-string v21, "WAP PUSH"
 
@@ -599,8 +624,8 @@
 
     .end local v3           #applicationId:Ljava/lang/String;
     .end local v20           #validSuplInit:Z
-    :cond_8
-    :goto_3
+    :cond_9
+    :goto_2
     const-string v21, "application/vnd.oma.drm.rights+xml"
 
     move-object/from16 v0, v21
@@ -609,7 +634,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_9
+    if-nez v21, :cond_a
 
     const-string v21, "application/vnd.oma.drm.rights+wbxml"
 
@@ -619,7 +644,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_9
+    if-nez v21, :cond_a
 
     const-string v21, "application/vnd.oma.dd+xml"
 
@@ -629,7 +654,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_9
+    if-nez v21, :cond_a
 
     const-string v21, "application/vnd.oma.drm.message"
 
@@ -639,7 +664,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_9
+    if-nez v21, :cond_a
 
     const-string v21, "application/vnd.oma.drm.content"
 
@@ -649,7 +674,7 @@
 
     move-result v21
 
-    if-nez v21, :cond_9
+    if-nez v21, :cond_a
 
     const-string v21, "application/vnd.oma.drm.roap-trigger+wbxml"
 
@@ -659,12 +684,12 @@
 
     move-result v21
 
-    if-eqz v21, :cond_a
+    if-eqz v21, :cond_b
 
-    :cond_9
+    :cond_a
     sget-boolean v21, Lcom/htc/htcjavaflag/HtcBuildFlag;->HTC_DRM_V2_FLAG:Z
 
-    if-eqz v21, :cond_a
+    if-eqz v21, :cond_b
 
     new-instance v13, Landroid/content/Intent;
 
@@ -676,7 +701,7 @@
     invoke-direct {v13, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .restart local v13       #intent:Landroid/content/Intent;
-    :cond_a
+    :cond_b
     const-string v21, "HTCFOTA01"
 
     move-object/from16 v0, v21
@@ -685,7 +710,7 @@
 
     move-result v21
 
-    if-eqz v21, :cond_e
+    if-eqz v21, :cond_f
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/WapPushOverSms;->dispatchWapPdu_FOTA()V
 
@@ -695,7 +720,7 @@
 
     .end local v6           #dispatched:Z
     .end local v14           #intentData:[B
-    :cond_b
+    :cond_c
     add-int v5, v10, v9
 
     .local v5, dataIndex:I
@@ -726,20 +751,30 @@
 
     invoke-static {v0, v5, v14, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    goto/16 :goto_1
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v14}, Lcom/android/internal/telephony/WapPushOverSms$Injector;->checkFirewallForWapPush(Lcom/android/internal/telephony/WapPushOverSms;[B)Z
+
+    move-result v21
+
+    if-eqz v21, :cond_5
+
+    const/16 v21, -0x1
+
+    goto/16 :goto_0
 
     .end local v5           #dataIndex:I
     .restart local v3       #applicationId:Ljava/lang/String;
     .restart local v4       #applicationIdAsInt:I
     .restart local v6       #dispatched:Z
     .restart local v20       #validSuplInit:Z
-    :cond_c
+    :cond_d
     const/16 v20, 0x0
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     .end local v4           #applicationIdAsInt:I
-    :cond_d
+    :cond_e
     const-string v21, "WAP PUSH"
 
     new-instance v22, Ljava/lang/StringBuilder;
@@ -772,7 +807,7 @@
 
     move-result v20
 
-    goto/16 :goto_2
+    goto/16 :goto_1
 
     :catch_0
     move-exception v7
@@ -788,12 +823,12 @@
 
     invoke-static {v0, v1, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     .end local v3           #applicationId:Ljava/lang/String;
     .end local v7           #e:Ljava/lang/Exception;
     .end local v20           #validSuplInit:Z
-    :cond_e
+    :cond_f
     invoke-virtual {v13, v15}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
     const-string v21, "transactionId"
@@ -856,13 +891,13 @@
 
     invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    if-eqz p2, :cond_f
+    if-eqz p2, :cond_10
 
     invoke-virtual/range {p2 .. p2}, Ljava/lang/String;->length()I
 
     move-result v21
 
-    if-lez v21, :cond_f
+    if-lez v21, :cond_10
 
     const-string v21, "OriAddr"
 
@@ -872,7 +907,19 @@
 
     invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_f
+    :cond_10
+    const-string v21, "address"
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mAddress:Ljava/lang/String;
+
+    move-object/from16 v1, v0
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v13, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/WapPushOverSms;->mSmsDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
@@ -888,4 +935,28 @@
     const/16 v21, -0x1
 
     goto/16 :goto_0
+.end method
+
+.method getContext()Landroid/content/Context;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/WapPushOverSms;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method getSmsDispatcher()Lcom/android/internal/telephony/SMSDispatcher;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/WapPushOverSms;->mSmsDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
+
+    return-object v0
 .end method

@@ -22,10 +22,6 @@
 
 .field public static final ACTION_INCALL_AUDIO_FOCUS_CHANGE:Ljava/lang/String; = "android.intent.action.INCALL_AUDIO_FOCUS_CHANGE"
 
-.field public static final ACTION_MARK_TO_CHECK_SERVICE_STATE:Ljava/lang/String; = "com.htc.intent.action.MARK_TO_CHECK_SERVICE_STATE"
-
-.field public static final ACTION_MARK_TO_SEND_QUEUED_SMS:Ljava/lang/String; = "com.htc.intent.action.MARK_TO_SEND_QUEUED_SMS"
-
 .field public static final ACTION_MUTE_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.ACTION_MUTE_STATE_CHANGED"
 
 .field public static final ACTION_NETWORK_SET_TIME:Ljava/lang/String; = "android.intent.action.NETWORK_SET_TIME"
@@ -39,8 +35,6 @@
 .field public static final ACTION_REQUEST_INCALL_AUDIO_FOCUS:Ljava/lang/String; = "android.intent.action.REQUEST_INCALL_AUDIO_FOCUS"
 
 .field public static final ACTION_RESET_CONNECTION:Ljava/lang/String; = "android.intent.action.RESET_CONNECTION"
-
-.field public static final ACTION_SEND_QUEUED_SMS:Ljava/lang/String; = "com.htc.intent.action.SEND_QUEUED_SMS"
 
 .field public static final ACTION_SERVICE_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.SERVICE_STATE"
 

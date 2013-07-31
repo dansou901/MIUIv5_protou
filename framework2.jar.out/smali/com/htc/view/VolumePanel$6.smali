@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 892
+    .line 879
     iput-object p1, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/16 v5, 0xc
 
-    .line 895
+    .line 882
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 897
+    .line 884
     .local v0, action:Ljava/lang/String;
     const-string v2, "com.htc.view.music_mute"
 
@@ -59,25 +59,25 @@
 
     if-eqz v2, :cond_2
 
-    .line 898
+    .line 885
     invoke-static {}, Lcom/htc/view/VolumePanel;->access$200()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 899
+    .line 886
     const-string v2, "VolumePanel"
 
     const-string v3, "MUSIC_MUTE_ACTION"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 900
+    .line 887
     :cond_0
     if-eqz p2, :cond_2
 
-    .line 901
+    .line 888
     const-string v2, "new_state"
 
     const/4 v3, -0x1
@@ -86,7 +86,7 @@
 
     move-result v1
 
-    .line 902
+    .line 889
     .local v1, newState:I
     invoke-static {}, Lcom/htc/view/VolumePanel;->access$200()Z
 
@@ -94,7 +94,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 903
+    .line 890
     const-string v2, "VolumePanel"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -117,18 +117,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 904
+    .line 891
     :cond_1
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_3
 
-    .line 905
+    .line 892
     iget-object v2, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
 
     invoke-virtual {v2, v5}, Lcom/htc/view/VolumePanel;->removeMessages(I)V
 
-    .line 906
+    .line 893
     iget-object v2, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
 
     iget-object v3, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
@@ -139,23 +139,23 @@
 
     invoke-virtual {v2, v3}, Lcom/htc/view/VolumePanel;->sendMessage(Landroid/os/Message;)Z
 
-    .line 913
+    .line 900
     .end local v1           #newState:I
     :cond_2
     :goto_0
     return-void
 
-    .line 907
+    .line 894
     .restart local v1       #newState:I
     :cond_3
     if-nez v1, :cond_2
 
-    .line 908
+    .line 895
     iget-object v2, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
 
     invoke-virtual {v2, v6}, Lcom/htc/view/VolumePanel;->removeMessages(I)V
 
-    .line 909
+    .line 896
     iget-object v2, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;
 
     iget-object v3, p0, Lcom/htc/view/VolumePanel$6;->this$0:Lcom/htc/view/VolumePanel;

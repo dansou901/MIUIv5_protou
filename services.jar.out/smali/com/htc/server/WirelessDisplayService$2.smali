@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2672
+    .line 2322
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$2;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,55 +35,27 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 2675
+    .line 2325
     const-string v0, "WirelessDisplayService"
 
     const-string v1, "Receive WIFI_AP_SET_INTERFACE_ADDRESS"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2676
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    .line 2678
-    :try_start_0
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2326
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7300()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 2679
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
-
-    .line 2680
-    monitor-exit v1
-
-    .line 2681
+    .line 2327
     return-void
-
-    .line 2680
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

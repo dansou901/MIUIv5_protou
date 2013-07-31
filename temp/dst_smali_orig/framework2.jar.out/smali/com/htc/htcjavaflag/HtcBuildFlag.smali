@@ -4327,7 +4327,7 @@
     .locals 1
 
     .prologue
-    const/16 v0, 0x23f
+    const/16 v0, 0x2d7
 
     return v0
 .end method
@@ -4345,7 +4345,7 @@
     .locals 1
 
     .prologue
-    const-string v0, "4.5a"
+    const-string v0, "4.5"
 
     return-object v0
 .end method

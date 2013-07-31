@@ -6,15 +6,13 @@
 # instance fields
 .field mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
-.field private mPhoneType:I
-
 
 # direct methods
 .method public constructor <init>()V
     .locals 1
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
@@ -34,7 +32,7 @@
     .parameter "headers"
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
 
@@ -101,15 +99,6 @@
     return-object v0
 .end method
 
-.method public getPhoneType()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPhoneType:I
-
-    return v0
-.end method
-
 .method public setFrom(Lcom/google/android/mms/pdu/EncodedStringValue;)V
     .locals 2
     .parameter "value"
@@ -158,16 +147,6 @@
     const/16 v1, 0x8d
 
     invoke-virtual {v0, p1, v1}, Lcom/google/android/mms/pdu/PduHeaders;->setOctet(II)V
-
-    return-void
-.end method
-
-.method public setPhoneType(I)V
-    .locals 0
-    .parameter "phoneType"
-
-    .prologue
-    iput p1, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPhoneType:I
 
     return-void
 .end method

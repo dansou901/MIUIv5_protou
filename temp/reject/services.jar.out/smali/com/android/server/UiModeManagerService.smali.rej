@@ -1,5 +1,5 @@
-*** UiModeManagerService.smali	2013-07-12 21:42:33.411832533 +0000
---- UiModeManagerService.smali	2013-07-12 21:40:28.488488899 +0000
+*** UiModeManagerService.smali	2013-07-31 22:21:59.167397870 +0000
+--- UiModeManagerService.smali	2013-07-31 22:21:04.490726640 +0000
 ***************
 *** 143,148 ****
   
@@ -36,3 +36,38 @@
       const-string v2, "power"
   
       invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+***************
+*** 1235,1240 ****
+  .method final updateConfigurationLocked(Z)V
+      .locals 4
+      .parameter "sendIt"
+  
+      .prologue
+      iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mTelevision:Z
+--- 1258,1266 ----
+  .method final updateConfigurationLocked(Z)V
+      .locals 4
+      .parameter "sendIt"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+      iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mTelevision:Z
+***************
+*** 1308,1314 ****
+  
+      .end local v1           #uiMode:I
+      :cond_2
+!     iget v1, p0, Lcom/android/server/UiModeManagerService;->mDefaultUiModeType:I
+  
+      goto :goto_0
+  
+--- 1334,1340 ----
+  
+      .end local v1           #uiMode:I
+      :cond_2
+!     iget v1, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
+  
+      goto :goto_0
+  

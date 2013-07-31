@@ -70,7 +70,7 @@
     iget v4, p0, Lcom/android/server/pm/PackageManagerService$9;->val$flags:I
 
     #calls: Lcom/android/server/pm/PackageManagerService;->deletePackageX(Ljava/lang/String;ZZI)I
-    invoke-static {v2, v3, v5, v5, v4}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZZI)I
+    invoke-static {v2, v3, v5, v5, v4}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZZI)I
 
     move-result v1
 

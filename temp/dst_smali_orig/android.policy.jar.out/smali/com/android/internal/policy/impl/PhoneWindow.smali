@@ -17,7 +17,8 @@
         Lcom/android/internal/policy/impl/PhoneWindow$DecorView;,
         Lcom/android/internal/policy/impl/PhoneWindow$ActionMenuPresenterCallback;,
         Lcom/android/internal/policy/impl/PhoneWindow$PanelMenuPresenterCallback;,
-        Lcom/android/internal/policy/impl/PhoneWindow$WindowManagerHolder;
+        Lcom/android/internal/policy/impl/PhoneWindow$WindowManagerHolder;,
+        Lcom/android/internal/policy/impl/PhoneWindow$Injector;
     }
 .end annotation
 
@@ -25,7 +26,14 @@
 # static fields
 .field private static final ACTION_BAR_TAG:Ljava/lang/String; = "android:ActionBar"
 
+.field private static final CURRENT_CID:Ljava/lang/String; = null
+
+#the value of this static final field might be set in the static constructor
+.field static final DEBUG_NAV_BAR:Z = false
+
 .field private static final FOCUSED_ID_TAG:Ljava/lang/String; = "android:focusedViewId"
+
+.field private static final IS_KIKIN_ENABLED:Z = false
 
 .field private static final PANELS_TAG:Ljava/lang/String; = "android:Panels"
 
@@ -35,9 +43,23 @@
 
 .field private static final VIEWS_TAG:Ljava/lang/String; = "android:views"
 
+.field static final isWVGA:Z
+
 .field static mAppSwitchType:I
 
 .field static mFirstCheck:Z
+
+.field static sNavigationBarBlackList:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field static final sRotationWatcher:Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;
 
@@ -144,16 +166,165 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 5
 
     .prologue
+    const/4 v1, 0x0
+
+    const/4 v4, 0x1
+
+    const-string v0, "4.0a"
+
+    sget-object v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Extra_Sense_Version:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/policy/impl/PhoneWindow;->isWVGA:Z
+
+    const-string v0, "debug_nav_bar"
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.google.android.apps.books"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.google.android.apps.maps"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.google.android.location"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.google.android.youtube"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.google.android.apps.translate"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.melimots.WordSearch"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.mobilityware.solitaire"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "net.cdeguet.smartkeyboardpro"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.rubicon.dev.glwg"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.sinovatech.unicom.ui"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    const-string v2, "com.neusoft.td.android.wo116114"
+
+    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-boolean v0, Lcom/android/internal/policy/impl/PhoneWindow;->isWVGA:Z
+
+    if-eqz v0, :cond_0
+
     const/4 v0, 0x2
 
+    :goto_0
     sput v0, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
 
-    const/4 v0, 0x0
+    sput-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
 
-    sput-boolean v0, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
+    const-string v0, "ro.cid"
+
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->CURRENT_CID:Ljava/lang/String;
 
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;
 
@@ -162,6 +333,11 @@
     sput-object v0, Lcom/android/internal/policy/impl/PhoneWindow;->sRotationWatcher:Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;
 
     return-void
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
@@ -942,6 +1118,24 @@
     goto :goto_1
 .end method
 
+.method private getResource(I)I
+    .locals 3
+    .parameter "resouceId"
+
+    .prologue
+    move v0, p1
+
+    .local v0, value:I
+    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+
+    const/16 v2, 0x149
+
+    if-ne v1, v2, :cond_0
+
+    :cond_0
+    return v0
+.end method
+
 .method private getRightIconView()Landroid/widget/ImageView;
     .locals 1
 
@@ -1169,9 +1363,7 @@
     .end local v6           #titleContainer:Landroid/view/View;
     :cond_1
     :goto_1
-    invoke-static {}, Lcom/htc/view/NavigationBarConfiguration;->isLessEqualWVGA()Z
-
-    move-result v7
+    sget-boolean v7, Lcom/android/internal/policy/impl/PhoneWindow;->isWVGA:Z
 
     if-eqz v7, :cond_2
 
@@ -1280,6 +1472,10 @@
     invoke-virtual {v7}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
 
     :cond_8
+    iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
+
+    invoke-static {p0, v7}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
+
     const/4 v3, 0x0
 
     .local v3, splitActionBar:Z
@@ -1850,7 +2046,7 @@
 
     iget-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isCompact:Z
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getOptionsPanelGravity()I
 
@@ -1870,6 +2066,12 @@
     iget v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->windowAnimations:I
 
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleAppLayoutParams(Lcom/android/internal/policy/impl/PhoneWindow;Landroid/view/WindowManager;Landroid/view/WindowManager$LayoutParams;)V
 
     move-object/from16 v0, p1
 
@@ -1958,7 +2160,34 @@
     goto/16 :goto_5
 
     .local v2, lp:Landroid/view/WindowManager$LayoutParams;
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    .restart local v2       #lp:Landroid/view/WindowManager$LayoutParams;
+    if-eqz v2, :cond_f
+
+    iget v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+
     :cond_f
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+
+    invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getChildCount()I
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    goto/16 :goto_0
+
+    .local v2, lp:Landroid/view/WindowManager$LayoutParams;
+    :cond_10
     move-object/from16 v0, p1
 
     iget v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->gravity:I
@@ -2485,359 +2714,385 @@
 .end method
 
 .method private showNavigationBarTips(Z)V
-    .locals 15
+    .locals 13
     .parameter "needsMenuKey"
 
     .prologue
-    if-nez p1, :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    .local v2, context:Landroid/content/Context;
+    if-nez v2, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+    const-string v10, "persist.sys.navtips.nevershow"
 
-    move-result-object v3
+    const/4 v11, 0x0
 
-    .local v3, context:Landroid/content/Context;
-    if-eqz v3, :cond_0
+    invoke-static {v10, v11}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    const-string v12, "persist.sys.navtips.nevershow"
+    move-result v8
 
-    const/4 v13, 0x0
+    .local v8, noShowMenuTips:Z
+    if-nez v8, :cond_0
 
-    invoke-static {v12, v13}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v9
-
-    .local v9, noShowMenuTips:Z
-    if-nez v9, :cond_0
+    const/4 v10, 0x3
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v1
+    move-result-object v11
 
-    .local v1, attrs:Landroid/view/WindowManager$LayoutParams;
-    const/4 v12, 0x3
+    iget v11, v11, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    iget v13, v1, Landroid/view/WindowManager$LayoutParams;->type:I
+    if-eq v10, v11, :cond_0
 
-    if-eq v12, v13, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    sget-object v10, Lcom/android/internal/policy/impl/PhoneWindow;->sNavigationBarBlackList:Ljava/util/HashMap;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v11
 
-    .local v11, strPackageName:Ljava/lang/String;
-    sget-object v12, Lcom/htc/view/NavigationBarConfiguration;->sNavigationBarBlackList:Ljava/util/HashMap;
+    invoke-virtual {v10, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v12, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v2
+    check-cast v1, Ljava/lang/Boolean;
 
-    check-cast v2, Ljava/lang/Boolean;
+    .local v1, black:Ljava/lang/Boolean;
+    if-eqz v1, :cond_2
 
-    .local v2, black:Ljava/lang/Boolean;
-    if-eqz v2, :cond_2
+    const/4 v10, 0x1
 
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v12
+    move-result v11
 
-    if-eqz v12, :cond_2
+    if-ne v10, v11, :cond_2
 
-    sget-boolean v12, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
-    if-eqz v12, :cond_0
+    if-eqz v10, :cond_0
 
-    const-string v12, "PhoneWindow"
+    const-string v10, "PhoneWindow"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "showNavigationBarTips, don\'t show top, pkg: "
+    const-string v12, "showNavigationBarTips, don\'t show top, pkg: "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-string v14, " in black list"
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v13
+    const-string v12, " in black list"
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v12
+    move-result-object v11
 
-    const-string v13, "APP_SWITCH_KEY_BEHAVIOR"
+    const-string v12, "APP_SWITCH_KEY_BEHAVIOR"
 
-    const/4 v14, 0x2
+    sget-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->isWVGA:Z
 
-    invoke-static {v12, v13, v14}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    if-eqz v10, :cond_7
+
+    const/4 v10, 0x2
+
+    :goto_1
+    invoke-static {v11, v12, v10}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
 
-    .local v0, appSwitchDefault:I
-    sget-boolean v12, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    .local v0, appswitchDefault:I
+    sget-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
-    if-eqz v12, :cond_3
+    if-eqz v10, :cond_3
 
-    const-string v12, "PhoneWindow"
+    const-string v10, "PhoneWindow"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "showNavigationBarTips, mAppSwitchType="
+    const-string v12, "showNavigationBarTips, mAppSwitchType="
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v11
 
-    sget v14, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
-
-    invoke-static {v14}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ", appSwitchDefault="
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
     sget v12, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
 
-    if-eq v12, v0, :cond_4
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v12, ", appswitchDefault="
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    sget v10, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
+
+    if-eq v10, v0, :cond_4
 
     sput v0, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
-    sput-boolean v12, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
+    sput-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
 
     :cond_4
-    sget-boolean v12, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
+    sget-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
 
-    if-nez v12, :cond_0
+    if-nez v10, :cond_0
 
-    sget-boolean v12, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
-    if-eqz v12, :cond_5
+    if-eqz v10, :cond_5
 
-    const-string v12, "PhoneWindow"
+    const-string v10, "PhoneWindow"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "showNavigationBarTips, show dialog, title: "
+    const-string v12, "showNavigationBarTips, show dialog, title: "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v1}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ", pkg: "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    const-string v14, ", type: "
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    iget v14, v1, Landroid/view/WindowManager$LayoutParams;->type:I
-
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    const-string v12, "layout_inflater"
-
-    invoke-virtual {v3, v12}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/view/LayoutInflater;
-
-    .local v6, inflater:Landroid/view/LayoutInflater;
-    const v12, 0x4030012
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v6, v12, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v4
-
-    .local v4, customView:Landroid/view/View;
-    const v12, 0x4110013
-
-    invoke-virtual {v4, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/TextView;
-
-    .local v8, message:Landroid/widget/TextView;
-    sget v12, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
-
-    packed-switch v12, :pswitch_data_0
-
-    :goto_1
-    const v12, 0x4110014
-
-    invoke-virtual {v4, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v12
 
-    check-cast v12, Lcom/htc/widget/HtcCheckBox;
+    invoke-virtual {v12}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
 
-    iput-object v12, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mCheckBox:Lcom/htc/widget/HtcCheckBox;
+    move-result-object v12
 
-    iget-object v12, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mCheckBox:Lcom/htc/widget/HtcCheckBox;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const/4 v13, 0x0
+    move-result-object v11
 
-    invoke-virtual {v12, v13}, Lcom/htc/widget/HtcCheckBox;->setChecked(Z)V
+    const-string v12, ", pkg: "
 
-    const v12, 0x4110015
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v11
 
-    move-result-object v10
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    check-cast v10, Landroid/widget/TextView;
+    move-result-object v12
 
-    .local v10, remindMe:Landroid/widget/TextView;
-    const v12, 0x407003d
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v12}, Landroid/widget/TextView;->setText(I)V
+    move-result-object v11
 
-    new-instance v12, Lcom/android/internal/policy/impl/PhoneWindow$3;
+    const-string v12, ", type: "
 
-    invoke-direct {v12, p0}, Lcom/android/internal/policy/impl/PhoneWindow$3;-><init>(Lcom/android/internal/policy/impl/PhoneWindow;)V
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10, v12}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result-object v11
 
-    new-instance v5, Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    invoke-direct {v5, v3}, Lcom/htc/widget/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    move-result-object v12
 
-    .local v5, dialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
-    const/4 v12, 0x0
+    iget v12, v12, Landroid/view/WindowManager$LayoutParams;->type:I
 
-    invoke-virtual {v5, v12}, Lcom/htc/widget/HtcAlertDialog$Builder;->setIcon(I)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const v12, 0x4070039
+    move-result-object v11
 
-    invoke-virtual {v5, v12}, Lcom/htc/widget/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v12, 0x0
+    move-result-object v11
 
-    invoke-virtual {v5, v12}, Lcom/htc/widget/HtcAlertDialog$Builder;->setCancelable(Z)Lcom/htc/widget/HtcAlertDialog$Builder;
+    invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v5, v4}, Lcom/htc/widget/HtcAlertDialog$Builder;->setView(Landroid/view/View;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    :cond_5
+    const-string v10, "layout_inflater"
 
-    const v12, 0x2040258
+    invoke-virtual {v2, v10}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget-object v13, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mListener:Landroid/content/DialogInterface$OnClickListener;
+    move-result-object v5
 
-    invoke-virtual {v5, v12, v13}, Lcom/htc/widget/HtcAlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/htc/widget/HtcAlertDialog$Builder;
+    check-cast v5, Landroid/view/LayoutInflater;
 
-    invoke-virtual {v5}, Lcom/htc/widget/HtcAlertDialog$Builder;->create()Lcom/htc/widget/HtcAlertDialog;
+    .local v5, inflater:Landroid/view/LayoutInflater;
+    const v10, 0x4030012
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v5, v10, v11}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    .local v3, customView:Landroid/view/View;
+    const v10, 0x4110013
+
+    invoke-virtual {v3, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
-    .local v7, menuDialog:Lcom/htc/widget/HtcAlertDialog;
+    check-cast v7, Landroid/widget/TextView;
+
+    .local v7, message:Landroid/widget/TextView;
+    sget v10, Lcom/android/internal/policy/impl/PhoneWindow;->mAppSwitchType:I
+
+    packed-switch v10, :pswitch_data_0
+
+    :goto_2
+    const v10, 0x4110014
+
+    invoke-virtual {v3, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/htc/widget/HtcCheckBox;
+
+    iput-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mCheckBox:Lcom/htc/widget/HtcCheckBox;
+
+    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mCheckBox:Lcom/htc/widget/HtcCheckBox;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v10, v11}, Lcom/htc/widget/HtcCheckBox;->setChecked(Z)V
+
+    const v10, 0x4110015
+
+    invoke-virtual {v3, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/widget/TextView;
+
+    .local v9, remindMe:Landroid/widget/TextView;
+    const v10, 0x407003a
+
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(I)V
+
+    new-instance v10, Lcom/android/internal/policy/impl/PhoneWindow$3;
+
+    invoke-direct {v10, p0}, Lcom/android/internal/policy/impl/PhoneWindow$3;-><init>(Lcom/android/internal/policy/impl/PhoneWindow;)V
+
+    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    new-instance v4, Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    invoke-direct {v4, v2}, Lcom/htc/widget/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    .local v4, dialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    const/4 v10, 0x0
+
+    invoke-virtual {v4, v10}, Lcom/htc/widget/HtcAlertDialog$Builder;->setIcon(I)Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    const v10, 0x4070036
+
+    invoke-virtual {v4, v10}, Lcom/htc/widget/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    const/4 v10, 0x0
+
+    invoke-virtual {v4, v10}, Lcom/htc/widget/HtcAlertDialog$Builder;->setCancelable(Z)Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    invoke-virtual {v4, v3}, Lcom/htc/widget/HtcAlertDialog$Builder;->setView(Landroid/view/View;)Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    const v10, 0x2040258
+
+    iget-object v11, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mListener:Landroid/content/DialogInterface$OnClickListener;
+
+    invoke-virtual {v4, v10, v11}, Lcom/htc/widget/HtcAlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lcom/htc/widget/HtcAlertDialog$Builder;
+
+    invoke-virtual {v4}, Lcom/htc/widget/HtcAlertDialog$Builder;->create()Lcom/htc/widget/HtcAlertDialog;
+
+    move-result-object v6
+
+    .local v6, menuDialog:Lcom/htc/widget/HtcAlertDialog;
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->isDestroyed()Z
 
-    move-result v12
+    move-result v10
 
-    if-nez v12, :cond_6
+    if-nez v10, :cond_6
 
-    invoke-virtual {v7}, Lcom/htc/widget/HtcAlertDialog;->show()V
+    invoke-virtual {v6}, Lcom/htc/widget/HtcAlertDialog;->show()V
 
     :cond_6
-    const/4 v12, 0x1
+    const/4 v10, 0x1
 
-    sput-boolean v12, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
+    sput-boolean v10, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z
 
     goto/16 :goto_0
 
-    .end local v5           #dialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
-    .end local v7           #menuDialog:Lcom/htc/widget/HtcAlertDialog;
-    .end local v10           #remindMe:Landroid/widget/TextView;
+    .end local v0           #appswitchDefault:I
+    .end local v3           #customView:Landroid/view/View;
+    .end local v4           #dialogBuilder:Lcom/htc/widget/HtcAlertDialog$Builder;
+    .end local v5           #inflater:Landroid/view/LayoutInflater;
+    .end local v6           #menuDialog:Lcom/htc/widget/HtcAlertDialog;
+    .end local v7           #message:Landroid/widget/TextView;
+    .end local v9           #remindMe:Landroid/widget/TextView;
+    :cond_7
+    const/4 v10, 0x0
+
+    goto/16 :goto_1
+
+    .restart local v0       #appswitchDefault:I
+    .restart local v3       #customView:Landroid/view/View;
+    .restart local v5       #inflater:Landroid/view/LayoutInflater;
+    .restart local v7       #message:Landroid/widget/TextView;
     :pswitch_0
-    const v12, 0x407003c
+    const v10, 0x4070039
 
-    invoke-virtual {v8, v12}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_1
-    const v12, 0x407003b
+    const v10, 0x4070038
 
-    invoke-virtual {v8, v12}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v7, v10}, Landroid/widget/TextView;->setText(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -3634,7 +3889,13 @@
 
     if-eqz v38, :cond_1a
 
-    const/16 v38, -0x2
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v38
+
+    invoke-static/range {v38 .. v38}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getFloatingWindowWidth(Landroid/content/Context;)I
+
+    move-result v38
 
     const/16 v39, -0x2
 
@@ -4696,14 +4957,22 @@
 
     move/from16 v1, v38
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->clearFlags(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->addFlags(I)V
 
     goto/16 :goto_6
 
     .restart local v13       #features:I
     .restart local v25       #params:Landroid/view/WindowManager$LayoutParams;
     :cond_21
-    const v19, 0x109009e
+    const v38, 0x109009e
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_7
@@ -4720,7 +4989,15 @@
 
     if-nez v38, :cond_23
 
-    const v19, 0x109009a
+    const v38, 0x109009a
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
@@ -4789,7 +5066,15 @@
 
     .end local v19           #layoutResource:I
     :cond_24
-    const v19, 0x1090099
+    const v38, 0x1090099
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto :goto_b
@@ -4859,21 +5144,41 @@
 
     if-eqz v38, :cond_27
 
-    const v19, 0x1090098
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarOverlayResourceId(Landroid/content/Context;)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
 
     .end local v19           #layoutResource:I
     :cond_27
-    const v19, 0x1090097
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarResourceId(Landroid/content/Context;)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
 
     .end local v19           #layoutResource:I
     :cond_28
-    const v19, 0x109009d
+    const v38, 0x109009d
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
@@ -4886,14 +5191,30 @@
 
     if-eqz v38, :cond_2a
 
-    const v19, 0x109009c
+    const v38, 0x109009c
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
 
     .end local v19           #layoutResource:I
     :cond_2a
-    const v19, 0x109009b
+    const v38, 0x109009b
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v38
+
+    invoke-direct {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getResource(I)I
+
+    move-result v19
 
     .restart local v19       #layoutResource:I
     goto/16 :goto_8
@@ -6039,6 +6360,18 @@
     invoke-static/range {v38 .. v39}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_16
+.end method
+
+.method getActionBarView()Lcom/android/internal/widget/ActionBarView;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
+
+    return-object v0
 .end method
 
 .method getAudioManager()Landroid/media/AudioManager;

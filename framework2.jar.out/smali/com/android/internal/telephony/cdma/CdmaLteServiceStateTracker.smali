@@ -2626,7 +2626,7 @@
 
     if-eqz v29, :cond_28
 
-    const-string v29, "true"
+    const-string/jumbo v29, "true"
 
     :goto_10
     move-object/from16 v0, v30

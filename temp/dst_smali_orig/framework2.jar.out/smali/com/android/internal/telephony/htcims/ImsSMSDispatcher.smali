@@ -324,24 +324,6 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/htcims/ImsSMSDispatcher;->log(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/internal/telephony/htcims/ImsSMSDispatcher;->mCdmaDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/telephony/htcims/ImsSMSDispatcher;->mCdmaDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/SMSDispatcher;->dispose()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/internal/telephony/htcims/ImsSMSDispatcher;->mGsmDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/internal/telephony/htcims/ImsSMSDispatcher;->mGsmDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/SMSDispatcher;->dispose()V
-
-    :cond_1
     invoke-super {p0}, Lcom/android/internal/telephony/SMSDispatcher;->dispose()V
 
     return-void
@@ -508,6 +490,8 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

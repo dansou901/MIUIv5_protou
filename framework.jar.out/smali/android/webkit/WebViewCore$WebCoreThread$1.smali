@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 817
+    .line 800
     iput-object p1, p0, Landroid/webkit/WebViewCore$WebCoreThread$1;->this$0:Landroid/webkit/WebViewCore$WebCoreThread;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,29 +39,29 @@
     .parameter "msg"
 
     .prologue
-    .line 820
+    .line 803
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 889
+    .line 864
     :goto_0
     return-void
 
-    .line 822
+    .line 805
     :sswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/webkit/WebViewCore;
 
-    .line 823
+    .line 806
     .local v0, core:Landroid/webkit/WebViewCore;
     #calls: Landroid/webkit/WebViewCore;->initialize()V
     invoke-static {v0}, Landroid/webkit/WebViewCore;->access$600(Landroid/webkit/WebViewCore;)V
 
     goto :goto_0
 
-    .line 827
+    .line 810
     .end local v0           #core:Landroid/webkit/WebViewCore;
     :sswitch_1
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
@@ -70,14 +70,14 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 828
+    .line 811
     const/16 v2, 0xa
 
     invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
 
     goto :goto_0
 
-    .line 834
+    .line 817
     :cond_0
     const/4 v2, 0x3
 
@@ -85,7 +85,7 @@
 
     goto :goto_0
 
-    .line 841
+    .line 824
     :sswitch_2
     const/4 v2, 0x0
 
@@ -93,21 +93,13 @@
 
     goto :goto_0
 
-    .line 847
+    .line 829
     :sswitch_3
-    const/16 v2, -0xa
-
-    invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
-
-    goto :goto_0
-
-    .line 854
-    :sswitch_4
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_1
 
-    .line 855
+    .line 830
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "No WebView has been created in this process!"
@@ -116,7 +108,7 @@
 
     throw v2
 
-    .line 858
+    .line 833
     :cond_1
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
@@ -128,13 +120,13 @@
 
     goto :goto_0
 
-    .line 862
-    :sswitch_5
+    .line 837
+    :sswitch_4
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_2
 
-    .line 863
+    .line 838
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "No WebView has been created in this process!"
@@ -143,7 +135,7 @@
 
     throw v2
 
-    .line 866
+    .line 841
     :cond_2
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
@@ -155,13 +147,13 @@
 
     goto :goto_0
 
-    .line 870
-    :sswitch_6
+    .line 845
+    :sswitch_5
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_3
 
-    .line 871
+    .line 846
     new-instance v2, Ljava/lang/IllegalStateException;
 
     const-string v3, "No WebView has been created in this process!"
@@ -170,7 +162,7 @@
 
     throw v2
 
-    .line 874
+    .line 849
     :cond_3
     sget-object v3, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
@@ -182,30 +174,30 @@
 
     goto :goto_0
 
-    .line 880
-    :sswitch_7
+    .line 855
+    :sswitch_6
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Message;
 
-    .line 881
+    .line 856
     .local v1, m:Landroid/os/Message;
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
     goto :goto_0
 
-    .line 885
+    .line 860
     .end local v1           #m:Landroid/os/Message;
-    :sswitch_8
+    :sswitch_7
     #calls: Landroid/webkit/WebViewCore;->nativeCertTrustChanged()V
     invoke-static {}, Landroid/webkit/WebViewCore;->access$700()V
 
-    .line 886
+    .line 861
     invoke-static {}, Landroid/net/http/CertificateChainValidator;->handleTrustStorageUpdate()V
 
     goto :goto_0
 
-    .line 820
+    .line 803
     nop
 
     :sswitch_data_0
@@ -213,11 +205,10 @@
         0x0 -> :sswitch_0
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
-        0x3 -> :sswitch_3
-        0xb9 -> :sswitch_4
-        0xba -> :sswitch_5
-        0xc1 -> :sswitch_6
-        0xc5 -> :sswitch_7
-        0xdc -> :sswitch_8
+        0xb9 -> :sswitch_3
+        0xba -> :sswitch_4
+        0xc1 -> :sswitch_5
+        0xc5 -> :sswitch_6
+        0xdc -> :sswitch_7
     .end sparse-switch
 .end method

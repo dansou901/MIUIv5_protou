@@ -25,13 +25,13 @@
     .parameter "contentResolver"
 
     .prologue
-    .line 719
+    .line 714
     iput-object p1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
-    .line 720
+    .line 715
     invoke-direct {p0, p2}, Landroid/content/AsyncQueryHandler;-><init>(Landroid/content/ContentResolver;)V
 
-    .line 721
+    .line 716
     return-void
 .end method
 
@@ -50,22 +50,22 @@
 
     const/4 v2, 0x1
 
-    .line 733
+    .line 728
     packed-switch p1, :pswitch_data_0
 
-    .line 749
+    .line 744
     :cond_0
     :goto_0
     return-void
 
-    .line 735
+    .line 730
     :pswitch_0
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     #setter for: Lcom/android/internal/telephony/IccSmsInterfaceManager;->mIsDelettingSIMSMS:Z
     invoke-static {v1, v3}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->access$102(Lcom/android/internal/telephony/IccSmsInterfaceManager;Z)Z
 
-    .line 736
+    .line 731
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     #getter for: Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDeleteThenLoading:Z
@@ -75,19 +75,19 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 737
+    .line 732
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     #setter for: Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDeleteThenLoading:Z
     invoke-static {v1, v3}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->access$202(Lcom/android/internal/telephony/IccSmsInterfaceManager;Z)Z
 
-    .line 738
+    .line 733
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     #setter for: Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDeleteThenLoading:Z
     invoke-static {v1, v2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->access$202(Lcom/android/internal/telephony/IccSmsInterfaceManager;Z)Z
 
-    .line 740
+    .line 735
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
     iget-object v1, v1, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -98,14 +98,14 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 741
+    .line 736
     const-string v1, "content://sms/loadallsimsms2db"
 
     invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    .line 744
+    .line 739
     .local v0, url:Landroid/net/Uri;
     :goto_1
     iget-object v1, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
@@ -121,7 +121,7 @@
 
     goto :goto_0
 
-    .line 743
+    .line 738
     .end local v0           #url:Landroid/net/Uri;
     :cond_1
     const-string v1, "content://sms/loadalluimsms2db"
@@ -133,7 +133,7 @@
     .restart local v0       #url:Landroid/net/Uri;
     goto :goto_1
 
-    .line 733
+    .line 728
     nop
 
     :pswitch_data_0
@@ -149,14 +149,14 @@
     .parameter "uri"
 
     .prologue
-    .line 724
+    .line 719
     packed-switch p1, :pswitch_data_0
 
-    .line 729
+    .line 724
     :goto_0
     return-void
 
-    .line 726
+    .line 721
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager$BackgroundQueryHandler;->this$0:Lcom/android/internal/telephony/IccSmsInterfaceManager;
 
@@ -167,7 +167,7 @@
 
     goto :goto_0
 
-    .line 724
+    .line 719
     nop
 
     :pswitch_data_0

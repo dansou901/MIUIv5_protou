@@ -27,16 +27,16 @@
     .parameter "handler"
 
     .prologue
-    .line 435
+    .line 432
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 436
+    .line 433
     iput-object p1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mContext:Landroid/content/Context;
 
-    .line 437
+    .line 434
     iput-object p2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
-    .line 438
+    .line 435
     return-void
 .end method
 
@@ -48,7 +48,7 @@
     .parameter "intent"
 
     .prologue
-    .line 441
+    .line 438
     const-string v0, "HtcDeviceInfoManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -75,7 +75,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 443
+    .line 440
     const-string v0, "com.htc.DEVICE_INFO_LogInstalledApp"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -88,14 +88,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 444
+    .line 441
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x16
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 445
+    .line 442
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mContext:Landroid/content/Context;
 
     const-string v1, "com.htc.DEVICE_INFO_LogInstalledApp"
@@ -106,12 +106,12 @@
 
     invoke-static {v0, v1, v2, v3}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->setupPendingIntent(Landroid/content/Context;Ljava/lang/String;J)V
 
-    .line 455
+    .line 452
     :cond_0
     :goto_0
     return-void
 
-    .line 446
+    .line 443
     :cond_1
     const-string v0, "com.htc.DEVICE_INFO_LogSWInfoTime"
 
@@ -125,7 +125,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 447
+    .line 444
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x17
@@ -134,7 +134,7 @@
 
     goto :goto_0
 
-    .line 448
+    .line 445
     :cond_2
     const-string v0, "com.htc.DEVICE_INFO_LogHWInfoTime"
 
@@ -148,7 +148,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 449
+    .line 446
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x18
@@ -157,7 +157,7 @@
 
     goto :goto_0
 
-    .line 450
+    .line 447
     :cond_3
     const-string v0, "com.htc.screen_capture_action"
 
@@ -171,7 +171,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 451
+    .line 448
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x19
@@ -180,7 +180,7 @@
 
     goto :goto_0
 
-    .line 452
+    .line 449
     :cond_4
     const-string v0, "com.htc.launcher.intent.LAUNCHER_BAR_CHANGED"
 
@@ -194,7 +194,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 453
+    .line 450
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ExtraUsageReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v1, 0x1d

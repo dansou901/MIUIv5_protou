@@ -278,7 +278,7 @@
 
     .line 70
     :cond_3
-    const-string v3, "value"
+    const-string/jumbo v3, "value"
 
     invoke-interface {v9, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 

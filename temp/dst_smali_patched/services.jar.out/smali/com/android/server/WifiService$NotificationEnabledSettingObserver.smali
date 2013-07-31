@@ -82,12 +82,12 @@
     move-result v1
 
     #setter for: Lcom/android/server/WifiService;->mNotificationEnabled:Z
-    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$8002(Lcom/android/server/WifiService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$7802(Lcom/android/server/WifiService;Z)Z
 
     iget-object v0, p0, Lcom/android/server/WifiService$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mSecureNetworkNotificationEnabled:Z
-    invoke-static {v0}, Lcom/android/server/WifiService;->access$8100(Lcom/android/server/WifiService;)Z
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$7900(Lcom/android/server/WifiService;)Z
 
     move-result v0
 
@@ -135,7 +135,7 @@
     move-result v2
 
     #setter for: Lcom/android/server/WifiService;->mNotificationEnabled:Z
-    invoke-static {v1, v2}, Lcom/android/server/WifiService;->access$8002(Lcom/android/server/WifiService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/WifiService;->access$7802(Lcom/android/server/WifiService;Z)Z
 
     return-void
 .end method

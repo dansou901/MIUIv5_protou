@@ -108,8 +108,6 @@
 
 .field public static final EXTRA_MULTIPLE_NETWORKS_CHANGED:Ljava/lang/String; = "multipleChanges"
 
-.field public static final EXTRA_NETWORK_ID:Ljava/lang/String; = "networkID"
-
 .field public static final EXTRA_NETWORK_INFO:Ljava/lang/String; = "networkInfo"
 
 .field public static final EXTRA_NEW_RSSI:Ljava/lang/String; = "newRssi"
@@ -147,8 +145,6 @@
 .field public static final L2PE_FAIL:Ljava/lang/String; = "android.net.hotspot.L2PE_FAIL"
 
 .field public static final L2PE_SUCCESSFUL:Ljava/lang/String; = "android.net.hotspot.L2PE_SUCCESSFUL"
-
-.field public static final LAN_PROBLEM_ERROR:I = 0x9
 
 .field public static final LINK_CONFIGURATION_CHANGED_ACTION:Ljava/lang/String; = "android.net.wifi.LINK_CONFIGURATION_CHANGED"
 
@@ -202,13 +198,9 @@
 
 .field public static final TRAFFIC_STATS_POLL:I = 0x25016
 
-.field public static final WAN_PROBLEM_ERROR:I = 0xa
-
 .field public static final WEP_ERROR:I = 0x8
 
 .field public static final WIFIDISPLAY_AP_STATE_CHANGED_ACTION:Ljava/lang/String; = "android.net.wifi.WIFIDISPLAY_AP_STATE_CHANGED"
-
-.field public static final WIFIOFFLOAD_NOTIFICATION:I = 0xb
 
 .field public static final WIFI_AP_SET_INTERFACE_ADDRESS:Ljava/lang/String; = "com.htc.wifi.SET_HOTSPOT_INTERFACE_ADDRESS"
 
@@ -388,10 +380,10 @@
 
     const/16 v4, -0x4b
 
-    .line 1204
+    .line 1181
     const/4 v1, 0x0
 
-    .line 1205
+    .line 1182
     .local v1, level:I
     const/4 v3, 0x4
 
@@ -399,36 +391,36 @@
 
     if-ne p1, v6, :cond_5
 
-    .line 1206
+    .line 1183
     :cond_0
     if-lt p0, v5, :cond_2
 
-    .line 1207
+    .line 1184
     const/4 v1, 0x3
 
-    .line 1215
+    .line 1192
     :goto_0
     if-ne p1, v6, :cond_1
 
     add-int/lit8 v1, v1, 0x1
 
-    .line 1227
+    .line 1204
     :cond_1
     :goto_1
     return v1
 
-    .line 1208
+    .line 1185
     :cond_2
     if-ge p0, v5, :cond_3
 
     if-lt p0, v4, :cond_3
 
-    .line 1209
+    .line 1186
     const/4 v1, 0x2
 
     goto :goto_0
 
-    .line 1210
+    .line 1187
     :cond_3
     if-ge p0, v4, :cond_4
 
@@ -436,50 +428,50 @@
 
     if-lt p0, v3, :cond_4
 
-    .line 1211
+    .line 1188
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1213
+    .line 1190
     :cond_4
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 1217
+    .line 1194
     :cond_5
     const/16 v3, -0x64
 
     if-gt p0, v3, :cond_6
 
-    .line 1218
+    .line 1195
     const/4 v1, 0x0
 
     goto :goto_1
 
-    .line 1219
+    .line 1196
     :cond_6
     const/16 v3, -0x37
 
     if-lt p0, v3, :cond_7
 
-    .line 1220
+    .line 1197
     add-int/lit8 v1, p1, -0x1
 
     goto :goto_1
 
-    .line 1222
+    .line 1199
     :cond_7
     const/high16 v0, 0x4234
 
-    .line 1223
+    .line 1200
     .local v0, inputRange:F
     add-int/lit8 v3, p1, -0x1
 
     int-to-float v2, v3
 
-    .line 1224
+    .line 1201
     .local v2, outputRange:F
     add-int/lit8 v3, p0, 0x64
 
@@ -501,7 +493,7 @@
     .parameter "frequency"
 
     .prologue
-    .line 2739
+    .line 2698
     invoke-static {p0, p1}, Landroid/net/wifi/WifiManager;->calculateSignalLevel(II)I
 
     move-result v0
@@ -515,7 +507,7 @@
     .parameter "rssiB"
 
     .prologue
-    .line 1241
+    .line 1218
     sub-int v0, p0, p1
 
     return v0
@@ -527,7 +519,7 @@
     .locals 2
 
     .prologue
-    .line 2411
+    .line 2378
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -537,15 +529,15 @@
 
     move-result v1
 
-    .line 2413
+    .line 2380
     :goto_0
     return v1
 
-    .line 2412
+    .line 2379
     :catch_0
     move-exception v0
 
-    .line 2413
+    .line 2380
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -556,7 +548,7 @@
     .locals 2
 
     .prologue
-    .line 2419
+    .line 2386
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -566,15 +558,15 @@
 
     move-result v1
 
-    .line 2421
+    .line 2388
     :goto_0
     return v1
 
-    .line 2420
+    .line 2387
     :catch_0
     move-exception v0
 
-    .line 2421
+    .line 2388
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -586,7 +578,7 @@
     .parameter "ssid"
 
     .prologue
-    .line 2800
+    .line 2759
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -596,15 +588,15 @@
 
     move-result v1
 
-    .line 2802
+    .line 2761
     :goto_0
     return v1
 
-    .line 2801
+    .line 2760
     :catch_0
     move-exception v0
 
-    .line 2802
+    .line 2761
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -642,7 +634,7 @@
     .parameter "ssid"
 
     .prologue
-    .line 2791
+    .line 2750
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -652,15 +644,15 @@
 
     move-result v1
 
-    .line 2793
+    .line 2752
     :goto_0
     return v1
 
-    .line 2792
+    .line 2751
     :catch_0
     move-exception v0
 
-    .line 2793
+    .line 2752
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -672,7 +664,7 @@
     .parameter "bssid"
 
     .prologue
-    .line 1427
+    .line 1404
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -680,18 +672,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1428
+    .line 1405
     const/4 v1, 0x1
 
-    .line 1430
+    .line 1407
     :goto_0
     return v1
 
-    .line 1429
+    .line 1406
     :catch_0
     move-exception v0
 
-    .line 1430
+    .line 1407
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -704,7 +696,7 @@
     .parameter "srcHandler"
 
     .prologue
-    .line 1761
+    .line 1728
     return-void
 .end method
 
@@ -714,7 +706,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1938
+    .line 1905
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -725,7 +717,7 @@
 
     throw v0
 
-    .line 1940
+    .line 1907
     :cond_0
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -739,7 +731,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
 
-    .line 1941
+    .line 1908
     return-void
 .end method
 
@@ -747,7 +739,7 @@
     .locals 2
 
     .prologue
-    .line 2774
+    .line 2733
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -757,15 +749,15 @@
 
     move-result v1
 
-    .line 2776
+    .line 2735
     :goto_0
     return v1
 
-    .line 2775
+    .line 2734
     :catch_0
     move-exception v0
 
-    .line 2776
+    .line 2735
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -776,7 +768,7 @@
     .locals 2
 
     .prologue
-    .line 1444
+    .line 1421
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -784,18 +776,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1445
+    .line 1422
     const/4 v1, 0x1
 
-    .line 1447
+    .line 1424
     :goto_0
     return v1
 
-    .line 1446
+    .line 1423
     :catch_0
     move-exception v0
 
-    .line 1447
+    .line 1424
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -809,7 +801,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1810
+    .line 1777
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -820,7 +812,7 @@
 
     throw v0
 
-    .line 1811
+    .line 1778
     :cond_0
     if-gez p2, :cond_1
 
@@ -832,7 +824,7 @@
 
     throw v0
 
-    .line 1813
+    .line 1780
     :cond_1
     const-string v0, "WifiManager"
 
@@ -862,14 +854,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1815
+    .line 1782
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v1, 0xd8
 
     if-ne v0, v1, :cond_2
 
-    .line 1817
+    .line 1784
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -877,7 +869,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1822
+    .line 1789
     :cond_2
     :goto_0
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
@@ -890,10 +882,10 @@
 
     invoke-virtual {v0, v1, p2, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
 
-    .line 1823
+    .line 1790
     return-void
 
-    .line 1818
+    .line 1785
     :catch_0
     move-exception v0
 
@@ -907,7 +899,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1779
+    .line 1746
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -918,7 +910,7 @@
 
     throw v0
 
-    .line 1780
+    .line 1747
     :cond_0
     if-nez p2, :cond_1
 
@@ -930,7 +922,7 @@
 
     throw v0
 
-    .line 1782
+    .line 1749
     :cond_1
     const-string v0, "WifiManager"
 
@@ -954,14 +946,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1784
+    .line 1751
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v1, 0xd8
 
     if-ne v0, v1, :cond_2
 
-    .line 1786
+    .line 1753
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -969,7 +961,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1793
+    .line 1760
     :cond_2
     :goto_0
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
@@ -984,10 +976,10 @@
 
     invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    .line 1795
+    .line 1762
     return-void
 
-    .line 1787
+    .line 1754
     :catch_0
     move-exception v0
 
@@ -999,7 +991,7 @@
     .parameter "tag"
 
     .prologue
-    .line 2219
+    .line 2186
     new-instance v0, Landroid/net/wifi/WifiManager$MulticastLock;
 
     const/4 v1, 0x0
@@ -1015,7 +1007,7 @@
     .parameter "tag"
 
     .prologue
-    .line 2185
+    .line 2152
     new-instance v0, Landroid/net/wifi/WifiManager$WifiLock;
 
     const/4 v1, 0x0
@@ -1030,7 +1022,7 @@
     .parameter "tag"
 
     .prologue
-    .line 2201
+    .line 2168
     new-instance v0, Landroid/net/wifi/WifiManager$WifiLock;
 
     const/4 v1, 0x1
@@ -1049,7 +1041,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1877
+    .line 1844
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1060,7 +1052,7 @@
 
     throw v0
 
-    .line 1878
+    .line 1845
     :cond_0
     if-gez p2, :cond_1
 
@@ -1072,7 +1064,7 @@
 
     throw v0
 
-    .line 1880
+    .line 1847
     :cond_1
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -1084,7 +1076,7 @@
 
     invoke-virtual {v0, v1, p2, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
 
-    .line 1881
+    .line 1848
     return-void
 .end method
 
@@ -1122,7 +1114,7 @@
     .locals 2
 
     .prologue
-    .line 2435
+    .line 2402
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1132,15 +1124,15 @@
 
     move-result v1
 
-    .line 2437
+    .line 2404
     :goto_0
     return v1
 
-    .line 2436
+    .line 2403
     :catch_0
     move-exception v0
 
-    .line 2437
+    .line 2404
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1182,7 +1174,7 @@
     .parameter "state"
 
     .prologue
-    .line 2443
+    .line 2410
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1192,15 +1184,15 @@
 
     move-result v1
 
-    .line 2445
+    .line 2412
     :goto_0
     return v1
 
-    .line 2444
+    .line 2411
     :catch_0
     move-exception v0
 
-    .line 2445
+    .line 2412
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1212,7 +1204,7 @@
     .parameter "enableFake"
 
     .prologue
-    .line 2825
+    .line 2784
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1222,15 +1214,15 @@
 
     move-result v1
 
-    .line 2827
+    .line 2786
     :goto_0
     return v1
 
-    .line 2826
+    .line 2785
     :catch_0
     move-exception v0
 
-    .line 2827
+    .line 2786
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1273,7 +1265,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2491
+    .line 2458
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1283,15 +1275,15 @@
 
     move-result v1
 
-    .line 2493
+    .line 2460
     :goto_0
     return v1
 
-    .line 2492
+    .line 2459
     :catch_0
     move-exception v0
 
-    .line 2493
+    .line 2460
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1303,7 +1295,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2483
+    .line 2450
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1313,15 +1305,15 @@
 
     move-result v1
 
-    .line 2485
+    .line 2452
     :goto_0
     return v1
 
-    .line 2484
+    .line 2451
     :catch_0
     move-exception v0
 
-    .line 2485
+    .line 2452
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1332,7 +1324,7 @@
     .locals 2
 
     .prologue
-    .line 2427
+    .line 2394
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1342,15 +1334,15 @@
 
     move-result v1
 
-    .line 2429
+    .line 2396
     :goto_0
     return v1
 
-    .line 2428
+    .line 2395
     :catch_0
     move-exception v0
 
-    .line 2429
+    .line 2396
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1364,7 +1356,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1862
+    .line 1829
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -1375,7 +1367,7 @@
 
     throw v0
 
-    .line 1863
+    .line 1830
     :cond_0
     if-gez p2, :cond_1
 
@@ -1387,7 +1379,7 @@
 
     throw v0
 
-    .line 1865
+    .line 1832
     :cond_1
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -1399,44 +1391,15 @@
 
     invoke-virtual {v0, v1, p2, v2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(III)V
 
-    .line 1866
+    .line 1833
     return-void
-.end method
-
-.method public getATTAssociationManual()I
-    .locals 2
-
-    .prologue
-    .line 835
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->getAssociationManual()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 837
-    :goto_0
-    return v1
-
-    .line 836
-    :catch_0
-    move-exception v0
-
-    .line 837
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, -0x1
-
-    goto :goto_0
 .end method
 
 .method public getAssocListStr()Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 2644
+    .line 2603
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1446,15 +1409,15 @@
 
     move-result-object v1
 
-    .line 2646
+    .line 2605
     :goto_0
     return-object v1
 
-    .line 2645
+    .line 2604
     :catch_0
     move-exception v0
 
-    .line 2646
+    .line 2605
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1494,7 +1457,7 @@
     .locals 2
 
     .prologue
-    .line 2652
+    .line 2611
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1504,15 +1467,15 @@
 
     move-result-object v1
 
-    .line 2654
+    .line 2613
     :goto_0
     return-object v1
 
-    .line 2653
+    .line 2612
     :catch_0
     move-exception v0
 
-    .line 2654
+    .line 2613
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1523,7 +1486,7 @@
     .locals 2
 
     .prologue
-    .line 1981
+    .line 1948
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1533,15 +1496,15 @@
 
     move-result-object v1
 
-    .line 1983
+    .line 1950
     :goto_0
     return-object v1
 
-    .line 1982
+    .line 1949
     :catch_0
     move-exception v0
 
-    .line 1983
+    .line 1950
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1590,7 +1553,7 @@
     .locals 2
 
     .prologue
-    .line 913
+    .line 890
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1600,15 +1563,15 @@
 
     move-result-object v1
 
-    .line 915
+    .line 892
     :goto_0
     return-object v1
 
-    .line 914
+    .line 891
     :catch_0
     move-exception v0
 
-    .line 915
+    .line 892
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1619,7 +1582,7 @@
     .locals 1
 
     .prologue
-    .line 2761
+    .line 2720
     const/4 v0, 0x0
 
     return v0
@@ -1629,7 +1592,7 @@
     .locals 2
 
     .prologue
-    .line 1013
+    .line 990
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1639,15 +1602,15 @@
 
     move-result-object v1
 
-    .line 1015
+    .line 992
     :goto_0
     return-object v1
 
-    .line 1014
+    .line 991
     :catch_0
     move-exception v0
 
-    .line 1015
+    .line 992
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1658,7 +1621,7 @@
     .locals 2
 
     .prologue
-    .line 2531
+    .line 2490
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1668,15 +1631,15 @@
 
     move-result v1
 
-    .line 2533
+    .line 2492
     :goto_0
     return v1
 
-    .line 2532
+    .line 2491
     :catch_0
     move-exception v0
 
-    .line 2533
+    .line 2492
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1687,7 +1650,7 @@
     .locals 2
 
     .prologue
-    .line 2547
+    .line 2506
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1697,15 +1660,15 @@
 
     move-result v1
 
-    .line 2549
+    .line 2508
     :goto_0
     return v1
 
-    .line 2548
+    .line 2507
     :catch_0
     move-exception v0
 
-    .line 2549
+    .line 2508
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1725,7 +1688,7 @@
     .end annotation
 
     .prologue
-    .line 1104
+    .line 1081
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1735,15 +1698,15 @@
 
     move-result-object v1
 
-    .line 1106
+    .line 1083
     :goto_0
     return-object v1
 
-    .line 1105
+    .line 1082
     :catch_0
     move-exception v0
 
-    .line 1106
+    .line 1083
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1754,7 +1717,7 @@
     .locals 2
 
     .prologue
-    .line 987
+    .line 964
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1764,15 +1727,15 @@
 
     move-result v1
 
-    .line 989
+    .line 966
     :goto_0
     return v1
 
-    .line 988
+    .line 965
     :catch_0
     move-exception v0
 
-    .line 989
+    .line 966
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -1783,7 +1746,7 @@
     .locals 2
 
     .prologue
-    .line 2660
+    .line 2619
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1793,15 +1756,15 @@
 
     move-result v1
 
-    .line 2662
+    .line 2621
     :goto_0
     return v1
 
-    .line 2661
+    .line 2620
     :catch_0
     move-exception v0
 
-    .line 2662
+    .line 2621
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -1812,7 +1775,7 @@
     .locals 2
 
     .prologue
-    .line 2628
+    .line 2587
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1822,15 +1785,15 @@
 
     move-result v1
 
-    .line 2630
+    .line 2589
     :goto_0
     return v1
 
-    .line 2629
+    .line 2588
     :catch_0
     move-exception v0
 
-    .line 2630
+    .line 2589
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -1850,7 +1813,7 @@
     .end annotation
 
     .prologue
-    .line 2809
+    .line 2768
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1860,15 +1823,15 @@
 
     move-result-object v1
 
-    .line 2811
+    .line 2770
     :goto_0
     return-object v1
 
-    .line 2810
+    .line 2769
     :catch_0
     move-exception v0
 
-    .line 2811
+    .line 2770
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1879,7 +1842,7 @@
     .locals 2
 
     .prologue
-    .line 2668
+    .line 2627
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1889,15 +1852,15 @@
 
     move-result-object v1
 
-    .line 2670
+    .line 2629
     :goto_0
     return-object v1
 
-    .line 2669
+    .line 2628
     :catch_0
     move-exception v0
 
-    .line 2670
+    .line 2629
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1917,7 +1880,7 @@
     .end annotation
 
     .prologue
-    .line 925
+    .line 902
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1927,15 +1890,15 @@
 
     move-result-object v1
 
-    .line 927
+    .line 904
     :goto_0
     return-object v1
 
-    .line 926
+    .line 903
     :catch_0
     move-exception v0
 
-    .line 927
+    .line 904
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1946,7 +1909,7 @@
     .locals 1
 
     .prologue
-    .line 2462
+    .line 2429
     const/4 v0, 0x0
 
     return v0
@@ -1956,7 +1919,7 @@
     .locals 2
 
     .prologue
-    .line 2782
+    .line 2741
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1966,15 +1929,15 @@
 
     move-result-object v1
 
-    .line 2784
+    .line 2743
     :goto_0
     return-object v1
 
-    .line 2783
+    .line 2742
     :catch_0
     move-exception v0
 
-    .line 2784
+    .line 2743
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1985,7 +1948,7 @@
     .locals 2
 
     .prologue
-    .line 2604
+    .line 2563
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -1995,15 +1958,15 @@
 
     move-result-object v1
 
-    .line 2606
+    .line 2565
     :goto_0
     return-object v1
 
-    .line 2605
+    .line 2564
     :catch_0
     move-exception v0
 
-    .line 2606
+    .line 2565
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2014,7 +1977,7 @@
     .locals 2
 
     .prologue
-    .line 2596
+    .line 2555
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2024,15 +1987,15 @@
 
     move-result v1
 
-    .line 2598
+    .line 2557
     :goto_0
     return v1
 
-    .line 2597
+    .line 2556
     :catch_0
     move-exception v0
 
-    .line 2598
+    .line 2557
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2043,7 +2006,7 @@
     .locals 2
 
     .prologue
-    .line 1350
+    .line 1327
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2053,15 +2016,15 @@
 
     move-result-object v1
 
-    .line 1352
+    .line 1329
     :goto_0
     return-object v1
 
-    .line 1351
+    .line 1328
     :catch_0
     move-exception v0
 
-    .line 1352
+    .line 1329
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2072,7 +2035,7 @@
     .locals 3
 
     .prologue
-    .line 1279
+    .line 1256
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2082,7 +2045,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1281
+    .line 1258
     const-string v1, "WifiManager"
 
     const-string v2, "WifiDisplay: WiFi Display On, return WIFI_AP_STATE_DISABLED to getWifiApState"
@@ -2091,18 +2054,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1282
+    .line 1259
     const/16 v1, 0xb
 
-    .line 1294
+    .line 1271
     :goto_0
     return v1
 
-    .line 1285
+    .line 1262
     :catch_0
     move-exception v0
 
-    .line 1286
+    .line 1263
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "WifiManager"
 
@@ -2110,7 +2073,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1292
+    .line 1269
     .end local v0           #e:Landroid/os/RemoteException;
     :cond_0
     :try_start_1
@@ -2124,11 +2087,11 @@
 
     goto :goto_0
 
-    .line 1293
+    .line 1270
     :catch_1
     move-exception v0
 
-    .line 1294
+    .line 1271
     .restart local v0       #e:Landroid/os/RemoteException;
     const/16 v1, 0xe
 
@@ -2139,7 +2102,7 @@
     .locals 2
 
     .prologue
-    .line 2700
+    .line 2659
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2149,15 +2112,15 @@
 
     move-result-object v1
 
-    .line 2702
+    .line 2661
     :goto_0
     return-object v1
 
-    .line 2701
+    .line 2660
     :catch_0
     move-exception v0
 
-    .line 2702
+    .line 2661
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2168,7 +2131,7 @@
     .locals 2
 
     .prologue
-    .line 2515
+    .line 2474
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2178,15 +2141,15 @@
 
     move-result v1
 
-    .line 2517
+    .line 2476
     :goto_0
     return v1
 
-    .line 2516
+    .line 2475
     :catch_0
     move-exception v0
 
-    .line 2517
+    .line 2476
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2197,7 +2160,7 @@
     .locals 2
 
     .prologue
-    .line 1954
+    .line 1921
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2207,15 +2170,15 @@
 
     move-result-object v1
 
-    .line 1956
+    .line 1923
     :goto_0
     return-object v1
 
-    .line 1955
+    .line 1922
     :catch_0
     move-exception v0
 
-    .line 1956
+    .line 1923
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2226,7 +2189,7 @@
     .locals 2
 
     .prologue
-    .line 1177
+    .line 1154
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2236,15 +2199,15 @@
 
     move-result v1
 
-    .line 1179
+    .line 1156
     :goto_0
     return v1
 
-    .line 1178
+    .line 1155
     :catch_0
     move-exception v0
 
-    .line 1179
+    .line 1156
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x4
 
@@ -2255,7 +2218,7 @@
     .locals 2
 
     .prologue
-    .line 1967
+    .line 1934
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2265,15 +2228,15 @@
 
     move-result-object v1
 
-    .line 1969
+    .line 1936
     :goto_0
     return-object v1
 
-    .line 1968
+    .line 1935
     :catch_0
     move-exception v0
 
-    .line 1969
+    .line 1936
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2284,7 +2247,7 @@
     .locals 2
 
     .prologue
-    .line 1045
+    .line 1022
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2294,15 +2257,15 @@
 
     move-result v1
 
-    .line 1047
+    .line 1024
     :goto_0
     return v1
 
-    .line 1046
+    .line 1023
     :catch_0
     move-exception v0
 
-    .line 1047
+    .line 1024
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2313,7 +2276,7 @@
     .locals 2
 
     .prologue
-    .line 1037
+    .line 1014
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2323,15 +2286,15 @@
 
     move-result v1
 
-    .line 1039
+    .line 1016
     :goto_0
     return v1
 
-    .line 1038
+    .line 1015
     :catch_0
     move-exception v0
 
-    .line 1039
+    .line 1016
     .local v0, e:Landroid/os/RemoteException;
     const/16 v1, 0xe
 
@@ -2342,7 +2305,7 @@
     .locals 2
 
     .prologue
-    .line 1335
+    .line 1312
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2352,15 +2315,15 @@
 
     move-result-object v1
 
-    .line 1337
+    .line 1314
     :goto_0
     return-object v1
 
-    .line 1336
+    .line 1313
     :catch_0
     move-exception v0
 
-    .line 1337
+    .line 1314
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2376,29 +2339,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1738
+    .line 1705
     invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->getWifiServiceMessenger()Landroid/os/Messenger;
 
     move-result-object v1
 
-    .line 1739
+    .line 1706
     .local v1, messenger:Landroid/os/Messenger;
     if-nez v1, :cond_1
 
     move-object v0, v2
 
-    .line 1746
+    .line 1713
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1741
+    .line 1708
     :cond_1
     new-instance v0, Landroid/net/wifi/WifiManager$Channel;
 
     invoke-direct {v0, p2, p3}, Landroid/net/wifi/WifiManager$Channel;-><init>(Landroid/os/Looper;Landroid/net/wifi/WifiManager$ChannelListener;)V
 
-    .line 1742
+    .line 1709
     .local v0, c:Landroid/net/wifi/WifiManager$Channel;
     iget-object v3, v0, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -2412,7 +2375,7 @@
 
     move-object v0, v2
 
-    .line 1746
+    .line 1713
     goto :goto_0
 .end method
 
@@ -2420,7 +2383,7 @@
     .locals 2
 
     .prologue
-    .line 2401
+    .line 2368
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2428,18 +2391,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2402
+    .line 2369
     const/4 v1, 0x1
 
-    .line 2404
+    .line 2371
     :goto_0
     return v1
 
-    .line 2403
+    .line 2370
     :catch_0
     move-exception v0
 
-    .line 2404
+    .line 2371
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2450,7 +2413,7 @@
     .locals 2
 
     .prologue
-    .line 1000
+    .line 977
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2460,102 +2423,15 @@
 
     move-result v1
 
-    .line 1002
+    .line 979
     :goto_0
     return v1
 
-    .line 1001
+    .line 978
     :catch_0
     move-exception v0
 
-    .line 1002
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isHotspotRestricted()Z
-    .locals 2
-
-    .prologue
-    .line 2873
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isHotspotRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2875
-    :goto_0
-    return v1
-
-    .line 2874
-    :catch_0
-    move-exception v0
-
-    .line 2875
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isMdmHotspotRestricted()Z
-    .locals 2
-
-    .prologue
-    .line 2906
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isMdmHotspotRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2908
-    :goto_0
-    return v1
-
-    .line 2907
-    :catch_0
-    move-exception v0
-
-    .line 2908
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isMdmWifiRestricted()Z
-    .locals 2
-
-    .prologue
-    .line 2890
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isMdmWifiRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2892
-    :goto_0
-    return v1
-
-    .line 2891
-    :catch_0
-    move-exception v0
-
-    .line 2892
+    .line 979
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2566,7 +2442,7 @@
     .locals 2
 
     .prologue
-    .line 2389
+    .line 2356
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2576,15 +2452,15 @@
 
     move-result v1
 
-    .line 2391
+    .line 2358
     :goto_0
     return v1
 
-    .line 2390
+    .line 2357
     :catch_0
     move-exception v0
 
-    .line 2391
+    .line 2358
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2597,7 +2473,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1309
+    .line 1286
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2607,19 +2483,19 @@
 
     if-eqz v2, :cond_1
 
-    .line 1311
+    .line 1288
     const-string v2, "WifiManager"
 
     const-string v3, "WifiDisplay: WiFi Display On, return false to isWifiApEnabled"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1323
+    .line 1300
     :cond_0
     :goto_0
     return v1
 
-    .line 1315
+    .line 1292
     :cond_1
     const-string v2, "WifiManager"
 
@@ -2629,7 +2505,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1323
+    .line 1300
     invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v2
@@ -2642,11 +2518,11 @@
 
     goto :goto_0
 
-    .line 1317
+    .line 1294
     :catch_0
     move-exception v0
 
-    .line 1318
+    .line 1295
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -2655,7 +2531,7 @@
     .locals 2
 
     .prologue
-    .line 1189
+    .line 1166
     invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->getWifiState()I
 
     move-result v0
@@ -2679,7 +2555,7 @@
     .locals 2
 
     .prologue
-    .line 2475
+    .line 2442
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2689,44 +2565,15 @@
 
     move-result v1
 
-    .line 2477
+    .line 2444
     :goto_0
     return v1
 
-    .line 2476
+    .line 2443
     :catch_0
     move-exception v0
 
-    .line 2477
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isWifiRestricted()Z
-    .locals 2
-
-    .prologue
-    .line 2857
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isWifiRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2859
-    :goto_0
-    return v1
-
-    .line 2858
-    :catch_0
-    move-exception v0
-
-    .line 2859
+    .line 2444
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2739,16 +2586,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 864
+    .line 841
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     if-nez v2, :cond_0
 
-    .line 869
+    .line 846
     :goto_0
     return v1
 
-    .line 867
+    .line 844
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
@@ -2761,11 +2608,11 @@
 
     goto :goto_0
 
-    .line 868
+    .line 845
     :catch_0
     move-exception v0
 
-    .line 869
+    .line 846
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -2774,7 +2621,7 @@
     .locals 2
 
     .prologue
-    .line 851
+    .line 828
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2782,18 +2629,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 852
+    .line 829
     const/4 v1, 0x1
 
-    .line 854
+    .line 831
     :goto_0
     return v1
 
-    .line 853
+    .line 830
     :catch_0
     move-exception v0
 
-    .line 854
+    .line 831
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -2864,7 +2711,7 @@
     .locals 1
 
     .prologue
-    .line 2676
+    .line 2635
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -2872,71 +2719,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2679
+    .line 2638
     :goto_0
     return-void
 
-    .line 2677
+    .line 2636
     :catch_0
     move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public retryLanDetection()Z
-    .locals 2
-
-    .prologue
-    .line 2833
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->retryLanDetection()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2835
-    :goto_0
-    return v1
-
-    .line 2834
-    :catch_0
-    move-exception v0
-
-    .line 2835
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public retryWanDetection()Z
-    .locals 2
-
-    .prologue
-    .line 2841
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->retryWanDetection()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2843
-    :goto_0
-    return v1
-
-    .line 2842
-    :catch_0
-    move-exception v0
-
-    .line 2843
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -2948,7 +2737,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1843
+    .line 1810
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -2959,7 +2748,7 @@
 
     throw v0
 
-    .line 1844
+    .line 1811
     :cond_0
     if-nez p2, :cond_1
 
@@ -2971,7 +2760,7 @@
 
     throw v0
 
-    .line 1846
+    .line 1813
     :cond_1
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -2985,7 +2774,7 @@
 
     invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    .line 1847
+    .line 1814
     return-void
 .end method
 
@@ -2993,7 +2782,7 @@
     .locals 2
 
     .prologue
-    .line 942
+    .line 919
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3003,46 +2792,15 @@
 
     move-result v1
 
-    .line 944
+    .line 921
     :goto_0
     return v1
 
-    .line 943
+    .line 920
     :catch_0
     move-exception v0
 
-    .line 944
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setATTAssociationManual(I)Z
-    .locals 2
-    .parameter "isManual"
-
-    .prologue
-    .line 824
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setAssociationManual(I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 825
-    const/4 v1, 0x1
-
-    .line 827
-    :goto_0
-    return v1
-
-    .line 826
-    :catch_0
-    move-exception v0
-
-    .line 827
+    .line 921
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3085,7 +2843,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2750
+    .line 2709
     const/4 v0, 0x0
 
     return v0
@@ -3097,7 +2855,7 @@
     .parameter "persist"
 
     .prologue
-    .line 957
+    .line 934
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3105,11 +2863,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 959
+    .line 936
     :goto_0
     return-void
 
-    .line 958
+    .line 935
     :catch_0
     move-exception v0
 
@@ -3121,7 +2879,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 2523
+    .line 2482
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3131,15 +2889,15 @@
 
     move-result v1
 
-    .line 2525
+    .line 2484
     :goto_0
     return v1
 
-    .line 2524
+    .line 2483
     :catch_0
     move-exception v0
 
-    .line 2525
+    .line 2484
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3151,7 +2909,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 2539
+    .line 2498
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3161,15 +2919,15 @@
 
     move-result v1
 
-    .line 2541
+    .line 2500
     :goto_0
     return v1
 
-    .line 2540
+    .line 2499
     :catch_0
     move-exception v0
 
-    .line 2541
+    .line 2500
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3181,7 +2939,7 @@
     .parameter "fackScanResult"
 
     .prologue
-    .line 2817
+    .line 2776
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3191,15 +2949,15 @@
 
     move-result v1
 
-    .line 2819
+    .line 2778
     :goto_0
     return v1
 
-    .line 2818
+    .line 2777
     :catch_0
     move-exception v0
 
-    .line 2819
+    .line 2778
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3212,7 +2970,7 @@
     .parameter "persist"
 
     .prologue
-    .line 972
+    .line 949
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3220,11 +2978,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 974
+    .line 951
     :goto_0
     return-void
 
-    .line 973
+    .line 950
     :catch_0
     move-exception v0
 
@@ -3236,7 +2994,7 @@
     .parameter "autoChannel"
 
     .prologue
-    .line 2555
+    .line 2514
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3244,103 +3002,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2558
+    .line 2517
     :goto_0
     return-void
 
-    .line 2556
+    .line 2515
     :catch_0
     move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public setHotspotRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    .line 2865
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setHotspotRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2867
-    :goto_0
-    return v1
-
-    .line 2866
-    :catch_0
-    move-exception v0
-
-    .line 2867
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setMdmHotspotRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    .line 2898
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setMdmHotspotRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2900
-    :goto_0
-    return v1
-
-    .line 2899
-    :catch_0
-    move-exception v0
-
-    .line 2900
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setMdmWifiRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    .line 2882
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setMdmWifiRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2884
-    :goto_0
-    return v1
-
-    .line 2883
-    :catch_0
-    move-exception v0
-
-    .line 2884
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -3350,7 +3018,7 @@
     .parameter "networkId"
 
     .prologue
-    .line 2636
+    .line 2595
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3360,15 +3028,15 @@
 
     move-result v1
 
-    .line 2638
+    .line 2597
     :goto_0
     return v1
 
-    .line 2637
+    .line 2596
     :catch_0
     move-exception v0
 
-    .line 2638
+    .line 2597
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3380,7 +3048,7 @@
     .parameter "addr"
 
     .prologue
-    .line 2612
+    .line 2571
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3390,15 +3058,15 @@
 
     move-result v1
 
-    .line 2614
+    .line 2573
     :goto_0
     return v1
 
-    .line 2613
+    .line 2572
     :catch_0
     move-exception v0
 
-    .line 2614
+    .line 2573
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3410,7 +3078,7 @@
     .parameter "set"
 
     .prologue
-    .line 2620
+    .line 2579
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3420,15 +3088,15 @@
 
     move-result v1
 
-    .line 2622
+    .line 2581
     :goto_0
     return v1
 
-    .line 2621
+    .line 2580
     :catch_0
     move-exception v0
 
-    .line 2622
+    .line 2581
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3440,7 +3108,7 @@
     .parameter "config"
 
     .prologue
-    .line 2683
+    .line 2642
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3450,15 +3118,15 @@
 
     move-result v1
 
-    .line 2685
+    .line 2644
     :goto_0
     return v1
 
-    .line 2684
+    .line 2643
     :catch_0
     move-exception v0
 
-    .line 2685
+    .line 2644
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -3470,7 +3138,7 @@
     .parameter "wifiConfig"
 
     .prologue
-    .line 1364
+    .line 1341
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3478,18 +3146,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1365
+    .line 1342
     const/4 v1, 0x1
 
-    .line 1367
+    .line 1344
     :goto_0
     return v1
 
-    .line 1366
+    .line 1343
     :catch_0
     move-exception v0
 
-    .line 1367
+    .line 1344
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3502,7 +3170,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 1258
+    .line 1235
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3510,18 +3178,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1259
+    .line 1236
     const/4 v1, 0x1
 
-    .line 1261
+    .line 1238
     :goto_0
     return v1
 
-    .line 1260
+    .line 1237
     :catch_0
     move-exception v0
 
-    .line 1261
+    .line 1238
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3534,7 +3202,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 2766
+    .line 2725
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3544,15 +3212,15 @@
 
     move-result v1
 
-    .line 2768
+    .line 2727
     :goto_0
     return v1
 
-    .line 2767
+    .line 2726
     :catch_0
     move-exception v0
 
-    .line 2768
+    .line 2727
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3564,7 +3232,7 @@
     .parameter "config"
 
     .prologue
-    .line 2691
+    .line 2650
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3574,15 +3242,15 @@
 
     move-result v1
 
-    .line 2693
+    .line 2652
     :goto_0
     return v1
 
-    .line 2692
+    .line 2651
     :catch_0
     move-exception v0
 
-    .line 2693
+    .line 2652
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -3594,7 +3262,7 @@
     .parameter "config"
 
     .prologue
-    .line 2708
+    .line 2667
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3604,15 +3272,15 @@
 
     move-result v1
 
-    .line 2710
+    .line 2669
     :goto_0
     return v1
 
-    .line 2709
+    .line 2668
     :catch_0
     move-exception v0
 
-    .line 2710
+    .line 2669
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -3624,7 +3292,7 @@
     .parameter "config"
 
     .prologue
-    .line 2716
+    .line 2675
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3634,15 +3302,15 @@
 
     move-result v1
 
-    .line 2718
+    .line 2677
     :goto_0
     return v1
 
-    .line 2717
+    .line 2676
     :catch_0
     move-exception v0
 
-    .line 2718
+    .line 2677
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, -0x1
 
@@ -3657,14 +3325,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1128
+    .line 1105
     if-nez p2, :cond_0
 
-    .line 1134
+    .line 1111
     :goto_0
     return v1
 
-    .line 1132
+    .line 1109
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
@@ -3677,11 +3345,11 @@
 
     goto :goto_0
 
-    .line 1133
+    .line 1110
     :catch_0
     move-exception v0
 
-    .line 1134
+    .line 1111
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -3696,14 +3364,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1139
+    .line 1116
     if-nez p2, :cond_0
 
-    .line 1145
+    .line 1122
     :goto_0
     return v1
 
-    .line 1143
+    .line 1120
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
@@ -3716,11 +3384,11 @@
 
     goto :goto_0
 
-    .line 1144
+    .line 1121
     :catch_0
     move-exception v0
 
-    .line 1145
+    .line 1122
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -3730,7 +3398,7 @@
     .parameter "disabled"
 
     .prologue
-    .line 1160
+    .line 1137
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3738,18 +3406,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1161
+    .line 1138
     const/4 v1, 0x1
 
-    .line 1163
+    .line 1140
     :goto_0
     return v1
 
-    .line 1162
+    .line 1139
     :catch_0
     move-exception v0
 
-    .line 1163
+    .line 1140
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3761,7 +3429,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 1028
+    .line 1005
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3771,15 +3439,15 @@
 
     move-result v1
 
-    .line 1030
+    .line 1007
     :goto_0
     return v1
 
-    .line 1029
+    .line 1006
     :catch_0
     move-exception v0
 
-    .line 1030
+    .line 1007
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3792,7 +3460,7 @@
     .parameter "persist"
 
     .prologue
-    .line 1074
+    .line 1051
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3802,15 +3470,15 @@
 
     move-result v1
 
-    .line 1076
+    .line 1053
     :goto_0
     return v1
 
-    .line 1075
+    .line 1052
     :catch_0
     move-exception v0
 
-    .line 1076
+    .line 1053
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3822,7 +3490,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 2499
+    .line 2466
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3832,15 +3500,15 @@
 
     move-result v1
 
-    .line 2501
+    .line 2468
     :goto_0
     return v1
 
-    .line 2500
+    .line 2467
     :catch_0
     move-exception v0
 
-    .line 2501
+    .line 2468
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3852,7 +3520,7 @@
     .parameter "status"
 
     .prologue
-    .line 2467
+    .line 2434
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -3862,45 +3530,15 @@
 
     move-result v1
 
-    .line 2469
+    .line 2436
     :goto_0
     return v1
 
-    .line 2468
+    .line 2435
     :catch_0
     move-exception v0
 
-    .line 2469
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setWifiRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    .line 2849
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setWifiRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2851
-    :goto_0
-    return v1
-
-    .line 2850
-    :catch_0
-    move-exception v0
-
-    .line 2851
+    .line 2436
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3913,7 +3551,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 1062
+    .line 1039
     :try_start_0
     const-string v1, "WifiManager"
 
@@ -3937,25 +3575,25 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1063
+    .line 1040
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     invoke-interface {v1, p1, p2}, Landroid/net/wifi/IWifiManager;->setWifidisplayApEnabled(Landroid/net/wifi/WifiConfiguration;Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1064
+    .line 1041
     const/4 v1, 0x1
 
-    .line 1066
+    .line 1043
     :goto_0
     return v1
 
-    .line 1065
+    .line 1042
     :catch_0
     move-exception v0
 
-    .line 1066
+    .line 1043
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -3967,7 +3605,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 1053
+    .line 1030
     :try_start_0
     const-string v1, "WifiManager"
 
@@ -3991,7 +3629,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1054
+    .line 1031
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setWifidisplayEnabled(Z)Z
@@ -4000,15 +3638,15 @@
 
     move-result v1
 
-    .line 1056
+    .line 1033
     :goto_0
     return v1
 
-    .line 1055
+    .line 1032
     :catch_0
     move-exception v0
 
-    .line 1056
+    .line 1033
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4019,7 +3657,7 @@
     .locals 1
 
     .prologue
-    .line 2580
+    .line 2539
     const/4 v0, 0x0
 
     return v0
@@ -4030,7 +3668,7 @@
     .parameter "bssid"
 
     .prologue
-    .line 2591
+    .line 2550
     const/4 v0, 0x0
 
     return-object v0
@@ -4040,14 +3678,14 @@
     .locals 3
 
     .prologue
-    .line 1083
+    .line 1060
     const-string v1, "WifiManager"
 
     const-string v2, "[Simon] startDongleScan"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1085
+    .line 1062
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4055,18 +3693,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1086
+    .line 1063
     const/4 v1, 0x1
 
-    .line 1088
+    .line 1065
     :goto_0
     return v1
 
-    .line 1087
+    .line 1064
     :catch_0
     move-exception v0
 
-    .line 1088
+    .line 1065
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4078,7 +3716,7 @@
     .parameter "channel"
 
     .prologue
-    .line 1093
+    .line 1070
     const-string v1, "WifiManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4101,7 +3739,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1095
+    .line 1072
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4109,18 +3747,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1096
+    .line 1073
     const/4 v1, 0x1
 
-    .line 1098
+    .line 1075
     :goto_0
     return v1
 
-    .line 1097
+    .line 1074
     :catch_0
     move-exception v0
 
-    .line 1098
+    .line 1075
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4132,7 +3770,7 @@
     .parameter "bssid"
 
     .prologue
-    .line 1112
+    .line 1089
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4140,18 +3778,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1113
+    .line 1090
     const/4 v1, 0x1
 
-    .line 1115
+    .line 1092
     :goto_0
     return v1
 
-    .line 1114
+    .line 1091
     :catch_0
     move-exception v0
 
-    .line 1115
+    .line 1092
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4164,7 +3802,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 881
+    .line 858
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4174,18 +3812,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 882
+    .line 859
     const/4 v1, 0x1
 
-    .line 884
+    .line 861
     :goto_0
     return v1
 
-    .line 883
+    .line 860
     :catch_0
     move-exception v0
 
-    .line 884
+    .line 861
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 .end method
@@ -4196,7 +3834,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 900
+    .line 877
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4206,15 +3844,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 903
+    .line 880
     :goto_0
     return v1
 
-    .line 902
+    .line 879
     :catch_0
     move-exception v0
 
-    .line 903
+    .line 880
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4227,23 +3865,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1385
+    .line 1362
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     if-nez v2, :cond_0
 
-    .line 1386
+    .line 1363
     const-string v2, "WifiManager"
 
     const-string/jumbo v3, "startWiFi() called when mService = null"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1393
+    .line 1370
     :goto_0
     return v1
 
-    .line 1390
+    .line 1367
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
@@ -4252,47 +3890,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1391
+    .line 1368
     const/4 v1, 0x1
 
     goto :goto_0
 
-    .line 1392
+    .line 1369
     :catch_0
     move-exception v0
 
-    .line 1393
+    .line 1370
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public startWifiOffload(Z)Z
-    .locals 2
-    .parameter "enabled"
-
-    .prologue
-    .line 2507
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->startWifiOffload(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 2509
-    :goto_0
-    return v1
-
-    .line 2508
-    :catch_0
-    move-exception v0
-
-    .line 2509
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
     goto :goto_0
 .end method
 
@@ -4303,7 +3911,7 @@
     .parameter "listener"
 
     .prologue
-    .line 1924
+    .line 1891
     if-nez p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
@@ -4314,7 +3922,7 @@
 
     throw v0
 
-    .line 1925
+    .line 1892
     :cond_0
     if-nez p2, :cond_1
 
@@ -4326,7 +3934,7 @@
 
     throw v0
 
-    .line 1927
+    .line 1894
     :cond_1
     iget-object v0, p1, Landroid/net/wifi/WifiManager$Channel;->mAsyncChannel:Lcom/android/internal/util/AsyncChannel;
 
@@ -4340,7 +3948,7 @@
 
     invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/internal/util/AsyncChannel;->sendMessage(IIILjava/lang/Object;)V
 
-    .line 1928
+    .line 1895
     return-void
 .end method
 
@@ -4349,7 +3957,7 @@
     .parameter "config"
 
     .prologue
-    .line 1892
+    .line 1859
     monitor-enter p0
 
     :try_start_0
@@ -4359,7 +3967,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1893
+    .line 1860
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->startWpsRegistrar(Landroid/net/wifi/WpsInfo;)V
@@ -4367,21 +3975,21 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1897
+    .line 1864
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 1894
+    .line 1861
     :catch_0
     move-exception v0
 
-    .line 1895
+    .line 1862
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 
-    .line 1892
+    .line 1859
     .end local v0           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v1
@@ -4395,7 +4003,7 @@
     .locals 2
 
     .prologue
-    .line 1410
+    .line 1387
     :try_start_0
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
@@ -4403,18 +4011,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1411
+    .line 1388
     const/4 v1, 0x1
 
-    .line 1413
+    .line 1390
     :goto_0
     return v1
 
-    .line 1412
+    .line 1389
     :catch_0
     move-exception v0
 
-    .line 1413
+    .line 1390
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -4425,7 +4033,7 @@
     .locals 0
 
     .prologue
-    .line 2570
+    .line 2529
     return-void
 .end method
 
@@ -4433,7 +4041,7 @@
     .locals 3
 
     .prologue
-    .line 1907
+    .line 1874
     monitor-enter p0
 
     :try_start_0
@@ -4443,7 +4051,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1908
+    .line 1875
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->stopWpsRegistrar()V
@@ -4451,21 +4059,21 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1912
+    .line 1879
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 1909
+    .line 1876
     :catch_0
     move-exception v0
 
-    .line 1910
+    .line 1877
     .local v0, e:Landroid/os/RemoteException;
     goto :goto_0
 
-    .line 1907
+    .line 1874
     .end local v0           #e:Landroid/os/RemoteException;
     :catchall_0
     move-exception v1

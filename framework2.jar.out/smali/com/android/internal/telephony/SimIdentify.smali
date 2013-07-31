@@ -2098,7 +2098,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "testNum = "
+    const-string/jumbo v4, "testNum = "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2233,6 +2233,8 @@
     goto/16 :goto_2
 
     .line 176
+    nop
+
     nop
 
     :pswitch_data_0

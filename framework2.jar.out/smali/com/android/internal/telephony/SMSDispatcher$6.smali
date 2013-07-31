@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2919
+    .line 2897
     iput-object p1, p0, Lcom/android/internal/telephony/SMSDispatcher$6;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "incomingNumber"
 
     .prologue
-    .line 2922
+    .line 2900
     iget-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$6;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->updateCallState(I)V
     invoke-static {v0, p1}, Lcom/android/internal/telephony/SMSDispatcher;->access$300(Lcom/android/internal/telephony/SMSDispatcher;I)V
 
-    .line 2923
+    .line 2901
     return-void
 .end method

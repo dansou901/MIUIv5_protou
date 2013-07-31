@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1205
+    .line 1207
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 5
 
     .prologue
-    .line 1208
+    .line 1210
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v2, :cond_0
@@ -52,16 +52,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1211
+    .line 1213
     :cond_0
     sget-boolean v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->CHECK_SCREEN_SHOT_CHORD:Z
 
     if-eqz v2, :cond_6
 
-    .line 1213
+    .line 1215
     const/4 v0, 0x0
 
-    .line 1215
+    .line 1217
     .local v0, appName:Ljava/lang/String;
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
@@ -74,14 +74,14 @@
 
     move-result-object v0
 
-    .line 1219
+    .line 1221
     :cond_1
     :goto_0
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v2, :cond_2
 
-    .line 1220
+    .line 1222
     const-string v2, "WindowManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -120,7 +120,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1222
+    .line 1224
     :cond_2
     if-eqz v0, :cond_5
 
@@ -166,7 +166,7 @@
 
     if-eqz v2, :cond_5
 
-    .line 1228
+    .line 1230
     :cond_3
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
@@ -178,7 +178,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1229
+    .line 1231
     :cond_4
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -192,7 +192,7 @@
 
     move-result-object v3
 
-    const v4, 0x407005b
+    const v4, 0x4070054
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -206,17 +206,17 @@
 
     invoke-virtual {v2}, Landroid/widget/Toast;->show()V
 
-    .line 1238
+    .line 1240
     .end local v0           #appName:Ljava/lang/String;
     :goto_1
     return-void
 
-    .line 1216
+    .line 1218
     .restart local v0       #appName:Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 1217
+    .line 1219
     .local v1, e:Landroid/os/RemoteException;
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
@@ -230,7 +230,7 @@
 
     goto/16 :goto_0
 
-    .line 1232
+    .line 1234
     .end local v1           #e:Landroid/os/RemoteException;
     :cond_5
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -240,7 +240,7 @@
 
     goto :goto_1
 
-    .line 1236
+    .line 1238
     .end local v0           #appName:Ljava/lang/String;
     :cond_6
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;

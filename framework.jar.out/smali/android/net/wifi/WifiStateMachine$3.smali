@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1334
+    .line 1259
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 1337
+    .line 1262
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -53,7 +53,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1339
+    .line 1264
     const-string/jumbo v1, "wifiP2pDevice"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -62,13 +62,13 @@
 
     check-cast v0, Landroid/net/wifi/p2p/WifiP2pDevice;
 
-    .line 1341
+    .line 1266
     .local v0, dev:Landroid/net/wifi/p2p/WifiP2pDevice;
     iget v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->status:I
 
     invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$102(I)I
 
-    .line 1342
+    .line 1267
     invoke-static {}, Landroid/net/wifi/WifiStateMachine;->access$200()Z
 
     move-result v1
@@ -83,14 +83,14 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1343
+    .line 1268
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$3;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const v2, 0x25001
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    .line 1345
+    .line 1270
     .end local v0           #dev:Landroid/net/wifi/p2p/WifiP2pDevice;
     :cond_0
     return-void

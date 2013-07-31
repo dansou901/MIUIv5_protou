@@ -60,7 +60,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mInOverScrollMode:Z
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$3400(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$3200(Landroid/webkit/WebViewClassic;)Z
 
     move-result v0
 

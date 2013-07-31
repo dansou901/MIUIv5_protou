@@ -647,7 +647,7 @@
 
     invoke-static {p0, v3, v4}, Landroid/app/ProgressDialog$Injector;->usingV5Style(Landroid/app/ProgressDialog;Landroid/content/Context;Landroid/widget/TextView;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method public onStart()V
@@ -694,6 +694,12 @@
 
     :cond_0
     iput-boolean p1, p0, Landroid/app/ProgressDialog;->mIndeterminate:Z
+
+    iget-object v3, p0, Landroid/app/ProgressDialog;->mContext:Landroid/content/Context;
+
+    iget-object v4, p0, Landroid/app/ProgressDialog;->mMessageView:Landroid/widget/TextView;
+
+    invoke-static {p0, v3, v4}, Landroid/app/ProgressDialog$Injector;->usingV5Style(Landroid/app/ProgressDialog;Landroid/content/Context;Landroid/widget/TextView;)V
 
     goto :goto_0
 .end method

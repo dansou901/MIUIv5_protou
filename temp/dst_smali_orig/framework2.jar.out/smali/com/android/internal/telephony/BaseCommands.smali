@@ -1646,14 +1646,6 @@
     return-void
 .end method
 
-.method public getDpdtSwitchValue(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
 .method public getDrxInfo(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
@@ -2147,14 +2139,6 @@
 .end method
 
 .method public queryAvailableBandMode(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
-.method public queryAvoidNetwork(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
 
@@ -4422,14 +4406,6 @@
     return-void
 .end method
 
-.method public requestClearAvoidNetwork(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
 .method public requestClearLocProcessDB(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
@@ -4829,14 +4805,6 @@
 .method public requestSSDUpdateConfirm(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
     .parameter "authbs"
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
-.method public requestSelectNextNetwork(Landroid/os/Message;)V
-    .locals 0
     .parameter "response"
 
     .prologue
@@ -5427,15 +5395,6 @@
 .method public setDeviceMemoryFull(ZLandroid/os/Message;)V
     .locals 0
     .parameter "memoryFull"
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
-.method public setDpdtSwitchValue(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "dpdt"
     .parameter "response"
 
     .prologue
@@ -6243,15 +6202,6 @@
     .locals 0
     .parameter "enable"
     .parameter "result"
-
-    .prologue
-    return-void
-.end method
-
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
 
     .prologue
     return-void

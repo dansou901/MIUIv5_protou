@@ -52,11 +52,9 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
     .prologue
-    const/4 v6, 0x0
-
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -77,7 +75,7 @@
     iget v5, p0, Lcom/android/server/pm/PackageManagerService$11;->val$userId:I
 
     #calls: Lcom/android/server/pm/PackageManagerService;->deleteApplicationCacheFilesLI(Ljava/lang/String;I)Z
-    invoke-static {v2, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
+    invoke-static {v2, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$4100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
 
     move-result v1
 
@@ -90,15 +88,10 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$11;->val$packageName:Ljava/lang/String;
 
+    const/4 v4, 0x0
+
     #calls: Lcom/android/server/pm/PackageManagerService;->clearExternalStorageDataSync(Ljava/lang/String;Z)V
-    invoke-static {v2, v3, v6}, Lcom/android/server/pm/PackageManagerService;->access$4100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Z)V
-
-    iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$11;->val$packageName:Ljava/lang/String;
-
-    #calls: Lcom/android/server/pm/PackageManagerService;->clearSecExternalStorageDataSync(Ljava/lang/String;Z)V
-    invoke-static {v2, v3, v6}, Lcom/android/server/pm/PackageManagerService;->access$4200(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Z)V
+    invoke-static {v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Z)V
 
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$11;->val$observer:Landroid/content/pm/IPackageDataObserver;
 

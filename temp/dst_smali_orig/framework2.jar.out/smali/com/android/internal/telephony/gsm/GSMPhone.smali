@@ -8,7 +8,8 @@
     value = {
         Lcom/android/internal/telephony/gsm/GSMPhone$3;,
         Lcom/android/internal/telephony/gsm/GSMPhone$PendingOperation;,
-        Lcom/android/internal/telephony/gsm/GSMPhone$NetworkSelectMessage;
+        Lcom/android/internal/telephony/gsm/GSMPhone$NetworkSelectMessage;,
+        Lcom/android/internal/telephony/gsm/GSMPhone$Injector;
     }
 .end annotation
 
@@ -97,7 +98,7 @@
 
 .field private mEsn:Ljava/lang/String;
 
-.field public mHtcGsmDataRoamGuard:Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;
+.field mHtcGsmDataRoamGuard:Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;
 
 .field mHtcGsmModemLink:Lcom/android/internal/telephony/gsm/HtcGsmModemLink;
 
@@ -3208,6 +3209,10 @@
     .end annotation
 
     .prologue
+    const/16 v0, 0xf
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->removeMessages(I)V
+
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mCT:Lcom/android/internal/telephony/gsm/GsmCallTracker;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmCallTracker;->acceptCall()V
@@ -3455,9 +3460,33 @@
 .end method
 
 .method public checkTestIcc()Z
-    .locals 1
+    .locals 3
 
     .prologue
+    const-string v0, "GSM"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "[checkTestIcc] mTestIcc = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mTestIcc:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-boolean v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mTestIcc:Z
 
     return v0
@@ -5134,8 +5163,19 @@
 
 .method public getDeviceId()Ljava/lang/String;
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+
+    invoke-static {p0, v0}, Lcom/android/internal/telephony/gsm/GSMPhone$Injector;->checkEmptyImei(Lcom/android/internal/telephony/gsm/GSMPhone;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
 
     return-object v0
@@ -6984,6 +7024,12 @@
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->sendDeviceIdReadyBroadcast()V
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->setDeviceIdSystemProperty()V
 
     goto/16 :goto_0
 

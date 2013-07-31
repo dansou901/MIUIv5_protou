@@ -103,7 +103,7 @@
     iget-object v2, p0, Lcom/htc/server/WirelessDisplayService$DialogResultReceiver;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #calls: Lcom/htc/server/WirelessDisplayService;->setDialogResult(I)V
-    invoke-static {v2, v5}, Lcom/htc/server/WirelessDisplayService;->access$9100(Lcom/htc/server/WirelessDisplayService;I)V
+    invoke-static {v2, v5}, Lcom/htc/server/WirelessDisplayService;->access$7600(Lcom/htc/server/WirelessDisplayService;I)V
 
     .end local v1           #finalDialogResult:I
     :cond_0
@@ -119,7 +119,7 @@
     const/4 v3, 0x0
 
     #calls: Lcom/htc/server/WirelessDisplayService;->setDialogResult(I)V
-    invoke-static {v2, v3}, Lcom/htc/server/WirelessDisplayService;->access$9100(Lcom/htc/server/WirelessDisplayService;I)V
+    invoke-static {v2, v3}, Lcom/htc/server/WirelessDisplayService;->access$7600(Lcom/htc/server/WirelessDisplayService;I)V
 
     goto :goto_0
 .end method

@@ -10,7 +10,8 @@
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;,
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$QueryPoolException;,
         Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;,
-        Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;
+        Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;,
+        Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;
     }
 .end annotation
 
@@ -240,7 +241,7 @@
 
     .line 670
     :goto_2
-    const-string v6, "type="
+    const-string/jumbo v6, "type="
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -335,7 +336,11 @@
     :cond_5
     sget-object v6, Landroid/provider/ContactsContract$PhoneLookup;->CONTENT_FILTER_URI:Landroid/net/Uri;
 
-    invoke-static {p0}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$Injector;->getPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/net/Uri;->encode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -506,7 +511,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "starting query for URI: "
+    const-string/jumbo v3, "starting query for URI: "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -687,7 +692,7 @@
 
     .line 486
     .local v7, contactRef:Landroid/net/Uri;
-    const-string v9, "upper(data1)=? AND mimetype=\'vnd.android.cursor.item/sip_address\'"
+    const-string/jumbo v9, "upper(data1)=? AND mimetype=\'vnd.android.cursor.item/sip_address\'"
 
     .line 489
     .local v9, selection:Ljava/lang/String;

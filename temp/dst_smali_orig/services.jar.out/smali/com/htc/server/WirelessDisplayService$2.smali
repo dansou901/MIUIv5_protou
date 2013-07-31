@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
@@ -45,37 +45,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7300()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
-
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8800()Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
-
-    monitor-exit v1
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

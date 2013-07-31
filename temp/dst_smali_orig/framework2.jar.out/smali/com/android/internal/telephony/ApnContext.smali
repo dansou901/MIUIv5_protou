@@ -1604,5 +1604,5 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto/16 :goto_0
 .end method

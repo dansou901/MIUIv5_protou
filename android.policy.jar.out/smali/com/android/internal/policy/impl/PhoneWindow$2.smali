@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 3212
+    .line 3344
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->val$needsMenuKey:Z
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    .line 3215
+    .line 3347
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -56,7 +56,7 @@
 
     if-nez v1, :cond_1
 
-    .line 3216
+    .line 3348
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->val$needsMenuKey:Z
@@ -64,18 +64,18 @@
     #calls: Lcom/android/internal/policy/impl/PhoneWindow;->showNavigationBarTips(Z)V
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow;->access$1600(Lcom/android/internal/policy/impl/PhoneWindow;Z)V
 
-    .line 3226
+    .line 3358
     :cond_0
     :goto_0
     return-void
 
-    .line 3217
+    .line 3349
     :cond_1
-    sget-boolean v1, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
     if-eqz v1, :cond_0
 
-    .line 3218
+    .line 3350
     const-string v1, "PhoneWindow"
 
     const-string v2, "showNavigationBarTips, ignore since window is destroyed"
@@ -86,23 +86,23 @@
 
     goto :goto_0
 
-    .line 3220
+    .line 3352
     :catch_0
     move-exception v0
 
-    .line 3221
+    .line 3353
     .local v0, ex:Ljava/lang/Exception;
-    sget-boolean v1, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
     if-eqz v1, :cond_2
 
     const-string v1, "PhoneWindow"
 
-    const-string v2, "unable to show navigation bar"
+    const-string v2, "unable to update navigation bar"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 3223
+    .line 3355
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$2;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -110,7 +110,7 @@
 
     iput-object v2, v1, Lcom/android/internal/policy/impl/PhoneWindow;->mCheckBox:Lcom/htc/widget/HtcCheckBox;
 
-    .line 3224
+    .line 3356
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->mFirstCheck:Z

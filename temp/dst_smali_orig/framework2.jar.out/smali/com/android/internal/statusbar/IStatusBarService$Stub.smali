@@ -62,6 +62,8 @@
 
 .field static final TRANSACTION_setImeWindowStatus:I = 0x8
 
+.field static final TRANSACTION_setStatus:I = 0x14
+
 .field static final TRANSACTION_setSystemUiVisibility:I = 0xf
 
 .field static final TRANSACTION_toggleRecentApps:I = 0x11
@@ -776,15 +778,38 @@
 
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
+    move-result v2
+
+    .local v2, _arg0:I
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    .local v3, _arg1:Landroid/os/IBinder;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .local v4, _arg2:Ljava/lang/String;
+    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
+
     move-result v1
 
     if-eqz v1, :cond_5
 
-    const/4 v2, 0x1
+    sget-object v1, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .restart local v2       #_arg0:Z
+    move-object/from16 v0, p2
+
+    invoke-interface {v1, v0}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/os/Bundle;
+
+    .local v5, _arg3:Landroid/os/Bundle;
     :goto_6
-    invoke-virtual {p0, v2}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->setBackgroundTransparent(Z)V
+    invoke-virtual {p0, v2, v3, v4, v5}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->setStatus(ILandroid/os/IBinder;Ljava/lang/String;Landroid/os/Bundle;)V
 
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
@@ -792,10 +817,11 @@
 
     goto/16 :goto_0
 
-    .end local v2           #_arg0:Z
+    .end local v5           #_arg3:Landroid/os/Bundle;
     :cond_5
-    const/4 v2, 0x0
+    const/4 v5, 0x0
 
+    .restart local v5       #_arg3:Landroid/os/Bundle;
     goto :goto_6
 
     :sswitch_15
@@ -813,7 +839,7 @@
 
     const/4 v2, 0x1
 
-    .restart local v2       #_arg0:Z
+    .restart local v2       #_arg0:I
     :goto_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -833,18 +859,20 @@
 
     goto/16 :goto_0
 
-    .end local v2           #_arg0:Z
+    .end local v2           #_arg0:I
     .end local v3           #_arg1:Z
     :cond_6
     const/4 v2, 0x0
 
     goto :goto_7
 
-    .restart local v2       #_arg0:Z
+    .restart local v2       #_arg0:I
     :cond_7
     const/4 v3, 0x0
 
     goto :goto_8
+
+    nop
 
     nop
 

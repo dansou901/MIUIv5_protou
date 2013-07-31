@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2765
+    .line 2406
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$7;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,54 +35,27 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v2, 0x1
-
-    .line 2768
+    .line 2409
     const-string v0, "WirelessDisplayService"
 
-    const-string v1, "Receive Configuration Tool notifies User started Dongle FW upgrade"
+    const-string v1, "Receive Configuration Tool notify WIFI DFS"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2771
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8900()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2410
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7100()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    const/4 v1, 0x1
 
-    .line 2772
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$7;->this$0:Lcom/htc/server/WirelessDisplayService;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    invoke-virtual {v0, v2}, Lcom/htc/server/WirelessDisplayService;->setWifiNetworkLimit(Z)V
-
-    .line 2773
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$7;->this$0:Lcom/htc/server/WirelessDisplayService;
-
-    #calls: Lcom/htc/server/WirelessDisplayService;->cancelTurnOffConcurrentHotspot()V
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$8700(Lcom/htc/server/WirelessDisplayService;)V
-
-    .line 2774
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$7;->this$0:Lcom/htc/server/WirelessDisplayService;
-
-    const-wide/32 v1, 0x124f80
-
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v1
-
-    #calls: Lcom/htc/server/WirelessDisplayService;->turnOffConcurrentHotspot(J)V
-    invoke-static {v0, v1, v2}, Lcom/htc/server/WirelessDisplayService;->access$9700(Lcom/htc/server/WirelessDisplayService;J)V
-
-    .line 2775
+    .line 2411
     return-void
 .end method

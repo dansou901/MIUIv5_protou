@@ -1602,10 +1602,6 @@
 
     if-eq v3, v12, :cond_0
 
-    const/4 v12, 0x1
-
-    if-eq v3, v12, :cond_0
-
     invoke-interface {v9}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v3

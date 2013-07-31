@@ -84,8 +84,6 @@
 
 .field static final TRANSACTION_setBackupProvisioned:I = 0x8
 
-.field static final TRANSACTION_setTransportForInstall:I = 0x1e
-
 
 # direct methods
 .method public constructor <init>()V
@@ -1349,35 +1347,6 @@
 
     goto/16 :goto_0
 
-    .end local v2           #_arg0:Ljava/lang/String;
-    .end local v3           #_arg1:Ljava/lang/String;
-    :sswitch_1e
-    const-string v1, "android.app.backup.IBackupManager"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .restart local v2       #_arg0:Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v3
-
-    .restart local v3       #_arg1:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2, v3}, Landroid/app/backup/IBackupManager$Stub;->setTransportForInstall(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v1, 0x1
-
-    goto/16 :goto_0
-
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -1409,7 +1378,6 @@
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
         0x1d -> :sswitch_1d
-        0x1e -> :sswitch_1e
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

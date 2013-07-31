@@ -147,17 +147,17 @@
     const-string v6, "HdmiReceiver"
 
     #calls: Lcom/htc/server/WirelessDisplayService;->addToHtcWDSrvHistory(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-static {v5, v6, v2}, Lcom/htc/server/WirelessDisplayService;->access$4300(Lcom/htc/server/WirelessDisplayService;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v5, v6, v2}, Lcom/htc/server/WirelessDisplayService;->access$2900(Lcom/htc/server/WirelessDisplayService;Ljava/lang/String;[Ljava/lang/Object;)V
 
     if-ne v4, v8, :cond_1
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9500()Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7800()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
     invoke-virtual {v5, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9600()Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
@@ -171,7 +171,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v5
 
@@ -182,7 +182,7 @@
     move-result-object v3
 
     .local v3, msgHdmi:Landroid/os/Message;
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v5
 
@@ -208,13 +208,13 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9600()Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
     invoke-virtual {v5, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9500()Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7800()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 

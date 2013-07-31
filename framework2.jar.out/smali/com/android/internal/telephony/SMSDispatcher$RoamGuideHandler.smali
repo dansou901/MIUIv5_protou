@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 3756
+    .line 3646
     iput-object p1, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
-    .line 3757
+    .line 3647
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 3758
+    .line 3648
     return-void
 .end method
 
@@ -46,16 +46,16 @@
 
     const/4 v6, 0x1
 
-    .line 3762
+    .line 3652
     iget v8, p1, Landroid/os/Message;->what:I
 
     packed-switch v8, :pswitch_data_0
 
-    .line 3817
+    .line 3707
     :goto_0
     return-void
 
-    .line 3764
+    .line 3654
     :pswitch_0
     const-string v8, "RoamingGuide"
 
@@ -63,7 +63,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3766
+    .line 3656
     iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     iget-object v8, v8, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
@@ -76,7 +76,7 @@
 
     check-cast v4, Landroid/telephony/TelephonyManager;
 
-    .line 3769
+    .line 3659
     .local v4, telephonyManager:Landroid/telephony/TelephonyManager;
     invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
@@ -86,7 +86,7 @@
 
     if-ne v8, v9, :cond_7
 
-    .line 3771
+    .line 3661
     const-string v8, "RoamingGuide"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -117,7 +117,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3773
+    .line 3663
     iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     iget-object v8, v8, Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/Phone;
@@ -130,14 +130,14 @@
 
     if-ne v8, v9, :cond_1
 
-    .line 3775
+    .line 3665
     const-string v6, "RoamingGuide"
 
     const-string v7, " CDMA roaming !!!"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3776
+    .line 3666
     iget-object v6, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -147,9 +147,9 @@
     iget v9, p1, Landroid/os/Message;->arg2:I
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->showRoamingGuideDialogAndWait(Ljava/lang/Object;II)V
-    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$1100(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
+    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$700(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
 
-    .line 3813
+    .line 3703
     :cond_0
     :goto_1
     const-string v6, "RoamingGuide"
@@ -160,18 +160,18 @@
 
     goto :goto_0
 
-    .line 3778
+    .line 3668
     :cond_1
     iget-object v8, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-eqz v8, :cond_0
 
-    .line 3779
+    .line 3669
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
 
-    .line 3780
+    .line 3670
     .local v5, tracker:Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
     iget v8, p1, Landroid/os/Message;->arg1:I
 
@@ -179,7 +179,7 @@
 
     move v1, v6
 
-    .line 3781
+    .line 3671
     .local v1, bFirstOfAll:Z
     :goto_2
     iget v8, p1, Landroid/os/Message;->arg2:I
@@ -188,7 +188,7 @@
 
     move v2, v6
 
-    .line 3783
+    .line 3673
     .local v2, bLastOfAll:Z
     :goto_3
     iget-object v7, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
@@ -199,7 +199,7 @@
 
     if-eqz v7, :cond_4
 
-    .line 3784
+    .line 3674
     iget-object v6, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     invoke-virtual {v6, v5, v1, v2}, Lcom/android/internal/telephony/SMSDispatcher;->sendSms(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;ZZ)V
@@ -211,17 +211,17 @@
     :cond_2
     move v1, v7
 
-    .line 3780
+    .line 3670
     goto :goto_2
 
     .restart local v1       #bFirstOfAll:Z
     :cond_3
     move v2, v7
 
-    .line 3781
+    .line 3671
     goto :goto_3
 
-    .line 3788
+    .line 3678
     .restart local v2       #bLastOfAll:Z
     :cond_4
     iget-object v7, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
@@ -236,7 +236,7 @@
 
     move-result v3
 
-    .line 3790
+    .line 3680
     .local v3, ss:I
     const-string v7, "RoamingGuide"
 
@@ -270,7 +270,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3791
+    .line 3681
     iget-object v7, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->isNotInService(I)Z
@@ -280,14 +280,14 @@
 
     if-eqz v7, :cond_5
 
-    .line 3792
+    .line 3682
     iget-object v6, v5, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->mSentIntent:Landroid/app/PendingIntent;
 
     invoke-static {v3, v6}, Lcom/android/internal/telephony/SMSDispatcher;->handleNotInService(ILandroid/app/PendingIntent;)V
 
     goto :goto_1
 
-    .line 3794
+    .line 3684
     :cond_5
     iget-object v7, v5, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->mSentIntent:Landroid/app/PendingIntent;
 
@@ -295,7 +295,7 @@
 
     move-result-object v0
 
-    .line 3795
+    .line 3685
     .local v0, appName:Ljava/lang/String;
     iget-object v7, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
@@ -310,14 +310,14 @@
 
     if-eqz v6, :cond_6
 
-    .line 3796
+    .line 3686
     iget-object v6, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     invoke-virtual {v6, v5, v1, v2}, Lcom/android/internal/telephony/SMSDispatcher;->sendSms(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;ZZ)V
 
     goto :goto_1
 
-    .line 3798
+    .line 3688
     :cond_6
     const/4 v6, 0x4
 
@@ -329,7 +329,7 @@
 
     goto/16 :goto_1
 
-    .line 3808
+    .line 3698
     .end local v0           #appName:Ljava/lang/String;
     .end local v1           #bFirstOfAll:Z
     .end local v2           #bLastOfAll:Z
@@ -342,7 +342,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3809
+    .line 3699
     iget-object v6, p0, Lcom/android/internal/telephony/SMSDispatcher$RoamGuideHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -352,11 +352,11 @@
     iget v9, p1, Landroid/os/Message;->arg2:I
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->showRoamingGuideDialogAndWait(Ljava/lang/Object;II)V
-    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$1100(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
+    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$700(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
 
     goto/16 :goto_1
 
-    .line 3762
+    .line 3652
     nop
 
     :pswitch_data_0

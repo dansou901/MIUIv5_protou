@@ -61,19 +61,19 @@
     .end annotation
 
     .prologue
-    .line 1010
+    .line 974
     .local p2, av:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local p3, ac:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$TetherStateChange;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1011
+    .line 975
     iput-object p2, p0, Landroid/net/wifi/WifiStateMachine$TetherStateChange;->available:Ljava/util/ArrayList;
 
-    .line 1012
+    .line 976
     iput-object p3, p0, Landroid/net/wifi/WifiStateMachine$TetherStateChange;->active:Ljava/util/ArrayList;
 
-    .line 1013
+    .line 977
     return-void
 .end method

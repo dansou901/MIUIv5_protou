@@ -49,7 +49,7 @@
 
     .line 69
     .local v1, localeList:[Ljava/lang/String;
-    const-string v2, "system"
+    const-string/jumbo v2, "system"
 
     const-string v3, "locale"
 
@@ -104,7 +104,7 @@
     const/4 v5, 0x0
 
     .line 98
-    const-string v8, "total_list"
+    const-string/jumbo v8, "total_list"
 
     invoke-virtual {p0, v8}, Lcom/htc/customize/storage/customize/HtcCustomizedData;->getStringWithFunctionName(Ljava/lang/String;)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     .line 117
     .local v4, locale:Ljava/lang/String;
-    const-string v8, "yes"
+    const-string/jumbo v8, "yes"
 
     invoke-virtual {v8, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 

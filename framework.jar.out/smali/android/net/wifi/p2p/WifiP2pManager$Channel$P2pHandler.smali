@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 708
+    .line 696
     iput-object p1, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
-    .line 709
+    .line 697
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 710
+    .line 698
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 714
+    .line 702
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     iget v7, p1, Landroid/os/Message;->arg2:I
@@ -54,13 +54,13 @@
 
     move-result-object v2
 
-    .line 715
+    .line 703
     .local v2, listener:Ljava/lang/Object;
     iget v6, p1, Landroid/os/Message;->what:I
 
     sparse-switch v6, :sswitch_data_0
 
-    .line 823
+    .line 799
     const-string v6, "WifiP2pManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -83,13 +83,13 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 826
+    .line 802
     .end local v2           #listener:Ljava/lang/Object;
     :cond_0
     :goto_0
     return-void
 
-    .line 717
+    .line 705
     .restart local v2       #listener:Ljava/lang/Object;
     :sswitch_0
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
@@ -101,7 +101,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 718
+    .line 706
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mChannelListener:Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;
@@ -111,7 +111,7 @@
 
     invoke-interface {v6}, Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;->onChannelDisconnected()V
 
-    .line 719
+    .line 707
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #setter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mChannelListener:Landroid/net/wifi/p2p/WifiP2pManager$ChannelListener;
@@ -119,11 +119,11 @@
 
     goto :goto_0
 
-    .line 737
+    .line 725
     :sswitch_1
     if-eqz v2, :cond_0
 
-    .line 738
+    .line 726
     check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
     .end local v2           #listener:Ljava/lang/Object;
@@ -133,12 +133,12 @@
 
     goto :goto_0
 
-    .line 756
+    .line 744
     .restart local v2       #listener:Ljava/lang/Object;
     :sswitch_2
     if-eqz v2, :cond_0
 
-    .line 757
+    .line 745
     check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
 
     .end local v2           #listener:Ljava/lang/Object;
@@ -146,18 +146,18 @@
 
     goto :goto_0
 
-    .line 761
+    .line 749
     .restart local v2       #listener:Ljava/lang/Object;
     :sswitch_3
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v3, Landroid/net/wifi/p2p/WifiP2pDeviceList;
 
-    .line 762
+    .line 750
     .local v3, peers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
     if-eqz v2, :cond_0
 
-    .line 763
+    .line 751
     check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$PeerListListener;
 
     .end local v2           #listener:Ljava/lang/Object;
@@ -165,61 +165,19 @@
 
     goto :goto_0
 
-    .line 767
+    .line 755
     .end local v3           #peers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
     .restart local v2       #listener:Ljava/lang/Object;
     :sswitch_4
-    const-string v6, "WifiP2pManager"
-
-    const-string v7, "Update WFD settings succeeded"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 768
-    if-eqz v2, :cond_0
-
-    .line 769
-    check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
-
-    .end local v2           #listener:Ljava/lang/Object;
-    invoke-interface {v2}, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;->onSuccess()V
-
-    goto :goto_0
-
-    .line 773
-    .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_5
-    const-string v6, "WifiP2pManager"
-
-    const-string v7, "Update WFD settings failed"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 774
-    if-eqz v2, :cond_0
-
-    .line 775
-    check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
-
-    .end local v2           #listener:Ljava/lang/Object;
-    const/4 v6, 0x0
-
-    invoke-interface {v2, v6}, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;->onFailure(I)V
-
-    goto :goto_0
-
-    .line 779
-    .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_6
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Landroid/net/wifi/p2p/WifiP2pInfo;
 
-    .line 780
+    .line 756
     .local v5, wifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
     if-eqz v2, :cond_0
 
-    .line 781
+    .line 757
     check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ConnectionInfoListener;
 
     .end local v2           #listener:Ljava/lang/Object;
@@ -227,19 +185,19 @@
 
     goto :goto_0
 
-    .line 785
+    .line 761
     .end local v5           #wifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
     .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_7
+    :sswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/p2p/WifiP2pGroup;
 
-    .line 786
+    .line 762
     .local v1, group:Landroid/net/wifi/p2p/WifiP2pGroup;
     if-eqz v2, :cond_0
 
-    .line 787
+    .line 763
     check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$GroupInfoListener;
 
     .end local v2           #listener:Ljava/lang/Object;
@@ -247,15 +205,15 @@
 
     goto :goto_0
 
-    .line 791
+    .line 767
     .end local v1           #group:Landroid/net/wifi/p2p/WifiP2pGroup;
     .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_8
+    :sswitch_6
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
 
-    .line 792
+    .line 768
     .local v4, resp:Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
@@ -264,9 +222,9 @@
 
     goto :goto_0
 
-    .line 795
+    .line 771
     .end local v4           #resp:Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
-    :sswitch_9
+    :sswitch_7
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -276,12 +234,12 @@
 
     if-eqz v6, :cond_0
 
-    .line 796
+    .line 772
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 797
+    .line 773
     .local v0, bundle:Landroid/os/Bundle;
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
@@ -308,11 +266,11 @@
 
     invoke-interface {v8, v6, v7}, Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;->onConnectionRequested(Landroid/net/wifi/p2p/WifiP2pDevice;Landroid/net/wifi/p2p/WifiP2pConfig;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 805
+    .line 781
     .end local v0           #bundle:Landroid/os/Bundle;
-    :sswitch_a
+    :sswitch_8
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -322,12 +280,12 @@
 
     if-eqz v6, :cond_0
 
-    .line 806
+    .line 782
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 807
+    .line 783
     .restart local v0       #bundle:Landroid/os/Bundle;
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
@@ -346,9 +304,9 @@
 
     goto/16 :goto_0
 
-    .line 812
+    .line 788
     .end local v0           #bundle:Landroid/os/Bundle;
-    :sswitch_b
+    :sswitch_9
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -358,7 +316,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 813
+    .line 789
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -370,8 +328,8 @@
 
     goto/16 :goto_0
 
-    .line 817
-    :sswitch_c
+    .line 793
+    :sswitch_a
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -381,7 +339,7 @@
 
     if-eqz v6, :cond_0
 
-    .line 818
+    .line 794
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -393,7 +351,7 @@
 
     invoke-interface {v6, v7}, Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;->onDetached(I)V
 
-    .line 819
+    .line 795
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #setter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -401,7 +359,7 @@
 
     goto/16 :goto_0
 
-    .line 715
+    .line 703
     nop
 
     :sswitch_data_0
@@ -420,8 +378,8 @@
         0x22011 -> :sswitch_1
         0x22012 -> :sswitch_2
         0x22014 -> :sswitch_3
-        0x22016 -> :sswitch_6
-        0x22018 -> :sswitch_7
+        0x22016 -> :sswitch_4
+        0x22018 -> :sswitch_5
         0x2201d -> :sswitch_1
         0x2201e -> :sswitch_2
         0x22020 -> :sswitch_1
@@ -436,14 +394,12 @@
         0x2202d -> :sswitch_2
         0x2202f -> :sswitch_1
         0x22030 -> :sswitch_2
-        0x22032 -> :sswitch_8
+        0x22032 -> :sswitch_6
         0x22034 -> :sswitch_1
         0x22035 -> :sswitch_2
-        0x22037 -> :sswitch_c
-        0x22038 -> :sswitch_b
-        0x22039 -> :sswitch_9
-        0x2203a -> :sswitch_a
-        0x2203c -> :sswitch_4
-        0x2203d -> :sswitch_5
+        0x22037 -> :sswitch_a
+        0x22038 -> :sswitch_9
+        0x22039 -> :sswitch_7
+        0x2203a -> :sswitch_8
     .end sparse-switch
 .end method

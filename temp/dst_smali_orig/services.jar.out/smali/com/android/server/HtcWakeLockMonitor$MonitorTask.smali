@@ -108,7 +108,7 @@
 
     iget-object v7, p0, Lcom/android/server/HtcWakeLockMonitor$MonitorTask;->this$0:Lcom/android/server/HtcWakeLockMonitor;
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v9
 

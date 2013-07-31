@@ -3,6 +3,15 @@
 .source "ViewConfiguration.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/view/ViewConfiguration$1;,
+        Landroid/view/ViewConfiguration$Injector;
+    }
+.end annotation
+
+
 # static fields
 .field public static final ALPHA_THRESHOLD:F = 0.020833334f
 
@@ -334,10 +343,6 @@
 
     float-to-int v10, v10
 
-    invoke-static {p1, v10}, Landroid/view/ViewConfiguration$Injector;->getOverScrollDistance(Landroid/content/Context;I)I
-
-    move-result v10
-
     iput v10, p0, Landroid/view/ViewConfiguration;->mOverscrollDistance:I
 
     const/high16 v10, 0x40c0
@@ -347,10 +352,6 @@
     add-float/2addr v10, v12
 
     float-to-int v10, v10
-
-    invoke-static {p1, v10}, Landroid/view/ViewConfiguration$Injector;->getOverFlingDistance(Landroid/content/Context;I)I
-
-    move-result v10
 
     iput v10, p0, Landroid/view/ViewConfiguration;->mOverflingDistance:I
 
@@ -440,6 +441,17 @@
     goto :goto_2
 .end method
 
+.method synthetic constructor <init>(Landroid/content/Context;Landroid/view/ViewConfiguration$1;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-direct {p0, p1}, Landroid/view/ViewConfiguration;-><init>(Landroid/content/Context;)V
+
+    return-void
+.end method
+
 .method public static get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
     .locals 5
     .parameter "context"
@@ -449,12 +461,11 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_miui_0
-
+    if-eqz v0, :cond_0
 
     return-object v0
 
-    :cond_miui_0
+    :cond_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -482,7 +493,7 @@
     check-cast v0, Landroid/view/ViewConfiguration;
 
     .local v0, configuration:Landroid/view/ViewConfiguration;
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     new-instance v0, Landroid/view/ViewConfiguration;
 
@@ -494,7 +505,7 @@
 
     invoke-virtual {v3, v1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    :cond_0
+    :cond_1
     return-object v0
 .end method
 
@@ -565,6 +576,18 @@
     const/16 v0, 0x96
 
     return v0
+.end method
+
+.method public static getInstance(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+    .locals 1
+    .parameter "context"
+
+    .prologue
+    new-instance v0, Landroid/view/ViewConfiguration;
+
+    invoke-direct {v0, p0}, Landroid/view/ViewConfiguration;-><init>(Landroid/content/Context;)V
+
+    return-object v0
 .end method
 
 .method public static getJumpTapTimeout()I
@@ -875,16 +898,4 @@
     iget-boolean v0, p0, Landroid/view/ViewConfiguration;->mFadingMarqueeEnabled:Z
 
     return v0
-.end method
-
-.method public static getInstance(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-    .locals 1
-    .parameter "context"
-
-    .prologue
-    new-instance v0, Landroid/view/ViewConfiguration;
-
-    invoke-direct {v0, p0}, Landroid/view/ViewConfiguration;-><init>(Landroid/content/Context;)V
-
-    return-object v0
 .end method

@@ -85,13 +85,6 @@
     goto :goto_0
 
     :sswitch_3
-    const/16 v2, -0xa
-
-    invoke-static {v2}, Landroid/os/Process;->setThreadPriority(I)V
-
-    goto :goto_0
-
-    :sswitch_4
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_1
@@ -115,7 +108,7 @@
 
     goto :goto_0
 
-    :sswitch_5
+    :sswitch_4
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_2
@@ -139,7 +132,7 @@
 
     goto :goto_0
 
-    :sswitch_6
+    :sswitch_5
     sget-object v2, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     if-nez v2, :cond_3
@@ -163,7 +156,7 @@
 
     goto :goto_0
 
-    :sswitch_7
+    :sswitch_6
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/os/Message;
@@ -174,7 +167,7 @@
     goto :goto_0
 
     .end local v1           #m:Landroid/os/Message;
-    :sswitch_8
+    :sswitch_7
     #calls: Landroid/webkit/WebViewCore;->nativeCertTrustChanged()V
     invoke-static {}, Landroid/webkit/WebViewCore;->access$700()V
 
@@ -189,11 +182,10 @@
         0x0 -> :sswitch_0
         0x1 -> :sswitch_1
         0x2 -> :sswitch_2
-        0x3 -> :sswitch_3
-        0xb9 -> :sswitch_4
-        0xba -> :sswitch_5
-        0xc1 -> :sswitch_6
-        0xc5 -> :sswitch_7
-        0xdc -> :sswitch_8
+        0xb9 -> :sswitch_3
+        0xba -> :sswitch_4
+        0xc1 -> :sswitch_5
+        0xc5 -> :sswitch_6
+        0xdc -> :sswitch_7
     .end sparse-switch
 .end method

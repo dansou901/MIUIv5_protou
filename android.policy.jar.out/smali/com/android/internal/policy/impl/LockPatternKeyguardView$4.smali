@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 338
+    .line 337
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 340
+    .line 339
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mScreenOn:Z
@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 341
+    .line 340
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     sget-object v1, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->UnlockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
@@ -61,11 +61,11 @@
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->updateScreen(Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
     invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$500(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
 
-    .line 345
+    .line 344
     :goto_0
     return-void
 
-    .line 343
+    .line 342
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$4;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 

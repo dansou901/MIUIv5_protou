@@ -19,18 +19,18 @@
     .locals 3
 
     .prologue
-    .line 1548
+    .line 1545
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v1, "kii sqlite hook"
 
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
-    .line 1549
+    .line 1546
     .local v0, mThread:Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
-    .line 1550
+    .line 1547
     new-instance v1, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -41,7 +41,7 @@
 
     invoke-static {v1}, Landroid/database/sqlite/SQLiteConnection;->access$702(Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;)Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;
 
-    .line 1551
+    .line 1548
     return-void
 .end method
 
@@ -49,7 +49,7 @@
     .locals 0
 
     .prologue
-    .line 1546
+    .line 1543
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -60,7 +60,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1546
+    .line 1543
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnection$HandlerInitializer;-><init>()V
 
     return-void

@@ -208,7 +208,7 @@
     return-void
 .end method
 
-.method static synthetic access$9600(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
+.method static synthetic access$9700(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
     .locals 1
     .parameter "x0"
 
@@ -218,7 +218,7 @@
     return v0
 .end method
 
-.method static synthetic access$9700(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
+.method static synthetic access$9800(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
     .locals 1
     .parameter "x0"
 
@@ -231,7 +231,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 10
 
     .prologue
     const/4 v2, 0x1
@@ -239,7 +239,7 @@
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v1
 
@@ -277,7 +277,7 @@
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -287,9 +287,9 @@
 
     const v3, 0x10900a4
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v1, v3, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v1, v3, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v4
 
@@ -301,29 +301,16 @@
     invoke-direct {v5, p0}, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;-><init>(Landroid/webkit/WebViewClassic$InvokeListBox;)V
 
     .local v5, adapter:Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v1, v1, Landroid/webkit/WebViewClassic;->ownerActivityContext:Ljava/lang/ref/WeakReference;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v1, v1, Landroid/webkit/WebViewClassic;->ownerActivityContext:Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/Context;
-
-    move-object v7, v1
-
-    .local v7, context:Landroid/content/Context;
-    :goto_1
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    invoke-direct {v1, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    iget-object v3, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
+
+    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
+    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v1, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
@@ -366,7 +353,7 @@
     move-result-object v3
 
     #setter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v1, v3}, Landroid/webkit/WebViewClassic;->access$9902(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v1, v3}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     invoke-virtual {v4, v5}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
@@ -374,16 +361,16 @@
 
     iget-boolean v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     move v1, v2
 
-    :goto_2
+    :goto_1
     invoke-virtual {v4, v1}, Landroid/widget/ListView;->setTextFilterEnabled(Z)V
 
     iget-boolean v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x2
 
@@ -391,47 +378,33 @@
 
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelectedArray:[I
 
-    array-length v9, v1
+    array-length v8, v1
 
-    .local v9, length:I
-    const/4 v8, 0x0
+    .local v8, length:I
+    const/4 v7, 0x0
 
-    .local v8, i:I
-    :goto_3
-    if-ge v8, v9, :cond_6
+    .local v7, i:I
+    :goto_2
+    if-ge v7, v8, :cond_5
 
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelectedArray:[I
 
-    aget v1, v1, v8
+    aget v1, v1, v7
 
     invoke-virtual {v4, v1, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_3
-
-    .end local v6           #b:Landroid/app/AlertDialog$Builder;
-    .end local v7           #context:Landroid/content/Context;
-    .end local v8           #i:I
-    .end local v9           #length:I
-    :cond_3
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
-
-    move-result-object v7
-
-    goto :goto_1
-
-    .restart local v6       #b:Landroid/app/AlertDialog$Builder;
-    .restart local v7       #context:Landroid/content/Context;
-    :cond_4
-    const/4 v1, 0x0
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
-    :cond_5
+    .end local v7           #i:I
+    .end local v8           #length:I
+    :cond_3
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_4
     new-instance v1, Landroid/webkit/WebViewClassic$InvokeListBox$3;
 
     invoke-direct {v1, p0}, Landroid/webkit/WebViewClassic$InvokeListBox$3;-><init>(Landroid/webkit/WebViewClassic$InvokeListBox;)V
@@ -442,7 +415,7 @@
 
     const/4 v3, -0x1
 
-    if-eq v1, v3, :cond_6
+    if-eq v1, v3, :cond_5
 
     iget v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->mSelection:I
 
@@ -470,11 +443,11 @@
     invoke-virtual {v5, v0}, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
     .end local v0           #observer:Landroid/database/DataSetObserver;
-    :cond_6
+    :cond_5
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9900(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$10000(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
 
     move-result-object v1
 
@@ -487,7 +460,7 @@
     iget-object v1, p0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9900(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$10000(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
 
     move-result-object v1
 

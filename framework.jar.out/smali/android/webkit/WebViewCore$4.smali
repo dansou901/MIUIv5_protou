@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 543
+    .line 527
     iput-object p1, p0, Landroid/webkit/WebViewCore$4;->this$0:Landroid/webkit/WebViewCore;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -44,28 +44,28 @@
     .parameter "remember"
 
     .prologue
-    .line 546
+    .line 530
     new-instance v0, Landroid/webkit/WebViewCore$GeolocationPermissionsData;
 
     invoke-direct {v0}, Landroid/webkit/WebViewCore$GeolocationPermissionsData;-><init>()V
 
-    .line 547
+    .line 531
     .local v0, data:Landroid/webkit/WebViewCore$GeolocationPermissionsData;
     iput-object p1, v0, Landroid/webkit/WebViewCore$GeolocationPermissionsData;->mOrigin:Ljava/lang/String;
 
-    .line 548
+    .line 532
     iput-boolean p2, v0, Landroid/webkit/WebViewCore$GeolocationPermissionsData;->mAllow:Z
 
-    .line 549
+    .line 533
     iput-boolean p3, v0, Landroid/webkit/WebViewCore$GeolocationPermissionsData;->mRemember:Z
 
-    .line 551
+    .line 535
     iget-object v1, p0, Landroid/webkit/WebViewCore$4;->this$0:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0xb4
 
     invoke-virtual {v1, v2, v0}, Landroid/webkit/WebViewCore;->sendMessage(ILjava/lang/Object;)V
 
-    .line 552
+    .line 536
     return-void
 .end method

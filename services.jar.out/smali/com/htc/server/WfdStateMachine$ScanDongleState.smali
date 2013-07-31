@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 894
+    .line 889
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Lcom/htc/server/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 897
+    .line 892
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 898
+    .line 893
     sget-boolean v0, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-nez v0, :cond_0
@@ -78,13 +78,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 899
+    .line 894
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->forceDisableAp()V
-    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1700(Lcom/htc/server/WfdStateMachine;)V
 
-    .line 901
+    .line 896
     :cond_0
     return-void
 .end method
@@ -93,7 +93,7 @@
     .locals 3
 
     .prologue
-    .line 905
+    .line 900
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -120,28 +120,28 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 906
+    .line 901
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/16 v1, 0x19
 
     invoke-virtual {v0, v1}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 907
+    .line 902
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/htc/server/WfdStateMachine;->mIsQuickScanning:Z
 
-    .line 908
+    .line 903
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    .line 909
+    .line 904
     return-void
 .end method
 
@@ -160,7 +160,7 @@
 
     const/16 v5, 0x19
 
-    .line 913
+    .line 908
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -195,12 +195,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 914
+    .line 909
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 1013
+    .line 1008
     const-string v0, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -237,11 +237,11 @@
     :goto_0
     move v0, v1
 
-    .line 1015
+    .line 1010
     :sswitch_0
     return v0
 
-    .line 916
+    .line 911
     :sswitch_1
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -259,14 +259,14 @@
 
     if-nez v2, :cond_1
 
-    .line 917
+    .line 912
     const-string v0, "WfdStateMachine"
 
     const-string v2, "Request startDongleSingleCscan(1) failed."
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 923
+    .line 918
     :goto_1
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -274,27 +274,27 @@
 
     goto :goto_0
 
-    .line 919
+    .line 914
     :cond_1
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v1, v2, Lcom/htc/server/WfdStateMachine;->mIsQuickScanning:Z
 
-    .line 920
+    .line 915
     const-string v2, "WfdStateMachine"
 
     const-string v3, "Request startDongleSingleCscan"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 921
+    .line 916
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v0, v2, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
     goto :goto_1
 
-    .line 926
+    .line 921
     :sswitch_2
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -306,14 +306,14 @@
 
     if-nez v2, :cond_2
 
-    .line 927
+    .line 922
     const-string v0, "WfdStateMachine"
 
     const-string v2, "Request active scan failed."
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 932
+    .line 927
     :goto_2
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -323,7 +323,7 @@
 
     goto :goto_0
 
-    .line 929
+    .line 924
     :cond_2
     const-string v2, "WfdStateMachine"
 
@@ -331,14 +331,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 930
+    .line 925
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v0, v2, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
     goto :goto_2
 
-    .line 943
+    .line 938
     :sswitch_3
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -348,7 +348,7 @@
 
     invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
 
-    .line 944
+    .line 939
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget v2, p1, Landroid/os/Message;->what:I
@@ -357,44 +357,44 @@
 
     goto :goto_0
 
-    .line 948
+    .line 943
     :sswitch_4
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-virtual {v2, v6}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 949
+    .line 944
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v1, v2, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    .line 950
+    .line 945
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-boolean v2, v2, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
     if-eqz v2, :cond_4
 
-    .line 951
+    .line 946
     sget-boolean v0, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-eqz v0, :cond_3
 
-    .line 952
+    .line 947
     const-string v0, "WfdStateMachine"
 
     const-string v2, "Last scan is complete, ready to configure."
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 953
+    .line 948
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-virtual {v0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 956
+    .line 951
     :cond_3
     const-string v0, "WfdStateMachine"
 
@@ -402,7 +402,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 957
+    .line 952
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/16 v2, 0x11
@@ -411,7 +411,7 @@
 
     goto/16 :goto_0
 
-    .line 960
+    .line 955
     :cond_4
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -419,28 +419,28 @@
 
     if-eqz v2, :cond_5
 
-    .line 961
+    .line 956
     const-string v2, "WfdStateMachine"
 
     const-string v3, "Last scan is complete, ready to discovery."
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 962
+    .line 957
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/4 v3, 0x2
 
     invoke-virtual {v2, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 963
+    .line 958
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v0, v2, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
     goto/16 :goto_0
 
-    .line 965
+    .line 960
     :cond_5
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -448,17 +448,17 @@
 
     if-eqz v2, :cond_6
 
-    .line 966
+    .line 961
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-virtual {v2, v5}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 967
+    .line 962
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v0, v2, Lcom/htc/server/WfdStateMachine;->mIsQuickScanning:Z
 
-    .line 970
+    .line 965
     :goto_3
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -468,7 +468,7 @@
 
     goto/16 :goto_0
 
-    .line 969
+    .line 964
     :cond_6
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -476,7 +476,7 @@
 
     goto :goto_3
 
-    .line 974
+    .line 969
     :sswitch_5
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -484,12 +484,12 @@
 
     invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 975
+    .line 970
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-virtual {v0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 976
+    .line 971
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -500,7 +500,7 @@
 
     goto/16 :goto_0
 
-    .line 979
+    .line 974
     :sswitch_6
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -512,7 +512,7 @@
 
     goto/16 :goto_0
 
-    .line 987
+    .line 982
     :sswitch_7
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -522,15 +522,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 988
+    .line 983
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->finish()V
-    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1500(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)V
 
     goto/16 :goto_0
 
-    .line 995
+    .line 990
     :sswitch_8
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -538,6 +538,31 @@
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
     invoke-static {v0, v2}, Lcom/htc/server/WfdStateMachine;->access$100(Lcom/htc/server/WfdStateMachine;I)V
+
+    .line 991
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
+
+    iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
+
+    iget-object v2, v2, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
+
+    invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
+
+    goto/16 :goto_0
+
+    .line 994
+    :sswitch_9
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
+
+    const/16 v2, 0x38
+
+    #calls: Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-static {v0, v2}, Lcom/htc/server/WfdStateMachine;->access$100(Lcom/htc/server/WfdStateMachine;I)V
+
+    .line 995
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
+
+    invoke-virtual {v0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
     .line 996
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -551,10 +576,10 @@
     goto/16 :goto_0
 
     .line 999
-    :sswitch_9
+    :sswitch_a
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    const/16 v2, 0x38
+    const/16 v2, 0x3a
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
     invoke-static {v0, v2}, Lcom/htc/server/WfdStateMachine;->access$100(Lcom/htc/server/WfdStateMachine;I)V
@@ -576,31 +601,6 @@
     goto/16 :goto_0
 
     .line 1004
-    :sswitch_a
-    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
-
-    const/16 v2, 0x3a
-
-    #calls: Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
-    invoke-static {v0, v2}, Lcom/htc/server/WfdStateMachine;->access$100(Lcom/htc/server/WfdStateMachine;I)V
-
-    .line 1005
-    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
-
-    invoke-virtual {v0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
-
-    .line 1006
-    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
-
-    iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
-
-    iget-object v2, v2, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
-
-    invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
-
-    goto/16 :goto_0
-
-    .line 1009
     :sswitch_b
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -610,7 +610,7 @@
 
     invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
 
-    .line 1010
+    .line 1005
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ScanDongleState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget v2, p1, Landroid/os/Message;->what:I
@@ -619,7 +619,7 @@
 
     goto/16 :goto_0
 
-    .line 914
+    .line 909
     nop
 
     :sswitch_data_0

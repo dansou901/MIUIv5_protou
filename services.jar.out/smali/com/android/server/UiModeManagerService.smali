@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/UiModeManagerService$SettingsObserver;
+        Lcom/android/server/UiModeManagerService$SettingsObserver;,
+        Lcom/android/server/UiModeManagerService$Injector;
     }
 .end annotation
 
@@ -142,6 +143,12 @@
     .end annotation
 .end field
 
+.field mNormalType:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mNotificationManager:Landroid/app/NotificationManager;
 
 .field private final mResultReceiver:Landroid/content/BroadcastReceiver;
@@ -212,7 +219,8 @@
     .line 442
     invoke-direct {p0}, Landroid/app/IUiModeManager$Stub;-><init>()V
 
-    .line 104
+    iput v10, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
+
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct/range {v1 .. v1}, Ljava/lang/Object;-><init>()V
@@ -370,7 +378,7 @@
 
     iput-object v1, p0, Lcom/android/server/UiModeManagerService;->mLocationListener:Landroid/location/LocationListener;
 
-    .line 1303
+    .line 1302
     new-instance v1, Lcom/android/server/UiModeManagerService$9;
 
     invoke-direct {v1, p0}, Lcom/android/server/UiModeManagerService$9;-><init>(Lcom/android/server/UiModeManagerService;)V
@@ -483,7 +491,10 @@
 
     invoke-virtual {v1, v3, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 462
+    iget-object v1, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, v1}, Lcom/android/server/UiModeManagerService$Injector;->registerUIModeScaleChangedOjbserver(Lcom/android/server/UiModeManagerService;Landroid/content/Context;)V
+
     const-string v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -968,12 +979,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1209
+    .line 1208
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     if-nez v2, :cond_0
 
-    .line 1210
+    .line 1209
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     const-string v4, "statusbar"
@@ -986,13 +997,13 @@
 
     iput-object v2, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
-    .line 1218
+    .line 1217
     :cond_0
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     if-eqz v2, :cond_1
 
-    .line 1219
+    .line 1218
     iget-object v4, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mCarModeEnabled:Z
@@ -1004,13 +1015,13 @@
     :goto_0
     invoke-virtual {v4, v2}, Landroid/app/StatusBarManager;->disable(I)V
 
-    .line 1224
+    .line 1223
     :cond_1
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-nez v2, :cond_2
 
-    .line 1225
+    .line 1224
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     const-string v4, "notification"
@@ -1023,18 +1034,18 @@
 
     iput-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 1229
+    .line 1228
     :cond_2
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-eqz v2, :cond_3
 
-    .line 1230
+    .line 1229
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mCarModeEnabled:Z
 
     if-eqz v2, :cond_5
 
-    .line 1231
+    .line 1230
     new-instance v0, Landroid/content/Intent;
 
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
@@ -1043,34 +1054,34 @@
 
     invoke-direct {v0, v2, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 1233
+    .line 1232
     .local v0, carModeOffIntent:Landroid/content/Intent;
     new-instance v1, Landroid/app/Notification;
 
     invoke-direct {v1}, Landroid/app/Notification;-><init>()V
 
-    .line 1234
+    .line 1233
     .local v1, n:Landroid/app/Notification;
     const v2, 0x1080505
 
     iput v2, v1, Landroid/app/Notification;->icon:I
 
-    .line 1235
+    .line 1234
     const/4 v2, 0x4
 
     iput v2, v1, Landroid/app/Notification;->defaults:I
 
-    .line 1236
+    .line 1235
     const/4 v2, 0x2
 
     iput v2, v1, Landroid/app/Notification;->flags:I
 
-    .line 1237
+    .line 1236
     const-wide/16 v4, 0x0
 
     iput-wide v4, v1, Landroid/app/Notification;->when:J
 
-    .line 1238
+    .line 1237
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     iget-object v4, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
@@ -1097,12 +1108,12 @@
 
     invoke-virtual {v1, v2, v4, v5, v6}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 1243
+    .line 1242
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     invoke-virtual {v2, v3, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 1248
+    .line 1247
     .end local v0           #carModeOffIntent:Landroid/content/Intent;
     .end local v1           #n:Landroid/app/Notification;
     :cond_3
@@ -1112,10 +1123,10 @@
     :cond_4
     move v2, v3
 
-    .line 1219
+    .line 1218
     goto :goto_0
 
-    .line 1245
+    .line 1244
     :cond_5
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
@@ -1130,12 +1141,12 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 1252
+    .line 1251
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     if-nez v2, :cond_0
 
-    .line 1253
+    .line 1252
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     const-string v3, "statusbar"
@@ -1148,13 +1159,13 @@
 
     iput-object v2, p0, Lcom/android/server/UiModeManagerService;->mStatusBarManager:Landroid/app/StatusBarManager;
 
-    .line 1271
+    .line 1270
     :cond_0
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     if-nez v2, :cond_1
 
-    .line 1272
+    .line 1271
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     const-string v3, "notification"
@@ -1167,7 +1178,7 @@
 
     iput-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 1278
+    .line 1277
     :cond_1
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
@@ -1177,51 +1188,51 @@
 
     if-eqz v2, :cond_2
 
-    .line 1279
+    .line 1278
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDeskModeEnabled:Z
 
     if-eqz v2, :cond_3
 
-    .line 1281
+    .line 1280
     const-string v2, "android.intent.category.DESK_DOCK"
 
     invoke-static {v2}, Lcom/android/server/UiModeManagerService;->buildHomeIntent(Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 1283
+    .line 1282
     .local v0, deskModeHomeIntent:Landroid/content/Intent;
     new-instance v1, Landroid/app/Notification;
 
     invoke-direct {v1}, Landroid/app/Notification;-><init>()V
 
-    .line 1284
+    .line 1283
     .local v1, n:Landroid/app/Notification;
-    const v2, 0x4020037
+    const v2, 0x402005f
 
     iput v2, v1, Landroid/app/Notification;->icon:I
 
-    .line 1285
+    .line 1284
     const/4 v2, 0x4
 
     iput v2, v1, Landroid/app/Notification;->defaults:I
 
-    .line 1286
+    .line 1285
     const/4 v2, 0x2
 
     iput v2, v1, Landroid/app/Notification;->flags:I
 
-    .line 1287
+    .line 1286
     const-wide/16 v2, 0x0
 
     iput-wide v2, v1, Landroid/app/Notification;->when:J
 
-    .line 1288
+    .line 1287
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x40700a7
+    const v4, 0x40700a0
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1229,7 +1240,7 @@
 
     iget-object v4, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x40700a8
+    const v5, 0x40700a1
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1243,19 +1254,19 @@
 
     invoke-virtual {v1, v2, v3, v4, v5}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 1293
+    .line 1292
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
     invoke-virtual {v2, v6, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 1300
+    .line 1299
     .end local v0           #deskModeHomeIntent:Landroid/content/Intent;
     .end local v1           #n:Landroid/app/Notification;
     :cond_2
     :goto_0
     return-void
 
-    .line 1297
+    .line 1296
     :cond_3
     iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mNotificationManager:Landroid/app/NotificationManager;
 
@@ -2316,7 +2327,7 @@
     .parameter "args"
 
     .prologue
-    .line 1490
+    .line 1489
     iget-object v0, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "android.permission.DUMP"
@@ -2327,7 +2338,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1493
+    .line 1492
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2366,23 +2377,23 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1519
+    .line 1518
     :goto_0
     return-void
 
-    .line 1499
+    .line 1498
     :cond_0
     iget-object v1, p0, Lcom/android/server/UiModeManagerService;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 1500
+    .line 1499
     :try_start_0
     const-string v0, "Current UI Mode Service state:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1501
+    .line 1500
     const-string v0, " mDockState="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2391,7 +2402,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 1502
+    .line 1501
     const-string v0, " mLastBroadcastState="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2400,7 +2411,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
 
-    .line 1503
+    .line 1502
     const-string v0, " mNightMode="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2409,7 +2420,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 1504
+    .line 1503
     const-string v0, " mCarModeEnabled="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2418,7 +2429,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 1505
+    .line 1504
     const-string v0, " mKidModeEnabled="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2427,7 +2438,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 1506
+    .line 1505
     const-string v0, " mComputedNightMode="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2436,7 +2447,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 1507
+    .line 1506
     const-string v0, " mCurUiMode=0x"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2449,7 +2460,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 1508
+    .line 1507
     const-string v0, " mSetUiMode=0x"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2462,7 +2473,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1509
+    .line 1508
     const-string v0, " mHoldingConfiguration="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2471,7 +2482,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 1510
+    .line 1509
     const-string v0, " mSystemReady="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2480,7 +2491,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
 
-    .line 1511
+    .line 1510
     const-string v0, " mDeskDockDimScreenValue="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2489,7 +2500,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(I)V
 
-    .line 1512
+    .line 1511
     const-string v0, " mDeskModeKeepsScreenOn="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2498,7 +2509,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 1513
+    .line 1512
     const-string v0, " mCarModeKeepsScreenOn="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2507,12 +2518,12 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
-    .line 1515
+    .line 1514
     iget-object v0, p0, Lcom/android/server/UiModeManagerService;->mLocation:Landroid/location/Location;
 
     if-eqz v0, :cond_1
 
-    .line 1516
+    .line 1515
     const-string v0, "  mLocation="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -2521,7 +2532,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
-    .line 1518
+    .line 1517
     :cond_1
     monitor-exit v1
 
@@ -3280,45 +3291,54 @@
     :goto_2
     or-int/2addr v1, v2
 
+    .line 975
     :goto_3
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDmbDongleEnabled:Z
 
     if-eqz v2, :cond_8
 
+    .line 1004
     :cond_1
     :goto_4
     return-void
 
+    .line 950
     .end local v1           #uiMode:I
     :cond_2
     iget v1, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
 
     goto :goto_0
 
+    .line 955
     .restart local v1       #uiMode:I
     :cond_3
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDeskModeEnabled:Z
 
     if-eqz v2, :cond_4
 
+    .line 957
     const/4 v1, 0x2
 
     goto :goto_1
 
+    .line 958
     :cond_4
     iget-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mKidModeEnabled:Z
 
     if-eqz v2, :cond_0
 
+    .line 959
     const/16 v1, 0xe
 
     goto :goto_1
 
+    .line 964
     :cond_5
     const/16 v2, 0x10
 
     goto :goto_2
 
+    .line 967
     :cond_6
     iget v2, p0, Lcom/android/server/UiModeManagerService;->mNightMode:I
 
@@ -3801,11 +3821,6 @@
     invoke-virtual {v2, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 1117
-    const/high16 v1, 0x1000
-
-    invoke-virtual {v2, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    .line 1118
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
@@ -3826,14 +3841,14 @@
 
     invoke-virtual/range {v1 .. v8}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
-    .line 1123
+    .line 1122
     const/4 v1, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v1, v0, Lcom/android/server/UiModeManagerService;->mHoldingConfiguration:Z
 
-    .line 1170
+    .line 1169
     .end local v2           #intent:Landroid/content/Intent;
     :cond_3
     :goto_2
@@ -3843,7 +3858,7 @@
 
     if-eqz v1, :cond_19
 
-    .line 1173
+    .line 1172
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/server/UiModeManagerService;->mbIsGoogleCarPanelAppExisting:Z
@@ -3852,12 +3867,12 @@
 
     if-nez v1, :cond_19
 
-    .line 1204
+    .line 1203
     :cond_4
     :goto_3
     invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    .line 1206
+    .line 1205
     return-void
 
     .line 1015
@@ -4058,7 +4073,7 @@
 
     goto :goto_5
 
-    .line 1204
+    .line 1203
     :catchall_0
     move-exception v1
 
@@ -4174,11 +4189,11 @@
 
     goto/16 :goto_1
 
-    .line 1125
+    .line 1124
     :cond_15
     const/4 v11, 0x0
 
-    .line 1126
+    .line 1125
     .local v11, homeIntent:Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -4188,17 +4203,17 @@
 
     if-eqz v1, :cond_17
 
-    .line 1127
+    .line 1126
     and-int/lit8 v1, p1, 0x1
 
     if-eqz v1, :cond_16
 
-    .line 1161
+    .line 1160
     :cond_16
     :goto_7
     if-eqz v11, :cond_3
 
-    .line 1163
+    .line 1162
     :try_start_3
     move-object/from16 v0, p0
 
@@ -4211,13 +4226,13 @@
 
     goto/16 :goto_2
 
-    .line 1164
+    .line 1163
     :catch_0
     move-exception v1
 
     goto/16 :goto_2
 
-    .line 1138
+    .line 1137
     :cond_17
     :try_start_4
     move-object/from16 v0, p0
@@ -4226,12 +4241,12 @@
 
     if-eqz v1, :cond_18
 
-    .line 1140
+    .line 1139
     and-int/lit8 v1, p1, 0x1
 
     if-eqz v1, :cond_16
 
-    .line 1142
+    .line 1141
     const-string v1, "android.intent.category.DESK_DOCK"
 
     invoke-static {v1}, Lcom/android/server/UiModeManagerService;->buildHomeIntent(Ljava/lang/String;)Landroid/content/Intent;
@@ -4240,7 +4255,7 @@
 
     goto :goto_7
 
-    .line 1145
+    .line 1144
     :cond_18
     move-object/from16 v0, p0
 
@@ -4248,19 +4263,19 @@
 
     if-nez v1, :cond_16
 
-    .line 1148
+    .line 1147
     move-object/from16 v0, p0
 
     iget-boolean v1, v0, Lcom/android/server/UiModeManagerService;->mKidModeEnabled:Z
 
     if-nez v1, :cond_16
 
-    .line 1151
+    .line 1150
     and-int/lit8 v1, p2, 0x1
 
     if-eqz v1, :cond_16
 
-    .line 1152
+    .line 1151
     const-string v1, "android.intent.category.HOME"
 
     invoke-static {v1}, Lcom/android/server/UiModeManagerService;->buildHomeIntent(Ljava/lang/String;)Landroid/content/Intent;
@@ -4269,7 +4284,7 @@
 
     goto :goto_7
 
-    .line 1178
+    .line 1177
     .end local v11           #homeIntent:Landroid/content/Intent;
     :cond_19
     move-object/from16 v0, p0
@@ -4278,14 +4293,14 @@
 
     if-nez v1, :cond_4
 
-    .line 1184
+    .line 1183
     const/4 v1, 0x1
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v1}, Lcom/android/server/UiModeManagerService;->updateConfigurationLocked(Z)V
 
-    .line 1188
+    .line 1187
     invoke-static {}, Lcom/htc/htcjavaflag/HtcBuildFlag;->getHtc_PROJECT_flag()S
 
     move-result v1
@@ -4296,7 +4311,7 @@
 
     const/4 v10, 0x1
 
-    .line 1190
+    .line 1189
     .local v10, bIsATTSku:Z
     :goto_8
     move-object/from16 v0, p0
@@ -4337,7 +4352,7 @@
     :cond_1b
     const/4 v14, 0x1
 
-    .line 1196
+    .line 1195
     .local v14, keepScreenOn:Z
     :goto_9
     move-object/from16 v0, p0
@@ -4350,10 +4365,10 @@
 
     if-eq v14, v1, :cond_4
 
-    .line 1197
+    .line 1196
     if-eqz v14, :cond_1e
 
-    .line 1198
+    .line 1197
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/UiModeManagerService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -4362,7 +4377,7 @@
 
     goto/16 :goto_3
 
-    .line 1188
+    .line 1187
     .end local v10           #bIsATTSku:Z
     .end local v14           #keepScreenOn:Z
     :cond_1c
@@ -4370,14 +4385,14 @@
 
     goto :goto_8
 
-    .line 1190
+    .line 1189
     .restart local v10       #bIsATTSku:Z
     :cond_1d
     const/4 v14, 0x0
 
     goto :goto_9
 
-    .line 1200
+    .line 1199
     .restart local v14       #keepScreenOn:Z
     :cond_1e
     move-object/from16 v0, p0
@@ -4395,30 +4410,30 @@
     .locals 17
 
     .prologue
-    .line 1441
+    .line 1440
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/UiModeManagerService;->mLocation:Landroid/location/Location;
 
     if-nez v4, :cond_0
 
-    .line 1486
+    .line 1485
     :goto_0
     return-void
 
-    .line 1444
+    .line 1443
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
-    .line 1447
+    .line 1446
     .local v2, currentTime:J
     new-instance v1, Lcom/android/server/TwilightCalculator;
 
     invoke-direct {v1}, Lcom/android/server/TwilightCalculator;-><init>()V
 
-    .line 1448
+    .line 1447
     .local v1, tw:Lcom/android/server/TwilightCalculator;
     move-object/from16 v0, p0
 
@@ -4438,20 +4453,20 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/android/server/TwilightCalculator;->calculateTwilight(JDD)V
 
-    .line 1450
+    .line 1449
     iget v4, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
     if-nez v4, :cond_2
 
-    .line 1451
+    .line 1450
     const/4 v14, 0x0
 
-    .line 1457
+    .line 1456
     .local v14, nightMode:Z
     :goto_1
     const-wide/16 v12, 0x0
 
-    .line 1458
+    .line 1457
     .local v12, nextUpdate:J
     iget-wide v4, v1, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
@@ -4469,13 +4484,13 @@
 
     if-nez v4, :cond_3
 
-    .line 1460
+    .line 1459
     :cond_1
     const-wide/32 v4, 0x2932e00
 
     add-long v12, v2, v4
 
-    .line 1479
+    .line 1478
     :goto_2
     new-instance v16, Landroid/content/Intent;
 
@@ -4485,7 +4500,7 @@
 
     invoke-direct {v0, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1480
+    .line 1479
     .local v16, updateIntent:Landroid/content/Intent;
     move-object/from16 v0, p0
 
@@ -4501,7 +4516,7 @@
 
     move-result-object v15
 
-    .line 1482
+    .line 1481
     .local v15, pendingIntent:Landroid/app/PendingIntent;
     move-object/from16 v0, p0
 
@@ -4509,7 +4524,7 @@
 
     invoke-virtual {v4, v15}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
-    .line 1483
+    .line 1482
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/UiModeManagerService;->mAlarmManager:Landroid/app/AlarmManager;
@@ -4518,14 +4533,14 @@
 
     invoke-virtual {v4, v5, v12, v13, v15}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
-    .line 1485
+    .line 1484
     move-object/from16 v0, p0
 
     iput-boolean v14, v0, Lcom/android/server/UiModeManagerService;->mComputedNightMode:Z
 
     goto :goto_0
 
-    .line 1453
+    .line 1452
     .end local v12           #nextUpdate:J
     .end local v14           #nightMode:Z
     .end local v15           #pendingIntent:Landroid/app/PendingIntent;
@@ -4536,25 +4551,25 @@
     .restart local v14       #nightMode:Z
     goto :goto_1
 
-    .line 1462
+    .line 1461
     .restart local v12       #nextUpdate:J
     :cond_3
     iget v11, v1, Lcom/android/server/TwilightCalculator;->mState:I
 
-    .line 1464
+    .line 1463
     .local v11, mLastTwilightState:I
     const-wide/32 v4, 0xea60
 
     add-long/2addr v12, v4
 
-    .line 1465
+    .line 1464
     iget-wide v4, v1, Lcom/android/server/TwilightCalculator;->mSunset:J
 
     cmp-long v4, v2, v4
 
     if-lez v4, :cond_4
 
-    .line 1467
+    .line 1466
     const-wide/32 v4, 0x5265c00
 
     add-long v5, v2, v4
@@ -4579,20 +4594,20 @@
 
     invoke-virtual/range {v4 .. v10}, Lcom/android/server/TwilightCalculator;->calculateTwilight(JDD)V
 
-    .line 1472
+    .line 1471
     :cond_4
     const/4 v4, 0x1
 
     if-ne v11, v4, :cond_5
 
-    .line 1473
+    .line 1472
     iget-wide v4, v1, Lcom/android/server/TwilightCalculator;->mSunrise:J
 
     add-long/2addr v12, v4
 
     goto :goto_2
 
-    .line 1475
+    .line 1474
     :cond_5
     iget-wide v4, v1, Lcom/android/server/TwilightCalculator;->mSunset:J
 

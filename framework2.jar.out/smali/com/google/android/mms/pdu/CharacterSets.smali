@@ -143,7 +143,7 @@
 
     aput-object v5, v2, v4
 
-    const-string v4, "us-ascii"
+    const-string/jumbo v4, "us-ascii"
 
     aput-object v4, v2, v3
 
@@ -203,13 +203,13 @@
 
     const/16 v3, 0xb
 
-    const-string v4, "shift_JIS"
+    const-string/jumbo v4, "shift_JIS"
 
     aput-object v4, v2, v3
 
     const/16 v3, 0xc
 
-    const-string v4, "utf-8"
+    const-string/jumbo v4, "utf-8"
 
     aput-object v4, v2, v3
 
@@ -227,7 +227,7 @@
 
     const/16 v3, 0xf
 
-    const-string v4, "utf-16"
+    const-string/jumbo v4, "utf-16"
 
     aput-object v4, v2, v3
 
@@ -362,7 +362,7 @@
 
     .prologue
     .line 134
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method

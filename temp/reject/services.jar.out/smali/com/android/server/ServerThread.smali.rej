@@ -1,5 +1,5 @@
-*** ServerThread.smali	2013-07-12 21:42:35.095166005 +0000
---- ServerThread.smali	2013-07-12 21:40:29.705155666 +0000
+*** ServerThread.smali	2013-07-31 22:21:59.817397924 +0000
+--- ServerThread.smali	2013-07-31 22:21:05.144060027 +0000
 ***************
 *** 113,118 ****
   
@@ -42,4 +42,21 @@
 !     invoke-direct {v0, v4}, Lcom/android/server/MiuiLightsService;-><init>(Landroid/content/Context;)V
       :try_end_6
       .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_6} :catch_1
+  
+***************
+*** 1375,1380 ****
+      invoke-direct {v9, v4}, Lcom/android/server/DeviceStorageMonitorService;-><init>(Landroid/content/Context;)V
+  
+      invoke-static {v3, v9}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
+      :try_end_2f
+      .catch Ljava/lang/Throwable; {:try_start_2f .. :try_end_2f} :catch_19
+  
+--- 1378,1385 ----
+      invoke-direct {v9, v4}, Lcom/android/server/DeviceStorageMonitorService;-><init>(Landroid/content/Context;)V
+  
+      invoke-static {v3, v9}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
++ 
++     invoke-static {}, Lcom/android/server/ServerThread$Injector;->setMemoryLowThresholdProperty()V
+      :try_end_2f
+      .catch Ljava/lang/Throwable; {:try_start_2f .. :try_end_2f} :catch_19
   

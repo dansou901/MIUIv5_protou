@@ -21,7 +21,7 @@
 
     .prologue
     .line 35
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 36
     iput-object p1, p0, Lcom/google/android/mms/util/DrmConvertSession;->mDrmClient:Landroid/drm/DrmManagerClient;
@@ -292,7 +292,7 @@
     :try_start_1
     new-instance v4, Ljava/io/RandomAccessFile;
 
-    const-string v5, "rw"
+    const-string/jumbo v5, "rw"
 
     invoke-direct {v4, p1, v5}, Ljava/io/RandomAccessFile;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_1
@@ -467,7 +467,7 @@
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_6} :catch_1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     .line 157
     :catch_3

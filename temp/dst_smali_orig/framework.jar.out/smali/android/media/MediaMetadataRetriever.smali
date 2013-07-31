@@ -70,8 +70,6 @@
 
 .field public static final METADATA_KEY_YEAR:I = 0x8
 
-.field public static final OPTION_ARGB888:I = 0x100
-
 .field public static final OPTION_CLOSEST:I = 0x3
 
 .field public static final OPTION_CLOSEST_SYNC:I = 0x2
@@ -244,59 +242,6 @@
     throw v0
 
     :cond_1
-    invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFrameAtTime(JII)Landroid/graphics/Bitmap;
-    .locals 3
-    .parameter "timeUs"
-    .parameter "option"
-    .parameter "flag"
-
-    .prologue
-    if-ltz p3, :cond_0
-
-    const/4 v0, 0x3
-
-    if-le p3, v0, :cond_1
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Unsupported option: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    const/16 v0, 0x100
-
-    if-ne p4, v0, :cond_2
-
-    or-int/lit16 p3, p3, 0x100
-
-    :cond_2
     invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
 
     move-result-object v0

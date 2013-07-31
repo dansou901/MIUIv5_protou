@@ -1,11 +1,11 @@
 .class Landroid/webkit/BrowserFrame$2;
-.super Landroid/webkit/HttpAuthHandler;
+.super Landroid/webkit/SslErrorHandler;
 .source "BrowserFrame.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/webkit/BrowserFrame;->didReceiveAuthenticationChallenge(ILjava/lang/String;Ljava/lang/String;ZZ)V
+    value = Landroid/webkit/BrowserFrame;->reportSslCertError(II[BLjava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,15 +17,15 @@
 # instance fields
 .field final synthetic this$0:Landroid/webkit/BrowserFrame;
 
+.field final synthetic val$certError:I
+
 .field final synthetic val$handle:I
 
-.field final synthetic val$suppressDialog:Z
-
-.field final synthetic val$useCachedCredentials:Z
+.field final synthetic val$sslError:Landroid/net/http/SslError;
 
 
 # direct methods
-.method constructor <init>(Landroid/webkit/BrowserFrame;ZIZ)V
+.method constructor <init>(Landroid/webkit/BrowserFrame;Landroid/net/http/SslError;II)V
     .locals 0
     .parameter
     .parameter
@@ -35,13 +35,13 @@
     .prologue
     iput-object p1, p0, Landroid/webkit/BrowserFrame$2;->this$0:Landroid/webkit/BrowserFrame;
 
-    iput-boolean p2, p0, Landroid/webkit/BrowserFrame$2;->val$useCachedCredentials:Z
+    iput-object p2, p0, Landroid/webkit/BrowserFrame$2;->val$sslError:Landroid/net/http/SslError;
 
     iput p3, p0, Landroid/webkit/BrowserFrame$2;->val$handle:I
 
-    iput-boolean p4, p0, Landroid/webkit/BrowserFrame$2;->val$suppressDialog:Z
+    iput p4, p0, Landroid/webkit/BrowserFrame$2;->val$certError:I
 
-    invoke-direct {p0}, Landroid/webkit/HttpAuthHandler;-><init>()V
+    invoke-direct {p0}, Landroid/webkit/SslErrorHandler;-><init>()V
 
     return-void
 .end method
@@ -49,49 +49,75 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 2
+    .locals 1
 
     .prologue
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$2;->this$0:Landroid/webkit/BrowserFrame;
+    new-instance v0, Landroid/webkit/BrowserFrame$2$2;
 
-    iget v1, p0, Landroid/webkit/BrowserFrame$2;->val$handle:I
+    invoke-direct {v0, p0}, Landroid/webkit/BrowserFrame$2$2;-><init>(Landroid/webkit/BrowserFrame$2;)V
 
-    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationCancel(I)V
-    invoke-static {v0, v1}, Landroid/webkit/BrowserFrame;->access$300(Landroid/webkit/BrowserFrame;I)V
+    invoke-virtual {p0, v0}, Landroid/webkit/BrowserFrame$2;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public proceed(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .parameter "username"
-    .parameter "password"
+.method public proceed()V
+    .locals 5
 
     .prologue
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$2;->this$0:Landroid/webkit/BrowserFrame;
+    invoke-static {}, Landroid/webkit/SslCertLookupTable;->getInstance()Landroid/webkit/SslCertLookupTable;
 
-    iget v1, p0, Landroid/webkit/BrowserFrame$2;->val$handle:I
+    move-result-object v3
 
-    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationProceed(ILjava/lang/String;Ljava/lang/String;)V
-    invoke-static {v0, v1, p1, p2}, Landroid/webkit/BrowserFrame;->access$200(Landroid/webkit/BrowserFrame;ILjava/lang/String;Ljava/lang/String;)V
+    iget-object v4, p0, Landroid/webkit/BrowserFrame$2;->val$sslError:Landroid/net/http/SslError;
 
+    invoke-virtual {v3, v4}, Landroid/webkit/SslCertLookupTable;->setIsAllowed(Landroid/net/http/SslError;)V
+
+    invoke-static {}, Landroid/webkit/SslCertLookupTable;->getInstance()Landroid/webkit/SslCertLookupTable;
+
+    move-result-object v3
+
+    iget-object v4, p0, Landroid/webkit/BrowserFrame$2;->val$sslError:Landroid/net/http/SslError;
+
+    invoke-virtual {v3, v4}, Landroid/webkit/SslCertLookupTable;->removePendingHandles(Landroid/net/http/SslError;)Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    .local v1, handles:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    if-nez v1, :cond_1
+
+    :cond_0
     return-void
-.end method
 
-.method public suppressDialog()Z
-    .locals 1
+    :cond_1
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    .prologue
-    iget-boolean v0, p0, Landroid/webkit/BrowserFrame$2;->val$suppressDialog:Z
+    move-result-object v2
 
-    return v0
-.end method
+    .local v2, iterator:Ljava/util/Iterator;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-.method public useHttpAuthUsernamePassword()Z
-    .locals 1
+    move-result v3
 
-    .prologue
-    iget-boolean v0, p0, Landroid/webkit/BrowserFrame$2;->val$useCachedCredentials:Z
+    if-eqz v3, :cond_0
 
-    return v0
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    .local v0, handle:I
+    new-instance v3, Landroid/webkit/BrowserFrame$2$1;
+
+    invoke-direct {v3, p0, v0}, Landroid/webkit/BrowserFrame$2$1;-><init>(Landroid/webkit/BrowserFrame$2;I)V
+
+    invoke-virtual {p0, v3}, Landroid/webkit/BrowserFrame$2;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
 .end method

@@ -226,8 +226,6 @@
     if-ge v0, v2, :cond_0
 
     .line 45
-    if-eqz p2, :cond_0
-
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v2

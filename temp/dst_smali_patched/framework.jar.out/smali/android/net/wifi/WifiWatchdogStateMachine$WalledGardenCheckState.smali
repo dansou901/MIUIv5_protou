@@ -131,12 +131,12 @@
     move-result-wide v2
 
     #setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mLastWalledGardenCheckTime:J
-    invoke-static {v1, v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3602(Landroid/net/wifi/WifiWatchdogStateMachine;J)J
+    invoke-static {v1, v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3402(Landroid/net/wifi/WifiWatchdogStateMachine;J)J
 
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WalledGardenCheckState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->isWalledGardenConnection()Z
-    invoke-static {v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3700(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
+    invoke-static {v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3500(Landroid/net/wifi/WifiWatchdogStateMachine;)Z
 
     move-result v1
 
@@ -170,7 +170,7 @@
     move-result-object v2
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3800(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3600(Landroid/net/wifi/WifiWatchdogStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 

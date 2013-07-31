@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 2745
+    .line 3379
     iput-object p1, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 2746
+    .line 3380
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     iget-object v0, v0, Landroid/widget/Editor$SuggestionsPopupWindow;->this$0:Landroid/widget/Editor;
@@ -64,7 +64,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2745
+    .line 3379
     invoke-direct {p0, p1}, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;-><init>(Landroid/widget/Editor$SuggestionsPopupWindow;)V
 
     return-void
@@ -76,7 +76,7 @@
     .locals 1
 
     .prologue
-    .line 2751
+    .line 3385
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mNumberOfSuggestions:I
@@ -92,7 +92,7 @@
     .parameter "position"
 
     .prologue
-    .line 2756
+    .line 3390
     iget-object v0, p0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->this$1:Landroid/widget/Editor$SuggestionsPopupWindow;
 
     #getter for: Landroid/widget/Editor$SuggestionsPopupWindow;->mSuggestionInfos:[Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
@@ -110,7 +110,7 @@
     .parameter "position"
 
     .prologue
-    .line 2761
+    .line 3395
     int-to-long v0, p1
 
     return-wide v0
@@ -123,40 +123,40 @@
     .parameter "parent"
 
     .prologue
-    .line 2766
+    .line 3400
     move-object/from16 v10, p2
 
     check-cast v10, Landroid/widget/TextView;
 
-    .line 2769
+    .line 3403
     .local v10, textView:Landroid/widget/TextView;
     const/4 v3, 0x0
 
-    .line 2770
+    .line 3404
     .local v3, fontStyle:I
     const/4 v4, 0x0
 
-    .line 2771
+    .line 3405
     .local v4, id:I
     const/4 v5, 0x0
 
-    .line 2772
+    .line 3406
     .local v5, leftpadding:I
     const/4 v8, 0x0
 
-    .line 2773
+    .line 3407
     .local v8, rightpadding:I
     const/4 v11, 0x0
 
-    .line 2774
+    .line 3408
     .local v11, toppadding:I
     const/4 v1, 0x0
 
-    .line 2775
+    .line 3409
     .local v1, bottompadding:I
     const/4 v7, 0x0
 
-    .line 2776
+    .line 3410
     .local v7, reset_padding:Z
     move-object/from16 v0, p0
 
@@ -173,17 +173,17 @@
 
     move-result-object v2
 
-    .line 2777
+    .line 3411
     .local v2, context:Landroid/content/Context;
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
-    .line 2780
+    .line 3414
     .local v6, r:Landroid/content/res/Resources;
     if-nez v10, :cond_0
 
-    .line 2781
+    .line 3415
     move-object/from16 v0, p0
 
     iget-object v12, v0, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -212,31 +212,31 @@
     .end local v10           #textView:Landroid/widget/TextView;
     check-cast v10, Landroid/widget/TextView;
 
-    .line 2785
+    .line 3419
     .restart local v10       #textView:Landroid/widget/TextView;
     invoke-virtual {v10}, Landroid/widget/TextView;->getPaddingLeft()I
 
     move-result v5
 
-    .line 2786
+    .line 3420
     invoke-virtual {v10}, Landroid/widget/TextView;->getPaddingRight()I
 
     move-result v8
 
-    .line 2787
+    .line 3421
     invoke-virtual {v10}, Landroid/widget/TextView;->getPaddingTop()I
 
     move-result v11
 
-    .line 2788
+    .line 3422
     invoke-virtual {v10}, Landroid/widget/TextView;->getPaddingBottom()I
 
     move-result v1
 
-    .line 2789
+    .line 3423
     const/4 v7, 0x1
 
-    .line 2793
+    .line 3427
     :cond_0
     move-object/from16 v0, p0
 
@@ -249,20 +249,20 @@
 
     aget-object v9, v12, p1
 
-    .line 2794
+    .line 3428
     .local v9, suggestionInfo:Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;
     iget-object v12, v9, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->text:Landroid/text/SpannableStringBuilder;
 
     invoke-virtual {v10, v12}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 2796
+    .line 3430
     iget v12, v9, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
     const/4 v13, -0x1
 
     if-ne v12, v13, :cond_3
 
-    .line 2797
+    .line 3431
     const v12, 0x1080355
 
     const/4 v13, 0x0
@@ -273,7 +273,7 @@
 
     invoke-virtual {v10, v12, v13, v14, v15}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 2801
+    .line 3435
     const-string v12, "list_primary_m_bold"
 
     const-string/jumbo v13, "style"
@@ -284,17 +284,17 @@
 
     move-result v3
 
-    .line 2802
+    .line 3436
     if-nez v3, :cond_2
 
-    .line 2803
+    .line 3437
     const-string v12, "Editor"
 
     const-string v13, "Can not find @com.htc:style/list_primary_m_bold"
 
     invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2831
+    .line 3465
     :goto_0
     const-string v12, "common_list_item_background"
 
@@ -306,28 +306,28 @@
 
     move-result v4
 
-    .line 2833
+    .line 3467
     if-nez v4, :cond_7
 
-    .line 2834
+    .line 3468
     const-string v12, "Editor"
 
     const-string v13, "Can not find @com.htc:drawable/common_list_item_background"
 
     invoke-static {v12, v13}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2843
+    .line 3477
     :cond_1
     :goto_1
     return-object v10
 
-    .line 2805
+    .line 3439
     :cond_2
     invoke-virtual {v10, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     goto :goto_0
 
-    .line 2807
+    .line 3441
     :cond_3
     iget v12, v9, Landroid/widget/Editor$SuggestionsPopupWindow$SuggestionInfo;->suggestionIndex:I
 
@@ -335,7 +335,7 @@
 
     if-ne v12, v13, :cond_5
 
-    .line 2808
+    .line 3442
     const v12, 0x1080356
 
     const/4 v13, 0x0
@@ -346,7 +346,7 @@
 
     invoke-virtual {v10, v12, v13, v14, v15}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 2812
+    .line 3446
     const-string v12, "list_primary_m_bold"
 
     const-string/jumbo v13, "style"
@@ -357,10 +357,10 @@
 
     move-result v3
 
-    .line 2813
+    .line 3447
     if-nez v3, :cond_4
 
-    .line 2814
+    .line 3448
     const-string v12, "Editor"
 
     const-string v13, "(DELETE_TEXT) Can not find @com.htc:style/list_primary_m_bold"
@@ -369,13 +369,13 @@
 
     goto :goto_0
 
-    .line 2816
+    .line 3450
     :cond_4
     invoke-virtual {v10, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     goto :goto_0
 
-    .line 2819
+    .line 3453
     :cond_5
     const/4 v12, 0x0
 
@@ -387,7 +387,7 @@
 
     invoke-virtual {v10, v12, v13, v14, v15}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 2822
+    .line 3456
     const-string v12, "list_primary_m"
 
     const-string/jumbo v13, "style"
@@ -398,10 +398,10 @@
 
     move-result v3
 
-    .line 2823
+    .line 3457
     if-nez v3, :cond_6
 
-    .line 2824
+    .line 3458
     const-string v12, "Editor"
 
     const-string v13, "Can not find @com.htc:style/list_primary_m"
@@ -410,20 +410,20 @@
 
     goto :goto_0
 
-    .line 2826
+    .line 3460
     :cond_6
     invoke-virtual {v10, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
     goto :goto_0
 
-    .line 2836
+    .line 3470
     :cond_7
     invoke-virtual {v10, v4}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    .line 2838
+    .line 3472
     if-eqz v7, :cond_1
 
-    .line 2839
+    .line 3473
     int-to-double v12, v11
 
     const-wide v14, 0x3ff6666666666666L

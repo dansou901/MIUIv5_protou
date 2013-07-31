@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1271
+    .line 1265
     iput-object p1, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,102 +35,38 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 2
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v5, 0x0
+    .line 1269
+    const-string v0, "WifiService"
 
-    const/4 v4, 0x1
+    const-string v1, ">>>>>>>>sky: start checkHtcCustomization<<<<<<<<"
 
-    .line 1274
-    const-string v1, "android.intent.extra.DOCK_STATE"
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p2, v1, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    .line 1270
+    iget-object v0, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
 
-    move-result v0
-
-    .line 1275
-    .local v0, dockState:I
-    const-string v1, "WifiService"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "DockWifi - dockState "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "  mAutoEnableWifiApInDockMode="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
-
-    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiApInDockMode:Z
-    invoke-static {v3}, Lcom/android/server/WifiService;->access$4800(Lcom/android/server/WifiService;)Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1276
-    if-nez v0, :cond_1
-
-    .line 1277
     iget-object v1, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
 
-    #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
-    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4602(Lcom/android/server/WifiService;Z)Z
+    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
 
-    .line 1284
-    :cond_0
-    :goto_0
+    move-result-object v1
+
+    #calls: Lcom/android/server/WifiService;->checkHtcCustomization(Landroid/content/Context;)V
+    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$4800(Lcom/android/server/WifiService;Landroid/content/Context;)V
+
+    .line 1271
+    const-string v0, "WifiService"
+
+    const-string v1, ">>>>>>>>sky: end checkHtcCustomization<<<<<<<<"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1272
     return-void
-
-    .line 1278
-    :cond_1
-    if-ne v0, v4, :cond_0
-
-    .line 1279
-    iget-object v1, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
-
-    #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
-    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4602(Lcom/android/server/WifiService;Z)Z
-
-    .line 1280
-    iget-object v1, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
-
-    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiApInDockMode:Z
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$4800(Lcom/android/server/WifiService;)Z
-
-    move-result v1
-
-    if-ne v1, v4, :cond_0
-
-    .line 1281
-    iget-object v1, p0, Lcom/android/server/WifiService$15;->this$0:Lcom/android/server/WifiService;
-
-    #calls: Lcom/android/server/WifiService;->setWifiApEnableInDockMode(Z)V
-    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4900(Lcom/android/server/WifiService;Z)V
-
-    goto :goto_0
 .end method

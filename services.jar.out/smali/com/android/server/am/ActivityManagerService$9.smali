@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 4857
+    .line 4835
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,12 +40,12 @@
     .parameter "intent"
 
     .prologue
-    .line 4860
+    .line 4838
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     #calls: Lcom/android/server/am/ActivityManagerService;->onUserRemoved(Landroid/content/Intent;)V
     invoke-static {v0, p2}, Lcom/android/server/am/ActivityManagerService;->access$900(Lcom/android/server/am/ActivityManagerService;Landroid/content/Intent;)V
 
-    .line 4861
+    .line 4839
     return-void
 .end method

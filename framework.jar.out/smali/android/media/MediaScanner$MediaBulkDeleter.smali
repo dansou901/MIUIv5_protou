@@ -40,17 +40,17 @@
     .parameter "baseUri"
 
     .prologue
-    .line 1518
+    .line 1453
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1513
+    .line 1448
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     iput-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
-    .line 1514
+    .line 1449
     new-instance v0, Ljava/util/ArrayList;
 
     const/16 v1, 0x64
@@ -59,13 +59,13 @@
 
     iput-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
-    .line 1519
+    .line 1454
     iput-object p1, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->mProvider:Landroid/content/IContentProvider;
 
-    .line 1520
+    .line 1455
     iput-object p2, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->mBaseUri:Landroid/net/Uri;
 
-    .line 1521
+    .line 1456
     return-void
 .end method
 
@@ -81,7 +81,7 @@
     .end annotation
 
     .prologue
-    .line 1524
+    .line 1459
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -90,14 +90,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 1525
+    .line 1460
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
     const-string v1, ","
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1527
+    .line 1462
     :cond_0
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
@@ -105,7 +105,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1528
+    .line 1463
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1529
+    .line 1464
     iget-object v0, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -139,10 +139,10 @@
 
     if-le v0, v1, :cond_1
 
-    .line 1530
+    .line 1465
     invoke-virtual {p0}, Landroid/media/MediaScanner$MediaBulkDeleter;->flush()V
 
-    .line 1532
+    .line 1467
     :cond_1
     return-void
 .end method
@@ -156,21 +156,21 @@
     .end annotation
 
     .prologue
-    .line 1534
+    .line 1469
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    .line 1535
+    .line 1470
     .local v2, size:I
     if-lez v2, :cond_0
 
-    .line 1536
+    .line 1471
     new-array v0, v2, [Ljava/lang/String;
 
-    .line 1537
+    .line 1472
     .local v0, foo:[Ljava/lang/String;
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
@@ -181,7 +181,7 @@
     .end local v0           #foo:[Ljava/lang/String;
     check-cast v0, [Ljava/lang/String;
 
-    .line 1538
+    .line 1473
     .restart local v0       #foo:[Ljava/lang/String;
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->mProvider:Landroid/content/IContentProvider;
 
@@ -221,7 +221,7 @@
 
     move-result v1
 
-    .line 1541
+    .line 1476
     .local v1, numrows:I
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereClause:Ljava/lang/StringBuilder;
 
@@ -229,12 +229,12 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    .line 1542
+    .line 1477
     iget-object v3, p0, Landroid/media/MediaScanner$MediaBulkDeleter;->whereArgs:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
 
-    .line 1544
+    .line 1479
     .end local v0           #foo:[Ljava/lang/String;
     .end local v1           #numrows:I
     :cond_0

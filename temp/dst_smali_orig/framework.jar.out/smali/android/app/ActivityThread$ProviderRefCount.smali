@@ -21,8 +21,6 @@
 
 .field public removePending:Z
 
-.field removed:Z
-
 .field public stableCount:I
 
 .field public unstableCount:I

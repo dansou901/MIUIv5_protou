@@ -32,10 +32,10 @@
     .parameter "efid"
 
     .prologue
-    .line 229
+    .line 221
     move v1, p1
 
-    .line 230
+    .line 222
     .local v1, newEfid:I
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/gsm/SIMFileHandler;->isCommonIccFile(I)Z
 
@@ -45,23 +45,23 @@
 
     if-ne v3, v4, :cond_1
 
-    .line 231
+    .line 223
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 232
+    .line 224
     .local v2, sb:Ljava/lang/StringBuilder;
     const/16 v3, 0x6f31
 
     if-ne p1, v3, :cond_0
 
-    .line 233
+    .line 225
     const-string v3, "7F25"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 235
+    .line 227
     :cond_0
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -69,12 +69,12 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 236
+    .line 228
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 237
+    .line 229
     .local v0, fileid:Ljava/lang/String;
     const/16 v3, 0x10
 
@@ -82,7 +82,7 @@
 
     move-result v1
 
-    .line 239
+    .line 231
     .end local v0           #fileid:Ljava/lang/String;
     .end local v2           #sb:Ljava/lang/StringBuilder;
     :cond_1
@@ -129,7 +129,7 @@
 
     move-result-object v1
 
-    .line 139
+    .line 135
     :goto_0
     return-object v1
 
@@ -137,7 +137,7 @@
     :cond_0
     sparse-switch p1, :sswitch_data_0
 
-    .line 126
+    .line 122
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/gsm/SIMFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
 
     move-result-object v0
@@ -145,10 +145,10 @@
     .local v0, path:Ljava/lang/String;
     move-object v1, v0
 
-    .line 139
+    .line 135
     goto :goto_0
 
-    .line 89
+    .line 88
     .end local v0           #path:Ljava/lang/String;
     :sswitch_0
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
@@ -157,90 +157,72 @@
 
     if-nez v1, :cond_1
 
-    const-string v1, "3F007F43"
+    const-string v1, "3F007F10"
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "7F43"
+    const-string v1, "7F10"
 
     goto :goto_0
 
-    .line 92
+    .line 90
     :sswitch_1
+    const-string v1, "7F25"
+
+    goto :goto_0
+
+    .line 116
+    :sswitch_2
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    const-string v1, "3F007F10"
+    const-string v1, "3F007F20"
 
     goto :goto_0
 
     :cond_2
-    const-string v1, "7F10"
-
-    goto :goto_0
-
-    .line 94
-    :sswitch_2
-    const-string v1, "7F25"
+    const-string v1, "7F20"
 
     goto :goto_0
 
     .line 120
     :sswitch_3
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    const-string v1, "3F007F20"
-
-    goto :goto_0
-
-    :cond_3
-    const-string v1, "7F20"
-
-    goto :goto_0
-
-    .line 124
-    :sswitch_4
-    iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    sget-object v1, Lcom/android/internal/telephony/gsm/SIMFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     goto :goto_0
 
     .line 86
     :sswitch_data_0
     .sparse-switch
-        0x4f30 -> :sswitch_4
-        0x6f02 -> :sswitch_0
-        0x6f05 -> :sswitch_3
-        0x6f11 -> :sswitch_3
-        0x6f13 -> :sswitch_3
-        0x6f14 -> :sswitch_3
-        0x6f15 -> :sswitch_3
-        0x6f16 -> :sswitch_3
-        0x6f17 -> :sswitch_3
-        0x6f18 -> :sswitch_3
-        0x6f31 -> :sswitch_2
-        0x6f38 -> :sswitch_3
-        0x6f3c -> :sswitch_1
-        0x6f3e -> :sswitch_3
-        0x6f45 -> :sswitch_3
-        0x6f46 -> :sswitch_3
-        0x6f62 -> :sswitch_3
-        0x6f7b -> :sswitch_3
-        0x6fad -> :sswitch_3
-        0x6fc5 -> :sswitch_3
-        0x6fc7 -> :sswitch_3
-        0x6fc8 -> :sswitch_3
-        0x6fc9 -> :sswitch_3
-        0x6fca -> :sswitch_3
-        0x6fcb -> :sswitch_3
-        0x6fcd -> :sswitch_3
+        0x4f30 -> :sswitch_3
+        0x6f05 -> :sswitch_2
+        0x6f11 -> :sswitch_2
+        0x6f13 -> :sswitch_2
+        0x6f14 -> :sswitch_2
+        0x6f15 -> :sswitch_2
+        0x6f16 -> :sswitch_2
+        0x6f17 -> :sswitch_2
+        0x6f18 -> :sswitch_2
+        0x6f31 -> :sswitch_1
+        0x6f38 -> :sswitch_2
+        0x6f3c -> :sswitch_0
+        0x6f3e -> :sswitch_2
+        0x6f45 -> :sswitch_2
+        0x6f46 -> :sswitch_2
+        0x6f62 -> :sswitch_2
+        0x6f7b -> :sswitch_2
+        0x6fad -> :sswitch_2
+        0x6fc5 -> :sswitch_2
+        0x6fc7 -> :sswitch_2
+        0x6fc8 -> :sswitch_2
+        0x6fc9 -> :sswitch_2
+        0x6fca -> :sswitch_2
+        0x6fcb -> :sswitch_2
+        0x6fcd -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -249,17 +231,17 @@
     .parameter "efid"
 
     .prologue
-    .line 144
+    .line 140
     sparse-switch p1, :sswitch_data_0
 
-    .line 212
+    .line 204
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/gsm/SIMFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 213
+    .line 205
     .local v0, path:Ljava/lang/String;
-    if-nez v0, :cond_8
+    if-nez v0, :cond_7
 
     const/16 v1, 0x2fe2
 
@@ -269,18 +251,18 @@
 
     move-result v1
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_7
 
-    .line 218
+    .line 210
     :cond_0
-    iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    sget-object v1, Lcom/android/internal/telephony/gsm/SIMFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
-    .line 221
+    .line 213
     .end local v0           #path:Ljava/lang/String;
     :goto_0
     return-object v1
 
-    .line 147
+    .line 164
     :sswitch_0
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
 
@@ -288,16 +270,16 @@
 
     if-nez v1, :cond_1
 
-    const-string v1, "3F007F43"
+    const-string v1, "3F007FFF"
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "7F43"
+    const-string v1, "7FFF"
 
     goto :goto_0
 
-    .line 172
+    .line 166
     :sswitch_1
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
 
@@ -305,148 +287,130 @@
 
     if-nez v1, :cond_2
 
-    const-string v1, "3F007FFF"
-
-    goto :goto_0
-
-    :cond_2
-    const-string v1, "7FFF"
-
-    goto :goto_0
-
-    .line 174
-    :sswitch_2
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
     const-string v1, "3F00"
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 181
-    :sswitch_3
+    .line 173
+    :sswitch_2
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->QMI_CONFIG()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 174
+    const-string v1, "3F007FFF"
+
+    goto :goto_0
+
+    .line 175
+    :cond_3
+    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    .line 182
-    const-string v1, "3F007FFF"
+    .line 176
+    const-string v1, "7F10"
 
     goto :goto_0
 
-    .line 183
+    .line 178
     :cond_4
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
+    const-string v1, "3F007F10"
+
+    goto :goto_0
+
+    .line 188
+    :sswitch_3
+    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->QMI_CONFIG()Z
 
     move-result v1
 
     if-eqz v1, :cond_5
 
-    .line 184
-    const-string v1, "7F10"
+    .line 189
+    const-string v1, "3F007FFF"
 
     goto :goto_0
 
-    .line 186
+    .line 190
     :cond_5
-    const-string v1, "3F007F10"
-
-    goto :goto_0
-
-    .line 196
-    :sswitch_4
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->QMI_CONFIG()Z
+    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
 
     move-result v1
 
     if-eqz v1, :cond_6
 
-    .line 197
-    const-string v1, "3F007FFF"
-
-    goto :goto_0
-
-    .line 198
-    :cond_6
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    .line 199
+    .line 191
     const-string v1, "7F20"
 
     goto :goto_0
 
-    .line 201
-    :cond_7
+    .line 193
+    :cond_6
     const-string v1, "3F007F20"
 
     goto :goto_0
 
-    .line 209
-    :sswitch_5
-    iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    .line 201
+    :sswitch_4
+    sget-object v1, Lcom/android/internal/telephony/gsm/SIMFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     goto :goto_0
 
     .restart local v0       #path:Ljava/lang/String;
-    :cond_8
+    :cond_7
     move-object v1, v0
 
-    .line 221
+    .line 213
     goto :goto_0
 
-    .line 144
+    .line 140
     :sswitch_data_0
     .sparse-switch
-        0x2f00 -> :sswitch_2
-        0x4f22 -> :sswitch_5
-        0x4f23 -> :sswitch_5
-        0x4f24 -> :sswitch_5
-        0x4f30 -> :sswitch_5
-        0x6f02 -> :sswitch_0
-        0x6f05 -> :sswitch_1
-        0x6f11 -> :sswitch_4
-        0x6f13 -> :sswitch_4
-        0x6f14 -> :sswitch_4
-        0x6f15 -> :sswitch_4
-        0x6f16 -> :sswitch_4
-        0x6f17 -> :sswitch_4
-        0x6f18 -> :sswitch_4
-        0x6f38 -> :sswitch_1
-        0x6f3b -> :sswitch_3
-        0x6f3c -> :sswitch_1
-        0x6f3e -> :sswitch_1
-        0x6f40 -> :sswitch_1
-        0x6f45 -> :sswitch_1
-        0x6f46 -> :sswitch_1
-        0x6f49 -> :sswitch_3
-        0x6f4b -> :sswitch_3
-        0x6f4c -> :sswitch_3
-        0x6f4e -> :sswitch_1
-        0x6f62 -> :sswitch_1
-        0x6f7b -> :sswitch_1
-        0x6fad -> :sswitch_1
-        0x6fc5 -> :sswitch_1
-        0x6fc6 -> :sswitch_1
-        0x6fc7 -> :sswitch_1
-        0x6fc8 -> :sswitch_1
-        0x6fc9 -> :sswitch_1
-        0x6fca -> :sswitch_1
-        0x6fcb -> :sswitch_1
-        0x6fcd -> :sswitch_1
+        0x2f00 -> :sswitch_1
+        0x4f22 -> :sswitch_4
+        0x4f23 -> :sswitch_4
+        0x4f24 -> :sswitch_4
+        0x4f30 -> :sswitch_4
+        0x6f05 -> :sswitch_0
+        0x6f11 -> :sswitch_3
+        0x6f13 -> :sswitch_3
+        0x6f14 -> :sswitch_3
+        0x6f15 -> :sswitch_3
+        0x6f16 -> :sswitch_3
+        0x6f17 -> :sswitch_3
+        0x6f18 -> :sswitch_3
+        0x6f38 -> :sswitch_0
+        0x6f3b -> :sswitch_2
+        0x6f3c -> :sswitch_0
+        0x6f3e -> :sswitch_0
+        0x6f40 -> :sswitch_0
+        0x6f45 -> :sswitch_0
+        0x6f46 -> :sswitch_0
+        0x6f49 -> :sswitch_2
+        0x6f4b -> :sswitch_2
+        0x6f4c -> :sswitch_2
+        0x6f4e -> :sswitch_0
+        0x6f62 -> :sswitch_0
+        0x6f7b -> :sswitch_0
+        0x6fad -> :sswitch_0
+        0x6fc5 -> :sswitch_0
+        0x6fc6 -> :sswitch_0
+        0x6fc7 -> :sswitch_0
+        0x6fc8 -> :sswitch_0
+        0x6fc9 -> :sswitch_0
+        0x6fca -> :sswitch_0
+        0x6fcb -> :sswitch_0
+        0x6fcd -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -513,7 +477,7 @@
     .parameter "msg"
 
     .prologue
-    .line 244
+    .line 236
     const-string v0, "GSM"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -536,7 +500,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 245
+    .line 237
     return-void
 .end method
 
@@ -545,7 +509,7 @@
     .parameter "msg"
 
     .prologue
-    .line 248
+    .line 240
     const-string v0, "GSM"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -568,6 +532,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 249
+    .line 241
     return-void
 .end method

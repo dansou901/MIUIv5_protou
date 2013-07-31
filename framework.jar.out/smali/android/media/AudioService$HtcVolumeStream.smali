@@ -42,36 +42,36 @@
 
     const/4 v1, 0x0
 
-    .line 4331
+    .line 4250
     iput-object p1, p0, Landroid/media/AudioService$HtcVolumeStream;->this$0:Landroid/media/AudioService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4332
+    .line 4251
     iput v0, p0, Landroid/media/AudioService$HtcVolumeStream;->mIndex:I
 
-    .line 4333
+    .line 4252
     iput v0, p0, Landroid/media/AudioService$HtcVolumeStream;->mLastAudibleIndex:I
 
-    .line 4334
+    .line 4253
     const-string v0, ""
 
     iput-object v0, p0, Landroid/media/AudioService$HtcVolumeStream;->mProfileSettingName:Ljava/lang/String;
 
-    .line 4335
+    .line 4254
     const-string v0, ""
 
     iput-object v0, p0, Landroid/media/AudioService$HtcVolumeStream;->mProfileLastaudibleSettingName:Ljava/lang/String;
 
-    .line 4336
+    .line 4255
     iput-boolean v1, p0, Landroid/media/AudioService$HtcVolumeStream;->mIsMaximum:Z
 
-    .line 4337
+    .line 4256
     iput-boolean v1, p0, Landroid/media/AudioService$HtcVolumeStream;->mTouchMaximum:Z
 
-    .line 4338
+    .line 4257
     iput-boolean v1, p0, Landroid/media/AudioService$HtcVolumeStream;->mShouldFeedback:Z
 
-    .line 4339
+    .line 4258
     return-void
 .end method

@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;,
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;
     }
 .end annotation
 
@@ -446,21 +447,21 @@
     .line 533
     iput-object v9, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRDInfo:Lcom/android/internal/telephony/cdma/CdmaRadioStateInfo;
 
-    .line 2439
+    .line 2431
     iput v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->lteSignalStrength:I
 
-    .line 2440
+    .line 2432
     iput v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->lteRsrp:I
 
-    .line 2441
+    .line 2433
     iput v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->lteRsrq:I
 
-    .line 2442
+    .line 2434
     const v5, 0x7fffffff
 
     iput v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->lteRssnr:I
 
-    .line 2443
+    .line 2435
     iput v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->lteCqi:I
 
     .line 337
@@ -944,21 +945,21 @@
     .parameter "context"
 
     .prologue
-    .line 3074
+    .line 3066
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->checkOffAlarm()Z
 
     move-result v1
 
-    .line 3075
+    .line 3067
     .local v1, isAlarmTriggered:Z
     if-eqz v1, :cond_0
 
-    .line 3078
+    .line 3070
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 3079
+    .line 3071
     .local v2, resolver:Landroid/content/ContentResolver;
     new-instance v0, Landroid/content/Intent;
 
@@ -966,23 +967,23 @@
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 3080
+    .line 3072
     .local v0, airplaneIntent:Landroid/content/Intent;
     const/high16 v3, 0x2000
 
     invoke-virtual {v0, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 3081
-    const-string v3, "state"
+    .line 3073
+    const-string/jumbo v3, "state"
 
     const/4 v4, 0x1
 
     invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 3082
+    .line 3074
     invoke-virtual {p1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 3085
+    .line 3077
     .end local v0           #airplaneIntent:Landroid/content/Intent;
     .end local v2           #resolver:Landroid/content/ContentResolver;
     :cond_0
@@ -993,21 +994,21 @@
     .locals 4
 
     .prologue
-    .line 3043
+    .line 3035
     const/4 v0, 0x0
 
-    .line 3045
+    .line 3037
     .local v0, alarmTriggered:Z
     sget-boolean v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->SUPPORT_OFFLINE_ALARM:Z
 
     if-eqz v1, :cond_0
 
-    .line 3046
+    .line 3038
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getOffAlarm()Z
 
     move-result v0
 
-    .line 3047
+    .line 3039
     const-string v1, "GsmServiceStateTracker"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1030,10 +1031,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3048
+    .line 3040
     if-eqz v0, :cond_0
 
-    .line 3049
+    .line 3041
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -1050,7 +1051,7 @@
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 3054
+    .line 3046
     :cond_0
     return v0
 .end method
@@ -1062,17 +1063,17 @@
     .prologue
     const/4 v5, 0x3
 
-    .line 2517
+    .line 2509
     div-int/lit16 v3, p0, 0x3e8
 
     div-int/lit8 p0, v3, 0x3c
 
-    .line 2519
+    .line 2511
     const/16 v3, 0x9
 
     new-array v0, v3, [C
 
-    .line 2520
+    .line 2512
     .local v0, buf:[C
     const/4 v3, 0x0
 
@@ -1080,40 +1081,40 @@
 
     aput-char v4, v0, v3
 
-    .line 2521
+    .line 2513
     const/4 v3, 0x1
 
     const/16 v4, 0x4d
 
     aput-char v4, v0, v3
 
-    .line 2522
+    .line 2514
     const/4 v3, 0x2
 
     const/16 v4, 0x54
 
     aput-char v4, v0, v3
 
-    .line 2524
+    .line 2516
     if-gez p0, :cond_0
 
-    .line 2525
+    .line 2517
     const/16 v3, 0x2d
 
     aput-char v3, v0, v5
 
-    .line 2526
+    .line 2518
     neg-int p0, p0
 
-    .line 2531
+    .line 2523
     :goto_0
     div-int/lit8 v1, p0, 0x3c
 
-    .line 2532
+    .line 2524
     .local v1, hours:I
     rem-int/lit8 v2, p0, 0x3c
 
-    .line 2534
+    .line 2526
     .local v2, minutes:I
     const/4 v3, 0x4
 
@@ -1125,7 +1126,7 @@
 
     aput-char v4, v0, v3
 
-    .line 2535
+    .line 2527
     const/4 v3, 0x5
 
     rem-int/lit8 v4, v1, 0xa
@@ -1136,14 +1137,14 @@
 
     aput-char v4, v0, v3
 
-    .line 2537
+    .line 2529
     const/4 v3, 0x6
 
     const/16 v4, 0x3a
 
     aput-char v4, v0, v3
 
-    .line 2539
+    .line 2531
     const/4 v3, 0x7
 
     div-int/lit8 v4, v2, 0xa
@@ -1154,7 +1155,7 @@
 
     aput-char v4, v0, v3
 
-    .line 2540
+    .line 2532
     const/16 v3, 0x8
 
     rem-int/lit8 v4, v2, 0xa
@@ -1165,14 +1166,14 @@
 
     aput-char v4, v0, v3
 
-    .line 2542
+    .line 2534
     new-instance v3, Ljava/lang/String;
 
     invoke-direct {v3, v0}, Ljava/lang/String;-><init>([C)V
 
     return-object v3
 
-    .line 2528
+    .line 2520
     .end local v1           #hours:I
     .end local v2           #minutes:I
     :cond_0
@@ -1190,35 +1191,35 @@
     .parameter "when"
 
     .prologue
-    .line 2136
+    .line 2128
     move v5, p1
 
-    .line 2137
+    .line 2129
     .local v5, rawOffset:I
     if-eqz p2, :cond_0
 
-    .line 2138
+    .line 2130
     const v9, 0x36ee80
 
     sub-int/2addr v5, v9
 
-    .line 2140
+    .line 2132
     :cond_0
     invoke-static {v5}, Ljava/util/TimeZone;->getAvailableIDs(I)[Ljava/lang/String;
 
     move-result-object v8
 
-    .line 2141
+    .line 2133
     .local v8, zones:[Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 2142
+    .line 2134
     .local v2, guess:Ljava/util/TimeZone;
     new-instance v1, Ljava/util/Date;
 
     invoke-direct {v1, p3, p4}, Ljava/util/Date;-><init>(J)V
 
-    .line 2143
+    .line 2135
     .local v1, d:Ljava/util/Date;
     move-object v0, v8
 
@@ -1234,13 +1235,13 @@
 
     aget-object v7, v0, v3
 
-    .line 2144
+    .line 2136
     .local v7, zone:Ljava/lang/String;
     invoke-static {v7}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v6
 
-    .line 2145
+    .line 2137
     .local v6, tz:Ljava/util/TimeZone;
     invoke-virtual {v6, p3, p4}, Ljava/util/TimeZone;->getOffset(J)I
 
@@ -1254,16 +1255,16 @@
 
     if-ne v9, p2, :cond_2
 
-    .line 2147
+    .line 2139
     move-object v2, v6
 
-    .line 2152
+    .line 2144
     .end local v6           #tz:Ljava/util/TimeZone;
     .end local v7           #zone:Ljava/lang/String;
     :cond_1
     return-object v2
 
-    .line 2143
+    .line 2135
     .restart local v6       #tz:Ljava/util/TimeZone;
     .restart local v7       #zone:Ljava/lang/String;
     :cond_2
@@ -1278,7 +1279,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 2746
+    .line 2738
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
@@ -1300,21 +1301,21 @@
 
     if-lez v2, :cond_0
 
-    .line 2749
+    .line 2741
     :goto_0
     return v1
 
-    .line 2746
+    .line 2738
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 2748
+    .line 2740
     :catch_0
     move-exception v0
 
-    .line 2749
+    .line 2741
     .local v0, snfe:Landroid/provider/Settings$SettingNotFoundException;
     goto :goto_0
 .end method
@@ -1325,7 +1326,7 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 2755
+    .line 2747
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
@@ -1347,21 +1348,21 @@
 
     if-lez v2, :cond_0
 
-    .line 2758
+    .line 2750
     :goto_0
     return v1
 
-    .line 2755
+    .line 2747
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 2757
+    .line 2749
     :catch_0
     move-exception v0
 
-    .line 2758
+    .line 2750
     .local v0, snfe:Landroid/provider/Settings$SettingNotFoundException;
     goto :goto_0
 .end method
@@ -1373,16 +1374,16 @@
     .parameter "when"
 
     .prologue
-    .line 2126
+    .line 2118
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->findTimeZone(IZJ)Ljava/util/TimeZone;
 
     move-result-object v0
 
-    .line 2127
+    .line 2119
     .local v0, guess:Ljava/util/TimeZone;
     if-nez v0, :cond_0
 
-    .line 2129
+    .line 2121
     if-nez p2, :cond_1
 
     const/4 v1, 0x1
@@ -1392,7 +1393,7 @@
 
     move-result-object v0
 
-    .line 2131
+    .line 2123
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -1419,16 +1420,16 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2132
+    .line 2124
     return-object v0
 
-    .line 2129
+    .line 2121
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
-    .line 2131
+    .line 2123
     :cond_2
     invoke-virtual {v0}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
@@ -1441,14 +1442,14 @@
     .locals 2
 
     .prologue
-    .line 3058
+    .line 3050
     const-string v1, "dev.bootreason"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 3059
+    .line 3051
     .local v0, reason:Ljava/lang/String;
     const-string v1, "rtc_alarm"
 
@@ -1465,7 +1466,7 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 2834
+    .line 2826
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mHtcContext:Landroid/content/Context;
 
     if-eqz v3, :cond_7
@@ -1486,7 +1487,7 @@
 
     if-eq v3, v4, :cond_7
 
-    .line 2835
+    .line 2827
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mHtcContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -1501,7 +1502,7 @@
 
     iput-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mLocale:Ljava/util/Locale;
 
-    .line 2836
+    .line 2828
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mLocale:Ljava/util/Locale;
 
     sget-object v4, Ljava/util/Locale;->TAIWAN:Ljava/util/Locale;
@@ -1532,20 +1533,20 @@
 
     if-eqz v3, :cond_3
 
-    .line 2839
+    .line 2831
     :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
 
     if-nez v3, :cond_1
 
-    .line 2840
+    .line 2832
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
     iput-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
 
-    .line 2842
+    .line 2834
     :cond_1
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mHtcContext:Landroid/content/Context;
 
@@ -1553,13 +1554,13 @@
 
     move-result-object v3
 
-    const v4, 0x4080037
+    const v4, 0x4080036
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2843
+    .line 2835
     .local v1, opStr:[Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -1569,7 +1570,7 @@
 
     if-ge v0, v3, :cond_4
 
-    .line 2844
+    .line 2836
     aget-object v3, v1, v0
 
     const-string v4, ","
@@ -1578,7 +1579,7 @@
 
     move-result-object v2
 
-    .line 2845
+    .line 2837
     .local v2, strArray:[Ljava/lang/String;
     array-length v3, v2
 
@@ -1586,7 +1587,7 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 2846
+    .line 2838
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
 
     const/4 v4, 0x0
@@ -1597,13 +1598,13 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2843
+    .line 2835
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2851
+    .line 2843
     .end local v0           #i:I
     .end local v1           #opStr:[Ljava/lang/String;
     .end local v2           #strArray:[Ljava/lang/String;
@@ -1612,12 +1613,12 @@
 
     if-eqz v3, :cond_4
 
-    .line 2852
+    .line 2844
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
 
-    .line 2856
+    .line 2848
     :cond_4
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
@@ -1627,7 +1628,7 @@
 
     if-nez v3, :cond_5
 
-    .line 2857
+    .line 2849
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
 
     if-eqz v3, :cond_6
@@ -1646,7 +1647,7 @@
 
     if-ne v6, v3, :cond_6
 
-    .line 2858
+    .line 2850
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
@@ -1677,16 +1678,16 @@
 
     invoke-virtual {v4, v3, v5, v6}, Landroid/telephony/ServiceState;->setOperatorName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2862
+    .line 2854
     :goto_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNetworkNameDisplay()V
 
-    .line 2871
+    .line 2863
     :cond_5
     :goto_2
     return-void
 
-    .line 2860
+    .line 2852
     :cond_6
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
@@ -1708,13 +1709,13 @@
 
     goto :goto_1
 
-    .line 2865
+    .line 2857
     :cond_7
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mHtcContext:Landroid/content/Context;
 
     if-nez v3, :cond_8
 
-    .line 2866
+    .line 2858
     const-string v3, "GSM"
 
     const-string v4, "No HTC Context was loaded!!"
@@ -1723,7 +1724,7 @@
 
     goto :goto_2
 
-    .line 2868
+    .line 2860
     :cond_8
     const-string v3, "GSM"
 
@@ -1742,7 +1743,7 @@
 
     const/4 v5, 0x0
 
-    .line 3216
+    .line 3208
     const-string v2, "GSM"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1767,18 +1768,18 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3217
+    .line 3209
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     iget-object v0, v2, Lcom/android/internal/telephony/gsm/GSMPhone;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
 
-    .line 3219
+    .line 3211
     .local v0, dcTracker:Lcom/android/internal/telephony/DataConnectionTracker;
     sget-boolean v2, Lcom/android/internal/telephony/HtcBuildUtils;->QCT_MM_CONFIG:Z
 
     if-eqz v2, :cond_0
 
-    .line 3220
+    .line 3212
     const-string v2, "GSM"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1803,15 +1804,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3221
+    .line 3213
     if-eqz v0, :cond_0
 
-    .line 3222
+    .line 3214
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDesiredPowerState:Z
 
     invoke-virtual {v0, v2, v5}, Lcom/android/internal/telephony/DataConnectionTracker;->setDataConnectionAsDesired(ZLandroid/os/Message;)V
 
-    .line 3227
+    .line 3219
     :cond_0
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDesiredPowerState:Z
 
@@ -1827,39 +1828,39 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 3229
+    .line 3221
     const-string v2, "GSM"
 
     const-string v3, "handleImsRadioReset() turn radio on"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3231
+    .line 3223
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-static {v2}, Lcom/android/internal/telephony/HtcSequentialRadioPower;->getObject(Lcom/android/internal/telephony/CommandsInterface;)Lcom/android/internal/telephony/HtcSequentialRadioPower;
 
     move-result-object v1
 
-    .line 3232
+    .line 3224
     .local v1, seqPower:Lcom/android/internal/telephony/HtcSequentialRadioPower;
     if-eqz v1, :cond_2
 
-    .line 3234
+    .line 3226
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2, v5, v5}, Lcom/android/internal/telephony/HtcSequentialRadioPower;->controlRadioPower(ZLjava/lang/Boolean;Landroid/os/Message;)V
 
-    .line 3236
+    .line 3228
     invoke-virtual {v1, v6, v5, v5}, Lcom/android/internal/telephony/HtcSequentialRadioPower;->controlRadioPower(ZLjava/lang/Boolean;Landroid/os/Message;)V
 
-    .line 3255
+    .line 3247
     .end local v1           #seqPower:Lcom/android/internal/telephony/HtcSequentialRadioPower;
     :cond_1
     :goto_0
     return-void
 
-    .line 3240
+    .line 3232
     .restart local v1       #seqPower:Lcom/android/internal/telephony/HtcSequentialRadioPower;
     :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -1868,7 +1869,7 @@
 
     goto :goto_0
 
-    .line 3244
+    .line 3236
     .end local v1           #seqPower:Lcom/android/internal/telephony/HtcSequentialRadioPower;
     :cond_3
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDesiredPowerState:Z
@@ -1887,19 +1888,19 @@
 
     if-eqz v2, :cond_1
 
-    .line 3246
+    .line 3238
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     iget-object v0, v2, Lcom/android/internal/telephony/gsm/GSMPhone;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
 
-    .line 3247
+    .line 3239
     const-string v2, "GSM"
 
     const-string v3, "handleImsRadioReset() turn radio on"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3252
+    .line 3244
     sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->htcPowerOffRadioSafely(Lcom/android/internal/telephony/DataConnectionTracker;Ljava/lang/Boolean;)V
@@ -1912,30 +1913,30 @@
     .parameter "currRadioState"
 
     .prologue
-    .line 3259
+    .line 3251
     invoke-static {}, Lcom/android/internal/telephony/HtcSequentialRadioPower;->needToMaintainSimWhenRadioOff()Z
 
     move-result v0
 
-    .line 3263
+    .line 3255
     .local v0, needToClearCache:Z
     if-eqz v0, :cond_2
 
-    .line 3264
+    .line 3256
     move-object v1, p1
 
-    .line 3265
+    .line 3257
     .local v1, radioState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
     if-nez v1, :cond_0
 
-    .line 3266
+    .line 3258
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-interface {v2}, Lcom/android/internal/telephony/CommandsInterface;->getRadioState()Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
     move-result-object v1
 
-    .line 3268
+    .line 3260
     :cond_0
     sget-object v2, Lcom/android/internal/telephony/CommandsInterface$RadioState;->RADIO_OFF:Lcom/android/internal/telephony/CommandsInterface$RadioState;
 
@@ -1945,20 +1946,20 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 3270
+    .line 3262
     :cond_1
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRDInfo:Lcom/android/internal/telephony/cdma/CdmaRadioStateInfo;
 
-    .line 3271
+    .line 3263
     const-string v2, "gsm.cdma.pri.version"
 
     const-string v3, ""
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3274
+    .line 3266
     .end local v1           #radioState:Lcom/android/internal/telephony/CommandsInterface$RadioState;
     :cond_2
     return-void
@@ -1970,10 +1971,10 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 3139
+    .line 3131
     const-string v0, "gsm.timezone.isvalid"
 
-    .line 3140
+    .line 3132
     .local v0, KEY_TIME_ZONE_IS_VALID:Ljava/lang/String;
     const-string v2, "gsm.timezone.isvalid"
 
@@ -1983,7 +1984,7 @@
 
     move-result-object v1
 
-    .line 3142
+    .line 3134
     .local v1, timezoneIsValid:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1991,10 +1992,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 3143
+    .line 3135
     invoke-direct {p0, v4, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNitzTimeZoneIsValid(ZZ)V
 
-    .line 3145
+    .line 3137
     :cond_0
     return-void
 .end method
@@ -2005,7 +2006,7 @@
     .parameter "serviceState"
 
     .prologue
-    .line 2118
+    .line 2110
     if-nez p2, :cond_0
 
     if-nez p1, :cond_1
@@ -2032,25 +2033,25 @@
 
     const/4 v6, 0x0
 
-    .line 3167
+    .line 3159
     const-wide/32 v0, 0x927c0
 
-    .line 3169
+    .line 3161
     .local v0, TIME_NEED_TO_DISCARD_NITZ:J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
-    .line 3172
+    .line 3164
     .local v4, systemCurrentUtcTime:J
     iget-boolean v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mFirstNitzGetAfterRadioOn:Z
 
     if-nez v8, :cond_1
 
-    .line 3173
+    .line 3165
     iput-boolean v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mFirstNitzGetAfterRadioOn:Z
 
-    .line 3174
+    .line 3166
     const-string v7, "GSM"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2079,16 +2080,16 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3206
+    .line 3198
     :cond_0
     :goto_0
     return v6
 
-    .line 3179
+    .line 3171
     :cond_1
     const/4 v3, 0x0
 
-    .line 3181
+    .line 3173
     .local v3, isTestIcc:Z
     :try_start_0
     iget-object v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -2099,7 +2100,7 @@
 
     move-result v3
 
-    .line 3186
+    .line 3178
     :goto_1
     const-string v8, "GSM"
 
@@ -2123,10 +2124,10 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3188
+    .line 3180
     if-nez v3, :cond_0
 
-    .line 3192
+    .line 3184
     sub-long v8, p2, v4
 
     invoke-static {v8, v9}, Ljava/lang/Math;->abs(J)J
@@ -2139,7 +2140,7 @@
 
     if-gez v8, :cond_0
 
-    .line 3194
+    .line 3186
     const-string v8, "GSM"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -2182,19 +2183,19 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3198
+    .line 3190
     invoke-direct {p0, v7, v6}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNitzTimeZoneIsValid(ZZ)V
 
     move v6, v7
 
-    .line 3199
+    .line 3191
     goto :goto_0
 
-    .line 3182
+    .line 3174
     :catch_0
     move-exception v2
 
-    .line 3183
+    .line 3175
     .local v2, e:Ljava/lang/Exception;
     const-string v8, "GSM"
 
@@ -2215,7 +2216,7 @@
 
     const/4 v9, 0x0
 
-    .line 2453
+    .line 2445
     const-string v10, "gsm.sim.operator.alpha"
 
     const-string v11, "empty"
@@ -2224,19 +2225,19 @@
 
     move-result-object v7
 
-    .line 2455
+    .line 2447
     .local v7, spn:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/telephony/ServiceState;->getOperatorAlphaLong()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 2456
+    .line 2448
     .local v3, onsl:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/telephony/ServiceState;->getOperatorAlphaShort()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 2458
+    .line 2450
     .local v4, onss:Ljava/lang/String;
     if-eqz v3, :cond_1
 
@@ -2248,7 +2249,7 @@
 
     move v1, v8
 
-    .line 2459
+    .line 2451
     .local v1, equalsOnsl:Z
     :goto_0
     if-eqz v4, :cond_2
@@ -2261,7 +2262,7 @@
 
     move v2, v8
 
-    .line 2461
+    .line 2453
     .local v2, equalsOnss:Z
     :goto_1
     const-string v10, "gsm.sim.operator.numeric"
@@ -2272,17 +2273,17 @@
 
     move-result-object v6
 
-    .line 2463
+    .line 2455
     .local v6, simNumeric:Ljava/lang/String;
     invoke-virtual {p2}, Landroid/telephony/ServiceState;->getOperatorNumeric()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 2465
+    .line 2457
     .local v5, operatorNumeric:Ljava/lang/String;
     const/4 v0, 0x1
 
-    .line 2467
+    .line 2459
     .local v0, equalsMcc:Z
     const/4 v10, 0x0
 
@@ -2307,7 +2308,7 @@
 
     move-result v0
 
-    .line 2472
+    .line 2464
     :goto_2
     if-eqz p1, :cond_3
 
@@ -2329,14 +2330,14 @@
     :cond_1
     move v1, v9
 
-    .line 2458
+    .line 2450
     goto :goto_0
 
     .restart local v1       #equalsOnsl:Z
     :cond_2
     move v2, v9
 
-    .line 2459
+    .line 2451
     goto :goto_1
 
     .restart local v0       #equalsMcc:Z
@@ -2346,10 +2347,10 @@
     :cond_3
     move v8, v9
 
-    .line 2472
+    .line 2464
     goto :goto_3
 
-    .line 2469
+    .line 2461
     :catch_0
     move-exception v10
 
@@ -2371,12 +2372,12 @@
 
     const/4 v4, 0x0
 
-    .line 2285
+    .line 2277
     new-instance v1, Lcom/android/internal/telephony/RestrictedState;
 
     invoke-direct {v1}, Lcom/android/internal/telephony/RestrictedState;-><init>()V
 
-    .line 2287
+    .line 2279
     .local v1, newRs:Lcom/android/internal/telephony/RestrictedState;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2400,12 +2401,12 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2289
+    .line 2281
     iget-object v3, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v3, :cond_5
 
-    .line 2290
+    .line 2282
     iget-object v3, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v3, [I
@@ -2414,11 +2415,11 @@
 
     check-cast v0, [I
 
-    .line 2291
+    .line 2283
     .local v0, ints:[I
     aget v2, v0, v4
 
-    .line 2293
+    .line 2285
     .local v2, state:I
     and-int/lit8 v3, v2, 0x1
 
@@ -2434,7 +2435,7 @@
     :goto_0
     invoke-virtual {v1, v3}, Lcom/android/internal/telephony/RestrictedState;->setCsEmergencyRestricted(Z)V
 
-    .line 2297
+    .line 2289
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->getIccCard()Lcom/android/internal/telephony/IccCard;
@@ -2449,7 +2450,7 @@
 
     if-ne v3, v6, :cond_2
 
-    .line 2298
+    .line 2290
     and-int/lit8 v3, v2, 0x2
 
     if-nez v3, :cond_1
@@ -2464,7 +2465,7 @@
     :goto_1
     invoke-virtual {v1, v3}, Lcom/android/internal/telephony/RestrictedState;->setCsNormalRestricted(Z)V
 
-    .line 2301
+    .line 2293
     and-int/lit8 v3, v2, 0x10
 
     if-eqz v3, :cond_8
@@ -2472,7 +2473,7 @@
     :goto_2
     invoke-virtual {v1, v5}, Lcom/android/internal/telephony/RestrictedState;->setPsRestricted(Z)V
 
-    .line 2305
+    .line 2297
     :cond_2
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -2494,7 +2495,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2307
+    .line 2299
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/RestrictedState;->isPsRestricted()Z
@@ -2509,17 +2510,17 @@
 
     if-eqz v3, :cond_9
 
-    .line 2308
+    .line 2300
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPsRestrictEnabledRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v3}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2309
+    .line 2301
     const/16 v3, 0x3e9
 
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
-    .line 2320
+    .line 2312
     :cond_3
     :goto_3
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
@@ -2530,22 +2531,22 @@
 
     if-eqz v3, :cond_c
 
-    .line 2321
+    .line 2313
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
 
     move-result v3
 
     if-nez v3, :cond_a
 
-    .line 2323
+    .line 2315
     invoke-direct {p0, v8}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
-    .line 2368
+    .line 2360
     :cond_4
     :goto_4
     iput-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
 
-    .line 2370
+    .line 2362
     .end local v0           #ints:[I
     .end local v2           #state:I
     :cond_5
@@ -2571,7 +2572,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2371
+    .line 2363
     return-void
 
     .restart local v0       #ints:[I
@@ -2579,22 +2580,22 @@
     :cond_6
     move v3, v4
 
-    .line 2293
+    .line 2285
     goto :goto_0
 
     :cond_7
     move v3, v4
 
-    .line 2298
+    .line 2290
     goto :goto_1
 
     :cond_8
     move v5, v4
 
-    .line 2301
+    .line 2293
     goto :goto_2
 
-    .line 2310
+    .line 2302
     :cond_9
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
 
@@ -2610,19 +2611,19 @@
 
     if-nez v3, :cond_3
 
-    .line 2311
+    .line 2303
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPsRestrictDisabledRegistrants:Landroid/os/RegistrantList;
 
     invoke-virtual {v3}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2312
+    .line 2304
     const/16 v3, 0x3ea
 
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_3
 
-    .line 2324
+    .line 2316
     :cond_a
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsNormalRestricted()Z
 
@@ -2630,14 +2631,14 @@
 
     if-nez v3, :cond_b
 
-    .line 2326
+    .line 2318
     const/16 v3, 0x3ee
 
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_4
 
-    .line 2327
+    .line 2319
     :cond_b
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsEmergencyRestricted()Z
 
@@ -2645,12 +2646,12 @@
 
     if-nez v3, :cond_4
 
-    .line 2329
+    .line 2321
     invoke-direct {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_4
 
-    .line 2331
+    .line 2323
     :cond_c
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
 
@@ -2668,19 +2669,19 @@
 
     if-nez v3, :cond_f
 
-    .line 2333
+    .line 2325
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
 
     move-result v3
 
     if-nez v3, :cond_d
 
-    .line 2335
+    .line 2327
     invoke-direct {p0, v8}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_4
 
-    .line 2336
+    .line 2328
     :cond_d
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
 
@@ -2688,12 +2689,12 @@
 
     if-eqz v3, :cond_e
 
-    .line 2338
+    .line 2330
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_4
 
-    .line 2339
+    .line 2331
     :cond_e
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsNormalRestricted()Z
 
@@ -2701,12 +2702,12 @@
 
     if-eqz v3, :cond_4
 
-    .line 2341
+    .line 2333
     invoke-direct {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto :goto_4
 
-    .line 2343
+    .line 2335
     :cond_f
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRestrictedState:Lcom/android/internal/telephony/RestrictedState;
 
@@ -2724,19 +2725,19 @@
 
     if-eqz v3, :cond_12
 
-    .line 2345
+    .line 2337
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
 
     move-result v3
 
     if-nez v3, :cond_10
 
-    .line 2347
+    .line 2339
     invoke-direct {p0, v8}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto/16 :goto_4
 
-    .line 2348
+    .line 2340
     :cond_10
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
 
@@ -2744,18 +2745,46 @@
 
     if-eqz v3, :cond_11
 
-    .line 2350
+    .line 2342
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto/16 :goto_4
 
-    .line 2351
+    .line 2343
     :cond_11
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsEmergencyRestricted()Z
 
     move-result v3
 
     if-eqz v3, :cond_4
+
+    .line 2345
+    const/16 v3, 0x3ee
+
+    invoke-direct {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
+
+    goto/16 :goto_4
+
+    .line 2348
+    :cond_12
+    invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_13
+
+    .line 2350
+    invoke-direct {p0, v7}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
+
+    goto/16 :goto_4
+
+    .line 2351
+    :cond_13
+    invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsEmergencyRestricted()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_14
 
     .line 2353
     const/16 v3, 0x3ee
@@ -2764,35 +2793,7 @@
 
     goto/16 :goto_4
 
-    .line 2356
-    :cond_12
-    invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsRestricted()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_13
-
-    .line 2358
-    invoke-direct {p0, v7}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
-
-    goto/16 :goto_4
-
-    .line 2359
-    :cond_13
-    invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsEmergencyRestricted()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_14
-
-    .line 2361
-    const/16 v3, 0x3ee
-
-    invoke-direct {p0, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
-
-    goto/16 :goto_4
-
-    .line 2362
+    .line 2354
     :cond_14
     invoke-virtual {v1}, Lcom/android/internal/telephony/RestrictedState;->isCsNormalRestricted()Z
 
@@ -2800,7 +2801,7 @@
 
     if-eqz v3, :cond_4
 
-    .line 2364
+    .line 2356
     invoke-direct {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setNotification(I)V
 
     goto/16 :goto_4
@@ -2811,58 +2812,58 @@
     .parameter "ar"
 
     .prologue
-    .line 2178
+    .line 2170
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
 
     move-object/from16 v23, v0
 
-    .line 2179
+    .line 2171
     .local v23, oldSignalStrength:Landroid/telephony/SignalStrength;
     const/16 v2, 0x63
 
-    .line 2180
+    .line 2172
     .local v2, rssi:I
     const/4 v9, -0x1
 
-    .line 2181
+    .line 2173
     .local v9, lteSignalStrength:I
     const/4 v10, -0x1
 
-    .line 2182
+    .line 2174
     .local v10, lteRsrp:I
     const/4 v11, -0x1
 
-    .line 2183
+    .line 2175
     .local v11, lteRsrq:I
     const/4 v12, -0x1
 
-    .line 2184
+    .line 2176
     .local v12, lteRssnr:I
     const/4 v13, -0x1
 
-    .line 2186
+    .line 2178
     .local v13, lteCqi:I
     const/16 v17, -0x1
 
-    .line 2187
+    .line 2179
     .local v17, htcLteRsrp:I
     const/16 v18, -0x1
 
-    .line 2188
+    .line 2180
     .local v18, htcLteRsrq:I
     const/16 v14, 0x63
 
-    .line 2189
+    .line 2181
     .local v14, signalDbm:I
     const/4 v15, -0x1
 
-    .line 2190
+    .line 2182
     .local v15, ecno:I
     const/16 v21, 0x0
 
-    .line 2193
+    .line 2185
     .local v21, extraInfo:Z
     move-object/from16 v0, p1
 
@@ -2870,10 +2871,10 @@
 
     if-eqz v1, :cond_2
 
-    .line 2196
+    .line 2188
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setSignalStrengthDefaultValues()V
 
-    .line 2252
+    .line 2244
     :cond_0
     :goto_0
     new-instance v1, Landroid/telephony/SignalStrength;
@@ -2900,7 +2901,7 @@
 
     iput-object v1, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
 
-    .line 2257
+    .line 2249
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -2911,7 +2912,7 @@
 
     if-lez v1, :cond_f
 
-    .line 2258
+    .line 2250
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
@@ -2936,7 +2937,7 @@
 
     if-eq v1, v3, :cond_f
 
-    .line 2260
+    .line 2252
     const-string v1, "GSM"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2963,12 +2964,12 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2275
+    .line 2267
     :cond_1
     :goto_1
     return-void
 
-    .line 2198
+    .line 2190
     :cond_2
     move-object/from16 v0, p1
 
@@ -2980,7 +2981,7 @@
 
     check-cast v22, [I
 
-    .line 2201
+    .line 2193
     .local v22, ints:[I
     move-object/from16 v0, v22
 
@@ -2988,12 +2989,12 @@
 
     if-eqz v1, :cond_8
 
-    .line 2202
+    .line 2194
     const/4 v1, 0x0
 
     aget v2, v22, v1
 
-    .line 2211
+    .line 2203
     const/4 v1, 0x7
 
     aget v1, v22, v1
@@ -3004,7 +3005,7 @@
 
     aget v9, v22, v1
 
-    .line 2212
+    .line 2204
     :goto_2
     const/16 v1, 0x8
 
@@ -3016,7 +3017,7 @@
 
     aget v10, v22, v1
 
-    .line 2213
+    .line 2205
     :goto_3
     const/16 v1, 0x9
 
@@ -3028,7 +3029,7 @@
 
     aget v11, v22, v1
 
-    .line 2214
+    .line 2206
     :goto_4
     const/16 v1, 0xa
 
@@ -3040,7 +3041,7 @@
 
     aget v12, v22, v1
 
-    .line 2215
+    .line 2207
     :goto_5
     const/16 v1, 0xb
 
@@ -3052,7 +3053,7 @@
 
     aget v13, v22, v1
 
-    .line 2223
+    .line 2215
     :goto_6
     move-object/from16 v0, v22
 
@@ -3062,10 +3063,10 @@
 
     if-lt v1, v3, :cond_0
 
-    .line 2224
+    .line 2216
     const/16 v21, 0x1
 
-    .line 2235
+    .line 2227
     const/4 v1, 0x7
 
     aget v1, v22, v1
@@ -3076,7 +3077,7 @@
 
     aget v14, v22, v1
 
-    .line 2236
+    .line 2228
     :goto_7
     const/16 v1, 0x8
 
@@ -3088,7 +3089,7 @@
 
     aget v15, v22, v1
 
-    .line 2237
+    .line 2229
     :goto_8
     const/16 v1, 0x9
 
@@ -3100,7 +3101,7 @@
 
     aget v9, v22, v1
 
-    .line 2238
+    .line 2230
     :goto_9
     const/16 v1, 0xa
 
@@ -3114,7 +3115,7 @@
 
     mul-int/lit8 v10, v1, -0x1
 
-    .line 2239
+    .line 2231
     :goto_a
     const/16 v1, 0xb
 
@@ -3128,13 +3129,13 @@
 
     mul-int/lit8 v11, v1, -0x1
 
-    .line 2240
+    .line 2232
     :goto_b
     const/16 v1, 0xc
 
     aget v12, v22, v1
 
-    .line 2241
+    .line 2233
     const/16 v1, 0xd
 
     aget v1, v22, v1
@@ -3145,46 +3146,46 @@
 
     aget v13, v22, v1
 
-    .line 2242
+    .line 2234
     :goto_c
     mul-int/lit8 v17, v10, -0x1
 
-    .line 2243
+    .line 2235
     mul-int/lit8 v18, v11, -0x1
 
     goto/16 :goto_0
 
-    .line 2211
+    .line 2203
     :cond_3
     const/4 v9, -0x1
 
     goto :goto_2
 
-    .line 2212
+    .line 2204
     :cond_4
     const/4 v10, -0x1
 
     goto :goto_3
 
-    .line 2213
+    .line 2205
     :cond_5
     const/4 v11, -0x1
 
     goto :goto_4
 
-    .line 2214
+    .line 2206
     :cond_6
     const/4 v12, -0x1
 
     goto :goto_5
 
-    .line 2215
+    .line 2207
     :cond_7
     const/4 v13, -0x1
 
     goto :goto_6
 
-    .line 2218
+    .line 2210
     :cond_8
     const-string v1, "Bogus signal strength response"
 
@@ -3192,30 +3193,30 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->loge(Ljava/lang/String;)V
 
-    .line 2219
+    .line 2211
     const/16 v2, 0x63
 
     goto :goto_6
 
-    .line 2235
+    .line 2227
     :cond_9
     const/4 v14, -0x1
 
     goto :goto_7
 
-    .line 2236
+    .line 2228
     :cond_a
     const/4 v15, -0x1
 
     goto :goto_8
 
-    .line 2237
+    .line 2229
     :cond_b
     const/4 v9, -0x1
 
     goto :goto_9
 
-    .line 2238
+    .line 2230
     :cond_c
     const/16 v1, 0xa
 
@@ -3223,7 +3224,7 @@
 
     goto :goto_a
 
-    .line 2239
+    .line 2231
     :cond_d
     const/16 v1, 0xb
 
@@ -3231,13 +3232,13 @@
 
     goto :goto_b
 
-    .line 2241
+    .line 2233
     :cond_e
     const/4 v13, -0x1
 
     goto :goto_c
 
-    .line 2266
+    .line 2258
     .end local v22           #ints:[I
     :cond_f
     move-object/from16 v0, p0
@@ -3252,7 +3253,7 @@
 
     if-nez v1, :cond_1
 
-    .line 2269
+    .line 2261
     :try_start_0
     move-object/from16 v0, p0
 
@@ -3264,11 +3265,11 @@
 
     goto/16 :goto_1
 
-    .line 2270
+    .line 2262
     :catch_0
     move-exception v20
 
-    .line 2271
+    .line 2263
     .local v20, ex:Ljava/lang/NullPointerException;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -3309,31 +3310,31 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1586
+    .line 1584
     const/4 v0, 0x1
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
-    .line 1587
+    .line 1585
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
     aput v3, v0, v3
 
-    .line 1591
+    .line 1589
     iput v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mVoiceNetworkType:I
 
-    .line 1592
+    .line 1590
     iput v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGPRSNetworkType:I
 
-    .line 1593
+    .line 1591
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsVaildVoice:Z
 
-    .line 1594
+    .line 1592
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsVaildGPRS:Z
 
-    .line 1598
+    .line 1596
     sget-object v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;->$SwitchMap$com$android$internal$telephony$CommandsInterface$RadioState:[I
 
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -3350,7 +3351,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1631
+    .line 1629
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
     aget v1, v0, v3
@@ -3359,7 +3360,7 @@
 
     aput v1, v0, v3
 
-    .line 1632
+    .line 1630
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     const/4 v1, 0x6
@@ -3372,7 +3373,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getOperator(Landroid/os/Message;)V
 
-    .line 1648
+    .line 1646
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
     aget v1, v0, v3
@@ -3381,7 +3382,7 @@
 
     aput v1, v0, v3
 
-    .line 1649
+    .line 1647
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     const/4 v1, 0x4
@@ -3394,7 +3395,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getVoiceRegistrationState(Landroid/os/Message;)V
 
-    .line 1653
+    .line 1651
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
     aget v1, v0, v3
@@ -3403,7 +3404,7 @@
 
     aput v1, v0, v3
 
-    .line 1654
+    .line 1652
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     const/4 v1, 0x5
@@ -3416,7 +3417,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getDataRegistrationState(Landroid/os/Message;)V
 
-    .line 1659
+    .line 1657
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
 
     aget v1, v0, v3
@@ -3425,7 +3426,7 @@
 
     aput v1, v0, v3
 
-    .line 1660
+    .line 1658
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
 
     const/16 v1, 0xe
@@ -3438,56 +3439,56 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getNetworkSelectionMode(Landroid/os/Message;)V
 
-    .line 1665
+    .line 1663
     :goto_0
     return-void
 
-    .line 1600
+    .line 1598
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
 
     invoke-virtual {v0}, Landroid/telephony/ServiceState;->setStateOutOfService()V
 
-    .line 1601
+    .line 1599
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newCellLoc:Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {v0}, Landroid/telephony/gsm/GsmCellLocation;->setStateInvalid()V
 
-    .line 1602
+    .line 1600
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setSignalStrengthDefaultValues()V
 
-    .line 1603
+    .line 1601
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGotCountryCode:Z
 
-    .line 1604
+    .line 1602
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNitzUpdatedTime:Z
 
-    .line 1605
+    .line 1603
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollStateDone()V
 
     goto :goto_0
 
-    .line 1609
+    .line 1607
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
 
     invoke-virtual {v0}, Landroid/telephony/ServiceState;->setStateOff()V
 
-    .line 1610
+    .line 1608
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newCellLoc:Landroid/telephony/gsm/GsmCellLocation;
 
     invoke-virtual {v0}, Landroid/telephony/gsm/GsmCellLocation;->setStateInvalid()V
 
-    .line 1611
+    .line 1609
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setSignalStrengthDefaultValues()V
 
-    .line 1612
+    .line 1610
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGotCountryCode:Z
 
-    .line 1614
+    .line 1612
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mFirstNitzGetAfterRadioOn:Z
 
-    .line 1617
+    .line 1615
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v1, 0x32
@@ -3500,20 +3501,20 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 1619
+    .line 1617
     :cond_0
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsSIMRecordsLoaded:Z
 
-    .line 1622
+    .line 1620
     :cond_1
     iput-boolean v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNitzUpdatedTime:Z
 
-    .line 1623
+    .line 1621
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollStateDone()V
 
     goto :goto_0
 
-    .line 1598
+    .line 1596
     nop
 
     :pswitch_data_0
@@ -3527,7 +3528,7 @@
     .locals 39
 
     .prologue
-    .line 1669
+    .line 1667
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->GENERIC_WPHONE_CONFIG()Z
 
     move-result v34
@@ -3538,23 +3539,23 @@
 
     if-eqz v34, :cond_1
 
-    .line 1670
+    .line 1668
     const-string v34, "GSM"
 
     const-string v35, " pollStateDone drop event "
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2095
+    .line 2087
     :cond_0
     :goto_0
     return-void
 
-    .line 1676
+    .line 1674
     :cond_1
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNetworkType()V
 
-    .line 1681
+    .line 1679
     new-instance v34, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
@@ -3737,7 +3738,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 1692
+    .line 1690
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
@@ -3764,7 +3765,7 @@
 
     const/16 v16, 0x1
 
-    .line 1697
+    .line 1695
     .local v16, hasRegistered:Z
     :goto_1
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->GENERIC_WPHONE_CONFIG()Z
@@ -3773,10 +3774,10 @@
 
     if-eqz v34, :cond_3
 
-    .line 1699
+    .line 1697
     if-nez v16, :cond_2
 
-    .line 1701
+    .line 1699
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mCregChange:Z
@@ -3797,7 +3798,7 @@
 
     if-nez v34, :cond_2
 
-    .line 1702
+    .line 1700
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -3830,10 +3831,10 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1703
+    .line 1701
     const/16 v16, 0x1
 
-    .line 1706
+    .line 1704
     :cond_2
     const/16 v34, 0x0
 
@@ -3843,7 +3844,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mCregChange:Z
 
-    .line 1707
+    .line 1705
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -3872,7 +3873,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1710
+    .line 1708
     :cond_3
     move-object/from16 v0, p0
 
@@ -3900,7 +3901,7 @@
 
     const/4 v10, 0x1
 
-    .line 1714
+    .line 1712
     .local v10, hasDeregistered:Z
     :goto_2
     move-object/from16 v0, p0
@@ -3921,7 +3922,7 @@
 
     const/4 v11, 0x1
 
-    .line 1719
+    .line 1717
     .local v11, hasGprsAttached:Z
     :goto_3
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->GENERIC_WPHONE_CONFIG()Z
@@ -3930,10 +3931,10 @@
 
     if-eqz v34, :cond_5
 
-    .line 1721
+    .line 1719
     if-nez v11, :cond_4
 
-    .line 1723
+    .line 1721
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mCgregChange:Z
@@ -3950,7 +3951,7 @@
 
     if-nez v34, :cond_4
 
-    .line 1724
+    .line 1722
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -3981,10 +3982,10 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1725
+    .line 1723
     const/4 v11, 0x1
 
-    .line 1728
+    .line 1726
     :cond_4
     const/16 v34, 0x0
 
@@ -3994,7 +3995,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mCgregChange:Z
 
-    .line 1729
+    .line 1727
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -4023,7 +4024,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1733
+    .line 1731
     :cond_5
     move-object/from16 v0, p0
 
@@ -4043,7 +4044,7 @@
 
     const/4 v12, 0x1
 
-    .line 1737
+    .line 1735
     .local v12, hasGprsDetached:Z
     :goto_4
     move-object/from16 v0, p0
@@ -4066,7 +4067,7 @@
 
     const/4 v15, 0x1
 
-    .line 1739
+    .line 1737
     .local v15, hasRadioTechnologyChanged:Z
     :goto_5
     move-object/from16 v0, p0
@@ -4089,7 +4090,7 @@
 
     const/4 v8, 0x1
 
-    .line 1741
+    .line 1739
     .local v8, hasChanged:Z
     :goto_6
     move-object/from16 v0, p0
@@ -4118,7 +4119,7 @@
 
     const/16 v18, 0x1
 
-    .line 1743
+    .line 1741
     .local v18, hasRoamingOn:Z
     :goto_7
     move-object/from16 v0, p0
@@ -4147,7 +4148,7 @@
 
     const/16 v17, 0x1
 
-    .line 1745
+    .line 1743
     .local v17, hasRoamingOff:Z
     :goto_8
     move-object/from16 v0, p0
@@ -4170,7 +4171,7 @@
 
     const/4 v13, 0x1
 
-    .line 1748
+    .line 1746
     .local v13, hasLocationChanged:Z
     :goto_9
     move-object/from16 v0, p0
@@ -4217,7 +4218,7 @@
 
     if-eq v0, v1, :cond_7
 
-    .line 1749
+    .line 1747
     :cond_6
     const v34, 0xc3c2
 
@@ -4295,7 +4296,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 1754
+    .line 1752
     :cond_7
     move-object/from16 v0, p0
 
@@ -4317,7 +4318,7 @@
 
     const/4 v14, 0x1
 
-    .line 1758
+    .line 1756
     .local v14, hasMMRejectChanged:Z
     :goto_a
     move-object/from16 v0, p0
@@ -4358,7 +4359,7 @@
 
     const/4 v9, 0x1
 
-    .line 1763
+    .line 1761
     .local v9, hasCsfbForLTE:Z
     :goto_b
     move-object/from16 v0, p0
@@ -4367,7 +4368,7 @@
 
     move-object/from16 v29, v0
 
-    .line 1764
+    .line 1762
     .local v29, tss:Landroid/telephony/ServiceState;
     move-object/from16 v0, p0
 
@@ -4381,14 +4382,14 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
-    .line 1765
+    .line 1763
     move-object/from16 v0, v29
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
 
-    .line 1767
+    .line 1765
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -4397,14 +4398,14 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/telephony/ServiceState;->setStateOutOfService()V
 
-    .line 1769
+    .line 1767
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cellLoc:Landroid/telephony/gsm/GsmCellLocation;
 
     move-object/from16 v27, v0
 
-    .line 1770
+    .line 1768
     .local v27, tcl:Landroid/telephony/gsm/GsmCellLocation;
     move-object/from16 v0, p0
 
@@ -4418,17 +4419,17 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cellLoc:Landroid/telephony/gsm/GsmCellLocation;
 
-    .line 1771
+    .line 1769
     move-object/from16 v0, v27
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newCellLoc:Landroid/telephony/gsm/GsmCellLocation;
 
-    .line 1776
+    .line 1774
     if-eqz v15, :cond_9
 
-    .line 1778
+    .line 1776
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRadioTechChangedRegistrants:Landroid/os/RegistrantList;
@@ -4437,10 +4438,10 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 1781
+    .line 1779
     const/4 v6, -0x1
 
-    .line 1782
+    .line 1780
     .local v6, cid:I
     move-object/from16 v0, p0
 
@@ -4454,7 +4455,7 @@
 
     check-cast v21, Landroid/telephony/gsm/GsmCellLocation;
 
-    .line 1783
+    .line 1781
     .local v21, loc:Landroid/telephony/gsm/GsmCellLocation;
     if-eqz v21, :cond_8
 
@@ -4462,7 +4463,7 @@
 
     move-result v6
 
-    .line 1784
+    .line 1782
     :cond_8
     const v34, 0xc3c0
 
@@ -4512,7 +4513,74 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
-    .line 1796
+    .line 1785
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v35, "RAT switched "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRilRadioTechnology:I
+
+    move/from16 v35, v0
+
+    invoke-static/range {v35 .. v35}, Landroid/telephony/ServiceState;->rilRadioTechnologyToString(I)Ljava/lang/String;
+
+    move-result-object v35
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    const-string v35, " -> "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
+
+    move/from16 v35, v0
+
+    invoke-static/range {v35 .. v35}, Landroid/telephony/ServiceState;->rilRadioTechnologyToString(I)Ljava/lang/String;
+
+    move-result-object v35
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    const-string v35, " at cell "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
+
+    .line 1791
     .end local v6           #cid:I
     .end local v21           #loc:Landroid/telephony/gsm/GsmCellLocation;
     :cond_9
@@ -4528,7 +4596,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->gprsState:I
 
-    .line 1797
+    .line 1792
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewReasonDataDenied:I
@@ -4541,7 +4609,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mReasonDataDenied:I
 
-    .line 1798
+    .line 1793
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMaxDataCalls:I
@@ -4554,7 +4622,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMaxDataCalls:I
 
-    .line 1799
+    .line 1794
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
@@ -4567,7 +4635,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRilRadioTechnology:I
 
-    .line 1801
+    .line 1796
     const/16 v34, 0x0
 
     move/from16 v0, v34
@@ -4576,7 +4644,7 @@
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
 
-    .line 1804
+    .line 1799
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -4585,17 +4653,30 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/telephony/ServiceState;->setStateOutOfService()V
 
-    .line 1807
+    .line 1802
     if-eqz v14, :cond_a
 
-    .line 1809
+    .line 1803
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    move/from16 v34, v0
+
+    move/from16 v0, v34
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
+
+    .line 1804
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "Old MM Reject Cause: "
+    const-string v36, "MM Reject Cause: "
 
     invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4604,22 +4685,6 @@
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
-
-    move/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string v36, " New MM Reject Cause: "
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
 
     move/from16 v36, v0
 
@@ -4645,20 +4710,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1812
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
-
-    move/from16 v34, v0
-
-    move/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
-
-    .line 1813
+    .line 1805
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -4685,17 +4737,17 @@
 
     invoke-virtual/range {v34 .. v35}, Lcom/android/internal/telephony/gsm/GSMPhone;->notifyMMLocationUpdateInfo([I)V
 
-    .line 1814
+    .line 1806
     if-nez v8, :cond_a
 
-    .line 1815
+    .line 1807
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNetworkNameDisplay()V
 
-    .line 1820
+    .line 1812
     :cond_a
     if-eqz v15, :cond_b
 
-    .line 1824
+    .line 1816
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -4720,7 +4772,7 @@
 
     if-nez v34, :cond_b
 
-    .line 1825
+    .line 1817
     sget-short v34, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v35, 0xad
@@ -4791,7 +4843,7 @@
 
     if-eq v0, v1, :cond_b
 
-    .line 1835
+    .line 1827
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -4812,11 +4864,11 @@
 
     invoke-virtual/range {v34 .. v36}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1846
+    .line 1838
     :cond_b
     if-eqz v9, :cond_c
 
-    .line 1847
+    .line 1839
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -4845,7 +4897,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1849
+    .line 1841
     :try_start_0
     move-object/from16 v0, p0
 
@@ -4857,12 +4909,12 @@
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1857
+    .line 1849
     :cond_c
     :goto_c
     if-eqz v16, :cond_d
 
-    .line 1858
+    .line 1850
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNetworkAttachedRegistrants:Landroid/os/RegistrantList;
@@ -4871,11 +4923,11 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 1862
+    .line 1854
     :cond_d
     if-eqz v10, :cond_e
 
-    .line 1863
+    .line 1855
     const-string v34, ""
 
     move-object/from16 v0, v34
@@ -4884,7 +4936,7 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOriginalOperatorName:Ljava/lang/String;
 
-    .line 1865
+    .line 1857
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -4909,7 +4961,7 @@
 
     if-nez v34, :cond_27
 
-    .line 1867
+    .line 1859
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -4918,7 +4970,7 @@
 
     invoke-virtual/range {v34 .. v34}, Lcom/android/internal/telephony/gsm/GSMPhone;->processRestartManualNetworkSelection()V
 
-    .line 1874
+    .line 1866
     :goto_d
     move-object/from16 v0, p0
 
@@ -4932,7 +4984,7 @@
 
     invoke-virtual/range {v34 .. v36}, Lcom/android/internal/telephony/gsm/GSMPhone;->updateNetworkTypeGlobally(ZLjava/lang/Integer;)Z
 
-    .line 1877
+    .line 1869
     new-instance v34, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
@@ -4969,7 +5021,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 1880
+    .line 1872
     const/16 v34, 0x0
 
     move/from16 v0, v34
@@ -4978,14 +5030,14 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNitzUpdatedTime:Z
 
-    .line 1884
+    .line 1876
     :cond_e
     if-eqz v8, :cond_14
 
-    .line 1888
+    .line 1880
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNetworkNameDisplay()V
 
-    .line 1898
+    .line 1890
     const-string v34, "gsm.operator.numeric"
 
     const-string v35, ""
@@ -4994,7 +5046,7 @@
 
     move-result-object v25
 
-    .line 1900
+    .line 1892
     .local v25, prevOperatorNumeric:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -5006,7 +5058,7 @@
 
     move-result-object v24
 
-    .line 1901
+    .line 1893
     .local v24, operatorNumeric:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -5024,10 +5076,13 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1906
-    if-nez v24, :cond_28
+    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    .line 1908
+    move-result v34
+
+    if-eqz v34, :cond_28
+
+    .line 1900
     :cond_f
     const-string v34, "operatorNumeric is null"
 
@@ -5037,7 +5092,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 1909
+    .line 1901
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5050,7 +5105,7 @@
 
     invoke-virtual/range {v34 .. v36}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1910
+    .line 1902
     const-string v34, ""
 
     move-object/from16 v0, v34
@@ -5059,7 +5114,7 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOPERATOR_ISO_COUNTRY:Ljava/lang/String;
 
-    .line 1911
+    .line 1903
     const/16 v34, 0x0
 
     move/from16 v0, v34
@@ -5068,7 +5123,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGotCountryCode:Z
 
-    .line 1912
+    .line 1904
     const/16 v34, 0x0
 
     move/from16 v0, v34
@@ -5077,7 +5132,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNitzUpdatedTime:Z
 
-    .line 1936
+    .line 1928
     :goto_e
     move-object/from16 v0, p0
 
@@ -5109,7 +5164,7 @@
 
     if-ne v0, v1, :cond_2a
 
-    .line 1937
+    .line 1929
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5142,7 +5197,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1945
+    .line 1937
     :goto_f
     move-object/from16 v0, p0
 
@@ -5154,7 +5209,7 @@
 
     move-result v19
 
-    .line 1947
+    .line 1939
     .local v19, isTestIcc:Z
     move-object/from16 v0, p0
 
@@ -5179,10 +5234,10 @@
 
     if-eqz v34, :cond_12
 
-    .line 1948
+    .line 1940
     const/16 v32, 0x0
 
-    .line 1952
+    .line 1944
     .local v32, zone:Ljava/util/TimeZone;
     const-string v34, "GSM"
 
@@ -5212,7 +5267,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1953
+    .line 1945
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -5287,18 +5342,18 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1955
+    .line 1947
     const-string v34, "persist.sys.timezone"
 
     invoke-static/range {v34 .. v34}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v33
 
-    .line 1956
+    .line 1948
     .local v33, zoneName:Ljava/lang/String;
     const/16 v23, 0x0
 
-    .line 1957
+    .line 1949
     .local v23, needLaunchTimeZonePicker:Z
     move-object/from16 v0, p0
 
@@ -5338,17 +5393,17 @@
 
     if-gez v34, :cond_2d
 
-    .line 1961
+    .line 1953
     if-eqz v19, :cond_2b
 
-    .line 1962
+    .line 1954
     const-string v34, "UTC"
 
     invoke-static/range {v34 .. v34}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v32
 
-    .line 1967
+    .line 1959
     :goto_10
     const-string v34, "GSM"
 
@@ -5376,7 +5431,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1973
+    .line 1965
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v34
@@ -5395,7 +5450,7 @@
 
     move-wide/from16 v30, v0
 
-    .line 1974
+    .line 1966
     .local v30, tzOffset:J
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getAutoTime()Z
 
@@ -5403,7 +5458,7 @@
 
     if-eqz v34, :cond_2c
 
-    .line 1975
+    .line 1967
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v34
@@ -5416,12 +5471,12 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setAndBroadcastNetworkSetTime(J)V
 
-    .line 2002
+    .line 1994
     .end local v30           #tzOffset:J
     :goto_11
     if-eqz v32, :cond_31
 
-    .line 2003
+    .line 1995
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -5448,14 +5503,14 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2004
+    .line 1996
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getAutoTimeZone()Z
 
     move-result v34
 
     if-eqz v34, :cond_11
 
-    .line 2006
+    .line 1998
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
@@ -5482,7 +5537,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2008
+    .line 2000
     invoke-virtual/range {v32 .. v32}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v34
@@ -5493,7 +5548,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setAndBroadcastNetworkSetTimeZone(Ljava/lang/String;)V
 
-    .line 2010
+    .line 2002
     :cond_11
     invoke-virtual/range {v32 .. v32}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
@@ -5505,10 +5560,10 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->saveNitzTimeZone(Ljava/lang/String;)V
 
-    .line 2011
+    .line 2003
     if-eqz v23, :cond_30
 
-    .line 2012
+    .line 2004
     const/16 v34, 0x0
 
     const/16 v35, 0x1
@@ -5521,7 +5576,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNitzTimeZoneIsValid(ZZ)V
 
-    .line 2016
+    .line 2008
     :goto_12
     const/16 v34, 0x0
 
@@ -5531,7 +5586,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNeedFixZoneAfterNitz:Z
 
-    .line 2023
+    .line 2015
     .end local v23           #needLaunchTimeZonePicker:Z
     .end local v32           #zone:Ljava/util/TimeZone;
     .end local v33           #zoneName:Ljava/lang/String;
@@ -5557,7 +5612,7 @@
 
     if-eqz v34, :cond_32
 
-    const-string v34, "true"
+    const-string/jumbo v34, "true"
 
     :goto_14
     move-object/from16 v0, v35
@@ -5568,7 +5623,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2026
+    .line 2018
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5593,14 +5648,14 @@
 
     if-ne v0, v1, :cond_13
 
-    .line 2033
+    .line 2025
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->VERIZON_WPHONE_CONFIG()Z
 
     move-result v34
 
     if-nez v34, :cond_13
 
-    .line 2034
+    .line 2026
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5613,14 +5668,14 @@
 
     check-cast v26, Lcom/android/internal/telephony/gsm/SIMRecords;
 
-    .line 2035
+    .line 2027
     .local v26, simRecord:Lcom/android/internal/telephony/gsm/SIMRecords;
     if-eqz v26, :cond_13
 
-    .line 2036
+    .line 2028
     invoke-virtual/range {v26 .. v26}, Lcom/android/internal/telephony/gsm/SIMRecords;->queryCFUIfNecessary()V
 
-    .line 2043
+    .line 2035
     .end local v26           #simRecord:Lcom/android/internal/telephony/gsm/SIMRecords;
     :cond_13
     move-object/from16 v0, p0
@@ -5637,14 +5692,14 @@
 
     invoke-virtual/range {v34 .. v35}, Lcom/android/internal/telephony/gsm/GSMPhone;->notifyServiceStateChanged(Landroid/telephony/ServiceState;)V
 
-    .line 2045
+    .line 2037
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->GENERIC_WPHONE_CONFIG()Z
 
     move-result v34
 
     if-eqz v34, :cond_14
 
-    .line 2046
+    .line 2038
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->cm:Lcom/android/internal/telephony/CommandsInterface;
@@ -5663,14 +5718,14 @@
 
     invoke-interface/range {v34 .. v35}, Lcom/android/internal/telephony/CommandsInterface;->getSignalStrength(Landroid/os/Message;)V
 
-    .line 2051
+    .line 2043
     .end local v19           #isTestIcc:Z
     .end local v24           #operatorNumeric:Ljava/lang/String;
     .end local v25           #prevOperatorNumeric:Ljava/lang/String;
     :cond_14
     if-eqz v11, :cond_15
 
-    .line 2052
+    .line 2044
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mAttachedRegistrants:Landroid/os/RegistrantList;
@@ -5679,11 +5734,11 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2055
+    .line 2047
     :cond_15
     if-eqz v12, :cond_16
 
-    .line 2056
+    .line 2048
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDetachedRegistrants:Landroid/os/RegistrantList;
@@ -5692,13 +5747,13 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2064
+    .line 2056
     :cond_16
     if-nez v15, :cond_17
 
     if-eqz v11, :cond_18
 
-    .line 2066
+    .line 2058
     :cond_17
     move-object/from16 v0, p0
 
@@ -5712,11 +5767,11 @@
 
     invoke-virtual/range {v34 .. v36}, Lcom/android/internal/telephony/gsm/GSMPhone;->notifyDataConnection(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2069
+    .line 2061
     :cond_18
     if-eqz v18, :cond_19
 
-    .line 2070
+    .line 2062
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRoamingOnRegistrants:Landroid/os/RegistrantList;
@@ -5725,11 +5780,11 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2073
+    .line 2065
     :cond_19
     if-eqz v17, :cond_1a
 
-    .line 2074
+    .line 2066
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRoamingOffRegistrants:Landroid/os/RegistrantList;
@@ -5738,11 +5793,11 @@
 
     invoke-virtual/range {v34 .. v34}, Landroid/os/RegistrantList;->notifyRegistrants()V
 
-    .line 2077
+    .line 2069
     :cond_1a
     if-eqz v13, :cond_1b
 
-    .line 2078
+    .line 2070
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5751,7 +5806,7 @@
 
     invoke-virtual/range {v34 .. v34}, Lcom/android/internal/telephony/gsm/GSMPhone;->notifyLocationChanged()V
 
-    .line 2081
+    .line 2073
     :cond_1b
     move-object/from16 v0, p0
 
@@ -5781,7 +5836,7 @@
 
     if-nez v34, :cond_33
 
-    .line 2082
+    .line 2074
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mStartedGprsRegCheck:Z
@@ -5798,7 +5853,7 @@
 
     if-nez v34, :cond_0
 
-    .line 2083
+    .line 2075
     const/16 v34, 0x1
 
     move/from16 v0, v34
@@ -5807,7 +5862,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mStartedGprsRegCheck:Z
 
-    .line 2085
+    .line 2077
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -5830,7 +5885,7 @@
 
     move-result v5
 
-    .line 2089
+    .line 2081
     .local v5, check_period:I
     const/16 v34, 0x16
 
@@ -5856,7 +5911,7 @@
 
     goto/16 :goto_0
 
-    .line 1692
+    .line 1690
     .end local v5           #check_period:I
     .end local v8           #hasChanged:Z
     .end local v9           #hasCsfbForLTE:Z
@@ -5876,84 +5931,84 @@
 
     goto/16 :goto_1
 
-    .line 1710
+    .line 1708
     .restart local v16       #hasRegistered:Z
     :cond_1d
     const/4 v10, 0x0
 
     goto/16 :goto_2
 
-    .line 1714
+    .line 1712
     .restart local v10       #hasDeregistered:Z
     :cond_1e
     const/4 v11, 0x0
 
     goto/16 :goto_3
 
-    .line 1733
+    .line 1731
     .restart local v11       #hasGprsAttached:Z
     :cond_1f
     const/4 v12, 0x0
 
     goto/16 :goto_4
 
-    .line 1737
+    .line 1735
     .restart local v12       #hasGprsDetached:Z
     :cond_20
     const/4 v15, 0x0
 
     goto/16 :goto_5
 
-    .line 1739
+    .line 1737
     .restart local v15       #hasRadioTechnologyChanged:Z
     :cond_21
     const/4 v8, 0x0
 
     goto/16 :goto_6
 
-    .line 1741
+    .line 1739
     .restart local v8       #hasChanged:Z
     :cond_22
     const/16 v18, 0x0
 
     goto/16 :goto_7
 
-    .line 1743
+    .line 1741
     .restart local v18       #hasRoamingOn:Z
     :cond_23
     const/16 v17, 0x0
 
     goto/16 :goto_8
 
-    .line 1745
+    .line 1743
     .restart local v17       #hasRoamingOff:Z
     :cond_24
     const/4 v13, 0x0
 
     goto/16 :goto_9
 
-    .line 1754
+    .line 1752
     .restart local v13       #hasLocationChanged:Z
     :cond_25
     const/4 v14, 0x0
 
     goto/16 :goto_a
 
-    .line 1758
+    .line 1756
     .restart local v14       #hasMMRejectChanged:Z
     :cond_26
     const/4 v9, 0x0
 
     goto/16 :goto_b
 
-    .line 1850
+    .line 1842
     .restart local v9       #hasCsfbForLTE:Z
     .restart local v27       #tcl:Landroid/telephony/gsm/GsmCellLocation;
     .restart local v29       #tss:Landroid/telephony/ServiceState;
     :catch_0
     move-exception v7
 
-    .line 1851
+    .line 1843
     .local v7, ex:Ljava/lang/NullPointerException;
     new-instance v34, Ljava/lang/StringBuilder;
 
@@ -5989,7 +6044,7 @@
 
     goto/16 :goto_c
 
-    .line 1869
+    .line 1861
     .end local v7           #ex:Ljava/lang/NullPointerException;
     :cond_27
     const-string v34, "GSM"
@@ -6000,7 +6055,7 @@
 
     goto/16 :goto_d
 
-    .line 1906
+    .line 1898
     .restart local v24       #operatorNumeric:Ljava/lang/String;
     .restart local v25       #prevOperatorNumeric:Ljava/lang/String;
     :cond_28
@@ -6016,10 +6071,10 @@
 
     if-lt v0, v1, :cond_f
 
-    .line 1914
+    .line 1906
     const-string v20, ""
 
-    .line 1915
+    .line 1907
     .local v20, iso:Ljava/lang/String;
     const/16 v34, 0x0
 
@@ -6035,7 +6090,7 @@
 
     move-result-object v22
 
-    .line 1917
+    .line 1909
     .local v22, mcc:Ljava/lang/String;
     :try_start_1
     invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -6049,7 +6104,7 @@
 
     move-result-object v20
 
-    .line 1924
+    .line 1916
     :goto_15
     move-object/from16 v0, p0
 
@@ -6067,14 +6122,14 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1927
+    .line 1919
     move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOPERATOR_ISO_COUNTRY:Ljava/lang/String;
 
-    .line 1928
+    .line 1920
     invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v34
@@ -6092,11 +6147,11 @@
 
     goto/16 :goto_e
 
-    .line 1918
+    .line 1910
     :catch_1
     move-exception v7
 
-    .line 1919
+    .line 1911
     .local v7, ex:Ljava/lang/NumberFormatException;
     new-instance v34, Ljava/lang/StringBuilder;
 
@@ -6126,12 +6181,12 @@
 
     goto :goto_15
 
-    .line 1920
+    .line 1912
     .end local v7           #ex:Ljava/lang/NumberFormatException;
     :catch_2
     move-exception v7
 
-    .line 1921
+    .line 1913
     .local v7, ex:Ljava/lang/StringIndexOutOfBoundsException;
     new-instance v34, Ljava/lang/StringBuilder;
 
@@ -6161,14 +6216,14 @@
 
     goto :goto_15
 
-    .line 1928
+    .line 1920
     .end local v7           #ex:Ljava/lang/StringIndexOutOfBoundsException;
     :cond_29
     const/16 v34, 0x0
 
     goto :goto_16
 
-    .line 1940
+    .line 1932
     .end local v20           #iso:Ljava/lang/String;
     .end local v22           #mcc:Ljava/lang/String;
     :cond_2a
@@ -6194,7 +6249,7 @@
 
     goto/16 :goto_f
 
-    .line 1964
+    .line 1956
     .restart local v19       #isTestIcc:Z
     .restart local v23       #needLaunchTimeZonePicker:Z
     .restart local v32       #zone:Ljava/util/TimeZone;
@@ -6204,12 +6259,12 @@
 
     move-result-object v32
 
-    .line 1965
+    .line 1957
     const/16 v23, 0x1
 
     goto/16 :goto_10
 
-    .line 1978
+    .line 1970
     .restart local v30       #tzOffset:J
     :cond_2c
     move-object/from16 v0, p0
@@ -6228,7 +6283,7 @@
 
     goto/16 :goto_11
 
-    .line 1980
+    .line 1972
     .end local v30           #tzOffset:J
     :cond_2d
     move-object/from16 v0, p0
@@ -6245,10 +6300,10 @@
 
     if-eqz v34, :cond_2f
 
-    .line 1984
+    .line 1976
     const-string v28, "001"
 
-    .line 1985
+    .line 1977
     .local v28, testOperatorMCC:Ljava/lang/String;
     invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -6266,14 +6321,14 @@
 
     if-eqz v34, :cond_2e
 
-    .line 1987
+    .line 1979
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "test operator :"
+    const-string/jumbo v36, "test operator :"
 
     invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6299,7 +6354,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1988
+    .line 1980
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mZoneOffset:I
@@ -6318,13 +6373,13 @@
 
     move-wide/from16 v36, v0
 
-    const-string v38, "us"
+    const-string/jumbo v38, "us"
 
     invoke-static/range {v34 .. v38}, Landroid/util/TimeUtils;->getTimeZone(IZJLjava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v32
 
-    .line 1990
+    .line 1982
     const/16 v34, 0x1
 
     move/from16 v0, v34
@@ -6335,15 +6390,15 @@
 
     goto/16 :goto_11
 
-    .line 1992
+    .line 1984
     :cond_2e
     const-string v34, "GSM"
 
-    const-string v35, "to figure out time zone in no iso case"
+    const-string/jumbo v35, "to figure out time zone in no iso case"
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1993
+    .line 1985
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mZoneOffset:I
@@ -6374,7 +6429,7 @@
 
     move-result-object v32
 
-    .line 1994
+    .line 1986
     const/16 v34, 0x1
 
     move/from16 v0, v34
@@ -6385,7 +6440,7 @@
 
     goto/16 :goto_11
 
-    .line 1998
+    .line 1990
     .end local v28           #testOperatorMCC:Ljava/lang/String;
     :cond_2f
     move-object/from16 v0, p0
@@ -6418,7 +6473,7 @@
 
     goto/16 :goto_11
 
-    .line 2014
+    .line 2006
     :cond_30
     const/16 v34, 0x1
 
@@ -6434,7 +6489,7 @@
 
     goto/16 :goto_12
 
-    .line 2018
+    .line 2010
     :cond_31
     const-string v34, "GSM"
 
@@ -6442,7 +6497,7 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2019
+    .line 2011
     const/16 v34, 0x0
 
     const/16 v35, 0x1
@@ -6457,7 +6512,7 @@
 
     goto/16 :goto_13
 
-    .line 2023
+    .line 2015
     .end local v23           #needLaunchTimeZonePicker:Z
     .end local v32           #zone:Ljava/util/TimeZone;
     .end local v33           #zoneName:Ljava/lang/String;
@@ -6466,7 +6521,7 @@
 
     goto/16 :goto_14
 
-    .line 2093
+    .line 2085
     .end local v19           #isTestIcc:Z
     .end local v24           #operatorNumeric:Ljava/lang/String;
     .end local v25           #prevOperatorNumeric:Ljava/lang/String;
@@ -6489,41 +6544,41 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 3093
+    .line 3085
     move v0, p1
 
-    .line 3094
+    .line 3086
     .local v0, resultType:I
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->m2gWithDTM:Z
 
-    .line 3096
+    .line 3088
     const/16 v1, 0x65
 
     if-ne p1, v1, :cond_1
 
-    .line 3097
+    .line 3089
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->m2gWithDTM:Z
 
-    .line 3098
+    .line 3090
     const/4 v0, 0x1
 
-    .line 3120
+    .line 3112
     :cond_0
     :goto_0
     return v0
 
-    .line 3099
+    .line 3091
     :cond_1
     const/16 v1, 0x66
 
     if-ne p1, v1, :cond_0
 
-    .line 3100
+    .line 3092
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->m2gWithDTM:Z
 
-    .line 3101
+    .line 3093
     const/4 v0, 0x2
 
     goto :goto_0
@@ -6537,7 +6592,7 @@
 
     const/4 v2, 0x0
 
-    .line 2101
+    .line 2093
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -6558,7 +6613,7 @@
 
     move v0, v1
 
-    .line 2103
+    .line 2095
     .local v0, cfuQuery:Z
     :goto_0
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -6571,7 +6626,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 2104
+    .line 2096
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     invoke-virtual {v1}, Landroid/telephony/ServiceState;->getState()I
@@ -6580,14 +6635,14 @@
 
     if-nez v1, :cond_0
 
-    .line 2105
+    .line 2097
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     const/4 v3, 0x0
 
     invoke-virtual {v1, v2, v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->getCallForwardingOption(ILandroid/os/Message;)V
 
-    .line 2108
+    .line 2100
     :cond_0
     return-void
 
@@ -6595,7 +6650,7 @@
     :cond_1
     move v0, v2
 
-    .line 2101
+    .line 2093
     goto :goto_0
 .end method
 
@@ -6603,28 +6658,28 @@
     .locals 3
 
     .prologue
-    .line 2156
+    .line 2148
     iget-boolean v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->dontPollSignalStrength:Z
 
     if-eqz v1, :cond_0
 
-    .line 2171
+    .line 2163
     :goto_0
     return-void
 
-    .line 2164
+    .line 2156
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 2165
+    .line 2157
     .local v0, msg:Landroid/os/Message;
     const/16 v1, 0xa
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 2170
+    .line 2162
     const-wide/16 v1, 0x4e20
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->sendMessageDelayed(Landroid/os/Message;J)Z
@@ -6637,7 +6692,7 @@
     .parameter "code"
 
     .prologue
-    .line 2437
+    .line 2429
     const/4 v0, 0x5
 
     if-ne v0, p1, :cond_0
@@ -6664,10 +6719,10 @@
 
     const/4 v0, 0x1
 
-    .line 2375
+    .line 2367
     packed-switch p1, :pswitch_data_0
 
-    .line 2420
+    .line 2412
     :pswitch_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -6689,13 +6744,13 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->loge(Ljava/lang/String;)V
 
-    .line 2421
+    .line 2413
     :cond_0
     :goto_0
     :pswitch_1
     return v0
 
-    .line 2383
+    .line 2375
     :pswitch_2
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSpecialEmMode:Z
 
@@ -6709,10 +6764,10 @@
 
     move v0, v1
 
-    .line 2386
+    .line 2378
     goto :goto_0
 
-    .line 2392
+    .line 2384
     :pswitch_3
     iget-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSpecialEmMode:Z
 
@@ -6726,41 +6781,43 @@
 
     move v0, v1
 
-    .line 2395
+    .line 2387
     goto :goto_0
 
     :pswitch_4
     move v0, v1
 
-    .line 2404
+    .line 2396
     goto :goto_0
 
     :pswitch_5
     move v0, v2
 
-    .line 2407
+    .line 2399
     goto :goto_0
 
     :pswitch_6
     move v0, v2
 
-    .line 2411
+    .line 2403
     goto :goto_0
 
-    .line 2415
+    .line 2407
     :pswitch_7
     const-string v0, "GSM"
 
-    const-string v2, "special emergency state with +CREG:15"
+    const-string/jumbo v2, "special emergency state with +CREG:15"
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move v0, v1
 
-    .line 2416
+    .line 2408
     goto :goto_0
 
-    .line 2375
+    .line 2367
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -6788,7 +6845,7 @@
     .prologue
     const-wide/16 v3, 0x0
 
-    .line 2807
+    .line 2799
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -6809,12 +6866,12 @@
 
     if-nez v0, :cond_1
 
-    .line 2819
+    .line 2811
     :cond_0
     :goto_0
     return-void
 
-    .line 2812
+    .line 2804
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -6850,7 +6907,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2815
+    .line 2807
     iget-wide v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTime:J
 
     cmp-long v0, v0, v3
@@ -6863,7 +6920,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2816
+    .line 2808
     iget-wide v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTime:J
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -6885,7 +6942,7 @@
     .locals 3
 
     .prologue
-    .line 2822
+    .line 2814
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -6906,12 +6963,12 @@
 
     if-nez v0, :cond_1
 
-    .line 2830
+    .line 2822
     :cond_0
     :goto_0
     return-void
 
-    .line 2826
+    .line 2818
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -6935,12 +6992,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2827
+    .line 2819
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTimeZone:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
-    .line 2828
+    .line 2820
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTimeZone:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setAndBroadcastNetworkSetTimeZone(Ljava/lang/String;)V
@@ -6953,17 +7010,17 @@
     .parameter "time"
 
     .prologue
-    .line 2767
+    .line 2759
     iput-wide p1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTime:J
 
-    .line 2768
+    .line 2760
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedAtTime:J
 
-    .line 2769
+    .line 2761
     return-void
 .end method
 
@@ -6972,10 +7029,10 @@
     .parameter "zoneId"
 
     .prologue
-    .line 2763
+    .line 2755
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSavedTimeZone:Ljava/lang/String;
 
-    .line 2764
+    .line 2756
     return-void
 .end method
 
@@ -6983,15 +7040,15 @@
     .locals 4
 
     .prologue
-    .line 3283
+    .line 3275
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNeedNetworkRequest:Z
 
-    .line 3286
+    .line 3278
     const/4 v0, 0x0
 
-    .line 3288
+    .line 3280
     .local v0, needToSendRequest:Z
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->QMI_CONFIG()Z
 
@@ -7005,10 +7062,10 @@
 
     if-nez v2, :cond_0
 
-    .line 3290
+    .line 3282
     const/4 v0, 0x1
 
-    .line 3294
+    .line 3286
     :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
@@ -7016,7 +7073,7 @@
 
     move-result-object v1
 
-    .line 3295
+    .line 3287
     .local v1, networkSelection:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -7024,7 +7081,7 @@
 
     if-nez v2, :cond_3
 
-    .line 3296
+    .line 3288
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v3, 0x9b
@@ -7037,30 +7094,30 @@
 
     if-ne v2, v3, :cond_2
 
-    .line 3299
+    .line 3291
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->clearNetworkSelection()V
 
-    .line 3302
+    .line 3294
     :cond_2
     const/4 v0, 0x1
 
-    .line 3309
+    .line 3301
     :cond_3
     const/4 v2, 0x1
 
     if-ne v0, v2, :cond_4
 
-    .line 3310
+    .line 3302
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->restoreSavedNetworkSelection(Landroid/os/Message;)V
 
-    .line 3313
+    .line 3305
     :cond_4
     return-void
 .end method
@@ -7070,28 +7127,28 @@
     .parameter "time"
 
     .prologue
-    .line 2799
+    .line 2791
     invoke-static {p1, p2}, Landroid/os/SystemClock;->setCurrentTimeMillis(J)Z
 
-    .line 2800
+    .line 2792
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.NETWORK_SET_TIME"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2801
+    .line 2793
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x2000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 2802
-    const-string v1, "time"
+    .line 2794
+    const-string/jumbo v1, "time"
 
     invoke-virtual {v0, v1, p1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 2803
+    .line 2795
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -7100,7 +7157,7 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 2804
+    .line 2796
     return-void
 .end method
 
@@ -7109,7 +7166,7 @@
     .parameter "zoneId"
 
     .prologue
-    .line 2778
+    .line 2770
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -7130,7 +7187,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2779
+    .line 2771
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -7145,29 +7202,29 @@
 
     check-cast v0, Landroid/app/AlarmManager;
 
-    .line 2781
+    .line 2773
     .local v0, alarm:Landroid/app/AlarmManager;
     invoke-virtual {v0, p1}, Landroid/app/AlarmManager;->setTimeZone(Ljava/lang/String;)V
 
-    .line 2782
+    .line 2774
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.NETWORK_SET_TIMEZONE"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2783
+    .line 2775
     .local v1, intent:Landroid/content/Intent;
     const/high16 v2, 0x2000
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 2784
-    const-string v2, "time-zone"
+    .line 2776
+    const-string/jumbo v2, "time-zone"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2785
+    .line 2777
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
@@ -7176,7 +7233,7 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 2787
+    .line 2779
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -7197,7 +7254,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2790
+    .line 2782
     return-void
 .end method
 
@@ -7206,14 +7263,14 @@
     .parameter "notifyType"
 
     .prologue
-    .line 2935
+    .line 2927
     sget-short v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v7, 0xd1
 
     if-eq v6, v7, :cond_1
 
-    .line 2937
+    .line 2929
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -7234,14 +7291,14 @@
 
     invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2938
+    .line 2930
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v6}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 2940
+    .line 2932
     .local v0, context:Landroid/content/Context;
     new-instance v6, Landroid/app/Notification;
 
@@ -7249,7 +7306,7 @@
 
     iput-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
-    .line 2941
+    .line 2933
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -7258,26 +7315,26 @@
 
     iput-wide v7, v6, Landroid/app/Notification;->when:J
 
-    .line 2942
+    .line 2934
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     const/16 v7, 0x10
 
     iput v7, v6, Landroid/app/Notification;->flags:I
 
-    .line 2943
+    .line 2935
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     const v7, 0x108008a
 
     iput v7, v6, Landroid/app/Notification;->icon:I
 
-    .line 2944
+    .line 2936
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    .line 2945
+    .line 2937
     .local v2, intent:Landroid/content/Intent;
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
@@ -7291,10 +7348,10 @@
 
     iput-object v7, v6, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    .line 2948
+    .line 2940
     const-string v1, ""
 
-    .line 2949
+    .line 2941
     .local v1, details:Ljava/lang/CharSequence;
     const v6, 0x10400ee
 
@@ -7302,15 +7359,15 @@
 
     move-result-object v5
 
-    .line 2950
+    .line 2942
     .local v5, title:Ljava/lang/CharSequence;
     const/16 v3, 0x3e7
 
-    .line 2952
+    .line 2944
     .local v3, notificationId:I
     packed-switch p1, :pswitch_data_0
 
-    .line 2974
+    .line 2966
     :goto_0
     :pswitch_0
     new-instance v6, Ljava/lang/StringBuilder;
@@ -7343,12 +7400,12 @@
 
     invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2975
+    .line 2967
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     iput-object v5, v6, Landroid/app/Notification;->tickerText:Ljava/lang/CharSequence;
 
-    .line 2976
+    .line 2968
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
 
     iget-object v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
@@ -7357,7 +7414,7 @@
 
     invoke-virtual {v6, v0, v5, v1, v7}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 2979
+    .line 2971
     const-string v6, "notification"
 
     invoke-virtual {v0, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -7366,7 +7423,7 @@
 
     check-cast v4, Landroid/app/NotificationManager;
 
-    .line 2982
+    .line 2974
     .local v4, notificationManager:Landroid/app/NotificationManager;
     const/16 v6, 0x3ea
 
@@ -7376,11 +7433,11 @@
 
     if-ne p1, v6, :cond_2
 
-    .line 2984
+    .line 2976
     :cond_0
     invoke-virtual {v4, v3}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 2990
+    .line 2982
     .end local v0           #context:Landroid/content/Context;
     .end local v1           #details:Ljava/lang/CharSequence;
     .end local v2           #intent:Landroid/content/Intent;
@@ -7391,7 +7448,7 @@
     :goto_1
     return-void
 
-    .line 2954
+    .line 2946
     .restart local v0       #context:Landroid/content/Context;
     .restart local v1       #details:Ljava/lang/CharSequence;
     .restart local v2       #intent:Landroid/content/Intent;
@@ -7400,24 +7457,24 @@
     :pswitch_1
     const/16 v3, 0x378
 
-    .line 2955
+    .line 2947
     const v6, 0x10400ef
 
     invoke-virtual {v0, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    .line 2956
+    .line 2948
     goto :goto_0
 
-    .line 2958
+    .line 2950
     :pswitch_2
     const/16 v3, 0x378
 
-    .line 2959
+    .line 2951
     goto :goto_0
 
-    .line 2961
+    .line 2953
     :pswitch_3
     const v6, 0x10400f2
 
@@ -7425,10 +7482,10 @@
 
     move-result-object v1
 
-    .line 2962
+    .line 2954
     goto :goto_0
 
-    .line 2964
+    .line 2956
     :pswitch_4
     const v6, 0x10400f1
 
@@ -7436,10 +7493,10 @@
 
     move-result-object v1
 
-    .line 2965
+    .line 2957
     goto :goto_0
 
-    .line 2967
+    .line 2959
     :pswitch_5
     const v6, 0x10400f0
 
@@ -7447,10 +7504,10 @@
 
     move-result-object v1
 
-    .line 2968
+    .line 2960
     goto :goto_0
 
-    .line 2987
+    .line 2979
     .restart local v4       #notificationManager:Landroid/app/NotificationManager;
     :cond_2
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNotification:Landroid/app/Notification;
@@ -7459,7 +7516,7 @@
 
     goto :goto_1
 
-    .line 2952
+    .line 2944
     :pswitch_data_0
     .packed-switch 0x3e9
         :pswitch_1
@@ -7475,7 +7532,7 @@
     .locals 20
 
     .prologue
-    .line 1574
+    .line 1572
     new-instance v1, Landroid/telephony/SignalStrength;
 
     const/16 v2, 0x63
@@ -7520,7 +7577,7 @@
 
     iput-object v1, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
 
-    .line 1575
+    .line 1573
     return-void
 .end method
 
@@ -7530,12 +7587,12 @@
     .parameter "nitzReceiveTime"
 
     .prologue
-    .line 2552
+    .line 2544
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v23
 
-    .line 2553
+    .line 2545
     .local v23, start:J
     new-instance v29, Ljava/lang/StringBuilder;
 
@@ -7605,7 +7662,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2560
+    .line 2552
     :try_start_0
     const-string v29, "GMT"
 
@@ -7617,11 +7674,11 @@
 
     move-result-object v5
 
-    .line 2562
+    .line 2554
     .local v5, c:Ljava/util/Calendar;
     invoke-virtual {v5}, Ljava/util/Calendar;->clear()V
 
-    .line 2563
+    .line 2555
     const/16 v29, 0x10
 
     const/16 v30, 0x0
@@ -7632,7 +7689,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->set(II)V
 
-    .line 2565
+    .line 2557
     const-string v29, "[/:,+-]"
 
     move-object/from16 v0, p1
@@ -7643,7 +7700,7 @@
 
     move-result-object v20
 
-    .line 2567
+    .line 2559
     .local v20, nitzSubs:[Ljava/lang/String;
     const/16 v29, 0x0
 
@@ -7659,7 +7716,7 @@
 
     move/from16 v27, v0
 
-    .line 2568
+    .line 2560
     .local v27, year:I
     const/16 v29, 0x1
 
@@ -7669,7 +7726,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->set(II)V
 
-    .line 2571
+    .line 2563
     const/16 v29, 0x1
 
     aget-object v29, v20, v29
@@ -7680,7 +7737,7 @@
 
     add-int/lit8 v19, v29, -0x1
 
-    .line 2572
+    .line 2564
     .local v19, month:I
     const/16 v29, 0x2
 
@@ -7690,7 +7747,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->set(II)V
 
-    .line 2574
+    .line 2566
     const/16 v29, 0x2
 
     aget-object v29, v20, v29
@@ -7699,7 +7756,7 @@
 
     move-result v6
 
-    .line 2575
+    .line 2567
     .local v6, date:I
     const/16 v29, 0x5
 
@@ -7707,7 +7764,7 @@
 
     invoke-virtual {v5, v0, v6}, Ljava/util/Calendar;->set(II)V
 
-    .line 2577
+    .line 2569
     const/16 v29, 0x3
 
     aget-object v29, v20, v29
@@ -7716,7 +7773,7 @@
 
     move-result v12
 
-    .line 2578
+    .line 2570
     .local v12, hour:I
     const/16 v29, 0xa
 
@@ -7724,7 +7781,7 @@
 
     invoke-virtual {v5, v0, v12}, Ljava/util/Calendar;->set(II)V
 
-    .line 2580
+    .line 2572
     const/16 v29, 0x4
 
     aget-object v29, v20, v29
@@ -7733,7 +7790,7 @@
 
     move-result v18
 
-    .line 2581
+    .line 2573
     .local v18, minute:I
     const/16 v29, 0xc
 
@@ -7743,7 +7800,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->set(II)V
 
-    .line 2583
+    .line 2575
     const/16 v29, 0x5
 
     aget-object v29, v20, v29
@@ -7752,7 +7809,7 @@
 
     move-result v21
 
-    .line 2584
+    .line 2576
     .local v21, second:I
     const/16 v29, 0xd
 
@@ -7762,7 +7819,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->set(II)V
 
-    .line 2586
+    .line 2578
     const/16 v29, 0x2d
 
     move-object/from16 v0, p1
@@ -7783,7 +7840,7 @@
 
     const/16 v22, 0x1
 
-    .line 2588
+    .line 2580
     .local v22, sign:Z
     :goto_0
     const/16 v29, 0x6
@@ -7794,7 +7851,7 @@
 
     move-result v25
 
-    .line 2590
+    .line 2582
     .local v25, tzOffset:I
     move-object/from16 v0, v20
 
@@ -7818,7 +7875,7 @@
 
     move-result v7
 
-    .line 2600
+    .line 2592
     .local v7, dst:I
     :goto_1
     if-eqz v22, :cond_3
@@ -7838,10 +7895,10 @@
 
     move/from16 v25, v0
 
-    .line 2602
+    .line 2594
     const/16 v28, 0x0
 
-    .line 2608
+    .line 2600
     .local v28, zone:Ljava/util/TimeZone;
     move-object/from16 v0, v20
 
@@ -7857,7 +7914,7 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 2609
+    .line 2601
     const/16 v29, 0x8
 
     aget-object v29, v20, v29
@@ -7870,13 +7927,13 @@
 
     move-result-object v26
 
-    .line 2610
+    .line 2602
     .local v26, tzname:Ljava/lang/String;
     invoke-static/range {v26 .. v26}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
     move-result-object v28
 
-    .line 2615
+    .line 2607
     .end local v26           #tzname:Ljava/lang/String;
     :cond_0
     sget-short v29, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
@@ -7889,7 +7946,7 @@
 
     if-ne v0, v1, :cond_4
 
-    .line 2616
+    .line 2608
     invoke-virtual {v5}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v29
@@ -7906,7 +7963,7 @@
 
     if-eqz v29, :cond_4
 
-    .line 2742
+    .line 2734
     .end local v5           #c:Ljava/util/Calendar;
     .end local v6           #date:I
     .end local v7           #dst:I
@@ -7922,7 +7979,7 @@
     :goto_3
     return-void
 
-    .line 2586
+    .line 2578
     .restart local v5       #c:Ljava/util/Calendar;
     .restart local v6       #date:I
     .restart local v12       #hour:I
@@ -7936,7 +7993,7 @@
 
     goto :goto_0
 
-    .line 2590
+    .line 2582
     .restart local v22       #sign:Z
     .restart local v25       #tzOffset:I
     :cond_2
@@ -7944,14 +8001,14 @@
 
     goto :goto_1
 
-    .line 2600
+    .line 2592
     .restart local v7       #dst:I
     :cond_3
     const/16 v29, -0x1
 
     goto :goto_2
 
-    .line 2622
+    .line 2614
     .restart local v28       #zone:Ljava/util/TimeZone;
     :cond_4
     const-string v29, "gsm.operator.iso-country"
@@ -7960,7 +8017,7 @@
 
     move-result-object v15
 
-    .line 2623
+    .line 2615
     .local v15, iso:Ljava/lang/String;
     const-string v29, "GSM"
 
@@ -8018,10 +8075,10 @@
 
     invoke-static/range {v29 .. v30}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2624
+    .line 2616
     if-nez v28, :cond_5
 
-    .line 2626
+    .line 2618
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGotCountryCode:Z
@@ -8030,7 +8087,7 @@
 
     if-eqz v29, :cond_5
 
-    .line 2627
+    .line 2619
     if-eqz v15, :cond_c
 
     invoke-virtual {v15}, Ljava/lang/String;->length()I
@@ -8039,7 +8096,7 @@
 
     if-lez v29, :cond_c
 
-    .line 2628
+    .line 2620
     if-eqz v7, :cond_b
 
     const/16 v29, 0x1
@@ -8061,12 +8118,12 @@
 
     move-result-object v28
 
-    .line 2648
+    .line 2640
     :cond_5
     :goto_5
     const/4 v14, 0x0
 
-    .line 2650
+    .line 2642
     .local v14, isTestIcc:Z
     :try_start_1
     move-object/from16 v0, p0
@@ -8082,13 +8139,13 @@
 
     move-result v14
 
-    .line 2654
+    .line 2646
     :goto_6
     if-nez v28, :cond_6
 
     if-eqz v14, :cond_6
 
-    .line 2655
+    .line 2647
     :try_start_2
     const-string v29, "GSM"
 
@@ -8114,7 +8171,7 @@
 
     invoke-static/range {v29 .. v30}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2656
+    .line 2648
     if-eqz v7, :cond_10
 
     const/16 v29, 0x1
@@ -8136,7 +8193,7 @@
 
     move-result-object v28
 
-    .line 2660
+    .line 2652
     :cond_6
     if-eqz v28, :cond_7
 
@@ -8169,7 +8226,7 @@
 
     if-eq v0, v1, :cond_8
 
-    .line 2665
+    .line 2657
     :cond_7
     const/16 v29, 0x1
 
@@ -8179,14 +8236,14 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNeedFixZoneAfterNitz:Z
 
-    .line 2666
+    .line 2658
     move/from16 v0, v25
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mZoneOffset:I
 
-    .line 2667
+    .line 2659
     if-eqz v7, :cond_12
 
     const/16 v29, 0x1
@@ -8198,7 +8255,7 @@
 
     iput-boolean v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mZoneDst:Z
 
-    .line 2668
+    .line 2660
     invoke-virtual {v5}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v29
@@ -8209,18 +8266,18 @@
 
     iput-wide v0, v2, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mZoneTime:J
 
-    .line 2671
+    .line 2663
     :cond_8
     if-eqz v28, :cond_a
 
-    .line 2672
+    .line 2664
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getAutoTimeZone()Z
 
     move-result v29
 
     if-eqz v29, :cond_9
 
-    .line 2674
+    .line 2666
     const-string v29, "GSM"
 
     new-instance v30, Ljava/lang/StringBuilder;
@@ -8247,7 +8304,7 @@
 
     invoke-static/range {v29 .. v30}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2675
+    .line 2667
     const/16 v29, 0x1
 
     const/16 v30, 0x0
@@ -8260,7 +8317,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->updateNitzTimeZoneIsValid(ZZ)V
 
-    .line 2677
+    .line 2669
     invoke-virtual/range {v28 .. v28}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
     move-result-object v29
@@ -8271,7 +8328,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setAndBroadcastNetworkSetTimeZone(Ljava/lang/String;)V
 
-    .line 2679
+    .line 2671
     :cond_9
     invoke-virtual/range {v28 .. v28}, Ljava/util/TimeZone;->getID()Ljava/lang/String;
 
@@ -8283,7 +8340,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->saveNitzTimeZone(Ljava/lang/String;)V
 
-    .line 2682
+    .line 2674
     :cond_a
     const-string v29, "gsm.ignore-nitz"
 
@@ -8291,11 +8348,11 @@
 
     move-result-object v13
 
-    .line 2683
+    .line 2675
     .local v13, ignore:Ljava/lang/String;
     if-eqz v13, :cond_13
 
-    const-string v29, "yes"
+    const-string/jumbo v29, "yes"
 
     move-object/from16 v0, v29
 
@@ -8305,7 +8362,7 @@
 
     if-eqz v29, :cond_13
 
-    .line 2684
+    .line 2676
     const-string v29, "NITZ: Not setting clock because gsm.ignore-nitz is set"
 
     move-object/from16 v0, p0
@@ -8318,7 +8375,7 @@
 
     goto/16 :goto_3
 
-    .line 2739
+    .line 2731
     .end local v5           #c:Ljava/util/Calendar;
     .end local v6           #date:I
     .end local v7           #dst:I
@@ -8337,7 +8394,7 @@
     :catch_0
     move-exception v11
 
-    .line 2740
+    .line 2732
     .local v11, ex:Ljava/lang/RuntimeException;
     new-instance v29, Ljava/lang/StringBuilder;
 
@@ -8381,7 +8438,7 @@
 
     goto/16 :goto_3
 
-    .line 2628
+    .line 2620
     .end local v11           #ex:Ljava/lang/RuntimeException;
     .restart local v5       #c:Ljava/util/Calendar;
     .restart local v6       #date:I
@@ -8401,7 +8458,7 @@
 
     goto/16 :goto_4
 
-    .line 2632
+    .line 2624
     :cond_c
     :try_start_3
     move-object/from16 v0, p0
@@ -8424,7 +8481,7 @@
 
     if-lez v29, :cond_e
 
-    .line 2633
+    .line 2625
     if-eqz v7, :cond_d
 
     const/16 v29, 0x1
@@ -8459,7 +8516,7 @@
 
     goto :goto_a
 
-    .line 2642
+    .line 2634
     :cond_e
     if-eqz v7, :cond_f
 
@@ -8489,12 +8546,12 @@
 
     goto :goto_b
 
-    .line 2651
+    .line 2643
     .restart local v14       #isTestIcc:Z
     :catch_1
     move-exception v8
 
-    .line 2652
+    .line 2644
     .local v8, e:Ljava/lang/Exception;
     const-string v29, "GSM"
 
@@ -8506,26 +8563,26 @@
 
     goto/16 :goto_6
 
-    .line 2656
+    .line 2648
     .end local v8           #e:Ljava/lang/Exception;
     :cond_10
     const/16 v29, 0x0
 
     goto/16 :goto_7
 
-    .line 2660
+    .line 2652
     :cond_11
     const/16 v29, 0x0
 
     goto/16 :goto_8
 
-    .line 2667
+    .line 2659
     :cond_12
     const/16 v29, 0x0
 
     goto/16 :goto_9
 
-    .line 2689
+    .line 2681
     .restart local v13       #ignore:Ljava/lang/String;
     :cond_13
     :try_start_4
@@ -8537,21 +8594,21 @@
 
     invoke-virtual/range {v29 .. v29}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 2691
+    .line 2683
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->getAutoTime()Z
 
     move-result v29
 
     if-eqz v29, :cond_16
 
-    .line 2692
+    .line 2684
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v29
 
     sub-long v16, v29, p2
 
-    .line 2695
+    .line 2687
     .local v16, millisSinceNitzReceived:J
     const-wide/16 v29, 0x0
 
@@ -8559,7 +8616,7 @@
 
     if-gez v29, :cond_14
 
-    .line 2698
+    .line 2690
     new-instance v29, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
@@ -8590,7 +8647,7 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    .line 2737
+    .line 2729
     :try_start_5
     move-object/from16 v0, p0
 
@@ -8604,7 +8661,7 @@
 
     goto/16 :goto_3
 
-    .line 2705
+    .line 2697
     :cond_14
     const-wide/32 v29, 0x7fffffff
 
@@ -8612,7 +8669,7 @@
 
     if-lez v29, :cond_15
 
-    .line 2708
+    .line 2700
     :try_start_6
     new-instance v29, Ljava/lang/StringBuilder;
 
@@ -8650,7 +8707,7 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
-    .line 2737
+    .line 2729
     :try_start_7
     move-object/from16 v0, p0
 
@@ -8664,7 +8721,7 @@
 
     goto/16 :goto_3
 
-    .line 2716
+    .line 2708
     :cond_15
     const/16 v29, 0xe
 
@@ -8681,7 +8738,7 @@
 
     invoke-virtual {v5, v0, v1}, Ljava/util/Calendar;->add(II)V
 
-    .line 2719
+    .line 2711
     new-instance v29, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
@@ -8758,7 +8815,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2726
+    .line 2718
     invoke-virtual {v5}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v29
@@ -8769,14 +8826,14 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->setAndBroadcastNetworkSetTime(J)V
 
-    .line 2727
+    .line 2719
     const-string v29, "GSM"
 
     const-string v30, "NITZ: after Setting time of day"
 
     invoke-static/range {v29 .. v30}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2729
+    .line 2721
     .end local v16           #millisSinceNitzReceived:J
     :cond_16
     const-string v29, "gsm.nitz.time"
@@ -8791,7 +8848,7 @@
 
     invoke-static/range {v29 .. v30}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 2730
+    .line 2722
     invoke-virtual {v5}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v29
@@ -8802,12 +8859,12 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->saveNitzTime(J)V
 
-    .line 2732
+    .line 2724
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v9
 
-    .line 2733
+    .line 2725
     .local v9, end:J
     new-instance v29, Ljava/lang/StringBuilder;
 
@@ -8847,7 +8904,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
-    .line 2735
+    .line 2727
     const/16 v29, 0x1
 
     move/from16 v0, v29
@@ -8858,7 +8915,7 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    .line 2737
+    .line 2729
     :try_start_9
     move-object/from16 v0, p0
 
@@ -8892,7 +8949,7 @@
     .parameter "s"
 
     .prologue
-    .line 3002
+    .line 2994
     const-string v0, "GSM"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8915,7 +8972,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3003
+    .line 2995
     return-void
 .end method
 
@@ -8923,18 +8980,18 @@
     .locals 5
 
     .prologue
-    .line 3126
+    .line 3118
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 3127
+    .line 3119
     .local v1, context:Landroid/content/Context;
     const-string v0, "htc.intent.action.timezone_picker"
 
-    .line 3128
+    .line 3120
     .local v0, ACTION_TRIGGER_TIME_ZONE_PICKER:Ljava/lang/String;
     new-instance v2, Landroid/content/Intent;
 
@@ -8942,29 +8999,29 @@
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 3130
+    .line 3122
     .local v2, intent:Landroid/content/Intent;
     if-eqz v1, :cond_0
 
-    .line 3131
+    .line 3123
     const-string v3, "GSM"
 
-    const-string v4, "triggerTimezonePicker"
+    const-string/jumbo v4, "triggerTimezonePicker"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3132
+    .line 3124
     invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 3136
+    .line 3128
     :goto_0
     return-void
 
-    .line 3134
+    .line 3126
     :cond_0
     const-string v3, "GSM"
 
-    const-string v4, "triggerTimezonePicker fail, context is null"
+    const-string/jumbo v4, "triggerTimezonePicker fail, context is null"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -8979,7 +9036,7 @@
     .prologue
     const/16 v3, 0xa
 
-    .line 2478
+    .line 2470
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -8988,7 +9045,7 @@
 
     move-result v0
 
-    .line 2479
+    .line 2471
     .local v0, a:I
     add-int/lit8 v2, p1, 0x1
 
@@ -9000,13 +9057,13 @@
 
     move-result v1
 
-    .line 2481
+    .line 2473
     .local v1, b:I
     if-ltz v0, :cond_0
 
     if-gez v1, :cond_1
 
-    .line 2483
+    .line 2475
     :cond_0
     new-instance v2, Ljava/lang/RuntimeException;
 
@@ -9016,7 +9073,7 @@
 
     throw v2
 
-    .line 2486
+    .line 2478
     :cond_1
     mul-int/lit8 v2, v0, 0xa
 
@@ -9029,19 +9086,19 @@
     .locals 3
 
     .prologue
-    .line 3320
+    .line 3312
     const/4 v0, 0x0
 
-    .line 3321
+    .line 3313
     .local v0, type:I
     iget-boolean v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsVaildGPRS:Z
 
     if-eqz v1, :cond_1
 
-    .line 3322
+    .line 3314
     iget v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGPRSNetworkType:I
 
-    .line 3326
+    .line 3318
     :cond_0
     :goto_0
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->processIfDTMCase(I)I
@@ -9050,30 +9107,30 @@
 
     iput v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
 
-    .line 3327
+    .line 3319
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
 
     iget v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
 
     invoke-virtual {v1, v2}, Landroid/telephony/ServiceState;->setRadioTechnology(I)V
 
-    .line 3328
+    .line 3320
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
 
     iget v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
 
     invoke-virtual {v1, v2}, Landroid/telephony/ServiceState;->setNetworkType(I)V
 
-    .line 3329
+    .line 3321
     return-void
 
-    .line 3323
+    .line 3315
     :cond_1
     iget-boolean v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsVaildVoice:Z
 
     if-eqz v1, :cond_0
 
-    .line 3324
+    .line 3316
     iget v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mVoiceNetworkType:I
 
     goto :goto_0
@@ -9085,10 +9142,10 @@
     .parameter "needNotifyTimeZonePicker"
 
     .prologue
-    .line 3148
+    .line 3140
     const-string v0, "gsm.timezone.isvalid"
 
-    .line 3150
+    .line 3142
     .local v0, KEY_TIME_ZONE_IS_VALID:Ljava/lang/String;
     const-string v1, "GSM"
 
@@ -9096,7 +9153,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateNitzTimeZoneIsValid: "
+    const-string/jumbo v3, "updateNitzTimeZoneIsValid: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9128,27 +9185,27 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3153
+    .line 3145
     const-string v2, "gsm.timezone.isvalid"
 
     if-eqz p1, :cond_1
 
-    const-string v1, "true"
+    const-string/jumbo v1, "true"
 
     :goto_0
     invoke-static {v2, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3155
+    .line 3147
     if-eqz p2, :cond_0
 
-    .line 3156
+    .line 3148
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->triggerTimezonePicker()V
 
-    .line 3163
+    .line 3155
     :cond_0
     return-void
 
-    .line 3153
+    .line 3145
     :cond_1
     const-string v1, "false"
 
@@ -9167,7 +9224,7 @@
 
     const/4 v4, 0x0
 
-    .line 2878
+    .line 2870
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     invoke-virtual {v5}, Landroid/telephony/ServiceState;->getState()I
@@ -9176,12 +9233,12 @@
 
     if-nez v5, :cond_8
 
-    .line 2879
+    .line 2871
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iput-boolean v3, v5, Lcom/android/internal/telephony/gsm/OperatorInfo;->inService:Z
 
-    .line 2880
+    .line 2872
     iget v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curSpnRule:I
 
     and-int/lit8 v5, v5, 0x1
@@ -9190,7 +9247,7 @@
 
     move v2, v3
 
-    .line 2882
+    .line 2874
     .local v2, showSpn:Z
     :goto_0
     iget v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curSpnRule:I
@@ -9201,7 +9258,7 @@
 
     move v1, v3
 
-    .line 2887
+    .line 2879
     .local v1, showPlmn:Z
     :goto_1
     if-eqz v2, :cond_0
@@ -9216,7 +9273,7 @@
 
     if-eqz v5, :cond_0
 
-    .line 2888
+    .line 2880
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curPlmn:Ljava/lang/String;
 
     iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curSpn:Ljava/lang/String;
@@ -9227,10 +9284,10 @@
 
     if-nez v5, :cond_0
 
-    .line 2889
+    .line 2881
     const/4 v1, 0x0
 
-    .line 2893
+    .line 2885
     :cond_0
     sget-short v5, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -9259,7 +9316,7 @@
 
     if-ne v3, v5, :cond_3
 
-    .line 2899
+    .line 2891
     :cond_2
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
@@ -9267,7 +9324,7 @@
 
     move-result-object v0
 
-    .line 2900
+    .line 2892
     .local v0, operatorNumeric:Ljava/lang/String;
     if-eqz v0, :cond_3
 
@@ -9289,13 +9346,13 @@
 
     if-eqz v3, :cond_3
 
-    .line 2903
+    .line 2895
     const/4 v2, 0x0
 
-    .line 2904
+    .line 2896
     const/4 v1, 0x1
 
-    .line 2909
+    .line 2901
     .end local v0           #operatorNumeric:Ljava/lang/String;
     :cond_3
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
@@ -9314,7 +9371,7 @@
     :cond_4
     iput-boolean v2, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->showSpn:Z
 
-    .line 2910
+    .line 2902
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curPlmn:Ljava/lang/String;
@@ -9328,21 +9385,21 @@
     :goto_2
     iput-boolean v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->showPlmn:Z
 
-    .line 2911
+    .line 2903
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curSpn:Ljava/lang/String;
 
     iput-object v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->spn:Ljava/lang/String;
 
-    .line 2912
+    .line 2904
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->curPlmn:Ljava/lang/String;
 
     iput-object v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->plmn:Ljava/lang/String;
 
-    .line 2922
+    .line 2914
     .end local v1           #showPlmn:Z
     :goto_3
     const-string v3, "GSM"
@@ -9355,20 +9412,20 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2924
+    .line 2916
     return-void
 
     :cond_5
     move v2, v4
 
-    .line 2880
+    .line 2872
     goto/16 :goto_0
 
     .restart local v2       #showSpn:Z
     :cond_6
     move v1, v4
 
-    .line 2882
+    .line 2874
     goto/16 :goto_1
 
     .end local v2           #showSpn:Z
@@ -9376,34 +9433,34 @@
     :cond_7
     move v4, v1
 
-    .line 2910
+    .line 2902
     goto :goto_2
 
-    .line 2914
+    .line 2906
     .end local v1           #showPlmn:Z
     :cond_8
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iput-boolean v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->inService:Z
 
-    .line 2915
+    .line 2907
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iput-boolean v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->showSpn:Z
 
-    .line 2916
+    .line 2908
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     iput-boolean v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->showPlmn:Z
 
-    .line 2917
+    .line 2909
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     const-string v4, ""
 
     iput-object v4, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->spn:Ljava/lang/String;
 
-    .line 2918
+    .line 2910
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     const-string v4, ""
@@ -9422,12 +9479,12 @@
 
     const/4 v2, 0x1
 
-    .line 3064
+    .line 3056
     if-ne v2, p1, :cond_0
 
     move v0, v2
 
-    .line 3069
+    .line 3061
     .local v0, airplaneMode:I
     :goto_0
     if-gtz v0, :cond_1
@@ -9437,16 +9494,16 @@
     :goto_1
     iput-boolean v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDesiredPowerState:Z
 
-    .line 3070
+    .line 3062
     if-lez v0, :cond_2
 
     :goto_2
     iput-boolean v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mFlightModeBootup:Z
 
-    .line 3071
+    .line 3063
     return-void
 
-    .line 3064
+    .line 3056
     .end local v0           #airplaneMode:I
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -9471,13 +9528,13 @@
     :cond_1
     move v1, v3
 
-    .line 3069
+    .line 3061
     goto :goto_1
 
     :cond_2
     move v2, v3
 
-    .line 3070
+    .line 3062
     goto :goto_2
 .end method
 
@@ -9649,15 +9706,15 @@
     .parameter "args"
 
     .prologue
-    .line 3007
+    .line 2999
     const-string v0, "GsmServiceStateTracker extends:"
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3008
+    .line 3000
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/telephony/ServiceStateTracker;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
-    .line 3009
+    .line 3001
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9680,7 +9737,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3010
+    .line 3002
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9703,7 +9760,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3011
+    .line 3003
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9726,7 +9783,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3012
+    .line 3004
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9749,7 +9806,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3013
+    .line 3005
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9772,7 +9829,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3014
+    .line 3006
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9795,7 +9852,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3015
+    .line 3007
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9818,7 +9875,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3016
+    .line 3008
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9841,7 +9898,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3017
+    .line 3009
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9864,7 +9921,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3018
+    .line 3010
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9887,7 +9944,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3019
+    .line 3011
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9910,7 +9967,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3020
+    .line 3012
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9933,7 +9990,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3021
+    .line 3013
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9956,7 +10013,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3022
+    .line 3014
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -9979,7 +10036,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3023
+    .line 3015
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10002,7 +10059,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3024
+    .line 3016
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10025,7 +10082,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3025
+    .line 3017
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10048,7 +10105,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3026
+    .line 3018
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10071,7 +10128,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3027
+    .line 3019
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10094,7 +10151,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3028
+    .line 3020
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10117,7 +10174,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3029
+    .line 3021
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10140,7 +10197,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3030
+    .line 3022
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10163,7 +10220,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3031
+    .line 3023
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10186,7 +10243,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3032
+    .line 3024
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10209,7 +10266,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3033
+    .line 3025
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10232,7 +10289,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3034
+    .line 3026
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10255,7 +10312,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3035
+    .line 3027
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10278,7 +10335,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3036
+    .line 3028
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10301,7 +10358,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3037
+    .line 3029
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10324,7 +10381,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3038
+    .line 3030
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -10347,7 +10404,7 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 3039
+    .line 3031
     return-void
 .end method
 
@@ -10368,7 +10425,7 @@
     .locals 1
 
     .prologue
-    .line 2498
+    .line 2490
     iget v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->gprsState:I
 
     return v0
@@ -10378,7 +10435,7 @@
     .locals 1
 
     .prologue
-    .line 2494
+    .line 2486
     iget v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->gprsState:I
 
     return v0
@@ -10388,7 +10445,7 @@
     .locals 1
 
     .prologue
-    .line 2874
+    .line 2866
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->operatorInfo:Lcom/android/internal/telephony/gsm/OperatorInfo;
 
     return-object v0
@@ -12718,7 +12775,7 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1570
+    .line 1568
     :cond_0
     :goto_0
     return-void
@@ -12835,7 +12892,7 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1550
+    .line 1548
     .end local v2           #err:Lcom/android/internal/telephony/CommandException$Error;
     :cond_5
     :goto_1
@@ -12851,7 +12908,7 @@
 
     aput v16, v14, v15
 
-    .line 1552
+    .line 1550
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollingContext:[I
@@ -12862,7 +12919,7 @@
 
     if-nez v14, :cond_0
 
-    .line 1562
+    .line 1560
     move-object/from16 v0, p0
 
     iget-boolean v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGsmRoaming:Z
@@ -12878,7 +12935,7 @@
     :cond_6
     const/4 v11, 0x1
 
-    .line 1563
+    .line 1561
     .local v11, roaming:Z
     :goto_2
     move-object/from16 v0, p0
@@ -12903,10 +12960,10 @@
 
     if-nez v14, :cond_7
 
-    .line 1564
+    .line 1562
     const/4 v11, 0x0
 
-    .line 1566
+    .line 1564
     :cond_7
     move-object/from16 v0, p0
 
@@ -12914,7 +12971,7 @@
 
     invoke-virtual {v14, v11}, Landroid/telephony/ServiceState;->setRoaming(Z)V
 
-    .line 1567
+    .line 1565
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -12925,7 +12982,7 @@
 
     invoke-virtual {v14, v15}, Landroid/telephony/ServiceState;->setEmergencyOnly(Z)V
 
-    .line 1568
+    .line 1566
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->pollStateDone()V
 
     goto/16 :goto_0
@@ -13150,11 +13207,40 @@
     move-object/from16 v0, p0
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    .line 1406
+    const-string v14, "GSM"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "MM Reject Cause from RIL: "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    move/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1421
+    .line 1419
     :cond_d
     :goto_3
     :try_start_2
@@ -13168,7 +13254,7 @@
 
     iput-boolean v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGsmRoaming:Z
 
-    .line 1422
+    .line 1420
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -13181,7 +13267,7 @@
 
     invoke-virtual {v14, v15}, Landroid/telephony/ServiceState;->setState(I)V
 
-    .line 1424
+    .line 1422
     const/16 v14, 0xa
 
     if-eq v10, v14, :cond_e
@@ -13198,7 +13284,7 @@
 
     if-ne v10, v14, :cond_10
 
-    .line 1425
+    .line 1423
     :cond_e
     const/4 v14, 0x1
 
@@ -13206,7 +13292,7 @@
 
     iput-boolean v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mEmergencyOnly:Z
 
-    .line 1431
+    .line 1429
     :goto_4
     move-object/from16 v0, p0
 
@@ -13214,7 +13300,7 @@
 
     invoke-virtual {v14, v5, v1}, Landroid/telephony/gsm/GsmCellLocation;->setLacAndCid(II)V
 
-    .line 1432
+    .line 1430
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newCellLoc:Landroid/telephony/gsm/GsmCellLocation;
@@ -13225,7 +13311,7 @@
 
     goto/16 :goto_1
 
-    .line 1546
+    .line 1544
     .end local v1           #cid:I
     .end local v5           #lac:I
     .end local v8           #psc:I
@@ -13235,7 +13321,7 @@
     :catch_0
     move-exception v3
 
-    .line 1547
+    .line 1545
     .local v3, ex:Ljava/lang/RuntimeException;
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -13261,7 +13347,7 @@
 
     goto/16 :goto_1
 
-    .line 1410
+    .line 1408
     .end local v3           #ex:Ljava/lang/RuntimeException;
     .restart local v1       #cid:I
     .restart local v5       #lac:I
@@ -13282,11 +13368,11 @@
 
     goto :goto_3
 
-    .line 1413
+    .line 1411
     :catch_1
     move-exception v3
 
-    .line 1416
+    .line 1414
     .local v3, ex:Ljava/lang/NumberFormatException;
     :try_start_4
     const-string v14, "GSM"
@@ -13313,7 +13399,7 @@
 
     goto :goto_3
 
-    .line 1427
+    .line 1425
     .end local v3           #ex:Ljava/lang/NumberFormatException;
     :cond_10
     const/4 v14, 0x0
@@ -13324,7 +13410,7 @@
 
     goto :goto_4
 
-    .line 1436
+    .line 1434
     .end local v1           #cid:I
     .end local v5           #lac:I
     .end local v8           #psc:I
@@ -13344,11 +13430,11 @@
 
     move-object v13, v0
 
-    .line 1444
+    .line 1442
     .restart local v13       #states:[Ljava/lang/String;
     const/4 v10, -0x1
 
-    .line 1445
+    .line 1443
     .restart local v10       #regState:I
     const/4 v14, -0x1
 
@@ -13356,21 +13442,21 @@
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewReasonDataDenied:I
 
-    .line 1446
+    .line 1444
     const/4 v14, 0x1
 
     move-object/from16 v0, p0
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMaxDataCalls:I
 
-    .line 1447
+    .line 1445
     array-length v14, v13
     :try_end_4
     .catch Ljava/lang/RuntimeException; {:try_start_4 .. :try_end_4} :catch_0
 
     if-lez v14, :cond_13
 
-    .line 1449
+    .line 1447
     const/4 v14, 0x0
 
     :try_start_5
@@ -13380,7 +13466,7 @@
 
     move-result v10
 
-    .line 1452
+    .line 1450
     array-length v14, v13
 
     const/4 v15, 0x4
@@ -13393,14 +13479,14 @@
 
     if-eqz v14, :cond_11
 
-    .line 1459
+    .line 1457
     const/4 v14, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mIsVaildGPRS:Z
 
-    .line 1460
+    .line 1458
     const/4 v14, 0x3
 
     aget-object v14, v13, v14
@@ -13413,7 +13499,7 @@
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mGPRSNetworkType:I
 
-    .line 1463
+    .line 1461
     :cond_11
     array-length v14, v13
 
@@ -13425,7 +13511,7 @@
 
     if-ne v10, v14, :cond_12
 
-    .line 1464
+    .line 1462
     const/4 v14, 0x4
 
     aget-object v14, v13, v14
@@ -13438,7 +13524,7 @@
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewReasonDataDenied:I
 
-    .line 1466
+    .line 1464
     :cond_12
     array-length v14, v13
 
@@ -13446,7 +13532,7 @@
 
     if-lt v14, v15, :cond_13
 
-    .line 1467
+    .line 1465
     const/4 v14, 0x5
 
     aget-object v14, v13, v14
@@ -13462,7 +13548,7 @@
     .catch Ljava/lang/NumberFormatException; {:try_start_5 .. :try_end_5} :catch_2
     .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_0
 
-    .line 1473
+    .line 1471
     :cond_13
     :goto_5
     :try_start_6
@@ -13476,7 +13562,7 @@
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newGPRSState:I
 
-    .line 1474
+    .line 1472
     move-object/from16 v0, p0
 
     invoke-direct {v0, v10}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->regCodeIsRoaming(I)Z
@@ -13487,7 +13573,7 @@
 
     iput-boolean v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mDataRoaming:Z
 
-    .line 1478
+    .line 1476
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -13500,11 +13586,11 @@
 
     goto/16 :goto_1
 
-    .line 1469
+    .line 1467
     :catch_2
     move-exception v3
 
-    .line 1470
+    .line 1468
     .restart local v3       #ex:Ljava/lang/NumberFormatException;
     new-instance v14, Ljava/lang/StringBuilder;
 
@@ -13530,7 +13616,7 @@
 
     goto :goto_5
 
-    .line 1491
+    .line 1489
     .end local v3           #ex:Ljava/lang/NumberFormatException;
     .end local v10           #regState:I
     .end local v13           #states:[Ljava/lang/String;
@@ -13547,7 +13633,7 @@
 
     move-object v7, v0
 
-    .line 1493
+    .line 1491
     .local v7, opNames:[Ljava/lang/String;
     if-eqz v7, :cond_5
 
@@ -13557,7 +13643,7 @@
 
     if-lt v14, v15, :cond_5
 
-    .line 1501
+    .line 1499
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
@@ -13580,7 +13666,7 @@
 
     if-ne v14, v15, :cond_15
 
-    .line 1502
+    .line 1500
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOperatorStringLists:Ljava/util/HashMap;
@@ -13595,7 +13681,7 @@
 
     check-cast v6, Ljava/lang/String;
 
-    .line 1506
+    .line 1504
     .local v6, opLong:Ljava/lang/String;
     :goto_6
     const/4 v14, 0x0
@@ -13606,7 +13692,7 @@
 
     iput-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mOriginalOperatorName:Ljava/lang/String;
 
-    .line 1507
+    .line 1505
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->newSS:Landroid/telephony/ServiceState;
@@ -13623,7 +13709,7 @@
 
     invoke-virtual {v14, v6, v15, v0}, Landroid/telephony/ServiceState;->setOperatorName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1510
+    .line 1508
     sget-object v14, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNeedAppendixOpList:Ljava/util/ArrayList;
 
     const/4 v15, 0x2
@@ -13636,7 +13722,7 @@
 
     if-eqz v14, :cond_17
 
-    .line 1511
+    .line 1509
     const-string v14, "GSM"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -13663,7 +13749,7 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1512
+    .line 1510
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mLocale:Ljava/util/Locale;
@@ -13688,7 +13774,7 @@
 
     if-eqz v14, :cond_16
 
-    .line 1514
+    .line 1512
     :cond_14
     move-object/from16 v0, p0
 
@@ -13698,7 +13784,7 @@
 
     invoke-virtual {v14, v15}, Landroid/telephony/ServiceState;->setAppendixType(I)V
 
-    .line 1522
+    .line 1520
     :goto_7
     array-length v14, v7
 
@@ -13706,7 +13792,7 @@
 
     if-lt v14, v15, :cond_5
 
-    .line 1524
+    .line 1522
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->phone:Lcom/android/internal/telephony/gsm/GSMPhone;
@@ -13719,11 +13805,11 @@
     :try_end_6
     .catch Ljava/lang/RuntimeException; {:try_start_6 .. :try_end_6} :catch_0
 
-    .line 1525
+    .line 1523
     .local v12, simRecord:Lcom/android/internal/telephony/gsm/SIMRecords;
     if-eqz v12, :cond_5
 
-    .line 1528
+    .line 1526
     const/4 v14, 0x3
 
     :try_start_7
@@ -13740,11 +13826,11 @@
 
     goto/16 :goto_1
 
-    .line 1529
+    .line 1527
     :catch_3
     move-exception v3
 
-    .line 1531
+    .line 1529
     .restart local v3       #ex:Ljava/lang/NumberFormatException;
     const/4 v14, -0x1
 
@@ -13753,7 +13839,7 @@
 
     goto/16 :goto_1
 
-    .line 1504
+    .line 1502
     .end local v3           #ex:Ljava/lang/NumberFormatException;
     .end local v6           #opLong:Ljava/lang/String;
     .end local v12           #simRecord:Lcom/android/internal/telephony/gsm/SIMRecords;
@@ -13765,7 +13851,7 @@
     .restart local v6       #opLong:Ljava/lang/String;
     goto/16 :goto_6
 
-    .line 1516
+    .line 1514
     :cond_16
     move-object/from16 v0, p0
 
@@ -13777,7 +13863,7 @@
 
     goto :goto_7
 
-    .line 1519
+    .line 1517
     :cond_17
     move-object/from16 v0, p0
 
@@ -13789,7 +13875,7 @@
 
     goto :goto_7
 
-    .line 1541
+    .line 1539
     .end local v6           #opLong:Ljava/lang/String;
     .end local v7           #opNames:[Ljava/lang/String;
     :sswitch_3
@@ -13805,7 +13891,7 @@
 
     move-object v4, v0
 
-    .line 1542
+    .line 1540
     .local v4, ints:[I
     move-object/from16 v0, p0
 
@@ -13835,7 +13921,7 @@
 
     goto :goto_8
 
-    .line 1562
+    .line 1560
     .end local v4           #ints:[I
     :cond_19
     const/4 v11, 0x0
@@ -14249,7 +14335,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 2508
+    .line 2500
     iget v1, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRilRadioTechnology:I
 
     const/4 v2, 0x3
@@ -14275,7 +14361,7 @@
     .parameter "s"
 
     .prologue
-    .line 2993
+    .line 2985
     const-string v0, "GSM"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -14298,7 +14384,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2994
+    .line 2986
     return-void
 .end method
 
@@ -14307,7 +14393,7 @@
     .parameter "s"
 
     .prologue
-    .line 2998
+    .line 2990
     const-string v0, "GSM"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -14330,7 +14416,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2999
+    .line 2991
     return-void
 .end method
 
@@ -14381,7 +14467,7 @@
     invoke-virtual {v5, v0, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 1146
-    const-string v17, "unregistered_icc"
+    const-string/jumbo v17, "unregistered_icc"
 
     move-object/from16 v0, p0
 
@@ -14401,7 +14487,7 @@
     invoke-virtual {v5, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 1147
-    const-string v16, "unregistered_icc_code"
+    const-string/jumbo v16, "unregistered_icc_code"
 
     move-object/from16 v0, p0
 
@@ -14852,7 +14938,7 @@
     .line 1211
     const-string v16, "GSM"
 
-    const-string v17, "spn and plmn are identical strings!!"
+    const-string/jumbo v17, "spn and plmn are identical strings!!"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -15072,7 +15158,7 @@
     invoke-virtual {v5, v0, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 1269
-    const-string v16, "spn"
+    const-string/jumbo v16, "spn"
 
     move-object/from16 v0, v16
 
@@ -15338,7 +15424,7 @@
     invoke-virtual {v5, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 1300
-    const-string v16, "spn"
+    const-string/jumbo v16, "spn"
 
     move-object/from16 v0, p0
 
@@ -15441,6 +15527,10 @@
     .line 1098
     invoke-virtual {v5}, Lcom/android/internal/telephony/gsm/SIMRecords;->getServiceProviderName()Ljava/lang/String;
 
+    move-result-object v5
+
+    invoke-static {p0, v5}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getSpn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v6
 
     .line 1102
@@ -15448,6 +15538,10 @@
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     invoke-virtual {v9}, Landroid/telephony/ServiceState;->getOperatorAlphaLong()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getPlmn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -15489,7 +15583,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "updateSpnDisplay: emergency only and radio is on plmn=\'"
+    const-string/jumbo v10, "updateSpnDisplay: emergency only and radio is on plmn=\'"
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -15573,7 +15667,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "updateSpnDisplay: changed sending intent rule="
+    const-string/jumbo v10, "updateSpnDisplay: changed sending intent rule="
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -15640,7 +15734,7 @@
     invoke-virtual {v0, v7, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 1127
-    const-string v7, "spn"
+    const-string/jumbo v7, "spn"
 
     invoke-virtual {v0, v7, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

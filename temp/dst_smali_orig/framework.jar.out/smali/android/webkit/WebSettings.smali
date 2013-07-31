@@ -10,7 +10,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/webkit/WebSettings$WebSelectionType;,
-        Landroid/webkit/WebSettings$NetworkState;,
         Landroid/webkit/WebSettings$PluginState;,
         Landroid/webkit/WebSettings$RenderPriority;,
         Landroid/webkit/WebSettings$ZoomDensity;,
@@ -862,17 +861,6 @@
     throw v0
 .end method
 
-.method public isEnableMyanmar3()Z
-    .locals 1
-
-    .prologue
-    new-instance v0, Landroid/webkit/MustOverrideException;
-
-    invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
-
-    throw v0
-.end method
-
 .method public setAllowContentAccess(Z)V
     .locals 1
     .parameter "allow"
@@ -1239,18 +1227,6 @@
     throw v0
 .end method
 
-.method public setEnableMyanmar3(Z)V
-    .locals 1
-    .parameter "flag"
-
-    .prologue
-    new-instance v0, Landroid/webkit/MustOverrideException;
-
-    invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
-
-    throw v0
-.end method
-
 .method public setEnableSmoothTransition(Z)V
     .locals 1
     .parameter "enable"
@@ -1568,18 +1544,6 @@
 .method public setNeedInitialFocus(Z)V
     .locals 1
     .parameter "flag"
-
-    .prologue
-    new-instance v0, Landroid/webkit/MustOverrideException;
-
-    invoke-direct {v0}, Landroid/webkit/MustOverrideException;-><init>()V
-
-    throw v0
-.end method
-
-.method public setNeedsHTCMailQuirks(Z)V
-    .locals 1
-    .parameter "needsQuirks"
 
     .prologue
     new-instance v0, Landroid/webkit/MustOverrideException;

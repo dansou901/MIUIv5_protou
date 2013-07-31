@@ -42,23 +42,23 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 6377
+    .line 6366
     iput-object p1, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6375
+    .line 6364
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/android/server/ConnectivityService$DualMode;->exitSystemTime:J
 
-    .line 6378
+    .line 6367
     iput v2, p0, Lcom/android/server/ConnectivityService$DualMode;->dualModeState:I
 
-    .line 6379
+    .line 6368
     iput v2, p0, Lcom/android/server/ConnectivityService$DualMode;->previousActiveDefaultNetwork:I
 
-    .line 6380
+    .line 6369
     return-void
 .end method
 
@@ -68,7 +68,7 @@
     .parameter "x1"
 
     .prologue
-    .line 6364
+    .line 6353
     invoke-direct {p0, p1}, Lcom/android/server/ConnectivityService$DualMode;-><init>(Lcom/android/server/ConnectivityService;)V
 
     return-void
@@ -79,7 +79,7 @@
     .parameter "x0"
 
     .prologue
-    .line 6364
+    .line 6353
     iget v0, p0, Lcom/android/server/ConnectivityService$DualMode;->previousActiveDefaultNetwork:I
 
     return v0
@@ -90,7 +90,7 @@
     .parameter "x0"
 
     .prologue
-    .line 6364
+    .line 6353
     invoke-direct {p0}, Lcom/android/server/ConnectivityService$DualMode;->isDisableDualmode()Z
 
     move-result v0
@@ -105,7 +105,7 @@
     .parameter "x2"
 
     .prologue
-    .line 6364
+    .line 6353
     invoke-direct {p0, p1, p2}, Lcom/android/server/ConnectivityService$DualMode;->handleConnectDualMode(Landroid/net/NetworkInfo;Z)V
 
     return-void
@@ -117,7 +117,7 @@
     .parameter "x1"
 
     .prologue
-    .line 6364
+    .line 6353
     invoke-direct {p0, p1}, Lcom/android/server/ConnectivityService$DualMode;->handleDualModeSwitch(Landroid/os/Message;)V
 
     return-void
@@ -133,18 +133,18 @@
 
     const/4 v7, 0x0
 
-    .line 6479
+    .line 6468
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v2
 
-    .line 6483
+    .line 6472
     .local v2, type:I
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->isFailover()Z
 
     move-result v0
 
-    .line 6485
+    .line 6474
     .local v0, isFailover:Z
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -179,7 +179,7 @@
     #calls: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v3, v4}, Lcom/android/server/ConnectivityService;->access$200(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
-    .line 6487
+    .line 6476
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
@@ -189,7 +189,7 @@
 
     aget-object v1, v3, v2
 
-    .line 6490
+    .line 6479
     .local v1, thisNet:Landroid/net/NetworkStateTracker;
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -251,19 +251,19 @@
 
     if-gtz v3, :cond_3
 
-    .line 6498
+    .line 6487
     const-string v3, "ConnectivityService"
 
     const-string v4, "[Dual mode]:handleConnectDualMode: Dual Mode Exit handler"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6499
+    .line 6488
     const/4 v3, -0x1
 
     iput v3, p0, Lcom/android/server/ConnectivityService$DualMode;->dualModeState:I
 
-    .line 6501
+    .line 6490
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
@@ -277,19 +277,19 @@
 
     invoke-virtual {v3}, Lcom/htc/net/wimax/WimaxStateTracker;->disconnect()Z
 
-    .line 6503
+    .line 6492
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #setter for: Lcom/android/server/ConnectivityService;->mActiveDefaultNetwork:I
     invoke-static {v3, v7}, Lcom/android/server/ConnectivityService;->access$802(Lcom/android/server/ConnectivityService;I)I
 
-    .line 6504
+    .line 6493
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->notifyActiveNetworkUpdate()V
     invoke-static {v3}, Lcom/android/server/ConnectivityService;->access$4400(Lcom/android/server/ConnectivityService;)V
 
-    .line 6506
+    .line 6495
     const-string v3, "ConnectivityService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -370,24 +370,24 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6510
+    .line 6499
     invoke-interface {v1, v7}, Landroid/net/NetworkStateTracker;->setTeardownRequested(Z)V
 
-    .line 6511
+    .line 6500
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-virtual {v3, v1}, Lcom/android/server/ConnectivityService;->updateNetworkSettings(Landroid/net/NetworkStateTracker;)V
 
-    .line 6512
+    .line 6501
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleConnectivityChange(Landroid/net/NetworkInfo;Z)V
     invoke-static {v3, p1, v7}, Lcom/android/server/ConnectivityService;->access$2000(Lcom/android/server/ConnectivityService;Landroid/net/NetworkInfo;Z)V
 
-    .line 6513
+    .line 6502
     if-eqz p2, :cond_1
 
-    .line 6514
+    .line 6503
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
@@ -405,7 +405,7 @@
     #calls: Lcom/android/server/ConnectivityService;->htcUpdateNetworkInfo(ILandroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v3, v2, v4, v5, v6}, Lcom/android/server/ConnectivityService;->access$1400(Lcom/android/server/ConnectivityService;ILandroid/net/NetworkInfo$DetailedState;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 6516
+    .line 6505
     :cond_1
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -425,18 +425,18 @@
 
     if-eq v3, v4, :cond_2
 
-    .line 6520
+    .line 6509
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->sendConnectedBroadcast(Landroid/net/NetworkInfo;)V
     invoke-static {v3, p1}, Lcom/android/server/ConnectivityService;->access$1000(Lcom/android/server/ConnectivityService;Landroid/net/NetworkInfo;)V
 
-    .line 6528
+    .line 6517
     :cond_2
     :goto_0
     return-void
 
-    .line 6523
+    .line 6512
     :cond_3
     const-string v3, "ConnectivityService"
 
@@ -444,7 +444,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6525
+    .line 6514
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mActiveDefaultNetwork:I
@@ -454,7 +454,7 @@
 
     iput v3, p0, Lcom/android/server/ConnectivityService$DualMode;->previousActiveDefaultNetwork:I
 
-    .line 6526
+    .line 6515
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #calls: Lcom/android/server/ConnectivityService;->handleConnect(Landroid/net/NetworkInfo;Z)V
@@ -470,7 +470,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 6444
+    .line 6433
     iget-object v1, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v2, 0x6
@@ -481,28 +481,28 @@
 
     if-eqz v1, :cond_0
 
-    .line 6445
+    .line 6434
     const/4 v0, 0x0
 
-    .line 6446
+    .line 6435
     .local v0, dmNet:Landroid/net/NetworkStateTracker;
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 6470
+    .line 6459
     const/4 v1, -0x1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$DualMode;->dualModeState:I
 
-    .line 6474
+    .line 6463
     .end local v0           #dmNet:Landroid/net/NetworkStateTracker;
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
-    .line 6460
+    .line 6449
     .restart local v0       #dmNet:Landroid/net/NetworkStateTracker;
     :pswitch_1
     const-string v1, "ConnectivityService"
@@ -511,17 +511,17 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6461
+    .line 6450
     iput v3, p0, Lcom/android/server/ConnectivityService$DualMode;->dualModeState:I
 
-    .line 6462
+    .line 6451
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/ConnectivityService$DualMode;->exitSystemTime:J
 
-    .line 6463
+    .line 6452
     iget-object v1, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
     #getter for: Lcom/android/server/ConnectivityService;->mNetTrackers:[Landroid/net/NetworkStateTracker;
@@ -531,14 +531,14 @@
 
     aget-object v0, v1, v3
 
-    .line 6464
+    .line 6453
     invoke-interface {v0}, Landroid/net/NetworkStateTracker;->isAvailable()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 6465
+    .line 6454
     invoke-interface {v0}, Landroid/net/NetworkStateTracker;->getNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v1
@@ -547,13 +547,13 @@
 
     invoke-virtual {v1, v2}, Landroid/net/NetworkInfo;->setFailover(Z)V
 
-    .line 6467
+    .line 6456
     :cond_1
     invoke-interface {v0}, Landroid/net/NetworkStateTracker;->reconnect()Z
 
     goto :goto_0
 
-    .line 6446
+    .line 6435
     nop
 
     :pswitch_data_0
@@ -569,10 +569,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 6397
+    .line 6386
     const-string v1, ""
 
-    .line 6400
+    .line 6389
     .local v1, property:Ljava/lang/String;
     :try_start_0
     const-string v3, "wimax.dualmode"
@@ -583,7 +583,7 @@
 
     move-result-object v1
 
-    .line 6405
+    .line 6394
     :goto_0
     const-string v3, "0"
 
@@ -593,16 +593,16 @@
 
     if-eqz v3, :cond_1
 
-    .line 6417
+    .line 6406
     :cond_0
     :goto_1
     return v2
 
-    .line 6401
+    .line 6390
     :catch_0
     move-exception v0
 
-    .line 6402
+    .line 6391
     .local v0, e:Ljava/lang/Exception;
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -629,7 +629,7 @@
 
     goto :goto_0
 
-    .line 6410
+    .line 6399
     .end local v0           #e:Ljava/lang/Exception;
     :cond_1
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
@@ -656,7 +656,7 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 6414
+    .line 6403
     :cond_2
     const/4 v2, 0x0
 
@@ -669,10 +669,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 6421
+    .line 6410
     const-string v1, ""
 
-    .line 6424
+    .line 6413
     .local v1, property:Ljava/lang/String;
     :try_start_0
     const-string v3, "wimax.dualmode.1xrtt"
@@ -683,7 +683,7 @@
 
     move-result-object v1
 
-    .line 6429
+    .line 6418
     :goto_0
     const-string v3, "0"
 
@@ -693,16 +693,16 @@
 
     if-eqz v3, :cond_1
 
-    .line 6440
+    .line 6429
     :cond_0
     :goto_1
     return v2
 
-    .line 6425
+    .line 6414
     :catch_0
     move-exception v0
 
-    .line 6426
+    .line 6415
     .local v0, e:Ljava/lang/Exception;
     iget-object v3, p0, Lcom/android/server/ConnectivityService$DualMode;->this$0:Lcom/android/server/ConnectivityService;
 
@@ -729,7 +729,7 @@
 
     goto :goto_0
 
-    .line 6434
+    .line 6423
     .end local v0           #e:Ljava/lang/Exception;
     :cond_1
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
@@ -750,7 +750,7 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 6437
+    .line 6426
     :cond_2
     const/4 v2, 0x0
 

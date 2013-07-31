@@ -210,10 +210,6 @@
 
 .field public static final PHONE_NAME_SUB_GSM:Ljava/lang/String; = "SubGSM"
 
-.field public static final PHONE_SLOT_1:I = 0xa
-
-.field public static final PHONE_SLOT_2:I = 0xb
-
 .field public static final PHONE_TYPE_CDMA:I = 0x2
 
 .field public static final PHONE_TYPE_GSM:I = 0x1
@@ -352,12 +348,6 @@
 .end method
 
 .method public abstract checkTestIcc()Z
-.end method
-
-.method public abstract cleanUpAllConnections(Ljava/lang/String;)V
-.end method
-
-.method public abstract cleanUpAllConnectionsExt(Ljava/lang/String;I)V
 .end method
 
 .method public abstract clearDisconnected()V
@@ -660,9 +650,6 @@
 .method public abstract getDeviceSvnExt(I)Ljava/lang/String;
 .end method
 
-.method public abstract getDpdtSwitchValue(Landroid/os/Message;)V
-.end method
-
 .method public abstract getEnhancedVoicePrivacy(Landroid/os/Message;)V
 .end method
 
@@ -850,9 +837,6 @@
 .end method
 
 .method public abstract getPhoneNameExt(I)Ljava/lang/String;
-.end method
-
-.method public abstract getPhoneSlot()I
 .end method
 
 .method public abstract getPhoneSubInfo()Lcom/android/internal/telephony/PhoneSubInfo;
@@ -1556,9 +1540,6 @@
 .method public abstract setDataSubscriptionExt(Landroid/os/Message;I)V
 .end method
 
-.method public abstract setDpdtSwitchValue(ILandroid/os/Message;)V
-.end method
-
 .method public abstract setEchoSuppressionEnabled(Z)V
 .end method
 
@@ -1607,9 +1588,6 @@
 .method public abstract setPdnSettings2([Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
-.method public abstract setPhoneSlot(I)V
-.end method
-
 .method public abstract setPolicyDataEnabled(Z)Z
 .end method
 
@@ -1647,12 +1625,6 @@
 .end method
 
 .method public abstract setSubsidyLock(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
-.end method
-
-.method public abstract setTDLabMode(ILandroid/os/Message;)V
-.end method
-
-.method public abstract setTDLabModeExt(ILandroid/os/Message;I)V
 .end method
 
 .method public abstract setTTYMode(ILandroid/os/Message;)V

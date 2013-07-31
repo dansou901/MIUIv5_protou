@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/internal/view/RootViewSurfaceTaker;
+.implements Landroid/view/IMagnifyView;
 .implements Lcom/miui/internal/v5/widget/ActionBarView$ActionBarViewHolder;
 
 
@@ -23,6 +24,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;,
         Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
     }
 .end annotation
@@ -51,6 +53,8 @@
 
 .field private final mFramePadding:Landroid/graphics/Rect;
 
+.field private mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
 .field private mMenuBackground:Landroid/graphics/drawable/Drawable;
 
 .field private mShowActionModePopup:Ljava/lang/Runnable;
@@ -68,49 +72,40 @@
     .parameter "featureId"
 
     .prologue
-    .line 1869
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
-    .line 1870
     invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 1845
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mDefaultOpacity:I
 
-    .line 1850
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mDrawingBounds:Landroid/graphics/Rect;
 
-    .line 1852
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mBackgroundPadding:Landroid/graphics/Rect;
 
-    .line 1854
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
-    .line 1856
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFrameOffsets:Landroid/graphics/Rect;
 
-    .line 1871
     iput p3, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
-    .line 1872
     return-void
 .end method
 
@@ -119,7 +114,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1844
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     return-object v0
@@ -131,7 +125,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1844
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     return-object p1
@@ -142,7 +135,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1844
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     return-object v0
@@ -153,7 +145,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1844
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     return-object v0
@@ -164,7 +155,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1844
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mShowActionModePopup:Ljava/lang/Runnable;
 
     return-object v0
@@ -176,17 +166,14 @@
     .prologue
     const/4 v10, -0x1
 
-    .line 2433
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mChanging:Z
 
     if-eqz v5, :cond_1
 
-    .line 2491
     :cond_0
     :goto_0
     return-void
 
-    .line 2437
     :cond_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
@@ -230,50 +217,39 @@
 
     invoke-virtual {p0, v5, v6, v7, v8}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->setPadding(IIII)V
 
-    .line 2440
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->requestLayout()V
 
-    .line 2441
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->invalidate()V
 
-    .line 2443
     const/4 v4, -0x1
 
-    .line 2450
     .local v4, opacity:I
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 2451
     .local v0, bg:Landroid/graphics/drawable/Drawable;
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v2
 
-    .line 2452
     .local v2, fg:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_2
 
-    .line 2453
     if-nez v2, :cond_3
 
-    .line 2454
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v4
 
-    .line 2487
     :cond_2
     :goto_1
     iput v4, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mDefaultOpacity:I
 
-    .line 2488
     iget v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     if-gez v5, :cond_0
 
-    .line 2489
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #calls: Lcom/android/internal/policy/impl/PhoneWindow;->setDefaultWindowFormat(I)V
@@ -281,7 +257,6 @@
 
     goto :goto_0
 
-    .line 2455
     :cond_3
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
@@ -307,48 +282,39 @@
 
     if-gtz v5, :cond_8
 
-    .line 2459
     invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v3
 
-    .line 2460
     .local v3, fop:I
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getOpacity()I
 
     move-result v1
 
-    .line 2463
     .local v1, bop:I
     if-eq v3, v10, :cond_4
 
     if-ne v1, v10, :cond_5
 
-    .line 2464
     :cond_4
     const/4 v4, -0x1
 
     goto :goto_1
 
-    .line 2465
     :cond_5
     if-nez v3, :cond_6
 
-    .line 2466
     move v4, v1
 
     goto :goto_1
 
-    .line 2467
     :cond_6
     if-nez v1, :cond_7
 
-    .line 2468
     move v4, v3
 
     goto :goto_1
 
-    .line 2470
     :cond_7
     invoke-static {v3, v1}, Landroid/graphics/drawable/Drawable;->resolveOpacity(II)I
 
@@ -356,7 +322,6 @@
 
     goto :goto_1
 
-    .line 2478
     .end local v1           #bop:I
     .end local v3           #fop:I
     :cond_8
@@ -373,7 +338,6 @@
     .prologue
     const/4 v0, -0x5
 
-    .line 2024
     if-lt p1, v0, :cond_0
 
     if-lt p2, v0, :cond_0
@@ -413,14 +377,12 @@
     .parameter "ev"
 
     .prologue
-    .line 1968
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 1969
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -460,24 +422,20 @@
 
     const/4 v5, 0x1
 
-    .line 1876
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v4
 
-    .line 1877
     .local v4, keyCode:I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
-    .line 1878
     .local v0, action:I
     if-nez v0, :cond_1
 
     move v3, v5
 
-    .line 1880
     .local v3, isDown:Z
     :goto_0
     if-eqz v3, :cond_3
@@ -488,7 +446,6 @@
 
     if-nez v7, :cond_3
 
-    .line 1883
     iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mPanelChordingKey:I
@@ -507,16 +464,13 @@
 
     if-eq v7, v4, :cond_2
 
-    .line 1884
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
 
     move-result v2
 
-    .line 1885
     .local v2, handled:Z
     if-eqz v2, :cond_2
 
-    .line 1908
     .end local v2           #handled:Z
     :cond_0
     :goto_1
@@ -526,10 +480,8 @@
     :cond_1
     move v3, v6
 
-    .line 1878
     goto :goto_0
 
-    .line 1892
     .restart local v3       #isDown:Z
     :cond_2
     iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -552,7 +504,6 @@
 
     if-eqz v7, :cond_3
 
-    .line 1893
     iget-object v7, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -569,7 +520,6 @@
 
     if-nez v6, :cond_0
 
-    .line 1899
     :cond_3
     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -579,14 +529,12 @@
 
     if-nez v6, :cond_4
 
-    .line 1900
     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v6}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v1
 
-    .line 1901
     .local v1, cb:Landroid/view/Window$Callback;
     if-eqz v1, :cond_5
 
@@ -598,12 +546,10 @@
 
     move-result v2
 
-    .line 1903
     .restart local v2       #handled:Z
     :goto_2
     if-nez v2, :cond_0
 
-    .line 1908
     .end local v1           #cb:Landroid/view/Window$Callback;
     .end local v2           #handled:Z
     :cond_4
@@ -623,7 +569,6 @@
 
     goto :goto_1
 
-    .line 1901
     .restart local v1       #cb:Landroid/view/Window$Callback;
     :cond_5
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -632,7 +577,6 @@
 
     goto :goto_2
 
-    .line 1908
     .end local v1           #cb:Landroid/view/Window$Callback;
     :cond_6
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -659,7 +603,6 @@
 
     const/4 v3, 0x1
 
-    .line 1916
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mPreparedPanel:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
@@ -669,7 +612,6 @@
 
     if-eqz v5, :cond_1
 
-    .line 1917
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -688,11 +630,9 @@
 
     move-result v1
 
-    .line 1919
     .local v1, handled:Z
     if-eqz v1, :cond_1
 
-    .line 1920
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mPreparedPanel:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
@@ -702,7 +642,6 @@
 
     if-eqz v4, :cond_0
 
-    .line 1921
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mPreparedPanel:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
@@ -712,12 +651,10 @@
 
     iput-boolean v3, v4, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isHandled:Z
 
-    .line 1949
     :cond_0
     :goto_0
     return v3
 
-    .line 1928
     .end local v1           #handled:Z
     :cond_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -726,7 +663,6 @@
 
     move-result-object v0
 
-    .line 1929
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_3
 
@@ -746,12 +682,10 @@
 
     move-result v1
 
-    .line 1931
     .restart local v1       #handled:Z
     :goto_1
     if-nez v1, :cond_0
 
-    .line 1939
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mPreparedPanel:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
@@ -761,7 +695,6 @@
 
     if-nez v5, :cond_2
 
-    .line 1940
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #calls: Lcom/android/internal/policy/impl/PhoneWindow;->getPanelState(IZ)Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
@@ -769,13 +702,11 @@
 
     move-result-object v2
 
-    .line 1941
     .local v2, st:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v5, v2, p1}, Lcom/android/internal/policy/impl/PhoneWindow;->preparePanel(Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;Landroid/view/KeyEvent;)Z
 
-    .line 1942
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
@@ -787,20 +718,16 @@
 
     move-result v1
 
-    .line 1944
     iput-boolean v4, v2, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->isPrepared:Z
 
-    .line 1945
     if-nez v1, :cond_0
 
     .end local v2           #st:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
     :cond_2
     move v3, v4
 
-    .line 1949
     goto :goto_0
 
-    .line 1929
     .end local v1           #handled:Z
     :cond_3
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
@@ -815,14 +742,12 @@
     .parameter "event"
 
     .prologue
-    .line 2127
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 2128
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -834,17 +759,14 @@
 
     if-nez v1, :cond_0
 
-    .line 2129
     invoke-interface {v0, p1}, Landroid/view/Window$Callback;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 2130
     const/4 v1, 0x1
 
-    .line 2133
     :goto_0
     return v1
 
@@ -861,14 +783,12 @@
     .parameter "ev"
 
     .prologue
-    .line 1954
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 1955
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -904,14 +824,12 @@
     .parameter "ev"
 
     .prologue
-    .line 1961
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 1962
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -947,20 +865,16 @@
     .parameter "canvas"
 
     .prologue
-    .line 2265
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2267
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMenuBackground:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 2268
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMenuBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 2270
     :cond_0
     return-void
 .end method
@@ -969,15 +883,12 @@
     .locals 1
 
     .prologue
-    .line 2387
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mChanging:Z
 
-    .line 2388
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->drawableChanged()V
 
-    .line 2389
     return-void
 .end method
 
@@ -986,28 +897,131 @@
     .parameter "insets"
 
     .prologue
-    .line 2425
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFrameOffsets:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 2426
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 2427
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->drawableChanged()V
 
-    .line 2429
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
 
     move-result v0
 
     return v0
+.end method
+
+.method public getActionBarView()Lcom/miui/internal/v5/widget/ActionBarView;
+    .locals 2
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getActionBarView()Lcom/android/internal/widget/ActionBarView;
+
+    move-result-object v0
+
+    .local v0, abv:Lcom/android/internal/widget/ActionBarView;
+    instance-of v1, v0, Lcom/miui/internal/v5/widget/ActionBarView;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/miui/internal/v5/widget/ActionBarView;
+
+    .end local v0           #abv:Lcom/android/internal/widget/ActionBarView;
+    :goto_0
+    return-object v0
+
+    .restart local v0       #abv:Lcom/android/internal/widget/ActionBarView;
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hideMagnifier()V
+    .locals 2
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setVisibile(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public invalidateMagnifier()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->setNeedsRedraw()V
+
+    :cond_0
+    return-void
+.end method
+
+.method miuiCreateActionModeCallbackWrapper(Landroid/view/ActionMode$Callback;)Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+    .locals 1
+    .parameter "callback"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    instance-of v0, p1, Lmiui/v5/view/SearchActionMode$Callback;
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    goto :goto_0
 .end method
 
 .method public getActionBarView()Lcom/miui/internal/v5/widget/ActionBarView;
@@ -1087,20 +1101,16 @@
     .locals 3
 
     .prologue
-    .line 2517
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
-    .line 2519
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->updateWindowResizeState()V
 
-    .line 2521
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 2522
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -1116,10 +1126,8 @@
 
     if-gez v1, :cond_0
 
-    .line 2523
     invoke-interface {v0}, Landroid/view/Window$Callback;->onAttachedToWindow()V
 
-    .line 2526
     :cond_0
     iget v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
@@ -1127,13 +1135,11 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 2534
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #calls: Lcom/android/internal/policy/impl/PhoneWindow;->openPanelsAfterRestore()V
     invoke-static {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->access$1400(Lcom/android/internal/policy/impl/PhoneWindow;)V
 
-    .line 2536
     :cond_1
     return-void
 .end method
@@ -1143,17 +1149,14 @@
     .parameter "reason"
 
     .prologue
-    .line 2567
     iget v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     if-ltz v0, :cond_0
 
-    .line 2568
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindow;->closeAllPanels()V
 
-    .line 2570
     :cond_0
     return-void
 .end method
@@ -1164,17 +1167,14 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2540
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
-    .line 2542
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 2543
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -1182,10 +1182,8 @@
 
     if-gez v2, :cond_0
 
-    .line 2544
     invoke-interface {v0}, Landroid/view/Window$Callback;->onDetachedFromWindow()V
 
-    .line 2547
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -1196,7 +1194,6 @@
 
     if-eqz v2, :cond_1
 
-    .line 2548
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
@@ -1206,18 +1203,15 @@
 
     invoke-virtual {v2}, Lcom/android/internal/widget/ActionBarView;->dismissPopupMenus()V
 
-    .line 2551
     :cond_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     if-eqz v2, :cond_3
 
-    .line 2552
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mShowActionModePopup:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 2553
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v2}, Landroid/widget/PopupWindow;->isShowing()Z
@@ -1226,18 +1220,15 @@
 
     if-eqz v2, :cond_2
 
-    .line 2554
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v2}, Landroid/widget/PopupWindow;->dismiss()V
 
-    .line 2556
     :cond_2
     const/4 v2, 0x0
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    .line 2559
     :cond_3
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -1246,7 +1237,6 @@
 
     move-result-object v1
 
-    .line 2560
     .local v1, st:Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;
     if-eqz v1, :cond_4
 
@@ -1258,12 +1248,10 @@
 
     if-gez v2, :cond_4
 
-    .line 2561
     iget-object v2, v1, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->menu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v2}, Lcom/android/internal/view/menu/MenuBuilder;->close()V
 
-    .line 2563
     :cond_4
     return-void
 .end method
@@ -1273,28 +1261,23 @@
     .parameter "event"
 
     .prologue
-    .line 2030
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    .line 2031
     .local v0, action:I
     iget v3, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     if-ltz v3, :cond_0
 
-    .line 2032
     if-nez v0, :cond_0
 
-    .line 2033
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
 
     float-to-int v1, v3
 
-    .line 2034
     .local v1, x:I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -1302,7 +1285,6 @@
 
     float-to-int v2, v3
 
-    .line 2035
     .local v2, y:I
     invoke-direct {p0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->isOutOfBounds(II)Z
 
@@ -1310,17 +1292,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 2036
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iget v4, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     invoke-virtual {v3, v4}, Lcom/android/internal/policy/impl/PhoneWindow;->closePanel(I)V
 
-    .line 2037
     const/4 v3, 0x1
 
-    .line 2043
     .end local v1           #x:I
     .end local v2           #y:I
     :goto_0
@@ -1338,7 +1317,6 @@
     .parameter "heightMeasureSpec"
 
     .prologue
-    .line 2182
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getContext()Landroid/content/Context;
 
     move-result-object v17
@@ -1351,7 +1329,6 @@
 
     move-result-object v8
 
-    .line 2183
     .local v8, metrics:Landroid/util/DisplayMetrics;
     iget v0, v8, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -1369,24 +1346,20 @@
 
     const/4 v6, 0x1
 
-    .line 2185
     .local v6, isPortrait:Z
     :goto_0
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v15
 
-    .line 2186
     .local v15, widthMode:I
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v4
 
-    .line 2188
     .local v4, heightMode:I
     const/4 v2, 0x0
 
-    .line 2189
     .local v2, fixedWidth:Z
     const/high16 v17, -0x8000
 
@@ -1394,7 +1367,6 @@
 
     if-ne v15, v0, :cond_0
 
-    .line 2190
     if-eqz v6, :cond_5
 
     move-object/from16 v0, p0
@@ -1407,7 +1379,6 @@
 
     iget-object v12, v0, Lcom/android/internal/policy/impl/PhoneWindow;->mFixedWidthMinor:Landroid/util/TypedValue;
 
-    .line 2191
     .local v12, tvw:Landroid/util/TypedValue;
     :goto_1
     if-eqz v12, :cond_0
@@ -1418,7 +1389,6 @@
 
     if-eqz v17, :cond_0
 
-    .line 2193
     iget v0, v12, Landroid/util/TypedValue;->type:I
 
     move/from16 v17, v0
@@ -1431,7 +1401,6 @@
 
     if-ne v0, v1, :cond_6
 
-    .line 2194
     invoke-virtual {v12, v8}, Landroid/util/TypedValue;->getDimension(Landroid/util/DisplayMetrics;)F
 
     move-result v17
@@ -1440,17 +1409,14 @@
 
     float-to-int v13, v0
 
-    .line 2201
     .local v13, w:I
     :goto_2
     if-lez v13, :cond_0
 
-    .line 2202
     invoke-static/range {p1 .. p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v16
 
-    .line 2203
     .local v16, widthSize:I
     move/from16 v0, v16
 
@@ -1464,10 +1430,8 @@
 
     move-result p1
 
-    .line 2205
     const/4 v2, 0x1
 
-    .line 2210
     .end local v12           #tvw:Landroid/util/TypedValue;
     .end local v13           #w:I
     .end local v16           #widthSize:I
@@ -1478,7 +1442,6 @@
 
     if-ne v4, v0, :cond_1
 
-    .line 2211
     if-eqz v6, :cond_8
 
     move-object/from16 v0, p0
@@ -1491,7 +1454,6 @@
 
     iget-object v11, v0, Lcom/android/internal/policy/impl/PhoneWindow;->mFixedHeightMajor:Landroid/util/TypedValue;
 
-    .line 2212
     .local v11, tvh:Landroid/util/TypedValue;
     :goto_3
     if-eqz v11, :cond_1
@@ -1502,7 +1464,6 @@
 
     if-eqz v17, :cond_1
 
-    .line 2214
     iget v0, v11, Landroid/util/TypedValue;->type:I
 
     move/from16 v17, v0
@@ -1515,7 +1476,6 @@
 
     if-ne v0, v1, :cond_9
 
-    .line 2215
     invoke-virtual {v11, v8}, Landroid/util/TypedValue;->getDimension(Landroid/util/DisplayMetrics;)F
 
     move-result v17
@@ -1524,17 +1484,14 @@
 
     float-to-int v3, v0
 
-    .line 2222
     .local v3, h:I
     :goto_4
     if-lez v3, :cond_1
 
-    .line 2223
     invoke-static/range {p2 .. p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v5
 
-    .line 2224
     .local v5, heightSize:I
     invoke-static {v3, v5}, Ljava/lang/Math;->min(II)I
 
@@ -1546,23 +1503,19 @@
 
     move-result p2
 
-    .line 2230
     .end local v3           #h:I
     .end local v5           #heightSize:I
     .end local v11           #tvh:Landroid/util/TypedValue;
     :cond_1
     invoke-super/range {p0 .. p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
-    .line 2232
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getMeasuredWidth()I
 
     move-result v14
 
-    .line 2233
     .local v14, width:I
     const/4 v7, 0x0
 
-    .line 2235
     .local v7, measure:Z
     const/high16 v17, 0x4000
 
@@ -1572,7 +1525,6 @@
 
     move-result p1
 
-    .line 2237
     if-nez v2, :cond_2
 
     const/high16 v17, -0x8000
@@ -1581,7 +1533,6 @@
 
     if-ne v15, v0, :cond_2
 
-    .line 2238
     if-eqz v6, :cond_b
 
     move-object/from16 v0, p0
@@ -1594,7 +1545,6 @@
 
     iget-object v10, v0, Lcom/android/internal/policy/impl/PhoneWindow;->mMinWidthMinor:Landroid/util/TypedValue;
 
-    .line 2239
     .local v10, tv:Landroid/util/TypedValue;
     :goto_5
     iget v0, v10, Landroid/util/TypedValue;->type:I
@@ -1603,7 +1553,6 @@
 
     if-eqz v17, :cond_2
 
-    .line 2241
     iget v0, v10, Landroid/util/TypedValue;->type:I
 
     move/from16 v17, v0
@@ -1616,7 +1565,6 @@
 
     if-ne v0, v1, :cond_c
 
-    .line 2242
     invoke-virtual {v10, v8}, Landroid/util/TypedValue;->getDimension(Landroid/util/DisplayMetrics;)F
 
     move-result v17
@@ -1625,12 +1573,10 @@
 
     float-to-int v9, v0
 
-    .line 2249
     .local v9, min:I
     :goto_6
     if-ge v14, v9, :cond_2
 
-    .line 2250
     const/high16 v17, 0x4000
 
     move/from16 v0, v17
@@ -1639,23 +1585,18 @@
 
     move-result p1
 
-    .line 2251
     const/4 v7, 0x1
 
-    .line 2258
     .end local v9           #min:I
     .end local v10           #tv:Landroid/util/TypedValue;
     :cond_2
     if-eqz v7, :cond_3
 
-    .line 2259
     invoke-super/range {p0 .. p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
-    .line 2261
     :cond_3
     return-void
 
-    .line 2183
     .end local v2           #fixedWidth:Z
     .end local v4           #heightMode:I
     .end local v6           #isPortrait:Z
@@ -1667,7 +1608,6 @@
 
     goto/16 :goto_0
 
-    .line 2190
     .restart local v2       #fixedWidth:Z
     .restart local v4       #heightMode:I
     .restart local v6       #isPortrait:Z
@@ -1685,7 +1625,6 @@
 
     goto/16 :goto_1
 
-    .line 2195
     .restart local v12       #tvw:Landroid/util/TypedValue;
     :cond_6
     iget v0, v12, Landroid/util/TypedValue;->type:I
@@ -1700,7 +1639,6 @@
 
     if-ne v0, v1, :cond_7
 
-    .line 2196
     iget v0, v8, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v17, v0
@@ -1736,7 +1674,6 @@
     .restart local v13       #w:I
     goto/16 :goto_2
 
-    .line 2198
     .end local v13           #w:I
     :cond_7
     const/4 v13, 0x0
@@ -1744,7 +1681,6 @@
     .restart local v13       #w:I
     goto/16 :goto_2
 
-    .line 2211
     .end local v12           #tvw:Landroid/util/TypedValue;
     .end local v13           #w:I
     :cond_8
@@ -1760,7 +1696,6 @@
 
     goto/16 :goto_3
 
-    .line 2216
     .restart local v11       #tvh:Landroid/util/TypedValue;
     :cond_9
     iget v0, v11, Landroid/util/TypedValue;->type:I
@@ -1775,7 +1710,6 @@
 
     if-ne v0, v1, :cond_a
 
-    .line 2217
     iget v0, v8, Landroid/util/DisplayMetrics;->heightPixels:I
 
     move/from16 v17, v0
@@ -1811,7 +1745,6 @@
     .restart local v3       #h:I
     goto/16 :goto_4
 
-    .line 2219
     .end local v3           #h:I
     :cond_a
     const/4 v3, 0x0
@@ -1819,7 +1752,6 @@
     .restart local v3       #h:I
     goto/16 :goto_4
 
-    .line 2238
     .end local v3           #h:I
     .end local v11           #tvh:Landroid/util/TypedValue;
     .restart local v7       #measure:Z
@@ -1837,7 +1769,6 @@
 
     goto/16 :goto_5
 
-    .line 2243
     .restart local v10       #tv:Landroid/util/TypedValue;
     :cond_c
     iget v0, v10, Landroid/util/TypedValue;->type:I
@@ -1852,7 +1783,6 @@
 
     if-ne v0, v1, :cond_d
 
-    .line 2244
     iget v0, v8, Landroid/util/DisplayMetrics;->widthPixels:I
 
     move/from16 v17, v0
@@ -1888,7 +1818,6 @@
     .restart local v9       #min:I
     goto/16 :goto_6
 
-    .line 2246
     .end local v9           #min:I
     :cond_d
     const/4 v9, 0x0
@@ -1902,7 +1831,6 @@
     .parameter "event"
 
     .prologue
-    .line 2020
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -1915,10 +1843,8 @@
     .parameter "hasWindowFocus"
 
     .prologue
-    .line 2495
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onWindowFocusChanged(Z)V
 
-    .line 2499
     if-nez p1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -1930,14 +1856,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 2500
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow;->closePanel(I)V
 
-    .line 2503
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -1945,7 +1869,6 @@
 
     move-result-object v0
 
-    .line 2504
     .local v0, cb:Landroid/view/Window$Callback;
     if-eqz v0, :cond_1
 
@@ -1961,10 +1884,8 @@
 
     if-gez v1, :cond_1
 
-    .line 2505
     invoke-interface {v0, p1}, Landroid/view/Window$Callback;->onWindowFocusChanged(Z)V
 
-    .line 2507
     :cond_1
     return-void
 .end method
@@ -1974,7 +1895,6 @@
     .parameter "eventType"
 
     .prologue
-    .line 2107
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
@@ -1987,11 +1907,9 @@
 
     if-nez v0, :cond_0
 
-    .line 2123
     :goto_0
     return-void
 
-    .line 2114
     :cond_0
     iget v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
@@ -2024,7 +1942,6 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 2119
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getChildAt(I)Landroid/view/View;
@@ -2035,7 +1952,6 @@
 
     goto :goto_0
 
-    .line 2121
     :cond_2
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->sendAccessibilityEvent(I)V
 
@@ -2047,20 +1963,16 @@
     .parameter "d"
 
     .prologue
-    .line 2405
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2406
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 2407
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->updateWindowResizeState()V
 
-    .line 2409
     :cond_0
     return-void
 .end method
@@ -2073,35 +1985,27 @@
     .parameter "b"
 
     .prologue
-    .line 2138
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->setFrame(IIII)Z
 
     move-result v1
 
-    .line 2139
     .local v1, changed:Z
     if-eqz v1, :cond_1
 
-    .line 2140
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mDrawingBounds:Landroid/graphics/Rect;
 
-    .line 2141
     .local v2, drawingBounds:Landroid/graphics/Rect;
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getDrawingRect(Landroid/graphics/Rect;)V
 
-    .line 2143
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    .line 2144
     .local v3, fg:Landroid/graphics/drawable/Drawable;
     if-eqz v3, :cond_0
 
-    .line 2145
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFrameOffsets:Landroid/graphics/Rect;
 
-    .line 2146
     .local v4, frameOffsets:Landroid/graphics/Rect;
     iget v6, v2, Landroid/graphics/Rect;->left:I
 
@@ -2111,7 +2015,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->left:I
 
-    .line 2147
     iget v6, v2, Landroid/graphics/Rect;->top:I
 
     iget v7, v4, Landroid/graphics/Rect;->top:I
@@ -2120,7 +2023,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->top:I
 
-    .line 2148
     iget v6, v2, Landroid/graphics/Rect;->right:I
 
     iget v7, v4, Landroid/graphics/Rect;->right:I
@@ -2129,7 +2031,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->right:I
 
-    .line 2149
     iget v6, v2, Landroid/graphics/Rect;->bottom:I
 
     iget v7, v4, Landroid/graphics/Rect;->bottom:I
@@ -2138,13 +2039,10 @@
 
     iput v6, v2, Landroid/graphics/Rect;->bottom:I
 
-    .line 2150
     invoke-virtual {v3, v2}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 2151
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
-    .line 2152
     .local v5, framePadding:Landroid/graphics/Rect;
     iget v6, v2, Landroid/graphics/Rect;->left:I
 
@@ -2158,7 +2056,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->left:I
 
-    .line 2153
     iget v6, v2, Landroid/graphics/Rect;->top:I
 
     iget v7, v5, Landroid/graphics/Rect;->top:I
@@ -2171,7 +2068,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->top:I
 
-    .line 2154
     iget v6, v2, Landroid/graphics/Rect;->right:I
 
     iget v7, v5, Landroid/graphics/Rect;->right:I
@@ -2184,7 +2080,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->right:I
 
-    .line 2155
     iget v6, v2, Landroid/graphics/Rect;->bottom:I
 
     iget v7, v5, Landroid/graphics/Rect;->bottom:I
@@ -2197,7 +2092,6 @@
 
     iput v6, v2, Landroid/graphics/Rect;->bottom:I
 
-    .line 2158
     .end local v4           #frameOffsets:Landroid/graphics/Rect;
     .end local v5           #framePadding:Landroid/graphics/Rect;
     :cond_0
@@ -2205,14 +2099,11 @@
 
     move-result-object v0
 
-    .line 2159
     .local v0, bg:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_1
 
-    .line 2160
     invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 2177
     .end local v0           #bg:Landroid/graphics/drawable/Drawable;
     .end local v2           #drawingBounds:Landroid/graphics/Rect;
     .end local v3           #fg:Landroid/graphics/drawable/Drawable;
@@ -2220,17 +2111,32 @@
     return v1
 .end method
 
+.method public setMagnifierZoom(F)V
+    .locals 1
+    .parameter "zoom"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setZoom(F)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setSurfaceFormat(I)V
     .locals 1
     .parameter "format"
 
     .prologue
-    .line 2585
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/PhoneWindow;->setFormat(I)V
 
-    .line 2586
     return-void
 .end method
 
@@ -2241,18 +2147,15 @@
     .prologue
     const/16 v1, 0x80
 
-    .line 2589
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->addFlags(I)V
 
-    .line 2591
     :goto_0
     return-void
 
-    .line 2590
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -2266,12 +2169,10 @@
     .parameter "type"
 
     .prologue
-    .line 2581
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/PhoneWindow;->setType(I)V
 
-    .line 2582
     return-void
 .end method
 
@@ -2280,33 +2181,26 @@
     .parameter "drawable"
 
     .prologue
-    .line 2392
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eq v0, p1, :cond_0
 
-    .line 2393
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2394
     if-eqz p1, :cond_1
 
-    .line 2395
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mBackgroundPadding:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    .line 2399
     :goto_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->drawableChanged()V
 
-    .line 2401
     :cond_0
     return-void
 
-    .line 2397
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mBackgroundPadding:Landroid/graphics/Rect;
 
@@ -2320,33 +2214,26 @@
     .parameter "drawable"
 
     .prologue
-    .line 2412
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eq v0, p1, :cond_0
 
-    .line 2413
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->setForeground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 2414
     if-eqz p1, :cond_1
 
-    .line 2415
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    .line 2419
     :goto_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->drawableChanged()V
 
-    .line 2421
     :cond_0
     return-void
 
-    .line 2417
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFramePadding:Landroid/graphics/Rect;
 
@@ -2360,7 +2247,6 @@
     .parameter "originalView"
 
     .prologue
-    .line 2276
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
@@ -2370,7 +2256,6 @@
 
     if-nez v1, :cond_1
 
-    .line 2277
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     new-instance v2, Lcom/android/internal/view/menu/ContextMenuBuilder;
@@ -2384,7 +2269,6 @@
     #setter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow;->access$902(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/view/menu/ContextMenuBuilder;)Lcom/android/internal/view/menu/ContextMenuBuilder;
 
-    .line 2278
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenu:Lcom/android/internal/view/menu/ContextMenuBuilder;
@@ -2398,7 +2282,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/view/menu/ContextMenuBuilder;->setCallback(Lcom/android/internal/view/menu/MenuBuilder$Callback;)V
 
-    .line 2283
     :goto_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -2415,25 +2298,21 @@
 
     move-result-object v0
 
-    .line 2285
     .local v0, helper:Lcom/android/internal/view/menu/MenuDialogHelper;
     if-eqz v0, :cond_0
 
-    .line 2286
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenuCallback:Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuDialogHelper;->setPresenterCallback(Lcom/android/internal/view/menu/MenuPresenter$Callback;)V
 
-    .line 2288
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #setter for: Lcom/android/internal/policy/impl/PhoneWindow;->mContextMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
     invoke-static {v1, v0}, Lcom/android/internal/policy/impl/PhoneWindow;->access$1002(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/view/menu/MenuDialogHelper;)Lcom/android/internal/view/menu/MenuDialogHelper;
 
-    .line 2289
     if-eqz v0, :cond_2
 
     const/4 v1, 0x1
@@ -2441,7 +2320,6 @@
     :goto_1
     return v1
 
-    .line 2280
     .end local v0           #helper:Lcom/android/internal/view/menu/MenuDialogHelper;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
@@ -2455,12 +2333,75 @@
 
     goto :goto_0
 
-    .line 2289
     .restart local v0       #helper:Lcom/android/internal/view/menu/MenuDialogHelper;
     :cond_2
     const/4 v1, 0x0
 
     goto :goto_1
+.end method
+
+.method public showMagnifier(Landroid/graphics/Point;)V
+    .locals 3
+    .parameter "touchPoint"
+
+    .prologue
+    const/4 v2, -0x1
+
+    if-nez p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MagnifierContainer;-><init>(Landroid/view/ViewGroup;)V
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const v1, 0x3f8ccccd
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setZoom(F)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v1, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setPosition(Landroid/graphics/Point;)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setVisibile(Z)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->setNeedsRedraw()V
+
+    goto :goto_0
 .end method
 
 .method public startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
@@ -2507,7 +2448,6 @@
 
     if-nez v5, :cond_1
 
-    .line 2310
     :try_start_0
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -2521,15 +2461,12 @@
 
     move-result-object v2
 
-    .line 2315
     :cond_1
     :goto_0
     if-eqz v2, :cond_4
 
-    .line 2316
     iput-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
-    .line 2372
     :cond_2
     :goto_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
@@ -2552,7 +2489,6 @@
 
     if-nez v5, :cond_3
 
-    .line 2374
     :try_start_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -2566,20 +2502,17 @@
     :try_end_1
     .catch Ljava/lang/AbstractMethodError; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 2379
     :cond_3
     :goto_2
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     return-object v5
 
-    .line 2318
     :cond_4
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     if-nez v5, :cond_5
 
-    .line 2319
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v5}, Lcom/android/internal/policy/impl/PhoneWindow;->isFloating()Z
@@ -2588,7 +2521,6 @@
 
     if-eqz v5, :cond_7
 
-    .line 2320
     new-instance v5, Lcom/android/internal/widget/ActionBarContextView;
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
@@ -2597,7 +2529,6 @@
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
-    .line 2321
     new-instance v5, Landroid/widget/PopupWindow;
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
@@ -2608,43 +2539,36 @@
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    .line 2323
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v5, v6}, Landroid/widget/PopupWindow;->setLayoutInScreenEnabled(Z)V
 
-    .line 2324
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     invoke-virtual {v5, v6}, Landroid/widget/PopupWindow;->setLayoutInsetDecor(Z)V
 
-    .line 2325
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     const/4 v8, 0x2
 
     invoke-virtual {v5, v8}, Landroid/widget/PopupWindow;->setWindowLayoutType(I)V
 
-    .line 2327
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-virtual {v5, v8}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
 
-    .line 2328
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     const/4 v8, -0x1
 
     invoke-virtual {v5, v8}, Landroid/widget/PopupWindow;->setWidth(I)V
 
-    .line 2330
     new-instance v1, Landroid/util/TypedValue;
 
     invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
-    .line 2331
     .local v1, heightValue:Landroid/util/TypedValue;
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
 
@@ -2656,7 +2580,6 @@
 
     invoke-virtual {v5, v8, v1, v6}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 2333
     iget v5, v1, Landroid/util/TypedValue;->data:I
 
     iget-object v8, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
@@ -2673,27 +2596,23 @@
 
     move-result v0
 
-    .line 2335
     .local v0, height:I
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-virtual {v5, v0}, Lcom/android/internal/widget/ActionBarContextView;->setContentHeight(I)V
 
-    .line 2336
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     const/4 v8, -0x2
 
     invoke-virtual {v5, v8}, Landroid/widget/PopupWindow;->setHeight(I)V
 
-    .line 2337
     new-instance v5, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$1;
 
     invoke-direct {v5, p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$1;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;)V
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mShowActionModePopup:Ljava/lang/Runnable;
 
-    .line 2353
     .end local v0           #height:I
     .end local v1           #heightValue:Landroid/util/TypedValue;
     :cond_5
@@ -2702,12 +2621,10 @@
 
     if-eqz v5, :cond_2
 
-    .line 2354
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-virtual {v5}, Lcom/android/internal/widget/ActionBarContextView;->killMode()V
 
-    .line 2355
     new-instance v2, Lcom/android/internal/view/StandaloneActionMode;
 
     .end local v2           #mode:Landroid/view/ActionMode;
@@ -2726,7 +2643,6 @@
     :goto_4
     invoke-direct {v2, v8, v9, v4, v5}, Lcom/android/internal/view/StandaloneActionMode;-><init>(Landroid/content/Context;Lcom/android/internal/widget/ActionBarContextView;Landroid/view/ActionMode$Callback;Z)V
 
-    .line 2357
     .restart local v2       #mode:Landroid/view/ActionMode;
     invoke-virtual {v2}, Landroid/view/ActionMode;->getMenu()Landroid/view/Menu;
 
@@ -2738,33 +2654,26 @@
 
     if-eqz v5, :cond_9
 
-    .line 2358
     invoke-virtual {v2}, Landroid/view/ActionMode;->invalidate()V
 
-    .line 2359
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-virtual {v5, v2}, Lcom/android/internal/widget/ActionBarContextView;->initForMode(Landroid/view/ActionMode;)V
 
-    .line 2360
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
     invoke-virtual {v5, v7}, Lcom/android/internal/widget/ActionBarContextView;->setVisibility(I)V
 
-    .line 2361
     iput-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
-    .line 2362
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModePopup:Landroid/widget/PopupWindow;
 
     if-eqz v5, :cond_6
 
-    .line 2363
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mShowActionModePopup:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v5}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->post(Ljava/lang/Runnable;)Z
 
-    .line 2365
     :cond_6
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionModeView:Lcom/android/internal/widget/ActionBarContextView;
 
@@ -2774,7 +2683,6 @@
 
     goto/16 :goto_1
 
-    .line 2345
     :cond_7
     const v5, 0x1020314
 
@@ -2784,11 +2692,9 @@
 
     check-cast v3, Landroid/view/ViewStub;
 
-    .line 2347
     .local v3, stub:Landroid/view/ViewStub;
     if-eqz v3, :cond_5
 
-    .line 2348
     invoke-virtual {v3}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     move-result-object v5
@@ -2804,23 +2710,19 @@
     :cond_8
     move v5, v7
 
-    .line 2355
     goto :goto_4
 
-    .line 2368
     .restart local v2       #mode:Landroid/view/ActionMode;
     :cond_9
     iput-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     goto/16 :goto_1
 
-    .line 2375
     :catch_0
     move-exception v5
 
     goto/16 :goto_2
 
-    .line 2311
     :catch_1
     move-exception v5
 
@@ -2833,7 +2735,6 @@
     .parameter "callback"
 
     .prologue
-    .line 2297
     invoke-virtual {p0, p2}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object v0
@@ -2845,12 +2746,10 @@
     .locals 1
 
     .prologue
-    .line 2383
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mChanging:Z
 
-    .line 2384
     return-void
 .end method
 
@@ -2859,7 +2758,6 @@
     .parameter "event"
 
     .prologue
-    .line 2015
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -2874,19 +2772,16 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 1974
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 1999
     :cond_0
     :goto_0
     return v1
 
-    .line 1980
     :cond_1
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
@@ -2896,28 +2791,23 @@
 
     if-ne v2, v3, :cond_3
 
-    .line 1981
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
-    .line 1983
     .local v0, action:I
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     if-eqz v2, :cond_2
 
-    .line 1984
     if-ne v0, v1, :cond_0
 
-    .line 1985
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mActionMode:Landroid/view/ActionMode;
 
     invoke-virtual {v2}, Landroid/view/ActionMode;->finish()V
 
     goto :goto_0
 
-    .line 1991
     :cond_2
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -2941,10 +2831,8 @@
 
     if-eqz v2, :cond_3
 
-    .line 1992
     if-ne v0, v1, :cond_0
 
-    .line 1993
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
@@ -2956,7 +2844,6 @@
 
     goto :goto_0
 
-    .line 1999
     .end local v0           #action:I
     :cond_3
     const/4 v1, 0x0
@@ -2969,7 +2856,6 @@
     .parameter "event"
 
     .prologue
-    .line 2003
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyShortcutEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
@@ -2982,7 +2868,6 @@
     .parameter "event"
 
     .prologue
-    .line 2007
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -2995,7 +2880,6 @@
     .parameter "event"
 
     .prologue
-    .line 2011
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
@@ -3007,12 +2891,10 @@
     .locals 3
 
     .prologue
-    .line 2510
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 2511
     .local v0, bg:Landroid/graphics/drawable/Drawable;
     if-eqz v0, :cond_0
 
@@ -3030,10 +2912,8 @@
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->hackTurnOffWindowResizeAnim(Z)V
 
-    .line 2513
     return-void
 
-    .line 2511
     :cond_1
     const/4 v1, 0x0
 
@@ -3044,7 +2924,6 @@
     .locals 1
 
     .prologue
-    .line 2577
     iget v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     if-gez v0, :cond_0
@@ -3066,7 +2945,6 @@
     .locals 1
 
     .prologue
-    .line 2573
     iget v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mFeatureId:I
 
     if-gez v0, :cond_0

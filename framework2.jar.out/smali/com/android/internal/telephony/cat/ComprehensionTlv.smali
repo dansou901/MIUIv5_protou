@@ -476,7 +476,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "two byte length < 0x100 length="
+    const-string/jumbo v11, "two byte length < 0x100 length="
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -584,7 +584,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "three byte length < 0x10000 length=0x"
+    const-string/jumbo v11, "three byte length < 0x10000 length=0x"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -190,19 +190,12 @@
     move-result-object v0
 
     .local v0, specSpn:Ljava/lang/String;
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_0
     invoke-static {p1, p2, p3}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeLatin([BII)Ljava/lang/String;
 
     move-result-object v1
 
     .local v1, spn2:Ljava/lang/String;
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     const/16 v3, 0xff
 
@@ -210,7 +203,7 @@
 
     move-result-object v1
 
-    :cond_1
+    :cond_0
     const/4 v3, 0x2
 
     new-array v2, v3, [Ljava/lang/String;
@@ -1584,180 +1577,122 @@
 .end method
 
 .method public cdmaSpnStringFieldToString([BII)Ljava/lang/String;
-    .locals 10
+    .locals 6
     .parameter "data"
     .parameter "offset"
     .parameter "length"
 
     .prologue
-    const/16 v9, 0xff
-
-    const/16 v5, 0x20
-
-    const/4 v8, 0x0
-
-    const/4 v3, 0x0
-
-    .local v3, ret:Ljava/lang/String;
-    const/4 v6, 0x2
-
-    if-lt p3, v6, :cond_4
-
-    aget-byte v6, p1, p2
-
-    and-int/lit16 v0, v6, 0xff
-
-    .local v0, encodingType:I
-    add-int/lit8 v6, p2, 0x1
-
-    aget-byte v6, p1, v6
-
-    and-int/lit16 v1, v6, 0xff
-
-    .local v1, languageIndicator:I
-    new-array v4, v5, [B
-
-    .local v4, spnData:[B
-    const/4 v6, 0x3
-
-    array-length v7, p1
-
-    if-ge v7, v5, :cond_0
-
-    array-length v5, p1
-
-    :cond_0
-    invoke-static {p1, v6, v4, v8, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    const/16 v5, 0xff
 
     const/4 v2, 0x0
 
-    .local v2, numBytes:I
-    :goto_0
-    array-length v5, v4
+    .local v2, ret:Ljava/lang/String;
+    const/4 v3, 0x2
 
-    if-ge v2, v5, :cond_1
+    if-lt p3, v3, :cond_0
 
-    aget-byte v5, v4, v2
+    aget-byte v3, p1, p2
 
-    and-int/lit16 v5, v5, 0xff
+    and-int/lit16 v0, v3, 0xff
 
-    if-ne v5, v9, :cond_2
+    .local v0, encodingType:I
+    add-int/lit8 v3, p2, 0x1
 
-    :cond_1
-    if-nez v2, :cond_3
+    aget-byte v3, p1, v3
 
-    const-string v5, ""
+    and-int/lit16 v1, v3, 0xff
 
-    .end local v0           #encodingType:I
-    .end local v1           #languageIndicator:I
-    .end local v2           #numBytes:I
-    .end local v4           #spnData:[B
-    :goto_1
-    return-object v5
-
-    .restart local v0       #encodingType:I
-    .restart local v1       #languageIndicator:I
-    .restart local v2       #numBytes:I
-    .restart local v4       #spnData:[B
-    :cond_2
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_3
+    .local v1, languageIndicator:I
     packed-switch v0, :pswitch_data_0
 
     .end local v0           #encodingType:I
     .end local v1           #languageIndicator:I
-    .end local v2           #numBytes:I
-    .end local v4           #spnData:[B
-    :cond_4
-    :goto_2
+    :cond_0
+    :goto_0
     :pswitch_0
-    move-object v5, v3
-
-    goto :goto_1
+    return-object v2
 
     .restart local v0       #encodingType:I
     .restart local v1       #languageIndicator:I
-    .restart local v2       #numBytes:I
-    .restart local v4       #spnData:[B
     :pswitch_1
-    add-int/lit8 v5, p2, 0x2
+    add-int/lit8 v3, p2, 0x2
 
-    add-int/lit8 v6, p3, -0x2
+    add-int/lit8 v4, p3, -0x2
 
-    invoke-static {p1, v5, v6}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeLatin([BII)Ljava/lang/String;
+    invoke-static {p1, v3, v4}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeLatin([BII)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_0
 
-    invoke-static {v3, v9}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v2, v5}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_2
-    invoke-direct {p0, v4, v8, v2}, Lcom/android/internal/telephony/cdma/RuimRecords;->cdmaSpn7bitAsciiStringFieldToString([BII)Ljava/lang/String;
+    add-int/lit8 v3, p2, 0x2
 
-    move-result-object v3
+    add-int/lit8 v4, p3, -0x2
 
-    goto :goto_2
+    invoke-direct {p0, p1, v3, v4}, Lcom/android/internal/telephony/cdma/RuimRecords;->cdmaSpn7bitAsciiStringFieldToString([BII)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
 
     :pswitch_3
-    add-int/lit8 v5, p2, 0x2
+    add-int/lit8 v3, p2, 0x2
 
-    add-int/lit8 v6, p3, -0x2
+    add-int/lit8 v4, p3, -0x2
 
-    invoke-static {p1, v5, v6}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeUtf16([BII)Ljava/lang/String;
+    invoke-static {p1, v3, v4}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeUtf16([BII)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_0
 
-    const v5, 0xffff
+    const v3, 0xffff
 
-    invoke-static {v3, v5}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_4
-    mul-int/lit8 v5, v2, 0x8
+    add-int/lit8 v3, p2, 0x2
 
-    div-int/lit8 v5, v5, 0x7
+    add-int/lit8 v4, p3, -0x2
 
-    invoke-static {v4, v8, v5}, Lcom/android/internal/telephony/GsmAlphabet;->gsm7BitPackedToString([BII)Ljava/lang/String;
+    mul-int/lit8 v4, v4, 0x8
 
-    move-result-object v3
+    div-int/lit8 v4, v4, 0x7
 
-    if-eqz v3, :cond_4
+    invoke-static {p1, v3, v4}, Lcom/android/internal/telephony/GsmAlphabet;->gsm7BitPackedToString([BII)Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_5
-    add-int/lit8 v5, p2, 0x2
+    add-int/lit8 v3, p2, 0x2
 
-    add-int/lit8 v6, p3, -0x2
+    add-int/lit8 v4, p3, -0x2
 
-    invoke-static {p1, v5, v6}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeLatin([BII)Ljava/lang/String;
+    invoke-static {p1, v3, v4}, Lcom/android/internal/telephony/cdma/RuimRecords;->decodeLatin([BII)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_0
 
-    invoke-static {v3, v9}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v2, v5}, Lcom/android/internal/telephony/cdma/RuimRecords;->trimOffTrailingChars(Ljava/lang/String;C)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    goto :goto_2
+    goto :goto_0
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1999,41 +1934,6 @@
     move-result v0
 
     .local v0, mcc:I
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/4 v2, 0x4
-
-    if-ne v1, v2, :cond_4
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimRecords;->mImsi:Ljava/lang/String;
-
-    const/4 v3, 0x5
-
-    invoke-virtual {v2, v4, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const/16 v2, 0x30
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_4
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/RuimRecords;->mImsi:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/internal/telephony/MccTable;->smallestDigitsMccForMnc(I)I
@@ -3265,6 +3165,35 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    :goto_6
+    const-string v37, "CDMA"
+
+    new-instance v38, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v38 .. v38}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v39, "kddi user agent: "
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/cdma/RuimRecords;->mKddiUserAgent:Ljava/lang/String;
+
+    move-object/from16 v39, v0
+
+    invoke-virtual/range {v38 .. v39}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v38
+
+    invoke-virtual/range {v38 .. v38}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v38
+
+    invoke-static/range {v37 .. v38}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     goto/16 :goto_1
 
     :cond_13
@@ -3354,7 +3283,7 @@
 
     invoke-static/range {v37 .. v38}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto :goto_6
 
     .end local v16           #errWriter:Ljava/io/PrintWriter;
     .end local v35           #sw:Ljava/io/StringWriter;
@@ -3381,7 +3310,7 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/cdma/RuimRecords;->mKddiUserAgent:Ljava/lang/String;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     .end local v10           #ar:Landroid/os/AsyncResult;
     :sswitch_8
@@ -3564,7 +3493,7 @@
 
     const/16 v37, 0x1
 
-    :goto_6
+    :goto_7
     move/from16 v0, v37
 
     move-object/from16 v1, p0
@@ -3604,7 +3533,7 @@
     :cond_16
     const/16 v37, 0x0
 
-    goto :goto_6
+    goto :goto_7
 
     .end local v10           #ar:Landroid/os/AsyncResult;
     .end local v11           #cst:[B
@@ -4000,7 +3929,7 @@
 
     .end local v28           #length:I
     :cond_1b
-    :goto_7
+    :goto_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/telephony/cdma/RuimRecords;->mdn:Ljava/lang/String;
@@ -4041,7 +3970,7 @@
 
     iput-object v0, v1, Lcom/android/internal/telephony/cdma/RuimRecords;->mdn:Ljava/lang/String;
 
-    goto :goto_7
+    goto :goto_8
 
     .end local v10           #ar:Landroid/os/AsyncResult;
     .end local v12           #data:[B
@@ -4277,7 +4206,7 @@
 
     const/16 v37, 0x1
 
-    :goto_8
+    :goto_9
     move-object/from16 v0, v39
 
     move/from16 v1, v37
@@ -4321,7 +4250,7 @@
     :cond_1d
     const/16 v37, 0x0
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_1e
     const-string v37, "CDMA"
@@ -4496,7 +4425,7 @@
 
     move/from16 v37, v0
 
-    :goto_9
+    :goto_a
     move-object/from16 v0, v38
 
     move/from16 v1, v37
@@ -4538,7 +4467,7 @@
     :cond_23
     const/16 v37, -0x1
 
-    goto :goto_9
+    goto :goto_a
 
     .end local v10           #ar:Landroid/os/AsyncResult;
     .end local v19           #hotSwapTakeEffect:Z
@@ -4728,7 +4657,7 @@
     const/16 v20, 0x0
 
     .local v20, i:I
-    :goto_a
+    :goto_b
     move/from16 v0, v20
 
     if-ge v0, v8, :cond_2
@@ -4834,6 +4763,36 @@
 
     move-result-object v37
 
+    const-string v38, " ["
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/cdma/RuimRecords;->mSimpleIP_NAIs:[Ljava/lang/String;
+
+    move-object/from16 v38, v0
+
+    aget-object v38, v38, v20
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
+    const-string v38, "] auth="
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
+    move-object/from16 v0, v37
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
     invoke-virtual/range {v37 .. v37}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v37
@@ -4851,24 +4810,24 @@
     .end local v3           #AUTH_ALGORITHM:I
     .end local v6           #NAI_ENTRY_INDEX:I
     .end local v7           #NAI_LENGTH:I
-    :goto_b
+    :goto_c
     add-int/lit8 v20, v20, 0x1
 
-    goto :goto_a
+    goto/16 :goto_b
 
     .restart local v6       #NAI_ENTRY_INDEX:I
     .restart local v7       #NAI_LENGTH:I
     :cond_26
     move/from16 v20, v8
 
-    goto :goto_b
+    goto :goto_c
 
     .end local v6           #NAI_ENTRY_INDEX:I
     .end local v7           #NAI_LENGTH:I
     :cond_27
     move/from16 v20, v8
 
-    goto :goto_b
+    goto :goto_c
 
     .end local v8           #NUM_NAI:I
     .end local v20           #i:I
@@ -5083,7 +5042,7 @@
     const/16 v20, 0x0
 
     .restart local v20       #i:I
-    :goto_c
+    :goto_d
     move/from16 v0, v20
 
     if-ge v0, v8, :cond_2
@@ -5178,6 +5137,30 @@
 
     move-result-object v37
 
+    const-string v38, " ["
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/telephony/cdma/RuimRecords;->mMobileIP_NAIs:[Ljava/lang/String;
+
+    move-object/from16 v38, v0
+
+    aget-object v38, v38, v20
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
+    const-string v38, "]"
+
+    invoke-virtual/range {v37 .. v38}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v37
+
     invoke-virtual/range {v37 .. v37}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v37
@@ -5230,7 +5213,7 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     :cond_2b
-    :goto_d
+    :goto_e
     move/from16 v0, v20
 
     if-ge v0, v8, :cond_2c
@@ -5285,10 +5268,10 @@
     .end local v6           #NAI_ENTRY_INDEX:I
     .end local v7           #NAI_LENGTH:I
     :cond_2c
-    :goto_e
+    :goto_f
     add-int/lit8 v20, v20, 0x1
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     .restart local v4       #MN_AAA_SPI_INDICATOR:I
     .restart local v6       #NAI_ENTRY_INDEX:I
@@ -5296,20 +5279,20 @@
     :cond_2d
     move/from16 v20, v8
 
-    goto :goto_d
+    goto :goto_e
 
     .end local v4           #MN_AAA_SPI_INDICATOR:I
     :cond_2e
     move/from16 v20, v8
 
-    goto :goto_e
+    goto :goto_f
 
     .end local v6           #NAI_ENTRY_INDEX:I
     .end local v7           #NAI_LENGTH:I
     :cond_2f
     move/from16 v20, v8
 
-    goto :goto_e
+    goto :goto_f
 
     .end local v8           #NUM_NAI:I
     .end local v9           #RETRY_INFO_INCLUDED:I
@@ -5437,7 +5420,7 @@
     add-int/lit8 v20, v37, -0x1
 
     .restart local v20       #i:I
-    :goto_f
+    :goto_10
     if-ltz v20, :cond_33
 
     aget-byte v37, v12, v20
@@ -5467,7 +5450,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_10
+    :goto_11
     aget-byte v37, v12, v20
 
     and-int/lit8 v15, v37, 0xf
@@ -5493,10 +5476,10 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_11
+    :goto_12
     add-int/lit8 v20, v20, -0x1
 
-    goto :goto_f
+    goto :goto_10
 
     .end local v15           #digit2:I
     :cond_31
@@ -5516,7 +5499,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_10
+    goto :goto_11
 
     .restart local v15       #digit2:I
     :cond_32
@@ -5536,7 +5519,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_11
+    goto :goto_12
 
     .end local v14           #digit1:I
     .end local v15           #digit2:I
@@ -5622,7 +5605,7 @@
 
     move/from16 v37, v0
 
-    :goto_12
+    :goto_13
     move-object/from16 v0, v39
 
     move/from16 v1, v37
@@ -5649,7 +5632,7 @@
     :cond_35
     const/16 v37, -0x1
 
-    goto :goto_12
+    goto :goto_13
 
     :sswitch_data_0
     .sparse-switch

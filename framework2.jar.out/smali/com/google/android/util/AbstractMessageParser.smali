@@ -1279,7 +1279,7 @@
 
     iget-object v0, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
-    const-string v1, "\u266b "
+    const-string/jumbo v1, "\u266b "
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -1292,7 +1292,7 @@
 
     iget-object v1, p0, Lcom/google/android/util/AbstractMessageParser;->text:Ljava/lang/String;
 
-    const-string v2, "\u266b "
+    const-string/jumbo v2, "\u266b "
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -2654,7 +2654,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "unknown token type: "
+    const-string/jumbo v9, "unknown token type: "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2946,6 +2946,8 @@
     return-object v7
 
     .line 1251
+    nop
+
     nop
 
     :pswitch_data_0

@@ -199,7 +199,7 @@
     .line 160
     new-instance v7, Ljava/lang/RuntimeException;
 
-    const-string v8, "update EF email record failed"
+    const-string/jumbo v8, "update EF email record failed"
 
     iget-object v9, v1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -346,6 +346,8 @@
     goto :goto_1
 
     .line 152
+    nop
+
     nop
 
     :pswitch_data_0

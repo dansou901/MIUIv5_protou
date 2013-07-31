@@ -411,19 +411,17 @@
     .parameter "channel"
 
     .prologue
-    .line 893
+    .line 885
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method private cleanupBipChannel(I)V
-    .locals 4
+    .locals 3
     .parameter "channel"
 
     .prologue
-    const/16 v3, 0xf
-
     .line 302
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -477,7 +475,7 @@
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->stopListening()V
 
-    .line 309
+    .line 308
     :cond_1
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -487,7 +485,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 310
+    .line 309
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
@@ -497,10 +495,10 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setBearerType(Lcom/android/internal/telephony/cat/BipProxy$BipType;I)V
 
-    .line 311
+    .line 310
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/BipProxy;->deleteAPN()V
 
-    .line 313
+    .line 312
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mBipSessionState:[Lcom/android/internal/telephony/cat/BipProxy$BipSession;
 
     add-int/lit8 v1, p1, -0x1
@@ -509,28 +507,7 @@
 
     aput-object v2, v0, v1
 
-    .line 315
-    sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "BIP - cleanupBipChannel: remove timer!!"
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 316
-    :cond_3
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cat/BipProxy;->hasMessages(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    .line 317
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cat/BipProxy;->removeMessages(I)V
-
-    .line 321
-    :cond_4
+    .line 314
     return-void
 .end method
 
@@ -540,14 +517,14 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 866
+    .line 858
     iget-object v1, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 867
+    .line 859
     .local v0, resolver:Landroid/content/ContentResolver;
     sget-object v1, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
 
@@ -569,7 +546,7 @@
 
     move-result-object v6
 
-    .line 872
+    .line 864
     .local v6, cursor:Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
@@ -579,7 +556,7 @@
 
     if-lez v1, :cond_1
 
-    .line 873
+    .line 865
     sget-boolean v1, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -588,7 +565,7 @@
 
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 874
+    .line 866
     :cond_0
     sget-object v1, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
 
@@ -596,13 +573,13 @@
 
     invoke-virtual {v0, v1, v2, v4}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 878
+    .line 870
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 879
+    .line 871
     const/4 v6, 0x0
 
-    .line 880
+    .line 872
     sget-boolean v1, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v1, :cond_1
@@ -611,7 +588,7 @@
 
     invoke-static {p0, v1}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 882
+    .line 874
     :cond_1
     return-void
 .end method
@@ -621,12 +598,12 @@
     .parameter "networkInfos"
 
     .prologue
-    .line 363
+    .line 356
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 364
+    .line 357
     .local v1, availableBearers:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/net/NetworkInfo;>;"
     move-object v0, p1
 
@@ -642,7 +619,7 @@
 
     aget-object v4, v0, v3
 
-    .line 365
+    .line 358
     .local v4, info:Landroid/net/NetworkInfo;
     if-eqz v4, :cond_0
 
@@ -652,21 +629,21 @@
 
     if-eqz v7, :cond_0
 
-    .line 366
+    .line 359
     invoke-virtual {v4}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v7
 
     sparse-switch v7, :sswitch_data_0
 
-    .line 364
+    .line 357
     :cond_0
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 370
+    .line 363
     :sswitch_0
     sget-boolean v7, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -696,13 +673,13 @@
 
     invoke-static {p0, v7}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 371
+    .line 364
     :cond_1
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 379
+    .line 372
     .end local v4           #info:Landroid/net/NetworkInfo;
     :cond_2
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -711,7 +688,7 @@
 
     if-nez v7, :cond_5
 
-    .line 380
+    .line 373
     sget-boolean v7, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v7, :cond_3
@@ -720,22 +697,22 @@
 
     invoke-static {p0, v7}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 381
+    .line 374
     :cond_3
     const/4 v2, 0x0
 
-    .line 397
+    .line 390
     .end local v3           #i$:I
     :cond_4
     :goto_2
     return-object v2
 
-    .line 384
+    .line 377
     .restart local v3       #i$:I
     :cond_5
     const/4 v2, 0x0
 
-    .line 385
+    .line 378
     .local v2, candidateBearer:Landroid/net/NetworkInfo;
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -756,25 +733,25 @@
 
     check-cast v4, Landroid/net/NetworkInfo;
 
-    .line 386
+    .line 379
     .restart local v4       #info:Landroid/net/NetworkInfo;
     invoke-virtual {v4}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v6
 
-    .line 387
+    .line 380
     .local v6, state:Landroid/net/NetworkInfo$State;
     sget-object v7, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
     if-ne v6, v7, :cond_7
 
-    .line 389
+    .line 382
     move-object v2, v4
 
-    .line 390
+    .line 383
     goto :goto_2
 
-    .line 391
+    .line 384
     :cond_7
     sget-object v7, Landroid/net/NetworkInfo$State;->CONNECTING:Landroid/net/NetworkInfo$State;
 
@@ -784,13 +761,13 @@
 
     if-ne v6, v7, :cond_6
 
-    .line 393
+    .line 386
     :cond_8
     move-object v2, v4
 
     goto :goto_3
 
-    .line 366
+    .line 359
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0
@@ -807,7 +784,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 2187
+    .line 2177
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -816,7 +793,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 2188
+    .line 2178
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -830,17 +807,17 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 2190
+    .line 2180
     shl-int/lit8 v0, p2, 0x8
 
     or-int/lit8 v0, v0, 0x5
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->sendChannelStatusEvent(I)V
 
-    .line 2191
+    .line 2181
     invoke-direct {p0, p2}, Lcom/android/internal/telephony/cat/BipProxy;->cleanupBipChannel(I)V
 
-    .line 2192
+    .line 2182
     return-void
 .end method
 
@@ -849,10 +826,10 @@
     .parameter "ar"
 
     .prologue
-    .line 619
+    .line 612
     if-nez p1, :cond_1
 
-    .line 620
+    .line 613
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_0
@@ -863,12 +840,12 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 699
+    .line 692
     :cond_0
     :goto_0
     return-void
 
-    .line 624
+    .line 617
     :cond_1
     move-object/from16 v0, p1
 
@@ -878,7 +855,7 @@
 
     check-cast v17, Lcom/android/internal/telephony/cat/CatCmdMessage;
 
-    .line 626
+    .line 619
     .local v17, cmdMsg:Lcom/android/internal/telephony/cat/CatCmdMessage;
     move-object/from16 v0, p1
 
@@ -888,7 +865,7 @@
 
     check-cast v18, Ljava/lang/String;
 
-    .line 629
+    .line 622
     .local v18, response:Ljava/lang/String;
     move-object/from16 v0, p1
 
@@ -896,7 +873,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 630
+    .line 623
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_2
@@ -929,7 +906,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 631
+    .line 624
     :cond_2
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
@@ -939,7 +916,7 @@
 
     iput-object v3, v2, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->cid:Ljava/lang/Integer;
 
-    .line 632
+    .line 625
     new-instance v7, Lcom/android/internal/telephony/cat/OpenChannelResponseData;
 
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -958,7 +935,7 @@
 
     invoke-direct {v7, v2, v3, v4}, Lcom/android/internal/telephony/cat/OpenChannelResponseData;-><init>(ILjava/lang/Integer;Lcom/android/internal/telephony/cat/BearerDescription;)V
 
-    .line 633
+    .line 626
     .local v7, resp:Lcom/android/internal/telephony/cat/ResponseData;
     move-object/from16 v0, p0
 
@@ -976,7 +953,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 634
+    .line 627
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v2
@@ -989,23 +966,23 @@
 
     goto :goto_0
 
-    .line 636
+    .line 629
     .end local v7           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     :cond_3
     if-eqz v18, :cond_8
 
-    .line 637
+    .line 630
     invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v15
 
-    .line 638
+    .line 631
     .local v15, cid:I
     const/4 v2, -0x1
 
     if-ne v15, v2, :cond_5
 
-    .line 639
+    .line 632
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_4
@@ -1016,7 +993,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 690
+    .line 683
     :cond_4
     new-instance v20, Ljava/lang/Thread;
 
@@ -1040,13 +1017,13 @@
 
     invoke-direct {v0, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 691
+    .line 684
     .local v20, t:Ljava/lang/Thread;
     invoke-virtual/range {v20 .. v20}, Ljava/lang/Thread;->start()V
 
     goto/16 :goto_0
 
-    .line 644
+    .line 637
     .end local v20           #t:Ljava/lang/Thread;
     :cond_5
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
@@ -1091,7 +1068,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 646
+    .line 639
     :cond_6
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
@@ -1103,7 +1080,7 @@
 
     iput-object v3, v2, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->cid:Ljava/lang/Integer;
 
-    .line 649
+    .line 642
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v2
@@ -1164,7 +1141,7 @@
 
     or-int v14, v2, v3
 
-    .line 670
+    .line 663
     .local v14, addr:I
     move-object/from16 v0, p0
 
@@ -1178,7 +1155,7 @@
 
     check-cast v16, Landroid/net/ConnectivityManager;
 
-    .line 672
+    .line 665
     .local v16, cm:Landroid/net/ConnectivityManager;
     const/16 v2, 0x21
 
@@ -1188,11 +1165,11 @@
 
     move-result v19
 
-    .line 673
+    .line 666
     .local v19, success:Z
     if-nez v19, :cond_4
 
-    .line 674
+    .line 667
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_7
@@ -1203,7 +1180,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 675
+    .line 668
     :cond_7
     move-object/from16 v0, p0
 
@@ -1223,7 +1200,7 @@
 
     invoke-virtual/range {v8 .. v13}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 676
+    .line 669
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v2
@@ -1236,7 +1213,7 @@
 
     goto/16 :goto_0
 
-    .line 694
+    .line 687
     .end local v14           #addr:I
     .end local v15           #cid:I
     .end local v16           #cm:Landroid/net/ConnectivityManager;
@@ -1252,7 +1229,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 695
+    .line 688
     :cond_9
     move-object/from16 v0, p0
 
@@ -1272,7 +1249,7 @@
 
     invoke-virtual/range {v8 .. v13}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 696
+    .line 689
     invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v2
@@ -1291,10 +1268,10 @@
     .parameter "ar"
 
     .prologue
-    .line 705
+    .line 698
     if-nez p1, :cond_1
 
-    .line 706
+    .line 699
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_0
@@ -1303,22 +1280,22 @@
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 733
+    .line 726
     :cond_0
     :goto_0
     return-void
 
-    .line 710
+    .line 703
     :cond_1
     iget-object v1, p1, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/internal/telephony/cat/CatCmdMessage;
 
-    .line 711
+    .line 704
     .local v1, cmdMsg:Lcom/android/internal/telephony/cat/CatCmdMessage;
     if-nez v1, :cond_2
 
-    .line 712
+    .line 705
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_0
@@ -1329,7 +1306,7 @@
 
     goto :goto_0
 
-    .line 716
+    .line 709
     :cond_2
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -1359,7 +1336,7 @@
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 718
+    .line 711
     :cond_3
     invoke-virtual {v1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getCmdType()Lcom/android/internal/telephony/cat/AppInterface$CommandType;
 
@@ -1369,21 +1346,21 @@
 
     if-ne v2, v3, :cond_5
 
-    .line 719
+    .line 712
     invoke-virtual {v1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v2
 
     iget v0, v2, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
 
-    .line 726
+    .line 719
     .local v0, channel:I
     :goto_1
     iget-object v2, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v2, :cond_6
 
-    .line 727
+    .line 720
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_4
@@ -1424,14 +1401,14 @@
 
     invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 732
+    .line 725
     :cond_4
     :goto_2
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->cleanupBipChannel(I)V
 
     goto :goto_0
 
-    .line 720
+    .line 713
     .end local v0           #channel:I
     :cond_5
     invoke-virtual {v1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getCmdType()Lcom/android/internal/telephony/cat/AppInterface$CommandType;
@@ -1442,7 +1419,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 721
+    .line 714
     invoke-virtual {v1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getDataSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;
 
     move-result-object v2
@@ -1452,7 +1429,7 @@
     .restart local v0       #channel:I
     goto :goto_1
 
-    .line 729
+    .line 722
     :cond_6
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -1488,7 +1465,7 @@
     .prologue
     const/16 v1, 0xa
 
-    .line 324
+    .line 317
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/cat/CatService;->checkEventEnabled(I)Z
@@ -1497,7 +1474,7 @@
 
     if-nez v0, :cond_1
 
-    .line 325
+    .line 318
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1506,12 +1483,12 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 337
+    .line 330
     :cond_0
     :goto_0
     return-void
 
-    .line 330
+    .line 323
     :cond_1
     const/4 v0, 0x4
 
@@ -1519,7 +1496,7 @@
 
     fill-array-data v4, :array_0
 
-    .line 331
+    .line 324
     .local v4, additionalInfo:[B
     const/4 v0, 0x2
 
@@ -1531,7 +1508,7 @@
 
     aput-byte v2, v4, v0
 
-    .line 332
+    .line 325
     const/4 v0, 0x3
 
     and-int/lit16 v2, p1, 0xff
@@ -1540,7 +1517,7 @@
 
     aput-byte v2, v4, v0
 
-    .line 335
+    .line 328
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_2
@@ -1549,7 +1526,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 336
+    .line 329
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -1563,7 +1540,7 @@
 
     goto :goto_0
 
-    .line 330
+    .line 323
     :array_0
     .array-data 0x1
         0xb8t
@@ -1581,7 +1558,7 @@
     .prologue
     const/16 v1, 0x9
 
-    .line 340
+    .line 333
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/cat/CatService;->checkEventEnabled(I)Z
@@ -1590,7 +1567,7 @@
 
     if-nez v0, :cond_1
 
-    .line 341
+    .line 334
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1599,12 +1576,12 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 354
+    .line 347
     :cond_0
     :goto_0
     return-void
 
-    .line 346
+    .line 339
     :cond_1
     const/4 v0, 0x7
 
@@ -1612,7 +1589,7 @@
 
     fill-array-data v4, :array_0
 
-    .line 347
+    .line 340
     .local v4, additionalInfo:[B
     const/4 v0, 0x2
 
@@ -1624,7 +1601,7 @@
 
     aput-byte v2, v4, v0
 
-    .line 348
+    .line 341
     const/4 v0, 0x3
 
     and-int/lit16 v2, p1, 0xff
@@ -1633,7 +1610,7 @@
 
     aput-byte v2, v4, v0
 
-    .line 349
+    .line 342
     const/4 v0, 0x6
 
     and-int/lit16 v2, p2, 0xff
@@ -1642,7 +1619,7 @@
 
     aput-byte v2, v4, v0
 
-    .line 352
+    .line 345
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_2
@@ -1651,7 +1628,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 353
+    .line 346
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -1665,7 +1642,7 @@
 
     goto :goto_0
 
-    .line 346
+    .line 339
     :array_0
     .array-data 0x1
         0xb8t
@@ -1685,16 +1662,16 @@
     .prologue
     const/4 v10, 0x0
 
-    .line 527
+    .line 520
     const/4 v9, 0x0
 
-    .line 528
+    .line 521
     .local v9, result:Z
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v8
 
-    .line 530
+    .line 523
     .local v8, newChannel:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
     iget-object v0, v8, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->protocol:Lcom/android/internal/telephony/cat/InterfaceTransportLevel$TransportProtocol;
 
@@ -1708,7 +1685,7 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 532
+    .line 525
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -1717,19 +1694,19 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 533
+    .line 526
     :cond_0
     const/4 v0, 0x1
 
-    .line 562
+    .line 555
     :goto_0
     return v0
 
-    .line 536
+    .line 529
     :cond_1
     iget-object v6, v8, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bearerDescription:Lcom/android/internal/telephony/cat/BearerDescription;
 
-    .line 540
+    .line 533
     .local v6, bd:Lcom/android/internal/telephony/cat/BearerDescription;
     :try_start_0
     iget-object v0, v6, Lcom/android/internal/telephony/cat/BearerDescription;->type:Lcom/android/internal/telephony/cat/BearerDescription$BearerType;
@@ -1738,7 +1715,7 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 541
+    .line 534
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->setupDefaultDataConnection(Lcom/android/internal/telephony/cat/CatCmdMessage;)Z
 
     move-result v9
@@ -1746,10 +1723,10 @@
     :goto_1
     move v0, v9
 
-    .line 562
+    .line 555
     goto :goto_0
 
-    .line 542
+    .line 535
     :cond_2
     iget-object v0, v6, Lcom/android/internal/telephony/cat/BearerDescription;->type:Lcom/android/internal/telephony/cat/BearerDescription$BearerType;
 
@@ -1763,7 +1740,7 @@
 
     if-ne v0, v1, :cond_5
 
-    .line 543
+    .line 536
     :cond_3
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -1771,14 +1748,14 @@
 
     if-ne v0, v1, :cond_4
 
-    .line 545
+    .line 538
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->setupDefaultDataConnection(Lcom/android/internal/telephony/cat/CatCmdMessage;)Z
 
     move-result v9
 
     goto :goto_1
 
-    .line 547
+    .line 540
     :cond_4
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->setupSpecificPdpConnection(Lcom/android/internal/telephony/cat/CatCmdMessage;)Z
 
@@ -1786,7 +1763,7 @@
 
     goto :goto_1
 
-    .line 551
+    .line 544
     :cond_5
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -1796,7 +1773,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 552
+    .line 545
     :cond_6
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -1816,11 +1793,11 @@
 
     goto :goto_1
 
-    .line 555
+    .line 548
     :catch_0
     move-exception v7
 
-    .line 556
+    .line 549
     .local v7, csfe:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -1850,7 +1827,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 558
+    .line 551
     :cond_7
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mBipChannels:[Lcom/android/internal/telephony/cat/BipProxy$BipChannel;
 
@@ -1860,7 +1837,7 @@
 
     aput-object v10, v0, v1
 
-    .line 559
+    .line 552
     iget v0, v8, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->cleanupBipChannel(I)V
@@ -1878,7 +1855,7 @@
     .end annotation
 
     .prologue
-    .line 401
+    .line 394
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
@@ -1891,23 +1868,23 @@
 
     check-cast v14, Landroid/net/ConnectivityManager;
 
-    .line 402
+    .line 395
     .local v14, cm:Landroid/net/ConnectivityManager;
     invoke-virtual {v14}, Landroid/net/ConnectivityManager;->getAllNetworkInfo()[Landroid/net/NetworkInfo;
 
     move-result-object v16
 
-    .line 403
+    .line 396
     .local v16, netInfos:[Landroid/net/NetworkInfo;
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v17
 
-    .line 404
+    .line 397
     .local v17, newChannel:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
     const/16 v18, 0x0
 
-    .line 406
+    .line 399
     .local v18, result:Z
     if-eqz v16, :cond_0
 
@@ -1927,7 +1904,7 @@
 
     if-nez v2, :cond_2
 
-    .line 407
+    .line 400
     :cond_0
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -1939,7 +1916,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 408
+    .line 401
     :cond_1
     move-object/from16 v0, p0
 
@@ -1959,7 +1936,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 409
+    .line 402
     new-instance v2, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     const-string v3, "No default bearer available"
@@ -1970,7 +1947,7 @@
 
     throw v2
 
-    .line 412
+    .line 405
     :cond_2
     move-object/from16 v0, p0
 
@@ -1980,17 +1957,17 @@
 
     move-result-object v15
 
-    .line 413
+    .line 406
     .local v15, netInfo:Landroid/net/NetworkInfo;
     invoke-virtual {v15}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v21
 
-    .line 414
+    .line 407
     .local v21, state:Landroid/net/NetworkInfo$State;
     const/16 v20, 0x0
 
-    .line 416
+    .line 409
     .local v20, setupFailedException:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
     sget-object v2, Lcom/android/internal/telephony/cat/BipProxy$1;->$SwitchMap$android$net$NetworkInfo$State:[I
 
@@ -2002,7 +1979,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 439
+    .line 432
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v2, :cond_3
@@ -2013,7 +1990,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 440
+    .line 433
     :cond_3
     move-object/from16 v0, p0
 
@@ -2033,7 +2010,7 @@
 
     invoke-virtual/range {v8 .. v13}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 441
+    .line 434
     new-instance v20, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     .end local v20           #setupFailedException:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
@@ -2045,15 +2022,15 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;-><init>(Lcom/android/internal/telephony/cat/BipProxy;Ljava/lang/String;)V
 
-    .line 445
+    .line 438
     .restart local v20       #setupFailedException:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
     :goto_0
     if-eqz v20, :cond_7
 
-    .line 446
+    .line 439
     throw v20
 
-    .line 418
+    .line 411
     :pswitch_0
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -2065,7 +2042,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 419
+    .line 412
     :cond_4
     move-object/from16 v0, p0
 
@@ -2079,13 +2056,13 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setBearerType(Lcom/android/internal/telephony/cat/BipProxy$BipType;I)V
 
-    .line 420
+    .line 413
     const/16 v18, 0x1
 
-    .line 421
+    .line 414
     goto :goto_0
 
-    .line 423
+    .line 416
     :pswitch_1
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -2097,7 +2074,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 424
+    .line 417
     :cond_5
     const/16 v2, 0xa
 
@@ -2109,7 +2086,7 @@
 
     move-result-object v19
 
-    .line 425
+    .line 418
     .local v19, resultMsg:Landroid/os/Message;
     move-object/from16 v0, p0
 
@@ -2119,7 +2096,7 @@
 
     invoke-virtual {v2, v0}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setOngoingSetupMessage(Landroid/os/Message;)V
 
-    .line 426
+    .line 419
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
@@ -2132,13 +2109,13 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setBearerType(Lcom/android/internal/telephony/cat/BipProxy$BipType;I)V
 
-    .line 427
+    .line 420
     const/16 v18, 0x0
 
-    .line 428
+    .line 421
     goto :goto_0
 
-    .line 431
+    .line 424
     .end local v19           #resultMsg:Landroid/os/Message;
     :pswitch_2
     sget-boolean v2, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
@@ -2151,7 +2128,7 @@
 
     invoke-static {v0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 432
+    .line 425
     :cond_6
     new-instance v7, Lcom/android/internal/telephony/cat/OpenChannelResponseData;
 
@@ -2167,7 +2144,7 @@
 
     invoke-direct {v7, v2, v3, v4}, Lcom/android/internal/telephony/cat/OpenChannelResponseData;-><init>(ILjava/lang/Integer;Lcom/android/internal/telephony/cat/BearerDescription;)V
 
-    .line 433
+    .line 426
     .local v7, resp:Lcom/android/internal/telephony/cat/ResponseData;
     move-object/from16 v0, p0
 
@@ -2185,7 +2162,7 @@
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 434
+    .line 427
     new-instance v20, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     .end local v20           #setupFailedException:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
@@ -2197,16 +2174,16 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;-><init>(Lcom/android/internal/telephony/cat/BipProxy;Ljava/lang/String;)V
 
-    .line 435
+    .line 428
     .restart local v20       #setupFailedException:Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
     goto :goto_0
 
-    .line 449
+    .line 442
     .end local v7           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     :cond_7
     return v18
 
-    .line 416
+    .line 409
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2229,7 +2206,7 @@
 
     const/4 v3, 0x0
 
-    .line 453
+    .line 446
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
     const-string v1, "connectivity"
@@ -2240,7 +2217,7 @@
 
     check-cast v6, Landroid/net/ConnectivityManager;
 
-    .line 454
+    .line 447
     .local v6, cm:Landroid/net/ConnectivityManager;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
@@ -2252,19 +2229,19 @@
 
     check-cast v9, Landroid/telephony/TelephonyManager;
 
-    .line 455
+    .line 448
     .local v9, tm:Landroid/telephony/TelephonyManager;
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v7
 
-    .line 457
+    .line 450
     .local v7, newChannel:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
     if-eqz v6, :cond_0
 
     if-nez v9, :cond_2
 
-    .line 458
+    .line 451
     :cond_0
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -2274,7 +2251,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 459
+    .line 452
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -2286,7 +2263,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 460
+    .line 453
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     const-string v1, "ConnectivityManager/TelephonyManager not available!"
@@ -2295,7 +2272,7 @@
 
     throw v0
 
-    .line 463
+    .line 456
     :cond_2
     invoke-virtual {v6}, Landroid/net/ConnectivityManager;->getMobileDataEnabled()Z
 
@@ -2303,7 +2280,7 @@
 
     if-nez v0, :cond_4
 
-    .line 464
+    .line 457
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_3
@@ -2312,7 +2289,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 465
+    .line 458
     :cond_3
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -2324,7 +2301,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 466
+    .line 459
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     const-string v1, "No mobile data connections allowed!"
@@ -2333,13 +2310,13 @@
 
     throw v0
 
-    .line 469
+    .line 462
     :cond_4
     iget-object v0, v7, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->networkAccessName:Ljava/lang/String;
 
     if-nez v0, :cond_6
 
-    .line 470
+    .line 463
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_5
@@ -2348,17 +2325,17 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 471
+    .line 464
     :cond_5
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->setupDefaultDataConnection(Lcom/android/internal/telephony/cat/CatCmdMessage;)Z
 
     move-result v3
 
-    .line 518
+    .line 511
     :goto_0
     return v3
 
-    .line 474
+    .line 467
     :cond_6
     invoke-virtual {v9}, Landroid/telephony/TelephonyManager;->getCallState()I
 
@@ -2366,7 +2343,7 @@
 
     if-eqz v0, :cond_8
 
-    .line 475
+    .line 468
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_7
@@ -2375,7 +2352,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 476
+    .line 469
     :cond_7
     new-instance v8, Lcom/android/internal/telephony/cat/OpenChannelResponseData;
 
@@ -2385,7 +2362,7 @@
 
     invoke-direct {v8, v0, v5, v1}, Lcom/android/internal/telephony/cat/OpenChannelResponseData;-><init>(ILjava/lang/Integer;Lcom/android/internal/telephony/cat/BearerDescription;)V
 
-    .line 477
+    .line 470
     .local v8, resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -2401,7 +2378,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 478
+    .line 471
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     const-string v1, "Busy on voice call"
@@ -2410,7 +2387,7 @@
 
     throw v0
 
-    .line 482
+    .line 475
     .end local v8           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     :cond_8
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
@@ -2421,7 +2398,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 483
+    .line 476
     :cond_9
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/cat/BipProxy;->insertAPN(Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;)Z
 
@@ -2429,7 +2406,7 @@
 
     if-nez v0, :cond_b
 
-    .line 484
+    .line 477
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_a
@@ -2438,7 +2415,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 485
+    .line 478
     :cond_a
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -2450,7 +2427,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 486
+    .line 479
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$ConnectionSetupFailedException;
 
     const-string v1, "APN not inserted"
@@ -2459,7 +2436,7 @@
 
     throw v0
 
-    .line 489
+    .line 482
     :cond_b
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->startBipNetworkFeature(Lcom/android/internal/telephony/cat/CatCmdMessage;)V
 
@@ -2471,16 +2448,14 @@
     .parameter "cmdMsg"
 
     .prologue
-    const/16 v2, 0xf
-
     const/4 v3, 0x0
 
-    .line 897
+    .line 889
     iget-boolean v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mApnUpdated:Z
 
     if-nez v0, :cond_1
 
-    .line 898
+    .line 890
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -2489,7 +2464,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 899
+    .line 891
     :cond_0
     const/16 v0, 0xd
 
@@ -2497,22 +2472,22 @@
 
     move-result-object v7
 
-    .line 900
+    .line 892
     .local v7, msg:Landroid/os/Message;
     const-wide/16 v0, 0x1f4
 
     invoke-virtual {p0, v7, v0, v1}, Lcom/android/internal/telephony/cat/BipProxy;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 929
+    .line 917
     .end local v7           #msg:Landroid/os/Message;
     :goto_0
     return-void
 
-    .line 905
+    .line 897
     :cond_1
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->nw_retry:I
 
-    .line 907
+    .line 899
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
     const-string v1, "connectivity"
@@ -2523,7 +2498,7 @@
 
     check-cast v6, Landroid/net/ConnectivityManager;
 
-    .line 908
+    .line 900
     .local v6, cm:Landroid/net/ConnectivityManager;
     const-string v0, "enableBIP"
 
@@ -2531,48 +2506,21 @@
 
     move-result v8
 
-    .line 909
+    .line 901
     .local v8, result:I
+    if-nez v8, :cond_3
+
+    .line 902
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_2
-
-    const-string v0, "BIP - DefaultBearerStateReceiver: onConnected start timer!!"
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 910
-    :cond_2
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cat/BipProxy;->hasMessages(I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    .line 911
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cat/BipProxy;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    const-wide/32 v1, 0xd6d8
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/telephony/cat/BipProxy;->sendMessageDelayed(Landroid/os/Message;J)Z
-
-    .line 913
-    :cond_3
-    if-nez v8, :cond_5
-
-    .line 914
-    sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
-
-    if-eqz v0, :cond_4
 
     const-string v0, "BIP - startBipNetworkFeature: startUsingNetworkFeature APN_ALREADY_ACTIVE"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 915
-    :cond_4
+    .line 903
+    :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
     sget-object v1, Lcom/android/internal/telephony/cat/BipProxy$BipType;->SPECIFIC_BIP:Lcom/android/internal/telephony/cat/BipProxy$BipType;
@@ -2585,7 +2533,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setBearerType(Lcom/android/internal/telephony/cat/BipProxy$BipType;I)V
 
-    .line 917
+    .line 905
     new-instance v9, Ljava/lang/Thread;
 
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$sendBipCmdRunnable;
@@ -2602,43 +2550,43 @@
 
     invoke-direct {v9, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    .line 918
+    .line 906
     .local v9, t:Ljava/lang/Thread;
     invoke-virtual {v9}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 
-    .line 919
+    .line 907
     .end local v9           #t:Ljava/lang/Thread;
-    :cond_5
+    :cond_3
     const/4 v0, 0x1
 
-    if-ne v8, v0, :cond_7
+    if-ne v8, v0, :cond_5
 
-    .line 920
+    .line 908
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     const-string v0, "BIP - startBipNetworkFeature: startUsingNetworkFeature APN_REQUEST_STARTED"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 921
-    :cond_6
+    .line 909
+    :cond_4
     const/16 v0, 0xa
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/telephony/cat/BipProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v7
 
-    .line 922
+    .line 910
     .restart local v7       #msg:Landroid/os/Message;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
     invoke-virtual {v0, v7}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setOngoingSetupMessage(Landroid/os/Message;)V
 
-    .line 923
+    .line 911
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
     sget-object v1, Lcom/android/internal/telephony/cat/BipProxy$BipType;->SPECIFIC_BIP:Lcom/android/internal/telephony/cat/BipProxy$BipType;
@@ -2653,12 +2601,12 @@
 
     goto :goto_0
 
-    .line 925
+    .line 913
     .end local v7           #msg:Landroid/os/Message;
-    :cond_7
+    :cond_5
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2680,8 +2628,8 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 926
-    :cond_8
+    .line 914
+    :cond_6
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
     iget-object v1, p1, Lcom/android/internal/telephony/cat/CatCmdMessage;->mCmdDet:Lcom/android/internal/telephony/cat/CommandDetails;
@@ -2694,7 +2642,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 927
+    .line 915
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     move-result-object v0
@@ -2712,7 +2660,7 @@
     .parameter "channel"
 
     .prologue
-    .line 572
+    .line 565
     sget-boolean v3, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v3, :cond_0
@@ -2737,7 +2685,7 @@
 
     invoke-static {p0, v3}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 588
+    .line 581
     :cond_0
     iget-object v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
@@ -2745,7 +2693,7 @@
 
     move-result-object v2
 
-    .line 589
+    .line 582
     .local v2, type:Lcom/android/internal/telephony/cat/BipProxy$BipType;
     sget-boolean v3, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -2771,13 +2719,13 @@
 
     invoke-static {p0, v3}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 591
+    .line 584
     :cond_1
     sget-object v3, Lcom/android/internal/telephony/cat/BipProxy$BipType;->SPECIFIC_BIP:Lcom/android/internal/telephony/cat/BipProxy$BipType;
 
     if-ne v2, v3, :cond_6
 
-    .line 592
+    .line 585
     iget-object v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
     const-string v4, "connectivity"
@@ -2788,11 +2736,11 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
-    .line 593
+    .line 586
     .local v0, cm:Landroid/net/ConnectivityManager;
     if-eqz v0, :cond_4
 
-    .line 594
+    .line 587
     sget-boolean v3, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v3, :cond_2
@@ -2801,13 +2749,13 @@
 
     invoke-static {p0, v3}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 595
+    .line 588
     :cond_2
     const/16 v3, 0xf
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cat/BipProxy;->removeMessages(I)V
 
-    .line 597
+    .line 590
     sget-boolean v3, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v3, :cond_3
@@ -2816,7 +2764,7 @@
 
     invoke-static {p0, v3}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 598
+    .line 591
     :cond_3
     const/4 v3, 0x0
 
@@ -2824,7 +2772,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/net/ConnectivityManager;->stopUsingNetworkFeature(ILjava/lang/String;)I
 
-    .line 600
+    .line 593
     :cond_4
     const/16 v3, 0xb
 
@@ -2832,13 +2780,13 @@
 
     move-result-object v1
 
-    .line 601
+    .line 594
     .local v1, msg:Landroid/os/Message;
     iget-object v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->mDefaultBearerStateReceiver:Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;
 
     invoke-virtual {v3, v1}, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->setOngoingSetupMessage(Landroid/os/Message;)V
 
-    .line 611
+    .line 604
     .end local v0           #cm:Landroid/net/ConnectivityManager;
     .end local v1           #msg:Landroid/os/Message;
     :cond_5
@@ -2847,13 +2795,13 @@
 
     return v3
 
-    .line 602
+    .line 595
     :cond_6
     sget-object v3, Lcom/android/internal/telephony/cat/BipProxy$BipType;->DEFAULT_BIP:Lcom/android/internal/telephony/cat/BipProxy$BipType;
 
     if-ne v2, v3, :cond_5
 
-    .line 603
+    .line 596
     sget-boolean v3, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v3, :cond_7
@@ -2862,7 +2810,7 @@
 
     invoke-static {p0, v3}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 604
+    .line 597
     :cond_7
     invoke-direct {p0, p2}, Lcom/android/internal/telephony/cat/BipProxy;->cleanupBipChannel(I)V
 
@@ -3613,7 +3561,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 738
+    .line 731
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -3640,13 +3588,15 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 740
+    .line 733
     :cond_0
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 804
+    .line 796
+    :cond_1
+    :goto_0
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3673,56 +3623,56 @@
 
     throw v0
 
-    .line 742
+    .line 735
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 743
+    .line 736
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->onSetupConnectionCompleted(Landroid/os/AsyncResult;)V
 
-    .line 806
-    :cond_1
-    :goto_0
+    .line 798
+    :cond_2
+    :goto_1
     return-void
 
-    .line 747
+    .line 740
     :pswitch_1
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    .line 748
+    .line 741
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->onTeardownConnectionCompleted(Landroid/os/AsyncResult;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 752
+    .line 745
     :pswitch_2
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const-string v0, "BIP - handleMessage: MSG_ID_RECEIVE_SOCKET_DATA"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 753
-    :cond_2
+    .line 746
+    :cond_3
     iget-object v10, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v10, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
-    .line 755
+    .line 748
     .local v10, setting:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mBipChannels:[Lcom/android/internal/telephony/cat/BipProxy$BipChannel;
@@ -3733,9 +3683,9 @@
 
     aget-object v0, v0, v1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    .line 756
+    .line 749
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mBipChannels:[Lcom/android/internal/telephony/cat/BipProxy$BipChannel;
 
     iget v1, v10, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
@@ -3748,17 +3698,17 @@
     :try_end_0
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 760
+    .line 753
     :catch_0
     move-exception v8
 
-    .line 761
+    .line 754
     .local v8, e:Ljava/lang/ArrayIndexOutOfBoundsException;
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -3784,15 +3734,15 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 758
+    .line 751
     .end local v8           #e:Ljava/lang/ArrayIndexOutOfBoundsException;
-    :cond_3
+    :cond_4
     :try_start_1
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string v0, "BIP - handleMessage: MSG_ID_RECEIVE_SOCKET_DATA channel is null."
 
@@ -3800,14 +3750,14 @@
     :try_end_1
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 765
+    .line 758
     .end local v10           #setting:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
     :pswitch_3
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -3831,48 +3781,48 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 766
-    :cond_4
+    .line 759
+    :cond_5
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->apn_retry:I
 
     const/4 v1, 0x5
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_6
 
-    .line 767
+    .line 760
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->apn_retry:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->apn_retry:I
 
-    .line 768
+    .line 761
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->insertAPN(Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 770
-    :cond_5
+    .line 763
+    :cond_6
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->apn_retry:I
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 774
+    .line 767
     :pswitch_4
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const-string v0, "BIP - handleMessage: MSG_ID_DISCONNECT_DELAYED"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 775
-    :cond_6
+    .line 768
+    :cond_7
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/telephony/cat/CatCmdMessage;
@@ -3881,13 +3831,13 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/internal/telephony/cat/BipProxy;->handleDisconnectDelayed(Lcom/android/internal/telephony/cat/CatCmdMessage;I)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 778
+    .line 771
     :pswitch_5
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -3911,50 +3861,50 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 779
-    :cond_7
+    .line 772
+    :cond_8
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->nw_retry:I
 
     const/4 v1, 0x3
 
-    if-ge v0, v1, :cond_8
+    if-ge v0, v1, :cond_9
 
-    .line 780
+    .line 773
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->nw_retry:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->nw_retry:I
 
-    .line 781
+    .line 774
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/telephony/cat/CatCmdMessage;
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->startBipNetworkFeature(Lcom/android/internal/telephony/cat/CatCmdMessage;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 783
-    :cond_8
+    .line 776
+    :cond_9
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     const-string v0, "BIP - handleMessage: MSG_ID_START_NW_FEATURE over max retry count!"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 784
-    :cond_9
+    .line 777
+    :cond_a
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy;->nw_retry:I
 
-    .line 786
+    .line 779
     iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v7, Lcom/android/internal/telephony/cat/CatCmdMessage;
 
-    .line 787
+    .line 780
     .local v7, cmdMsg:Lcom/android/internal/telephony/cat/CatCmdMessage;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
 
@@ -3968,9 +3918,9 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    .line 791
+    .line 784
     .end local v7           #cmdMsg:Lcom/android/internal/telephony/cat/CatCmdMessage;
     :pswitch_6
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
@@ -3983,22 +3933,22 @@
 
     check-cast v6, Landroid/net/ConnectivityManager;
 
-    .line 792
+    .line 785
     .local v6, cm:Landroid/net/ConnectivityManager;
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_d
 
-    .line 793
+    .line 786
     const-string v0, "enableBIP"
 
     invoke-virtual {v6, v3, v0}, Landroid/net/ConnectivityManager;->startUsingNetworkFeature(ILjava/lang/String;)I
 
     move-result v9
 
-    .line 794
+    .line 787
     .local v9, result:I
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -4020,21 +3970,21 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 795
-    :cond_a
+    .line 788
+    :cond_b
     if-nez v9, :cond_1
 
-    .line 796
+    .line 789
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
     const-string v0, "BIP - handleMessage: MSG_ID_EXTEND_NW_TIMER start timer!!"
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 797
-    :cond_b
+    .line 790
+    :cond_c
     const/16 v0, 0xf
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cat/BipProxy;->obtainMessage(I)Landroid/os/Message;
@@ -4047,9 +3997,9 @@
 
     goto/16 :goto_0
 
-    .line 800
+    .line 793
     .end local v9           #result:I
-    :cond_c
+    :cond_d
     sget-boolean v0, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v0, :cond_1
@@ -4060,7 +4010,7 @@
 
     goto/16 :goto_0
 
-    .line 740
+    .line 733
     :pswitch_data_0
     .packed-switch 0xa
         :pswitch_0
@@ -4084,14 +4034,14 @@
 
     const/4 v5, 0x0
 
-    .line 810
+    .line 802
     iget-object v7, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
 
-    .line 811
+    .line 803
     .local v2, resolver:Landroid/content/ContentResolver;
     iget-object v7, p0, Lcom/android/internal/telephony/cat/BipProxy;->mContext:Landroid/content/Context;
 
@@ -4103,13 +4053,13 @@
 
     check-cast v3, Landroid/telephony/TelephonyManager;
 
-    .line 812
+    .line 804
     .local v3, tm:Landroid/telephony/TelephonyManager;
     invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 813
+    .line 805
     .local v1, imsi:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -4117,7 +4067,7 @@
 
     if-eqz v7, :cond_1
 
-    .line 814
+    .line 806
     sget-boolean v6, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v6, :cond_0
@@ -4126,16 +4076,16 @@
 
     invoke-static {p0, v6}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 862
+    .line 854
     :cond_0
     :goto_0
     return v5
 
-    .line 821
+    .line 813
     :cond_1
     if-nez p1, :cond_2
 
-    .line 822
+    .line 814
     sget-boolean v6, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v6, :cond_0
@@ -4146,7 +4096,7 @@
 
     goto :goto_0
 
-    .line 826
+    .line 818
     :cond_2
     sget-boolean v7, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
@@ -4156,57 +4106,57 @@
 
     invoke-static {p0, v7}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 828
+    .line 820
     :cond_3
     invoke-direct {p0}, Lcom/android/internal/telephony/cat/BipProxy;->deleteAPN()V
 
-    .line 830
+    .line 822
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    .line 831
+    .line 823
     .local v4, values:Landroid/content/ContentValues;
-    const-string v7, "type"
+    const-string/jumbo v7, "type"
 
     const-string v8, "bip"
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 832
+    .line 824
     const-string v7, "name"
 
     const-string v8, "HTC_BIP"
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 833
+    .line 825
     const-string v7, "apn"
 
     iget-object v8, p1, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->networkAccessName:Ljava/lang/String;
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 834
-    const-string v7, "user"
+    .line 826
+    const-string/jumbo v7, "user"
 
     iget-object v8, p1, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->userLogin:Ljava/lang/String;
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 835
+    .line 827
     const-string v7, "password"
 
     iget-object v8, p1, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->userPassword:Ljava/lang/String;
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 836
+    .line 828
     const-string v7, "numeric"
 
     invoke-virtual {v4, v7, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 837
+    .line 829
     const-string v7, "mcc"
 
     invoke-virtual {v1, v5, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -4215,7 +4165,7 @@
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 838
+    .line 830
     const-string v7, "mnc"
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -4228,49 +4178,49 @@
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 839
+    .line 831
     const-string v7, "proxy"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 840
+    .line 832
     const-string v7, "port"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 841
+    .line 833
     const-string v7, "mmsproxy"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 842
+    .line 834
     const-string v7, "mmsport"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 843
+    .line 835
     const-string v7, "server"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 844
+    .line 836
     const-string v7, "mmsc"
 
     const-string v8, ""
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 847
+    .line 839
     :try_start_0
     new-instance v7, Lcom/android/internal/telephony/cat/BipProxy$ApnChangeObserver;
 
@@ -4278,7 +4228,7 @@
 
     iput-object v7, p0, Lcom/android/internal/telephony/cat/BipProxy;->mApnObserver:Lcom/android/internal/telephony/cat/BipProxy$ApnChangeObserver;
 
-    .line 848
+    .line 840
     sget-object v7, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
 
     const/4 v8, 0x1
@@ -4287,19 +4237,19 @@
 
     invoke-virtual {v2, v7, v8, v9}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 853
+    .line 845
     const/4 v7, 0x0
 
     iput-boolean v7, p0, Lcom/android/internal/telephony/cat/BipProxy;->mApnUpdated:Z
 
-    .line 854
+    .line 846
     sget-object v7, Landroid/provider/Telephony$Carriers;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v2, v7, v4}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     :try_end_0
     .catch Landroid/database/SQLException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 860
+    .line 852
     sget-boolean v5, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 
     if-eqz v5, :cond_4
@@ -4311,14 +4261,14 @@
     :cond_4
     move v5, v6
 
-    .line 862
+    .line 854
     goto/16 :goto_0
 
-    .line 855
+    .line 847
     :catch_0
     move-exception v0
 
-    .line 856
+    .line 848
     .local v0, e:Landroid/database/SQLException;
     sget-boolean v6, Lcom/android/internal/telephony/cat/BipProxy;->DEBUG:Z
 

@@ -522,7 +522,7 @@
     .line 1098
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "state already added"
+    const-string/jumbo v3, "state already added"
 
     invoke-direct {v2, v3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
@@ -1937,7 +1937,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "transitionTo: destState="
+    const-string/jumbo v2, "transitionTo: destState="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -9,7 +9,8 @@
         Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$3;,
         Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$HtcSwitchApnRecord;,
         Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$ApnChangeObserver;,
-        Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$RecoveryAction;
+        Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$RecoveryAction;,
+        Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$Injector;
     }
 .end annotation
 
@@ -67,13 +68,9 @@
 
 .field private mApnObserver:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$ApnChangeObserver;
 
-.field private mCallListReturned:Z
-
 .field private mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
 .field private mCdmaSSM:Lcom/android/internal/telephony/cdma/CdmaSubscriptionSourceManager;
-
-.field private mDataCallStateChecked:Z
 
 .field private mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
 
@@ -245,7 +242,7 @@
     .parameter "p"
 
     .prologue
-    const v13, 0x4200b
+    const v13, 0x42003
 
     const/16 v12, 0xe0
 
@@ -306,10 +303,6 @@
     iput v7, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->pdpLimitSize:I
 
     iput-object v11, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->apnFromOtherAC:Lcom/android/internal/telephony/ApnSetting;
-
-    iput-boolean v8, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataCallStateChecked:Z
-
-    iput-boolean v8, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
 
     new-instance v6, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;
 
@@ -418,9 +411,7 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
 
-    const v9, 0x42010
-
-    invoke-virtual {v6, p0, v9, v11}, Lcom/android/internal/telephony/DataServiceStateTracker;->registerForDataConnectionAttached(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-virtual {v6, p0, v13, v11}, Lcom/android/internal/telephony/DataServiceStateTracker;->registerForDataConnectionAttached(Landroid/os/Handler;ILjava/lang/Object;)V
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
 
@@ -430,7 +421,9 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
 
-    invoke-virtual {v6, p0, v13, v11}, Lcom/android/internal/telephony/DataServiceStateTracker;->registerForDataRoamingOn(Landroid/os/Handler;ILjava/lang/Object;)V
+    const v9, 0x4200b
+
+    invoke-virtual {v6, p0, v9, v11}, Lcom/android/internal/telephony/DataServiceStateTracker;->registerForDataRoamingOn(Landroid/os/Handler;ILjava/lang/Object;)V
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
 
@@ -574,10 +567,6 @@
     iput-object v7, v6, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$HtcSwitchApnRecord;->switchOffACs:Ljava/util/ArrayList;
 
     :goto_3
-    iput-boolean v8, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataCallStateChecked:Z
-
-    iput-boolean v8, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
     new-instance v2, Landroid/content/IntentFilter;
 
     invoke-direct {v2}, Landroid/content/IntentFilter;-><init>()V
@@ -674,9 +663,7 @@
     :cond_7
     iget-object v6, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
-    const v9, 0x42010
-
-    invoke-virtual {v6, p0, v9, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->registerForDataConnectionAttached(Landroid/os/Handler;ILjava/lang/Object;)V
+    invoke-virtual {v6, p0, v13, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->registerForDataConnectionAttached(Landroid/os/Handler;ILjava/lang/Object;)V
 
     iget-object v6, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
@@ -686,7 +673,9 @@
 
     iget-object v6, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
-    invoke-virtual {v6, p0, v13, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->registerForRoamingOn(Landroid/os/Handler;ILjava/lang/Object;)V
+    const v9, 0x4200b
+
+    invoke-virtual {v6, p0, v9, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->registerForRoamingOn(Landroid/os/Handler;ILjava/lang/Object;)V
 
     iget-object v6, p1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
 
@@ -3014,7 +3003,13 @@
     return-object v21
 
     :cond_0
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetOperatorNumeric()Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetOperatorNumeric(Lcom/android/internal/telephony/PhoneBase;)Ljava/lang/String;
 
     move-result-object v24
 
@@ -4899,7 +4894,9 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mAllApns:Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetOperatorNumeric()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetOperatorNumeric(Lcom/android/internal/telephony/PhoneBase;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -6136,11 +6133,11 @@
     .prologue
     const/4 v7, 0x0
 
-    const/4 v6, -0x1
+    const/4 v6, 0x0
 
-    const/4 v5, 0x1
+    const/4 v5, -0x1
 
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->getOverallState()Lcom/android/internal/telephony/DataConnectionTracker$State;
 
@@ -6148,7 +6145,7 @@
 
     sget-object v2, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTED:Lcom/android/internal/telephony/DataConnectionTracker$State;
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->getRecoveryAction()I
 
@@ -6204,18 +6201,6 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/telephony/CommandsInterface;->getDataCallList(Landroid/os/Message;)V
 
-    const-string v1, "persist.radio.test.data.stall"
-
-    invoke-static {v1, v4}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "doRecovery() data stall test enable, keep recovery action at GET_DATA_CALL_LIST"
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
     invoke-virtual {p0, v4}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
 
     .end local v0           #recoveryAction:I
@@ -6223,11 +6208,6 @@
     return-void
 
     .restart local v0       #recoveryAction:I
-    :cond_0
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
-
-    goto :goto_0
-
     :pswitch_1
     const v1, 0xc3c7
 
@@ -6243,7 +6223,7 @@
 
     iget-object v1, v1, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
 
-    invoke-interface {v1, v6, v5, v7}, Lcom/android/internal/telephony/CommandsInterface;->sendDataStallNotification(IILandroid/os/Message;)V
+    invoke-interface {v1, v5, v4, v7}, Lcom/android/internal/telephony/CommandsInterface;->sendDataStallNotification(IILandroid/os/Message;)V
 
     const-string v1, "doRecovery() cleanup all connections"
 
@@ -6251,7 +6231,7 @@
 
     const-string v1, "pdpReset"
 
-    invoke-virtual {p0, v5, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->cleanUpAllConnections(ZLjava/lang/String;)V
+    invoke-virtual {p0, v4, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->cleanUpAllConnections(ZLjava/lang/String;)V
 
     const/4 v1, 0x2
 
@@ -6280,13 +6260,13 @@
 
     iget-boolean v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIsRuimCardUsed:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     const/4 v1, 0x3
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
@@ -6315,7 +6295,7 @@
     :pswitch_4
     const v1, 0xc3ca
 
-    invoke-static {v1, v6}, Landroid/util/EventLog;->writeEvent(II)I
+    invoke-static {v1, v5}, Landroid/util/EventLog;->writeEvent(II)I
 
     const-string v1, "restarting radio with gsm.radioreset to true"
 
@@ -6337,23 +6317,25 @@
     :goto_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->restartRadio()V
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->putRecoveryAction(I)V
 
     goto :goto_0
 
     .end local v0           #recoveryAction:I
-    :cond_2
+    :cond_1
     const-string v1, "doRecovery(): ignore, we\'re not connected"
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .restart local v0       #recoveryAction:I
     :catch_0
     move-exception v1
 
     goto :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -7864,89 +7846,50 @@
     goto :goto_0
 .end method
 
-.method private htcGetOperatorNumeric()Ljava/lang/String;
-    .locals 4
+.method private htcGetOperatorNumeric(Lcom/android/internal/telephony/PhoneBase;)Ljava/lang/String;
+    .locals 2
+    .parameter "p"
 
     .prologue
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    if-nez p1, :cond_0
 
-    if-nez v2, :cond_0
-
-    const-string v1, ""
+    const-string v0, ""
 
     :goto_0
-    return-object v1
+    return-object v0
 
     :cond_0
-    const-string v1, ""
-
-    .local v1, ret:Ljava/lang/String;
-    :try_start_0
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_2
+    if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
+    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
+    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
 
-    sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
+    sget-object v1, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/IccCardProxy;->getIccOperatorNumeric(Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/IccCardProxy;->getIccOperatorNumeric(Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_1
-    const-string v1, ""
+    const-string v0, ""
 
     goto :goto_0
 
     :cond_2
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, p1, Lcom/android/internal/telephony/PhoneBase;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
 
-    iget-object v2, v2, Lcom/android/internal/telephony/PhoneBase;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
+    invoke-virtual {v0}, Lcom/android/internal/telephony/IccRecords;->getOperatorNumeric()Ljava/lang/String;
 
-    check-cast v2, Lcom/android/internal/telephony/cdma/RuimRecords;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/cdma/RuimRecords;->getRUIMOperatorNumeric()Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Ljava/lang/Exception;
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "fail to get mccmnc:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->loge(Ljava/lang/String;)V
-
-    const-string v1, ""
+    move-result-object v0
 
     goto :goto_0
 .end method
@@ -9079,7 +9022,13 @@
 
     .local v2, isDisconnected:Z
     :goto_0
-    invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetOperatorNumeric()Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+
+    iget-object v6, v6, Lcom/android/internal/telephony/PhoneBase;->mIccRecords:Lcom/android/internal/telephony/IccRecords;
+
+    check-cast v6, Lcom/android/internal/telephony/cdma/RuimRecords;
+
+    invoke-virtual {v6}, Lcom/android/internal/telephony/cdma/RuimRecords;->getRUIMOperatorNumeric()Ljava/lang/String;
 
     move-result-object v3
 
@@ -12390,18 +12339,6 @@
 
     move-result-object v8
 
-    const-string v10, " CallListReturned:"
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    iget-boolean v10, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v8
@@ -13880,38 +13817,6 @@
     invoke-virtual {v0, p1, v1, v2}, Lcom/android/internal/telephony/PhoneBase;->notifyDataConnection(Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/Phone$DataState;)V
 
     goto :goto_0
-.end method
-
-.method protected UnsyncConnectionCheck()V
-    .locals 2
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataCallStateChecked:Z
-
-    if-nez v0, :cond_0
-
-    const-string v0, "check if the modem have the unknown data call when DCT initial"
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    const v1, 0x42031
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->getDataCallList(Landroid/os/Message;)V
-
-    :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataCallStateChecked:Z
-
-    return-void
 .end method
 
 .method public _getActiveApnTypesNV()[Ljava/lang/String;
@@ -15549,6 +15454,18 @@
     return-object v0
 .end method
 
+.method getActiveApn()Lcom/android/internal/telephony/ApnSetting;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mActiveApn:Lcom/android/internal/telephony/ApnSetting;
+
+    return-object v0
+.end method
+
 .method public getActiveApnCarrier(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
     .parameter "apnType"
@@ -15750,6 +15667,29 @@
     goto :goto_0
 .end method
 
+.method getDataConnectionAsyncChannels()Ljava/util/HashMap;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/Integer;",
+            "Lcom/android/internal/telephony/DataConnectionAc;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataConnectionAsyncChannels:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
 .method public getDataConnectionState()Lcom/android/internal/telephony/Phone$DataState;
     .locals 3
 
@@ -15801,140 +15741,6 @@
     sget-object v1, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$3;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mState:Lcom/android/internal/telephony/DataConnectionTracker$State;
-
-    invoke-virtual {v2}, Lcom/android/internal/telephony/DataConnectionTracker$State;->ordinal()I
-
-    move-result v2
-
-    aget v1, v1, v2
-
-    packed-switch v1, :pswitch_data_0
-
-    goto :goto_0
-
-    :pswitch_0
-    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    iget-object v1, v1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCT:Lcom/android/internal/telephony/cdma/CdmaCallTracker;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/cdma/CdmaCallTracker;->htcIsRingingButHaventReported()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->SUSPENDED:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    :pswitch_1
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->DISCONNECTED:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    iget-object v1, v1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCT:Lcom/android/internal/telephony/cdma/CdmaCallTracker;
-
-    iget-object v1, v1, Lcom/android/internal/telephony/cdma/CdmaCallTracker;->state:Lcom/android/internal/telephony/Phone$State;
-
-    sget-object v2, Lcom/android/internal/telephony/Phone$State;->IDLE:Lcom/android/internal/telephony/Phone$State;
-
-    if-eq v1, v2, :cond_3
-
-    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    iget-object v1, v1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mSST:Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;
-
-    invoke-virtual {v1}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->isConcurrentVoiceAndDataAllowed()Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->SUSPENDED:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    :cond_3
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->CONNECTED:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    :pswitch_2
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->CONNECTING:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-    .end packed-switch
-.end method
-
-.method public getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/Phone$DataState;
-    .locals 3
-    .parameter "apntype"
-
-    .prologue
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->DISCONNECTED:Lcom/android/internal/telephony/Phone$DataState;
-
-    .local v0, ret:Lcom/android/internal/telephony/Phone$DataState;
-    iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDsst:Lcom/android/internal/telephony/DataServiceStateTracker;
-
-    if-nez v1, :cond_0
-
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->DISCONNECTED:Lcom/android/internal/telephony/Phone$DataState;
-
-    :goto_0
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "getDataConnectionState  ret="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
-    return-object v0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetCDMADataConnectionState()I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    sget-object v0, Lcom/android/internal/telephony/Phone$DataState;->DISCONNECTED:Lcom/android/internal/telephony/Phone$DataState;
-
-    goto :goto_0
-
-    :cond_1
-    sget-object v1, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$3;->$SwitchMap$com$android$internal$telephony$DataConnectionTracker$State:[I
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->getState(Ljava/lang/String;)Lcom/android/internal/telephony/DataConnectionTracker$State;
-
-    move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/DataConnectionTracker$State;->ordinal()I
 
@@ -16701,35 +16507,11 @@
     goto :goto_0
 
     :sswitch_2
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->UnsyncConnectionCheck()V
-
-    const v2, 0x42003
-
-    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {p0, v2, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
-
-    :sswitch_3
-    iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v2, Landroid/os/AsyncResult;
-
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->handleUnsyncConnection(Landroid/os/AsyncResult;)V
-
-    goto :goto_0
-
-    :sswitch_4
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->onCdmaDataDetached()V
 
     goto :goto_0
 
-    :sswitch_5
+    :sswitch_3
     iget-boolean v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIsRuimCardUsed:Z
 
     if-eqz v2, :cond_3
@@ -16751,7 +16533,7 @@
 
     goto :goto_0
 
-    :sswitch_6
+    :sswitch_4
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Landroid/os/AsyncResult;
@@ -16760,7 +16542,7 @@
 
     goto :goto_0
 
-    :sswitch_7
+    :sswitch_5
     const-string v2, "EVENT_RESTART_RADIO"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
@@ -16769,12 +16551,12 @@
 
     goto :goto_0
 
-    :sswitch_8
+    :sswitch_6
     iput-boolean v4, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mHtcCdmaDataLinkError:Z
 
     goto :goto_0
 
-    :sswitch_9
+    :sswitch_7
     const/4 v1, 0x0
 
     .local v1, retryReason:Ljava/lang/String;
@@ -16842,7 +16624,7 @@
     goto/16 :goto_0
 
     .end local v1           #retryReason:Ljava/lang/String;
-    :sswitch_a
+    :sswitch_8
     const-string v2, "EVENT_ERI_UPDATE"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
@@ -16855,12 +16637,12 @@
 
     goto/16 :goto_0
 
-    :sswitch_b
+    :sswitch_9
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->onApnChanged()V
 
     goto/16 :goto_0
 
-    :sswitch_c
+    :sswitch_a
     const/4 v0, 0x0
 
     .local v0, reason:Ljava/lang/String;
@@ -16897,12 +16679,12 @@
     goto/16 :goto_0
 
     .end local v0           #reason:Ljava/lang/String;
-    :sswitch_d
+    :sswitch_b
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->doRecovery()V
 
     goto/16 :goto_0
 
-    :sswitch_e
+    :sswitch_c
     const-string v2, "CDMA EVENT_RADIO_TECH_CHANGED"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
@@ -16911,7 +16693,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_f
+    :sswitch_d
     const-string v2, "EVENT_ICC_CARD_READY for RUIM"
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
@@ -16953,137 +16735,21 @@
     :sswitch_data_0
     .sparse-switch
         0x42002 -> :sswitch_0
-        0x42003 -> :sswitch_c
-        0x42004 -> :sswitch_5
-        0x42010 -> :sswitch_2
-        0x42012 -> :sswitch_d
-        0x42013 -> :sswitch_b
-        0x42014 -> :sswitch_4
+        0x42003 -> :sswitch_a
+        0x42004 -> :sswitch_3
+        0x42012 -> :sswitch_b
+        0x42013 -> :sswitch_9
+        0x42014 -> :sswitch_2
         0x42015 -> :sswitch_1
-        0x42019 -> :sswitch_6
-        0x4201a -> :sswitch_7
-        0x42023 -> :sswitch_8
-        0x42026 -> :sswitch_9
-        0x42027 -> :sswitch_a
-        0x4202c -> :sswitch_f
+        0x42019 -> :sswitch_4
+        0x4201a -> :sswitch_5
+        0x42023 -> :sswitch_6
+        0x42026 -> :sswitch_7
+        0x42027 -> :sswitch_8
+        0x4202c -> :sswitch_d
         0x4202d -> :sswitch_0
-        0x4202e -> :sswitch_e
-        0x42031 -> :sswitch_3
+        0x4202e -> :sswitch_c
     .end sparse-switch
-.end method
-
-.method protected handleUnsyncConnection(Landroid/os/AsyncResult;)V
-    .locals 8
-    .parameter "ar"
-
-    .prologue
-    const/4 v7, 0x0
-
-    const/4 v6, 0x1
-
-    const-string v3, "handleUnsyncConnection(ar): E"
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
-    iget-object v3, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
-
-    check-cast v3, Ljava/util/ArrayList;
-
-    move-object v0, v3
-
-    check-cast v0, Ljava/util/ArrayList;
-
-    .local v0, dataCallStates:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/telephony/DataCallState;>;"
-    iget-object v3, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
-
-    if-eqz v3, :cond_0
-
-    const-string v3, "handleUnsyncConnection: exception; likely radio not available"
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
-    iput-boolean v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :cond_1
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/internal/telephony/DataCallState;
-
-    .local v2, newState:Lcom/android/internal/telephony/DataCallState;
-    iget v3, v2, Lcom/android/internal/telephony/DataCallState;->active:I
-
-    if-eqz v3, :cond_1
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "handleUnsyncConnection(ar): deactivate unsync connection "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    iget v4, v2, Lcom/android/internal/telephony/DataCallState;->cid:I
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
-
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    iget-object v3, v3, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    iget v4, v2, Lcom/android/internal/telephony/DataCallState;->cid:I
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v5, v7}, Lcom/android/internal/telephony/CommandsInterface;->deactivateDataCall(IILandroid/os/Message;)V
-
-    goto :goto_1
-
-    .end local v2           #newState:Lcom/android/internal/telephony/DataCallState;
-    :cond_2
-    iput-boolean v6, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
-    iget-boolean v3, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIsRuimCardUsed:Z
-
-    if-eqz v3, :cond_3
-
-    invoke-direct {p0, v7}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->HtcTryPendingEnabled(Lcom/android/internal/telephony/ApnContext;)V
-
-    goto :goto_0
-
-    :cond_3
-    const-string v3, "UnSyncChecked"
-
-    invoke-direct {p0, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->trySetupData(Ljava/lang/String;)Z
-
-    goto :goto_0
 .end method
 
 .method protected htcConnectionRequest()V
@@ -17851,18 +17517,18 @@
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_f
 
     iget-boolean v5, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mGlobalDataRoaming:Z
 
     :goto_0
-    if-eqz v5, :cond_11
+    if-eqz v5, :cond_10
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->getDataOnRoamingEnabled()Z
 
     move-result v9
 
-    if-nez v9, :cond_11
+    if-nez v9, :cond_10
 
     move v5, v7
 
@@ -17897,7 +17563,7 @@
 
     move-result v9
 
-    if-ne v9, v7, :cond_12
+    if-ne v9, v7, :cond_11
 
     move v6, v7
 
@@ -17907,7 +17573,7 @@
 
     iget-boolean v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mAutoAttachOnCreation:Z
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_12
 
     :cond_1
     if-nez v6, :cond_2
@@ -17928,7 +17594,7 @@
 
     iget-boolean v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->IgnoreRUIMCardReadyInTestVersion:Z
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_12
 
     :cond_2
     iget-object v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
@@ -17949,7 +17615,7 @@
 
     sget-object v10, Lcom/android/internal/telephony/Phone$State;->IDLE:Lcom/android/internal/telephony/Phone$State;
 
-    if-ne v9, v10, :cond_13
+    if-ne v9, v10, :cond_12
 
     :cond_3
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->SPRINT_ROAMING_ENHANCE_CONFIG()Z
@@ -17958,26 +17624,22 @@
 
     if-nez v9, :cond_4
 
-    if-nez v5, :cond_13
+    if-nez v5, :cond_12
 
     :cond_4
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_12
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_12
 
     iget-boolean v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mPendingRestartRadio:Z
 
-    if-nez v9, :cond_13
-
-    iget-boolean v9, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
-    if-eqz v9, :cond_13
+    if-nez v9, :cond_12
 
     move v0, v7
 
     .local v0, allowed:Z
     :goto_3
-    if-nez v0, :cond_f
+    if-nez v0, :cond_e
 
     const-string v4, ""
 
@@ -18235,29 +17897,6 @@
     move-result-object v4
 
     :cond_d
-    iget-boolean v7, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mCallListReturned:Z
-
-    if-nez v7, :cond_e
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, " - data call list check not return"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    :cond_e
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -18279,7 +17918,7 @@
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
 
     .end local v4           #reason:Ljava/lang/String;
-    :cond_f
+    :cond_e
     return v0
 
     .end local v0           #allowed:Z
@@ -18301,26 +17940,26 @@
     .restart local v2       #internalDataEnabled:Z
     .restart local v3       #psState:I
     .restart local v5       #roaming:Z
-    :cond_10
+    :cond_f
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->htcGetCDMADataRoamingState()Z
 
     move-result v5
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_10
     move v5, v8
 
     goto/16 :goto_1
 
     .restart local v1       #desiredPowerState:Z
-    :cond_12
+    :cond_11
     move v6, v8
 
     goto/16 :goto_2
 
     .restart local v6       #subscriptionFromNv:Z
-    :cond_13
+    :cond_12
     move v0, v8
 
     goto/16 :goto_3
@@ -19067,6 +18706,8 @@
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->updateApnProxyInfo(Lcom/android/internal/telephony/ApnContext;)V
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->updatePreferredApn(Lcom/android/internal/telephony/ApnContext;)V
+
+    invoke-static {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$Injector;->onDataSetupComplete(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)V
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->notifyDefaultData(Lcom/android/internal/telephony/ApnContext;)V
 
@@ -21033,6 +20674,8 @@
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->setState(Lcom/android/internal/telephony/DataConnectionTracker$State;)V
 
+    invoke-static {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$Injector;->onDisconnectDone(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)V
+
     goto/16 :goto_2
 
     :cond_9
@@ -21580,8 +21223,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->UnsyncConnectionCheck()V
-
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mState:Lcom/android/internal/telephony/DataConnectionTracker$State;
 
     sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->FAILED:Lcom/android/internal/telephony/DataConnectionTracker$State;
@@ -21737,8 +21378,6 @@
     .locals 3
 
     .prologue
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->UnsyncConnectionCheck()V
-
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mHtcRadioAvaliable:Z

@@ -128,7 +128,7 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "version: "
+    const-string/jumbo v12, "version: "
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -289,7 +289,7 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "wrong file version: "
+    const-string/jumbo v12, "wrong file version: "
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

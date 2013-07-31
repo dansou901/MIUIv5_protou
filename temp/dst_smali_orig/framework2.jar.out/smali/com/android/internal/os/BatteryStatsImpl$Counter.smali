@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .locals 2
+    .locals 1
     .parameter
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,27 +66,9 @@
 
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mUnpluggables:Ljava/util/ArrayList;
 
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
     invoke-virtual {p1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    monitor-exit v1
-
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method constructor <init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
@@ -145,27 +127,9 @@
 
     iput v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mUnpluggedCount:I
 
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
     invoke-virtual {p1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    monitor-exit v1
-
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method public static writeCounterToParcel(Landroid/os/Parcel;Lcom/android/internal/os/BatteryStatsImpl$Counter;)V
@@ -195,62 +159,15 @@
 
 
 # virtual methods
-.method attach()V
-    .locals 2
-
-    .prologue
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mUnpluggables:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
 .method detach()V
-    .locals 2
+    .locals 1
 
     .prologue
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    :try_start_0
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mUnpluggables:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    monitor-exit v1
-
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method public getCountLocked(I)I

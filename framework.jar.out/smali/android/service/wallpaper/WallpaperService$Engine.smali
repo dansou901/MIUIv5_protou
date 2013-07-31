@@ -1010,7 +1010,7 @@
     .line 590
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "mCreated="
+    const-string/jumbo v0, "mCreated="
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
@@ -1175,7 +1175,7 @@
     .line 607
     invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    const-string v0, "mConfiguration="
+    const-string/jumbo v0, "mConfiguration="
 
     invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 

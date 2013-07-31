@@ -780,7 +780,7 @@
     :try_start_0
     iget-object v10, p0, Lcom/android/internal/telephony/HtcAdnRecord;->alphaTag:Ljava/lang/String;
 
-    const-string v11, "utf-16be"
+    const-string/jumbo v11, "utf-16be"
 
     invoke-virtual {v10, v11}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 

@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/UiModeManagerService.smali	2013-07-12 21:42:33.411832533 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/UiModeManagerService.smali	2013-07-12 21:40:28.488488899 +0000
+*** ./smali/com/android/server/UiModeManagerService.smali	2013-07-31 22:21:59.167397870 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/UiModeManagerService.smali	2013-07-31 22:21:04.490726640 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

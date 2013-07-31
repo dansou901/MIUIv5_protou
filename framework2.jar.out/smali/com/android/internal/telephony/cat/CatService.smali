@@ -588,7 +588,7 @@
     .line 800
     sget-object v0, Lcom/android/internal/telephony/cat/CatService;->sInstance:Lcom/android/internal/telephony/cat/CatService;
 
-    const-string v1, "sr changed reinitialize and return current sInstance"
+    const-string/jumbo v1, "sr changed reinitialize and return current sInstance"
 
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -2398,7 +2398,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "unexpected event download: "
+    const-string/jumbo v5, "unexpected event download: "
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2513,6 +2513,8 @@
     goto :goto_1
 
     .line 1168
+    nop
+
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_2
@@ -3897,7 +3899,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateIdleScreenState: event is enabling! mScreenBusy="
+    const-string/jumbo v3, "updateIdleScreenState: event is enabling! mScreenBusy="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3954,7 +3956,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateIdleScreenState exception = "
+    const-string/jumbo v3, "updateIdleScreenState exception = "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

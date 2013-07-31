@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2013-07-12 21:42:57.568501191 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2013-07-12 21:40:45.945157005 +0000
+*** ./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2013-07-31 22:22:14.254065796 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/CallerInfoAsyncQuery.smali	2013-07-31 22:21:14.727394161 +0000
 ***************
 *** 10,16 ****
           Lcom/android/internal/telephony/CallerInfoAsyncQuery$CallerInfoAsyncQueryHandler;,

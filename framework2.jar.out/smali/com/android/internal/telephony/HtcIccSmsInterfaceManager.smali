@@ -1267,7 +1267,7 @@
 
     .prologue
     .line 343
-    const-string v0, "updateMessageOnIccEfByFormat:"
+    const-string/jumbo v0, "updateMessageOnIccEfByFormat:"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/HtcIccSmsInterfaceManager;->log(Ljava/lang/String;)V
 
@@ -1287,7 +1287,7 @@
 
     .prologue
     .line 324
-    const-string v0, "updateNvItem:"
+    const-string/jumbo v0, "updateNvItem:"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/HtcIccSmsInterfaceManager;->log(Ljava/lang/String;)V
 
@@ -1300,7 +1300,7 @@
 
     const-string v1, "android.permission.SEND_SMS"
 
-    const-string v2, "updateNvItem"
+    const-string/jumbo v2, "updateNvItem"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 

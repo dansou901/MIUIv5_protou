@@ -43,7 +43,7 @@
     iget v0, p0, Landroid/webkit/WebViewClassic$DestroyNativeRunnable;->mNativePtr:I
 
     #calls: Landroid/webkit/WebViewClassic;->nativeDestroy(I)V
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2500(I)V
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2100(I)V
 
     return-void
 .end method

@@ -58,16 +58,7 @@
     return-void
 .end method
 
-.method static synthetic access$100()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    sget-object v0, Landroid/os/UEventObserver;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200([B)I
+.method static synthetic access$100([B)I
     .locals 1
     .parameter "x0"
 

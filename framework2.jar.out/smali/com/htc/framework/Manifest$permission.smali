@@ -23,8 +23,6 @@
 
 .field public static final ACCESS_WIMAX_STATE:Ljava/lang/String; = "android.permission.ACCESS_WIMAX_STATE"
 
-.field public static final BIND_HTC_APPWIDGET:Ljava/lang/String; = "com.htc.permission.BIND_HTC_APPWIDGET"
-
 .field public static final CHANGE_4G_STATE:Ljava/lang/String; = "android.permission.CHANGE_4G_STATE"
 
 .field public static final CHANGE_WIMAX_STATE:Ljava/lang/String; = "android.permission.CHANGE_WIMAX_STATE"

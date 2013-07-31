@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 3987
+    .line 3966
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->this$0:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -40,16 +40,16 @@
     .parameter "msg"
 
     .prologue
-    .line 3990
+    .line 3969
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_0
 
-    .line 4009
+    .line 3988
     :goto_0
     return-void
 
-    .line 3993
+    .line 3972
     :pswitch_0
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -59,7 +59,7 @@
 
     check-cast v3, [Ljava/lang/Object;
 
-    .line 3994
+    .line 3973
     .local v3, params:[Ljava/lang/Object;
     const/4 v5, 0x0
 
@@ -71,7 +71,7 @@
 
     check-cast v4, Ljava/lang/String;
 
-    .line 3995
+    .line 3974
     .local v4, setupOperatorNum:Ljava/lang/String;
     const/4 v5, 0x1
 
@@ -83,7 +83,7 @@
 
     check-cast v0, Landroid/os/Message;
 
-    .line 3996
+    .line 3975
     .local v0, completeMsg:Landroid/os/Message;
     const/4 v5, 0x2
 
@@ -95,7 +95,7 @@
 
     check-cast v2, Landroid/os/HandlerThread;
 
-    .line 3998
+    .line 3977
     .local v2, mccUpdateThread:Landroid/os/HandlerThread;
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/CDMAPhone$2;->this$0:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
@@ -103,11 +103,11 @@
 
     move-result v1
 
-    .line 3999
+    .line 3978
     .local v1, completionStatus:Z
     if-eqz v0, :cond_0
 
-    .line 4000
+    .line 3979
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v5
@@ -116,10 +116,10 @@
 
     invoke-static {v0, v5, v6}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 4001
+    .line 3980
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 4003
+    .line 3982
     :cond_0
     const-string v5, "CDMA"
 
@@ -153,12 +153,12 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4005
+    .line 3984
     invoke-virtual {v2}, Landroid/os/HandlerThread;->quit()Z
 
     goto :goto_0
 
-    .line 3990
+    .line 3969
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

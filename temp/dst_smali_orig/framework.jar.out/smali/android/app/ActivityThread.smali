@@ -12529,6 +12529,8 @@
     or-int/lit16 v1, v1, 0xd00
 
     :cond_3
+    invoke-static {v1}, Landroid/app/MiuiThemeHelper;->handleExtraConfigurationChanges(I)V
+
     iget-object v10, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     if-eqz v10, :cond_4
@@ -13021,7 +13023,7 @@
 .end method
 
 .method final completeRemoveProvider(Landroid/app/ActivityThread$ProviderRefCount;)V
-    .locals 9
+    .locals 8
     .parameter "prc"
 
     .prologue
@@ -13040,67 +13042,6 @@
     return-void
 
     :cond_0
-    iget-boolean v5, p1, Landroid/app/ActivityThread$ProviderRefCount;->removed:Z
-
-    if-eqz v5, :cond_1
-
-    const-string v5, "ActivityThread"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "Skip duplicated remove provider action, prc="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", name="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/IActivityManager$ContentProviderHolder;
-
-    iget-object v8, v8, Landroid/app/IActivityManager$ContentProviderHolder;->info:Landroid/content/pm/ProviderInfo;
-
-    iget-object v8, v8, Landroid/content/pm/ProviderInfo;->name:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v5, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    monitor-exit v6
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v5
-
-    monitor-exit v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v5
-
-    :cond_1
-    const/4 v5, 0x1
-
-    :try_start_1
-    iput-boolean v5, p1, Landroid/app/ActivityThread$ProviderRefCount;->removed:Z
-
     iget-object v5, p1, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/IActivityManager$ContentProviderHolder;
 
     iget-object v5, v5, Landroid/app/IActivityManager$ContentProviderHolder;->provider:Landroid/content/IContentProvider;
@@ -13119,13 +13060,13 @@
     check-cast v0, Landroid/app/ActivityThread$ProviderRefCount;
 
     .local v0, existingPrc:Landroid/app/ActivityThread$ProviderRefCount;
-    if-ne v0, p1, :cond_2
+    if-ne v0, p1, :cond_1
 
     iget-object v5, p0, Landroid/app/ActivityThread;->mProviderRefCountMap:Ljava/util/HashMap;
 
     invoke-virtual {v5, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
+    :cond_1
     iget-object v5, p0, Landroid/app/ActivityThread;->mProviderMap:Ljava/util/HashMap;
 
     invoke-virtual {v5}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -13137,13 +13078,13 @@
     move-result-object v1
 
     .local v1, iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/app/ActivityThread$ProviderClientRecord;>;"
-    :cond_3
+    :cond_2
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13159,15 +13100,31 @@
     move-result-object v3
 
     .local v3, myBinder:Landroid/os/IBinder;
-    if-ne v3, v2, :cond_3
+    if-ne v3, v2, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     goto :goto_1
 
+    .end local v0           #existingPrc:Landroid/app/ActivityThread$ProviderRefCount;
+    .end local v1           #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/app/ActivityThread$ProviderClientRecord;>;"
+    .end local v2           #jBinder:Landroid/os/IBinder;
     .end local v3           #myBinder:Landroid/os/IBinder;
     .end local v4           #pr:Landroid/app/ActivityThread$ProviderClientRecord;
-    :cond_4
+    :catchall_0
+    move-exception v5
+
+    monitor-exit v6
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v5
+
+    .restart local v0       #existingPrc:Landroid/app/ActivityThread$ProviderRefCount;
+    .restart local v1       #iter:Ljava/util/Iterator;,"Ljava/util/Iterator<Landroid/app/ActivityThread$ProviderClientRecord;>;"
+    .restart local v2       #jBinder:Landroid/os/IBinder;
+    :cond_3
+    :try_start_1
     monitor-exit v6
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -14371,7 +14328,7 @@
     move-result-object v7
 
     .local v7, metrics:Landroid/util/DisplayMetrics;
-    new-instance v9, Landroid/content/res/Resources;
+    new-instance v9, Landroid/content/res/MiuiResources;
 
     .end local v9           #r:Landroid/content/res/Resources;
     invoke-virtual/range {p0 .. p0}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
@@ -14380,7 +14337,7 @@
 
     move-object/from16 v0, p2
 
-    invoke-direct {v9, v2, v7, v14, v0}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+    invoke-direct {v9, v2, v7, v14, v0}, Landroid/content/res/MiuiResources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
 
     .restart local v9       #r:Landroid/content/res/Resources;
     move-object/from16 v0, p0
@@ -14508,6 +14465,53 @@
     move-object v4, v9
 
     goto/16 :goto_1
+.end method
+
+.method getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/app/LoadedApk;)Landroid/content/res/Resources;
+    .locals 1
+    .parameter "packageName"
+    .parameter "resDir"
+    .parameter "pkgInfo"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p3, Landroid/app/LoadedApk;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
+
+    invoke-virtual {v0}, Landroid/view/CompatibilityInfoHolder;->get()Landroid/content/res/CompatibilityInfo;
+
+    move-result-object v0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+    .locals 2
+    .parameter "packageName"
+    .parameter "resDir"
+    .parameter "compInfo"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-virtual {p0, p2, p3}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    .local v0, r:Landroid/content/res/Resources;
+    move-object v1, v0
+
+    check-cast v1, Landroid/content/res/MiuiResources;
+
+    invoke-virtual {v1, p1}, Landroid/content/res/MiuiResources;->init(Ljava/lang/String;)V
+
+    return-object v0
 .end method
 
 .method final handleActivityConfigurationChanged(Landroid/os/IBinder;)V

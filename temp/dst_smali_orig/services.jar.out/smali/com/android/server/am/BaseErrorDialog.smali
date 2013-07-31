@@ -17,7 +17,9 @@
     .prologue
     const/high16 v2, 0x2
 
-    invoke-direct {p0, p1}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;)V
+    const v0, 0x60d003e
+
+    invoke-direct {p0, p1, v0}, Landroid/app/AlertDialog;-><init>(Landroid/content/Context;I)V
 
     new-instance v0, Lcom/android/server/am/BaseErrorDialog$1;
 
@@ -160,19 +162,15 @@
     .locals 4
 
     .prologue
+    const/4 v2, 0x0
+
     invoke-super {p0}, Landroid/app/AlertDialog;->onStart()V
 
-    iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog;->mHandler:Landroid/os/Handler;
-
-    const/4 v1, -0x1
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-direct {p0, v2}, Lcom/android/server/am/BaseErrorDialog;->setEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/am/BaseErrorDialog;->mHandler:Landroid/os/Handler;
-
-    const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 

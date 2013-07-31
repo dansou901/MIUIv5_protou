@@ -85,10 +85,10 @@
 .end method
 
 .method private onConnected()V
-    .locals 6
+    .locals 7
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -189,7 +189,7 @@
 
     :cond_3
     :goto_1
-    invoke-static {v1, v0, v5}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
+    invoke-static {v1, v0, v6}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
@@ -203,6 +203,31 @@
     if-ne v2, v3, :cond_3
 
     const-string v0, "0"
+
+    invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    const-string v2, "BIP - DefaultBearerStateReceiver: onConnected start timer!!"
+
+    invoke-static {p0, v2}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
+
+    iget-object v3, p0, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
+
+    const/16 v4, 0xf
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/cat/BipProxy;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v3
+
+    const-wide/32 v4, 0xd6d8
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/internal/telephony/cat/BipProxy;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_1
 .end method
@@ -258,10 +283,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v4, :cond_8
-
-    iget-object v6, p0, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->mOngoingSetupMessage:Landroid/os/Message;
-
-    if-eqz v6, :cond_7
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/BipProxy$DefaultBearerStateReceiver;->mOngoingSetupMessage:Landroid/os/Message;
 

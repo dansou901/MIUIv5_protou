@@ -1,5 +1,5 @@
 .class Landroid/widget/Editor$SelectionEndHandleView;
-.super Landroid/widget/Editor$HandleView;
+.super Landroid/widget/Editor$SelectionHandleView;
 .source "Editor.java"
 
 
@@ -28,7 +28,7 @@
     .prologue
     iput-object p1, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/Editor$HandleView;-><init>(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {p0, p1, p2, p3}, Landroid/widget/Editor$SelectionHandleView;-><init>(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     const/4 v0, 0x2
 
@@ -125,7 +125,7 @@
     iget-object v2, p0, Landroid/widget/Editor$SelectionEndHandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mEasyUpHardDownTriggered:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$3800(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4300(Landroid/widget/Editor;)Z
 
     move-result v2
 

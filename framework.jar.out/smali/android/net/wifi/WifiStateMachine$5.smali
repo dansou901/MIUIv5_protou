@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1369
+    .line 1294
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 1372
+    .line 1297
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mConfig:Landroid/net/wifi/WifiConfiguration;
@@ -73,7 +73,7 @@
 
     iput-object v3, v2, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
-    .line 1373
+    .line 1298
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mConfig:Landroid/net/wifi/WifiConfiguration;
@@ -89,7 +89,7 @@
 
     if-nez v2, :cond_2
 
-    .line 1374
+    .line 1299
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -121,7 +121,7 @@
 
     move-result-object v0
 
-    .line 1375
+    .line 1300
     .local v0, randomssid:Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -133,7 +133,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 1376
+    .line 1301
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -144,7 +144,7 @@
 
     move-result-object v0
 
-    .line 1378
+    .line 1303
     :cond_0
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -177,20 +177,20 @@
 
     iput-object v3, v2, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
-    .line 1379
+    .line 1304
     const-string v2, "WifiStateMachine"
 
     const-string v3, ">>>>>>>>sky: start checkHtcCustomization<<<<<<"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1380
+    .line 1305
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #setter for: Landroid/net/wifi/WifiStateMachine;->mFirstCustomizeSSID_NAME:Z
     invoke-static {v2, v5}, Landroid/net/wifi/WifiStateMachine;->access$702(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 1381
+    .line 1306
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -203,14 +203,14 @@
     #calls: Landroid/net/wifi/WifiStateMachine;->checkSSIDCustomization(Landroid/content/Context;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$800(Landroid/net/wifi/WifiStateMachine;Landroid/content/Context;)V
 
-    .line 1382
+    .line 1307
     const-string v2, "WifiStateMachine"
 
     const-string v3, ">>>>>>>>sky: end checkHtcCustomization<<<<<<<<"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1383
+    .line 1308
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mContext:Landroid/content/Context;
@@ -239,13 +239,13 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
-    .line 1394
+    .line 1319
     .end local v0           #randomssid:Ljava/lang/String;
     :cond_1
     :goto_0
     return-void
 
-    .line 1384
+    .line 1309
     :cond_2
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -256,7 +256,7 @@
 
     if-ne v2, v5, :cond_1
 
-    .line 1385
+    .line 1310
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     const/4 v3, 0x0
@@ -264,7 +264,7 @@
     #setter for: Landroid/net/wifi/WifiStateMachine;->mFirstCustomizeSSID_IMEI:Z
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$902(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 1386
+    .line 1311
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mConfig:Landroid/net/wifi/WifiConfiguration;
@@ -278,7 +278,7 @@
 
     iget-object v1, v2, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
-    .line 1387
+    .line 1312
     .local v1, tempssid:Ljava/lang/String;
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -295,14 +295,14 @@
 
     iput-object v3, v2, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
-    .line 1388
+    .line 1313
     const-string v2, "WifiStateMachine"
 
     const-string v3, ">>>>>>>>sky: start checkHtcCustomization<<<<<<"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1389
+    .line 1314
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -315,14 +315,14 @@
     #calls: Landroid/net/wifi/WifiStateMachine;->checkSSIDCustomization(Landroid/content/Context;)V
     invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$800(Landroid/net/wifi/WifiStateMachine;Landroid/content/Context;)V
 
-    .line 1390
+    .line 1315
     const-string v2, "WifiStateMachine"
 
     const-string v3, ">>>>>>>>sky: end checkHtcCustomization<<<<<<<<"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1391
+    .line 1316
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mConfig:Landroid/net/wifi/WifiConfiguration;
@@ -371,7 +371,7 @@
 
     iput-object v3, v2, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
-    .line 1392
+    .line 1317
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$5;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mContext:Landroid/content/Context;

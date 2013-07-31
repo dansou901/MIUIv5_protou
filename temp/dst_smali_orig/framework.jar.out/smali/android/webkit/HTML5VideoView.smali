@@ -197,44 +197,6 @@
     return-void
 .end method
 
-.method private abandonAudioFocus()V
-    .locals 4
-
-    .prologue
-    iget-object v2, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
-
-    invoke-virtual {v2}, Landroid/webkit/HTML5VideoViewProxy;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const-string v3, "audio"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/AudioManager;
-
-    .local v0, audioManager:Landroid/media/AudioManager;
-    invoke-virtual {v0, p0}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
-
-    move-result v1
-
-    .local v1, result:I
-    const/4 v2, 0x1
-
-    if-eq v1, v2, :cond_0
-
-    const-string v2, "HTML5VideoView"
-
-    const-string v3, "abandonAudioFocus request not granted"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    return-void
-.end method
-
 .method static synthetic access$002(Landroid/webkit/HTML5VideoView;I)I
     .locals 0
     .parameter "x0"
@@ -1175,25 +1137,12 @@
     .prologue
     iget-object v0, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
-
-    invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy;->isMediaVisible()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/webkit/HTML5VideoView;->mProxy:Landroid/webkit/HTML5VideoViewProxy;
-
     invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy;->getWebView()Landroid/webkit/WebViewClassic;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->invalidate()V
 
-    :cond_0
     return-void
 .end method
 
@@ -1596,8 +1545,6 @@
     iput-object v3, p0, Landroid/webkit/HTML5VideoView;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
     iput-object v3, p0, Landroid/webkit/HTML5VideoView;->mTextureNames:[I
-
-    invoke-direct {p0}, Landroid/webkit/HTML5VideoView;->abandonAudioFocus()V
 
     :cond_1
     iput v2, p0, Landroid/webkit/HTML5VideoView;->mCurrentState:I

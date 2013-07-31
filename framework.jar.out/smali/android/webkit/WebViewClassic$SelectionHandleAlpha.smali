@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 5522
+    .line 6264
     iput-object p1, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5523
+    .line 6265
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->mAlpha:I
@@ -45,7 +45,7 @@
     .parameter "x1"
 
     .prologue
-    .line 5522
+    .line 6264
     invoke-direct {p0, p1}, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;-><init>(Landroid/webkit/WebViewClassic;)V
 
     return-void
@@ -57,7 +57,7 @@
     .locals 1
 
     .prologue
-    .line 5536
+    .line 6278
     iget v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->mAlpha:I
 
     return v0
@@ -68,55 +68,55 @@
     .parameter "alpha"
 
     .prologue
-    .line 5525
+    .line 6267
     iput p1, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->mAlpha:I
 
-    .line 5526
+    .line 6268
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1600(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 5527
+    .line 6269
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1600(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 5528
+    .line 6270
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleLeft:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2800(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2600(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 5529
+    .line 6271
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleRight:Landroid/graphics/drawable/Drawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2900(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2700(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
 
-    .line 5531
+    .line 6273
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SelectionHandleAlpha;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->invalidate()V
 
-    .line 5533
+    .line 6275
     :cond_0
     return-void
 .end method

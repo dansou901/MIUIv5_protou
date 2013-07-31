@@ -30,15 +30,15 @@
     .parameter "intent"
 
     .prologue
-    .line 5969
+    .line 5971
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$LaunchActivityRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 5970
+    .line 5972
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$LaunchActivityRunnable;->mIntent:Landroid/content/Intent;
 
-    .line 5971
+    .line 5973
     const-string v0, "WindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,7 +67,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5972
+    .line 5974
     return-void
 .end method
 
@@ -77,7 +77,7 @@
     .locals 3
 
     .prologue
-    .line 5976
+    .line 5978
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$LaunchActivityRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -89,15 +89,15 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 5981
+    .line 5983
     :goto_0
     return-void
 
-    .line 5977
+    .line 5979
     :catch_0
     move-exception v0
 
-    .line 5978
+    .line 5980
     .local v0, ex:Landroid/content/ActivityNotFoundException;
     const-string v1, "WindowManager"
 

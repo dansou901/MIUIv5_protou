@@ -16,13 +16,7 @@
 .method public abstract getWebSelectionType()I
 .end method
 
-.method public abstract isEnableMyanmar3()Z
-.end method
-
 .method public abstract isEnableQuickSelection()Z
-.end method
-
-.method public abstract setEnableMyanmar3(Z)V
 .end method
 
 .method public abstract setEnableQuickSelection(Z)V

@@ -18,8 +18,6 @@
 
 .field public static final DF_ISIM_ACTIVE:Ljava/lang/String; = "7FFF"
 
-.field public static final DF_O2:Ljava/lang/String; = "7F43"
-
 .field public static final DF_PHONEBOOK:Ljava/lang/String; = "5F3A"
 
 .field public static final DF_TELECOM:Ljava/lang/String; = "7F10"

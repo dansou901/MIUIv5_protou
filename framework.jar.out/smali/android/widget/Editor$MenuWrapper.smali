@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5320
+    .line 6173
     iput-object p1, p0, Landroid/widget/Editor$MenuWrapper;->this$0:Landroid/widget/Editor;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 5320
+    .line 6173
     invoke-direct {p0, p1}, Landroid/widget/Editor$MenuWrapper;-><init>(Landroid/widget/Editor;)V
 
     return-void
@@ -54,14 +54,14 @@
     .parameter "v"
 
     .prologue
-    .line 5322
+    .line 6175
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 5323
+    .line 6176
     .local v0, id:Ljava/lang/Integer;
     iget-object v1, p0, Landroid/widget/Editor$MenuWrapper;->this$0:Landroid/widget/Editor;
 
@@ -76,6 +76,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
-    .line 5324
+    .line 6177
     return-void
 .end method

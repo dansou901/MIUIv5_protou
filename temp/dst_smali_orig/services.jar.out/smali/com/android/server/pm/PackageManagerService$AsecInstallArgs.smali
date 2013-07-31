@@ -214,7 +214,7 @@
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->isAsecExternal(Ljava/lang/String;)Z
-    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Z
+    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Z
 
     move-result v2
 
@@ -258,7 +258,7 @@
     goto :goto_0
 .end method
 
-.method static synthetic access$4500(Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;)Z
+.method static synthetic access$4300(Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;)Z
     .locals 1
     .parameter "x0"
 
@@ -530,7 +530,7 @@
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getEncryptKey()Ljava/lang/String;
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -878,7 +878,7 @@
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getEncryptKey()Ljava/lang/String;
-    invoke-static {v4}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -966,7 +966,7 @@
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getEncryptKey()Ljava/lang/String;
-    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1001,7 +1001,7 @@
     const-string v3, "/pkg.apk"
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getNextCodePath(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {p3, p2, v3}, Lcom/android/server/pm/PackageManagerService;->access$3500(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, p2, v3}, Lcom/android/server/pm/PackageManagerService;->access$3400(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1220,7 +1220,7 @@
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$AsecInstallArgs;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getEncryptKey()Ljava/lang/String;
-    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;)Ljava/lang/String;
 
     move-result-object v3
 

@@ -102,24 +102,17 @@
 
     .local v1, isLocked:Z
     :goto_1
-    iget-object v4, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    if-nez v1, :cond_2
 
-    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mPreAdbEnabledByUsb:Z
-    invoke-static {v4}, Lcom/android/server/usb/UsbDeviceManager;->access$200(Lcom/android/server/usb/UsbDeviceManager;)Z
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
-
-    move-result-object v2
+    move-result-object v3
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "[USBNET] AdbSettingsObserver:skip- Switch PreAdb by usb:ADB_ENABLED="
+    const-string v5, "[USBNET] AdbSettingsObserver: Settings.Secure.ADB_ENABLED="
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -133,12 +126,16 @@
 
     move-result-object v4
 
-    invoke-static {v2, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
+    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
-    #setter for: Lcom/android/server/usb/UsbDeviceManager;->mPreAdbEnabledByUsb:Z
-    invoke-static {v2, v3}, Lcom/android/server/usb/UsbDeviceManager;->access$202(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2, v0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
     :goto_2
     return-void
@@ -158,76 +155,7 @@
 
     .restart local v1       #isLocked:Z
     :cond_2
-    if-eqz v1, :cond_3
-
-    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
-
-    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabled:Z
-    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->access$400(Lcom/android/server/usb/UsbDeviceManager;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "[USBNET] AdbSettingsObserver: Disable adb for isKeyguardSecure()"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
-
-    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2, v0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
-
-    goto :goto_2
-
-    :cond_3
-    if-nez v1, :cond_4
-
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "[USBNET] AdbSettingsObserver: ADB_ENABLED="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$AdbSettingsObserver;->this$0:Lcom/android/server/usb/UsbDeviceManager;
-
-    #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v3}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2, v0}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
-
-    goto :goto_2
-
-    :cond_4
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
     move-result-object v2
 

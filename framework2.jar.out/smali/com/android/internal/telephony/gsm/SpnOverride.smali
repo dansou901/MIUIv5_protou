@@ -81,7 +81,7 @@
     invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 72
-    const-string v7, "spnOverrides"
+    const-string/jumbo v7, "spnOverrides"
 
     invoke-static {v4, v7}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
@@ -96,7 +96,7 @@
 
     .line 78
     .local v2, name:Ljava/lang/String;
-    const-string v7, "spnOverride"
+    const-string/jumbo v7, "spnOverride"
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_1
@@ -179,7 +179,7 @@
     .local v3, numeric:Ljava/lang/String;
     const/4 v7, 0x0
 
-    const-string v8, "spn"
+    const-string/jumbo v8, "spn"
 
     invoke-interface {v4, v7, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

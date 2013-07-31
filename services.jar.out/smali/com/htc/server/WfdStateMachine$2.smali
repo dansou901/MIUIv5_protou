@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2588
+    .line 2554
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$2;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,21 +38,21 @@
     .locals 1
 
     .prologue
-    .line 2592
+    .line 2558
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$2;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-eqz v0, :cond_0
 
-    .line 2593
+    .line 2559
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$2;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-static {v0}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->startDongleScan(Landroid/net/wifi/WifiManager;)Z
 
-    .line 2595
+    .line 2561
     :cond_0
     return-void
 .end method

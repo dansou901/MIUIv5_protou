@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/TelephonyCapabilities.smali	2013-07-12 21:42:57.861834549 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/TelephonyCapabilities.smali	2013-07-12 21:40:46.208490360 +0000
+*** ./smali/com/android/internal/telephony/TelephonyCapabilities.smali	2013-07-31 22:22:14.444065811 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/TelephonyCapabilities.smali	2013-07-31 22:21:14.830727502 +0000
 ***************
 *** 8,15 ****
   

@@ -2873,7 +2873,7 @@
 
     move-result-object v2
 
-    const-string v3, "sprint_domestic_data_roaming"
+    const-string/jumbo v3, "sprint_domestic_data_roaming"
 
     invoke-static {v3}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -2892,7 +2892,7 @@
 
     move-result-object v2
 
-    const-string v3, "sprint_international_data_roaming"
+    const-string/jumbo v3, "sprint_international_data_roaming"
 
     invoke-static {v3}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -2911,7 +2911,7 @@
 
     move-result-object v2
 
-    const-string v3, "sprint_domestic_data_guard"
+    const-string/jumbo v3, "sprint_domestic_data_guard"
 
     invoke-static {v3}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -2930,7 +2930,7 @@
 
     move-result-object v2
 
-    const-string v3, "sprint_international_data_guard"
+    const-string/jumbo v3, "sprint_international_data_guard"
 
     invoke-static {v3}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -4134,7 +4134,7 @@
 
     .line 1662
     :cond_d
-    const-string v5, "updateStatusAndConnection.Notify DRG"
+    const-string/jumbo v5, "updateStatusAndConnection.Notify DRG"
 
     invoke-direct {p0, v5}, Lcom/android/internal/telephony/cdma/HtcDataRoamGuard;->log(Ljava/lang/String;)V
 
@@ -4223,7 +4223,7 @@
     .line 1684
     .restart local v4       #requestConnect:Z
     :cond_11
-    const-string v5, "updateStatusAndConnection: do nothing for VZW,..."
+    const-string/jumbo v5, "updateStatusAndConnection: do nothing for VZW,..."
 
     invoke-direct {p0, v5}, Lcom/android/internal/telephony/cdma/HtcDataRoamGuard;->log(Ljava/lang/String;)V
 

@@ -67,7 +67,7 @@
 
     iput-object v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
 
-    invoke-static {}, Landroid/media/AudioService;->access$12204()I
+    invoke-static {}, Landroid/media/AudioService;->access$11204()I
 
     move-result v0
 
@@ -138,7 +138,7 @@
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
     #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
-    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$12300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$11300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -148,7 +148,7 @@
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
     #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
-    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$12300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$11300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
 

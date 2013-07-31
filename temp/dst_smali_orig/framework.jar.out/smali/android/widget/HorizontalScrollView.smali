@@ -10,8 +10,6 @@
 
 .field private static final MAX_SCROLL_FACTOR:F = 0.5f
 
-.field private static final TAG:Ljava/lang/String; = "HorizontalScrollView"
-
 
 # instance fields
 .field private mActivePointerId:I
@@ -2769,39 +2767,6 @@
     move-result v10
 
     .local v10, pointerIndex:I
-    if-ne v10, v2, :cond_2
-
-    const-string v0, "HorizontalScrollView"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Invalid pointerId="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, " in onInterceptTouchEvent"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :cond_2
     invoke-virtual {p1, v10}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v1
@@ -2864,7 +2829,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     iput-boolean v3, p0, Landroid/widget/HorizontalScrollView;->mIsBeingDragged:Z
 
@@ -2872,7 +2837,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     iput v11, p0, Landroid/widget/HorizontalScrollView;->mLastMotionX:I
 
     invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->getPointerId(I)I
@@ -2893,14 +2858,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     move v3, v0
 
-    :cond_4
+    :cond_3
     iput-boolean v3, p0, Landroid/widget/HorizontalScrollView;->mIsBeingDragged:Z
 
-    goto/16 :goto_1
+    goto :goto_1
 
     .end local v11           #x:I
     :pswitch_3
@@ -2930,7 +2895,7 @@
 
     invoke-virtual {p0}, Landroid/widget/HorizontalScrollView;->postInvalidateOnAnimation()V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :pswitch_4
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
@@ -2973,6 +2938,8 @@
     iput v0, p0, Landroid/widget/HorizontalScrollView;->mLastMotionX:I
 
     goto/16 :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -3440,47 +3407,6 @@
     move-result v17
 
     .local v17, activePointerIndex:I
-    const/4 v3, -0x1
-
-    move/from16 v0, v17
-
-    if-ne v0, v3, :cond_5
-
-    const-string v3, "HorizontalScrollView"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Invalid pointerId="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-object/from16 v0, p0
-
-    iget v6, v0, Landroid/widget/HorizontalScrollView;->mActivePointerId:I
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, " in onTouchEvent"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_5
     move-object/from16 v0, p1
 
     move/from16 v1, v17
@@ -3505,7 +3431,7 @@
 
     iget-boolean v3, v0, Landroid/widget/HorizontalScrollView;->mIsBeingDragged:Z
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_6
 
     invoke-static {v4}, Ljava/lang/Math;->abs(I)I
 
@@ -3515,14 +3441,14 @@
 
     iget v5, v0, Landroid/widget/HorizontalScrollView;->mTouchSlop:I
 
-    if-le v3, v5, :cond_7
+    if-le v3, v5, :cond_6
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/HorizontalScrollView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v23
 
     .restart local v23       #parent:Landroid/view/ViewParent;
-    if-eqz v23, :cond_6
+    if-eqz v23, :cond_5
 
     const/4 v3, 0x1
 
@@ -3530,14 +3456,14 @@
 
     invoke-interface {v0, v3}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    :cond_6
+    :cond_5
     const/4 v3, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v3, v0, Landroid/widget/HorizontalScrollView;->mIsBeingDragged:Z
 
-    if-lez v4, :cond_c
+    if-lez v4, :cond_b
 
     move-object/from16 v0, p0
 
@@ -3546,7 +3472,7 @@
     sub-int/2addr v4, v3
 
     .end local v23           #parent:Landroid/view/ViewParent;
-    :cond_7
+    :cond_6
     :goto_3
     move-object/from16 v0, p0
 
@@ -3584,17 +3510,17 @@
     move-result v22
 
     .local v22, overscrollMode:I
-    if-eqz v22, :cond_8
+    if-eqz v22, :cond_7
 
     const/4 v3, 0x1
 
     move/from16 v0, v22
 
-    if-ne v0, v3, :cond_d
+    if-ne v0, v3, :cond_c
 
-    if-lez v8, :cond_d
+    if-lez v8, :cond_c
 
-    :cond_8
+    :cond_7
     const/16 v18, 0x1
 
     .local v18, canOverscroll:Z
@@ -3623,7 +3549,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     move-object/from16 v0, p0
 
@@ -3631,7 +3557,7 @@
 
     invoke-virtual {v3}, Landroid/view/VelocityTracker;->clear()V
 
-    :cond_9
+    :cond_8
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/view/View;->mScrollX:I
@@ -3653,7 +3579,7 @@
     add-int v24, v20, v4
 
     .local v24, pulledToX:I
-    if-gez v24, :cond_e
+    if-gez v24, :cond_d
 
     move-object/from16 v0, p0
 
@@ -3679,7 +3605,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3687,7 +3613,7 @@
 
     invoke-virtual {v3}, Landroid/widget/EdgeEffect;->onRelease()V
 
-    :cond_a
+    :cond_9
     :goto_5
     move-object/from16 v0, p0
 
@@ -3703,7 +3629,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_a
 
     move-object/from16 v0, p0
 
@@ -3715,7 +3641,7 @@
 
     if-nez v3, :cond_0
 
-    :cond_b
+    :cond_a
     invoke-virtual/range {p0 .. p0}, Landroid/widget/HorizontalScrollView;->postInvalidateOnAnimation()V
 
     goto/16 :goto_0
@@ -3727,7 +3653,7 @@
     .end local v22           #overscrollMode:I
     .end local v24           #pulledToX:I
     .restart local v23       #parent:Landroid/view/ViewParent;
-    :cond_c
+    :cond_b
     move-object/from16 v0, p0
 
     iget v3, v0, Landroid/widget/HorizontalScrollView;->mTouchSlop:I
@@ -3741,17 +3667,17 @@
     .restart local v20       #oldX:I
     .restart local v21       #oldY:I
     .restart local v22       #overscrollMode:I
-    :cond_d
+    :cond_c
     const/16 v18, 0x0
 
     goto :goto_4
 
     .restart local v18       #canOverscroll:Z
     .restart local v24       #pulledToX:I
-    :cond_e
+    :cond_d
     move/from16 v0, v24
 
-    if-le v0, v8, :cond_a
+    if-le v0, v8, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3777,7 +3703,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_9
 
     move-object/from16 v0, p0
 
@@ -3841,7 +3767,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_f
+    if-lez v3, :cond_e
 
     invoke-static/range {v19 .. v19}, Ljava/lang/Math;->abs(I)I
 
@@ -3851,7 +3777,7 @@
 
     iget v5, v0, Landroid/widget/HorizontalScrollView;->mMinimumVelocity:I
 
-    if-le v3, v5, :cond_10
+    if-le v3, v5, :cond_f
 
     move/from16 v0, v19
 
@@ -3861,7 +3787,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/HorizontalScrollView;->fling(I)V
 
-    :cond_f
+    :cond_e
     :goto_6
     const/4 v3, -0x1
 
@@ -3897,7 +3823,7 @@
 
     goto/16 :goto_0
 
-    :cond_10
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v9, v0, Landroid/widget/HorizontalScrollView;->mScroller:Landroid/widget/OverScroller;
@@ -3924,7 +3850,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_e
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/HorizontalScrollView;->postInvalidateOnAnimation()V
 
@@ -3971,11 +3897,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_11
+    if-eqz v3, :cond_10
 
     invoke-virtual/range {p0 .. p0}, Landroid/widget/HorizontalScrollView;->postInvalidateOnAnimation()V
 
-    :cond_11
+    :cond_10
     const/4 v3, -0x1
 
     move-object/from16 v0, p0

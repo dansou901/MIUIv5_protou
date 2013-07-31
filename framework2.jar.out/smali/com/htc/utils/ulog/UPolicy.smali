@@ -98,7 +98,7 @@
     sput-boolean v0, Lcom/htc/utils/ulog/UPolicy;->IS_LESS_THAN_SENSE_40:Z
 
     .line 52
-    const-string v0, "ulog.enable_logcat"
+    const-string/jumbo v0, "ulog.enable_logcat"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -599,7 +599,7 @@
     .line 399
     sget-object v2, Lcom/htc/utils/ulog/UPolicy;->sPolicy:Landroid/os/Bundle;
 
-    const-string v3, "tellhtc_uimode"
+    const-string/jumbo v3, "tellhtc_uimode"
 
     invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -757,7 +757,7 @@
     :cond_3
     sget-object v2, Lcom/htc/utils/ulog/UPolicy;->sPolicy:Landroid/os/Bundle;
 
-    const-string v3, "tellhtc_uimode"
+    const-string/jumbo v3, "tellhtc_uimode"
 
     invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -902,7 +902,7 @@
     if-nez v2, :cond_0
 
     .line 333
-    const-string v2, "userbehavior"
+    const-string/jumbo v2, "userbehavior"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1516,7 +1516,7 @@
     .line 101
     iget-object v2, p0, Lcom/htc/utils/ulog/UPolicy;->mAllPolicies:Landroid/os/Bundle;
 
-    const-string v3, "tellhtc_uimode"
+    const-string/jumbo v3, "tellhtc_uimode"
 
     invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1653,7 +1653,7 @@
     :cond_3
     iget-object v2, p0, Lcom/htc/utils/ulog/UPolicy;->mAllPolicies:Landroid/os/Bundle;
 
-    const-string v3, "tellhtc_uimode"
+    const-string/jumbo v3, "tellhtc_uimode"
 
     invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

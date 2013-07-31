@@ -537,10 +537,10 @@
 
     if-nez v13, :cond_0
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     :goto_0
-    return-object v11
+    return-object v13
 
     :cond_0
     const/16 v13, 0x1ff
@@ -792,6 +792,11 @@
 
     .end local v10           #pw:Ljava/io/PrintWriter;
     .local v11, pw:Ljava/io/PrintWriter;
+    move-object v10, v11
+
+    .end local v11           #pw:Ljava/io/PrintWriter;
+    .restart local v10       #pw:Ljava/io/PrintWriter;
+    :goto_2
     new-instance v1, Ljava/text/SimpleDateFormat;
 
     .end local v1           #formatter:Ljava/text/SimpleDateFormat;
@@ -828,7 +833,7 @@
 
     move-result-object v13
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-instance v13, Ljava/lang/StringBuilder;
 
@@ -852,16 +857,14 @@
 
     move-result-object v13
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const-string v13, "List of all cursors:\n"
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    move-object v10, v11
+    move-object v13, v10
 
-    .end local v11           #pw:Ljava/io/PrintWriter;
-    .restart local v10       #pw:Ljava/io/PrintWriter;
     goto/16 :goto_0
 
     .end local v12           #ret:I
@@ -891,7 +894,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_0
 
@@ -923,9 +926,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v11, 0x0
-
-    goto/16 :goto_0
+    goto :goto_2
 .end method
 
 .method private static getProcessName(I)Ljava/lang/String;

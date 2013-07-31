@@ -21,8 +21,6 @@
 
 .field public removePending:Z
 
-.field removed:Z
-
 .field public stableCount:I
 
 .field public unstableCount:I
@@ -37,21 +35,21 @@
     .parameter "uCount"
 
     .prologue
-    .line 3415
+    .line 3414
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3416
+    .line 3415
     iput-object p1, p0, Landroid/app/ActivityThread$ProviderRefCount;->holder:Landroid/app/IActivityManager$ContentProviderHolder;
 
-    .line 3417
+    .line 3416
     iput-object p2, p0, Landroid/app/ActivityThread$ProviderRefCount;->client:Landroid/app/ActivityThread$ProviderClientRecord;
 
-    .line 3418
+    .line 3417
     iput p3, p0, Landroid/app/ActivityThread$ProviderRefCount;->stableCount:I
 
-    .line 3419
+    .line 3418
     iput p4, p0, Landroid/app/ActivityThread$ProviderRefCount;->unstableCount:I
 
-    .line 3420
+    .line 3419
     return-void
 .end method

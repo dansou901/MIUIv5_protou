@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/PackageManagerService$PackageHandler.smali	2013-07-12 21:42:42.935166652 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/PackageManagerService$PackageHandler.smali	2013-07-12 21:40:35.201822786 +0000
+*** ./smali/com/android/server/pm/PackageManagerService$PackageHandler.smali	2013-07-31 22:22:04.164064953 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/PackageManagerService$PackageHandler.smali	2013-07-31 22:21:08.334060293 +0000
 ***************
 *** 1716,1727 ****
   .method public handleMessage(Landroid/os/Message;)V

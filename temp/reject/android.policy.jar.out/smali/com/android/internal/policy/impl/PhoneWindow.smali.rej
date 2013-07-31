@@ -1,34 +1,121 @@
-*** PhoneWindow.smali	2013-07-12 21:44:51.738510606 +0000
---- PhoneWindow.smali	2013-07-12 21:42:28.705165478 +0000
+*** PhoneWindow.smali	2013-07-31 22:21:57.357397719 +0000
+--- PhoneWindow.smali	2013-07-31 22:23:27.850738605 +0000
 ***************
-*** 1127,1132 ****
+*** 1126,1135 ****
+      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
+  
+      :cond_7
+-     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
+- 
+-     invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
+- 
+      const/4 v2, 0x0
+  
+      .local v2, splitActionBar:Z
+--- 1125,1130 ----
       invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
   
       :cond_7
       const/4 v2, 0x0
   
       .local v2, splitActionBar:Z
---- 1128,1137 ----
-      invoke-virtual {v6}, Lcom/android/internal/widget/ActionBarView;->initIndeterminateProgress()V
-  
-      :cond_7
-+     iget-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
-+ 
-+     invoke-static {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleStartingWindow(Lcom/android/internal/policy/impl/PhoneWindow;Lcom/android/internal/widget/ActionBarView;)V
-+ 
-      const/4 v2, 0x0
-  
-      .local v2, splitActionBar:Z
 ***************
-*** 2999,3005 ****
+*** 1342,1350 ****
+      .locals 18
+      .parameter "st"
+      .parameter "event"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
-      if-eqz v19, :cond_19
+      .prologue
+      move-object/from16 v0, p1
+--- 1337,1342 ----
+      .locals 18
+      .parameter "st"
+      .parameter "event"
   
-!     const/16 v19, -0x2
+      .prologue
+      move-object/from16 v0, p1
+***************
+*** 1768,1774 ****
   
-      const/16 v20, -0x2
+      iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->createdPanelView:Landroid/view/View;
   
---- 3043,3055 ----
+!     if-eqz v4, :cond_miui_0
+  
+      move-object/from16 v0, p1
+  
+--- 1754,1760 ----
+  
+      iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->createdPanelView:Landroid/view/View;
+  
+!     if-eqz v4, :cond_a
+  
+      move-object/from16 v0, p1
+  
+***************
+*** 1800,1832 ****
+      iput v4, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
+  
+      goto :goto_6
+- 
+-     :cond_miui_0
+-     move-object/from16 v0, p1
+- 
+-     iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+- 
+-     invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+- 
+-     move-result-object v2
+- 
+-     .restart local v2       #lp:Landroid/view/ViewGroup$LayoutParams;
+-     if-eqz v2, :cond_miui_1
+- 
+-     iget v3, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+- 
+-     :cond_miui_1
+-     move-object/from16 v0, p1
+- 
+-     iget-object v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->decorView:Lcom/android/internal/policy/impl/PhoneWindow$DecorView;
+- 
+-     invoke-virtual {v4}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->getChildCount()I
+- 
+-     move-result v4
+- 
+-     if-nez v4, :cond_a
+- 
+-     goto :goto_0
+  .end method
+  
+  .method private openPanelsAfterRestore()V
+--- 1786,1791 ----
+      iput v4, v2, Landroid/view/WindowManager$LayoutParams;->gravity:I
+  
+      goto :goto_6
+  .end method
+  
+  .method private openPanelsAfterRestore()V
+***************
+*** 2949,2957 ****
+  .method protected generateLayout(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;)Landroid/view/ViewGroup;
+      .locals 22
+      .parameter "decor"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getWindowStyle()Landroid/content/res/TypedArray;
+--- 2908,2913 ----
+  .method protected generateLayout(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;)Landroid/view/ViewGroup;
+      .locals 22
+      .parameter "decor"
+  
+      .prologue
+      invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getWindowStyle()Landroid/content/res/TypedArray;
+***************
+*** 2996,3008 ****
   
       if-eqz v19, :cond_19
   
@@ -42,23 +129,16 @@
   
       const/16 v20, -0x2
   
+--- 2952,2958 ----
+  
+      if-eqz v19, :cond_19
+  
+!     const/16 v19, -0x2
+  
+      const/16 v20, -0x2
+  
 ***************
-*** 4125,4138 ****
-  
-      if-eqz v19, :cond_26
-  
-!     const v10, 0x1090098
-  
-      .restart local v10       #layoutResource:I
-      goto/16 :goto_8
-  
-      .end local v10           #layoutResource:I
-      :cond_26
-!     const v10, 0x1090097
-  
-      .restart local v10       #layoutResource:I
-      goto/16 :goto_8
---- 4175,4200 ----
+*** 4128,4153 ****
   
       if-eqz v19, :cond_26
   
@@ -82,6 +162,21 @@
 !     invoke-static/range {v19 .. v19}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->getActionBarResourceId(Landroid/content/Context;)I
 ! 
 !     move-result v10
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+--- 4078,4091 ----
+  
+      if-eqz v19, :cond_26
+  
+!     const v10, 0x1090098
+  
+      .restart local v10       #layoutResource:I
+      goto/16 :goto_8
+  
+      .end local v10           #layoutResource:I
+      :cond_26
+!     const v10, 0x1090097
   
       .restart local v10       #layoutResource:I
       goto/16 :goto_8

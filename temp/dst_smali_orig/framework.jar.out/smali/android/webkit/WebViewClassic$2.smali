@@ -49,7 +49,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$2;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mResumeMsg:Landroid/os/Message;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2400(Landroid/webkit/WebViewClassic;)Landroid/os/Message;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2000(Landroid/webkit/WebViewClassic;)Landroid/os/Message;
 
     move-result-object v0
 
@@ -64,7 +64,7 @@
     const/4 v1, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mResumeMsg:Landroid/os/Message;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2402(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2002(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
 
     :cond_0
     return-void

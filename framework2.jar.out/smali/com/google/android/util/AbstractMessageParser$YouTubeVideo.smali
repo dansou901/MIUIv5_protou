@@ -104,7 +104,7 @@
 
     move-result-object v1
 
-    const-string v2, "youtube.com/watch?"
+    const-string/jumbo v2, "youtube.com/watch?"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -114,7 +114,7 @@
 
     move-result-object v1
 
-    const-string v2, "v="
+    const-string/jumbo v2, "v="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -231,7 +231,7 @@
 
     move-result-object v0
 
-    const-string v1, "v="
+    const-string/jumbo v1, "v="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -1128,6 +1128,131 @@
     goto/16 :goto_1
 .end method
 
+.method public static declared-synchronized getCDMANextMessageId()I
+    .locals 8
+
+    .prologue
+    const-class v5, Lcom/android/internal/telephony/cdma/SmsMessage;
+
+    monitor-enter v5
+
+    const/4 v2, 0x1
+
+    .local v2, msgId:I
+    :try_start_0
+    invoke-static {}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->getPhoneContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    .local v0, context:Landroid/content/Context;
+    if-eqz v0, :cond_0
+
+    const-string v4, "cdma_msg_id"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v4, v6}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v3
+
+    .local v3, pref:Landroid/content/SharedPreferences;
+    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v1
+
+    .local v1, editor:Landroid/content/SharedPreferences$Editor;
+    const-string v4, "msg_id"
+
+    const/4 v6, 0x1
+
+    invoke-interface {v3, v4, v6}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string v4, "msg_id"
+
+    const v6, 0xffff
+
+    rem-int v6, v2, v6
+
+    add-int/lit8 v6, v6, 0x1
+
+    invoke-interface {v1, v4, v6}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+    const-string v4, "Jerry"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "getSharedPreference msgId >"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .end local v1           #editor:Landroid/content/SharedPreferences$Editor;
+    .end local v3           #pref:Landroid/content/SharedPreferences;
+    :goto_0
+    monitor-exit v5
+
+    return v2
+
+    :cond_0
+    :try_start_1
+    invoke-static {}, Lcom/android/internal/telephony/cdma/SmsMessage;->getNextMessageId()I
+
+    move-result v2
+
+    const-string v4, "Jerry"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "getSystemPreference msgId >"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    .end local v0           #context:Landroid/content/Context;
+    :catchall_0
+    move-exception v4
+
+    monitor-exit v5
+
+    throw v4
+.end method
+
 .method public static getDeliverPdu(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/text/format/Time;)Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
     .locals 1
     .parameter "scAddress"
@@ -3419,10 +3544,15 @@
 
     iput v10, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageType:I
 
-    move/from16 v0, p7
+    if-nez p7, :cond_4
 
-    iput v0, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
+    invoke-static {}, Lcom/android/internal/telephony/cdma/SmsMessage;->getCDMANextMessageId()I
 
+    move-result v10
+
+    iput v10, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
+
+    :goto_1
     move/from16 v0, p3
 
     iput-boolean v0, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->deliveryAckReq:Z
@@ -3466,13 +3596,13 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_5
 
     const/4 v10, 0x0
 
     iput-boolean v10, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
 
-    :goto_1
+    :goto_2
     const-wide/16 v10, 0x0
 
     cmp-long v10, p1, v10
@@ -3568,7 +3698,7 @@
     invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_3
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6
 
     const/4 v8, 0x0
 
@@ -3576,6 +3706,13 @@
 
     .end local v4           #encodedBearerData:[B
     :cond_4
+    move/from16 v0, p7
+
+    iput v0, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
+
+    goto/16 :goto_1
+
+    :cond_5
     const/4 v10, 0x1
 
     iput-boolean v10, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
@@ -3584,18 +3721,18 @@
 
     iput v0, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->priority:I
 
-    goto :goto_1
+    goto :goto_2
 
     .restart local v4       #encodedBearerData:[B
-    :cond_5
+    :cond_6
     iget-boolean v10, v2, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_7
 
     const/16 v9, 0x1005
 
     .local v9, teleservice:I
-    :goto_2
+    :goto_3
     new-instance v5, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;
 
     invoke-direct {v5}, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;-><init>()V
@@ -3745,10 +3882,10 @@
     .end local v5           #envelope:Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;
     .end local v6           #ex:Ljava/io/IOException;
     .end local v9           #teleservice:I
-    :cond_6
+    :cond_7
     const/16 v9, 0x1002
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 .end method
 
 .method private static privateGetSubmitPdu(Ljava/lang/String;ZLcom/android/internal/telephony/cdma/sms/UserData;ILjava/lang/String;)Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
@@ -3837,7 +3974,7 @@
 .end method
 
 .method private static privateGetSubmitPdu(Ljava/lang/String;ZLcom/android/internal/telephony/cdma/sms/UserData;ILjava/lang/String;JI)Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
-    .locals 21
+    .locals 20
     .parameter "destAddrStr"
     .parameter "statusReportRequested"
     .parameter "userData"
@@ -3852,370 +3989,370 @@
     .local v3, bNBPCD:Z
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v18
+    move-result-object v17
 
-    invoke-virtual/range {v18 .. v18}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+    invoke-virtual/range {v17 .. v17}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
-    move-result v18
+    move-result v17
 
-    const/16 v19, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_9
-
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v19, 0xa8
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_9
 
-    const-string v18, "ril.cdmaphoneapp.nbpcd.support"
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v19, 0x0
+    const/16 v18, 0xa8
 
-    invoke-static/range {v18 .. v19}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_9
+
+    const-string v17, "ril.cdmaphoneapp.nbpcd.support"
+
+    const/16 v18, 0x0
+
+    invoke-static/range {v17 .. v18}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v3
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "Query NBPCD state: "
+    const-string v19, "Query NBPCD state: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
-    sget-boolean v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+    sget-boolean v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
-    const/16 v19, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_1
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "will call NBPCD: "
+    const-string v19, "will call NBPCD: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    const-string v20, " NBPCD state: "
+    const-string v19, " NBPCD state: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
     const/4 v4, 0x0
 
     .local v4, bRemovePlus:Z
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     if-ne v0, v3, :cond_5
 
-    sget-boolean v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+    sget-boolean v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
-    const/16 v19, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_2
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "before To NBPCD: "
+    const-string v19, "before To NBPCD: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     invoke-static/range {p0 .. p0}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->toNBPCDAddress(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v13
 
-    .local v14, outAddrStr:Ljava/lang/String;
+    .local v13, outAddrStr:Ljava/lang/String;
     move-object/from16 v0, p0
 
-    if-eq v14, v0, :cond_4
+    if-eq v13, v0, :cond_4
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v18
+    move-result-object v17
 
-    invoke-virtual/range {v18 .. v18}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+    invoke-virtual/range {v17 .. v17}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
-    move-result v18
+    move-result v17
 
-    const/16 v19, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_3
 
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v19, 0xa8
+    const/16 v18, 0xa8
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_3
 
     const/4 v4, 0x1
 
     :cond_3
-    move-object/from16 p0, v14
+    move-object/from16 p0, v13
 
     :cond_4
-    sget-boolean v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+    sget-boolean v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
-    const/16 v19, 0x1
+    const/16 v18, 0x1
 
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_5
-
-    const-string v18, "CDMA"
-
-    new-instance v19, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v20, "after To NBPCD: "
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    move-object/from16 v0, v19
-
-    move-object/from16 v1, p0
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .end local v14           #outAddrStr:Ljava/lang/String;
-    :cond_5
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v19, 0x1
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_b
-
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
-
-    const/16 v19, 0x2
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_b
-
-    const/4 v13, 0x1
-
-    .local v13, isAsiaChs:Z
-    :goto_1
-    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isAPTG()Z
-
-    move-result v18
-
-    if-nez v18, :cond_6
-
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v19, 0xd8
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_6
-
-    if-eqz v13, :cond_7
-
-    :cond_6
-    invoke-static/range {p0 .. p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v18
-
-    if-nez v18, :cond_7
-
-    const/16 v18, 0x2b
-
-    move-object/from16 v0, p0
+    move/from16 v0, v17
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+    if-ne v0, v1, :cond_5
 
-    move-result v18
-
-    if-nez v18, :cond_7
-
-    const/4 v4, 0x1
-
-    :cond_7
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v19, 0x51
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_8
-
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
-
-    move-result v18
-
-    const/16 v19, 0x1
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-le v0, v1, :cond_8
-
-    const-string v18, "+"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_8
+    const-string v17, "CDMA"
 
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "010"
+    const-string v19, "after To NBPCD: "
 
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
-    const/16 v19, 0x1
+    move-object/from16 v0, v18
 
-    move-object/from16 v0, p0
+    move-object/from16 v1, p0
 
-    move/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v18
 
     invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .end local v13           #outAddrStr:Ljava/lang/String;
+    :cond_5
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_b
+
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
+
+    const/16 v18, 0x2
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_b
+
+    const/4 v12, 0x1
+
+    .local v12, isAsiaChs:Z
+    :goto_1
+    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isAPTG()Z
+
+    move-result v17
+
+    if-nez v17, :cond_6
+
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v18, 0xd8
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_6
+
+    if-eqz v12, :cond_7
+
+    :cond_6
+    invoke-static/range {p0 .. p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v17
+
+    if-nez v17, :cond_7
+
+    const/16 v17, 0x2b
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v17
+
+    if-nez v17, :cond_7
+
+    const/4 v4, 0x1
+
+    :cond_7
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v18, 0x51
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-ne v0, v1, :cond_8
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
+
+    move-result v17
+
+    const/16 v18, 0x1
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-le v0, v1, :cond_8
+
+    const-string v17, "+"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v17
+
+    if-eqz v17, :cond_8
+
+    new-instance v17, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v18, "010"
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const/16 v18, 0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     :cond_8
     invoke-static/range {p0 .. p0}, Landroid/telephony/PhoneNumberUtils;->cdmaCheckAndProcessPlusCode(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v17
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->parse(Ljava/lang/String;Z)Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
@@ -4224,107 +4361,107 @@
     .local v7, destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
     if-nez v7, :cond_c
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     :goto_2
-    return-object v15
+    return-object v14
 
     .end local v4           #bRemovePlus:Z
     .end local v7           #destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
-    .end local v13           #isAsiaChs:Z
+    .end local v12           #isAsiaChs:Z
     :cond_9
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->forcePlusCodeTo011()Z
 
-    move-result v18
+    move-result v17
 
-    if-eqz v18, :cond_0
+    if-eqz v17, :cond_0
 
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v19, 0x66
+    const/16 v18, 0x66
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_a
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v18
+    move-result-object v17
 
-    invoke-virtual/range {v18 .. v18}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+    invoke-virtual/range {v17 .. v17}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
-    move-result v18
+    move-result v17
 
-    const/16 v19, 0x2
+    const/16 v18, 0x2
 
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-ne v0, v1, :cond_a
-
-    const-string v18, "+1"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v18
-
-    if-nez v18, :cond_a
-
-    const/16 v18, 0x1
-
-    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
-
-    move-result v19
-
-    move-object/from16 v0, p0
+    move/from16 v0, v17
 
     move/from16 v1, v18
 
-    move/from16 v2, v19
+    if-ne v0, v1, :cond_a
+
+    const-string v17, "+1"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v17
+
+    if-nez v17, :cond_a
+
+    const/16 v17, 0x1
+
+    invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
+
+    move-result v18
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v17
+
+    move/from16 v2, v18
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v15
 
-    .local v16, substr:Ljava/lang/String;
-    move-object/from16 p0, v16
+    .local v15, substr:Ljava/lang/String;
+    move-object/from16 p0, v15
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "For MPCS final address: "
+    const-string v19, "For MPCS final address: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p0
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
 
-    .end local v16           #substr:Ljava/lang/String;
+    .end local v15           #substr:Ljava/lang/String;
     :cond_a
     const/4 v3, 0x1
 
@@ -4332,71 +4469,54 @@
 
     .restart local v4       #bRemovePlus:Z
     :cond_b
-    const/4 v13, 0x0
+    const/4 v12, 0x0
 
     goto/16 :goto_1
 
     .restart local v7       #destAddr:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
-    .restart local v13       #isAsiaChs:Z
+    .restart local v12       #isAsiaChs:Z
     :cond_c
     new-instance v6, Lcom/android/internal/telephony/cdma/sms/BearerData;
 
     invoke-direct {v6}, Lcom/android/internal/telephony/cdma/sms/BearerData;-><init>()V
 
     .local v6, bearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
-    const/16 v18, 0x2
+    const/16 v17, 0x2
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageType:I
 
-    if-nez p7, :cond_15
+    if-nez p7, :cond_14
 
-    :try_start_0
-    const-string v18, "isms"
+    invoke-static {}, Lcom/android/internal/telephony/cdma/SmsMessage;->getCDMANextMessageId()I
 
-    invoke-static/range {v18 .. v18}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    move-result v17
 
-    move-result-object v18
-
-    invoke-static/range {v18 .. v18}, Lcom/android/internal/telephony/ISms$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ISms;
-
-    move-result-object v12
-
-    .local v12, iccISms:Lcom/android/internal/telephony/ISms;
-    if-eqz v12, :cond_14
-
-    invoke-interface {v12}, Lcom/android/internal/telephony/ISms;->getNextMessageIdInPreference()I
-
-    move-result v18
-
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .end local v12           #iccISms:Lcom/android/internal/telephony/ISms;
     :goto_3
     move/from16 v0, p1
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->deliveryAckReq:Z
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->userAckReq:Z
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->readAckReq:Z
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->reportReq:Z
 
@@ -4408,156 +4528,156 @@
 
     invoke-virtual/range {p4 .. p4}, Ljava/lang/String;->length()I
 
-    move-result v18
+    move-result v17
 
-    if-lez v18, :cond_10
+    if-lez v17, :cond_10
 
     const/4 v4, 0x0
 
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     if-ne v0, v3, :cond_f
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "before callback To NBPCD: "
+    const-string v19, "before callback To NBPCD: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p4
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v19
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static/range {p4 .. p4}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->toNBPCDAddress(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v14
-
-    .restart local v14       #outAddrStr:Ljava/lang/String;
-    move-object/from16 v0, p4
-
-    if-eq v14, v0, :cond_e
-
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v18
 
-    invoke-virtual/range {v18 .. v18}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v18
+    invoke-static/range {p4 .. p4}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->toNBPCDAddress(Ljava/lang/String;)Ljava/lang/String;
 
-    const/16 v19, 0x2
+    move-result-object v13
 
-    move/from16 v0, v18
+    .restart local v13       #outAddrStr:Ljava/lang/String;
+    move-object/from16 v0, p4
 
-    move/from16 v1, v19
+    if-eq v13, v0, :cond_e
+
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v17
+
+    invoke-virtual/range {v17 .. v17}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+
+    move-result v17
+
+    const/16 v18, 0x2
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_d
 
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v19, 0xa8
+    const/16 v18, 0xa8
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     if-ne v0, v1, :cond_d
 
     const/4 v4, 0x1
 
     :cond_d
-    move-object/from16 p4, v14
+    move-object/from16 p4, v13
 
     :cond_e
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "after callback To NBPCD: "
+    const-string v19, "after callback To NBPCD: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p4
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v14           #outAddrStr:Ljava/lang/String;
+    .end local v13           #outAddrStr:Ljava/lang/String;
     :cond_f
     move-object/from16 v0, p4
 
     invoke-static {v0, v4}, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->parse(Ljava/lang/String;Z)Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
-    move-result-object v18
+    move-result-object v17
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     iput-object v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->callbackNumber:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
     :cond_10
     invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isCDMAHidePriorityIndicator()Z
 
-    move-result v18
+    move-result v17
 
-    if-eqz v18, :cond_16
+    if-eqz v17, :cond_15
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
 
     :goto_4
-    const-wide/16 v18, 0x0
+    const-wide/16 v17, 0x0
 
-    cmp-long v18, p5, v18
+    cmp-long v17, p5, v17
 
-    if-eqz v18, :cond_11
+    if-eqz v17, :cond_11
 
-    new-instance v18, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
+    new-instance v17, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    invoke-direct/range {v18 .. v18}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;-><init>()V
+    invoke-direct/range {v17 .. v17}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;-><init>()V
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     iput-object v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
     iget-object v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    move-object/from16 v18, v0
+    move-object/from16 v17, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     move-wide/from16 v1, p5
 
@@ -4565,24 +4685,24 @@
 
     iget-object v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->validityPeriodAbsolute:Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;
 
-    move-object/from16 v18, v0
+    move-object/from16 v17, v0
 
     invoke-static {}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;->getCurrentTimezone()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v18 .. v19}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;->switchTimezone(Ljava/lang/String;)V
+    invoke-virtual/range {v17 .. v18}, Lcom/android/internal/telephony/cdma/sms/BearerData$TimeStamp;->switchTimezone(Ljava/lang/String;)V
 
     :cond_11
     invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isCDMAHideLanguageIndicator()Z
 
-    move-result v18
+    move-result v17
 
-    if-eqz v18, :cond_17
+    if-eqz v17, :cond_16
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->languageIndicatorSet:Z
 
@@ -4593,118 +4713,91 @@
     move-result-object v9
 
     .local v9, encodedBearerData:[B
-    const-string v18, "CDMA:SMS"
+    const-string v17, "CDMA:SMS"
 
-    const/16 v19, 0x2
+    const/16 v18, 0x2
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v18
+    move-result v17
 
-    if-eqz v18, :cond_13
+    if-eqz v17, :cond_13
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "MO (encoded) BearerData = "
+    const-string v19, "MO (encoded) BearerData = "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "MO raw BearerData = \'"
+    const-string v19, "MO raw BearerData = \'"
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
     invoke-static {v9}, Lcom/android/internal/util/HexDump;->toHexString([B)Ljava/lang/String;
 
-    move-result-object v20
-
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     move-result-object v19
 
-    const-string v20, "\'"
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v18
 
-    move-result-object v19
+    const-string v19, "\'"
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v18
+
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_13
-    if-nez v9, :cond_19
+    if-nez v9, :cond_18
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     goto/16 :goto_2
 
     .end local v9           #encodedBearerData:[B
-    .restart local v12       #iccISms:Lcom/android/internal/telephony/ISms;
     :cond_14
-    const/16 v18, 0x1
-
-    :try_start_1
-    move/from16 v0, v18
-
-    iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto/16 :goto_3
-
-    .end local v12           #iccISms:Lcom/android/internal/telephony/ISms;
-    :catch_0
-    move-exception v11
-
-    .local v11, ex:Landroid/os/RemoteException;
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
-
-    iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
-
-    goto/16 :goto_3
-
-    .end local v11           #ex:Landroid/os/RemoteException;
-    :cond_15
     move/from16 v0, p7
 
     iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->messageId:I
 
     goto/16 :goto_3
 
-    :cond_16
-    const/16 v18, 0x1
+    :cond_15
+    const/16 v17, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->priorityIndicatorSet:Z
 
@@ -4714,84 +4807,84 @@
 
     goto/16 :goto_4
 
+    :cond_16
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v18, 0xd8
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_17
+
+    if-eqz v12, :cond_12
+
     :cond_17
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    const/16 v17, 0x1
 
-    const/16 v19, 0xd8
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_18
-
-    if-eqz v13, :cond_12
-
-    :cond_18
-    const/16 v18, 0x1
-
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->languageIndicatorSet:Z
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->language:I
 
-    goto/16 :goto_5
+    goto :goto_5
 
     .restart local v9       #encodedBearerData:[B
+    :cond_18
+    sget-short v17, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v18, 0xd8
+
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-eq v0, v1, :cond_19
+
+    if-eqz v12, :cond_1a
+
     :cond_19
-    sget-short v18, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    const/16 v16, 0x1002
 
-    const/16 v19, 0xd8
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_1a
-
-    if-eqz v13, :cond_1b
-
-    :cond_1a
-    const/16 v17, 0x1002
-
-    .local v17, teleservice:I
+    .local v16, teleservice:I
     :goto_6
     new-instance v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;
 
     invoke-direct {v10}, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;-><init>()V
 
     .local v10, envelope:Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput v0, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->messageType:I
 
-    move/from16 v0, v17
+    move/from16 v0, v16
 
     iput v0, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->teleService:I
 
     iput-object v7, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->destAddress:Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;
 
-    const/16 v18, 0x1
+    const/16 v17, 0x1
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     iput v0, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->bearerReply:I
 
     iput-object v9, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->bearerData:[B
 
-    :try_start_2
+    :try_start_0
     new-instance v5, Ljava/io/ByteArrayOutputStream;
 
-    const/16 v18, 0x64
+    const/16 v17, 0x64
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-direct {v5, v0}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
@@ -4803,205 +4896,205 @@
     .local v8, dos:Ljava/io/DataOutputStream;
     iget v0, v10, Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;->teleService:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
-
-    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
+
+    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
+
+    const/16 v17, 0x0
+
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->digitMode:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberMode:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->ton:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberPlan:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
     iget v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->numberOfDigits:I
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
     iget-object v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
 
-    move-object/from16 v18, v0
+    move-object/from16 v17, v0
 
-    const/16 v19, 0x0
+    const/16 v18, 0x0
 
     iget-object v0, v7, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
 
-    move-object/from16 v20, v0
+    move-object/from16 v19, v0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v19
 
     array-length v0, v0
 
-    move/from16 v20, v0
+    move/from16 v19, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
-    move/from16 v1, v19
+    move/from16 v1, v18
 
-    move/from16 v2, v20
+    move/from16 v2, v19
 
     invoke-virtual {v8, v0, v1, v2}, Ljava/io/DataOutputStream;->write([BII)V
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
-
-    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
+
+    const/16 v17, 0x0
+
+    move/from16 v0, v17
+
+    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
+
+    array-length v0, v9
+
+    move/from16 v17, v0
+
+    move/from16 v0, v17
+
+    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
+
+    const/16 v17, 0x0
 
     array-length v0, v9
 
     move/from16 v18, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
-    invoke-virtual {v8, v0}, Ljava/io/DataOutputStream;->write(I)V
-
-    const/16 v18, 0x0
-
-    array-length v0, v9
-
-    move/from16 v19, v0
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
+    move/from16 v1, v18
 
     invoke-virtual {v8, v9, v0, v1}, Ljava/io/DataOutputStream;->write([BII)V
 
     invoke-virtual {v8}, Ljava/io/DataOutputStream;->close()V
 
-    new-instance v15, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
+    new-instance v14, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
 
-    invoke-direct {v15}, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;-><init>()V
+    invoke-direct {v14}, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;-><init>()V
 
-    .local v15, pdu:Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
+    .local v14, pdu:Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
     invoke-virtual {v5}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
-    move-result-object v18
+    move-result-object v17
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
-    iput-object v0, v15, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;->encodedMessage:[B
+    iput-object v0, v14, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;->encodedMessage:[B
 
-    const/16 v18, 0x0
+    const/16 v17, 0x0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
-    iput-object v0, v15, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;->encodedScAddress:[B
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    iput-object v0, v14, Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;->encodedScAddress:[B
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_2
 
     .end local v5           #baos:Ljava/io/ByteArrayOutputStream;
     .end local v8           #dos:Ljava/io/DataOutputStream;
-    .end local v15           #pdu:Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
-    :catch_1
+    .end local v14           #pdu:Lcom/android/internal/telephony/cdma/SmsMessage$SubmitPdu;
+    :catch_0
     move-exception v11
 
     .local v11, ex:Ljava/io/IOException;
-    const-string v18, "CDMA"
+    const-string v17, "CDMA"
 
-    new-instance v19, Ljava/lang/StringBuilder;
+    new-instance v18, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v20, "creating SubmitPdu failed: "
+    const-string v19, "creating SubmitPdu failed: "
 
-    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v18
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
     goto/16 :goto_2
 
     .end local v10           #envelope:Lcom/android/internal/telephony/cdma/sms/SmsEnvelope;
     .end local v11           #ex:Ljava/io/IOException;
-    .end local v17           #teleservice:I
-    :cond_1b
+    .end local v16           #teleservice:I
+    :cond_1a
     iget-boolean v0, v6, Lcom/android/internal/telephony/cdma/sms/BearerData;->hasUserDataHeader:Z
 
-    move/from16 v18, v0
+    move/from16 v17, v0
 
-    if-eqz v18, :cond_1c
+    if-eqz v17, :cond_1b
 
-    const/16 v17, 0x1005
+    const/16 v16, 0x1005
 
-    .restart local v17       #teleservice:I
+    .restart local v16       #teleservice:I
     :goto_7
     goto/16 :goto_6
 
-    .end local v17           #teleservice:I
-    :cond_1c
-    const/16 v17, 0x1002
+    .end local v16           #teleservice:I
+    :cond_1b
+    const/16 v16, 0x1002
 
     goto :goto_7
 .end method
@@ -6105,27 +6198,11 @@
     .prologue
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/SmsMessage;->mBearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/SmsMessage;->mBearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
-
-    iget-object v0, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/SmsMessage;->mBearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
-
     iget-object v0, v0, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     iget-boolean v0, v0, Lcom/android/internal/telephony/cdma/sms/UserData;->kddiSmsTypeIdSet:Z
 
-    :goto_0
     return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method kddiIsDiscard()Z
@@ -6430,12 +6507,6 @@
     if-ne v4, v5, :cond_3
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/SmsMessage;->mBearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
-
-    if-eqz v4, :cond_3
-
-    iget-object v4, p0, Lcom/android/internal/telephony/cdma/SmsMessage;->mBearerData:Lcom/android/internal/telephony/cdma/sms/BearerData;
-
-    iget-object v4, v4, Lcom/android/internal/telephony/cdma/sms/BearerData;->userData:Lcom/android/internal/telephony/cdma/sms/UserData;
 
     if-eqz v4, :cond_3
 

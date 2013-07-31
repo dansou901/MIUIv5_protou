@@ -63,19 +63,19 @@
     .locals 1
 
     .prologue
-    .line 6677
+    .line 6670
     const/4 v0, 0x0
 
     sput-object v0, Landroid/provider/Settings$HTCservices;->mNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    .line 6678
+    .line 6671
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/provider/Settings$HTCservices;->mNameValueCacheLock:Ljava/lang/Object;
 
-    .line 6752
+    .line 6745
     const-string v0, "content://settings/htcservices"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -91,10 +91,10 @@
     .locals 0
 
     .prologue
-    .line 6659
+    .line 6652
     invoke-direct {p0}, Landroid/provider/Settings$NameValueTable;-><init>()V
 
-    .line 6830
+    .line 6823
     return-void
 .end method
 
@@ -105,12 +105,12 @@
     .parameter "defValue"
 
     .prologue
-    .line 6713
+    .line 6706
     invoke-static {p0, p1}, Landroid/provider/Settings$HTCservices;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 6716
+    .line 6709
     .local v1, valString:Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -121,7 +121,7 @@
 
     move-result v2
 
-    .line 6720
+    .line 6713
     .local v2, value:I
     :goto_0
     return v2
@@ -130,14 +130,14 @@
     :cond_0
     move v2, p2
 
-    .line 6716
+    .line 6709
     goto :goto_0
 
-    .line 6717
+    .line 6710
     :catch_0
     move-exception v0
 
-    .line 6718
+    .line 6711
     .local v0, e:Ljava/lang/NumberFormatException;
     move v2, p2
 
@@ -152,12 +152,12 @@
     .parameter "defValue"
 
     .prologue
-    .line 6729
+    .line 6722
     invoke-static {p0, p1}, Landroid/provider/Settings$HTCservices;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 6732
+    .line 6725
     .local v1, valString:Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -168,7 +168,7 @@
 
     move-result-wide v2
 
-    .line 6736
+    .line 6729
     .local v2, value:J
     :goto_0
     return-wide v2
@@ -177,14 +177,14 @@
     :cond_0
     move-wide v2, p2
 
-    .line 6732
+    .line 6725
     goto :goto_0
 
-    .line 6733
+    .line 6726
     :catch_0
     move-exception v0
 
-    .line 6734
+    .line 6727
     .local v0, e:Ljava/lang/NumberFormatException;
     move-wide v2, p2
 
@@ -198,18 +198,18 @@
     .parameter "name"
 
     .prologue
-    .line 6687
+    .line 6680
     sget-object v1, Landroid/provider/Settings$HTCservices;->mNameValueCacheLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 6688
+    .line 6681
     :try_start_0
     sget-object v0, Landroid/provider/Settings$HTCservices;->mNameValueCache:Landroid/provider/Settings$NameValueCache;
 
     if-nez v0, :cond_0
 
-    .line 6689
+    .line 6682
     new-instance v0, Landroid/provider/Settings$NameValueCache;
 
     const-string/jumbo v2, "sys.settings_hservices_version"
@@ -222,7 +222,7 @@
 
     sput-object v0, Landroid/provider/Settings$HTCservices;->mNameValueCache:Landroid/provider/Settings$NameValueCache;
 
-    .line 6691
+    .line 6684
     :cond_0
     sget-object v0, Landroid/provider/Settings$HTCservices;->mNameValueCache:Landroid/provider/Settings$NameValueCache;
 
@@ -234,7 +234,7 @@
 
     return-object v0
 
-    .line 6692
+    .line 6685
     :catchall_0
     move-exception v0
 
@@ -250,7 +250,7 @@
     .parameter "name"
 
     .prologue
-    .line 6746
+    .line 6739
     sget-object v0, Landroid/provider/Settings$HTCservices;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {v0, p0}, Landroid/provider/Settings$HTCservices;->getUriFor(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
@@ -267,7 +267,7 @@
     .parameter "value"
 
     .prologue
-    .line 6704
+    .line 6697
     sget-object v0, Landroid/provider/Settings$HTCservices;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$HTCservices;->putString(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)Z

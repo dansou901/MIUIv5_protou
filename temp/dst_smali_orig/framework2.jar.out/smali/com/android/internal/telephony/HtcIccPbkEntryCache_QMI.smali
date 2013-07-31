@@ -4553,11 +4553,20 @@
     :cond_3
     move-object/from16 v0, p0
 
-    iget v4, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->mRecordNums:I
+    move-object/from16 v1, p3
 
-    if-gtz v4, :cond_4
+    move-object/from16 v2, p4
 
-    const-string v4, "error"
+    move-object/from16 v3, p5
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->getFirstEmptyPbkRecord(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/internal/telephony/PhoneBookEntry;
+
+    move-result-object v9
+
+    .local v9, entry:Lcom/android/internal/telephony/PhoneBookEntry;
+    if-nez v9, :cond_4
+
+    const-string v4, "AdnFull"
 
     move-object/from16 v0, p0
 
@@ -4570,20 +4579,11 @@
     :cond_4
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p3
+    iget v4, v0, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->mRecordNums:I
 
-    move-object/from16 v2, p4
+    if-gtz v4, :cond_5
 
-    move-object/from16 v3, p5
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->getFirstEmptyPbkRecord(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/internal/telephony/PhoneBookEntry;
-
-    move-result-object v9
-
-    .local v9, entry:Lcom/android/internal/telephony/PhoneBookEntry;
-    if-nez v9, :cond_5
-
-    const-string v4, "AdnFull"
+    const-string v4, "error"
 
     move-object/from16 v0, p0
 
@@ -5623,11 +5623,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->mRecordNums:I
-
-    if-gtz v0, :cond_1
+    if-nez v0, :cond_1
 
     :cond_0
     move-object v0, v7
@@ -13198,6 +13194,8 @@
 
     goto/16 :goto_0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_e
@@ -14955,6 +14953,8 @@
     invoke-direct {p0, v0, v1}, Lcom/android/internal/telephony/HtcIccPbkEntryCache_QMI;->sendErrorResponse(Landroid/os/Message;Ljava/lang/String;)V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

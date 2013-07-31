@@ -100,7 +100,7 @@
     iput v2, p0, Lcom/android/internal/app/ShowNetInitInfoActivity;->mNotificatioId:I
 
     .line 38
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

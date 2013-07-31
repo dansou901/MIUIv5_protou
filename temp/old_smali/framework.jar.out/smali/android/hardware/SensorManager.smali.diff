@@ -1,5 +1,5 @@
-*** ./smali/android/hardware/SensorManager.smali	2013-07-12 21:43:38.408504559 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/hardware/SensorManager.smali	2013-07-12 21:41:19.341826425 +0000
+*** ./smali/android/hardware/SensorManager.smali	2013-07-31 22:22:40.957401358 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/hardware/SensorManager.smali	2013-07-31 22:21:29.850728756 +0000
 ***************
 *** 240,245 ****
 --- 240,249 ----

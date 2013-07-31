@@ -109,16 +109,6 @@
     #setter for: Landroid/net/wifi/p2p/WifiP2pDevice;->mIsCreateGroupOwner:Z
     invoke-static {v0, v1}, Landroid/net/wifi/p2p/WifiP2pDevice;->access$002(Landroid/net/wifi/p2p/WifiP2pDevice;Z)Z
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v1}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/net/wifi/p2p/WfdInfo;
-
-    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WfdInfo;
-
     return-object v0
 
     :cond_0

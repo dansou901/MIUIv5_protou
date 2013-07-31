@@ -28,16 +28,16 @@
     .parameter "key"
 
     .prologue
-    .line 3173
+    .line 3085
     iput-object p1, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
-    .line 3174
+    .line 3086
     invoke-direct {p0, p1, p2}, Lcom/android/server/MountService$ObbAction;-><init>(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
 
-    .line 3175
+    .line 3087
     iput-object p3, p0, Lcom/android/server/MountService$MountObbAction;->mKey:Ljava/lang/String;
 
-    .line 3176
+    .line 3088
     return-void
 .end method
 
@@ -47,12 +47,12 @@
     .locals 1
 
     .prologue
-    .line 3260
+    .line 3172
     const/16 v0, 0x14
 
     invoke-virtual {p0, v0}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
-    .line 3261
+    .line 3173
     return-void
 .end method
 
@@ -66,24 +66,24 @@
     .end annotation
 
     .prologue
-    .line 3180
+    .line 3092
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->waitForReady()V
-    invoke-static {v10}, Lcom/android/server/MountService;->access$4200(Lcom/android/server/MountService;)V
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)V
 
-    .line 3181
+    .line 3093
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->warnOnNotMounted()V
-    invoke-static {v10}, Lcom/android/server/MountService;->access$4300(Lcom/android/server/MountService;)V
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)V
 
-    .line 3183
+    .line 3095
     invoke-virtual {p0}, Lcom/android/server/MountService$MountObbAction;->getObbInfo()Landroid/content/res/ObbInfo;
 
     move-result-object v8
 
-    .line 3185
+    .line 3097
     .local v8, obbInfo:Landroid/content/res/ObbInfo;
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
@@ -94,13 +94,13 @@
     iget v12, v12, Lcom/android/server/MountService$ObbState;->callerUid:I
 
     #calls: Lcom/android/server/MountService;->isUidOwnerOfPackageOrSystem(Ljava/lang/String;I)Z
-    invoke-static {v10, v11, v12}, Lcom/android/server/MountService;->access$4400(Lcom/android/server/MountService;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v12}, Lcom/android/server/MountService;->access$4000(Lcom/android/server/MountService;Ljava/lang/String;I)Z
 
     move-result v10
 
     if-nez v10, :cond_0
 
-    .line 3186
+    .line 3098
     const-string v10, "MountService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -137,32 +137,32 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3188
+    .line 3100
     const/16 v10, 0x19
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
-    .line 3256
+    .line 3168
     :goto_0
     return-void
 
-    .line 3193
+    .line 3105
     :cond_0
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v11
 
     monitor-enter v11
 
-    .line 3194
+    .line 3106
     :try_start_0
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbPathToStateMap:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3400(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v10
 
@@ -172,16 +172,16 @@
 
     move-result v5
 
-    .line 3195
+    .line 3107
     .local v5, isMounted:Z
     monitor-exit v11
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 3196
+    .line 3108
     if-eqz v5, :cond_1
 
-    .line 3197
+    .line 3109
     const-string v10, "MountService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -206,14 +206,14 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3198
+    .line 3110
     const/16 v10, 0x18
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
     goto :goto_0
 
-    .line 3195
+    .line 3107
     .end local v5           #isMounted:Z
     :catchall_0
     move-exception v10
@@ -225,7 +225,7 @@
 
     throw v10
 
-    .line 3206
+    .line 3118
     .restart local v5       #isMounted:Z
     :cond_1
     iget-object v10, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
@@ -234,26 +234,26 @@
 
     iput-object v11, v10, Lcom/android/server/MountService$ObbState;->filename:Ljava/lang/String;
 
-    .line 3209
+    .line 3121
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->mKey:Ljava/lang/String;
 
     if-nez v10, :cond_4
 
-    .line 3210
+    .line 3122
     const-string v4, "none"
 
-    .line 3231
+    .line 3143
     .local v4, hashedKey:Ljava/lang/String;
     :goto_1
     const/4 v9, 0x0
 
-    .line 3233
+    .line 3145
     .local v9, rc:I
     :try_start_2
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$2600(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$2100(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v10
 
@@ -297,19 +297,19 @@
     :try_end_2
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 3242
+    .line 3154
     :cond_2
     :goto_2
     if-nez v9, :cond_5
 
-    .line 3243
+    .line 3155
     invoke-static {}, Lcom/android/server/MountService;->access$100()Z
 
     move-result v10
 
     if-eqz v10, :cond_3
 
-    .line 3244
+    .line 3156
     const-string v10, "MountService"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -336,39 +336,39 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3246
+    .line 3158
     :cond_3
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v11
 
     monitor-enter v11
 
-    .line 3247
+    .line 3159
     :try_start_3
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     iget-object v12, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     #calls: Lcom/android/server/MountService;->addObbStateLocked(Lcom/android/server/MountService$ObbState;)V
-    invoke-static {v10, v12}, Lcom/android/server/MountService;->access$4500(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
+    invoke-static {v10, v12}, Lcom/android/server/MountService;->access$4100(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
 
-    .line 3248
+    .line 3160
     monitor-exit v11
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 3250
+    .line 3162
     const/4 v10, 0x1
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
     goto/16 :goto_0
 
-    .line 3213
+    .line 3125
     .end local v4           #hashedKey:Ljava/lang/String;
     .end local v9           #rc:I
     :cond_4
@@ -379,7 +379,7 @@
 
     move-result-object v3
 
-    .line 3215
+    .line 3127
     .local v3, factory:Ljavax/crypto/SecretKeyFactory;
     new-instance v7, Ljavax/crypto/spec/PBEKeySpec;
 
@@ -397,13 +397,13 @@
 
     invoke-direct {v7, v10, v11, v12, v13}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
 
-    .line 3217
+    .line 3129
     .local v7, ks:Ljava/security/spec/KeySpec;
     invoke-virtual {v3, v7}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
 
     move-result-object v6
 
-    .line 3218
+    .line 3130
     .local v6, key:Ljavax/crypto/SecretKey;
     new-instance v0, Ljava/math/BigInteger;
 
@@ -413,7 +413,7 @@
 
     invoke-direct {v0, v10}, Ljava/math/BigInteger;-><init>([B)V
 
-    .line 3219
+    .line 3131
     .local v0, bi:Ljava/math/BigInteger;
     const/16 v10, 0x10
 
@@ -427,7 +427,7 @@
     .restart local v4       #hashedKey:Ljava/lang/String;
     goto/16 :goto_1
 
-    .line 3220
+    .line 3132
     .end local v0           #bi:Ljava/math/BigInteger;
     .end local v3           #factory:Ljavax/crypto/SecretKeyFactory;
     .end local v4           #hashedKey:Ljava/lang/String;
@@ -436,7 +436,7 @@
     :catch_0
     move-exception v2
 
-    .line 3221
+    .line 3133
     .local v2, e:Ljava/security/NoSuchAlgorithmException;
     const-string v10, "MountService"
 
@@ -444,19 +444,19 @@
 
     invoke-static {v10, v11, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 3222
+    .line 3134
     const/16 v10, 0x14
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
     goto/16 :goto_0
 
-    .line 3224
+    .line 3136
     .end local v2           #e:Ljava/security/NoSuchAlgorithmException;
     :catch_1
     move-exception v2
 
-    .line 3225
+    .line 3137
     .local v2, e:Ljava/security/spec/InvalidKeySpecException;
     const-string v10, "MountService"
 
@@ -464,38 +464,38 @@
 
     invoke-static {v10, v11, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 3226
+    .line 3138
     const/16 v10, 0x14
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
 
     goto/16 :goto_0
 
-    .line 3235
+    .line 3147
     .end local v2           #e:Ljava/security/spec/InvalidKeySpecException;
     .restart local v4       #hashedKey:Ljava/lang/String;
     .restart local v9       #rc:I
     :catch_2
     move-exception v2
 
-    .line 3236
+    .line 3148
     .local v2, e:Lcom/android/server/NativeDaemonConnectorException;
     invoke-virtual {v2}, Lcom/android/server/NativeDaemonConnectorException;->getCode()I
 
     move-result v1
 
-    .line 3237
+    .line 3149
     .local v1, code:I
     const/16 v10, 0x195
 
     if-eq v1, v10, :cond_2
 
-    .line 3238
+    .line 3150
     const/4 v9, -0x1
 
     goto/16 :goto_2
 
-    .line 3248
+    .line 3160
     .end local v1           #code:I
     .end local v2           #e:Lcom/android/server/NativeDaemonConnectorException;
     :catchall_1
@@ -508,7 +508,7 @@
 
     throw v10
 
-    .line 3252
+    .line 3164
     :cond_5
     const-string v10, "MountService"
 
@@ -532,7 +532,7 @@
 
     invoke-static {v10, v11}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3254
+    .line 3166
     const/16 v10, 0x15
 
     invoke-virtual {p0, v10}, Lcom/android/server/MountService$MountObbAction;->sendNewStatusOrIgnore(I)V
@@ -544,47 +544,47 @@
     .locals 2
 
     .prologue
-    .line 3265
+    .line 3177
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 3266
+    .line 3178
     .local v0, sb:Ljava/lang/StringBuilder;
     const-string v1, "MountObbAction{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3267
+    .line 3179
     const-string v1, "filename="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3268
+    .line 3180
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     iget-object v1, v1, Lcom/android/server/MountService$ObbState;->filename:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3269
+    .line 3181
     const-string v1, ",callerUid="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3270
+    .line 3182
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     iget v1, v1, Lcom/android/server/MountService$ObbState;->callerUid:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 3271
+    .line 3183
     const-string v1, ",token="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3272
+    .line 3184
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     iget-object v1, v1, Lcom/android/server/MountService$ObbState;->token:Landroid/os/storage/IObbActionListener;
@@ -602,12 +602,12 @@
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3273
+    .line 3185
     const-string v1, ",binder="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3274
+    .line 3186
     iget-object v1, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     iget-object v1, v1, Lcom/android/server/MountService$ObbState;->token:Landroid/os/storage/IObbActionListener;
@@ -627,25 +627,25 @@
     :goto_1
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 3275
+    .line 3187
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 3276
+    .line 3188
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     return-object v1
 
-    .line 3272
+    .line 3184
     :cond_0
     const-string v1, "NULL"
 
     goto :goto_0
 
-    .line 3274
+    .line 3186
     :cond_1
     const-string v1, "null"
 

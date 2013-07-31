@@ -8,17 +8,14 @@
     .locals 3
 
     .prologue
-    .line 38
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
     invoke-static {}, Landroid/os/Vibrator;->isLoggableVibrator()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 41
     const-string v0, "Vibrator"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -45,7 +42,6 @@
 
     invoke-static {v0, v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 44
     :cond_0
     return-void
 .end method
@@ -54,7 +50,6 @@
     .locals 1
 
     .prologue
-    .line 97
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     return v0
@@ -72,15 +67,4 @@
 .end method
 
 .method public abstract vibrate([JI)V
-.end method
-
-.method public vibrateEx([B)V
-    .locals 0
-    .parameter "params"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    return-void
 .end method

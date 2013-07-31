@@ -166,9 +166,20 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
-    iget-boolean v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->isHtcStyle:Z
+    iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
+
+    invoke-static {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView$Injector;->insertCheckBox(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/CheckBox;)Z
+
+    move-result v1
 
     if-eqz v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->isHtcStyle:Z
+
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mResource:Landroid/content/res/Resources;
 
@@ -186,7 +197,7 @@
 
     iget v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->HtcCheckBoxResId:I
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
@@ -198,7 +209,7 @@
 
     invoke-virtual {v1, v5, v5, v5, v5}, Landroid/widget/CheckBox;->setPadding(IIII)V
 
-    :cond_0
+    :cond_1
     :goto_0
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mCheckBox:Landroid/widget/CheckBox;
 
@@ -206,7 +217,7 @@
 
     iget-boolean v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->isHtcStyle:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     new-instance v1, Landroid/graphics/Rect;
 
@@ -230,10 +241,10 @@
 
     iput-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->tmpRect:Landroid/graphics/Rect;
 
-    :cond_1
+    :cond_2
     return-void
 
-    :cond_2
+    :cond_3
     const-string v1, "ListMenuItemView"
 
     const-string v2, "res id not found"
@@ -294,6 +305,17 @@
 
     iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
 
+    invoke-static {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView$Injector;->insertRadioButton(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/RadioButton;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mRadioButton:Landroid/widget/RadioButton;
+
     invoke-virtual {p0, v1}, Lcom/android/internal/view/menu/ListMenuItemView;->addView(Landroid/view/View;)V
 
     return-void
@@ -326,7 +348,7 @@
     move-result v2
 
     .local v2, resId:I
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget-object v3, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mResource:Landroid/content/res/Resources;
 
@@ -335,7 +357,7 @@
     move-result v0
 
     .local v0, height:I
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget v3, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
 
@@ -346,35 +368,10 @@
     .end local v0           #height:I
     :cond_0
     :goto_0
-    iget-object v3, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mResource:Landroid/content/res/Resources;
-
-    const-string v4, "darklist_primary_m"
-
-    const-string v5, "style"
-
-    const-string v6, "com.htc"
-
-    invoke-virtual {v3, v4, v5, v6}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    iput v2, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTextAppearance:I
-
-    iget-object v3, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTextAppearanceContext:Landroid/content/Context;
-
-    iget v5, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTextAppearance:I
-
-    invoke-virtual {v3, v4, v5}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    :cond_1
     return-void
 
     .restart local v0       #height:I
-    :cond_2
+    :cond_1
     const-string v3, "ListMenuItemView"
 
     const-string v4, "LayoutParams is null.!"
@@ -384,7 +381,7 @@
     goto :goto_0
 
     .end local v0           #height:I
-    :cond_3
+    :cond_2
     const-string v3, "ListMenuItemView"
 
     const-string v4, " Can\'t not find resource.!"
@@ -627,6 +624,16 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
+    iget-object v5, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mItemData:Lcom/android/internal/view/menu/MenuItemImpl;
+
+    invoke-virtual {v1}, Lcom/android/internal/view/menu/MenuItemImpl;->isChecked()Z
+
+    move-result v1
+
+    invoke-static {p0, v5, v1}, Lcom/android/internal/view/menu/ListMenuItemView$Injector;->checkTextColor(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/TextView;Z)V
+
     if-eqz p1, :cond_7
 
     move v1, v3
@@ -765,6 +772,10 @@
     .local v0, compoundButton:Landroid/widget/CompoundButton;
     :goto_0
     invoke-virtual {v0, p1}, Landroid/widget/CompoundButton;->setChecked(Z)V
+
+    iget-object v1, p0, Lcom/android/internal/view/menu/ListMenuItemView;->mTitleView:Landroid/widget/TextView;
+
+    invoke-static {p0, v1, p1}, Lcom/android/internal/view/menu/ListMenuItemView$Injector;->checkTextColor(Lcom/android/internal/view/menu/ListMenuItemView;Landroid/widget/TextView;Z)V
 
     return-void
 

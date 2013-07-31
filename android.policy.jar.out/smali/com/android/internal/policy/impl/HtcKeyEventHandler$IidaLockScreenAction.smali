@@ -26,7 +26,7 @@
     .parameter
 
     .prologue
-    .line 503
+    .line 502
     iput-object p1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$BaseKeyAction;-><init>(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)V
@@ -41,7 +41,7 @@
     .parameter "keyEvent"
 
     .prologue
-    .line 518
+    .line 517
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
@@ -67,14 +67,14 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 509
+    .line 508
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 510
+    .line 509
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
@@ -97,56 +97,157 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->mIsScreenOff:Z
 
-    .line 513
+    .line 512
     :cond_0
     return v1
 
     :cond_1
     move v0, v1
 
-    .line 510
+    .line 509
     goto :goto_0
 .end method
 
-.method protected checkConditionBeforeQueueingEnd(Landroid/view/KeyEvent;)Z
-    .locals 1
-    .parameter "keyEvent"
+.method protected longPressBeforeDispatch(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)I
+    .locals 4
+    .parameter "win"
+    .parameter "event"
+    .parameter "policyFlags"
 
     .prologue
-    .line 523
-    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+    const/16 v3, 0x1b
 
-    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$200(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
+    const/4 v2, 0x1
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getKeyguardMediator()Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isShowingAndNotHidden()Z
+    .line 538
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
 
     move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "HtcKeyEventHandler"
+
+    const-string v1, "IidaLockScreenAction: longPressBeforeDispatch: inject KEYCODE_CAMERA"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 539
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v0
+
+    if-ne v0, v2, :cond_1
+
+    .line 540
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->resetKeyStatus()V
+
+    .line 541
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
+
+    const/4 v0, 0x0
+
+    invoke-static {p2, v0, v3}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+
+    .line 542
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
+
+    invoke-static {p2, v2, v3}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+
+    .line 544
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->breakAction()V
+
+    .line 545
+    const/4 v0, -0x1
 
     return v0
 .end method
 
-.method protected shortPressBeforeQueueEnd(ILandroid/view/KeyEvent;)I
-    .locals 1
-    .parameter "policyFlags"
+.method protected shortPressUpBeforeDispatch(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)I
+    .locals 5
+    .parameter "win"
     .parameter "event"
+    .parameter "policyFlags"
 
     .prologue
-    .line 528
+    const/16 v4, 0x55
+
+    const/4 v3, 0x0
+
+    const/4 v2, -0x1
+
+    .line 522
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->mIsScreenOff:Z
+
+    if-eqz v0, :cond_1
+
+    .line 523
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
+    const-string v0, "HtcKeyEventHandler"
+
+    const-string v1, "press function key when screen off, ignore up"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 524
+    :cond_0
+    iput-boolean v3, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->mIsScreenOff:Z
+
+    .line 525
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->breakAction()V
+
+    .line 533
+    :goto_0
+    return v2
+
+    .line 528
+    :cond_1
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "HtcKeyEventHandler"
+
+    const-string v1, "IidaLockScreenAction injectTranslatedKeyEvent: KEYCODE_MEDIA_PLAY_PAUSE"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 529
-    and-int/lit8 p1, p1, -0x2
+    :cond_2
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
+
+    invoke-static {p2, v3, v4}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+
+    .line 530
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
+
+    const/4 v0, 0x1
+
+    invoke-static {p2, v0, v4}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
     .line 532
-    :cond_0
-    return p1
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaLockScreenAction;->breakAction()V
+
+    goto :goto_0
 .end method

@@ -799,7 +799,7 @@
     return-void
 .end method
 
-.method private broadcastDataConnectionStateChangedLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZZILjava/lang/String;)V
+.method private broadcastDataConnectionStateChangedLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZZLjava/lang/String;)V
     .locals 5
     .parameter "apnType"
     .parameter "ipVersion"
@@ -808,7 +808,6 @@
     .parameter "linkProperties"
     .parameter "isDataConnectivityPossible"
     .parameter "roaming"
-    .parameter "errorCause"
     .parameter "reason"
 
     .prologue
@@ -880,23 +879,13 @@
 
     move-result-object v1
 
-    const-string v3, ", errorCause="
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
     const-string v3, ", reason= "
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -937,11 +926,11 @@
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     :cond_0
-    if-eqz p9, :cond_1
+    if-eqz p8, :cond_1
 
     const-string v1, "reason"
 
-    invoke-virtual {v0, v1, p9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     :cond_1
     const-string v1, "state"
@@ -988,10 +977,6 @@
     invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     :cond_5
-    const-string v1, "entitleError"
-
-    invoke-virtual {v0, v1, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
     const-string v1, "TelephonyRegistry"
 
     const-string v2, "[BCST]---------------"
@@ -1010,7 +995,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -8020,8 +8005,8 @@
     goto :goto_0
 .end method
 
-.method public notifyDataConnectionLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZIZILjava/lang/String;)V
-    .locals 14
+.method public notifyDataConnectionLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZIZLjava/lang/String;)V
+    .locals 13
     .parameter "apnType"
     .parameter "ipVersion"
     .parameter "state"
@@ -8030,7 +8015,6 @@
     .parameter "isDataConnectivityPossible"
     .parameter "networkType"
     .parameter "roaming"
-    .parameter "errorCause"
     .parameter "reason"
 
     .prologue
@@ -8095,7 +8079,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/TelephonyRegistry;->mDataConnectionPossible:Z
 
-    move-object/from16 v0, p10
+    move-object/from16 v0, p9
 
     iput-object v0, p0, Lcom/android/server/TelephonyRegistry;->mDataConnectionReason:Ljava/lang/String;
 
@@ -8109,22 +8093,22 @@
 
     move-result v1
 
-    add-int/lit8 v12, v1, -0x1
+    add-int/lit8 v11, v1, -0x1
 
-    .local v12, i:I
+    .local v11, i:I
     :goto_2
-    if-ltz v12, :cond_4
+    if-ltz v11, :cond_4
 
     iget-object v1, p0, Lcom/android/server/TelephonyRegistry;->mRecords:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v12
 
-    check-cast v13, Lcom/android/server/TelephonyRegistry$Record;
+    check-cast v12, Lcom/android/server/TelephonyRegistry$Record;
 
-    .local v13, r:Lcom/android/server/TelephonyRegistry$Record;
-    iget v1, v13, Lcom/android/server/TelephonyRegistry$Record;->events:I
+    .local v12, r:Lcom/android/server/TelephonyRegistry$Record;
+    iget v1, v12, Lcom/android/server/TelephonyRegistry$Record;->events:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -8169,7 +8153,7 @@
 
     invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, v13, Lcom/android/server/TelephonyRegistry$Record;->callback:Lcom/android/internal/telephony/IPhoneStateListener;
+    iget-object v1, v12, Lcom/android/server/TelephonyRegistry$Record;->callback:Lcom/android/internal/telephony/IPhoneStateListener;
 
     iget v3, p0, Lcom/android/server/TelephonyRegistry;->mDataConnectionState:I
 
@@ -8182,12 +8166,12 @@
 
     :cond_2
     :goto_3
-    add-int/lit8 v12, v12, -0x1
+    add-int/lit8 v11, v11, -0x1
 
     goto :goto_2
 
-    .end local v12           #i:I
-    .end local v13           #r:Lcom/android/server/TelephonyRegistry$Record;
+    .end local v11           #i:I
+    .end local v12           #r:Lcom/android/server/TelephonyRegistry$Record;
     :cond_3
     :try_start_2
     iget-object v1, p0, Lcom/android/server/TelephonyRegistry;->mConnectedApns:Ljava/util/ArrayList;
@@ -8221,21 +8205,21 @@
 
     throw v1
 
-    .restart local v12       #i:I
-    .restart local v13       #r:Lcom/android/server/TelephonyRegistry$Record;
+    .restart local v11       #i:I
+    .restart local v12       #r:Lcom/android/server/TelephonyRegistry$Record;
     :catch_0
-    move-exception v11
+    move-exception v10
 
-    .local v11, ex:Landroid/os/RemoteException;
+    .local v10, ex:Landroid/os/RemoteException;
     :try_start_3
-    iget-object v1, v13, Lcom/android/server/TelephonyRegistry$Record;->binder:Landroid/os/IBinder;
+    iget-object v1, v12, Lcom/android/server/TelephonyRegistry$Record;->binder:Landroid/os/IBinder;
 
     invoke-direct {p0, v1}, Lcom/android/server/TelephonyRegistry;->remove(Landroid/os/IBinder;)V
 
     goto :goto_3
 
-    .end local v11           #ex:Landroid/os/RemoteException;
-    .end local v13           #r:Lcom/android/server/TelephonyRegistry$Record;
+    .end local v10           #ex:Landroid/os/RemoteException;
+    .end local v12           #r:Lcom/android/server/TelephonyRegistry$Record;
     :cond_4
     monitor-exit v2
     :try_end_3
@@ -8245,7 +8229,7 @@
 
     move-object v2, p1
 
-    move-object/from16 v3, p2
+    move-object v3, p2
 
     move/from16 v4, p3
 
@@ -8257,11 +8241,9 @@
 
     move/from16 v8, p8
 
-    move/from16 v9, p9
+    move-object/from16 v9, p9
 
-    move-object/from16 v10, p10
-
-    invoke-direct/range {v1 .. v10}, Lcom/android/server/TelephonyRegistry;->broadcastDataConnectionStateChangedLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZZILjava/lang/String;)V
+    invoke-direct/range {v1 .. v9}, Lcom/android/server/TelephonyRegistry;->broadcastDataConnectionStateChangedLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZZLjava/lang/String;)V
 
     goto/16 :goto_0
 .end method

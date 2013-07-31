@@ -237,7 +237,7 @@
     .line 31
     .end local v2           #ip:Ljava/lang/String;
     :cond_0
-    const-string v5, "}"
+    const-string/jumbo v5, "}"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

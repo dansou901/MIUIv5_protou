@@ -907,57 +907,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_14
 
     const/16 v0, 0xd
 
     .restart local v0       #event:I
     invoke-direct {p0}, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->handleAssocListChange()V
 
-    iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
-
-    #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v6}, Landroid/net/hotspot/SoftapMonitor;->access$600(Landroid/net/hotspot/SoftapMonitor;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/net/wifi/WifiStateMachine;->getWifidisplayApEnabled()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_14
-
-    const-string v6, "SoftapMonitor"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "received event="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", HANGED, ignore in Concurrent Mode"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    :cond_14
     iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -1000,14 +956,14 @@
     goto/16 :goto_1
 
     .end local v0           #event:I
-    :cond_15
+    :cond_14
     const-string v6, "PERF_LOCK"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_16
+    if-eqz v6, :cond_15
 
     const/16 v0, 0xe
 
@@ -1054,7 +1010,7 @@
     goto/16 :goto_0
 
     .end local v0           #event:I
-    :cond_16
+    :cond_15
     const-string v6, "PERF_UNLOCK"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

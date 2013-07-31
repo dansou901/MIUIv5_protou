@@ -31,25 +31,25 @@
     .parameter "id"
 
     .prologue
-    .line 2166
+    .line 2159
     iput-object p1, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->this$0:Lcom/android/internal/telephony/DataConnectionTracker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2167
+    .line 2160
     iput p2, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->uiId:I
 
-    .line 2168
+    .line 2161
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
-    .line 2169
+    .line 2162
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->lastIntention:I
 
-    .line 2170
+    .line 2163
     return-void
 .end method
 
@@ -59,14 +59,14 @@
     .locals 3
 
     .prologue
-    .line 2177
+    .line 2170
     iget v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
-    .line 2178
+    .line 2171
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->this$0:Lcom/android/internal/telephony/DataConnectionTracker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -115,7 +115,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/DataConnectionTracker;->log(Ljava/lang/String;)V
 
-    .line 2179
+    .line 2172
     return-void
 .end method
 
@@ -124,14 +124,14 @@
     .parameter "enable"
 
     .prologue
-    .line 2172
+    .line 2165
     iget v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
-    .line 2173
+    .line 2166
     if-eqz p1, :cond_0
 
     const/4 v0, 0x1
@@ -139,7 +139,7 @@
     :goto_0
     iput v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->lastIntention:I
 
-    .line 2174
+    .line 2167
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->this$0:Lcom/android/internal/telephony/DataConnectionTracker;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -188,10 +188,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/DataConnectionTracker;->log(Ljava/lang/String;)V
 
-    .line 2175
+    .line 2168
     return-void
 
-    .line 2173
+    .line 2166
     :cond_0
     const/4 v0, 0x0
 
@@ -202,7 +202,7 @@
     .locals 1
 
     .prologue
-    .line 2187
+    .line 2180
     iget v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
     if-eqz v0, :cond_0
@@ -211,10 +211,10 @@
 
     if-nez v0, :cond_0
 
-    .line 2188
+    .line 2181
     const/4 v0, 0x1
 
-    .line 2190
+    .line 2183
     :goto_0
     return v0
 
@@ -230,7 +230,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 2181
+    .line 2174
     iget v1, p0, Lcom/android/internal/telephony/DataConnectionTracker$UserIntention;->count:I
 
     if-eqz v1, :cond_0
@@ -239,7 +239,7 @@
 
     if-ne v1, v0, :cond_0
 
-    .line 2184
+    .line 2177
     :goto_0
     return v0
 
@@ -253,12 +253,12 @@
     .locals 3
 
     .prologue
-    .line 2193
+    .line 2186
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "uiId="
+    const-string/jumbo v2, "uiId="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -298,7 +298,7 @@
 
     move-result-object v0
 
-    .line 2194
+    .line 2187
     .local v0, tmp:Ljava/lang/String;
     return-object v0
 .end method

@@ -1,0 +1,26 @@
+*** CompoundButton.smali	2013-07-31 22:22:30.210733794 +0000
+--- CompoundButton.smali	2013-07-31 22:21:23.214061535 +0000
+***************
+*** 209,214 ****
+      .parameter "canvas"
+  
+      .prologue
+      invoke-super {p0, p1}, Landroid/widget/Button;->onDraw(Landroid/graphics/Canvas;)V
+  
+      iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;
+--- 209,223 ----
+      .parameter "canvas"
+  
+      .prologue
++     invoke-virtual {p0, p1}, Landroid/widget/CompoundButton;->onDrawMiui(Landroid/graphics/Canvas;)Z
++ 
++     move-result v4
++ 
++     if-eqz v4, :cond_miui_0
++ 
++     return-void
++ 
++     :cond_miui_0
+      invoke-super {p0, p1}, Landroid/widget/Button;->onDraw(Landroid/graphics/Canvas;)V
+  
+      iget-object v0, p0, Landroid/widget/CompoundButton;->mButtonDrawable:Landroid/graphics/drawable/Drawable;

@@ -1008,15 +1008,15 @@
     if-eqz v13, :cond_2
 
     .line 1650
-    const v10, 0x4070030
+    const v10, 0x407002d
 
     .line 1651
     .local v10, idTitle:I
-    const v8, 0x4070033
+    const v8, 0x4070030
 
     .line 1652
     .local v8, idMessage:I
-    const v7, 0x4070034
+    const v7, 0x4070031
 
     .line 1653
     .local v7, idDontShow:I
@@ -1245,9 +1245,9 @@
     :goto_0
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$1;
 
-    const v5, 0x4020006
+    const v5, 0x4020029
 
-    const v6, 0x4020006
+    const v6, 0x4020029
 
     const v7, 0x104013e
 
@@ -1271,15 +1271,15 @@
     .line 333
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$2;
 
-    const v5, 0x402001c
+    const v5, 0x402003f
 
-    const v6, 0x402001c
+    const v6, 0x402003f
 
-    const v7, 0x407002c
+    const v7, 0x4070029
 
-    const v8, 0x407002b
+    const v8, 0x4070028
 
-    const v9, 0x407002a
+    const v9, 0x4070027
 
     const/4 v10, 0x1
 
@@ -1294,15 +1294,15 @@
     .line 364
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$3;
 
-    const v5, 0x402001a
+    const v5, 0x402003d
 
-    const v6, 0x402001a
+    const v6, 0x402003d
 
-    const v7, 0x407002d
+    const v7, 0x407002a
 
-    const v8, 0x407002f
+    const v8, 0x407002c
 
-    const v9, 0x407002e
+    const v9, 0x407002b
 
     const/4 v10, 0x1
 
@@ -1337,11 +1337,11 @@
     .local v5, kidModeIcon:I
     new-instance v3, Lcom/android/internal/policy/impl/GlobalActions$4;
 
-    const v7, 0x4070030
+    const v7, 0x407002d
 
-    const v8, 0x4070031
+    const v8, 0x407002e
 
-    const v9, 0x4070032
+    const v9, 0x407002f
 
     const/4 v10, 0x0
 
@@ -1438,7 +1438,7 @@
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$5;
 
-    const v6, 0x402001b
+    const v6, 0x402003e
 
     const v7, 0x104013a
 
@@ -1499,7 +1499,7 @@
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$6;
 
-    const v6, 0x4020021
+    const v6, 0x4020044
 
     move-object/from16 v0, p0
 
@@ -1695,7 +1695,7 @@
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$7;
 
-    const v6, 0x402001a
+    const v6, 0x402003d
 
     const v7, 0x104013a
 
@@ -1748,7 +1748,7 @@
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$8;
 
-    const v6, 0x402001a
+    const v6, 0x402003d
 
     const v7, 0x104013a
 

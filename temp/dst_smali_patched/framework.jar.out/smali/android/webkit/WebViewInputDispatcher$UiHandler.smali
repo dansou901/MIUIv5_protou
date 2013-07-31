@@ -21,6 +21,8 @@
 
 .field public static final MSG_HIDE_TAP_HIGHLIGHT:I = 0x6
 
+.field public static final MSG_HIDE_TAP_HIGHLIGHT_CHECK:I = 0x7
+
 .field public static final MSG_LONG_PRESS:I = 0x3
 
 .field public static final MSG_SHOW_TAP_HIGHLIGHT:I = 0x5
@@ -136,6 +138,36 @@
 
     goto :goto_0
 
+    :pswitch_6
+    iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkit/WebViewInputDispatcher;
+
+    #getter for: Landroid/webkit/WebViewInputDispatcher;->mPostShowTapHighlightScheduled:Z
+    invoke-static {v0}, Landroid/webkit/WebViewInputDispatcher;->access$800(Landroid/webkit/WebViewInputDispatcher;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x7
+
+    const-wide/16 v1, 0x32
+
+    invoke-virtual {p0, v0, v1, v2}, Landroid/webkit/WebViewInputDispatcher$UiHandler;->sendEmptyMessageDelayed(IJ)Z
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkit/WebViewInputDispatcher;
+
+    const/16 v1, 0xc8
+
+    #calls: Landroid/webkit/WebViewInputDispatcher;->scheduleHideTapHighlightLocked(I)V
+    invoke-static {v0, v1}, Landroid/webkit/WebViewInputDispatcher;->access$900(Landroid/webkit/WebViewInputDispatcher;I)V
+
+    goto :goto_0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -144,5 +176,6 @@
         :pswitch_3
         :pswitch_4
         :pswitch_5
+        :pswitch_6
     .end packed-switch
 .end method

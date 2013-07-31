@@ -737,24 +737,11 @@
     invoke-static {v2, v14}, Lcom/android/server/am/HtcErrorReportManager;->access$300(Lcom/android/server/am/HtcErrorReportManager;Ljava/io/OutputStreamWriter;)V
 
     .line 325
-    invoke-static {}, Lcom/htc/utils/report/ReportConfig;->isShippingRom()Z
-
-    move-result v2
-
-    if-nez v2, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->val$isSystemServer:Z
-
-    if-eqz v2, :cond_6
-
-    .line 326
     const-string v2, "\n----- PROCRANK (procrank) -----\n"
 
     invoke-virtual {v14, v2}, Ljava/io/OutputStreamWriter;->write(Ljava/lang/String;)V
 
-    .line 327
+    .line 326
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->this$0:Lcom/android/server/am/HtcErrorReportManager;
@@ -790,7 +777,7 @@
     #calls: Lcom/android/server/am/HtcErrorReportManager;->logProcessResult(Ljava/lang/ProcessBuilder;Ljava/io/OutputStreamWriter;Ljava/lang/Integer;Z)V
     invoke-static {v2, v3, v14, v0, v1}, Lcom/android/server/am/HtcErrorReportManager;->access$200(Lcom/android/server/am/HtcErrorReportManager;Ljava/lang/ProcessBuilder;Ljava/io/OutputStreamWriter;Ljava/lang/Integer;Z)V
 
-    .line 338
+    .line 336
     :cond_6
     move-object/from16 v0, p0
 
@@ -798,7 +785,7 @@
 
     if-nez v2, :cond_7
 
-    .line 339
+    .line 337
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->this$0:Lcom/android/server/am/HtcErrorReportManager;
@@ -816,22 +803,22 @@
 
     move-result-object v10
 
-    .line 342
+    .line 340
     .local v10, c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     if-eqz v10, :cond_7
 
-    .line 343
+    .line 341
     const/4 v2, 0x2
 
     new-array v9, v2, [Ljava/lang/Class;
 
-    .line 344
+    .line 342
     .local v9, arguTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
     const/4 v2, 0x2
 
     new-array v8, v2, [Ljava/lang/Object;
 
-    .line 345
+    .line 343
     .local v8, arguList:[Ljava/lang/Object;
     const/4 v2, 0x0
 
@@ -839,21 +826,21 @@
 
     aput-object v3, v9, v2
 
-    .line 346
+    .line 344
     const/4 v2, 0x0
 
     const-string v3, "/data"
 
     aput-object v3, v8, v2
 
-    .line 347
+    .line 345
     const/4 v2, 0x1
 
     const-class v3, Ljava/io/OutputStreamWriter;
 
     aput-object v3, v9, v2
 
-    .line 348
+    .line 346
     const/4 v2, 0x1
 
     aput-object v14, v8, v2
@@ -861,7 +848,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 350
+    .line 348
     :try_start_3
     const-string v2, "dump"
 
@@ -869,7 +856,7 @@
 
     move-result-object v19
 
-    .line 351
+    .line 349
     .local v19, method:Ljava/lang/reflect/Method;
     move-object/from16 v0, v19
 
@@ -877,14 +864,14 @@
 
     invoke-virtual {v0, v1, v8}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 352
+    .line 350
     invoke-virtual {v14}, Ljava/io/OutputStreamWriter;->flush()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
     .catch Ljava/lang/NoSuchMethodException; {:try_start_3 .. :try_end_3} :catch_0
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
-    .line 361
+    .line 359
     .end local v8           #arguList:[Ljava/lang/Object;
     .end local v9           #arguTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
     .end local v10           #c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
@@ -893,17 +880,17 @@
     :goto_1
     if-eqz v14, :cond_22
 
-    .line 362
+    .line 360
     :try_start_4
     invoke-virtual {v14}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
-    .line 363
+    .line 361
     const/4 v13, 0x0
 
-    .line 366
+    .line 364
     .end local v14           #fileWriter:Ljava/io/OutputStreamWriter;
     .restart local v13       #fileWriter:Ljava/io/OutputStreamWriter;
     :goto_2
@@ -912,11 +899,11 @@
 
     move-result-wide v6
 
-    .line 367
+    .line 365
     .local v6, entryStartTime:J
     const/16 v5, 0x8
 
-    .line 368
+    .line 366
     .local v5, flags:I
     move-object/from16 v0, p0
 
@@ -928,13 +915,13 @@
 
     invoke-virtual/range {v2 .. v7}, Landroid/os/DropBoxManager;->addFile(Ljava/lang/String;Ljava/io/File;IJ)V
 
-    .line 369
+    .line 367
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 370
+    .line 368
     const/4 v15, 0x1
 
-    .line 372
+    .line 370
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->val$dropboxTag:Ljava/lang/String;
@@ -947,7 +934,7 @@
 
     if-eqz v2, :cond_15
 
-    .line 373
+    .line 371
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->val$eventType:Ljava/lang/String;
@@ -969,14 +956,14 @@
 
     if-eqz v2, :cond_13
 
-    .line 391
+    .line 389
     if-eqz v13, :cond_8
 
-    .line 392
+    .line 390
     :try_start_6
     invoke-virtual {v13}, Ljava/io/OutputStreamWriter;->close()V
 
-    .line 393
+    .line 391
     :cond_8
     if-eqz v4, :cond_9
 
@@ -986,23 +973,23 @@
 
     if-eqz v2, :cond_9
 
-    .line 394
+    .line 392
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 396
+    .line 394
     :cond_9
     sget-boolean v2, Lcom/android/server/am/HtcErrorReportManager;->htcDebugFlag:Z
 
     if-eqz v2, :cond_a
 
-    .line 397
+    .line 395
     const-string v2, "ActivityManager"
 
     const-string v3, "End---add error logs to dropbox"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 396
     :cond_a
     if-eqz v15, :cond_c
 
@@ -1030,7 +1017,7 @@
 
     if-eqz v2, :cond_c
 
-    .line 399
+    .line 397
     :cond_b
     move-object/from16 v0, p0
 
@@ -1049,7 +1036,7 @@
     :goto_3
     move-object/from16 v16, v17
 
-    .line 405
+    .line 403
     .end local v5           #flags:I
     .end local v6           #entryStartTime:J
     .end local v17           #fos:Ljava/io/FileOutputStream;
@@ -1074,21 +1061,21 @@
 
     goto/16 :goto_0
 
-    .line 353
+    .line 351
     .restart local v8       #arguList:[Ljava/lang/Object;
     .restart local v9       #arguTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
     .restart local v10       #c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
     :catch_0
     move-exception v11
 
-    .line 354
+    .line 352
     .local v11, e:Ljava/lang/NoSuchMethodException;
     :try_start_7
     sget-boolean v2, Lcom/android/server/am/HtcErrorReportManager;->htcDebugFlag:Z
 
     if-eqz v2, :cond_7
 
-    .line 355
+    .line 353
     const-string v2, "ActivityManager"
 
     const-string v3, "Can\'t get method from HtcFeedback"
@@ -1100,7 +1087,7 @@
 
     goto/16 :goto_1
 
-    .line 387
+    .line 385
     .end local v8           #arguList:[Ljava/lang/Object;
     .end local v9           #arguTypes:[Ljava/lang/Class;,"[Ljava/lang/Class<*>;"
     .end local v10           #c:Ljava/lang/Class;,"Ljava/lang/Class<*>;"
@@ -1116,7 +1103,7 @@
     .restart local v16       #fos:Ljava/io/FileOutputStream;
     move-object v13, v14
 
-    .line 388
+    .line 386
     .end local v14           #fileWriter:Ljava/io/OutputStreamWriter;
     .end local v20           #os:Ljava/io/OutputStream;
     .local v11, e:Ljava/lang/Exception;
@@ -1131,14 +1118,14 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_1
 
-    .line 391
+    .line 389
     if-eqz v13, :cond_f
 
-    .line 392
+    .line 390
     :try_start_9
     invoke-virtual {v13}, Ljava/io/OutputStreamWriter;->close()V
 
-    .line 393
+    .line 391
     :cond_f
     if-eqz v4, :cond_10
 
@@ -1148,23 +1135,23 @@
 
     if-eqz v2, :cond_10
 
-    .line 394
+    .line 392
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 396
+    .line 394
     :cond_10
     sget-boolean v2, Lcom/android/server/am/HtcErrorReportManager;->htcDebugFlag:Z
 
     if-eqz v2, :cond_11
 
-    .line 397
+    .line 395
     const-string v2, "ActivityManager"
 
     const-string v3, "End---add error logs to dropbox"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 396
     :cond_11
     if-eqz v15, :cond_d
 
@@ -1192,7 +1179,7 @@
 
     if-eqz v2, :cond_d
 
-    .line 399
+    .line 397
     :cond_12
     move-object/from16 v0, p0
 
@@ -1209,11 +1196,11 @@
 
     goto :goto_4
 
-    .line 401
+    .line 399
     :catch_2
     move-exception v12
 
-    .line 402
+    .line 400
     .local v12, ex:Ljava/lang/Exception;
     const-string v2, "ActivityManager"
 
@@ -1223,7 +1210,7 @@
 
     goto :goto_4
 
-    .line 376
+    .line 374
     .end local v11           #e:Ljava/lang/Exception;
     .end local v12           #ex:Ljava/lang/Exception;
     .end local v16           #fos:Ljava/io/FileOutputStream;
@@ -1253,7 +1240,7 @@
 
     if-nez v2, :cond_15
 
-    .line 377
+    .line 375
     :cond_14
     move-object/from16 v0, p0
 
@@ -1261,7 +1248,7 @@
 
     if-eqz v2, :cond_1c
 
-    .line 378
+    .line 376
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->val$crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
@@ -1270,7 +1257,7 @@
 
     if-eqz v2, :cond_1b
 
-    .line 379
+    .line 377
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->this$0:Lcom/android/server/am/HtcErrorReportManager;
@@ -1343,16 +1330,16 @@
     .catchall {:try_start_a .. :try_end_a} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_3
 
-    .line 391
+    .line 389
     :cond_15
     :goto_6
     if-eqz v13, :cond_16
 
-    .line 392
+    .line 390
     :try_start_b
     invoke-virtual {v13}, Ljava/io/OutputStreamWriter;->close()V
 
-    .line 393
+    .line 391
     :cond_16
     if-eqz v4, :cond_17
 
@@ -1362,23 +1349,23 @@
 
     if-eqz v2, :cond_17
 
-    .line 394
+    .line 392
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 396
+    .line 394
     :cond_17
     sget-boolean v2, Lcom/android/server/am/HtcErrorReportManager;->htcDebugFlag:Z
 
     if-eqz v2, :cond_18
 
-    .line 397
+    .line 395
     const-string v2, "ActivityManager"
 
     const-string v3, "End---add error logs to dropbox"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 396
     :cond_18
     if-eqz v15, :cond_1a
 
@@ -1406,7 +1393,7 @@
 
     if-eqz v2, :cond_1a
 
-    .line 399
+    .line 397
     :cond_19
     move-object/from16 v0, p0
 
@@ -1425,12 +1412,12 @@
     :goto_7
     move-object/from16 v16, v17
 
-    .line 404
+    .line 402
     .end local v17           #fos:Ljava/io/FileOutputStream;
     .restart local v16       #fos:Ljava/io/FileOutputStream;
     goto/16 :goto_4
 
-    .line 381
+    .line 379
     .end local v16           #fos:Ljava/io/FileOutputStream;
     .restart local v17       #fos:Ljava/io/FileOutputStream;
     :cond_1b
@@ -1484,7 +1471,7 @@
 
     goto :goto_6
 
-    .line 387
+    .line 385
     .end local v5           #flags:I
     .end local v6           #entryStartTime:J
     .end local v18           #lines:I
@@ -1498,7 +1485,7 @@
     .restart local v16       #fos:Ljava/io/FileOutputStream;
     goto/16 :goto_5
 
-    .line 384
+    .line 382
     .end local v16           #fos:Ljava/io/FileOutputStream;
     .restart local v5       #flags:I
     .restart local v6       #entryStartTime:J
@@ -1558,7 +1545,7 @@
 
     goto/16 :goto_6
 
-    .line 390
+    .line 388
     .end local v5           #flags:I
     .end local v6           #entryStartTime:J
     .end local v18           #lines:I
@@ -1568,18 +1555,18 @@
 
     move-object/from16 v16, v17
 
-    .line 391
+    .line 389
     .end local v17           #fos:Ljava/io/FileOutputStream;
     .end local v20           #os:Ljava/io/OutputStream;
     .restart local v16       #fos:Ljava/io/FileOutputStream;
     :goto_8
     if-eqz v13, :cond_1d
 
-    .line 392
+    .line 390
     :try_start_d
     invoke-virtual {v13}, Ljava/io/OutputStreamWriter;->close()V
 
-    .line 393
+    .line 391
     :cond_1d
     if-eqz v4, :cond_1e
 
@@ -1589,16 +1576,16 @@
 
     if-eqz v3, :cond_1e
 
-    .line 394
+    .line 392
     invoke-virtual {v4}, Ljava/io/File;->delete()Z
 
-    .line 396
+    .line 394
     :cond_1e
     sget-boolean v3, Lcom/android/server/am/HtcErrorReportManager;->htcDebugFlag:Z
 
     if-eqz v3, :cond_1f
 
-    .line 397
+    .line 395
     const-string v3, "ActivityManager"
 
     const-string v22, "End---add error logs to dropbox"
@@ -1607,7 +1594,7 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 398
+    .line 396
     :cond_1f
     if-eqz v15, :cond_21
 
@@ -1643,7 +1630,7 @@
 
     if-eqz v3, :cond_21
 
-    .line 399
+    .line 397
     :cond_20
     move-object/from16 v0, p0
 
@@ -1662,16 +1649,16 @@
     :try_end_d
     .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_4
 
-    .line 390
+    .line 388
     :cond_21
     :goto_9
     throw v2
 
-    .line 401
+    .line 399
     :catch_4
     move-exception v12
 
-    .line 402
+    .line 400
     .restart local v12       #ex:Ljava/lang/Exception;
     const-string v3, "ActivityManager"
 
@@ -1683,7 +1670,7 @@
 
     goto :goto_9
 
-    .line 401
+    .line 399
     .end local v12           #ex:Ljava/lang/Exception;
     .end local v16           #fos:Ljava/io/FileOutputStream;
     .restart local v5       #flags:I
@@ -1695,7 +1682,7 @@
     :catch_5
     move-exception v12
 
-    .line 402
+    .line 400
     .restart local v12       #ex:Ljava/lang/Exception;
     const-string v2, "ActivityManager"
 
@@ -1705,12 +1692,12 @@
 
     goto/16 :goto_3
 
-    .line 401
+    .line 399
     .end local v12           #ex:Ljava/lang/Exception;
     :catch_6
     move-exception v12
 
-    .line 402
+    .line 400
     .restart local v12       #ex:Ljava/lang/Exception;
     const-string v2, "ActivityManager"
 
@@ -1720,7 +1707,7 @@
 
     goto/16 :goto_7
 
-    .line 390
+    .line 388
     .end local v5           #flags:I
     .end local v6           #entryStartTime:J
     .end local v12           #ex:Ljava/lang/Exception;
@@ -1752,7 +1739,7 @@
     .restart local v13       #fileWriter:Ljava/io/OutputStreamWriter;
     goto :goto_8
 
-    .line 387
+    .line 385
     .end local v20           #os:Ljava/io/OutputStream;
     :catch_7
     move-exception v11

@@ -1358,7 +1358,7 @@
     .line 339
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "{ "
+    const-string/jumbo v1, "{ "
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 

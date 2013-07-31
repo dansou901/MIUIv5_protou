@@ -1,19 +1,40 @@
-*** MediaFile.smali	2013-07-12 21:44:17.258507763 +0000
---- MediaFile.smali	2013-07-12 21:41:53.778495932 +0000
+*** MediaFile.smali	2013-07-31 22:21:44.334063298 +0000
+--- MediaFile.smali	2013-07-31 22:23:03.147403210 +0000
 ***************
-*** 410,415 ****
+*** 403,410 ****
+  
+      invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+  
+-     invoke-static {}, Landroid/media/MediaFile$Injector;->addAPE()V
+- 
+      const-string v0, "MPEG"
+  
+      const-string v1, "video/mpeg"
+--- 396,401 ----
   
       invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
   
       const-string v0, "MPEG"
   
       const-string v1, "video/mpeg"
---- 417,424 ----
+***************
+*** 1090,1101 ****
+      return v0
   
-      invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
+      :cond_2
+-     invoke-static {p0}, Landroid/media/MediaFile$Injector;->isFFMpegAudoFileType(I)Z
+- 
+-     move-result v1
+- 
+-     if-nez v1, :cond_1
+- 
+      const/4 v0, 0x0
   
-+     invoke-static {}, Landroid/media/MediaFile$Injector;->addAPE()V
-+ 
-      const-string v0, "MPEG"
+      goto :goto_0
+--- 1081,1086 ----
+      return v0
   
-      const-string v1, "video/mpeg"
+      :cond_2
+      const/4 v0, 0x0
+  
+      goto :goto_0

@@ -27,16 +27,16 @@
     .parameter "handler"
 
     .prologue
-    .line 318
+    .line 315
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 319
+    .line 316
     iput-object p1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mContext:Landroid/content/Context;
 
-    .line 320
+    .line 317
     iput-object p2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
-    .line 321
+    .line 318
     return-void
 .end method
 
@@ -48,14 +48,14 @@
     .parameter "intent"
 
     .prologue
-    .line 324
+    .line 321
     invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$000()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 325
+    .line 322
     const-string v2, "HtcDeviceInfoManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -82,7 +82,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 327
+    .line 324
     :cond_0
     const-string v2, "com.htc.USE_TIME_FLUSH"
 
@@ -96,19 +96,19 @@
 
     if-eqz v2, :cond_2
 
-    .line 328
+    .line 325
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 351
+    .line 348
     :cond_1
     :goto_0
     return-void
 
-    .line 329
+    .line 326
     :cond_2
     const-string v2, "com.htc.CLIENT_INFO_FLUSH"
 
@@ -122,7 +122,7 @@
 
     if-eqz v2, :cond_3
 
-    .line 330
+    .line 327
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x2
@@ -131,7 +131,7 @@
 
     goto :goto_0
 
-    .line 331
+    .line 328
     :cond_3
     const-string v2, "com.htc.DEVICE_INFO_FLUSH"
 
@@ -145,14 +145,14 @@
 
     if-eqz v2, :cond_4
 
-    .line 332
+    .line 329
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 333
+    .line 330
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mContext:Landroid/content/Context;
 
     const-string v3, "com.htc.DEVICE_INFO_FLUSH"
@@ -165,7 +165,7 @@
 
     goto :goto_0
 
-    .line 334
+    .line 331
     :cond_4
     const-string v2, "android.intent.action.SCREEN_OFF"
 
@@ -179,7 +179,7 @@
 
     if-eqz v2, :cond_5
 
-    .line 335
+    .line 332
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v3, 0xe
@@ -188,7 +188,7 @@
 
     goto :goto_0
 
-    .line 336
+    .line 333
     :cond_5
     const-string v2, "android.intent.action.SCREEN_ON"
 
@@ -202,7 +202,7 @@
 
     if-eqz v2, :cond_6
 
-    .line 337
+    .line 334
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v3, 0xd
@@ -211,7 +211,7 @@
 
     goto :goto_0
 
-    .line 338
+    .line 335
     :cond_6
     const-string v2, "com.htc.updater.NOTIFY_SYSTEM_CRASH"
 
@@ -225,27 +225,27 @@
 
     if-eqz v2, :cond_1
 
-    .line 339
+    .line 336
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 340
+    .line 337
     .local v0, bundle:Landroid/os/Bundle;
     if-eqz v0, :cond_1
 
-    .line 341
+    .line 338
     const-string v2, "reboot_type"
 
     invoke-virtual {v0, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 342
+    .line 339
     .local v1, type:Ljava/lang/String;
     if-eqz v1, :cond_1
 
-    .line 343
+    .line 340
     const-string v2, "kernel"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -254,7 +254,7 @@
 
     if-eqz v2, :cond_7
 
-    .line 344
+    .line 341
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v3, 0x14
@@ -263,7 +263,7 @@
 
     goto/16 :goto_0
 
-    .line 345
+    .line 342
     :cond_7
     const-string v2, "radio"
 
@@ -273,7 +273,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 346
+    .line 343
     iget-object v2, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$FlushReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v3, 0x15

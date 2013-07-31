@@ -1071,7 +1071,7 @@
 
 # virtual methods
 .method getPropertyList(III)Landroid/mtp/MtpPropertyList;
-    .locals 38
+    .locals 39
     .parameter "handle"
     .parameter "format"
     .parameter "depth"
@@ -1100,9 +1100,20 @@
 
     iget-object v3, v0, Landroid/mtp/MtpPropertyGroup;->mDatabase:Landroid/mtp/MtpDatabase;
 
-    const/16 v27, 0x1
+    iget-object v0, v3, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
 
-    .local v27, mEnableDataCache:Z
+    move-object/from16 v20, v0
+
+    .local v20, amMtpPropertyCacheHandle:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Landroid/mtp/MtpPropertyGroup;->mDatabase:Landroid/mtp/MtpDatabase;
+
+    iget-object v0, v3, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    move-object/from16 v19, v0
+
+    .local v19, amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
     if-nez p2, :cond_7
 
     const/4 v3, -0x1
@@ -1111,33 +1122,73 @@
 
     if-eq v0, v3, :cond_7
 
-    if-eqz v27, :cond_7
+    if-eqz v19, :cond_7
 
-    move-object/from16 v0, p0
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v3, v0, Landroid/mtp/MtpPropertyGroup;->mDatabase:Landroid/mtp/MtpDatabase;
+    move-result-object v3
 
-    iget-object v3, v3, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    move-object/from16 v0, v20
 
-    move-object/from16 v0, p0
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    iget-object v5, v0, Landroid/mtp/MtpPropertyGroup;->mUri:Landroid/net/Uri;
+    move-result v3
 
-    move/from16 v0, p1
+    if-eqz v3, :cond_7
 
-    invoke-virtual {v3, v0, v5}, Landroid/mtp/MtpDatabase$MediaCache;->queryFileById(ILandroid/net/Uri;)Landroid/mtp/MtpDatabase$FileCache;
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v33
+    move-result-object v3
 
-    .local v33, sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    if-eqz v33, :cond_7
+    move-object/from16 v0, v20
 
-    const/16 v22, 0x1
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
-    .local v22, count:I
-    const/16 v19, 0x0
+    move-result v29
 
-    .local v19, bDoQuery:Z
+    .local v29, ii:I
+    const/4 v3, -0x1
+
+    move/from16 v0, v29
+
+    if-eq v0, v3, :cond_7
+
+    invoke-virtual/range {v20 .. v20}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    const-string v3, "MtpPropertyGroup"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "[USBF] getPropertyList.HandleIdx="
+
+    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move/from16 v0, v29
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v24, 0x1
+
+    .local v24, count:I
+    const/16 v21, 0x0
+
+    .local v21, bDoQuery:Z
     const-string v3, "MtpPropertyGroup"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1174,16 +1225,16 @@
 
     array-length v3, v3
 
-    mul-int v3, v3, v22
+    mul-int v3, v3, v24
 
     const/16 v5, 0x2001
 
     invoke-direct {v2, v3, v5}, Landroid/mtp/MtpPropertyList;-><init>(II)V
 
     .local v2, result:Landroid/mtp/MtpPropertyList;
-    const/16 v31, 0x0
+    const/16 v33, 0x0
 
-    .local v31, propertyIndex:I
+    .local v33, propertyIndex:I
     :goto_1
     move-object/from16 v0, p0
 
@@ -1191,20 +1242,20 @@
 
     array-length v3, v3
 
-    move/from16 v0, v31
+    move/from16 v0, v33
 
     if-ge v0, v3, :cond_6
 
-    if-nez v19, :cond_6
+    if-nez v21, :cond_6
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Landroid/mtp/MtpPropertyGroup;->mProperties:[Landroid/mtp/MtpPropertyGroup$Property;
 
-    aget-object v30, v3, v31
+    aget-object v32, v3, v33
 
-    .local v30, property:Landroid/mtp/MtpPropertyGroup$Property;
-    move-object/from16 v0, v30
+    .local v32, property:Landroid/mtp/MtpPropertyGroup$Property;
+    move-object/from16 v0, v32
 
     iget v4, v0, Landroid/mtp/MtpPropertyGroup$Property;->code:I
 
@@ -1233,10 +1284,10 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v19, 0x1
+    const/16 v21, 0x1
 
     :goto_2
-    add-int/lit8 v31, v31, 0x1
+    add-int/lit8 v33, v33, 0x1
 
     goto :goto_1
 
@@ -1252,18 +1303,18 @@
     goto :goto_2
 
     :sswitch_1
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v0, v0, Landroid/mtp/MtpDatabase$FileCache;->mszFullPath:Ljava/lang/String;
+    iget-object v0, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszFullPath:Ljava/lang/String;
 
-    move-object/from16 v36, v0
+    move-object/from16 v37, v0
 
-    .local v36, value:Ljava/lang/String;
-    if-eqz v36, :cond_3
+    .local v37, value:Ljava/lang/String;
+    if-eqz v37, :cond_3
 
     const-string v3, "/"
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v37
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1283,7 +1334,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v37
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1302,7 +1353,7 @@
     goto :goto_2
 
     :cond_2
-    invoke-static/range {v36 .. v36}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v37 .. v37}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1313,70 +1364,58 @@
     goto :goto_2
 
     :cond_3
-    const-string v3, "MtpPropertyGroup"
-
-    const-string v5, "[USBF] PROPERTY_OBJECT_FILE_NAME: skip invalid path null"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v3, 0x2009
 
     invoke-virtual {v2, v3}, Landroid/mtp/MtpPropertyList;->setResult(I)V
 
     goto :goto_2
 
-    .end local v36           #value:Ljava/lang/String;
+    .end local v37           #value:Ljava/lang/String;
     :sswitch_2
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v0, v0, Landroid/mtp/MtpDatabase$FileCache;->mszTitle:Ljava/lang/String;
+    iget-object v0, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszTitle:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    .local v28, name:Ljava/lang/String;
-    if-nez v28, :cond_4
+    .local v30, name:Ljava/lang/String;
+    if-nez v30, :cond_4
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v0, v0, Landroid/mtp/MtpDatabase$FileCache;->mszFullPath:Ljava/lang/String;
+    iget-object v0, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszFullPath:Ljava/lang/String;
 
-    move-object/from16 v28, v0
+    move-object/from16 v30, v0
 
-    if-eqz v28, :cond_4
+    if-eqz v30, :cond_4
 
-    invoke-static/range {v28 .. v28}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v30 .. v30}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
     :cond_4
-    if-eqz v28, :cond_5
+    if-eqz v30, :cond_5
 
     move/from16 v0, p1
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v30
 
     invoke-virtual {v2, v0, v4, v1}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
     goto :goto_2
 
     :cond_5
-    const-string v3, "MtpPropertyGroup"
-
-    const-string v5, "[USBF] PROPERTY_NAME: skip invalid path null"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     const/16 v3, 0x2009
 
     invoke-virtual {v2, v3}, Landroid/mtp/MtpPropertyList;->setResult(I)V
 
     goto :goto_2
 
-    .end local v28           #name:Ljava/lang/String;
+    .end local v30           #name:Ljava/lang/String;
     :sswitch_3
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-wide v8, v0, Landroid/mtp/MtpDatabase$FileCache;->miModified:J
+    iget-wide v8, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miModified:J
 
     move-object/from16 v0, p0
 
@@ -1391,9 +1430,9 @@
     goto/16 :goto_2
 
     :sswitch_4
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-wide v8, v0, Landroid/mtp/MtpDatabase$FileCache;->miAdded:J
+    iget-wide v8, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miAdded:J
 
     move-object/from16 v0, p0
 
@@ -1408,9 +1447,9 @@
     goto/16 :goto_2
 
     :sswitch_5
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v3, v0, Landroid/mtp/MtpDatabase$FileCache;->miStorageId:I
+    iget v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miStorageId:I
 
     int-to-long v6, v3
 
@@ -1435,13 +1474,13 @@
 
     .end local v6           #puid:J
     :sswitch_6
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v11, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v3, v0, Landroid/mtp/MtpDatabase$FileCache;->miFormat:I
+    iget v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miFormat:I
 
     int-to-long v12, v3
 
@@ -1456,13 +1495,13 @@
     goto/16 :goto_2
 
     :sswitch_7
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v11, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-wide v12, v0, Landroid/mtp/MtpDatabase$FileCache;->miSize:J
+    iget-wide v12, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miSize:J
 
     move-object v8, v2
 
@@ -1475,13 +1514,13 @@
     goto/16 :goto_2
 
     :sswitch_8
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v11, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v3, v0, Landroid/mtp/MtpDatabase$FileCache;->miStorageId:I
+    iget v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miStorageId:I
 
     int-to-long v12, v3
 
@@ -1496,13 +1535,13 @@
     goto/16 :goto_2
 
     :sswitch_9
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v11, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v3, v0, Landroid/mtp/MtpDatabase$FileCache;->miParent:I
+    iget v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miParent:I
 
     int-to-long v12, v3
 
@@ -1517,9 +1556,9 @@
     goto/16 :goto_2
 
     :sswitch_a
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v3, v0, Landroid/mtp/MtpDatabase$FileCache;->mszAlbumArtist:Ljava/lang/String;
+    iget-object v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszAlbumArtist:Ljava/lang/String;
 
     move/from16 v0, p1
 
@@ -1528,9 +1567,9 @@
     goto/16 :goto_2
 
     :sswitch_b
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v3, v0, Landroid/mtp/MtpDatabase$FileCache;->mszComposer:Ljava/lang/String;
+    iget-object v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszComposer:Ljava/lang/String;
 
     move/from16 v0, p1
 
@@ -1539,9 +1578,9 @@
     goto/16 :goto_2
 
     :sswitch_c
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v3, v0, Landroid/mtp/MtpDatabase$FileCache;->mszDescription:Ljava/lang/String;
+    iget-object v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszDescription:Ljava/lang/String;
 
     move/from16 v0, p1
 
@@ -1550,9 +1589,9 @@
     goto/16 :goto_2
 
     :sswitch_d
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-object v3, v0, Landroid/mtp/MtpDatabase$FileCache;->mszDisplayName:Ljava/lang/String;
+    iget-object v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszDisplayName:Ljava/lang/String;
 
     move/from16 v0, p1
 
@@ -1561,13 +1600,13 @@
     goto/16 :goto_2
 
     :sswitch_e
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v11, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget-wide v12, v0, Landroid/mtp/MtpDatabase$FileCache;->miDuration:J
+    iget-wide v12, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miDuration:J
 
     move-object v8, v2
 
@@ -1580,18 +1619,18 @@
     goto/16 :goto_2
 
     :sswitch_f
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v0, v0, Landroid/mtp/MtpDatabase$FileCache;->miOriginalReleaseDate:I
+    iget v0, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miOriginalReleaseDate:I
 
-    move/from16 v37, v0
+    move/from16 v38, v0
 
-    .local v37, year:I
+    .local v38, year:I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v37 .. v37}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static/range {v38 .. v38}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -1607,25 +1646,25 @@
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    .local v23, dateTime:Ljava/lang/String;
+    .local v25, dateTime:Ljava/lang/String;
     move/from16 v0, p1
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v25
 
     invoke-virtual {v2, v0, v4, v1}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
     goto/16 :goto_2
 
-    .end local v23           #dateTime:Ljava/lang/String;
-    .end local v37           #year:I
+    .end local v25           #dateTime:Ljava/lang/String;
+    .end local v38           #year:I
     :sswitch_10
     const/4 v11, 0x4
 
-    move-object/from16 v0, v33
+    aget-object v3, v19, v29
 
-    iget v3, v0, Landroid/mtp/MtpDatabase$FileCache;->miTrack:I
+    iget v3, v3, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miTrack:I
 
     rem-int/lit16 v3, v3, 0x3e8
 
@@ -1699,15 +1738,15 @@
     goto/16 :goto_2
 
     .end local v4           #propertyCode:I
-    .end local v30           #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .end local v32           #property:Landroid/mtp/MtpPropertyGroup$Property;
     :cond_6
-    if-eqz v19, :cond_0
+    if-eqz v21, :cond_0
 
     .end local v2           #result:Landroid/mtp/MtpPropertyList;
-    .end local v19           #bDoQuery:Z
-    .end local v22           #count:I
-    .end local v31           #propertyIndex:I
-    .end local v33           #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
+    .end local v21           #bDoQuery:Z
+    .end local v24           #count:I
+    .end local v29           #ii:I
+    .end local v33           #propertyIndex:I
     :cond_7
     if-nez p2, :cond_b
 
@@ -1724,9 +1763,9 @@
 
     .local v12, whereArgs:[Ljava/lang/String;
     :goto_3
-    const/16 v20, 0x0
+    const/16 v22, 0x0
 
-    .local v20, c:Landroid/database/Cursor;
+    .local v22, c:Landroid/database/Cursor;
     if-gtz p3, :cond_8
 
     const/4 v3, -0x1
@@ -1765,9 +1804,9 @@
 
     invoke-interface/range {v8 .. v14}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
 
-    move-result-object v20
+    move-result-object v22
 
-    if-nez v20, :cond_e
+    if-nez v22, :cond_e
 
     new-instance v2, Landroid/mtp/MtpPropertyList;
 
@@ -1780,16 +1819,16 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v20, :cond_0
+    if-eqz v22, :cond_0
 
     :goto_4
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+    invoke-interface/range {v22 .. v22}, Landroid/database/Cursor;->close()V
 
     goto/16 :goto_0
 
     .end local v11           #where:Ljava/lang/String;
     .end local v12           #whereArgs:[Ljava/lang/String;
-    .end local v20           #c:Landroid/database/Cursor;
+    .end local v22           #c:Landroid/database/Cursor;
     :cond_9
     const/4 v3, 0x1
 
@@ -1891,13 +1930,13 @@
     .restart local v11       #where:Ljava/lang/String;
     goto :goto_3
 
-    .restart local v20       #c:Landroid/database/Cursor;
+    .restart local v22       #c:Landroid/database/Cursor;
     :cond_e
-    if-nez v20, :cond_10
+    if-nez v22, :cond_10
 
-    const/16 v22, 0x1
+    const/16 v24, 0x1
 
-    .restart local v22       #count:I
+    .restart local v24       #count:I
     :goto_5
     :try_start_1
     new-instance v2, Landroid/mtp/MtpPropertyList;
@@ -1908,39 +1947,39 @@
 
     array-length v3, v3
 
-    mul-int v3, v3, v22
+    mul-int v3, v3, v24
 
     const/16 v5, 0x2001
 
     invoke-direct {v2, v3, v5}, Landroid/mtp/MtpPropertyList;-><init>(II)V
 
     .restart local v2       #result:Landroid/mtp/MtpPropertyList;
+    const/16 v36, 0x0
+
+    .local v36, szFileName:Ljava/lang/String;
+    const/16 v27, 0x0
+
+    .local v27, iFormat:Ljava/lang/Long;
     const/16 v35, 0x0
 
-    .local v35, szFileName:Ljava/lang/String;
-    const/16 v25, 0x0
+    .local v35, sRetriever:Landroid/media/MediaMetadataRetriever;
+    const/16 v31, 0x0
 
-    .local v25, iFormat:Ljava/lang/Long;
-    const/16 v34, 0x0
-
-    .local v34, sRetriever:Landroid/media/MediaMetadataRetriever;
-    const/16 v29, 0x0
-
-    .local v29, objectIndex:I
+    .local v31, objectIndex:I
     :goto_6
-    move/from16 v0, v29
+    move/from16 v0, v31
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
     if-ge v0, v1, :cond_1a
 
-    if-eqz v20, :cond_f
+    if-eqz v22, :cond_f
 
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->moveToNext()Z
+    invoke-interface/range {v22 .. v22}, Landroid/database/Cursor;->moveToNext()Z
 
     const/4 v3, 0x0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v22
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getLong(I)J
 
@@ -1951,9 +1990,9 @@
     move/from16 p1, v0
 
     :cond_f
-    const/16 v31, 0x0
+    const/16 v33, 0x0
 
-    .restart local v31       #propertyIndex:I
+    .restart local v33       #propertyIndex:I
     :goto_7
     move-object/from16 v0, p0
 
@@ -1961,7 +2000,7 @@
 
     array-length v3, v3
 
-    move/from16 v0, v31
+    move/from16 v0, v33
 
     if-ge v0, v3, :cond_19
 
@@ -1969,32 +2008,32 @@
 
     iget-object v3, v0, Landroid/mtp/MtpPropertyGroup;->mProperties:[Landroid/mtp/MtpPropertyGroup$Property;
 
-    aget-object v30, v3, v31
+    aget-object v32, v3, v33
 
-    .restart local v30       #property:Landroid/mtp/MtpPropertyGroup$Property;
-    move-object/from16 v0, v30
+    .restart local v32       #property:Landroid/mtp/MtpPropertyGroup$Property;
+    move-object/from16 v0, v32
 
     iget v4, v0, Landroid/mtp/MtpPropertyGroup$Property;->code:I
 
     .restart local v4       #propertyCode:I
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v0, v0, Landroid/mtp/MtpPropertyGroup$Property;->column:I
 
-    move/from16 v21, v0
+    move/from16 v23, v0
 
-    .local v21, column:I
-    move-object/from16 v0, v30
+    .local v23, column:I
+    move-object/from16 v0, v32
 
     iget v0, v0, Landroid/mtp/MtpPropertyGroup$Property;->miMetadata:I
 
-    move/from16 v26, v0
+    move/from16 v28, v0
 
-    .local v26, iMetadata:I
+    .local v28, iMetadata:I
     sparse-switch v4, :sswitch_data_1
 
     :goto_8
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v3, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
@@ -2002,7 +2041,7 @@
 
     if-ne v3, v5, :cond_17
 
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -2011,39 +2050,39 @@
     invoke-virtual {v2, v0, v4, v3}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
     :goto_9
-    add-int/lit8 v31, v31, 0x1
+    add-int/lit8 v33, v33, 0x1
 
     goto :goto_7
 
     .end local v2           #result:Landroid/mtp/MtpPropertyList;
     .end local v4           #propertyCode:I
-    .end local v21           #column:I
-    .end local v22           #count:I
-    .end local v25           #iFormat:Ljava/lang/Long;
-    .end local v26           #iMetadata:I
-    .end local v29           #objectIndex:I
-    .end local v30           #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .end local v31           #propertyIndex:I
-    .end local v34           #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .end local v35           #szFileName:Ljava/lang/String;
+    .end local v23           #column:I
+    .end local v24           #count:I
+    .end local v27           #iFormat:Ljava/lang/Long;
+    .end local v28           #iMetadata:I
+    .end local v31           #objectIndex:I
+    .end local v32           #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .end local v33           #propertyIndex:I
+    .end local v35           #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .end local v36           #szFileName:Ljava/lang/String;
     :cond_10
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->getCount()I
+    invoke-interface/range {v22 .. v22}, Landroid/database/Cursor;->getCount()I
 
-    move-result v22
+    move-result v24
 
     goto :goto_5
 
     .restart local v2       #result:Landroid/mtp/MtpPropertyList;
     .restart local v4       #propertyCode:I
-    .restart local v21       #column:I
-    .restart local v22       #count:I
-    .restart local v25       #iFormat:Ljava/lang/Long;
-    .restart local v26       #iMetadata:I
-    .restart local v29       #objectIndex:I
-    .restart local v30       #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .restart local v31       #propertyIndex:I
-    .restart local v34       #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .restart local v35       #szFileName:Ljava/lang/String;
+    .restart local v23       #column:I
+    .restart local v24       #count:I
+    .restart local v27       #iFormat:Ljava/lang/Long;
+    .restart local v28       #iMetadata:I
+    .restart local v31       #objectIndex:I
+    .restart local v32       #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .restart local v33       #propertyIndex:I
+    .restart local v35       #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .restart local v36       #szFileName:Ljava/lang/String;
     :sswitch_16
     const/16 v16, 0x4
 
@@ -2064,19 +2103,19 @@
 
     .end local v2           #result:Landroid/mtp/MtpPropertyList;
     .end local v4           #propertyCode:I
-    .end local v21           #column:I
-    .end local v22           #count:I
-    .end local v25           #iFormat:Ljava/lang/Long;
-    .end local v26           #iMetadata:I
-    .end local v29           #objectIndex:I
-    .end local v30           #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .end local v31           #propertyIndex:I
-    .end local v34           #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .end local v35           #szFileName:Ljava/lang/String;
+    .end local v23           #column:I
+    .end local v24           #count:I
+    .end local v27           #iFormat:Ljava/lang/Long;
+    .end local v28           #iMetadata:I
+    .end local v31           #objectIndex:I
+    .end local v32           #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .end local v33           #propertyIndex:I
+    .end local v35           #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .end local v36           #szFileName:Ljava/lang/String;
     :catch_0
-    move-exception v24
+    move-exception v26
 
-    .local v24, e:Landroid/os/RemoteException;
+    .local v26, e:Landroid/os/RemoteException;
     :try_start_2
     new-instance v2, Landroid/mtp/MtpPropertyList;
 
@@ -2088,34 +2127,34 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v20, :cond_0
+    if-eqz v22, :cond_0
 
     goto/16 :goto_4
 
-    .end local v24           #e:Landroid/os/RemoteException;
+    .end local v26           #e:Landroid/os/RemoteException;
     .restart local v2       #result:Landroid/mtp/MtpPropertyList;
     .restart local v4       #propertyCode:I
-    .restart local v21       #column:I
-    .restart local v22       #count:I
-    .restart local v25       #iFormat:Ljava/lang/Long;
-    .restart local v26       #iMetadata:I
-    .restart local v29       #objectIndex:I
-    .restart local v30       #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .restart local v31       #propertyIndex:I
-    .restart local v34       #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .restart local v35       #szFileName:Ljava/lang/String;
+    .restart local v23       #column:I
+    .restart local v24       #count:I
+    .restart local v27       #iFormat:Ljava/lang/Long;
+    .restart local v28       #iMetadata:I
+    .restart local v31       #objectIndex:I
+    .restart local v32       #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .restart local v33       #propertyIndex:I
+    .restart local v35       #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .restart local v36       #szFileName:Ljava/lang/String;
     :sswitch_17
     :try_start_3
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v36
+    move-result-object v37
 
-    .restart local v36       #value:Ljava/lang/String;
-    if-eqz v36, :cond_13
+    .restart local v37       #value:Ljava/lang/String;
+    if-eqz v37, :cond_13
 
     const-string v3, "/"
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v37
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2135,7 +2174,7 @@
 
     move-result-object v5
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v37
 
     invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2152,12 +2191,12 @@
     invoke-virtual {v2, v3}, Landroid/mtp/MtpPropertyList;->setResult(I)V
 
     :goto_a
-    move-object/from16 v35, v36
+    move-object/from16 v36, v37
 
     goto :goto_9
 
     :cond_11
-    invoke-static/range {v36 .. v36}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v37 .. v37}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -2172,38 +2211,38 @@
 
     .end local v2           #result:Landroid/mtp/MtpPropertyList;
     .end local v4           #propertyCode:I
-    .end local v21           #column:I
-    .end local v22           #count:I
-    .end local v25           #iFormat:Ljava/lang/Long;
-    .end local v26           #iMetadata:I
-    .end local v29           #objectIndex:I
-    .end local v30           #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .end local v31           #propertyIndex:I
-    .end local v34           #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .end local v35           #szFileName:Ljava/lang/String;
-    .end local v36           #value:Ljava/lang/String;
+    .end local v23           #column:I
+    .end local v24           #count:I
+    .end local v27           #iFormat:Ljava/lang/Long;
+    .end local v28           #iMetadata:I
+    .end local v31           #objectIndex:I
+    .end local v32           #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .end local v33           #propertyIndex:I
+    .end local v35           #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .end local v36           #szFileName:Ljava/lang/String;
+    .end local v37           #value:Ljava/lang/String;
     :catchall_0
     move-exception v3
 
-    if-eqz v20, :cond_12
+    if-eqz v22, :cond_12
 
-    invoke-interface/range {v20 .. v20}, Landroid/database/Cursor;->close()V
+    invoke-interface/range {v22 .. v22}, Landroid/database/Cursor;->close()V
 
     :cond_12
     throw v3
 
     .restart local v2       #result:Landroid/mtp/MtpPropertyList;
     .restart local v4       #propertyCode:I
-    .restart local v21       #column:I
-    .restart local v22       #count:I
-    .restart local v25       #iFormat:Ljava/lang/Long;
-    .restart local v26       #iMetadata:I
-    .restart local v29       #objectIndex:I
-    .restart local v30       #property:Landroid/mtp/MtpPropertyGroup$Property;
-    .restart local v31       #propertyIndex:I
-    .restart local v34       #sRetriever:Landroid/media/MediaMetadataRetriever;
-    .restart local v35       #szFileName:Ljava/lang/String;
-    .restart local v36       #value:Ljava/lang/String;
+    .restart local v23       #column:I
+    .restart local v24       #count:I
+    .restart local v27       #iFormat:Ljava/lang/Long;
+    .restart local v28       #iMetadata:I
+    .restart local v31       #objectIndex:I
+    .restart local v32       #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .restart local v33       #propertyIndex:I
+    .restart local v35       #sRetriever:Landroid/media/MediaMetadataRetriever;
+    .restart local v36       #szFileName:Ljava/lang/String;
+    .restart local v37       #value:Ljava/lang/String;
     :cond_13
     const/16 v3, 0x2009
 
@@ -2212,14 +2251,14 @@
 
     goto :goto_9
 
-    .end local v36           #value:Ljava/lang/String;
+    .end local v37           #value:Ljava/lang/String;
     :sswitch_18
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    .restart local v28       #name:Ljava/lang/String;
-    if-nez v28, :cond_14
+    .restart local v30       #name:Ljava/lang/String;
+    if-nez v30, :cond_14
 
     const-string v3, "name"
 
@@ -2229,10 +2268,10 @@
 
     invoke-direct {v0, v1, v3}, Landroid/mtp/MtpPropertyGroup;->queryString(ILjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
     :cond_14
-    if-nez v28, :cond_15
+    if-nez v30, :cond_15
 
     const-string v3, "_data"
 
@@ -2242,20 +2281,20 @@
 
     invoke-direct {v0, v1, v3}, Landroid/mtp/MtpPropertyGroup;->queryString(ILjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    if-eqz v28, :cond_15
+    if-eqz v30, :cond_15
 
-    invoke-static/range {v28 .. v28}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static/range {v30 .. v30}, Landroid/mtp/MtpPropertyGroup;->nameFromPath(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
     :cond_15
-    if-eqz v28, :cond_16
+    if-eqz v30, :cond_16
 
     move/from16 v0, p1
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v30
 
     invoke-virtual {v2, v0, v4, v1}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
@@ -2268,9 +2307,9 @@
 
     goto/16 :goto_9
 
-    .end local v28           #name:Ljava/lang/String;
+    .end local v30           #name:Ljava/lang/String;
     :sswitch_19
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v3
 
@@ -2289,16 +2328,16 @@
     goto/16 :goto_9
 
     :sswitch_1a
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v37
+    move-result v38
 
-    .restart local v37       #year:I
+    .restart local v38       #year:I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static/range {v37 .. v37}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static/range {v38 .. v38}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v5
 
@@ -2314,21 +2353,21 @@
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    .restart local v23       #dateTime:Ljava/lang/String;
+    .restart local v25       #dateTime:Ljava/lang/String;
     move/from16 v0, p1
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v25
 
     invoke-virtual {v2, v0, v4, v1}, Landroid/mtp/MtpPropertyList;->append(IILjava/lang/String;)V
 
     goto/16 :goto_9
 
-    .end local v23           #dateTime:Ljava/lang/String;
-    .end local v37           #year:I
+    .end local v25           #dateTime:Ljava/lang/String;
+    .end local v38           #year:I
     :sswitch_1b
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getLong(I)J
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v6
 
@@ -2355,7 +2394,7 @@
     :sswitch_1c
     const/16 v16, 0x4
 
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v3
 
@@ -2463,24 +2502,24 @@
     goto/16 :goto_9
 
     :sswitch_24
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getLong(I)J
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v8
 
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v25
+    move-result-object v27
 
     goto/16 :goto_8
 
     :cond_17
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v3, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
     if-nez v3, :cond_18
 
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v0, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
@@ -2499,13 +2538,13 @@
     goto/16 :goto_9
 
     :cond_18
-    move-object/from16 v0, v30
+    move-object/from16 v0, v32
 
     iget v0, v0, Landroid/mtp/MtpPropertyGroup$Property;->type:I
 
     move/from16 v16, v0
 
-    invoke-interface/range {v20 .. v21}, Landroid/database/Cursor;->getLong(I)J
+    invoke-interface/range {v22 .. v23}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v17
 
@@ -2523,24 +2562,24 @@
     goto/16 :goto_9
 
     .end local v4           #propertyCode:I
-    .end local v21           #column:I
-    .end local v26           #iMetadata:I
-    .end local v30           #property:Landroid/mtp/MtpPropertyGroup$Property;
+    .end local v23           #column:I
+    .end local v28           #iMetadata:I
+    .end local v32           #property:Landroid/mtp/MtpPropertyGroup$Property;
     :cond_19
-    add-int/lit8 v29, v29, 0x1
+    add-int/lit8 v31, v31, 0x1
 
     goto/16 :goto_6
 
-    .end local v31           #propertyIndex:I
+    .end local v33           #propertyIndex:I
     :cond_1a
-    const/16 v35, 0x0
+    const/16 v36, 0x0
 
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
-    if-eqz v34, :cond_1b
+    if-eqz v35, :cond_1b
 
     :try_start_5
-    throw v34
+    throw v35
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
     .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_5} :catch_1
@@ -2548,20 +2587,20 @@
 
     :cond_1b
     :goto_b
-    if-eqz v20, :cond_0
+    if-eqz v22, :cond_0
 
     goto/16 :goto_4
 
     :catch_1
-    move-exception v32
+    move-exception v34
 
-    .local v32, sEx:Ljava/lang/RuntimeException;
+    .local v34, sEx:Ljava/lang/RuntimeException;
     :try_start_6
     const-string v3, "MtpPropertyGroup"
 
     const-string v5, "RuntimeException"
 
-    move-object/from16 v0, v32
+    move-object/from16 v0, v34
 
     invoke-static {v3, v5, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_6
@@ -2569,8 +2608,6 @@
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_0
 
     goto :goto_b
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

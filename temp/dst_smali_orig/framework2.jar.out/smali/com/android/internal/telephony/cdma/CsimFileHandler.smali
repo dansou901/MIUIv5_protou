@@ -97,7 +97,7 @@
     .local v0, path:Ljava/lang/String;
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    sget-object v0, Lcom/android/internal/telephony/cdma/CsimFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     .end local v0           #path:Ljava/lang/String;
     :cond_0
@@ -110,7 +110,7 @@
     goto :goto_0
 
     :sswitch_1
-    iget-object v0, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    sget-object v0, Lcom/android/internal/telephony/cdma/CsimFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     goto :goto_0
 

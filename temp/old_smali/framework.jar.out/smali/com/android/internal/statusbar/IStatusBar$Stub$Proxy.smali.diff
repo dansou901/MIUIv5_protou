@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/statusbar/IStatusBar$Stub$Proxy.smali	2013-07-12 21:42:46.731833631 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/statusbar/IStatusBar$Stub$Proxy.smali	2013-07-12 21:40:37.731822994 +0000
+*** ./smali/com/android/internal/statusbar/IStatusBar$Stub$Proxy.smali	2013-07-31 22:22:06.657398495 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/statusbar/IStatusBar$Stub$Proxy.smali	2013-07-31 22:21:10.197393782 +0000
 ***************
 *** 623,628 ****
 --- 623,699 ----

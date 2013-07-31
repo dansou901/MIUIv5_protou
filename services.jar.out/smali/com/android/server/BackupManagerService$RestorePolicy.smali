@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 3155
+    .line 3071
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "IGNORE"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->IGNORE:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    .line 3156
+    .line 3072
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "ACCEPT"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    .line 3157
+    .line 3073
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "ACCEPT_IF_APK"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT_IF_APK:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    .line 3154
+    .line 3070
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/server/BackupManagerService$RestorePolicy;
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 3154
+    .line 3070
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -115,7 +115,7 @@
     .parameter "name"
 
     .prologue
-    .line 3154
+    .line 3070
     const-class v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,7 +131,7 @@
     .locals 1
 
     .prologue
-    .line 3154
+    .line 3070
     sget-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->$VALUES:[Lcom/android/server/BackupManagerService$RestorePolicy;
 
     invoke-virtual {v0}, [Lcom/android/server/BackupManagerService$RestorePolicy;->clone()Ljava/lang/Object;

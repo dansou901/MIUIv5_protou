@@ -170,8 +170,6 @@
 
 .field static final TRANSACTION_startTethering:I = 0x14
 
-.field static final TRANSACTION_startTraceroute:I = 0x55
-
 .field static final TRANSACTION_startWpsRegistrar:I = 0x3f
 
 .field static final TRANSACTION_stopAccessPoint:I = 0x23
@@ -185,8 +183,6 @@
 .field static final TRANSACTION_stopTcpdump:I = 0x52
 
 .field static final TRANSACTION_stopTethering:I = 0x15
-
-.field static final TRANSACTION_stopTraceroute:I = 0x56
 
 .field static final TRANSACTION_stopWpsRegistrar:I = 0x40
 
@@ -2468,44 +2464,6 @@
 
     goto/16 :goto_0
 
-    :sswitch_55
-    const-string v0, "android.os.INetworkManagementService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .restart local v2       #_arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->startTraceroute(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v0, 0x1
-
-    goto/16 :goto_0
-
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_56
-    const-string v0, "android.os.INetworkManagementService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/os/INetworkManagementService$Stub;->stopTraceroute()V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    const/4 v0, 0x1
-
-    goto/16 :goto_0
-
     nop
 
     :sswitch_data_0
@@ -2594,8 +2552,6 @@
         0x52 -> :sswitch_52
         0x53 -> :sswitch_53
         0x54 -> :sswitch_54
-        0x55 -> :sswitch_55
-        0x56 -> :sswitch_56
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

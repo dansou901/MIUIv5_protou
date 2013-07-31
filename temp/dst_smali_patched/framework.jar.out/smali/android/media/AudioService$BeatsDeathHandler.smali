@@ -104,7 +104,7 @@
     iget-object v2, p0, Landroid/media/AudioService$BeatsDeathHandler;->this$0:Landroid/media/AudioService;
 
     #setter for: Landroid/media/AudioService;->mHtcSpecificAP:Z
-    invoke-static {v2, v5}, Landroid/media/AudioService;->access$4402(Landroid/media/AudioService;Z)Z
+    invoke-static {v2, v5}, Landroid/media/AudioService;->access$4102(Landroid/media/AudioService;Z)Z
 
     iget-object v2, p0, Landroid/media/AudioService$BeatsDeathHandler;->this$0:Landroid/media/AudioService;
 
@@ -114,7 +114,7 @@
     iget-object v2, p0, Landroid/media/AudioService$BeatsDeathHandler;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mBeatsHandlers:Ljava/util/ArrayList;
-    invoke-static {v2}, Landroid/media/AudioService;->access$4500(Landroid/media/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v2}, Landroid/media/AudioService;->access$4200(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -124,7 +124,7 @@
     iget-object v2, p0, Landroid/media/AudioService$BeatsDeathHandler;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mBeatsHandlers:Ljava/util/ArrayList;
-    invoke-static {v2}, Landroid/media/AudioService;->access$4500(Landroid/media/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v2}, Landroid/media/AudioService;->access$4200(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -172,7 +172,7 @@
     iget-object v2, p0, Landroid/media/AudioService$BeatsDeathHandler;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mBeatsHandlers:Ljava/util/ArrayList;
-    invoke-static {v2}, Landroid/media/AudioService;->access$4500(Landroid/media/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v2}, Landroid/media/AudioService;->access$4200(Landroid/media/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v2
 

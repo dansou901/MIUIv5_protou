@@ -30,7 +30,7 @@
 
     .line 34
     :try_start_0
-    const-string v2, "uimode"
+    const-string/jumbo v2, "uimode"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

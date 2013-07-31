@@ -40,12 +40,10 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 8
     .parameter "msg"
 
     .prologue
-    const/4 v8, 0x1
-
     const/4 v7, 0x0
 
     iget-object v3, p0, Landroid/media/MediaPlayer$EventHandler;->mMediaPlayer:Landroid/media/MediaPlayer;
@@ -418,7 +416,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_0
 
     iget-object v3, p0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -435,21 +433,6 @@
 
     invoke-interface {v3, v4, v5, v6}, Landroid/media/MediaPlayer$OnInfoListener;->onInfo(Landroid/media/MediaPlayer;II)Z
 
-    :cond_7
-    iget v3, p1, Landroid/os/Message;->arg1:I
-
-    if-ne v3, v8, :cond_0
-
-    iget v3, p1, Landroid/os/Message;->arg2:I
-
-    const/16 v4, 0x386
-
-    if-ne v3, v4, :cond_0
-
-    iget-object v3, p0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
-
-    iput-boolean v8, v3, Landroid/media/MediaPlayer;->isAudioOnly:Z
-
     goto/16 :goto_0
 
     :sswitch_8
@@ -464,7 +447,7 @@
 
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_7
 
     iget-object v3, p0, Landroid/media/MediaPlayer$EventHandler;->this$0:Landroid/media/MediaPlayer;
 
@@ -481,7 +464,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_7
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v3, v3, Landroid/os/Parcel;
@@ -510,6 +493,8 @@
     invoke-interface {v3, v4, v2}, Landroid/media/MediaPlayer$OnTimedTextListener;->onTimedText(Landroid/media/MediaPlayer;Landroid/media/TimedText;)V
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

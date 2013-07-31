@@ -20,8 +20,6 @@
 # static fields
 .field private static final INITIALIZE:I = 0x0
 
-.field private static final RAISE_PRIORITY:I = 0x3
-
 .field private static final REDUCE_PRIORITY:I = 0x1
 
 .field private static final RESUME_PRIORITY:I = 0x2
@@ -32,7 +30,7 @@
     .locals 0
 
     .prologue
-    .line 805
+    .line 789
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +41,7 @@
     .parameter "x0"
 
     .prologue
-    .line 805
+    .line 789
     invoke-direct {p0}, Landroid/webkit/WebViewCore$WebCoreThread;-><init>()V
 
     return-void
@@ -55,22 +53,22 @@
     .locals 2
 
     .prologue
-    .line 814
+    .line 797
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
-    .line 815
+    .line 798
     invoke-static {}, Landroid/webkit/WebViewCore;->access$500()Landroid/os/Handler;
 
     move-result-object v0
 
     invoke-static {v0}, Ljunit/framework/Assert;->assertNull(Ljava/lang/Object;)V
 
-    .line 816
+    .line 799
     const-class v1, Landroid/webkit/WebViewCore;
 
     monitor-enter v1
 
-    .line 817
+    .line 800
     :try_start_0
     new-instance v0, Landroid/webkit/WebViewCore$WebCoreThread$1;
 
@@ -78,23 +76,23 @@
 
     invoke-static {v0}, Landroid/webkit/WebViewCore;->access$502(Landroid/os/Handler;)Landroid/os/Handler;
 
-    .line 891
+    .line 866
     const-class v0, Landroid/webkit/WebViewCore;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
-    .line 892
+    .line 867
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 893
+    .line 868
     invoke-static {}, Landroid/os/Looper;->loop()V
 
-    .line 894
+    .line 869
     return-void
 
-    .line 892
+    .line 867
     :catchall_0
     move-exception v0
 

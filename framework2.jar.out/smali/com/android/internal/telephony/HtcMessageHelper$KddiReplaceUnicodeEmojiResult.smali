@@ -25,21 +25,21 @@
     .locals 1
 
     .prologue
-    .line 1633
+    .line 1628
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1634
+    .line 1629
     new-instance v0, Ljava/lang/String;
 
     invoke-direct {v0}, Ljava/lang/String;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;->userDataString:Ljava/lang/String;
 
-    .line 1635
+    .line 1630
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;->emojiCount:I
 
-    .line 1636
+    .line 1631
     return-void
 .end method

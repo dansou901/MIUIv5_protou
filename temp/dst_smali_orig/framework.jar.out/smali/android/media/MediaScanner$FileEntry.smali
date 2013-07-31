@@ -21,27 +21,20 @@
 
 .field mLastModifiedChanged:Z
 
-.field mParentChanged:Z
-
-.field mParentId:J
-
 .field mPath:Ljava/lang/String;
 
 .field mRowId:J
 
 
 # direct methods
-.method constructor <init>(JLjava/lang/String;JIJ)V
+.method constructor <init>(JLjava/lang/String;JI)V
     .locals 1
     .parameter "rowId"
     .parameter "path"
     .parameter "lastModified"
     .parameter "format"
-    .parameter "parent"
 
     .prologue
-    const/4 v0, 0x0
-
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     iput-wide p1, p0, Landroid/media/MediaScanner$FileEntry;->mRowId:J
@@ -52,11 +45,9 @@
 
     iput p6, p0, Landroid/media/MediaScanner$FileEntry;->mFormat:I
 
+    const/4 v0, 0x0
+
     iput-boolean v0, p0, Landroid/media/MediaScanner$FileEntry;->mLastModifiedChanged:Z
-
-    iput-wide p7, p0, Landroid/media/MediaScanner$FileEntry;->mParentId:J
-
-    iput-boolean v0, p0, Landroid/media/MediaScanner$FileEntry;->mParentChanged:Z
 
     return-void
 .end method

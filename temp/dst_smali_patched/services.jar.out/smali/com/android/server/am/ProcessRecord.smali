@@ -23,7 +23,7 @@
     .end annotation
 .end field
 
-.field static final sTotalRamSize:I
+.field static final isSense40a:Z
 
 
 # instance fields
@@ -304,70 +304,76 @@
     .locals 4
 
     .prologue
-    new-instance v0, Ljava/util/ArrayList;
+    const-string v2, "4.0a"
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    sget-object v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Extra_Sense_Version:Ljava/lang/String;
 
-    sput-object v0, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/android/server/am/HtcAmsUtil;->getTotalRamSize()I
+    move-result v2
+
+    sput-boolean v2, Lcom/android/server/am/ProcessRecord;->isSense40a:Z
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    sput-object v2, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+
+    sget-boolean v2, Lcom/android/server/am/ProcessRecord;->isSense40a:Z
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+
+    const-string v3, "com.android.mms"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v2, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+
+    const-string v3, "com.android.htccontacts"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    sget-object v2, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+
+    const-string v3, "android.process.acore"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v2, "ro.product.ram"
+
+    invoke-static {v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .local v1, totalRamStr:Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/server/am/ProcessList;->getTotalRamSize(Ljava/lang/String;)I
 
     move-result v0
 
-    sput v0, Lcom/android/server/am/ProcessRecord;->sTotalRamSize:I
+    .local v0, totalRam:I
+    const/4 v2, -0x1
 
-    invoke-static {}, Lcom/android/server/am/HtcAmsUtil;->getCpuMaxFreq()J
+    if-eq v0, v2, :cond_1
 
-    move-result-wide v0
+    const/16 v2, 0x800
 
-    const-wide/32 v2, 0xf4240
+    if-lt v0, v2, :cond_1
 
-    cmp-long v0, v0, v2
+    const-string v2, "ActivityManager"
 
-    if-gez v0, :cond_0
+    const-string v3, "add camera into white list"
 
-    sget-object v0, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
+    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "com.android.mms"
+    sget-object v2, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const-string v3, "com.android.camera"
 
-    sget-object v0, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
-
-    const-string v1, "com.android.htccontacts"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_0
-    sget-object v0, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
-
-    const-string v1, "android.process.acore"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    sget v0, Lcom/android/server/am/ProcessRecord;->sTotalRamSize:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_1
-
-    sget v0, Lcom/android/server/am/ProcessRecord;->sTotalRamSize:I
-
-    const/16 v1, 0x800
-
-    if-lt v0, v1, :cond_1
-
-    const-string v0, "ActivityManager"
-
-    const-string v1, "add camera into white list"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Lcom/android/server/am/ProcessRecord;->htcImportantProcesses:Ljava/util/ArrayList;
-
-    const-string v1, "com.android.camera"
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_1
     return-void
@@ -695,11 +701,9 @@
     goto :goto_3
 
     :cond_9
-    sget v1, Lcom/android/server/am/ProcessRecord;->sTotalRamSize:I
+    sget-boolean v1, Lcom/android/server/am/ProcessRecord;->isSense40a:Z
 
-    const/16 v4, 0x300
-
-    if-gt v1, v4, :cond_b
+    if-eqz v1, :cond_b
 
     iget-object v1, p0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 

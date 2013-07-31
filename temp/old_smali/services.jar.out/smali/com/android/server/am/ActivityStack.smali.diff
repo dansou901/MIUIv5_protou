@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/am/ActivityStack.smali	2013-07-12 21:42:31.485165707 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityStack.smali	2013-07-12 21:40:27.111822119 +0000
+*** ./smali/com/android/server/am/ActivityStack.smali	2013-07-31 22:21:58.394064472 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityStack.smali	2013-07-31 22:21:03.704059907 +0000
 ***************
 *** 5432,5438 ****
       check-cast v3, Lcom/android/server/am/ActivityRecord;

@@ -64,12 +64,12 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->waitForReady()V
-    invoke-static {v6}, Lcom/android/server/MountService;->access$4200(Lcom/android/server/MountService;)V
+    invoke-static {v6}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)V
 
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->warnOnNotMounted()V
-    invoke-static {v6}, Lcom/android/server/MountService;->access$4300(Lcom/android/server/MountService;)V
+    invoke-static {v6}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)V
 
     invoke-virtual {p0}, Lcom/android/server/MountService$UnmountObbAction;->getObbInfo()Landroid/content/res/ObbInfo;
 
@@ -79,7 +79,7 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v6}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v7
 
@@ -89,7 +89,7 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbPathToStateMap:Ljava/util/Map;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v6}, Lcom/android/server/MountService;->access$3400(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v6
 
@@ -232,7 +232,7 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$2600(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
+    invoke-static {v6}, Lcom/android/server/MountService;->access$2100(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v6
 
@@ -247,7 +247,7 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v6}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v7
 
@@ -257,7 +257,7 @@
     iget-object v6, p0, Lcom/android/server/MountService$UnmountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->removeObbStateLocked(Lcom/android/server/MountService$ObbState;)V
-    invoke-static {v6, v4}, Lcom/android/server/MountService;->access$4000(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
+    invoke-static {v6, v4}, Lcom/android/server/MountService;->access$3500(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
 
     monitor-exit v7
     :try_end_3

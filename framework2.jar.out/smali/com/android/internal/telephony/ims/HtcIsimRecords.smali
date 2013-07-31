@@ -640,7 +640,7 @@
     :cond_1
     const-string v3, "GSM"
 
-    const-string v4, "unknown tag"
+    const-string/jumbo v4, "unknown tag"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

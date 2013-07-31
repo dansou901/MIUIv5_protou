@@ -118,7 +118,7 @@
     .local v0, procDir:Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
-    const-string v3, "stat"
+    const-string/jumbo v3, "stat"
 
     invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
@@ -144,7 +144,7 @@
     .line 218
     new-instance v2, Ljava/io/File;
 
-    const-string v3, "task"
+    const-string/jumbo v3, "task"
 
     invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
@@ -203,7 +203,7 @@
 
     new-instance v2, Ljava/io/File;
 
-    const-string v3, "task"
+    const-string/jumbo v3, "task"
 
     invoke-direct {v2, v0, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
@@ -219,7 +219,7 @@
     .local v1, taskDir:Ljava/io/File;
     new-instance v2, Ljava/io/File;
 
-    const-string v3, "stat"
+    const-string/jumbo v3, "stat"
 
     invoke-direct {v2, v1, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 

@@ -111,7 +111,7 @@
     invoke-interface {v4, v6}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
 
     .line 111
-    const-string v7, "voicemail"
+    const-string/jumbo v7, "voicemail"
 
     invoke-static {v4, v7}, Lcom/android/internal/util/XmlUtils;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
 
@@ -126,7 +126,7 @@
 
     .line 117
     .local v2, name:Ljava/lang/String;
-    const-string v7, "voicemail"
+    const-string/jumbo v7, "voicemail"
 
     invoke-virtual {v7, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_1
@@ -230,7 +230,7 @@
 
     const/4 v8, 0x0
 
-    const-string v9, "vmnumber"
+    const-string/jumbo v9, "vmnumber"
 
     invoke-interface {v4, v8, v9}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     const/4 v8, 0x0
 
-    const-string v9, "vmtag"
+    const-string/jumbo v9, "vmtag"
 
     invoke-interface {v4, v8, v9}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

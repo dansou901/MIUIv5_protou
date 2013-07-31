@@ -59,24 +59,173 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 9
 
     .prologue
-    const/16 v0, 0x9
+    const/16 v4, 0xf
 
-    sput v0, Lcom/android/server/am/ProcessList;->HIDDEN_APP_MIN_ADJ:I
+    const/4 v8, -0x1
 
-    const/16 v0, 0xf
+    const/16 v5, 0x9
 
-    sput v0, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+    sput v5, Lcom/android/server/am/ProcessList;->HIDDEN_APP_MIN_ADJ:I
 
-    invoke-static {}, Lcom/android/server/am/HtcAmsUtil;->getMaxHiddenAppsCount()I
+    sput v4, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    const-string v5, "ro.product.ram"
+
+    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    .local v3, totalRamStr:Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/am/ProcessList;->getTotalRamSize(Ljava/lang/String;)I
+
+    move-result v2
+
+    .local v2, totalRam:I
+    const-string v5, "ProcessList"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "totalRamStr: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/server/am/ProcessList;->isHighResolution()Z
 
     move-result v0
 
-    sput v0, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+    .local v0, bIsHighResolution:Z
+    const-string v5, "ProcessList"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "bIsHighResolution: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "customize_max_hidden_apps"
+
+    sget v6, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    invoke-static {v5, v6}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    .local v1, customizeMaxHiddenApps:I
+    const-string v5, "ProcessList"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "customizeMaxHiddenApps: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v5, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    if-eq v1, v5, :cond_1
+
+    sput v1, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    :cond_0
+    :goto_0
+    const-string v4, "ProcessList"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "MAX_HIDDEN_APPS: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    sget v6, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
+
+    :cond_1
+    if-eq v2, v8, :cond_3
+
+    const/16 v5, 0x200
+
+    if-gt v2, v5, :cond_3
+
+    if-eqz v0, :cond_2
+
+    const/16 v4, 0xa
+
+    :cond_2
+    sput v4, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    goto :goto_0
+
+    :cond_3
+    if-eq v2, v8, :cond_0
+
+    const/16 v4, 0x800
+
+    if-lt v2, v4, :cond_0
+
+    const/16 v4, 0x14
+
+    sput v4, Lcom/android/server/am/ProcessList;->MAX_HIDDEN_APPS:I
+
+    goto :goto_0
 .end method
 
 .method constructor <init>()V

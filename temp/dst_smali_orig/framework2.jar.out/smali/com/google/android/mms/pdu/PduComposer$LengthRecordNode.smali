@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+.field currentMessage:Ljava/io/ByteArrayOutputStream;
 
 .field public currentPosition:I
 
@@ -29,9 +29,9 @@
     .prologue
     const/4 v1, 0x0
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iput-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
     const/4 v0, 0x0
 

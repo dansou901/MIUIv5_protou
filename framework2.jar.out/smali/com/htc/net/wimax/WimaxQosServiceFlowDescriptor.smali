@@ -401,7 +401,7 @@
 
     move-result-object v4
 
-    const-string v5, "}"
+    const-string/jumbo v5, "}"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -414,7 +414,7 @@
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 130
-    const-string v4, "}"
+    const-string/jumbo v4, "}"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

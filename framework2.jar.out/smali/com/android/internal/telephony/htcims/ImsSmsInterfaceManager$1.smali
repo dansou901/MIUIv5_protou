@@ -653,7 +653,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "sub code : "
+    const-string/jumbo v10, "sub code : "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -836,7 +836,7 @@
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "sub code : "
+    const-string/jumbo v10, "sub code : "
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

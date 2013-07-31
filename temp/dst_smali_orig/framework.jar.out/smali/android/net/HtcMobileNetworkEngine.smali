@@ -874,13 +874,11 @@
 .end method
 
 .method private checkMobileNetworkSummaryPolicy(Landroid/net/NetworkInfo$State;Ljava/lang/String;)I
-    .locals 6
+    .locals 5
     .parameter "state"
     .parameter "reason"
 
     .prologue
-    const/4 v5, 0x1
-
     if-nez p2, :cond_0
 
     const-string p2, "unspecified"
@@ -944,7 +942,7 @@
     .local v2, summaryType:I
     iget-boolean v3, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     sget-object v3, Landroid/net/HtcMobileNetworkEngine$2;->$SwitchMap$android$net$NetworkInfo$State:[I
 
@@ -1024,7 +1022,9 @@
     const/4 v2, 0x4
 
     :goto_2
-    invoke-direct {p0, v5}, Landroid/net/HtcMobileNetworkEngine;->isNetworkActive(I)Z
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v3}, Landroid/net/HtcMobileNetworkEngine;->isNetworkActive(I)Z
 
     move-result v3
 
@@ -1137,34 +1137,29 @@
 
     const/16 v4, 0x51
 
-    if-eq v3, v4, :cond_12
+    if-ne v3, v4, :cond_12
 
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    if-ne v3, v5, :cond_13
-
-    :cond_12
     const/16 v2, 0xd
 
     goto :goto_3
 
-    :cond_13
+    :cond_12
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v4, 0x50
 
-    if-ne v3, v4, :cond_14
+    if-ne v3, v4, :cond_13
 
     const/16 v2, 0xc
 
     goto :goto_3
 
-    :cond_14
+    :cond_13
     const/16 v2, 0xb
 
     goto :goto_3
 
-    :cond_15
+    :cond_14
     const/4 v2, 0x0
 
     goto/16 :goto_1

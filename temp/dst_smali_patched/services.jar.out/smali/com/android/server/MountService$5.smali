@@ -44,7 +44,7 @@
     iget-object v1, p0, Lcom/android/server/MountService$5;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-    invoke-static {v1}, Lcom/android/server/MountService;->access$2600(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
+    invoke-static {v1}, Lcom/android/server/MountService;->access$2100(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v1
 

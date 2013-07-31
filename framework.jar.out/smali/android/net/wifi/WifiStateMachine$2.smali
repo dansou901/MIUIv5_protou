@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1299
+    .line 1229
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,14 +42,14 @@
     .prologue
     const v6, 0x2001d
 
-    .line 1302
+    .line 1232
     const-string v2, "availableArray"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    .line 1304
+    .line 1234
     .local v1, available:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v2, "activeArray"
 
@@ -57,7 +57,7 @@
 
     move-result-object v0
 
-    .line 1312
+    .line 1242
     .local v0, active:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
@@ -71,7 +71,7 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 1314
+    .line 1244
     :cond_0
     const-string v2, "WifiStateMachine"
 
@@ -79,7 +79,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1315
+    .line 1245
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v3, Landroid/net/wifi/WifiStateMachine$TetherStateChange;
@@ -90,11 +90,11 @@
 
     invoke-virtual {v2, v6, v3}, Landroid/net/wifi/WifiStateMachine;->sendMessage(ILjava/lang/Object;)V
 
-    .line 1321
+    .line 1251
     :goto_0
     return-void
 
-    .line 1317
+    .line 1247
     :cond_1
     const-string v2, "WifiStateMachine"
 
@@ -102,7 +102,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1318
+    .line 1248
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$2;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v3, Landroid/net/wifi/WifiStateMachine$TetherStateChange;

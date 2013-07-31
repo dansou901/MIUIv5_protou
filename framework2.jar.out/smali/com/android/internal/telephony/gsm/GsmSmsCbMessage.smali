@@ -63,7 +63,7 @@
 
     const/4 v1, 0x6
 
-    const-string v2, "sv"
+    const-string/jumbo v2, "sv"
 
     aput-object v2, v0, v1
 
@@ -99,7 +99,7 @@
 
     const/16 v1, 0xc
 
-    const-string v2, "tr"
+    const-string/jumbo v2, "tr"
 
     aput-object v2, v0, v1
 
@@ -982,7 +982,7 @@
 
     and-int/2addr v3, p3
 
-    const-string v4, "utf-16"
+    const-string/jumbo v4, "utf-16"
 
     invoke-direct {v0, p0, p2, v3, v4}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
     :try_end_0
@@ -1023,6 +1023,8 @@
     goto :goto_2
 
     .line 240
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

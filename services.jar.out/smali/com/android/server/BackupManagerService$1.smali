@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1024
+    .line 961
     iput-object p1, p0, Lcom/android/server/BackupManagerService$1;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,14 +43,14 @@
     .parameter "service"
 
     .prologue
-    .line 1026
+    .line 963
     const-string v0, "BackupManagerService"
 
     const-string v1, "Connected to Htc transport"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1027
+    .line 964
     iget-object v0, p0, Lcom/android/server/BackupManagerService$1;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-static {p2}, Lcom/android/internal/backup/IBackupTransport$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/backup/IBackupTransport;
@@ -59,7 +59,7 @@
 
     iput-object v1, v0, Lcom/android/server/BackupManagerService;->mHtcTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    .line 1028
+    .line 965
     iget-object v0, p0, Lcom/android/server/BackupManagerService$1;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
@@ -73,7 +73,7 @@
     #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 1029
+    .line 966
     return-void
 .end method
 
@@ -84,19 +84,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1032
+    .line 969
     const-string v0, "BackupManagerService"
 
     const-string v1, "Disconnected from Htc transport"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1033
+    .line 970
     iget-object v0, p0, Lcom/android/server/BackupManagerService$1;->this$0:Lcom/android/server/BackupManagerService;
 
     iput-object v2, v0, Lcom/android/server/BackupManagerService;->mHtcTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    .line 1034
+    .line 971
     iget-object v0, p0, Lcom/android/server/BackupManagerService$1;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
@@ -106,6 +106,6 @@
     #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 1035
+    .line 972
     return-void
 .end method

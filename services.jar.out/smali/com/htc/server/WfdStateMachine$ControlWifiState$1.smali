@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1044
+    .line 1037
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlWifiState;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,12 +38,12 @@
     .locals 3
 
     .prologue
-    .line 1048
+    .line 1041
     sget-boolean v0, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-nez v0, :cond_0
 
-    .line 1051
+    .line 1044
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlWifiState;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -60,14 +60,14 @@
 
     if-nez v0, :cond_0
 
-    .line 1052
+    .line 1045
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Disable Wifi AP fialed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1054
+    .line 1047
     :cond_0
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlWifiState;
 
@@ -83,14 +83,14 @@
 
     if-nez v0, :cond_1
 
-    .line 1055
+    .line 1048
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Enable wifi failed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1056
+    .line 1049
     :cond_1
     return-void
 .end method

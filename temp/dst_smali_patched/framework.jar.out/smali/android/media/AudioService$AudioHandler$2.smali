@@ -46,7 +46,7 @@
     iget-object v0, p0, Landroid/media/AudioService$AudioHandler$2;->this$1:Landroid/media/AudioService$AudioHandler;
 
     #calls: Landroid/media/AudioService$AudioHandler;->cleanupPlayer(Landroid/media/MediaPlayer;)V
-    invoke-static {v0, p1}, Landroid/media/AudioService$AudioHandler;->access$6700(Landroid/media/AudioService$AudioHandler;Landroid/media/MediaPlayer;)V
+    invoke-static {v0, p1}, Landroid/media/AudioService$AudioHandler;->access$6000(Landroid/media/AudioService$AudioHandler;Landroid/media/MediaPlayer;)V
 
     const/4 v0, 0x1
 

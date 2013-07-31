@@ -16,8 +16,6 @@
 
 .field private static final BLUETOOTH_MAX_PAN_CONNECTIONS:I = 0x5
 
-.field private static final BLUETOOTH_PAN_RESTRICTION:Ljava/lang/String; = "bluetooth_pan_restriction"
-
 .field private static final BLUETOOTH_PREFIX_LENGTH:I = 0x18
 
 .field private static final DBG:Z = true
@@ -25,8 +23,6 @@
 .field static final NAP_BRIDGE:Ljava/lang/String; = "pan1"
 
 .field static final NAP_ROLE:Ljava/lang/String; = "nap"
-
-.field public static PanRole:I = 0x0
 
 .field private static final TAG:Ljava/lang/String; = "BluetoothPanProfileHandler"
 
@@ -77,18 +73,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 69
-    const/4 v0, 0x0
-
-    sput v0, Landroid/server/BluetoothPanProfileHandler;->PanRole:I
-
-    return-void
-.end method
-
 .method private constructor <init>(Landroid/content/Context;Landroid/server/BluetoothService;)V
     .locals 6
     .parameter "context"
@@ -99,54 +83,54 @@
 
     const/4 v4, 0x0
 
-    .line 84
+    .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 75
+    .line 71
     iput-boolean v4, p0, Landroid/server/BluetoothPanProfileHandler;->mEnableMhs:Z
 
-    .line 76
+    .line 72
     iput-boolean v4, p0, Landroid/server/BluetoothPanProfileHandler;->mProcessingMhsRequest:Z
 
-    .line 77
+    .line 73
     iput-boolean v4, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsPermission:Z
 
-    .line 152
+    .line 137
     const/4 v2, 0x0
 
     iput-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 547
+    .line 516
     new-instance v2, Landroid/server/BluetoothPanProfileHandler$2;
 
     invoke-direct {v2, p0}, Landroid/server/BluetoothPanProfileHandler$2;-><init>(Landroid/server/BluetoothPanProfileHandler;)V
 
     iput-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 85
+    .line 77
     iput-object p1, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
-    .line 86
+    .line 78
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     iput-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
-    .line 87
+    .line 79
     iput-object p2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
-    .line 88
+    .line 80
     iput-boolean v5, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
-    .line 89
+    .line 81
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothIfaceAddresses:Ljava/util/ArrayList;
 
-    .line 91
+    .line 83
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -162,7 +146,7 @@
     :try_end_0
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 98
+    .line 90
     :goto_0
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -181,37 +165,31 @@
 
     const/4 v3, 0x2
 
-    if-eq v2, v3, :cond_1
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v3, 0x94
-
     if-ne v2, v3, :cond_2
 
-    .line 102
+    .line 93
     :cond_1
     new-instance v1, Landroid/content/IntentFilter;
 
     invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 103
+    .line 94
     .local v1, filter:Landroid/content/IntentFilter;
     const-string v2, "android.net.conn.HTC_PERMITTED_TETHER_CHANGE"
 
     invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 104
+    .line 95
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     iget-object v3, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v2, v3, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 105
+    .line 96
     iput-boolean v5, p0, Landroid/server/BluetoothPanProfileHandler;->mEnableMhs:Z
 
-    .line 110
+    .line 101
     .end local v1           #filter:Landroid/content/IntentFilter;
     :cond_2
     invoke-direct {p0}, Landroid/server/BluetoothPanProfileHandler;->isHtcPanSupported()Z
@@ -220,36 +198,25 @@
 
     if-nez v2, :cond_3
 
-    .line 111
+    .line 102
     const-string v2, "BluetoothPanProfileHandler"
 
     const-string v3, "disable pan"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 112
+    .line 103
     iput-boolean v4, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
-    .line 116
+    .line 105
     :cond_3
-    invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->isBluetoothTetheringRestricted()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    .line 117
-    iput-boolean v4, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
-
-    .line 120
-    :cond_4
     return-void
 
-    .line 93
+    .line 85
     :catch_0
     move-exception v0
 
-    .line 94
+    .line 86
     .local v0, e:Landroid/content/res/Resources$NotFoundException;
     const/4 v2, 0x5
 
@@ -263,7 +230,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     iget-boolean v0, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
     return v0
@@ -275,7 +242,7 @@
     .parameter "x1"
 
     .prologue
-    .line 53
+    .line 51
     iput-boolean p1, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
     return p1
@@ -286,7 +253,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     return-object v0
@@ -297,7 +264,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     invoke-direct {p0}, Landroid/server/BluetoothPanProfileHandler;->disconnectPanServerDevices()Z
 
     move-result v0
@@ -310,7 +277,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringReceiver:Landroid/content/BroadcastReceiver;
 
     return-object v0
@@ -321,7 +288,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -332,7 +299,7 @@
     .parameter "x0"
 
     .prologue
-    .line 53
+    .line 51
     iget-boolean v0, p0, Landroid/server/BluetoothPanProfileHandler;->mProcessingMhsRequest:Z
 
     return v0
@@ -344,7 +311,7 @@
     .parameter "x1"
 
     .prologue
-    .line 53
+    .line 51
     iput-boolean p1, p0, Landroid/server/BluetoothPanProfileHandler;->mProcessingMhsRequest:Z
 
     return p1
@@ -356,7 +323,7 @@
     .parameter "x1"
 
     .prologue
-    .line 53
+    .line 51
     iput-boolean p1, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsPermission:Z
 
     return p1
@@ -368,7 +335,7 @@
     .prologue
     const/4 v5, 0x2
 
-    .line 462
+    .line 431
     invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->getConnectedPanDevices()Ljava/util/List;
 
     move-result-object v3
@@ -381,23 +348,23 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 463
+    .line 432
     const-string v3, "Max PAN device connections reached"
 
     invoke-static {v3}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 464
+    .line 433
     const/4 v1, 0x0
 
-    .line 477
+    .line 446
     :goto_0
     return-object v1
 
-    .line 466
+    .line 435
     :cond_0
     const-string v1, "192.168.44.1"
 
-    .line 468
+    .line 437
     .local v1, address:Ljava/lang/String;
     :goto_1
     iget-object v3, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothIfaceAddresses:Ljava/util/ArrayList;
@@ -408,14 +375,14 @@
 
     if-eqz v3, :cond_1
 
-    .line 469
+    .line 438
     const-string v3, "\\."
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 470
+    .line 439
     .local v0, addr:[Ljava/lang/String;
     aget-object v3, v0, v5
 
@@ -429,7 +396,7 @@
 
     move-result-object v2
 
-    .line 471
+    .line 440
     .local v2, newIp:Ljava/lang/Integer;
     aget-object v3, v0, v5
 
@@ -441,10 +408,10 @@
 
     move-result-object v1
 
-    .line 472
+    .line 441
     goto :goto_1
 
-    .line 476
+    .line 445
     .end local v0           #addr:[Ljava/lang/String;
     .end local v2           #newIp:Ljava/lang/Integer;
     :cond_1
@@ -460,12 +427,12 @@
     .parameter "msg"
 
     .prologue
-    .line 539
+    .line 508
     const-string v0, "BluetoothPanProfileHandler"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 540
+    .line 509
     return-void
 .end method
 
@@ -475,12 +442,12 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 248
+    .line 221
     const-string v6, "disconnect all PAN devices"
 
     invoke-static {v6}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 250
+    .line 223
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
     invoke-virtual {v6}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -505,7 +472,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 251
+    .line 224
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -515,14 +482,14 @@
 
     check-cast v3, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
 
-    .line 252
+    .line 225
     .local v3, panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mState:I
     invoke-static {v3}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$400(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)I
 
     move-result v4
 
-    .line 253
+    .line 226
     .local v4, state:I
     const/4 v6, 0x2
 
@@ -535,7 +502,7 @@
 
     if-ne v6, v5, :cond_0
 
-    .line 255
+    .line 228
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -546,7 +513,7 @@
 
     move-result-object v2
 
-    .line 257
+    .line 230
     .local v2, objectPath:Ljava/lang/String;
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v3}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
@@ -562,7 +529,7 @@
 
     invoke-virtual {p0, v0, v6, v7, v8}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 260
+    .line 233
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -580,7 +547,7 @@
 
     if-nez v6, :cond_0
 
-    .line 263
+    .line 236
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -605,7 +572,7 @@
 
     invoke-static {v5}, Landroid/server/BluetoothPanProfileHandler;->errorLog(Ljava/lang/String;)V
 
-    .line 266
+    .line 239
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v3}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
 
@@ -618,10 +585,10 @@
 
     invoke-virtual {p0, v0, v5, v4, v6}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 269
+    .line 242
     const/4 v5, 0x0
 
-    .line 273
+    .line 246
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v2           #objectPath:Ljava/lang/String;
     .end local v3           #panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
@@ -635,7 +602,7 @@
     .parameter "iface"
 
     .prologue
-    .line 482
+    .line 451
     new-instance v17, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
@@ -660,20 +627,20 @@
 
     invoke-static/range {v17 .. v17}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 484
+    .line 453
     const-string/jumbo v17, "network_management"
 
     invoke-static/range {v17 .. v17}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v5
 
-    .line 485
+    .line 454
     .local v5, b:Landroid/os/IBinder;
     invoke-static {v5}, Landroid/os/INetworkManagementService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/INetworkManagementService;
 
     move-result-object v16
 
-    .line 486
+    .line 455
     .local v16, service:Landroid/os/INetworkManagementService;
     move-object/from16 v0, p0
 
@@ -689,13 +656,13 @@
 
     check-cast v7, Landroid/net/ConnectivityManager;
 
-    .line 488
+    .line 457
     .local v7, cm:Landroid/net/ConnectivityManager;
     invoke-virtual {v7}, Landroid/net/ConnectivityManager;->getTetherableBluetoothRegexs()[Ljava/lang/String;
 
     move-result-object v6
 
-    .line 491
+    .line 460
     .local v6, bluetoothRegexs:[Ljava/lang/String;
     const/16 v17, 0x0
 
@@ -703,7 +670,7 @@
 
     new-array v9, v0, [Ljava/lang/String;
 
-    .line 493
+    .line 462
     .local v9, currentIfaces:[Ljava/lang/String;
     :try_start_0
     invoke-interface/range {v16 .. v16}, Landroid/os/INetworkManagementService;->listInterfaces()[Ljava/lang/String;
@@ -712,10 +679,10 @@
 
     move-result-object v9
 
-    .line 499
+    .line 468
     const/4 v11, 0x0
 
-    .line 500
+    .line 469
     .local v11, found:Z
     move-object v4, v9
 
@@ -731,7 +698,7 @@
 
     aget-object v8, v4, v12
 
-    .line 501
+    .line 470
     .local v8, currIface:Ljava/lang/String;
     move-object/from16 v0, p1
 
@@ -741,17 +708,17 @@
 
     if-eqz v17, :cond_2
 
-    .line 502
+    .line 471
     const/4 v11, 0x1
 
-    .line 507
+    .line 476
     .end local v8           #currIface:Ljava/lang/String;
     :cond_0
     if-nez v11, :cond_3
 
     const/4 v3, 0x0
 
-    .line 535
+    .line 504
     .end local v4           #arr$:[Ljava/lang/String;
     .end local v11           #found:Z
     .end local v12           #i$:I
@@ -760,11 +727,11 @@
     :goto_1
     return-object v3
 
-    .line 494
+    .line 463
     :catch_0
     move-exception v10
 
-    .line 495
+    .line 464
     .local v10, e:Ljava/lang/Exception;
     const-string v17, "BluetoothPanProfileHandler"
 
@@ -790,12 +757,12 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 496
+    .line 465
     const/4 v3, 0x0
 
     goto :goto_1
 
-    .line 500
+    .line 469
     .end local v10           #e:Ljava/lang/Exception;
     .restart local v4       #arr$:[Ljava/lang/String;
     .restart local v8       #currIface:Ljava/lang/String;
@@ -807,14 +774,14 @@
 
     goto :goto_0
 
-    .line 509
+    .line 478
     .end local v8           #currIface:Ljava/lang/String;
     :cond_3
     invoke-direct/range {p0 .. p0}, Landroid/server/BluetoothPanProfileHandler;->createNewTetheringAddressLocked()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 510
+    .line 479
     .local v3, address:Ljava/lang/String;
     if-nez v3, :cond_4
 
@@ -822,11 +789,11 @@
 
     goto :goto_1
 
-    .line 512
+    .line 481
     :cond_4
     const/4 v13, 0x0
 
-    .line 514
+    .line 483
     .local v13, ifcg:Landroid/net/InterfaceConfiguration;
     :try_start_1
     move-object/from16 v0, v16
@@ -837,19 +804,19 @@
 
     move-result-object v13
 
-    .line 515
+    .line 484
     if-eqz v13, :cond_1
 
-    .line 516
+    .line 485
     invoke-virtual {v13}, Landroid/net/InterfaceConfiguration;->getLinkAddress()Landroid/net/LinkAddress;
 
     move-result-object v15
 
-    .line 517
+    .line 486
     .local v15, linkAddr:Landroid/net/LinkAddress;
     const/4 v2, 0x0
 
-    .line 518
+    .line 487
     .local v2, addr:Ljava/net/InetAddress;
     if-eqz v15, :cond_5
 
@@ -887,24 +854,24 @@
 
     if-eqz v17, :cond_6
 
-    .line 521
+    .line 490
     :cond_5
     invoke-static {v3}, Landroid/net/NetworkUtils;->numericToInetAddress(Ljava/lang/String;)Ljava/net/InetAddress;
 
     move-result-object v2
 
-    .line 523
+    .line 492
     :cond_6
     invoke-virtual {v13}, Landroid/net/InterfaceConfiguration;->setInterfaceUp()V
 
-    .line 524
+    .line 493
     const-string/jumbo v17, "running"
 
     move-object/from16 v0, v17
 
     invoke-virtual {v13, v0}, Landroid/net/InterfaceConfiguration;->clearFlag(Ljava/lang/String;)V
 
-    .line 525
+    .line 494
     new-instance v17, Landroid/net/LinkAddress;
 
     const/16 v18, 0x18
@@ -919,14 +886,14 @@
 
     invoke-virtual {v13, v0}, Landroid/net/InterfaceConfiguration;->setLinkAddress(Landroid/net/LinkAddress;)V
 
-    .line 526
+    .line 495
     move-object/from16 v0, v16
 
     move-object/from16 v1, p1
 
     invoke-interface {v0, v1, v13}, Landroid/os/INetworkManagementService;->setInterfaceConfig(Ljava/lang/String;Landroid/net/InterfaceConfiguration;)V
 
-    .line 527
+    .line 496
     move-object/from16 v0, p1
 
     invoke-virtual {v7, v0}, Landroid/net/ConnectivityManager;->tether(Ljava/lang/String;)I
@@ -935,7 +902,7 @@
 
     if-eqz v17, :cond_1
 
-    .line 528
+    .line 497
     const-string v17, "BluetoothPanProfileHandler"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -966,13 +933,13 @@
 
     goto/16 :goto_1
 
-    .line 531
+    .line 500
     .end local v2           #addr:Ljava/net/InetAddress;
     .end local v15           #linkAddr:Landroid/net/LinkAddress;
     :catch_1
     move-exception v10
 
-    .line 532
+    .line 501
     .restart local v10       #e:Ljava/lang/Exception;
     const-string v17, "BluetoothPanProfileHandler"
 
@@ -1012,7 +979,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 502
     const/4 v3, 0x0
 
     goto/16 :goto_1
@@ -1023,12 +990,12 @@
     .parameter "msg"
 
     .prologue
-    .line 543
+    .line 512
     const-string v0, "BluetoothPanProfileHandler"
 
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 544
+    .line 513
     return-void
 .end method
 
@@ -1038,7 +1005,7 @@
     .parameter "service"
 
     .prologue
-    .line 138
+    .line 123
     sget-object v0, Landroid/server/BluetoothPanProfileHandler;->sInstance:Landroid/server/BluetoothPanProfileHandler;
 
     if-nez v0, :cond_0
@@ -1049,7 +1016,7 @@
 
     sput-object v0, Landroid/server/BluetoothPanProfileHandler;->sInstance:Landroid/server/BluetoothPanProfileHandler;
 
-    .line 139
+    .line 124
     :cond_0
     sget-object v0, Landroid/server/BluetoothPanProfileHandler;->sInstance:Landroid/server/BluetoothPanProfileHandler;
 
@@ -1060,10 +1027,10 @@
     .locals 3
 
     .prologue
-    .line 123
+    .line 108
     const/4 v0, 0x1
 
-    .line 124
+    .line 109
     .local v0, ret:Z
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
@@ -1071,7 +1038,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 125
+    .line 110
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0x66
@@ -1084,11 +1051,11 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 127
+    .line 112
     :cond_0
     const/4 v0, 0x0
 
-    .line 130
+    .line 115
     :cond_1
     const-string/jumbo v1, "ro.bt.tetheringUI"
 
@@ -1106,10 +1073,10 @@
 
     if-eqz v1, :cond_2
 
-    .line 131
+    .line 116
     const/4 v0, 0x0
 
-    .line 133
+    .line 118
     :cond_2
     return v0
 .end method
@@ -1120,7 +1087,7 @@
     .locals 2
 
     .prologue
-    .line 147
+    .line 132
     invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->isTetheringOn()Z
 
     move-result v0
@@ -1139,10 +1106,10 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 148
+    .line 133
     const/4 v0, 0x1
 
-    .line 149
+    .line 134
     :goto_0
     return v0
 
@@ -1165,7 +1132,7 @@
 
     const/4 v4, 0x0
 
-    .line 208
+    .line 188
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -1176,7 +1143,7 @@
 
     move-result-object v2
 
-    .line 209
+    .line 189
     .local v2, objectPath:Ljava/lang/String;
     const-string v6, "BluetoothPanProfileHandler"
 
@@ -1206,14 +1173,14 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 210
+    .line 190
     invoke-virtual {p0, p1}, Landroid/server/BluetoothPanProfileHandler;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v6
 
     if-eqz v6, :cond_0
 
-    .line 211
+    .line 191
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -1234,11 +1201,11 @@
 
     invoke-static {v6}, Landroid/server/BluetoothPanProfileHandler;->errorLog(Ljava/lang/String;)V
 
-    .line 214
+    .line 194
     :cond_0
     const/4 v0, 0x0
 
-    .line 215
+    .line 195
     .local v0, connectedCount:I
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -1265,7 +1232,7 @@
 
     check-cast v3, Landroid/bluetooth/BluetoothDevice;
 
-    .line 216
+    .line 196
     .local v3, panDevice:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p0, v3}, Landroid/server/BluetoothPanProfileHandler;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
@@ -1273,19 +1240,19 @@
 
     if-ne v6, v9, :cond_1
 
-    .line 217
+    .line 197
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 220
+    .line 200
     .end local v3           #panDevice:Landroid/bluetooth/BluetoothDevice;
     :cond_2
     const/16 v6, 0x8
 
     if-le v0, v6, :cond_3
 
-    .line 221
+    .line 201
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -1312,30 +1279,15 @@
 
     invoke-static {v5}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 243
+    .line 216
     :goto_1
     return v4
 
-    .line 228
+    .line 207
     :cond_3
-    invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->isTetheringOn()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    .line 229
-    const-string v5, "BRCM: local role is NAP, connecting to NAP is not allowed"
-
-    invoke-static {v5}, Landroid/server/BluetoothPanProfileHandler;->errorLog(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    .line 234
-    :cond_4
     invoke-virtual {p0, p1, v10, v5, v9}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 236
+    .line 209
     iget-object v6, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     const-string/jumbo v7, "nap"
@@ -1344,23 +1296,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
-    .line 237
+    .line 210
     const-string v4, "connecting to PAN"
 
     invoke-static {v4}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
     move v4, v5
 
-    .line 238
+    .line 211
     goto :goto_1
 
-    .line 240
-    :cond_5
+    .line 213
+    :cond_4
     invoke-virtual {p0, p1, v10, v4, v9}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 242
+    .line 215
     const-string v5, "could not connect to PAN"
 
     invoke-static {v5}, Landroid/server/BluetoothPanProfileHandler;->errorLog(Ljava/lang/String;)V
@@ -1377,7 +1329,7 @@
 
     const/4 v3, 0x0
 
-    .line 303
+    .line 276
     iget-object v5, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -1388,7 +1340,7 @@
 
     move-result-object v0
 
-    .line 304
+    .line 277
     .local v0, objectPath:Ljava/lang/String;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1416,18 +1368,18 @@
 
     invoke-static {v5}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 306
+    .line 279
     invoke-virtual {p0, p1}, Landroid/server/BluetoothPanProfileHandler;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v2
 
-    .line 307
+    .line 280
     .local v2, state:I
     const/4 v5, 0x2
 
     if-eq v2, v5, :cond_0
 
-    .line 308
+    .line 281
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1448,11 +1400,11 @@
 
     invoke-static {v4}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 335
+    .line 308
     :goto_0
     return v3
 
-    .line 312
+    .line 285
     :cond_0
     iget-object v5, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -1462,11 +1414,11 @@
 
     check-cast v1, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
 
-    .line 314
+    .line 287
     .local v1, panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
     if-nez v1, :cond_1
 
-    .line 315
+    .line 288
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1489,51 +1441,8 @@
 
     goto :goto_0
 
-    .line 318
+    .line 292
     :cond_1
-    const-string v5, "BluetoothPanProfileHandler"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "disconnectPanDevice: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
-    invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string v7, " role:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mLocalRole:I
-    invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$500(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 319
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
 
@@ -1548,7 +1457,7 @@
 
     invoke-virtual {p0, p1, v5, v6, v7}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    .line 321
+    .line 294
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mLocalRole:I
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$500(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)I
 
@@ -1556,7 +1465,7 @@
 
     if-ne v5, v4, :cond_2
 
-    .line 322
+    .line 295
     iget-object v5, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -1574,7 +1483,7 @@
 
     if-nez v5, :cond_3
 
-    .line 325
+    .line 298
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
 
@@ -1589,7 +1498,7 @@
 
     goto :goto_0
 
-    .line 329
+    .line 302
     :cond_2
     iget-object v5, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
@@ -1599,7 +1508,7 @@
 
     if-nez v5, :cond_3
 
-    .line 331
+    .line 304
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$600(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
 
@@ -1612,13 +1521,13 @@
 
     invoke-virtual {p0, p1, v4, v2, v5}, Landroid/server/BluetoothPanProfileHandler;->handlePanDeviceStateChange(Landroid/bluetooth/BluetoothDevice;Ljava/lang/String;II)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_3
     move v3, v4
 
-    .line 335
-    goto/16 :goto_0
+    .line 308
+    goto :goto_0
 .end method
 
 .method getConnectedPanDevices()Ljava/util/List;
@@ -1634,12 +1543,12 @@
     .end annotation
 
     .prologue
-    .line 277
+    .line 250
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 279
+    .line 252
     .local v1, devices:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     iget-object v3, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -1666,7 +1575,7 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    .line 280
+    .line 253
     .local v0, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p0, v0}, Landroid/server/BluetoothPanProfileHandler;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
@@ -1676,12 +1585,12 @@
 
     if-ne v3, v4, :cond_0
 
-    .line 281
+    .line 254
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 284
+    .line 257
     .end local v0           #device:Landroid/bluetooth/BluetoothDevice;
     :cond_1
     return-object v1
@@ -1692,7 +1601,7 @@
     .parameter "device"
 
     .prologue
-    .line 200
+    .line 180
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1701,14 +1610,14 @@
 
     check-cast v0, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
 
-    .line 201
+    .line 181
     .local v0, panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
     if-nez v0, :cond_0
 
-    .line 202
+    .line 182
     const/4 v1, 0x0
 
-    .line 204
+    .line 184
     :goto_0
     return v1
 
@@ -1735,12 +1644,12 @@
     .end annotation
 
     .prologue
-    .line 288
+    .line 261
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 290
+    .line 263
     .local v2, devices:Ljava/util/List;,"Ljava/util/List<Landroid/bluetooth/BluetoothDevice;>;"
     iget-object v8, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -1766,13 +1675,13 @@
 
     check-cast v1, Landroid/bluetooth/BluetoothDevice;
 
-    .line 291
+    .line 264
     .local v1, device:Landroid/bluetooth/BluetoothDevice;
     invoke-virtual {p0, v1}, Landroid/server/BluetoothPanProfileHandler;->getPanDeviceConnectionState(Landroid/bluetooth/BluetoothDevice;)I
 
     move-result v6
 
-    .line 292
+    .line 265
     .local v6, panDeviceState:I
     move-object v0, p1
 
@@ -1788,22 +1697,22 @@
 
     aget v7, v0, v4
 
-    .line 293
+    .line 266
     .local v7, state:I
     if-ne v7, v6, :cond_1
 
-    .line 294
+    .line 267
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 292
+    .line 265
     :cond_1
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_1
 
-    .line 299
+    .line 272
     .end local v0           #arr$:[I
     .end local v1           #device:Landroid/bluetooth/BluetoothDevice;
     .end local v4           #i$:I
@@ -1822,10 +1731,10 @@
     .parameter "role"
 
     .prologue
-    .line 341
+    .line 314
     const/4 v4, 0x0
 
-    .line 342
+    .line 315
     .local v4, ifaceAddr:Ljava/lang/String;
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
@@ -1835,26 +1744,26 @@
 
     check-cast v1, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
 
-    .line 344
+    .line 317
     .local v1, panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
     if-nez v1, :cond_1
 
-    .line 345
+    .line 318
     const/4 v12, 0x0
 
-    .line 350
+    .line 323
     .local v12, prevState:I
     :goto_0
     move/from16 v0, p3
 
     if-ne v12, v0, :cond_2
 
-    .line 445
+    .line 414
     :cond_0
     :goto_1
     return-void
 
-    .line 347
+    .line 320
     .end local v12           #prevState:I
     :cond_1
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mState:I
@@ -1862,7 +1771,7 @@
 
     move-result v12
 
-    .line 348
+    .line 321
     .restart local v12       #prevState:I
     #getter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIfaceAddr:Ljava/lang/String;
     invoke-static {v1}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$700(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;)Ljava/lang/String;
@@ -1871,82 +1780,30 @@
 
     goto :goto_0
 
-    .line 352
+    .line 325
     :cond_2
-    const-string v2, "BluetoothPanProfileHandler"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "handlePanDeviceStateChange: "
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v5, " state:"
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move/from16 v0, p3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v5, " role:"
-
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    move/from16 v0, p4
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 353
     const/4 v2, 0x1
 
     move/from16 v0, p4
 
     if-ne v0, v2, :cond_5
 
-    .line 354
+    .line 326
     const/4 v2, 0x2
 
     move/from16 v0, p3
 
     if-ne v0, v2, :cond_3
 
-    .line 355
-    const/4 v2, 0x1
-
-    sput v2, Landroid/server/BluetoothPanProfileHandler;->PanRole:I
-
-    .line 356
+    .line 327
     invoke-direct {p0, p2}, Landroid/server/BluetoothPanProfileHandler;->enableTethering(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 359
+    .line 330
     if-nez v4, :cond_4
 
-    .line 360
+    .line 331
     const-string v2, "BluetoothPanProfileHandler"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1975,7 +1832,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 361
+    .line 332
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
@@ -1986,7 +1843,7 @@
 
     move-result-object v11
 
-    .line 362
+    .line 333
     .local v11, objectPath:Ljava/lang/String;
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
@@ -1998,28 +1855,28 @@
 
     goto :goto_1
 
-    .line 366
+    .line 337
     .end local v11           #objectPath:Ljava/lang/String;
     :cond_3
     if-nez p3, :cond_4
 
-    .line 367
+    .line 338
     if-eqz v4, :cond_4
 
-    .line 368
+    .line 339
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothIfaceAddresses:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 369
+    .line 340
     const/4 v4, 0x0
 
-    .line 385
+    .line 354
     :cond_4
     :goto_2
     if-nez v1, :cond_8
 
-    .line 386
+    .line 355
     new-instance v1, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
 
     .end local v1           #panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
@@ -2033,13 +1890,13 @@
 
     invoke-direct/range {v1 .. v6}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;-><init>(Landroid/server/BluetoothPanProfileHandler;ILjava/lang/String;Ljava/lang/String;I)V
 
-    .line 387
+    .line 356
     .restart local v1       #panDevice:Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mPanDevices:Ljava/util/HashMap;
 
     invoke-virtual {v2, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 395
+    .line 364
     :goto_3
     new-instance v9, Landroid/content/Intent;
 
@@ -2047,39 +1904,39 @@
 
     invoke-direct {v9, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 396
+    .line 365
     .local v9, intent:Landroid/content/Intent;
     const-string v2, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {v9, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 397
+    .line 366
     const-string v2, "android.bluetooth.profile.extra.PREVIOUS_STATE"
 
     invoke-virtual {v9, v2, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 398
+    .line 367
     const-string v2, "android.bluetooth.profile.extra.STATE"
 
     move/from16 v0, p3
 
     invoke-virtual {v9, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 399
+    .line 368
     const-string v2, "android.bluetooth.pan.extra.LOCAL_ROLE"
 
     move/from16 v0, p4
 
     invoke-virtual {v9, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 400
+    .line 369
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     const-string v3, "android.permission.BLUETOOTH"
 
     invoke-virtual {v2, v9, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 402
+    .line 371
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -2116,25 +1973,13 @@
 
     move-result-object v2
 
-    const-string v3, " role:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    move/from16 v0, p4
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static {v2}, Landroid/server/BluetoothPanProfileHandler;->debugLog(Ljava/lang/String;)V
 
-    .line 403
+    .line 372
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     const/4 v3, 0x5
@@ -2143,26 +1988,26 @@
 
     invoke-virtual {v2, p1, v3, v0, v12}, Landroid/server/BluetoothService;->sendConnectionStateChange(Landroid/bluetooth/BluetoothDevice;III)V
 
-    .line 407
+    .line 376
     iget-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mEnableMhs:Z
 
     if-eqz v2, :cond_0
 
-    .line 408
+    .line 377
     const/4 v2, 0x2
 
     move/from16 v0, p3
 
     if-ne v0, v2, :cond_b
 
-    .line 409
+    .line 378
     const-string v2, "BluetoothPanProfileHandler"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "mBtMhsPermission: "
+    const-string/jumbo v5, "mBtMhsPermission: "
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2192,7 +2037,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 410
+    .line 379
     iget-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsPermission:Z
 
     if-nez v2, :cond_0
@@ -2201,7 +2046,7 @@
 
     if-nez v2, :cond_0
 
-    .line 412
+    .line 381
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     const-string v3, "connectivity"
@@ -2212,11 +2057,11 @@
 
     check-cast v7, Landroid/net/ConnectivityManager;
 
-    .line 413
+    .line 382
     .local v7, cm:Landroid/net/ConnectivityManager;
     if-eqz v7, :cond_a
 
-    .line 414
+    .line 383
     const/16 v2, -0x24
 
     const/4 v3, -0x1
@@ -2227,7 +2072,7 @@
 
     move-result v8
 
-    .line 415
+    .line 384
     .local v8, iMHSstatus:I
     const-string v2, "BluetoothPanProfileHandler"
 
@@ -2251,10 +2096,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
+    .line 385
     if-eqz v8, :cond_9
 
-    .line 418
+    .line 387
     const/16 v2, -0x14
 
     const/4 v3, -0x1
@@ -2265,12 +2110,12 @@
 
     move-result v8
 
-    .line 419
+    .line 388
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mProcessingMhsRequest:Z
 
-    .line 420
+    .line 389
     const-string v2, "BluetoothPanProfileHandler"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2295,7 +2140,7 @@
 
     goto/16 :goto_1
 
-    .line 374
+    .line 345
     .end local v7           #cm:Landroid/net/ConnectivityManager;
     .end local v8           #iMHSstatus:I
     .end local v9           #intent:Landroid/content/Intent;
@@ -2306,12 +2151,7 @@
 
     if-ne v0, v2, :cond_6
 
-    .line 375
-    const/4 v2, 0x2
-
-    sput v2, Landroid/server/BluetoothPanProfileHandler;->PanRole:I
-
-    .line 376
+    .line 346
     invoke-static {}, Landroid/bluetooth/BluetoothTetheringDataTracker;->getInstance()Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     move-result-object v2
@@ -2320,7 +2160,7 @@
 
     goto/16 :goto_2
 
-    .line 377
+    .line 347
     :cond_6
     if-nez p3, :cond_4
 
@@ -2332,13 +2172,8 @@
 
     if-ne v12, v2, :cond_4
 
-    .line 380
+    .line 350
     :cond_7
-    const/4 v2, 0x0
-
-    sput v2, Landroid/server/BluetoothPanProfileHandler;->PanRole:I
-
-    .line 381
     invoke-static {}, Landroid/bluetooth/BluetoothTetheringDataTracker;->getInstance()Landroid/bluetooth/BluetoothTetheringDataTracker;
 
     move-result-object v2
@@ -2352,30 +2187,30 @@
 
     goto/16 :goto_2
 
-    .line 389
+    .line 358
     :cond_8
     move/from16 v0, p3
 
     #setter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mState:I
     invoke-static {v1, v0}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$402(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;I)I
 
-    .line 390
+    .line 359
     #setter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIfaceAddr:Ljava/lang/String;
     invoke-static {v1, v4}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$702(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 391
+    .line 360
     move/from16 v0, p4
 
     #setter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mLocalRole:I
     invoke-static {v1, v0}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$502(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;I)I
 
-    .line 392
+    .line 361
     #setter for: Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->mIface:Ljava/lang/String;
     invoke-static {v1, p2}, Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;->access$602(Landroid/server/BluetoothPanProfileHandler$BluetoothPanDevice;Ljava/lang/String;)Ljava/lang/String;
 
     goto/16 :goto_3
 
-    .line 422
+    .line 391
     .restart local v7       #cm:Landroid/net/ConnectivityManager;
     .restart local v8       #iMHSstatus:I
     .restart local v9       #intent:Landroid/content/Intent;
@@ -2386,7 +2221,7 @@
 
     goto/16 :goto_1
 
-    .line 425
+    .line 394
     .end local v8           #iMHSstatus:I
     :cond_a
     const-string v2, "BluetoothPanProfileHandler"
@@ -2397,12 +2232,12 @@
 
     goto/16 :goto_1
 
-    .line 428
+    .line 397
     .end local v7           #cm:Landroid/net/ConnectivityManager;
     :cond_b
     if-nez p3, :cond_0
 
-    .line 429
+    .line 398
     invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->getConnectedPanDevices()Ljava/util/List;
 
     move-result-object v2
@@ -2411,7 +2246,7 @@
 
     move-result v10
 
-    .line 430
+    .line 399
     .local v10, numPanDevice:I
     const-string v2, "BluetoothPanProfileHandler"
 
@@ -2435,15 +2270,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 431
+    .line 400
     if-nez v10, :cond_0
 
-    .line 432
+    .line 401
     iget-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsPermission:Z
 
     if-eqz v2, :cond_c
 
-    .line 433
+    .line 402
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     const-string v3, "connectivity"
@@ -2454,11 +2289,11 @@
 
     check-cast v7, Landroid/net/ConnectivityManager;
 
-    .line 434
+    .line 403
     .restart local v7       #cm:Landroid/net/ConnectivityManager;
     if-eqz v7, :cond_c
 
-    .line 435
+    .line 404
     const/16 v2, -0x44
 
     const/4 v3, -0x1
@@ -2467,21 +2302,21 @@
 
     invoke-virtual {v7, v2, v3, v5}, Landroid/net/ConnectivityManager;->htcRequestPermittedTether(IILjava/lang/String;)I
 
-    .line 436
+    .line 405
     const-string v2, "BluetoothPanProfileHandler"
 
     const-string v3, "RESET_TETHER_BT permission"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 439
+    .line 408
     .end local v7           #cm:Landroid/net/ConnectivityManager;
     :cond_c
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mBtMhsPermission:Z
 
-    .line 440
+    .line 409
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Landroid/server/BluetoothPanProfileHandler;->mProcessingMhsRequest:Z
@@ -2489,76 +2324,11 @@
     goto/16 :goto_1
 .end method
 
-.method public isBluetoothTetheringRestricted()Z
-    .locals 5
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    .line 591
-    iget-object v4, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    .line 592
-    .local v0, content:Landroid/content/ContentResolver;
-    const/4 v1, 0x0
-
-    .line 593
-    .local v1, restricted:Z
-    const-string v4, "bluetooth_pan_restriction"
-
-    invoke-static {v0, v4, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v4
-
-    if-ne v4, v2, :cond_0
-
-    move v1, v2
-
-    .line 594
-    :goto_0
-    const-string v2, "BluetoothPanProfileHandler"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "isBluetoothTetheringRestricted(): "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 595
-    return v1
-
-    :cond_0
-    move v1, v3
-
-    .line 593
-    goto :goto_0
-.end method
-
 .method isTetheringOn()Z
     .locals 1
 
     .prologue
-    .line 143
+    .line 128
     iget-boolean v0, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
     return v0
@@ -2569,37 +2339,26 @@
     .parameter "value"
 
     .prologue
-    .line 155
+    .line 140
     invoke-direct {p0}, Landroid/server/BluetoothPanProfileHandler;->isHtcPanSupported()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    .line 197
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 159
-    :cond_1
-    if-eqz p1, :cond_2
-
-    invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->isBluetoothTetheringRestricted()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 163
-    :cond_2
-    if-nez p1, :cond_3
+    .line 177
+    :goto_0
+    return-void
 
-    .line 164
+    .line 143
+    :cond_0
+    if-nez p1, :cond_1
+
+    .line 144
     invoke-direct {p0}, Landroid/server/BluetoothPanProfileHandler;->disconnectPanServerDevices()Z
 
-    .line 167
-    :cond_3
+    .line 147
+    :cond_1
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     invoke-virtual {v1}, Landroid/server/BluetoothService;->getBluetoothState()I
@@ -2608,29 +2367,29 @@
 
     const/16 v2, 0xc
 
-    if-eq v1, v2, :cond_4
+    if-eq v1, v2, :cond_2
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2
 
-    .line 168
+    .line 148
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 169
+    .line 149
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "android.bluetooth.adapter.action.STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 170
+    .line 150
     new-instance v1, Landroid/server/BluetoothPanProfileHandler$1;
 
     invoke-direct {v1, p0}, Landroid/server/BluetoothPanProfileHandler$1;-><init>(Landroid/server/BluetoothPanProfileHandler;)V
 
     iput-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 185
+    .line 165
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringReceiver:Landroid/content/BroadcastReceiver;
@@ -2639,14 +2398,14 @@
 
     goto :goto_0
 
-    .line 188
+    .line 168
     .end local v0           #filter:Landroid/content/IntentFilter;
-    :cond_4
+    :cond_2
     iget-boolean v1, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
-    if-eq v1, p1, :cond_5
+    if-eq v1, p1, :cond_3
 
-    .line 189
+    .line 169
     const-string v1, "BluetoothPanProfileHandler"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2681,25 +2440,25 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 190
-    if-eqz p1, :cond_6
+    .line 170
+    if-eqz p1, :cond_4
 
-    .line 191
+    .line 171
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/server/BluetoothService;->setBluetoothPanSdpNative(I)V
 
-    .line 195
-    :cond_5
+    .line 175
+    :cond_3
     :goto_1
     iput-boolean p1, p0, Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
 
     goto :goto_0
 
-    .line 193
-    :cond_6
+    .line 173
+    :cond_4
     iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
 
     const/4 v2, 0x2
@@ -2707,84 +2466,4 @@
     invoke-virtual {v1, v2}, Landroid/server/BluetoothService;->setBluetoothPanSdpNative(I)V
 
     goto :goto_1
-.end method
-
-.method public setBluetoothTetheringRestricted(Z)V
-    .locals 6
-    .parameter "restricted"
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    .line 581
-    iget-object v1, p0, Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    .line 582
-    .local v0, content:Landroid/content/ContentResolver;
-    const-string v1, "BluetoothPanProfileHandler"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "setBluetoothTetheringRestricted(): "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v1, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 583
-    const-string v4, "bluetooth_pan_restriction"
-
-    if-eqz p1, :cond_1
-
-    move v1, v2
-
-    :goto_0
-    invoke-static {v0, v4, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    .line 584
-    if-ne p1, v2, :cond_0
-
-    invoke-virtual {p0}, Landroid/server/BluetoothPanProfileHandler;->isTetheringOn()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 585
-    const-string v1, "BluetoothPanProfileHandler"
-
-    const-string/jumbo v2, "setBluetoothTetheringRestricted(true), disable BT tethering"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 586
-    invoke-virtual {p0, v3}, Landroid/server/BluetoothPanProfileHandler;->setBluetoothTethering(Z)V
-
-    .line 588
-    :cond_0
-    return-void
-
-    :cond_1
-    move v1, v3
-
-    .line 583
-    goto :goto_0
 .end method

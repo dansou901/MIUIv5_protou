@@ -1,5 +1,5 @@
-*** ./smali/android/graphics/drawable/AnimatedRotateDrawable.smali	2013-07-12 21:43:59.891839664 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimatedRotateDrawable.smali	2013-07-12 21:41:36.471827838 +0000
+*** ./smali/android/graphics/drawable/AnimatedRotateDrawable.smali	2013-07-31 22:22:51.564068909 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimatedRotateDrawable.smali	2013-07-31 22:21:37.770729417 +0000
 ***************
 *** 476,481 ****
 --- 476,489 ----

@@ -213,7 +213,7 @@
 
     .line 241
     .local v0, type:Ljava/lang/String;
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1654,7 +1654,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "transaction spent time too long: "
+    const-string/jumbo v9, "transaction spent time too long: "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1852,7 +1852,7 @@
     .line 928
     const-string v2, "KddiPacketSMSManager"
 
-    const-string v3, "source port in use exception!"
+    const-string/jumbo v3, "source port in use exception!"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

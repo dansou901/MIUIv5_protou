@@ -267,7 +267,7 @@
 
     .prologue
     .line 92
-    const-string v0, "unknown"
+    const-string/jumbo v0, "unknown"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

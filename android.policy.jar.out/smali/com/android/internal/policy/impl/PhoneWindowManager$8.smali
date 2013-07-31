@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 3339
+    .line 3343
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "looper"
 
     .prologue
-    .line 3343
+    .line 3347
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$HideNavInputEventReceiver;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;

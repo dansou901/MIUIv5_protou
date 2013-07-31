@@ -36,10 +36,6 @@
 
 .field public static final ICC_TYPE_UNKNOWN:I = 0x0
 
-.field public static final PHONE_SLOT1:I = 0xa
-
-.field public static final PHONE_SLOT2:I = 0xb
-
 .field public static final PHONE_TYPE_CDMA:I = 0x2
 
 .field public static final PHONE_TYPE_GSM:I = 0x1
@@ -175,12 +171,6 @@
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v1, 0x14
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
     const/16 v1, 0x12
 
     if-eq v0, v1, :cond_0
@@ -210,12 +200,6 @@
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0xe4
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x243
 
     if-eq v0, v1, :cond_0
 
@@ -527,219 +511,123 @@
 .end method
 
 .method public static isDefMainPhone(I)Z
-    .locals 5
+    .locals 3
     .parameter "phoneType"
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/16 v4, 0xa
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-static {p0}, Lcom/htc/service/HtcTelephonyManager;->isValidPhoneType(I)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    move v1, v2
+    move v0, v1
 
     :cond_0
     :goto_0
-    return v1
+    return v0
 
     :cond_1
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->getMainPhoneType()I
-
-    move-result v0
-
-    .local v0, mValue:I
-    if-ge v0, v4, :cond_2
-
-    if-lt p0, v4, :cond_2
-
-    if-ne p0, v4, :cond_5
-
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
-
-    const/4 p0, 0x2
-
-    :cond_2
-    :goto_1
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
+    if-nez v2, :cond_2
 
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_7
+    if-eqz v2, :cond_3
 
-    :cond_3
+    :cond_2
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->getMainPhoneType()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, p0, :cond_0
+    if-eq v2, p0, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 
-    :cond_4
-    const/4 p0, 0x1
-
-    goto :goto_1
-
-    :cond_5
-    const/16 v3, 0xb
-
-    if-ne p0, v3, :cond_2
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_1
-
-    :cond_6
-    const/4 p0, 0x5
-
-    goto :goto_1
-
-    :cond_7
+    :cond_3
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneType()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, p0, :cond_0
+    if-eq v2, p0, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 .end method
 
 .method public static isMainPhone(I)Z
-    .locals 5
+    .locals 3
     .parameter "phoneType"
 
     .prologue
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    const/16 v4, 0xa
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     invoke-static {p0}, Lcom/htc/service/HtcTelephonyManager;->isValidPhoneType(I)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_1
 
-    move v1, v2
+    move v0, v1
 
     :cond_0
     :goto_0
-    return v1
+    return v0
 
     :cond_1
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->getMainPhoneType()I
-
-    move-result v0
-
-    .local v0, mValue:I
-    if-ge v0, v4, :cond_2
-
-    if-lt p0, v4, :cond_2
-
-    if-ne p0, v4, :cond_5
-
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
-
-    const/4 p0, 0x2
-
-    :cond_2
-    :goto_1
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
+    if-nez v2, :cond_2
 
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_7
+    if-eqz v2, :cond_3
 
-    :cond_3
+    :cond_2
     invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->getMainPhoneType()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, p0, :cond_0
+    if-eq v2, p0, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 
-    :cond_4
-    const/4 p0, 0x1
-
-    goto :goto_1
-
-    :cond_5
-    const/16 v3, 0xb
-
-    if-ne p0, v3, :cond_2
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const/4 p0, 0x1
-
-    goto :goto_1
-
-    :cond_6
-    const/4 p0, 0x5
-
-    goto :goto_1
-
-    :cond_7
+    :cond_3
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getPhoneType()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, p0, :cond_0
+    if-eq v2, p0, :cond_0
 
-    move v1, v2
+    move v0, v1
 
     goto :goto_0
 .end method
@@ -823,12 +711,6 @@
         :pswitch_1
         :pswitch_1
         :pswitch_0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
         :pswitch_1
     .end packed-switch
 .end method
@@ -3274,10 +3156,6 @@
     move-result-object v0
 
     .local v0, bundle:Landroid/os/Bundle;
-    const-string v4, "phone_type"
-
-    invoke-virtual {v0, v4, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
     invoke-static {v0}, Landroid/telephony/CellLocation;->newFromBundle(Landroid/os/Bundle;)Landroid/telephony/CellLocation;
 
     move-result-object v1
@@ -4546,17 +4424,11 @@
     .parameter "iccType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_0
 
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "gsm.cdma.uim.oprt.iso-country"
+    const-string v0, "gsm.gsm.sim.oprt.iso-country"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4566,13 +4438,11 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x3
 
-    move-result v0
+    if-ne p1, v0, :cond_1
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "gsm.gsm.sim.oprt.iso-country"
+    const-string v0, "gsm.sub.icc.oprt.iso-country"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4581,87 +4451,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "gsm.sim.operator.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "gsm.gsm.sim.oprt.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "gsm.sub.icc.oprt.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "gsm.sim.operator.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "gsm.gsm.sim.oprt.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "gsm.sub.icc.oprt.iso-country"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "gsm.cdma.uim.oprt.iso-country"
 
@@ -4671,7 +4463,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "gsm.sim.operator.iso-country"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -4686,17 +4478,11 @@
     .parameter "iccType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_0
 
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "gsm.cdma.uim.operator.numeric"
+    const-string v0, "gsm.gsm.sim.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4706,13 +4492,11 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x3
 
-    move-result v0
+    if-ne p1, v0, :cond_1
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "gsm.gsm.sim.operator.numeric"
+    const-string v0, "gsm.sub.icc.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4721,87 +4505,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "gsm.sim.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "gsm.gsm.sim.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "gsm.sub.icc.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "gsm.sim.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "gsm.gsm.sim.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "gsm.sub.icc.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "gsm.cdma.uim.operator.numeric"
 
@@ -4811,7 +4517,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "gsm.sim.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -4826,17 +4532,11 @@
     .parameter "iccType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_0
 
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "gsm.cdma.uim.operator.alpha"
+    const-string v0, "gsm.gsm.sim.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4846,13 +4546,11 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x3
 
-    move-result v0
+    if-ne p1, v0, :cond_1
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "gsm.gsm.sim.operator.alpha"
+    const-string v0, "gsm.sub.icc.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4861,87 +4559,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "gsm.sim.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "gsm.gsm.sim.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "gsm.sub.icc.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "gsm.sim.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "gsm.gsm.sim.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "gsm.sub.icc.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "gsm.cdma.uim.operator.alpha"
 
@@ -4951,7 +4571,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "gsm.sim.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -4962,32 +4582,24 @@
 .end method
 
 .method public getIccSerialNumber(I)Ljava/lang/String;
-    .locals 5
+    .locals 4
     .parameter "iccType"
 
     .prologue
     const/4 v1, 0x0
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    const/16 v2, 0xa
-
-    if-ne p1, v2, :cond_2
+    if-ne p1, v2, :cond_0
 
     :try_start_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
     invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
 
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
     invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
 
@@ -4997,17 +4609,15 @@
     return-object v1
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v2, 0x3
 
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-ne p1, v2, :cond_1
 
     invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
 
-    const/4 v3, 0x1
+    const/4 v3, 0x5
 
     invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
 
@@ -5016,103 +4626,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumber()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v2, 0xb
-
-    if-ne p1, v2, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    const/4 v3, 0x5
-
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_4
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumber()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_5
-    if-ne p1, v3, :cond_6
-
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    const/4 v3, 0x1
-
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v2, 0x3
-
-    if-ne p1, v2, :cond_7
-
-    invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
-
-    move-result-object v2
-
-    const/4 v3, 0x5
-
-    invoke-interface {v2, v3}, Lcom/android/internal/telephony/IPhoneSubInfo;->getIccSerialNumberExt(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_7
-    if-ne p1, v4, :cond_8
+    if-ne p1, v3, :cond_2
 
     invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
@@ -5126,7 +4640,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     invoke-direct {p0}, Lcom/htc/service/HtcTelephonyManager;->getSubscriberInfo()Lcom/android/internal/telephony/IPhoneSubInfo;
 
     move-result-object v2
@@ -5165,17 +4679,9 @@
 
     const/4 v1, 0x1
 
-    const/16 v4, 0xa
+    if-ne p1, v1, :cond_0
 
-    if-ne p1, v4, :cond_2
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const-string v4, "gsm.icc.uim.state"
+    const-string v4, "gsm.icc.sim.state"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5189,20 +4695,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_3
 
     :goto_1
     return v1
 
     .end local v0           #prop:Ljava/lang/String;
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    if-ne p1, v3, :cond_1
 
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    const-string v4, "gsm.icc.sim.state"
+    const-string v4, "gsm.icc.sub.state"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5213,93 +4715,7 @@
 
     .end local v0           #prop:Ljava/lang/String;
     :cond_1
-    const-string v4, "gsm.sim.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_2
-    const/16 v4, 0xb
-
-    if-ne p1, v4, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    const-string v4, "gsm.icc.sim.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string v4, "gsm.icc.sub.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_4
-    const-string v4, "gsm.sim.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_5
-    if-ne p1, v1, :cond_6
-
-    const-string v4, "gsm.icc.sim.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_6
-    if-ne p1, v3, :cond_7
-
-    const-string v4, "gsm.icc.sub.state"
-
-    invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #prop:Ljava/lang/String;
-    goto :goto_0
-
-    .end local v0           #prop:Ljava/lang/String;
-    :cond_7
-    if-ne p1, v2, :cond_8
+    if-ne p1, v2, :cond_2
 
     const-string v4, "gsm.icc.uim.state"
 
@@ -5311,7 +4727,7 @@
     goto :goto_0
 
     .end local v0           #prop:Ljava/lang/String;
-    :cond_8
+    :cond_2
     const-string v4, "gsm.sim.state"
 
     invoke-static {v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -5321,62 +4737,62 @@
     .restart local v0       #prop:Ljava/lang/String;
     goto :goto_0
 
-    :cond_9
+    :cond_3
     const-string v1, "PIN_REQUIRED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_4
 
     move v1, v2
 
     goto :goto_1
 
-    :cond_a
+    :cond_4
     const-string v1, "PUK_REQUIRED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_5
 
     move v1, v3
 
     goto :goto_1
 
-    :cond_b
+    :cond_5
     const-string v1, "NETWORK_LOCKED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_6
 
     const/4 v1, 0x4
 
     goto :goto_1
 
-    :cond_c
+    :cond_6
     const-string v1, "READY"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_7
 
     const/4 v1, 0x5
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    :cond_d
+    :cond_7
     const/4 v1, 0x0
 
-    goto/16 :goto_1
+    goto :goto_1
 .end method
 
 .method public getIccType()I
@@ -5847,17 +5263,11 @@
     .parameter "phoneType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_0
 
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "gsm.cdma.operator.numeric"
+    const-string v0, "gsm.gsm.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5867,13 +5277,11 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x5
 
-    move-result v0
+    if-ne p1, v0, :cond_1
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "gsm.gsm.operator.numeric"
+    const-string v0, "gsm.sub.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5882,87 +5290,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "gsm.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "gsm.gsm.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "gsm.sub.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "gsm.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "gsm.gsm.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x5
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "gsm.sub.operator.numeric"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "gsm.cdma.operator.numeric"
 
@@ -5972,7 +5302,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "gsm.operator.numeric"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -5987,17 +5317,11 @@
     .parameter "phoneType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_0
 
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "gsm.cdma.operator.alpha"
+    const-string v0, "gsm.gsm.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -6007,13 +5331,11 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x5
 
-    move-result v0
+    if-ne p1, v0, :cond_1
 
-    if-eqz v0, :cond_1
-
-    const-string v0, "gsm.gsm.operator.alpha"
+    const-string v0, "gsm.sub.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -6022,87 +5344,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "gsm.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "gsm.gsm.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "gsm.sub.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "gsm.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "gsm.gsm.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x5
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "gsm.sub.operator.alpha"
-
-    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "gsm.cdma.operator.alpha"
 
@@ -6112,7 +5356,7 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "gsm.operator.alpha"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -8078,19 +7322,13 @@
     .parameter "phoneType"
 
     .prologue
-    const/16 v0, 0xa
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-ne p1, v0, :cond_0
 
     const-string v0, "true"
 
-    const-string v1, "gsm.cdma.operator.isroaming"
+    const-string v1, "gsm.gsm.operator.isroaming"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8104,15 +7342,13 @@
     return v0
 
     :cond_0
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
+    const/4 v0, 0x5
 
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-ne p1, v0, :cond_1
 
     const-string v0, "true"
 
-    const-string v1, "gsm.gsm.operator.isroaming"
+    const-string v1, "gsm.sub.operator.isroaming"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8125,123 +7361,9 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "true"
-
-    const-string v1, "gsm.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_2
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_5
-
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string v0, "true"
-
-    const-string v1, "gsm.gsm.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-static {}, Lcom/htc/service/HtcTelephonyManager;->dualGSMPhoneEnable()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "true"
-
-    const-string v1, "gsm.sub.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_4
-    const-string v0, "true"
-
-    const-string v1, "gsm.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_6
-
-    const-string v0, "true"
-
-    const-string v1, "gsm.gsm.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v0, 0x5
-
-    if-ne p1, v0, :cond_7
-
-    const-string v0, "true"
-
-    const-string v1, "gsm.sub.operator.isroaming"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_7
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_8
+    if-ne p1, v0, :cond_2
 
     const-string v0, "true"
 
@@ -8255,9 +7377,9 @@
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_8
+    :cond_2
     const-string v0, "true"
 
     const-string v1, "gsm.operator.isroaming"
@@ -8270,7 +7392,7 @@
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 .method public isRinging()Z

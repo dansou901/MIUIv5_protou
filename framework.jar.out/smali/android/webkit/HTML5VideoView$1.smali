@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 602
+    .line 599
     iput-object p1, p0, Landroid/webkit/HTML5VideoView$1;->this$0:Landroid/webkit/HTML5VideoView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "percent"
 
     .prologue
-    .line 604
+    .line 601
     iget-object v0, p0, Landroid/webkit/HTML5VideoView$1;->this$0:Landroid/webkit/HTML5VideoView;
 
     #setter for: Landroid/webkit/HTML5VideoView;->mCurrentBufferPercentage:I
     invoke-static {v0, p2}, Landroid/webkit/HTML5VideoView;->access$002(Landroid/webkit/HTML5VideoView;I)I
 
-    .line 605
+    .line 602
     return-void
 .end method

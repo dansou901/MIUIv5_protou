@@ -115,19 +115,6 @@
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x3
-
-    if-ne p2, v2, :cond_2
-
-    iget v2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
-
-    iget v3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
-
-    add-int v1, v2, v3
-
-    goto :goto_0
-
-    :cond_2
     const/4 v1, 0x0
 
     goto :goto_0

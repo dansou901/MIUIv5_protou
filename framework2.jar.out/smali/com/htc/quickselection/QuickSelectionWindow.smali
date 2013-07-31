@@ -207,7 +207,7 @@
     .line 366
     iget-object v3, p0, Lcom/htc/quickselection/QuickSelectionWindow;->mHtcContext:Landroid/content/Context;
 
-    const-string v4, "window"
+    const-string/jumbo v4, "window"
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

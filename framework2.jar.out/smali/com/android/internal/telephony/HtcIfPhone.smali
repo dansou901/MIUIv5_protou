@@ -307,9 +307,6 @@
 .method public abstract activateCellBroadcastSmsExt(ILandroid/os/Message;I)V
 .end method
 
-.method public abstract addPreferredOperatorList(Ljava/lang/String;ILandroid/os/Message;)V
-.end method
-
 .method public abstract canConferenceExt(I)Z
 .end method
 
@@ -588,9 +585,6 @@
 .end method
 
 .method public abstract getPreferredOnly()I
-.end method
-
-.method public abstract getPreferredOperatorList(Landroid/os/Message;)V
 .end method
 
 .method public abstract getRegistrationState(Landroid/os/Message;)V
@@ -885,9 +879,6 @@
     .end annotation
 .end method
 
-.method public abstract removePreferredOperatorList(ILandroid/os/Message;)V
-.end method
-
 .method public abstract requesetSetPhoneType(ILandroid/os/Message;)V
 .end method
 
@@ -1090,9 +1081,6 @@
 .end method
 
 .method public abstract setPreferredNetworkTypeExt(ILandroid/os/Message;I)V
-.end method
-
-.method public abstract setPreferredOperatorList([Ljava/lang/String;[ILandroid/os/Message;)V
 .end method
 
 .method public abstract setRadioPowerExt(Z)V

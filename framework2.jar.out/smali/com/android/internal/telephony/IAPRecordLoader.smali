@@ -326,7 +326,7 @@
     .line 175
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "worong IAP format"
+    const-string/jumbo v3, "worong IAP format"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -413,7 +413,7 @@
     .line 196
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "update EF IAP record failed"
+    const-string/jumbo v3, "update EF IAP record failed"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

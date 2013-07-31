@@ -63,7 +63,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unknown format \'"
+    const-string/jumbo v2, "unknown format \'"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -109,7 +109,7 @@
 
     .line 1228
     :sswitch_3
-    const-string v0, "\u201d</font>"
+    const-string/jumbo v0, "\u201d</font>"
 
     goto :goto_0
 
@@ -138,7 +138,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unknown format \'"
+    const-string/jumbo v2, "unknown format \'"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -189,6 +189,8 @@
     goto :goto_0
 
     .line 1214
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x22 -> :sswitch_3

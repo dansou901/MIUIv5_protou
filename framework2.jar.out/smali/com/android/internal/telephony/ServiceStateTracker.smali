@@ -324,25 +324,25 @@
 
     const/16 v1, 0x10
 
-    const-string v2, "sl"
+    const-string/jumbo v2, "sl"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x11
 
-    const-string v2, "sn"
+    const-string/jumbo v2, "sn"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x12
 
-    const-string v2, "st"
+    const-string/jumbo v2, "st"
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x13
 
-    const-string v2, "tg"
+    const-string/jumbo v2, "tg"
 
     aput-object v2, v0, v1
 
@@ -2589,7 +2589,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "unLockDesiredPowerState - "
+    const-string/jumbo v4, "unLockDesiredPowerState - "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

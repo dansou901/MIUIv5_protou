@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1439
+    .line 1364
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$8;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,19 +40,19 @@
     .parameter "intent"
 
     .prologue
-    .line 1442
+    .line 1367
     const-string v3, "WifiStateMachine"
 
     const-string v4, "Receive ACTION_PICK_VERIZON_WIFI_NETWORK"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1443
+    .line 1368
     new-instance v0, Landroid/net/wifi/WifiConfiguration;
 
     invoke-direct {v0}, Landroid/net/wifi/WifiConfiguration;-><init>()V
 
-    .line 1444
+    .line 1369
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -87,14 +87,14 @@
 
     iput-object v3, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
-    .line 1445
+    .line 1370
     iget-object v3, v0, Landroid/net/wifi/WifiConfiguration;->allowedKeyManagement:Ljava/util/BitSet;
 
     const/4 v4, 0x0
 
     invoke-virtual {v3, v4}, Ljava/util/BitSet;->set(I)V
 
-    .line 1447
+    .line 1372
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$8;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
@@ -106,13 +106,13 @@
 
     move-result-object v2
 
-    .line 1448
+    .line 1373
     .local v2, result:Landroid/net/wifi/NetworkUpdateResult;
     invoke-virtual {v2}, Landroid/net/wifi/NetworkUpdateResult;->getNetworkId()I
 
     move-result v1
 
-    .line 1450
+    .line 1375
     .local v1, netId:I
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$8;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -140,18 +140,18 @@
 
     if-eqz v3, :cond_0
 
-    .line 1452
+    .line 1377
     const-string v3, "WifiStateMachine"
 
     const-string v4, "Connect to Verizon Wifi"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1456
+    .line 1381
     :goto_0
     return-void
 
-    .line 1454
+    .line 1379
     :cond_0
     const-string v3, "WifiStateMachine"
 

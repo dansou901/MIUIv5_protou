@@ -986,7 +986,7 @@
 
     .line 1040
     .local v10, korean:Ljava/lang/String;
-    const-string v14, "vi"
+    const-string/jumbo v14, "vi"
 
     .line 1041
     .local v14, vietnamese:Ljava/lang/String;
@@ -1527,7 +1527,7 @@
 
     .line 792
     .local v12, r:Landroid/content/res/Resources;
-    const-string v14, "title_primary"
+    const-string/jumbo v14, "title_primary"
 
     const v15, 0x206009a
 

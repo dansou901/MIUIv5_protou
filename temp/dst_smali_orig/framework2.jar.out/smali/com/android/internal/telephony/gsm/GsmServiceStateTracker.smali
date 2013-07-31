@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$4;,
+        Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;
     }
 .end annotation
 
@@ -1376,7 +1377,7 @@
 
     move-result-object v3
 
-    const v4, 0x4080037
+    const v4, 0x4080036
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -4075,6 +4076,72 @@
 
     invoke-static/range {v34 .. v35}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    new-instance v34, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v35, "RAT switched "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mRilRadioTechnology:I
+
+    move/from16 v35, v0
+
+    invoke-static/range {v35 .. v35}, Landroid/telephony/ServiceState;->rilRadioTechnologyToString(I)Ljava/lang/String;
+
+    move-result-object v35
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    const-string v35, " -> "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewRilRadioTechnology:I
+
+    move/from16 v35, v0
+
+    invoke-static/range {v35 .. v35}, Landroid/telephony/ServiceState;->rilRadioTechnologyToString(I)Ljava/lang/String;
+
+    move-result-object v35
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    const-string v35, " at cell "
+
+    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    move-object/from16 v0, v34
+
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v34
+
+    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v34
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
+
     .end local v6           #cid:I
     .end local v21           #loc:Landroid/telephony/gsm/GsmCellLocation;
     :cond_9
@@ -4144,13 +4211,25 @@
 
     if-eqz v14, :cond_a
 
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    move/from16 v34, v0
+
+    move/from16 v0, v34
+
+    move-object/from16 v1, p0
+
+    iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
+
     const-string v34, "GSM"
 
     new-instance v35, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v35 .. v35}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v36, "Old MM Reject Cause: "
+    const-string v36, "MM Reject Cause: "
 
     invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4159,22 +4238,6 @@
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
-
-    move/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    const-string v36, " New MM Reject Cause: "
-
-    invoke-virtual/range {v35 .. v36}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v35
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
 
     move/from16 v36, v0
 
@@ -4199,18 +4262,6 @@
     move-result-object v35
 
     invoke-static/range {v34 .. v35}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
-
-    move/from16 v34, v0
-
-    move/from16 v0, v34
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mMMRejectCause:I
 
     move-object/from16 v0, p0
 
@@ -4554,7 +4605,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GSMPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-nez v24, :cond_28
+    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v34
+
+    if-eqz v34, :cond_28
 
     :cond_f
     const-string v34, "operatorNumeric is null"
@@ -6154,6 +6209,8 @@
     move v0, v1
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -12058,6 +12115,34 @@
     move-object/from16 v0, p0
 
     iput v14, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    const-string v14, "GSM"
+
+    new-instance v15, Ljava/lang/StringBuilder;
+
+    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v16, "MM Reject Cause from RIL: "
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mNewMMRejectCause:I
+
+    move/from16 v16, v0
+
+    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v15
+
+    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
@@ -14162,12 +14247,20 @@
 
     invoke-virtual {v5}, Lcom/android/internal/telephony/gsm/SIMRecords;->getServiceProviderName()Ljava/lang/String;
 
+    move-result-object v5
+
+    invoke-static {p0, v5}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getSpn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
+
     move-result-object v6
 
     :cond_0
     iget-object v9, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->ss:Landroid/telephony/ServiceState;
 
     invoke-virtual {v9}, Landroid/telephony/ServiceState;->getOperatorAlphaLong()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {p0, v9}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$Injector;->getPlmn(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 

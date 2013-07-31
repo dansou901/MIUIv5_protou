@@ -55,7 +55,7 @@
     if-eqz v0, :cond_0
 
     #calls: Landroid/webkit/WebViewClassic;->handleProxyBroadcast(Landroid/content/Intent;)V
-    invoke-static {p2}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/content/Intent;)V
+    invoke-static {p2}, Landroid/webkit/WebViewClassic;->access$1500(Landroid/content/Intent;)V
 
     :cond_0
     return-void

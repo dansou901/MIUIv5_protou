@@ -23,8 +23,6 @@
 
 .field private mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
-.field private mMediaIsVisible:Z
-
 .field private mProxy:Landroid/webkit/HTML5VideoViewProxy;
 
 .field final synthetic this$0:Landroid/webkit/HTML5VideoViewProxy;
@@ -267,15 +265,6 @@
     return v0
 .end method
 
-.method public isMediaVisible()Z
-    .locals 1
-
-    .prologue
-    iget-boolean v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mMediaIsVisible:Z
-
-    return v0
-.end method
-
 .method public isPlaying()Z
     .locals 1
 
@@ -451,19 +440,28 @@
 .end method
 
 .method public play(Ljava/lang/String;I)V
-    .locals 1
+    .locals 2
     .parameter "url"
     .parameter "time"
 
     .prologue
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, p1, p2, v0}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->ensureHTML5VideoView(Ljava/lang/String;IZ)Z
+    invoke-direct {p0, p1, p2, v1}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->ensureHTML5VideoView(Ljava/lang/String;IZ)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
+    iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
+
+    invoke-virtual {v0}, Landroid/webkit/HTML5VideoView;->getCurrentState()I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_2
+
+    :cond_0
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
     invoke-virtual {v0}, Landroid/webkit/HTML5VideoView;->prepareDataAndDisplayMode()V
@@ -472,18 +470,18 @@
 
     invoke-virtual {v0, p2}, Landroid/webkit/HTML5VideoView;->seekTo(I)V
 
-    :cond_0
+    :cond_1
     :goto_0
     return-void
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
     invoke-virtual {v0}, Landroid/webkit/HTML5VideoView;->isPlaying()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mHTML5VideoView:Landroid/webkit/HTML5VideoView;
 
@@ -592,16 +590,6 @@
     const/4 v4, 0x5
 
     goto :goto_0
-.end method
-
-.method public setMediaIsVisible(Z)V
-    .locals 0
-    .parameter "visible"
-
-    .prologue
-    iput-boolean p1, p0, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->mMediaIsVisible:Z
-
-    return-void
 .end method
 
 .method public setVolume(F)V

@@ -203,7 +203,7 @@
     .line 942
     .local v7, success:Z
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -271,7 +271,7 @@
     .line 990
     .local v7, success:Z
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -372,7 +372,7 @@
     move-result-object v3
 
     .line 1269
-    const-string v7, "sourceid=? AND account_name=\'SIM\' AND account_type=\'com.anddroid.contacts.sim\'"
+    const-string/jumbo v7, "sourceid=? AND account_name=\'SIM\' AND account_type=\'com.anddroid.contacts.sim\'"
 
     invoke-virtual {p0, v3, v7, v2}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
@@ -559,7 +559,7 @@
     .prologue
     .line 1188
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -609,6 +609,18 @@
     move-exception v1
 
     goto :goto_1
+.end method
+
+.method static getURL_MATCHER()Landroid/content/UriMatcher;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
+
+    return-object v0
 .end method
 
 .method private static insertIntoContact(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;ZJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
@@ -690,7 +702,7 @@
     .line 902
     .local v1, adnRecords:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/AdnRecord;>;"
     :try_start_0
-    const-string v5, "simphonebook"
+    const-string/jumbo v5, "simphonebook"
 
     invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -913,7 +925,7 @@
     .line 1126
     .local v2, phoneBookEntries:Ljava/util/List;,"Ljava/util/List<Lcom/android/internal/telephony/PhoneBookEntry;>;"
     :try_start_0
-    const-string v5, "simphonebook"
+    const-string/jumbo v5, "simphonebook"
 
     invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1210,13 +1222,20 @@
 
     .line 602
     .local v1, retVal:Ljava/lang/String;
+    const/4 v2, 0x1
+
+    if-gt v0, v2, :cond_0
+
+    return-object v1
+
+    :cond_0
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
     add-int/lit8 v2, v0, -0x1
 
@@ -1224,7 +1243,7 @@
 
     move-result v2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
     .line 603
     const/4 v2, 0x1
@@ -1236,7 +1255,7 @@
     move-result-object v1
 
     .line 606
-    :cond_0
+    :cond_1
     return-object v1
 .end method
 
@@ -1253,7 +1272,7 @@
     :try_start_0
     sget-object v1, Landroid/provider/HtcContactsContract$SpeedDial;->CONTENT_URI:Landroid/net/Uri;
 
-    const-string v5, "updatelist"
+    const-string/jumbo v5, "updatelist"
 
     invoke-static {v1, v5}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
@@ -1530,7 +1549,7 @@
     .local v9, e:Ljava/lang/Exception;
     const-string v1, "IccProvider"
 
-    const-string v5, "update Speed dial list Failed:"
+    const-string/jumbo v5, "update Speed dial list Failed:"
 
     invoke-static {v1, v5, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1553,7 +1572,7 @@
     .line 966
     .local v7, success:Z
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1662,7 +1681,7 @@
     .line 1056
     .local v6, error:Lcom/android/internal/telephony/ADNErrorType;
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -2026,7 +2045,7 @@
 
     .line 689
     .local v17, val:Ljava/lang/String;
-    const-string v2, "tag"
+    const-string/jumbo v2, "tag"
 
     invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2162,6 +2181,8 @@
     .line 651
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2182,7 +2203,7 @@
     .line 1079
     .local v0, error:Lcom/android/internal/telephony/ADNErrorType;
     :try_start_0
-    const-string v3, "simphonebook"
+    const-string/jumbo v3, "simphonebook"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -2291,11 +2312,13 @@
 
     .line 412
     :pswitch_0
-    const-string v0, "vnd.android.cursor.dir/sim-contact"
+    const-string/jumbo v0, "vnd.android.cursor.dir/sim-contact"
 
     return-object v0
 
     .line 408
+    nop
+
     nop
 
     :pswitch_data_0
@@ -2655,7 +2678,7 @@
     .end local v20           #pin2:Ljava/lang/String;
     .restart local v12       #pin2:Ljava/lang/String;
     :goto_2
-    const-string v1, "tag"
+    const-string/jumbo v1, "tag"
 
     move-object/from16 v0, p2
 
@@ -2805,6 +2828,8 @@
     goto :goto_3
 
     .line 485
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -3664,7 +3689,7 @@
     .end local v28           #pin2:Ljava/lang/String;
     .restart local v21       #pin2:Ljava/lang/String;
     :goto_1
-    const-string v2, "tag"
+    const-string/jumbo v2, "tag"
 
     move-object/from16 v0, p2
 
@@ -3774,6 +3799,8 @@
     .line 766
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_0
@@ -3803,7 +3830,7 @@
     .line 1105
     .local v7, error:Lcom/android/internal/telephony/ADNErrorType;
     :try_start_0
-    const-string v1, "simphonebook"
+    const-string/jumbo v1, "simphonebook"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

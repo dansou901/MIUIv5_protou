@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 349
+    .line 348
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "self"
 
     .prologue
-    .line 385
+    .line 384
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
 
     move-result v0
@@ -65,12 +65,12 @@
     .parameter "view"
 
     .prologue
-    .line 373
+    .line 372
     const/16 v0, 0x8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
-    .line 376
+    .line 375
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
@@ -82,12 +82,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->reportClockVisible(Z)V
 
-    .line 377
+    .line 376
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->resetBackground()V
 
-    .line 378
+    .line 377
     return-void
 .end method
 
@@ -98,10 +98,10 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 356
+    .line 355
     invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 359
+    .line 358
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
@@ -111,7 +111,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->reportClockVisible(Z)V
 
-    .line 363
+    .line 362
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     const v1, 0x10202b5
@@ -122,18 +122,18 @@
 
     if-nez v0, :cond_0
 
-    .line 365
+    .line 364
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     const/high16 v1, -0x100
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->setBackgroundColor(I)V
 
-    .line 369
+    .line 368
     :goto_0
     return-void
 
-    .line 367
+    .line 366
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
@@ -147,7 +147,7 @@
     .parameter "self"
 
     .prologue
-    .line 351
+    .line 350
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$5;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -156,6 +156,6 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 352
+    .line 351
     return-void
 .end method

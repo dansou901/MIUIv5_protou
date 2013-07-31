@@ -77,8 +77,6 @@
 
 .field public static final wireless_dongle_status_notification:I = 0x403001f
 
-.field public static final wirelessdisplay_outputtv_checkbox:I = 0x4030020
-
 
 # direct methods
 .method public constructor <init>()V

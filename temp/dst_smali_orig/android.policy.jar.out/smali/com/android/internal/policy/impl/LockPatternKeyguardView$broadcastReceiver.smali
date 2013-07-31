@@ -95,7 +95,7 @@
     move-result v1
 
     .local v1, phonetype:I
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1100()Z
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1200()Z
 
     move-result v3
 
@@ -163,7 +163,7 @@
 
     if-nez v3, :cond_5
 
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1100()Z
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1200()Z
 
     move-result v3
 

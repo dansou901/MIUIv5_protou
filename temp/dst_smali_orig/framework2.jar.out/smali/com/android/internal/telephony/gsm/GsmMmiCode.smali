@@ -1197,6 +1197,12 @@
     .prologue
     const/4 v4, 0x0
 
+    const-string v5, "GSM"
+
+    const-string v6, "isTwoDigitShortCode"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -1735,6 +1741,12 @@
     sget-short v10, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v11, 0x40
+
+    if-ne v10, v11, :cond_a
+
+    sget-short v10, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
+
+    const/4 v11, 0x6
 
     if-ne v10, v11, :cond_a
 
@@ -3663,7 +3675,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700ea
+    const v1, 0x40700e3
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3683,7 +3695,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700e6
+    const v1, 0x40700df
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3702,7 +3714,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700e7
+    const v1, 0x40700e0
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3721,7 +3733,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700e9
+    const v1, 0x40700e2
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3740,7 +3752,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700e8
+    const v1, 0x40700e1
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3759,7 +3771,7 @@
 
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmMmiCode;->context:Landroid/content/Context;
 
-    const v1, 0x40700eb
+    const v1, 0x40700e4
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -4009,6 +4021,8 @@
     const/16 v1, 0x40
 
     goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

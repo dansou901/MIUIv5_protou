@@ -17,12 +17,6 @@
     name = "ViewServerWorker"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/wm/ViewServer$ViewServerWorker$SystemPropPoker;
-    }
-.end annotation
-
 
 # instance fields
 .field private mClient:Ljava/net/Socket;
@@ -54,120 +48,6 @@
     iput-boolean v0, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mNeedFocusedWindowUpdate:Z
 
     return-void
-.end method
-
-.method private isRotationLocked()Z
-    .locals 4
-
-    .prologue
-    const/4 v0, 0x0
-
-    .local v0, result:Z
-    iget-object v1, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->this$0:Lcom/android/server/wm/ViewServer;
-
-    #getter for: Lcom/android/server/wm/ViewServer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-    invoke-static {v1}, Lcom/android/server/wm/ViewServer;->access$100(Lcom/android/server/wm/ViewServer;)Lcom/android/server/wm/WindowManagerService;
-
-    move-result-object v1
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "accelerometer_rotation"
-
-    const/4 v3, 0x0
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
-
-    const-string v2, "true"
-
-    #calls: Lcom/android/server/wm/ViewServer;->writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
-    invoke-static {v1, v2}, Lcom/android/server/wm/ViewServer;->access$000(Ljava/net/Socket;Ljava/lang/String;)Z
-
-    move-result v0
-
-    :goto_0
-    return v0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
-
-    const-string v2, "false"
-
-    #calls: Lcom/android/server/wm/ViewServer;->writeValue(Ljava/net/Socket;Ljava/lang/String;)Z
-    invoke-static {v1, v2}, Lcom/android/server/wm/ViewServer;->access$000(Ljava/net/Socket;Ljava/lang/String;)Z
-
-    move-result v0
-
-    goto :goto_0
-.end method
-
-.method private lockDeviceRotation(Ljava/lang/String;)Z
-    .locals 3
-    .parameter "lock"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->this$0:Lcom/android/server/wm/ViewServer;
-
-    #getter for: Lcom/android/server/wm/ViewServer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-    invoke-static {v0}, Lcom/android/server/wm/ViewServer;->access$100(Lcom/android/server/wm/ViewServer;)Lcom/android/server/wm/WindowManagerService;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "hide_rotation_lock_toggle_for_accessibility"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    new-instance v0, Lcom/android/server/wm/ViewServer$ViewServerWorker$1;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/server/wm/ViewServer$ViewServerWorker$1;-><init>(Lcom/android/server/wm/ViewServer$ViewServerWorker;Ljava/lang/String;)V
-
-    invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
-
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method private setTraceFlag(Ljava/lang/String;)Z
-    .locals 2
-    .parameter "flag"
-
-    .prologue
-    const-string v0, "debug.atrace.tags.enableflags"
-
-    invoke-static {v0, p1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Lcom/android/server/wm/ViewServer$ViewServerWorker$SystemPropPoker;
-
-    invoke-direct {v0, p0}, Lcom/android/server/wm/ViewServer$ViewServerWorker$SystemPropPoker;-><init>(Lcom/android/server/wm/ViewServer$ViewServerWorker;)V
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ViewServer$ViewServerWorker$SystemPropPoker;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    const/4 v0, 0x1
-
-    return v0
 .end method
 
 .method private windowManagerAutolistLoop()Z
@@ -568,7 +448,7 @@
     :goto_2
     iget-object v8, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
 
-    if-eqz v8, :cond_11
+    if-eqz v8, :cond_e
 
     :try_start_3
     iget-object v8, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
@@ -726,67 +606,6 @@
 
     .end local v7           #result:Z
     :cond_9
-    const-string v8, "SET_TRACE_FLAG"
-
-    invoke-virtual {v8, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_a
-
-    const-string v8, " "
-
-    invoke-virtual {v5, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    aget-object v8, v8, v9
-
-    invoke-direct {p0, v8}, Lcom/android/server/wm/ViewServer$ViewServerWorker;->setTraceFlag(Ljava/lang/String;)Z
-
-    move-result v7
-
-    .restart local v7       #result:Z
-    goto/16 :goto_1
-
-    .end local v7           #result:Z
-    :cond_a
-    const-string v8, "IS_ROTATION_LOCKED"
-
-    invoke-virtual {v8, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_b
-
-    invoke-direct {p0}, Lcom/android/server/wm/ViewServer$ViewServerWorker;->isRotationLocked()Z
-
-    move-result v7
-
-    .restart local v7       #result:Z
-    goto/16 :goto_1
-
-    .end local v7           #result:Z
-    :cond_b
-    const-string v8, "LOCK_DEVICE_ROTATION"
-
-    invoke-virtual {v8, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_c
-
-    invoke-direct {p0, v5}, Lcom/android/server/wm/ViewServer$ViewServerWorker;->lockDeviceRotation(Ljava/lang/String;)Z
-
-    move-result v7
-
-    .restart local v7       #result:Z
-    goto/16 :goto_1
-
-    .end local v7           #result:Z
-    :cond_c
     invoke-static {}, Lcom/android/server/wm/ATViewServer;->getInstance()Lcom/android/server/wm/ATViewServer;
 
     move-result-object v8
@@ -797,7 +616,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_a
 
     const/4 v7, 0x1
 
@@ -805,7 +624,7 @@
     goto/16 :goto_1
 
     .end local v7           #result:Z
-    :cond_d
+    :cond_a
     iget-object v8, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->this$0:Lcom/android/server/wm/ViewServer;
 
     #getter for: Lcom/android/server/wm/ViewServer;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -866,14 +685,14 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_b
 
     :try_start_6
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
 
-    :cond_e
+    :cond_b
     :goto_5
     iget-object v8, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
 
@@ -907,18 +726,18 @@
     move-exception v8
 
     :goto_6
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_c
 
     :try_start_8
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_5
 
-    :cond_f
+    :cond_c
     :goto_7
     iget-object v9, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_d
 
     :try_start_9
     iget-object v9, p0, Lcom/android/server/wm/ViewServer$ViewServerWorker;->mClient:Ljava/net/Socket;
@@ -927,7 +746,7 @@
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
-    :cond_10
+    :cond_d
     :goto_8
     throw v8
 
@@ -978,7 +797,7 @@
     .restart local v5       #parameters:Ljava/lang/String;
     .restart local v6       #request:Ljava/lang/String;
     .restart local v7       #result:Z
-    :cond_11
+    :cond_e
     move-object v2, v3
 
     .end local v3           #in:Ljava/io/BufferedReader;

@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public addObserver(Ljava/lang/String;Landroid/os/UEventObserver;)V
-    .locals 4
+    .locals 2
     .parameter "match"
     .parameter "observer"
 
@@ -58,35 +58,6 @@
     monitor-enter v1
 
     :try_start_0
-    sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "register UEvent:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     iget-object v0, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -110,7 +81,7 @@
 .end method
 
 .method public removeObserver(Landroid/os/UEventObserver;)V
-    .locals 6
+    .locals 5
     .parameter "observer"
 
     .prologue
@@ -123,7 +94,7 @@
     .local v0, found:Z
     :cond_0
     :goto_0
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x0
 
@@ -148,43 +119,8 @@
 
     move-result-object v2
 
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_1
 
-    sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v2, :cond_1
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "unregister UEvent:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
     iget-object v2, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
     add-int/lit8 v4, v1, 0x1
@@ -199,13 +135,13 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     add-int/lit8 v1, v1, 0x2
 
     goto :goto_1
 
     .end local v1           #i:I
-    :cond_3
+    :cond_2
     monitor-exit v3
 
     return-void
@@ -221,241 +157,99 @@
 .end method
 
 .method public run()V
-    .locals 12
+    .locals 7
 
     .prologue
     #calls: Landroid/os/UEventObserver;->native_setup()V
     invoke-static {}, Landroid/os/UEventObserver;->access$000()V
 
-    const/16 v7, 0x400
+    const/16 v4, 0x400
 
-    new-array v0, v7, [B
+    new-array v0, v4, [B
 
     .local v0, buffer:[B
     :cond_0
     :goto_0
-    sget-boolean v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v7, :cond_1
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string v8, ">> wait for event"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
     #calls: Landroid/os/UEventObserver;->next_event([B)I
-    invoke-static {v0}, Landroid/os/UEventObserver;->access$200([B)I
+    invoke-static {v0}, Landroid/os/UEventObserver;->access$100([B)I
 
     move-result v3
 
     .local v3, len:I
-    if-lez v3, :cond_6
+    if-lez v3, :cond_0
 
     new-instance v1, Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
-    invoke-direct {v1, v0, v7, v3}, Ljava/lang/String;-><init>([BII)V
+    invoke-direct {v1, v0, v4, v3}, Ljava/lang/String;-><init>([BII)V
 
     .local v1, bufferStr:Ljava/lang/String;
-    sget-boolean v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+    iget-object v5, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
-    if-eqz v7, :cond_2
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v7
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "<< wait for event, next event:"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget-object v8, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
-
-    monitor-enter v8
+    monitor-enter v5
 
     const/4 v2, 0x0
 
     .local v2, i:I
     :goto_1
     :try_start_0
-    iget-object v7, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v7
+    move-result v4
 
-    if-ge v2, v7, :cond_5
+    if-ge v2, v4, :cond_2
 
-    iget-object v7, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Ljava/lang/String;
 
-    .local v4, s:Ljava/lang/String;
     invoke-virtual {v1, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v4
 
-    const/4 v9, -0x1
+    const/4 v6, -0x1
 
-    if-eq v7, v9, :cond_4
+    if-eq v4, v6, :cond_1
 
-    const-wide/16 v5, 0x0
+    iget-object v4, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
 
-    .local v5, startTime:J
-    sget-boolean v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+    add-int/lit8 v6, v2, 0x1
 
-    if-eqz v7, :cond_3
+    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    move-result-object v4
 
-    move-result-wide v5
+    check-cast v4, Landroid/os/UEventObserver;
 
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
+    new-instance v6, Landroid/os/UEventObserver$UEvent;
 
-    move-result-object v7
+    invoke-direct {v6, v1}, Landroid/os/UEventObserver$UEvent;-><init>(Ljava/lang/String;)V
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Landroid/os/UEventObserver;->onUEvent(Landroid/os/UEventObserver$UEvent;)V
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, ">> onEvent:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v7, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    iget-object v7, p0, Landroid/os/UEventObserver$UEventThread;->mObservers:Ljava/util/ArrayList;
-
-    add-int/lit8 v9, v2, 0x1
-
-    invoke-virtual {v7, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/os/UEventObserver;
-
-    new-instance v9, Landroid/os/UEventObserver$UEvent;
-
-    invoke-direct {v9, v1}, Landroid/os/UEventObserver$UEvent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v7, v9}, Landroid/os/UEventObserver;->onUEvent(Landroid/os/UEventObserver$UEvent;)V
-
-    sget-boolean v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v7, :cond_4
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v7
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "<< onEvent:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ", time:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v10
-
-    sub-long/2addr v10, v5
-
-    invoke-virtual {v9, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v7, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .end local v5           #startTime:J
-    :cond_4
+    :cond_1
     add-int/lit8 v2, v2, 0x2
 
     goto :goto_1
 
-    .end local v4           #s:Ljava/lang/String;
-    :cond_5
-    monitor-exit v8
+    :cond_2
+    monitor-exit v5
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :catchall_0
-    move-exception v7
+    move-exception v4
 
-    monitor-exit v8
+    monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v7
-
-    .end local v1           #bufferStr:Ljava/lang/String;
-    .end local v2           #i:I
-    :cond_6
-    sget-boolean v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v7, :cond_0
-
-    invoke-static {}, Landroid/os/UEventObserver;->access$100()Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string v8, "<< wait for event, next event:buffer len < 0"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    throw v4
 .end method

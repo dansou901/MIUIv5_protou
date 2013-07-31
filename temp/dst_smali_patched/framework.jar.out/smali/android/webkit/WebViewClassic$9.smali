@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/webkit/WebViewClassic;->displaySoftKeyboard(Z)V
+    value = Landroid/webkit/WebViewClassic;->performKikinSearch(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,12 +37,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     .prologue
     iget-object v0, p0, Landroid/webkit/WebViewClassic$9;->this$0:Landroid/webkit/WebViewClassic;
 
-    invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->checkCursorVisible()Z
+    const/4 v1, 0x0
+
+    #calls: Landroid/webkit/WebViewClassic;->performKikinSearch(Z)V
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2400(Landroid/webkit/WebViewClassic;Z)V
 
     return-void
 .end method

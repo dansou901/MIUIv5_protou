@@ -1,27 +1,45 @@
-*** ActivityStack.smali	2013-07-12 21:42:31.485165707 +0000
---- ActivityStack.smali	2013-07-12 21:40:27.111822119 +0000
+*** ActivityStack.smali	2013-07-31 22:21:03.704059907 +0000
+--- ActivityStack.smali	2013-07-31 22:21:58.394064472 +0000
 ***************
-*** 6321,6326 ****
+*** 6226,6234 ****
+      .locals 7
+      .parameter "r"
+      .parameter "globalChanges"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      const/4 v3, 0x1
+--- 6224,6229 ----
+      .locals 7
+      .parameter "r"
+      .parameter "globalChanges"
+  
+      .prologue
+      const/4 v3, 0x1
+***************
+*** 6319,6334 ****
       if-eqz v5, :cond_c
   
       :cond_7
+-     iget-object v5, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+- 
+-     iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+- 
+-     invoke-static {v5, v0, v1}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
+- 
+-     move-result v5
+- 
+-     if-nez v5, :cond_0
+- 
       iget v5, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
   
       or-int/2addr v5, v0
---- 6326,6341 ----
+--- 6314,6319 ----
       if-eqz v5, :cond_c
   
       :cond_7
-+     iget-object v5, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-+ 
-+     iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-+ 
-+     invoke-static {v5, v0, v1}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
-+ 
-+     move-result v5
-+ 
-+     if-nez v5, :cond_0
-+ 
       iget v5, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
   
       or-int/2addr v5, v0

@@ -788,7 +788,7 @@
     .parameter "result"
 
     .prologue
-    .line 513
+    .line 509
     return-void
 .end method
 
@@ -1021,7 +1021,7 @@
     .parameter "result"
 
     .prologue
-    .line 514
+    .line 510
     return-void
 .end method
 
@@ -1615,16 +1615,6 @@
 
     .prologue
     .line 203
-    return-void
-.end method
-
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    .line 509
     return-void
 .end method
 

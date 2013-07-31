@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v3, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -108,7 +108,7 @@
 
     .line 33
     :cond_0
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -145,7 +145,7 @@
 
     .line 44
     :cond_2
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

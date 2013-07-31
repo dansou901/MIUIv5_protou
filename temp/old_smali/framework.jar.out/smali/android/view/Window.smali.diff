@@ -1,5 +1,5 @@
-*** ./smali/android/view/Window.smali	2013-07-12 21:44:31.521842272 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/Window.smali	2013-07-12 21:42:07.991830437 +0000
+*** ./smali/android/view/Window.smali	2013-07-31 22:23:13.454070737 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/Window.smali	2013-07-31 22:21:49.740730416 +0000
 ***************
 *** 548,553 ****
 --- 548,568 ----

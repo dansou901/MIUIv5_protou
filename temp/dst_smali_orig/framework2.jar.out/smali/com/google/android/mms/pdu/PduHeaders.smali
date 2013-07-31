@@ -50,10 +50,6 @@
 
 .field public static final CONTENT_TYPE:I = 0x84
 
-.field public static final CONTENT_TYPE_APPLICATION_ID:Ljava/lang/String; = "Application-ID"
-
-.field public static final CONTENT_TYPE_REPLY_TO_APPLICATION_ID:Ljava/lang/String; = "Reply-To-Application-ID"
-
 .field public static final CURRENT_MMS_VERSION:I = 0x12
 
 .field public static final DATE:I = 0x85
@@ -394,18 +390,6 @@
 
 
 # instance fields
-.field private mExtraParamMap:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mHeaderMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -424,25 +408,17 @@
     .locals 1
 
     .prologue
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     const/4 v0, 0x0
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
-
-    iput-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mExtraParamMap:Ljava/util/HashMap;
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mExtraParamMap:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mHeaderMap:Ljava/util/HashMap;
 
     return-void
 .end method
@@ -579,24 +555,6 @@
     check-cast v2, [Lcom/google/android/mms/pdu/EncodedStringValue;
 
     goto :goto_0
-.end method
-
-.method protected getExtraTextString(Ljava/lang/String;)[B
-    .locals 1
-    .parameter "field"
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mExtraParamMap:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, [B
-
-    check-cast v0, [B
-
-    return-object v0
 .end method
 
 .method protected getLongInteger(I)J
@@ -803,53 +761,6 @@
         0x82 -> :sswitch_0
         0x97 -> :sswitch_0
     .end sparse-switch
-.end method
-
-.method protected setExtraTextString([BLjava/lang/String;)V
-    .locals 2
-    .parameter "value"
-    .parameter "field"
-
-    .prologue
-    if-nez p1, :cond_0
-
-    new-instance v0, Ljava/lang/NullPointerException;
-
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    const-string v0, "Application-ID"
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "Reply-To-Application-ID"
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Ljava/lang/RuntimeException;
-
-    const-string v1, "Invalid part field!"
-
-    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/mms/pdu/PduHeaders;->mExtraParamMap:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
 .end method
 
 .method protected setLongInteger(JI)V

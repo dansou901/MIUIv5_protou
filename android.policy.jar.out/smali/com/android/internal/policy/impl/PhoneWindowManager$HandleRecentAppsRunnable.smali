@@ -30,15 +30,15 @@
     .parameter "win"
 
     .prologue
-    .line 6508
+    .line 6510
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$HandleRecentAppsRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6509
+    .line 6511
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$HandleRecentAppsRunnable;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
-    .line 6510
+    .line 6512
     return-void
 .end method
 
@@ -48,7 +48,7 @@
     .locals 3
 
     .prologue
-    .line 6514
+    .line 6516
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$HandleRecentAppsRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mAutoMotiveEnabled:Z
@@ -58,14 +58,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 6515
+    .line 6517
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.AutoMotive.Service.RecentKey"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 6516
+    .line 6518
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$HandleRecentAppsRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -75,12 +75,12 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 6521
+    .line 6523
     .end local v0           #intent:Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 6519
+    .line 6521
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$HandleRecentAppsRunnable;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 

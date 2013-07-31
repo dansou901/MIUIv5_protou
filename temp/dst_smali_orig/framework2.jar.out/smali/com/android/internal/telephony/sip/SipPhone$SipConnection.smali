@@ -415,7 +415,13 @@
 
     move-result-object v3
 
-    const-string v5, "SIP:xxx@xxx"
+    invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->getPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lcom/android/internal/telephony/Phone;->getPhoneName()Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

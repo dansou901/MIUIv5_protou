@@ -31,8 +31,6 @@
 
 .field private ignorePictureAfterFirstLayout:Z
 
-.field private imageHTML:Ljava/lang/String;
-
 .field private mAnchorSpanCallback:Landroid/os/Message;
 
 .field private mClipboard:Landroid/content/ClipboardManager;
@@ -57,17 +55,17 @@
     .locals 1
 
     .prologue
-    .line 46
+    .line 43
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     sput-boolean v0, Landroid/webkit/HTCWebCoreImpl;->HTC_DEBUG:Z
 
-    .line 110
+    .line 104
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
-    .line 406
+    .line 400
     new-instance v0, Lcom/htc/textselection/FetchSuggestionFromIME;
 
     invoke-direct {v0}, Lcom/htc/textselection/FetchSuggestionFromIME;-><init>()V
@@ -84,51 +82,51 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 64
+    .line 58
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
+    .line 47
     iput v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
-    .line 111
+    .line 105
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
 
-    .line 112
+    .line 106
     iput v1, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
-    .line 405
+    .line 399
     new-instance v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;
 
     invoke-direct {v0, p0}, Landroid/webkit/HTCWebCoreImpl$EditEventHub;-><init>(Landroid/webkit/HTCWebCoreImpl;)V
 
     iput-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mEventHub:Landroid/webkit/HTCWebCoreImpl$EditEventHub;
 
-    .line 1353
+    .line 1215
     const-string v0, ""
 
     iput-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCopiedStyleText:Ljava/lang/String;
 
-    .line 1354
+    .line 1216
     iput-boolean v1, p0, Landroid/webkit/HTCWebCoreImpl;->mSkipClipboardChang:Z
 
-    .line 1426
+    .line 1285
     iput-boolean v1, p0, Landroid/webkit/HTCWebCoreImpl;->ignorePictureAfterFirstLayout:Z
 
-    .line 65
+    .line 59
     iput-object p1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
-    .line 66
+    .line 60
     invoke-virtual {p1}, Landroid/webkit/WebViewCore;->getWebViewClassic()Landroid/webkit/WebViewClassic;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
 
-    .line 67
+    .line 61
     return-void
 .end method
 
@@ -137,7 +135,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     return v0
@@ -150,7 +148,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertHtmlToTheEnd(ILjava/lang/String;)V
 
     return-void
@@ -163,7 +161,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetEditable(IZ)V
 
     return-void
@@ -176,7 +174,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetVSbound(ILandroid/graphics/Rect;)I
 
     move-result v0
@@ -191,7 +189,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeShouldPaintingCaret(IZ)V
 
     return-void
@@ -204,7 +202,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeContentInvalidate(ILandroid/graphics/Rect;)V
 
     return-void
@@ -218,7 +216,7 @@
     .parameter "x3"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeInsert(IILjava/lang/String;)V
 
     return-void
@@ -236,7 +234,7 @@
     .parameter "x7"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct/range {p0 .. p7}, Landroid/webkit/HTCWebCoreImpl;->nativeComposing(IILjava/lang/String;IIII)V
 
     return-void
@@ -253,7 +251,7 @@
     .parameter "x6"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct/range {p0 .. p6}, Landroid/webkit/HTCWebCoreImpl;->nativeDeleteSurrounding(IIIIII)V
 
     return-void
@@ -265,7 +263,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeGetHtmlString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -280,7 +278,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertHtmlString(ILjava/lang/String;)Z
 
     move-result v0
@@ -295,7 +293,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeExportHtml(ILjava/lang/String;)Z
 
     move-result v0
@@ -310,7 +308,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeFindContinuousBRFromEnd(II)I
 
     move-result v0
@@ -325,7 +323,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertHtml(ILjava/lang/String;)Z
 
     move-result v0
@@ -342,7 +340,7 @@
     .parameter "x4"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertImage(ILjava/lang/String;II)V
 
     return-void
@@ -354,7 +352,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeInformColorChanged(I)V
 
     return-void
@@ -367,7 +365,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativePasteWithStyle(ILjava/lang/String;)V
 
     return-void
@@ -379,7 +377,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     iput-object p1, p0, Landroid/webkit/HTCWebCoreImpl;->mAnchorSpanCallback:Landroid/os/Message;
 
     return-object p1
@@ -392,7 +390,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertAnchorSpan(ILjava/lang/String;)V
 
     return-void
@@ -404,7 +402,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeCancelAnchorSpan(I)V
 
     return-void
@@ -417,7 +415,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeInsertHtmlContainsAnchorSpan(ILjava/lang/String;)Z
 
     move-result v0
@@ -431,7 +429,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeToggleBold(I)V
 
     return-void
@@ -443,7 +441,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeToggleUnderline(I)V
 
     return-void
@@ -456,7 +454,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeModifySelection(IZ)V
 
     return-void
@@ -468,7 +466,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeToggleItalic(I)V
 
     return-void
@@ -480,7 +478,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeToggleStrikethrough(I)V
 
     return-void
@@ -492,7 +490,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeAlignCenter(I)V
 
     return-void
@@ -504,7 +502,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeAlignJustified(I)V
 
     return-void
@@ -516,7 +514,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeAlignLeft(I)V
 
     return-void
@@ -528,7 +526,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeAlignRight(I)V
 
     return-void
@@ -541,7 +539,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetForeColor(ILjava/lang/String;)V
 
     return-void
@@ -554,7 +552,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetBackColor(ILjava/lang/String;)V
 
     return-void
@@ -567,7 +565,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetFontSize(II)V
 
     return-void
@@ -582,7 +580,7 @@
     .parameter "x4"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/HTCWebCoreImpl;->nativeSetImageAttr(ILjava/lang/String;Ljava/lang/String;I)V
 
     return-void
@@ -597,7 +595,7 @@
     .parameter "x4"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/HTCWebCoreImpl;->nativeDoWordSelection(IIIZ)V
 
     return-void
@@ -613,7 +611,7 @@
     .parameter "x5"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct/range {p0 .. p5}, Landroid/webkit/HTCWebCoreImpl;->nativeMarkMisspelling(IIIIZ)V
 
     return-void
@@ -625,7 +623,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeCheckCurrentSpell(I)V
 
     return-void
@@ -638,7 +636,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetSpellCheck(IZ)V
 
     return-void
@@ -652,7 +650,7 @@
     .parameter "x3"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeGetPureReaderContents(ILjava/util/ArrayList;I)Z
 
     move-result v0
@@ -665,7 +663,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0}, Landroid/webkit/HTCWebCoreImpl;->nativePauseFPDoPlay()V
 
     return-void
@@ -676,7 +674,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0}, Landroid/webkit/HTCWebCoreImpl;->nativeResumeFPDoPlay()V
 
     return-void
@@ -689,7 +687,7 @@
     .parameter "x2"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeUpdateTextSelection(IZ)I
 
     move-result v0
@@ -697,49 +695,35 @@
     return v0
 .end method
 
-.method static synthetic access$4700(Landroid/webkit/HTCWebCoreImpl;III)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    .line 45
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSetSeletionTypeAndFlag(III)V
-
-    return-void
-.end method
-
-.method static synthetic access$4800(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
+.method static synthetic access$4700(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
 
     return-object v0
 .end method
 
-.method static synthetic access$4900(Landroid/webkit/HTCWebCoreImpl;)I
+.method static synthetic access$4800(Landroid/webkit/HTCWebCoreImpl;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     return v0
 .end method
 
-.method static synthetic access$4902(Landroid/webkit/HTCWebCoreImpl;I)I
+.method static synthetic access$4802(Landroid/webkit/HTCWebCoreImpl;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     iput p1, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     return p1
@@ -754,76 +738,10 @@
     .parameter "x4"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/HTCWebCoreImpl;->nativeDoSelection(IIIZ)V
 
     return-void
-.end method
-
-.method static synthetic access$5000(Landroid/webkit/HTCWebCoreImpl;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$5002(Landroid/webkit/HTCWebCoreImpl;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 45
-    iput-object p1, p0, Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$5100(Landroid/webkit/HTCWebCoreImpl;)I
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 45
-    iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mNativeClass:I
-
-    return v0
-.end method
-
-.method static synthetic access$5200(Landroid/webkit/HTCWebCoreImpl;III)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    .line 45
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSelectImageHTMLAt(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$5300(Landroid/webkit/HTCWebCoreImpl;IILjava/lang/String;)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    .line 45
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSaveHitTestImage(IILjava/lang/String;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$600(Landroid/webkit/HTCWebCoreImpl;I)V
@@ -832,7 +750,7 @@
     .parameter "x1"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeSelectAll(I)V
 
     return-void
@@ -848,7 +766,7 @@
     .parameter "x5"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct/range {p0 .. p5}, Landroid/webkit/HTCWebCoreImpl;->nativeDoSelectionByIndex(IIIII)V
 
     return-void
@@ -864,7 +782,7 @@
     .parameter "x5"
 
     .prologue
-    .line 45
+    .line 42
     invoke-direct/range {p0 .. p5}, Landroid/webkit/HTCWebCoreImpl;->nativeGetTextBetween(IIIII)Ljava/lang/String;
 
     move-result-object v0
@@ -877,7 +795,7 @@
     .parameter "x0"
 
     .prologue
-    .line 45
+    .line 42
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
 
     return-object v0
@@ -888,7 +806,7 @@
     .parameter "rect"
 
     .prologue
-    .line 340
+    .line 334
     const-string v0, "KENLOG"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -911,24 +829,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 335
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mAnchorSpanCallback:Landroid/os/Message;
 
     if-eqz v0, :cond_0
 
     if-eqz p1, :cond_0
 
-    .line 342
+    .line 336
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mAnchorSpanCallback:Landroid/os/Message;
 
     iput-object p1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 343
+    .line 337
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mAnchorSpanCallback:Landroid/os/Message;
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 346
+    .line 340
     :cond_0
     return-void
 .end method
@@ -938,7 +856,7 @@
     .parameter "webViewCore"
 
     .prologue
-    .line 60
+    .line 54
     if-nez p0, :cond_0
 
     const/4 v0, 0x0
@@ -960,7 +878,7 @@
     .locals 1
 
     .prologue
-    .line 116
+    .line 110
     sget-boolean v0, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
     return v0
@@ -1197,16 +1115,10 @@
 .method private native nativeResumeFPDoPlay()V
 .end method
 
-.method private native nativeSaveHitTestImage(IILjava/lang/String;)Z
-.end method
-
 .method private native nativeSaveImage(IIILjava/lang/String;Z)Ljava/lang/String;
 .end method
 
 .method private native nativeSelectAll(I)V
-.end method
-
-.method private native nativeSelectImageHTMLAt(III)Ljava/lang/String;
 .end method
 
 .method private native nativeSelectParagraphText(IIILandroid/graphics/Rect;)Ljava/lang/String;
@@ -1227,9 +1139,6 @@
 .method private native nativeSetImageAttr(ILjava/lang/String;Ljava/lang/String;I)V
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-.end method
-
-.method private native nativeSetSeletionTypeAndFlag(III)V
 .end method
 
 .method private native nativeSetSkiaFontCacheSize(IJ)V
@@ -1259,11 +1168,6 @@
 .method private native nativeUpdateTextSelection(IZ)I
 .end method
 
-.method private native nativehtcClearUndoRedoOperations(I)V
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end method
-
 .method private native nativeisImageNode(II)Z
 .end method
 
@@ -1278,12 +1182,12 @@
     .parameter "s"
 
     .prologue
-    .line 1115
+    .line 994
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, v0}, Landroid/webkit/HTCWebCoreImpl;->composingText(ILjava/lang/String;I)V
 
-    .line 1116
+    .line 995
     return-void
 .end method
 
@@ -1294,32 +1198,32 @@
     .parameter "c"
 
     .prologue
-    .line 1119
+    .line 998
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1120
+    .line 999
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x1f6
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1121
+    .line 1000
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1122
+    .line 1001
     iput p3, v0, Landroid/os/Message;->arg2:I
 
-    .line 1123
+    .line 1002
     iput-object p2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1124
+    .line 1003
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1125
+    .line 1004
     return-void
 .end method
 
@@ -1332,21 +1236,21 @@
     .parameter "rightEnd"
 
     .prologue
-    .line 1129
+    .line 1008
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1130
+    .line 1009
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x1f7
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1131
+    .line 1010
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1132
+    .line 1011
     const/4 v1, 0x4
 
     new-array v1, v1, [I
@@ -1369,12 +1273,12 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1133
+    .line 1012
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1134
+    .line 1013
     return-void
 .end method
 
@@ -1386,7 +1290,7 @@
     .parameter "endIndexs"
 
     .prologue
-    .line 1455
+    .line 1314
     return-void
 .end method
 
@@ -1397,12 +1301,12 @@
     .parameter "extent"
 
     .prologue
-    .line 1156
+    .line 1035
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, p2, p3, v0}, Landroid/webkit/HTCWebCoreImpl;->doSelection(IIZZ)V
 
-    .line 1157
+    .line 1036
     return-void
 .end method
 
@@ -1418,18 +1322,18 @@
 
     const/4 v3, 0x0
 
-    .line 1167
+    .line 1046
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1168
+    .line 1047
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x213
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1169
+    .line 1048
     if-eqz p3, :cond_0
 
     move v1, v2
@@ -1437,37 +1341,37 @@
     :goto_0
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1170
+    .line 1049
     if-eqz p4, :cond_1
 
     :goto_1
     iput v2, v0, Landroid/os/Message;->arg2:I
 
-    .line 1171
+    .line 1050
     new-instance v1, Landroid/graphics/Point;
 
     invoke-direct {v1, p1, p2}, Landroid/graphics/Point;-><init>(II)V
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1172
+    .line 1051
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1173
+    .line 1052
     return-void
 
     :cond_0
     move v1, v3
 
-    .line 1169
+    .line 1048
     goto :goto_0
 
     :cond_1
     move v2, v3
 
-    .line 1170
+    .line 1049
     goto :goto_1
 .end method
 
@@ -1479,24 +1383,24 @@
     .parameter "end"
 
     .prologue
-    .line 1176
+    .line 1055
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1177
+    .line 1056
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x214
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1178
+    .line 1057
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1179
+    .line 1058
     iput p1, v0, Landroid/os/Message;->arg2:I
 
-    .line 1180
+    .line 1059
     const/4 v1, 0x2
 
     new-array v1, v1, [I
@@ -1511,12 +1415,12 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1181
+    .line 1060
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1182
+    .line 1061
     return-void
 .end method
 
@@ -1529,7 +1433,7 @@
     .parameter "showSuggest"
 
     .prologue
-    .line 1447
+    .line 1306
     return-void
 .end method
 
@@ -1541,15 +1445,15 @@
     .parameter "animatingScroll"
 
     .prologue
-    .line 84
+    .line 78
     invoke-virtual {p1, p2}, Landroid/graphics/Canvas;->drawColor(I)V
 
-    .line 85
+    .line 79
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0, p1}, Landroid/webkit/WebViewClassic;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 88
+    .line 82
     return-void
 .end method
 
@@ -1557,7 +1461,7 @@
     .locals 1
 
     .prologue
-    .line 1715
+    .line 1567
     const/4 v0, 0x0
 
     return v0
@@ -1568,12 +1472,12 @@
     .parameter "enable"
 
     .prologue
-    .line 1678
+    .line 1537
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeEnableGifAnimation(IZ)V
 
-    .line 1679
+    .line 1538
     return-void
 .end method
 
@@ -1582,7 +1486,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 1641
+    .line 1500
     invoke-virtual {p0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeFindNextTableNode(I)I
 
     move-result v0
@@ -1596,7 +1500,7 @@
     .parameter "traverseNestedTables"
 
     .prologue
-    .line 1635
+    .line 1494
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeFindNextTableNode(IIZ)I
@@ -1611,7 +1515,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 1623
+    .line 1482
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeFindNextTextNode(II)I
@@ -1629,7 +1533,7 @@
     .parameter "r"
 
     .prologue
-    .line 1585
+    .line 1444
     iget v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     move-object v0, p0
@@ -1656,12 +1560,12 @@
     .parameter "r"
 
     .prologue
-    .line 1573
+    .line 1432
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeFindParagraphBoundByNode(IIZLandroid/graphics/Rect;)V
 
-    .line 1574
+    .line 1433
     return-void
 .end method
 
@@ -1673,7 +1577,7 @@
     .parameter "isWordBased"
 
     .prologue
-    .line 1599
+    .line 1458
     iget v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     move-object v0, p0
@@ -1698,12 +1602,12 @@
     .parameter "stop"
 
     .prologue
-    .line 1684
+    .line 1543
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeForceStopGifAnimation(IZ)V
 
-    .line 1685
+    .line 1544
     return-void
 .end method
 
@@ -1715,39 +1619,39 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1494
+    .line 1353
     if-nez p1, :cond_0
 
     sget-boolean v0, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
     if-nez v0, :cond_3
 
-    .line 1495
+    .line 1354
     :cond_0
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_1
 
-    .line 1496
+    .line 1355
     const-string v0, "HTCWebCore"
 
     const-string v1, "getBodyNode"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1498
+    .line 1357
     :cond_1
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
 
     monitor-enter v1
 
-    .line 1500
+    .line 1359
     const/4 v0, 0x0
 
     :try_start_0
     iput v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
-    .line 1501
+    .line 1360
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0x277
@@ -1758,13 +1662,13 @@
 
     invoke-virtual {v0, v2, p1, v3, v4}, Landroid/webkit/WebViewCore;->sendMessageAtFrontOfQueue(IIILjava/lang/Object;)V
 
-    .line 1502
+    .line 1361
     :goto_0
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     if-nez v0, :cond_6
 
-    .line 1503
+    .line 1362
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
@@ -1774,11 +1678,11 @@
 
     goto :goto_0
 
-    .line 1509
+    .line 1368
     :catch_0
     move-exception v0
 
-    .line 1512
+    .line 1371
     :cond_2
     :goto_1
     :try_start_1
@@ -1786,17 +1690,17 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1513
+    .line 1372
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     const/4 v1, -0x1
 
     if-ne v0, v1, :cond_3
 
-    .line 1514
+    .line 1373
     iput v5, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
-    .line 1518
+    .line 1377
     :cond_3
     sget-boolean v0, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
@@ -1804,35 +1708,35 @@
 
     if-nez p1, :cond_7
 
-    .line 1519
+    .line 1378
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
-    .line 1532
+    .line 1391
     :cond_4
     :goto_2
     if-eqz p2, :cond_5
 
-    .line 1533
+    .line 1392
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
 
     invoke-virtual {p2, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    .line 1536
+    .line 1395
     :cond_5
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     return v0
 
-    .line 1505
+    .line 1364
     :cond_6
     :try_start_2
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_2
 
-    .line 1506
+    .line 1365
     const-string v0, "HTCWebCore"
 
     const-string v2, "getBodyNode end"
@@ -1844,7 +1748,7 @@
 
     goto :goto_1
 
-    .line 1512
+    .line 1371
     :catchall_0
     move-exception v0
 
@@ -1855,11 +1759,11 @@
 
     throw v0
 
-    .line 1527
+    .line 1386
     :cond_7
     if-eqz p1, :cond_4
 
-    .line 1528
+    .line 1387
     sput-boolean v5, Landroid/webkit/HTCWebCoreImpl;->updateBodyNode:Z
 
     goto :goto_2
@@ -1870,21 +1774,21 @@
     .parameter "url"
 
     .prologue
-    .line 152
+    .line 146
     invoke-static {}, Landroid/webkit/CacheManager;->endCacheTransaction()Z
 
-    .line 153
+    .line 147
     const/4 v1, 0x0
 
     invoke-static {p1, v1}, Landroid/webkit/CacheManager;->getCacheFile(Ljava/lang/String;Ljava/util/Map;)Landroid/webkit/CacheManager$CacheResult;
 
     move-result-object v0
 
-    .line 154
+    .line 148
     .local v0, result:Landroid/webkit/CacheManager$CacheResult;
     invoke-static {}, Landroid/webkit/CacheManager;->startCacheTransaction()Z
 
-    .line 155
+    .line 149
     return-object v0
 .end method
 
@@ -1895,7 +1799,7 @@
     .parameter "r"
 
     .prologue
-    .line 1605
+    .line 1464
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeGetCharRect(IIILandroid/graphics/Rect;)Z
@@ -1909,7 +1813,7 @@
     .locals 1
 
     .prologue
-    .line 1358
+    .line 1220
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCopiedStyleText:Ljava/lang/String;
 
     return-object v0
@@ -1922,7 +1826,7 @@
     .parameter "r"
 
     .prologue
-    .line 1611
+    .line 1470
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeGetCursorPos(IIILandroid/graphics/Rect;)Z
@@ -1937,7 +1841,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 1629
+    .line 1488
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeGetFontPixelSizeOfTextNode(II)I
@@ -1952,7 +1856,7 @@
     .parameter "m"
 
     .prologue
-    .line 273
+    .line 267
     return-void
 .end method
 
@@ -1961,7 +1865,7 @@
     .parameter "nodePtr"
 
     .prologue
-    .line 1721
+    .line 1573
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeGetHREF(II)Ljava/lang/String;
@@ -1984,7 +1888,7 @@
     .end annotation
 
     .prologue
-    .line 1696
+    .line 1555
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeGetImageAttr(I)Ljava/util/ArrayList;
@@ -1998,7 +1902,7 @@
     .locals 2
 
     .prologue
-    .line 1666
+    .line 1525
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeGetMaxCPUFreq(I)J
@@ -2015,7 +1919,7 @@
     .parameter "h"
 
     .prologue
-    .line 294
+    .line 288
     iget v8, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     const/4 v9, 0x1
@@ -2026,7 +1930,7 @@
 
     move-result-object v3
 
-    .line 296
+    .line 290
     .local v3, nodeRect:Landroid/graphics/Rect;
     if-eqz v3, :cond_0
 
@@ -2036,25 +1940,25 @@
 
     if-eqz v8, :cond_1
 
-    .line 297
+    .line 291
     :cond_0
     const/4 v7, 0x0
 
-    .line 335
+    .line 329
     :goto_0
     return-object v7
 
-    .line 299
+    .line 293
     :cond_1
     const/high16 v4, 0x3f80
 
-    .line 300
+    .line 294
     .local v4, ratio:F
     if-lez p2, :cond_2
 
     if-lez p3, :cond_2
 
-    .line 301
+    .line 295
     int-to-float v8, p2
 
     const/high16 v9, 0x3f80
@@ -2069,7 +1973,7 @@
 
     div-float v6, v8, v9
 
-    .line 302
+    .line 296
     .local v6, ratioW:F
     int-to-float v8, p3
 
@@ -2085,13 +1989,13 @@
 
     div-float v5, v8, v9
 
-    .line 303
+    .line 297
     .local v5, ratioH:F
     invoke-static {v6, v5}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
 
-    .line 309
+    .line 303
     .end local v5           #ratioH:F
     .end local v6           #ratioW:F
     :goto_1
@@ -2119,7 +2023,7 @@
 
     invoke-direct {v1, v8, v9, v10, v11}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    .line 312
+    .line 306
     .local v1, clipF:Landroid/graphics/RectF;
     invoke-virtual {v1}, Landroid/graphics/RectF;->isEmpty()Z
 
@@ -2127,31 +2031,31 @@
 
     if-eqz v8, :cond_3
 
-    .line 313
+    .line 307
     const/4 v7, 0x0
 
     goto :goto_0
 
-    .line 305
+    .line 299
     .end local v1           #clipF:Landroid/graphics/RectF;
     :cond_2
     invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
 
     move-result p2
 
-    .line 306
+    .line 300
     invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
 
     move-result p3
 
     goto :goto_1
 
-    .line 315
+    .line 309
     .restart local v1       #clipF:Landroid/graphics/RectF;
     :cond_3
     const/4 v7, 0x0
 
-    .line 317
+    .line 311
     .local v7, ret:Landroid/graphics/Bitmap;
     :try_start_0
     sget-object v8, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
@@ -2160,24 +2064,24 @@
 
     move-result-object v7
 
-    .line 318
+    .line 312
     const/4 v8, -0x1
 
     invoke-virtual {v7, v8}, Landroid/graphics/Bitmap;->eraseColor(I)V
 
-    .line 319
+    .line 313
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0, v7}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 321
+    .line 315
     .local v0, c:Landroid/graphics/Canvas;
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/RectF;)Z
 
-    .line 322
+    .line 316
     invoke-virtual {v0, v4, v4}, Landroid/graphics/Canvas;->scale(FF)V
 
-    .line 323
+    .line 317
     iget v8, v3, Landroid/graphics/Rect;->left:I
 
     neg-int v8, v8
@@ -2192,7 +2096,7 @@
 
     invoke-virtual {v0, v8, v9}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 328
+    .line 322
     iget-object v8, p0, Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v8, v0}, Landroid/webkit/WebViewClassic;->onDraw(Landroid/graphics/Canvas;)V
@@ -2201,12 +2105,12 @@
 
     goto :goto_0
 
-    .line 330
+    .line 324
     .end local v0           #c:Landroid/graphics/Canvas;
     :catch_0
     move-exception v2
 
-    .line 331
+    .line 325
     .local v2, e:Ljava/lang/OutOfMemoryError;
     const-string v8, "HtcWebCore"
 
@@ -2214,7 +2118,7 @@
 
     invoke-static {v8, v9, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 332
+    .line 326
     const/4 v7, 0x0
 
     goto :goto_0
@@ -2227,7 +2131,7 @@
     .parameter "defaultTextWidth"
 
     .prologue
-    .line 1489
+    .line 1348
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeGetNodeRect(IIZI)Landroid/graphics/Rect;
@@ -2242,18 +2146,18 @@
     .parameter "type"
 
     .prologue
-    .line 1143
+    .line 1022
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    .line 1144
+    .line 1023
     .local v0, ret:Landroid/graphics/Rect;
     iget v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v1, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeGetRectOf(ILandroid/graphics/Rect;I)V
 
-    .line 1145
+    .line 1024
     return-object v0
 .end method
 
@@ -2270,7 +2174,7 @@
     .end annotation
 
     .prologue
-    .line 1653
+    .line 1512
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeGetRssFeed(I)Ljava/util/ArrayList;
@@ -2285,7 +2189,7 @@
     .parameter "node"
 
     .prologue
-    .line 1549
+    .line 1408
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeGetScopeNode(II)I
@@ -2302,7 +2206,7 @@
     .parameter "r"
 
     .prologue
-    .line 1672
+    .line 1531
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeGetSurfaceViewBitmap(ILandroid/view/Surface;Landroid/graphics/Canvas;Landroid/graphics/Rect;)Z
@@ -2320,7 +2224,7 @@
     .parameter "endNodeIndx"
 
     .prologue
-    .line 1660
+    .line 1519
     iget v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     move-object v0, p0
@@ -2344,7 +2248,7 @@
     .locals 1
 
     .prologue
-    .line 1647
+    .line 1506
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeHasRssFeed(I)Z
@@ -2354,48 +2258,35 @@
     return v0
 .end method
 
-.method public htcClearUndoRedoOperations()V
-    .locals 1
-
-    .prologue
-    .line 1703
-    iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-
-    invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativehtcClearUndoRedoOperations(I)V
-
-    .line 1704
-    return-void
-.end method
-
 .method public insetText(ILjava/lang/String;)V
     .locals 2
     .parameter "pnode"
     .parameter "s"
 
     .prologue
-    .line 1106
+    .line 985
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1107
+    .line 986
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x1f5
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1108
+    .line 987
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1109
+    .line 988
     iput-object p2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    .line 1110
+    .line 989
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1111
+    .line 990
     return-void
 .end method
 
@@ -2403,7 +2294,7 @@
     .locals 1
 
     .prologue
-    .line 1733
+    .line 1585
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeIsDocumentParsing(I)Z
@@ -2417,7 +2308,7 @@
     .locals 1
 
     .prologue
-    .line 1438
+    .line 1297
     iget-boolean v0, p0, Landroid/webkit/HTCWebCoreImpl;->ignorePictureAfterFirstLayout:Z
 
     return v0
@@ -2428,7 +2319,7 @@
     .parameter "node"
 
     .prologue
-    .line 1561
+    .line 1420
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeisImageNode(II)Z
@@ -2442,7 +2333,7 @@
     .locals 1
 
     .prologue
-    .line 1362
+    .line 1224
     iget-boolean v0, p0, Landroid/webkit/HTCWebCoreImpl;->mSkipClipboardChang:Z
 
     return v0
@@ -2452,7 +2343,7 @@
     .locals 1
 
     .prologue
-    .line 1690
+    .line 1549
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativeIsSupportGifAnimUISetting(I)Z
@@ -2468,7 +2359,7 @@
     .parameter "y"
 
     .prologue
-    .line 1617
+    .line 1476
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeIsTextNode(III)I
@@ -2483,7 +2374,7 @@
     .parameter "node"
 
     .prologue
-    .line 1567
+    .line 1426
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1}, Landroid/webkit/HTCWebCoreImpl;->nativeisTextNode(II)Z
@@ -2497,7 +2388,7 @@
     .locals 1
 
     .prologue
-    .line 1398
+    .line 1257
     const/4 v0, 0x0
 
     return v0
@@ -2507,7 +2398,7 @@
     .locals 1
 
     .prologue
-    .line 1407
+    .line 1266
     const/4 v0, 0x0
 
     return v0
@@ -2517,7 +2408,7 @@
     .locals 1
 
     .prologue
-    .line 1391
+    .line 1250
     const/4 v0, 0x0
 
     return v0
@@ -2528,18 +2419,18 @@
     .parameter "willModifyStart"
 
     .prologue
-    .line 1149
+    .line 1028
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1150
+    .line 1029
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x212
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1151
+    .line 1030
     if-eqz p1, :cond_0
 
     const/4 v1, 0x1
@@ -2547,15 +2438,15 @@
     :goto_0
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1152
+    .line 1031
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1153
+    .line 1032
     return-void
 
-    .line 1151
+    .line 1030
     :cond_0
     const/4 v1, 0x0
 
@@ -2570,7 +2461,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 283
+    .line 277
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     const/4 v1, 0x0
@@ -2611,7 +2502,7 @@
     .parameter "contentBound"
 
     .prologue
-    .line 106
+    .line 100
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
     return v0
@@ -2620,94 +2511,22 @@
 .method native nativeGetBoldState(I)I
 .end method
 
-.method native nativeGetEmbedNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetFontSize(I)I
 .end method
 
 .method native nativeGetForeColor(I)Ljava/lang/String;
 .end method
 
-.method native nativeGetHiddenEmbedNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetHtml(IIIII)Ljava/lang/String;
-.end method
-
-.method native nativeGetIFrameNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
 .end method
 
 .method native nativeGetItalicState(I)I
 .end method
 
-.method native nativeGetObjectNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetStrikethroughState(I)I
 .end method
 
-.method native nativeGetTitleDescription(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetUnderlineState(I)I
-.end method
-
-.method native nativeGetVideoID(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
 .end method
 
 .method native nativegetImageNodeRect(II)Landroid/graphics/Rect;
@@ -2719,33 +2538,33 @@
     .prologue
     const/16 v3, 0x233
 
-    .line 1194
+    .line 1073
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1195
+    .line 1074
     .local v0, m:Landroid/os/Message;
     iput v3, v0, Landroid/os/Message;->what:I
 
-    .line 1197
+    .line 1076
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     const/16 v2, 0x232
 
     invoke-virtual {v1, v2}, Landroid/webkit/WebViewCore;->removeMessages(I)V
 
-    .line 1198
+    .line 1077
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v3}, Landroid/webkit/WebViewCore;->removeMessages(I)V
 
-    .line 1199
+    .line 1078
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1200
+    .line 1079
     return-void
 .end method
 
@@ -2757,7 +2576,7 @@
     .parameter "getExtension"
 
     .prologue
-    .line 1555
+    .line 1414
     iget v1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     move-object v0, p0
@@ -2784,7 +2603,7 @@
     .parameter "scope"
 
     .prologue
-    .line 1592
+    .line 1451
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSelectParagraphText(IIILandroid/graphics/Rect;)Ljava/lang/String;
@@ -2799,7 +2618,7 @@
     .parameter "pointer"
 
     .prologue
-    .line 120
+    .line 114
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
@@ -2810,7 +2629,7 @@
 
     iput v0, p0, Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
 
-    .line 121
+    .line 115
     return-void
 .end method
 
@@ -2819,7 +2638,7 @@
     .parameter "text"
 
     .prologue
-    .line 1356
+    .line 1218
     iput-object p1, p0, Landroid/webkit/HTCWebCoreImpl;->mCopiedStyleText:Ljava/lang/String;
 
     return-void
@@ -2830,18 +2649,18 @@
     .parameter "editable"
 
     .prologue
-    .line 1098
+    .line 977
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
     move-result-object v0
 
-    .line 1099
+    .line 978
     .local v0, m:Landroid/os/Message;
     const/16 v1, 0x1f4
 
     iput v1, v0, Landroid/os/Message;->what:I
 
-    .line 1100
+    .line 979
     if-eqz p1, :cond_0
 
     const/4 v1, 0x1
@@ -2849,15 +2668,15 @@
     :goto_0
     iput v1, v0, Landroid/os/Message;->arg1:I
 
-    .line 1101
+    .line 980
     iget-object v1, p0, Landroid/webkit/HTCWebCoreImpl;->mWebCore:Landroid/webkit/WebViewCore;
 
     invoke-virtual {v1, v0}, Landroid/webkit/WebViewCore;->sendMessage(Landroid/os/Message;)V
 
-    .line 1102
+    .line 981
     return-void
 
-    .line 1100
+    .line 979
     :cond_0
     const/4 v1, 0x0
 
@@ -2869,10 +2688,10 @@
     .parameter "set"
 
     .prologue
-    .line 1431
+    .line 1290
     iput-boolean p1, p0, Landroid/webkit/HTCWebCoreImpl;->ignorePictureAfterFirstLayout:Z
 
-    .line 1432
+    .line 1291
     return-void
 .end method
 
@@ -2883,12 +2702,12 @@
     .parameter "pointer"
 
     .prologue
-    .line 1709
+    .line 1561
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSetImageAttr(ILjava/lang/String;Ljava/lang/String;I)V
 
-    .line 1710
+    .line 1562
     return-void
 .end method
 
@@ -2897,7 +2716,7 @@
     .parameter "bSignal"
 
     .prologue
-    .line 1479
+    .line 1338
     return-void
 .end method
 
@@ -2906,10 +2725,10 @@
     .parameter "nativeClass"
 
     .prologue
-    .line 70
+    .line 64
     iput p1, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
-    .line 71
+    .line 65
     return-void
 .end method
 
@@ -2918,12 +2737,12 @@
     .parameter "lCacheSize_Byte"
 
     .prologue
-    .line 1579
+    .line 1438
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSetSkiaFontCacheSize(IJ)V
 
-    .line 1580
+    .line 1439
     return-void
 .end method
 
@@ -2932,7 +2751,7 @@
     .parameter "skip"
 
     .prologue
-    .line 1360
+    .line 1222
     iput-boolean p1, p0, Landroid/webkit/HTCWebCoreImpl;->mSkipClipboardChang:Z
 
     return-void
@@ -2944,7 +2763,7 @@
     .parameter "y"
 
     .prologue
-    .line 1543
+    .line 1402
     iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
 
     invoke-direct {p0, v0, p1, p2}, Landroid/webkit/HTCWebCoreImpl;->nativeSmartTouchUp(III)I
@@ -2959,7 +2778,7 @@
     .parameter "msg"
 
     .prologue
-    .line 397
+    .line 391
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mEventHub:Landroid/webkit/HTCWebCoreImpl$EditEventHub;
 
     iget v1, p1, Landroid/os/Message;->what:I
@@ -2970,16 +2789,16 @@
 
     if-eqz v0, :cond_0
 
-    .line 398
+    .line 392
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mEventHub:Landroid/webkit/HTCWebCoreImpl$EditEventHub;
 
     invoke-virtual {v0, p1}, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->handleMessage(Landroid/os/Message;)V
 
-    .line 402
+    .line 396
     :goto_0
     return-void
 
-    .line 400
+    .line 394
     :cond_0
     iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->mEventHub:Landroid/webkit/HTCWebCoreImpl$EditEventHub;
 
@@ -2992,6 +2811,6 @@
     .locals 0
 
     .prologue
-    .line 1728
+    .line 1580
     return-void
 .end method

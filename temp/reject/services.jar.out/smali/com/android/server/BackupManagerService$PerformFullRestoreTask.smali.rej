@@ -1,0 +1,19 @@
+*** BackupManagerService$PerformFullRestoreTask.smali	2013-07-31 22:22:02.780731504 +0000
+--- BackupManagerService$PerformFullRestoreTask.smali	2013-07-31 22:21:07.547393561 +0000
+***************
+*** 1460,1466 ****
+      move-result v7
+  
+      .local v7, didRead:I
+!     if-ltz v7, :cond_0
+  
+      move-object/from16 v0, p0
+  
+--- 1460,1466 ----
+      move-result v7
+  
+      .local v7, didRead:I
+!     if-ltz v7, :cond_2
+  
+      move-object/from16 v0, p0
+  

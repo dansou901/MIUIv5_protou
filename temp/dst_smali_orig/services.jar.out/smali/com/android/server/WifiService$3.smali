@@ -114,7 +114,7 @@
 
     iput-object v1, v2, Lcom/android/server/WifiService;->mNetworkInfo:Landroid/net/NetworkInfo;
 
-    sget-object v1, Lcom/android/server/WifiService$19;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
+    sget-object v1, Lcom/android/server/WifiService$18;->$SwitchMap$android$net$NetworkInfo$DetailedState:[I
 
     iget-object v2, p0, Lcom/android/server/WifiService$3;->this$0:Lcom/android/server/WifiService;
 

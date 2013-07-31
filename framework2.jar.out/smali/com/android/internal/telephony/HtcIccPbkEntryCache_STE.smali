@@ -525,7 +525,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "start="
+    const-string/jumbo v4, "start="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2301,7 +2301,7 @@
     .line 306
     .end local v7           #err:Lcom/android/internal/telephony/CommandException$Error;
     :cond_17
-    const-string v17, "update falied"
+    const-string/jumbo v17, "update falied"
 
     move-object/from16 v0, p0
 
@@ -2439,6 +2439,8 @@
     goto/16 :goto_0
 
     .line 112
+    nop
+
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_2

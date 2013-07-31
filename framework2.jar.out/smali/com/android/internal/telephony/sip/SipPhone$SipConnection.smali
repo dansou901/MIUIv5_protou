@@ -429,7 +429,7 @@
 
     move-result-object v3
 
-    const-string v5, "xxx@xxx"
+    const-string/jumbo v5, "xxx@xxx"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -453,7 +453,13 @@
 
     move-result-object v3
 
-    const-string v5, "SIP:xxx@xxx"
+    invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->getPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Lcom/android/internal/telephony/Phone;->getPhoneName()Ljava/lang/String;
+
+    move-result-object v5
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -465,7 +471,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 842
+    .line 839
     iget-object v2, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mState:Lcom/android/internal/telephony/Call$State;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/Call$State;->isAlive()Z
@@ -478,31 +484,31 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 858
+    .line 855
     :goto_0
     return-void
 
-    .line 844
+    .line 841
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mSipAudioCall:Landroid/net/sip/SipAudioCall;
 
-    .line 845
+    .line 842
     .local v1, sipAudioCall:Landroid/net/sip/SipAudioCall;
     if-eqz v1, :cond_1
 
-    .line 846
+    .line 843
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/net/sip/SipAudioCall;->setListener(Landroid/net/sip/SipAudioCall$Listener;)V
 
-    .line 847
+    .line 844
     invoke-virtual {v1}, Landroid/net/sip/SipAudioCall;->endCall()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Landroid/net/sip/SipException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 852
+    .line 849
     :cond_1
     :try_start_2
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mAdapter:Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;
@@ -525,7 +531,7 @@
     :goto_1
     invoke-virtual {v3, v2}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    .line 857
+    .line 854
     monitor-exit v4
 
     goto :goto_0
@@ -540,11 +546,11 @@
 
     throw v2
 
-    .line 849
+    .line 846
     :catch_0
     move-exception v0
 
-    .line 850
+    .line 847
     .local v0, e:Landroid/net/sip/SipException;
     :try_start_3
     new-instance v2, Lcom/android/internal/telephony/CallStateException;
@@ -573,7 +579,7 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    .line 852
+    .line 849
     .end local v0           #e:Landroid/net/sip/SipException;
     :catchall_1
     move-exception v2
@@ -718,12 +724,12 @@
     .end annotation
 
     .prologue
-    .line 862
+    .line 859
     const-class v4, Lcom/android/internal/telephony/sip/SipPhone;
 
     monitor-enter v4
 
-    .line 863
+    .line 860
     :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->getPhone()Lcom/android/internal/telephony/Phone;
 
@@ -743,7 +749,7 @@
 
     move-object v1, v3
 
-    .line 866
+    .line 863
     .local v1, call:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     :goto_0
     invoke-virtual {v1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->getState()Lcom/android/internal/telephony/Call$State;
@@ -754,7 +760,7 @@
 
     if-eq v3, v5, :cond_1
 
-    .line 867
+    .line 864
     new-instance v3, Lcom/android/internal/telephony/CallStateException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -783,7 +789,7 @@
 
     throw v3
 
-    .line 889
+    .line 886
     .end local v1           #call:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     :catchall_0
     move-exception v3
@@ -794,7 +800,7 @@
 
     throw v3
 
-    .line 863
+    .line 860
     :cond_0
     :try_start_1
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->this$0:Lcom/android/internal/telephony/sip/SipPhone;
@@ -809,7 +815,7 @@
 
     goto :goto_0
 
-    .line 871
+    .line 868
     .restart local v1       #call:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     :cond_1
     const-string v3, "SipPhone"
@@ -824,7 +830,7 @@
 
     move-result-object v5
 
-    const-string v6, "xxx@xxx"
+    const-string/jumbo v6, "xxx@xxx"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -858,32 +864,32 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 876
+    .line 873
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->getPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v2
 
-    .line 877
+    .line 874
     .local v2, originalPhone:Lcom/android/internal/telephony/Phone;
     #calls: Lcom/android/internal/telephony/sip/SipPhone$SipCall;->getAudioGroup()Landroid/net/rtp/AudioGroup;
     invoke-static {v1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->access$1400(Lcom/android/internal/telephony/sip/SipPhone$SipCall;)Landroid/net/rtp/AudioGroup;
 
     move-result-object v0
 
-    .line 878
+    .line 875
     .local v0, audioGroup:Landroid/net/rtp/AudioGroup;
     #calls: Lcom/android/internal/telephony/sip/SipPhone$SipCall;->add(Lcom/android/internal/telephony/sip/SipPhone$SipConnection;)V
     invoke-static {v1, p0}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->access$1500(Lcom/android/internal/telephony/sip/SipPhone$SipCall;Lcom/android/internal/telephony/sip/SipPhone$SipConnection;)V
 
-    .line 879
+    .line 876
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mSipAudioCall:Landroid/net/sip/SipAudioCall;
 
     invoke-virtual {v3, v0}, Landroid/net/sip/SipAudioCall;->setAudioGroup(Landroid/net/rtp/AudioGroup;)V
 
-    .line 883
+    .line 880
     invoke-interface {v2}, Lcom/android/internal/telephony/Phone;->switchHoldingAndActive()V
 
-    .line 886
+    .line 883
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->this$0:Lcom/android/internal/telephony/sip/SipPhone;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/sip/SipPhone;->getForegroundCall()Lcom/android/internal/telephony/Call;
@@ -893,21 +899,21 @@
     .end local v1           #call:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     check-cast v1, Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
-    .line 887
+    .line 884
     .restart local v1       #call:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
     iget-object v3, p0, Lcom/android/internal/telephony/sip/SipPhone$SipConnection;->mSipAudioCall:Landroid/net/sip/SipAudioCall;
 
     invoke-virtual {v3}, Landroid/net/sip/SipAudioCall;->startAudio()V
 
-    .line 888
+    .line 885
     invoke-virtual {v1, p0}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->onConnectionStateChanged(Lcom/android/internal/telephony/sip/SipPhone$SipConnection;)V
 
-    .line 889
+    .line 886
     monitor-exit v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 890
+    .line 887
     return-void
 .end method
 
@@ -1008,7 +1014,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unhold(): "
+    const-string/jumbo v3, "unhold(): "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -878,12 +878,28 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 2
+    .locals 3
 
     .prologue
-    const-string v1, "dispose()"
+    const/4 v2, 0x0
 
-    invoke-static {p0, v1}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconsCache:Ljava/util/HashMap;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mId:Lcom/android/internal/telephony/cat/ImageDescriptor;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mCurrentIcon:Landroid/graphics/Bitmap;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mSimFH:Lcom/android/internal/telephony/IccFileHandler;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mEndMsg:Landroid/os/Message;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconData:[B
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mRecordNumbers:[I
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIcons:[Landroid/graphics/Bitmap;
+
+    iput-object v2, p0, Lcom/android/internal/telephony/cat/IconLoader;->mIconsCache:Ljava/util/HashMap;
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/cat/IconLoader;->getLooper()Landroid/os/Looper;
 
@@ -901,9 +917,7 @@
     invoke-virtual {v0}, Landroid/os/Looper;->quit()V
 
     :cond_0
-    const/4 v1, 0x0
-
-    sput-object v1, Lcom/android/internal/telephony/cat/IconLoader;->sLoader:Lcom/android/internal/telephony/cat/IconLoader;
+    sput-object v2, Lcom/android/internal/telephony/cat/IconLoader;->sLoader:Lcom/android/internal/telephony/cat/IconLoader;
 
     return-void
 .end method

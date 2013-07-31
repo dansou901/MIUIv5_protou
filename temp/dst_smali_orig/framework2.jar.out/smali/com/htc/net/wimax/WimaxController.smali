@@ -75,8 +75,6 @@
 
 .field public static final WXCM_STATE_CHANGED_ACTION:Ljava/lang/String; = "com.htc.net.wimax.wxcm.STATE_CHANGED"
 
-.field public static mProfile:I
-
 
 # instance fields
 .field mHandler:Landroid/os/Handler;
@@ -92,8 +90,6 @@
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    sput v0, Lcom/htc/net/wimax/WimaxController;->mProfile:I
 
     return-void
 .end method
@@ -237,15 +233,13 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move v3, v6
-
     .end local v1           #antennaBarMatrix_KT:[[B
     .end local v2           #cinr:I
     .end local v3           #cinrIdx:I
     .end local v5           #rssiIdx:I
     :cond_1
     :goto_2
-    return v3
+    return v6
 
     .restart local v1       #antennaBarMatrix_KT:[[B
     .restart local v2       #cinr:I
@@ -424,7 +418,7 @@
     :cond_e
     aget-object v6, v1, v5
 
-    aget-byte v3, v6, v3
+    aget-byte v6, v6, v3
 
     goto/16 :goto_2
 
@@ -444,13 +438,13 @@
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_23
+    if-ne v8, v9, :cond_22
 
     sget-short v8, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
 
     const/16 v9, 0x1f
 
-    if-ne v8, v9, :cond_23
+    if-ne v8, v9, :cond_22
 
     :cond_10
     div-int/lit8 v4, p0, 0x64
@@ -548,8 +542,6 @@
     const-string v8, "antennaBarMatrixIndex(-1) is not correct"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move v3, v6
 
     goto/16 :goto_2
 
@@ -728,46 +720,9 @@
     goto/16 :goto_4
 
     :cond_20
-    sget v6, Lcom/htc/net/wimax/WimaxController;->mProfile:I
-
-    invoke-static {v6}, Lcom/htc/net/wimax/WimaxController;->isVeeProfile(I)Z
-
-    move-result v6
+    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
 
     if-eqz v6, :cond_21
-
-    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    if-eqz v6, :cond_1
-
-    const-string v6, "WimaxController"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "[VEE] signal bar return level= "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_2
-
-    :cond_21
-    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    if-eqz v6, :cond_22
 
     const-string v6, "WimaxController"
 
@@ -827,10 +782,10 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_22
+    :cond_21
     aget-object v6, v0, v3
 
-    aget-byte v3, v6, v5
+    aget-byte v6, v6, v5
 
     goto/16 :goto_2
 
@@ -839,47 +794,37 @@
     .end local v3           #cinrIdx:I
     .end local v4           #rssi:I
     .end local v5           #rssiIdx:I
-    :cond_23
+    :cond_22
     div-int/lit8 v4, p0, 0x64
 
     .restart local v4       #rssi:I
     const/16 v8, -0x5d
 
+    if-lt v4, v8, :cond_1
+
+    if-ge v4, v12, :cond_23
+
+    const/4 v6, 0x1
+
+    goto/16 :goto_2
+
+    :cond_23
+    const/16 v8, -0x3c
+
     if-ge v4, v8, :cond_24
 
-    move v3, v6
+    const/4 v6, 0x2
 
     goto/16 :goto_2
 
     :cond_24
-    if-ge v4, v12, :cond_25
-
-    const/4 v3, 0x1
-
-    goto/16 :goto_2
-
-    :cond_25
     const/16 v8, -0x3c
 
-    if-ge v4, v8, :cond_26
+    if-gt v8, v4, :cond_1
 
-    const/4 v3, 0x2
+    if-gtz v4, :cond_1
 
-    goto/16 :goto_2
-
-    :cond_26
-    const/16 v8, -0x3c
-
-    if-gt v8, v4, :cond_27
-
-    if-gtz v4, :cond_27
-
-    move v3, v7
-
-    goto/16 :goto_2
-
-    :cond_27
-    move v3, v6
+    move v6, v7
 
     goto/16 :goto_2
 
@@ -1064,37 +1009,6 @@
 
     :catch_0
     move-exception v1
-
-    goto :goto_0
-.end method
-
-.method public static isVeeProfile(I)Z
-    .locals 2
-    .parameter "profile"
-
-    .prologue
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_0
-
-    const/4 v1, 0x2
-
-    if-eq p0, v1, :cond_0
-
-    const/4 v1, 0x4
-
-    if-eq p0, v1, :cond_0
-
-    const/4 v1, 0x5
-
-    if-ne p0, v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
 
     goto :goto_0
 .end method

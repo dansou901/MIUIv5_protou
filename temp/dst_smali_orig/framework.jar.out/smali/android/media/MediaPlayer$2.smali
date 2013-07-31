@@ -563,10 +563,10 @@
     :cond_7
     iget-object v5, p0, Landroid/media/MediaPlayer$2;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    const-string v5, "thumbnail"
+    const-string v8, "thumbnail"
 
     #calls: Landroid/media/MediaPlayer;->enableDLNAHiddenFunc(Ljava/lang/String;)Z
-    invoke-static {v5}, Landroid/media/MediaPlayer;->access$2200(Ljava/lang/String;)Z
+    invoke-static {v5, v8}, Landroid/media/MediaPlayer;->access$2200(Landroid/media/MediaPlayer;Ljava/lang/String;)Z
 
     move-result v5
 
@@ -650,10 +650,10 @@
     :cond_a
     iget-object v5, p0, Landroid/media/MediaPlayer$2;->mMediaPlayer:Landroid/media/MediaPlayer;
 
-    const-string v5, "dual"
+    const-string v8, "dual"
 
     #calls: Landroid/media/MediaPlayer;->enableDLNAHiddenFunc(Ljava/lang/String;)Z
-    invoke-static {v5}, Landroid/media/MediaPlayer;->access$2200(Ljava/lang/String;)Z
+    invoke-static {v5, v8}, Landroid/media/MediaPlayer;->access$2200(Landroid/media/MediaPlayer;Ljava/lang/String;)Z
 
     move-result v5
 

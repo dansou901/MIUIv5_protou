@@ -131,7 +131,7 @@
 
     move-result-object v2
 
-    const-string v3, "unknown"
+    const-string/jumbo v3, "unknown"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -240,7 +240,7 @@
 
     move-result-object v2
 
-    const-string v3, "unknown"
+    const-string/jumbo v3, "unknown"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

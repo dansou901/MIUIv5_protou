@@ -427,14 +427,6 @@
 
     iput v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->groupCapability:I
 
-    iget-object v1, p1, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WfdInfo;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p1, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WfdInfo;
-
-    iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->wfdInfo:Landroid/net/wifi/p2p/WfdInfo;
-
     goto :goto_0
 
     :cond_2

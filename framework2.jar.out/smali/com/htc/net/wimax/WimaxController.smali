@@ -75,8 +75,6 @@
 
 .field public static final WXCM_STATE_CHANGED_ACTION:Ljava/lang/String; = "com.htc.net.wimax.wxcm.STATE_CHANGED"
 
-.field public static mProfile:I
-
 
 # instance fields
 .field mHandler:Landroid/os/Handler;
@@ -89,13 +87,10 @@
     .locals 1
 
     .prologue
+    .line 52
     const/4 v0, 0x1
 
-    .line 52
     sput-boolean v0, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    .line 287
-    sput v0, Lcom/htc/net/wimax/WimaxController;->mProfile:I
 
     return-void
 .end method
@@ -104,10 +99,10 @@
     .locals 0
 
     .prologue
-    .line 291
+    .line 287
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 292
+    .line 288
     return-void
 .end method
 
@@ -117,16 +112,16 @@
     .parameter "handler"
 
     .prologue
-    .line 294
+    .line 290
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 295
+    .line 291
     iput-object p1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
-    .line 296
+    .line 292
     iput-object p2, p0, Lcom/htc/net/wimax/WimaxController;->mHandler:Landroid/os/Handler;
 
-    .line 297
+    .line 293
     sget-boolean v0, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
 
     if-eqz v0, :cond_0
@@ -137,7 +132,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 298
+    .line 294
     :cond_0
     return-void
 .end method
@@ -158,21 +153,21 @@
 
     const/4 v6, 0x0
 
-    .line 312
+    .line 308
     sget-short v8, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v9, 0x50
 
     if-ne v8, v9, :cond_f
 
-    .line 316
+    .line 312
     div-int/lit8 v4, p0, 0x64
 
-    .line 317
+    .line 313
     .local v4, rssi:I
     div-int/lit8 v2, p1, 0x64
 
-    .line 323
+    .line 319
     .local v2, cinr:I
     const/4 v8, 0x5
 
@@ -214,14 +209,14 @@
 
     aput-object v9, v1, v8
 
-    .line 333
+    .line 329
     .local v1, antennaBarMatrix_KT:[[B
     const/4 v5, 0x0
 
     .local v5, rssiIdx:I
     const/4 v3, 0x0
 
-    .line 334
+    .line 330
     .local v3, cinrIdx:I
     const/16 v8, 0xf
 
@@ -229,7 +224,7 @@
 
     const/4 v3, 0x0
 
-    .line 342
+    .line 338
     :goto_0
     const/16 v7, -0x37
 
@@ -237,7 +232,7 @@
 
     const/4 v5, 0x0
 
-    .line 348
+    .line 344
     :goto_1
     const/4 v7, -0x1
 
@@ -247,7 +242,7 @@
 
     if-ne v4, v7, :cond_d
 
-    .line 349
+    .line 345
     :cond_0
     const-string v7, "WimaxController"
 
@@ -255,18 +250,16 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move v3, v6
-
-    .line 457
+    .line 445
     .end local v1           #antennaBarMatrix_KT:[[B
     .end local v2           #cinr:I
     .end local v3           #cinrIdx:I
     .end local v5           #rssiIdx:I
     :cond_1
     :goto_2
-    return v3
+    return v6
 
-    .line 335
+    .line 331
     .restart local v1       #antennaBarMatrix_KT:[[B
     .restart local v2       #cinr:I
     .restart local v3       #cinrIdx:I
@@ -284,7 +277,7 @@
 
     goto :goto_0
 
-    .line 336
+    .line 332
     :cond_3
     const/16 v8, 0xa
 
@@ -296,7 +289,7 @@
 
     goto :goto_0
 
-    .line 337
+    .line 333
     :cond_4
     if-lt v7, v2, :cond_5
 
@@ -306,7 +299,7 @@
 
     goto :goto_0
 
-    .line 338
+    .line 334
     :cond_5
     if-gtz v2, :cond_6
 
@@ -318,7 +311,7 @@
 
     goto :goto_0
 
-    .line 339
+    .line 335
     :cond_6
     const/4 v7, -0x3
 
@@ -328,13 +321,13 @@
 
     goto :goto_0
 
-    .line 340
+    .line 336
     :cond_7
     const/4 v3, -0x1
 
     goto :goto_0
 
-    .line 343
+    .line 339
     :cond_8
     const/16 v7, -0x37
 
@@ -348,7 +341,7 @@
 
     goto :goto_1
 
-    .line 344
+    .line 340
     :cond_9
     const/16 v7, -0x41
 
@@ -360,7 +353,7 @@
 
     goto :goto_1
 
-    .line 345
+    .line 341
     :cond_a
     if-lt v12, v4, :cond_b
 
@@ -372,7 +365,7 @@
 
     goto :goto_1
 
-    .line 346
+    .line 342
     :cond_b
     const/16 v7, -0x50
 
@@ -382,13 +375,13 @@
 
     goto :goto_1
 
-    .line 347
+    .line 343
     :cond_c
     const/4 v5, -0x1
 
     goto :goto_1
 
-    .line 352
+    .line 348
     :cond_d
     sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
 
@@ -452,15 +445,15 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 354
+    .line 350
     :cond_e
     aget-object v6, v1, v5
 
-    aget-byte v3, v6, v3
+    aget-byte v6, v6, v3
 
     goto/16 :goto_2
 
-    .line 360
+    .line 355
     .end local v1           #antennaBarMatrix_KT:[[B
     .end local v2           #cinr:I
     .end local v3           #cinrIdx:I
@@ -477,19 +470,19 @@
 
     const/4 v9, 0x1
 
-    if-ne v8, v9, :cond_23
+    if-ne v8, v9, :cond_22
 
     sget-short v8, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
 
     const/16 v9, 0x1f
 
-    if-ne v8, v9, :cond_23
+    if-ne v8, v9, :cond_22
 
-    .line 369
+    .line 364
     :cond_10
     div-int/lit8 v4, p0, 0x64
 
-    .line 370
+    .line 365
     .restart local v4       #rssi:I
     div-int/lit8 v8, p1, 0xa
 
@@ -499,7 +492,7 @@
 
     div-float v2, v8, v9
 
-    .line 376
+    .line 371
     .local v2, cinr:F
     new-array v0, v10, [[B
 
@@ -547,14 +540,14 @@
 
     aput-object v8, v0, v7
 
-    .line 386
+    .line 381
     .local v0, antennaBarMatrix_KDDI:[[B
     const/4 v5, 0x0
 
     .restart local v5       #rssiIdx:I
     const/4 v3, 0x0
 
-    .line 387
+    .line 382
     .restart local v3       #cinrIdx:I
     const/16 v7, -0x5d
 
@@ -562,7 +555,7 @@
 
     const/4 v5, 0x0
 
-    .line 397
+    .line 392
     :goto_3
     const/4 v7, 0x0
 
@@ -572,7 +565,7 @@
 
     const/4 v3, 0x0
 
-    .line 404
+    .line 399
     :goto_4
     const/4 v7, -0x1
 
@@ -582,7 +575,7 @@
 
     if-ne v4, v7, :cond_20
 
-    .line 405
+    .line 400
     :cond_11
     const-string v7, "WimaxController"
 
@@ -590,12 +583,9 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move v3, v6
-
-    .line 406
     goto/16 :goto_2
 
-    .line 388
+    .line 383
     :cond_12
     const/16 v7, -0x5c
 
@@ -609,7 +599,7 @@
 
     goto :goto_3
 
-    .line 389
+    .line 384
     :cond_13
     const/16 v7, -0x59
 
@@ -623,7 +613,7 @@
 
     goto :goto_3
 
-    .line 390
+    .line 385
     :cond_14
     const/16 v7, -0x55
 
@@ -637,7 +627,7 @@
 
     goto :goto_3
 
-    .line 391
+    .line 386
     :cond_15
     if-gt v12, v4, :cond_16
 
@@ -649,7 +639,7 @@
 
     goto :goto_3
 
-    .line 392
+    .line 387
     :cond_16
     const/16 v7, -0x41
 
@@ -663,7 +653,7 @@
 
     goto :goto_3
 
-    .line 393
+    .line 388
     :cond_17
     const/16 v7, -0x37
 
@@ -677,7 +667,7 @@
 
     goto :goto_3
 
-    .line 394
+    .line 389
     :cond_18
     const/16 v7, -0x2d
 
@@ -687,13 +677,13 @@
 
     goto :goto_3
 
-    .line 395
+    .line 390
     :cond_19
     const/4 v5, -0x1
 
     goto :goto_3
 
-    .line 398
+    .line 393
     :cond_1a
     const v7, 0x3dcccccd
 
@@ -711,7 +701,7 @@
 
     goto :goto_4
 
-    .line 399
+    .line 394
     :cond_1b
     const v7, 0x40833333
 
@@ -729,7 +719,7 @@
 
     goto :goto_4
 
-    .line 400
+    .line 395
     :cond_1c
     const v7, 0x4121999a
 
@@ -747,7 +737,7 @@
 
     goto :goto_4
 
-    .line 401
+    .line 396
     :cond_1d
     const v7, 0x4171999a
 
@@ -765,7 +755,7 @@
 
     goto/16 :goto_4
 
-    .line 402
+    .line 397
     :cond_1e
     const v7, 0x41a0cccd
 
@@ -777,56 +767,17 @@
 
     goto/16 :goto_4
 
-    .line 403
+    .line 398
     :cond_1f
     const/4 v3, -0x1
 
     goto/16 :goto_4
 
-    .line 409
+    .line 403
     :cond_20
-    sget v6, Lcom/htc/net/wimax/WimaxController;->mProfile:I
-
-    invoke-static {v6}, Lcom/htc/net/wimax/WimaxController;->isVeeProfile(I)Z
-
-    move-result v6
+    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
 
     if-eqz v6, :cond_21
-
-    .line 410
-    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    if-eqz v6, :cond_1
-
-    const-string v6, "WimaxController"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "[VEE] signal bar return level= "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_2
-
-    .line 414
-    :cond_21
-    sget-boolean v6, Lcom/htc/net/wimax/WimaxController;->LOCAL_LOGD:Z
-
-    if-eqz v6, :cond_22
 
     const-string v6, "WimaxController"
 
@@ -886,74 +837,62 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 416
-    :cond_22
+    .line 405
+    :cond_21
     aget-object v6, v0, v3
 
-    aget-byte v3, v6, v5
+    aget-byte v6, v6, v5
 
     goto/16 :goto_2
 
-    .line 447
+    .line 435
     .end local v0           #antennaBarMatrix_KDDI:[[B
     .end local v2           #cinr:F
     .end local v3           #cinrIdx:I
     .end local v4           #rssi:I
     .end local v5           #rssiIdx:I
-    :cond_23
+    :cond_22
     div-int/lit8 v4, p0, 0x64
 
-    .line 448
+    .line 436
     .restart local v4       #rssi:I
     const/16 v8, -0x5d
 
+    if-lt v4, v8, :cond_1
+
+    .line 438
+    if-ge v4, v12, :cond_23
+
+    .line 439
+    const/4 v6, 0x1
+
+    goto/16 :goto_2
+
+    .line 440
+    :cond_23
+    const/16 v8, -0x3c
+
     if-ge v4, v8, :cond_24
 
-    move v3, v6
+    .line 441
+    const/4 v6, 0x2
 
-    .line 449
     goto/16 :goto_2
 
-    .line 450
+    .line 442
     :cond_24
-    if-ge v4, v12, :cond_25
-
-    .line 451
-    const/4 v3, 0x1
-
-    goto/16 :goto_2
-
-    .line 452
-    :cond_25
     const/16 v8, -0x3c
 
-    if-ge v4, v8, :cond_26
+    if-gt v8, v4, :cond_1
 
-    .line 453
-    const/4 v3, 0x2
+    if-gtz v4, :cond_1
 
+    move v6, v7
+
+    .line 443
     goto/16 :goto_2
 
-    .line 454
-    :cond_26
-    const/16 v8, -0x3c
-
-    if-gt v8, v4, :cond_27
-
-    if-gtz v4, :cond_27
-
-    move v3, v7
-
-    .line 455
-    goto/16 :goto_2
-
-    :cond_27
-    move v3, v6
-
-    .line 457
-    goto/16 :goto_2
-
-    .line 323
+    .line 319
     nop
 
     :array_0
@@ -1014,7 +953,7 @@
         0x0t
     .end array-data
 
-    .line 376
+    .line 371
     nop
 
     :array_5
@@ -1094,18 +1033,18 @@
     .locals 3
 
     .prologue
-    .line 541
+    .line 529
     const/4 v0, 0x0
 
-    .line 542
+    .line 530
     .local v0, wimax_debug:Ljava/lang/String;
-    const-string v1, "wimax.debug"
+    const-string/jumbo v1, "wimax.debug"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 545
+    .line 533
     if-eqz v0, :cond_0
 
     :try_start_0
@@ -1117,18 +1056,18 @@
 
     if-nez v1, :cond_0
 
-    .line 546
+    .line 534
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
     const/4 v2, 0x1
 
     invoke-interface {v1, v2}, Lcom/htc/net/wimax/IWimaxController;->debugChange(Z)V
 
-    .line 551
+    .line 539
     :goto_0
     return-void
 
-    .line 548
+    .line 536
     :cond_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1140,41 +1079,9 @@
 
     goto :goto_0
 
-    .line 550
+    .line 538
     :catch_0
     move-exception v1
-
-    goto :goto_0
-.end method
-
-.method public static isVeeProfile(I)Z
-    .locals 2
-    .parameter "profile"
-
-    .prologue
-    const/4 v0, 0x1
-
-    .line 907
-    if-eq p0, v0, :cond_0
-
-    const/4 v1, 0x2
-
-    if-eq p0, v1, :cond_0
-
-    const/4 v1, 0x4
-
-    if-eq p0, v1, :cond_0
-
-    const/4 v1, 0x5
-
-    if-ne p0, v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -1185,34 +1092,11 @@
     .locals 1
 
     .prologue
-    .line 573
-    :try_start_0
-    iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
-
-    invoke-interface {v0}, Lcom/htc/net/wimax/IWimaxController;->cancelAlarmDhcpRenew()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 575
-    :goto_0
-    return-void
-
-    .line 574
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public cancelAlarmScanRetry()V
-    .locals 1
-
-    .prologue
     .line 561
     :try_start_0
     iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
-    invoke-interface {v0}, Lcom/htc/net/wimax/IWimaxController;->cancelAlarmScanRetry()V
+    invoke-interface {v0}, Lcom/htc/net/wimax/IWimaxController;->cancelAlarmDhcpRenew()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1227,11 +1111,34 @@
     goto :goto_0
 .end method
 
+.method public cancelAlarmScanRetry()V
+    .locals 1
+
+    .prologue
+    .line 549
+    :try_start_0
+    iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
+
+    invoke-interface {v0}, Lcom/htc/net/wimax/IWimaxController;->cancelAlarmScanRetry()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 551
+    :goto_0
+    return-void
+
+    .line 550
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
 .method public connectToDcs()Z
     .locals 2
 
     .prologue
-    .line 580
+    .line 568
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1241,15 +1148,15 @@
 
     move-result v1
 
-    .line 582
+    .line 570
     :goto_0
     return v1
 
-    .line 581
+    .line 569
     :catch_0
     move-exception v0
 
-    .line 582
+    .line 570
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1261,7 +1168,7 @@
     .parameter "tag"
 
     .prologue
-    .line 902
+    .line 890
     new-instance v0, Lcom/htc/net/wimax/WimaxController$WimaxLock;
 
     const/4 v1, 0x0
@@ -1275,7 +1182,7 @@
     .locals 2
 
     .prologue
-    .line 743
+    .line 731
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1285,15 +1192,15 @@
 
     move-result v1
 
-    .line 745
+    .line 733
     :goto_0
     return v1
 
-    .line 744
+    .line 732
     :catch_0
     move-exception v0
 
-    .line 745
+    .line 733
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1304,7 +1211,7 @@
     .locals 2
 
     .prologue
-    .line 588
+    .line 576
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1314,15 +1221,15 @@
 
     move-result v1
 
-    .line 590
+    .line 578
     :goto_0
     return v1
 
-    .line 589
+    .line 577
     :catch_0
     move-exception v0
 
-    .line 590
+    .line 578
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1334,7 +1241,7 @@
     .parameter "boardName"
 
     .prologue
-    .line 779
+    .line 767
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1344,15 +1251,15 @@
 
     move-result v1
 
-    .line 781
+    .line 769
     :goto_0
     return v1
 
-    .line 780
+    .line 768
     :catch_0
     move-exception v0
 
-    .line 781
+    .line 769
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1364,7 +1271,7 @@
     .parameter "rfChipName"
 
     .prologue
-    .line 787
+    .line 775
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1374,15 +1281,15 @@
 
     move-result v1
 
-    .line 789
+    .line 777
     :goto_0
     return v1
 
-    .line 788
+    .line 776
     :catch_0
     move-exception v0
 
-    .line 789
+    .line 777
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1393,7 +1300,7 @@
     .locals 2
 
     .prologue
-    .line 525
+    .line 513
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1403,15 +1310,15 @@
 
     move-result v1
 
-    .line 527
+    .line 515
     :goto_0
     return v1
 
-    .line 526
+    .line 514
     :catch_0
     move-exception v0
 
-    .line 527
+    .line 515
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x4
 
@@ -1422,7 +1329,7 @@
     .locals 2
 
     .prologue
-    .line 510
+    .line 498
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1432,15 +1339,15 @@
 
     move-result v1
 
-    .line 512
+    .line 500
     :goto_0
     return v1
 
-    .line 511
+    .line 499
     :catch_0
     move-exception v0
 
-    .line 512
+    .line 500
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1451,7 +1358,7 @@
     .locals 2
 
     .prologue
-    .line 751
+    .line 739
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1461,15 +1368,15 @@
 
     move-result v1
 
-    .line 753
+    .line 741
     :goto_0
     return v1
 
-    .line 752
+    .line 740
     :catch_0
     move-exception v0
 
-    .line 753
+    .line 741
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1480,7 +1387,7 @@
     .locals 2
 
     .prologue
-    .line 537
+    .line 525
     invoke-virtual {p0}, Lcom/htc/net/wimax/WimaxController;->getWimaxState()I
 
     move-result v0
@@ -1505,7 +1412,7 @@
     .parameter "enable"
 
     .prologue
-    .line 631
+    .line 619
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1515,15 +1422,15 @@
 
     move-result v1
 
-    .line 633
+    .line 621
     :goto_0
     return v1
 
-    .line 632
+    .line 620
     :catch_0
     move-exception v0
 
-    .line 633
+    .line 621
     .local v0, e:Landroid/os/RemoteException;
     const/4 v1, 0x0
 
@@ -1535,35 +1442,11 @@
     .parameter "duration"
 
     .prologue
-    .line 567
-    :try_start_0
-    iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
-
-    invoke-interface {v0, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setAlarmDhcpRenew(J)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 569
-    :goto_0
-    return-void
-
-    .line 568
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public setAlarmScanRetry(J)V
-    .locals 1
-    .parameter "duration"
-
-    .prologue
     .line 555
     :try_start_0
     iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
-    invoke-interface {v0, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setAlarmScanRetry(J)V
+    invoke-interface {v0, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setAlarmDhcpRenew(J)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1578,12 +1461,36 @@
     goto :goto_0
 .end method
 
+.method public setAlarmScanRetry(J)V
+    .locals 1
+    .parameter "duration"
+
+    .prologue
+    .line 543
+    :try_start_0
+    iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
+
+    invoke-interface {v0, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setAlarmScanRetry(J)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 545
+    :goto_0
+    return-void
+
+    .line 544
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
 .method public setWimaxDunMode(Z)V
     .locals 1
     .parameter "isDunMode"
 
     .prologue
-    .line 503
+    .line 491
     :try_start_0
     iget-object v0, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1591,11 +1498,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 506
+    .line 494
     :goto_0
     return-void
 
-    .line 504
+    .line 492
     :catch_0
     move-exception v0
 
@@ -1605,6 +1512,46 @@
 .method public setWimaxEnabled(Z)Z
     .locals 2
     .parameter "enabled"
+
+    .prologue
+    .line 457
+    const/4 v1, 0x1
+
+    if-ne p1, v1, :cond_0
+
+    .line 458
+    invoke-direct {p0}, Lcom/htc/net/wimax/WimaxController;->debugChange()V
+
+    .line 462
+    :cond_0
+    :try_start_0
+    iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
+
+    invoke-interface {v1, p1}, Lcom/htc/net/wimax/IWimaxController;->setWimaxEnabled(Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    .line 464
+    :goto_0
+    return v1
+
+    .line 463
+    :catch_0
+    move-exception v0
+
+    .line 464
+    .local v0, e:Landroid/os/RemoteException;
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public setWimaxEnabledPersist(ZZ)Z
+    .locals 2
+    .parameter "enabled"
+    .parameter "persist"
 
     .prologue
     .line 469
@@ -1620,7 +1567,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
-    invoke-interface {v1, p1}, Lcom/htc/net/wimax/IWimaxController;->setWimaxEnabled(Z)Z
+    invoke-interface {v1, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setWimaxEnabledPersist(ZZ)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1641,51 +1588,11 @@
     goto :goto_0
 .end method
 
-.method public setWimaxEnabledPersist(ZZ)Z
-    .locals 2
-    .parameter "enabled"
-    .parameter "persist"
-
-    .prologue
-    .line 481
-    const/4 v1, 0x1
-
-    if-ne p1, v1, :cond_0
-
-    .line 482
-    invoke-direct {p0}, Lcom/htc/net/wimax/WimaxController;->debugChange()V
-
-    .line 486
-    :cond_0
-    :try_start_0
-    iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
-
-    invoke-interface {v1, p1, p2}, Lcom/htc/net/wimax/IWimaxController;->setWimaxEnabledPersist(ZZ)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .line 488
-    :goto_0
-    return v1
-
-    .line 487
-    :catch_0
-    move-exception v0
-
-    .line 488
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method public wimaxRescan()I
     .locals 2
 
     .prologue
-    .line 495
+    .line 483
     :try_start_0
     iget-object v1, p0, Lcom/htc/net/wimax/WimaxController;->mService:Lcom/htc/net/wimax/IWimaxController;
 
@@ -1695,15 +1602,15 @@
 
     move-result v1
 
-    .line 497
+    .line 485
     :goto_0
     return v1
 
-    .line 496
+    .line 484
     :catch_0
     move-exception v0
 
-    .line 497
+    .line 485
     .local v0, e:Landroid/os/RemoteException;
     const/16 v1, -0x9
 

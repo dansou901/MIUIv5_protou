@@ -157,7 +157,7 @@
     if-eqz v0, :cond_0
 
     .line 532
-    const-string v2, "tr_"
+    const-string/jumbo v2, "tr_"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
@@ -165,7 +165,7 @@
 
     if-ne v2, v1, :cond_2
 
-    const-string v2, "tr"
+    const-string/jumbo v2, "tr"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

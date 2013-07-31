@@ -38,7 +38,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0xba
 
@@ -53,7 +53,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x83
 
@@ -68,7 +68,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x86
 
@@ -83,7 +83,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x88
 
@@ -98,7 +98,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x89
 
@@ -113,7 +113,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8a
 
@@ -128,7 +128,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8e
 
@@ -143,7 +143,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x96
 
@@ -158,7 +158,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x98
 
@@ -179,7 +179,7 @@
     .end annotation
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0xba
 
@@ -193,7 +193,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x83
 
@@ -212,7 +212,7 @@
     .end annotation
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x86
 
@@ -226,7 +226,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x88
 
@@ -240,7 +240,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x89
 
@@ -254,7 +254,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8a
 
@@ -268,7 +268,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8e
 
@@ -282,7 +282,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x96
 
@@ -296,7 +296,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/NotificationInd;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x98
 

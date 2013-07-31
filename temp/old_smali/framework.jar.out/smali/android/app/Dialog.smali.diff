@@ -1,5 +1,5 @@
-*** ./smali/android/app/Dialog.smali	2013-07-12 21:44:44.855176705 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Dialog.smali	2013-07-12 21:42:21.821831577 +0000
+*** ./smali/android/app/Dialog.smali	2013-07-31 22:23:23.004071534 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Dialog.smali	2013-07-31 22:21:54.797397505 +0000
 ***************
 *** 197,202 ****
 --- 197,204 ----

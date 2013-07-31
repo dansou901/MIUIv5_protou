@@ -17,8 +17,6 @@
 
 .field private isInKeyguardWhenPointerDown:Z
 
-.field private isPhoneNotIdleWhenPointerDown:Z
-
 .field private final mContext:Landroid/content/Context;
 
 .field private mGestureEnable:Z
@@ -55,8 +53,6 @@
     iput-boolean v1, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
 
     iput-boolean v1, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
-
-    iput-boolean v1, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
 
     const/4 v0, 0x3
 
@@ -96,7 +92,7 @@
 
     move-result-object v0
 
-    const v1, 0x408003e
+    const v1, 0x408003d
 
     invoke-static {v0, v1}, Lcom/htc/server/gesture/GestureInputFilter;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -275,51 +271,6 @@
     aput-wide v3, v2, v1
 
     add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-.end method
-
-.method private isPhoneIdle()Z
-    .locals 5
-
-    .prologue
-    const/4 v1, 0x1
-
-    .local v1, isIdle:Z
-    :try_start_0
-    const-string v3, "phone"
-
-    invoke-static {v3}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/internal/telephony/ITelephony$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ITelephony;
-
-    move-result-object v2
-
-    .local v2, telephonyService:Lcom/android/internal/telephony/ITelephony;
-    if-eqz v2, :cond_0
-
-    invoke-interface {v2}, Lcom/android/internal/telephony/ITelephony;->isIdle()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    .end local v2           #telephonyService:Lcom/android/internal/telephony/ITelephony;
-    :cond_0
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, ex:Landroid/os/RemoteException;
-    const-string v3, "GestureInputFilter"
-
-    const-string v4, "RemoteException from getPhoneInterface()"
-
-    invoke-static {v3, v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -555,9 +506,9 @@
 
     const/4 v4, 0x3
 
-    const/4 v5, 0x0
-
     const/4 v10, 0x1
+
+    const/4 v5, 0x0
 
     const/4 v7, 0x0
 
@@ -595,13 +546,13 @@
     :cond_2
     iget-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->mGestureEnable:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_a
 
     invoke-virtual {p1}, Landroid/view/InputEvent;->getSource()I
 
     move-result v2
 
-    if-ne v2, v11, :cond_e
+    if-ne v2, v11, :cond_a
 
     move-object v9, p1
 
@@ -669,8 +620,6 @@
 
     iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
 
-    iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
-
     iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
 
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
@@ -698,8 +647,6 @@
 
     iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
 
-    iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
-
     iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
 
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
@@ -715,24 +662,32 @@
     :cond_5
     invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_6
-    iget-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
-
-    if-eqz v2, :cond_8
-
     invoke-virtual {v9}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v2
 
-    if-ne v2, v10, :cond_7
+    const/4 v3, 0x5
 
-    iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
+    if-ne v2, v3, :cond_9
 
-    iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
+    invoke-virtual {v9}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    iput-boolean v7, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
+    move-result v2
+
+    if-ne v2, v4, :cond_9
+
+    iget-object v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->mKeyguardManager:Landroid/app/KeyguardManager;
+
+    invoke-virtual {v2}, Landroid/app/KeyguardManager;->inKeyguardRestrictedInputMode()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    iput-boolean v10, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
 
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
@@ -740,7 +695,7 @@
 
     const-string v2, "GestureInputFilter"
 
-    const-string v3, "All finger released. Resetting Phone not idle flag"
+    const-string v3, "Keyguard is on. Do not intercept 3 fingers swipe events."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -750,70 +705,6 @@
     goto/16 :goto_0
 
     :cond_8
-    invoke-virtual {v9}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result v2
-
-    const/4 v3, 0x5
-
-    if-ne v2, v3, :cond_d
-
-    invoke-virtual {v9}, Landroid/view/MotionEvent;->getPointerCount()I
-
-    move-result v2
-
-    if-ne v2, v4, :cond_d
-
-    iget-object v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->mKeyguardManager:Landroid/app/KeyguardManager;
-
-    invoke-virtual {v2}, Landroid/app/KeyguardManager;->inKeyguardRestrictedInputMode()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_a
-
-    iput-boolean v10, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
-
-    sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v2, :cond_9
-
-    const-string v2, "GestureInputFilter"
-
-    const-string v3, "Keyguard is on. Do not intercept 3 fingers swipe events."
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
-
-    goto/16 :goto_0
-
-    :cond_a
-    invoke-direct {p0}, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneIdle()Z
-
-    move-result v2
-
-    if-eq v2, v10, :cond_c
-
-    iput-boolean v10, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
-
-    sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v2, :cond_b
-
-    const-string v2, "GestureInputFilter"
-
-    const-string v3, "Phone is not idle. Do not intercept 3 fingers swipe events."
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_b
-    invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
-
-    goto/16 :goto_0
-
-    :cond_c
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
@@ -854,13 +745,13 @@
 
     .end local v0           #now:J
     .end local v8           #cancelEvent:Landroid/view/MotionEvent;
-    :cond_d
+    :cond_9
     invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
 
     goto/16 :goto_0
 
     .end local v9           #motionEvent:Landroid/view/MotionEvent;
-    :cond_e
+    :cond_a
     invoke-super {p0, p1, p2}, Lcom/android/server/input/InputFilter;->onInputEvent(Landroid/view/InputEvent;I)V
 
     goto/16 :goto_0
@@ -879,8 +770,6 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
-
-    iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
 
     iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
 
@@ -914,8 +803,6 @@
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->startToRedirectEvent:Z
-
-    iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->isPhoneNotIdleWhenPointerDown:Z
 
     iput-boolean v2, p0, Lcom/htc/server/gesture/GestureInputFilter;->isInKeyguardWhenPointerDown:Z
 

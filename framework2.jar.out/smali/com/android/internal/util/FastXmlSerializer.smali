@@ -1464,7 +1464,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "yes"
+    const-string/jumbo v0, "yes"
 
     :goto_0
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

@@ -743,6 +743,10 @@
 
     nop
 
+    nop
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1499,6 +1503,14 @@
     .parameter "attachToRoot"
 
     .prologue
+    invoke-virtual {p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, p1}, Landroid/view/LayoutInflater$Injector;->getResourceId(Landroid/content/Context;I)I
+
+    move-result p1
+
     invoke-virtual {p0}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
 
     move-result-object v1

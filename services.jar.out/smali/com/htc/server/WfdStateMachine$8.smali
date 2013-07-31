@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2825
+    .line 2784
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$8;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,14 +38,14 @@
     .locals 3
 
     .prologue
-    .line 2828
+    .line 2787
     const-string v0, "WfdStateMachine"
 
     const-string v1, "[WFD]===>preloadDlnaService()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2829
+    .line 2788
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$8;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
@@ -58,6 +58,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 2830
+    .line 2789
     return-void
 .end method

@@ -85,7 +85,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "sw1:"
+    const-string/jumbo v2, "sw1:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -141,6 +141,8 @@
     goto :goto_0
 
     .line 59
+    nop
+
     :pswitch_data_0
     .packed-switch 0x94
         :pswitch_0

@@ -31,7 +31,6 @@
     .parameter
 
     .prologue
-    .line 1407
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +44,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1407
     invoke-direct {p0, p1}, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;-><init>(Lcom/android/internal/widget/ActionBarView;)V
 
     return-void
@@ -65,7 +63,6 @@
 
     const/4 v2, 0x0
 
-    .line 1497
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
@@ -74,7 +71,6 @@
 
     if-eqz v0, :cond_0
 
-    .line 1498
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
@@ -83,7 +79,6 @@
 
     invoke-interface {v0}, Landroid/view/CollapsibleActionView;->onActionViewCollapsed()V
 
-    .line 1501
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -93,7 +88,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
-    .line 1502
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
@@ -105,12 +99,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->removeView(Landroid/view/View;)V
 
-    .line 1503
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iput-object v3, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
-    .line 1504
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mDisplayOptions:I
@@ -122,7 +114,6 @@
 
     if-eqz v0, :cond_1
 
-    .line 1505
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -132,7 +123,6 @@
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ActionBarView$HomeView;->setVisibility(I)V
 
-    .line 1507
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -145,23 +135,20 @@
 
     if-eqz v0, :cond_2
 
-    .line 1508
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/widget/LinearLayout;
+    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
     if-nez v0, :cond_6
 
-    .line 1509
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #calls: Lcom/android/internal/widget/ActionBarView;->initTitle()V
     invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$1300(Lcom/android/internal/widget/ActionBarView;)V
 
-    .line 1514
     :cond_2
     :goto_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
@@ -184,7 +171,6 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 1515
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mTabScrollView:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -194,7 +180,6 @@
 
     invoke-virtual {v0, v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
-    .line 1517
     :cond_3
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -214,7 +199,6 @@
 
     if-ne v0, v4, :cond_4
 
-    .line 1518
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mSpinner:Landroid/widget/Spinner;
@@ -224,7 +208,6 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Spinner;->setVisibility(I)V
 
-    .line 1520
     :cond_4
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -246,7 +229,6 @@
 
     if-eqz v0, :cond_5
 
-    .line 1521
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mCustomNavView:Landroid/view/View;
@@ -256,7 +238,6 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1523
     :cond_5
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -267,30 +248,25 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1524
     iput-object v3, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
-    .line 1525
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 1526
     invoke-virtual {p2, v2}, Lcom/android/internal/view/menu/MenuItemImpl;->setActionViewExpanded(Z)V
 
-    .line 1528
     return v4
 
-    .line 1511
     :cond_6
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/widget/LinearLayout;
+    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     goto :goto_0
 .end method
@@ -305,7 +281,6 @@
 
     const/16 v3, 0x8
 
-    .line 1469
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-virtual {p2}, Lcom/android/internal/view/menu/MenuItemImpl;->getActionView()Landroid/view/View;
@@ -314,7 +289,6 @@
 
     iput-object v1, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
 
-    .line 1470
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     #getter for: Lcom/android/internal/widget/ActionBarView;->mExpandedHomeLayout:Lcom/android/internal/widget/ActionBarView$HomeView;
@@ -345,10 +319,8 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView$HomeView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1471
     iput-object p2, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
-    .line 1472
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
@@ -361,7 +333,6 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 1473
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
@@ -370,7 +341,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 1475
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -387,7 +357,6 @@
 
     if-eq v0, v1, :cond_1
 
-    .line 1476
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
@@ -399,7 +368,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ActionBarView;->addView(Landroid/view/View;)V
 
-    .line 1478
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -410,11 +378,10 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ActionBarView$HomeView;->setVisibility(I)V
 
-    .line 1479
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/widget/LinearLayout;
+    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
@@ -422,14 +389,13 @@
 
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
-    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/widget/LinearLayout;
-    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/widget/LinearLayout;
+    #getter for: Lcom/android/internal/widget/ActionBarView;->mTitleLayout:Landroid/view/ViewGroup;
+    invoke-static {v0}, Lcom/android/internal/widget/ActionBarView;->access$800(Lcom/android/internal/widget/ActionBarView;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    .line 1480
     :cond_2
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -449,7 +415,6 @@
 
     invoke-virtual {v0, v3}, Lcom/android/internal/widget/ScrollingTabContainerView;->setVisibility(I)V
 
-    .line 1481
     :cond_3
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -469,7 +434,6 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/Spinner;->setVisibility(I)V
 
-    .line 1482
     :cond_4
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -489,16 +453,13 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1483
     :cond_5
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->requestLayout()V
 
-    .line 1484
     invoke-virtual {p2, v4}, Lcom/android/internal/view/menu/MenuItemImpl;->setActionViewExpanded(Z)V
 
-    .line 1486
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
@@ -507,7 +468,6 @@
 
     if-eqz v0, :cond_6
 
-    .line 1487
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mExpandedActionView:Landroid/view/View;
@@ -516,7 +476,6 @@
 
     invoke-interface {v0}, Landroid/view/CollapsibleActionView;->onActionViewExpanded()V
 
-    .line 1490
     :cond_6
     return v4
 .end method
@@ -525,7 +484,6 @@
     .locals 1
 
     .prologue
-    .line 1464
     const/4 v0, 0x0
 
     return v0
@@ -535,7 +493,6 @@
     .locals 1
 
     .prologue
-    .line 1533
     const/4 v0, 0x0
 
     return v0
@@ -546,7 +503,6 @@
     .parameter "root"
 
     .prologue
-    .line 1422
     const/4 v0, 0x0
 
     return-object v0
@@ -558,7 +514,6 @@
     .parameter "menu"
 
     .prologue
-    .line 1414
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eqz v0, :cond_0
@@ -567,18 +522,15 @@
 
     if-eqz v0, :cond_0
 
-    .line 1415
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget-object v1, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuBuilder;->collapseItemActionView(Lcom/android/internal/view/menu/MenuItemImpl;)Z
 
-    .line 1417
     :cond_0
     iput-object p2, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
-    .line 1418
     return-void
 .end method
 
@@ -588,7 +540,6 @@
     .parameter "allMenusAreClosing"
 
     .prologue
-    .line 1460
     return-void
 .end method
 
@@ -597,7 +548,6 @@
     .parameter "state"
 
     .prologue
-    .line 1543
     return-void
 .end method
 
@@ -605,7 +555,6 @@
     .locals 1
 
     .prologue
-    .line 1538
     const/4 v0, 0x0
 
     return-object v0
@@ -616,7 +565,6 @@
     .parameter "subMenu"
 
     .prologue
-    .line 1455
     const/4 v0, 0x0
 
     return v0
@@ -627,7 +575,6 @@
     .parameter "cb"
 
     .prologue
-    .line 1451
     return-void
 .end method
 
@@ -636,28 +583,23 @@
     .parameter "cleared"
 
     .prologue
-    .line 1428
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
     if-eqz v4, :cond_1
 
-    .line 1429
     const/4 v1, 0x0
 
-    .line 1431
     .local v1, found:Z
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     if-eqz v4, :cond_0
 
-    .line 1432
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v4}, Lcom/android/internal/view/menu/MenuBuilder;->size()I
 
     move-result v0
 
-    .line 1433
     .local v0, count:I
     const/4 v2, 0x0
 
@@ -665,42 +607,35 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 1434
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     invoke-virtual {v4, v2}, Lcom/android/internal/view/menu/MenuBuilder;->getItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 1435
     .local v3, item:Landroid/view/MenuItem;
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
     if-ne v3, v4, :cond_2
 
-    .line 1436
     const/4 v1, 0x1
 
-    .line 1442
     .end local v0           #count:I
     .end local v2           #i:I
     .end local v3           #item:Landroid/view/MenuItem;
     :cond_0
     if-nez v1, :cond_1
 
-    .line 1444
     iget-object v4, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
 
     iget-object v5, p0, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Lcom/android/internal/view/menu/MenuItemImpl;
 
     invoke-virtual {p0, v4, v5}, Lcom/android/internal/widget/ActionBarView$ExpandedActionViewMenuPresenter;->collapseItemActionView(Lcom/android/internal/view/menu/MenuBuilder;Lcom/android/internal/view/menu/MenuItemImpl;)Z
 
-    .line 1447
     .end local v1           #found:Z
     :cond_1
     return-void
 
-    .line 1433
     .restart local v0       #count:I
     .restart local v1       #found:Z
     .restart local v2       #i:I

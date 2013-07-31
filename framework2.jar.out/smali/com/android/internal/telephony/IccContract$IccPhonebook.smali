@@ -73,7 +73,7 @@
     .line 114
     sget-object v0, Lcom/android/internal/telephony/IccContract;->AUTHORITY_URI:Landroid/net/Uri;
 
-    const-string v1, "sim/phonebook"
+    const-string/jumbo v1, "sim/phonebook"
 
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 
@@ -84,7 +84,7 @@
     .line 117
     sget-object v0, Lcom/android/internal/telephony/IccContract;->AUTHORITY_URI:Landroid/net/Uri;
 
-    const-string v1, "subsim/phonebook"
+    const-string/jumbo v1, "subsim/phonebook"
 
     invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
 

@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 632
+    .line 629
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0, p2, p3}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
@@ -42,7 +42,7 @@
     .parameter "path"
 
     .prologue
-    .line 635
+    .line 632
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     #getter for: Lcom/android/server/InputMethodManagerService;->screenFile:Ljava/io/File;
@@ -60,14 +60,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 636
+    .line 633
     const-string v0, "InputMethodManagerService"
 
     const-string v1, "screenStateFile created, use new mechanism!!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 637
+    .line 634
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     #getter for: Lcom/android/server/InputMethodManagerService;->screenStateFileObserver:Landroid/os/FileObserver;
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0}, Landroid/os/FileObserver;->stopWatching()V
 
-    .line 638
+    .line 635
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     #getter for: Lcom/android/server/InputMethodManagerService;->screenObserver:Landroid/os/FileObserver;
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0}, Landroid/os/FileObserver;->startWatching()V
 
-    .line 639
+    .line 636
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -101,7 +101,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 640
+    .line 637
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$3;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mContext:Landroid/content/Context;
@@ -120,7 +120,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 642
+    .line 639
     :cond_0
     return-void
 .end method

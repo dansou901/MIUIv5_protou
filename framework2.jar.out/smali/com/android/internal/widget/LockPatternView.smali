@@ -293,7 +293,7 @@
 
     .line 266
     .local v1, aspect:Ljava/lang/String;
-    const-string v2, "square"
+    const-string/jumbo v2, "square"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -435,6 +435,8 @@
     goto :goto_1
 
     .line 282
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1498,7 +1500,7 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "unknown display mode "
+    const-string/jumbo v12, "unknown display mode "
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4471,7 +4473,7 @@
     .line 468
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "you must have a pattern to animate if you want to set the display mode to animate"
+    const-string/jumbo v2, "you must have a pattern to animate if you want to set the display mode to animate"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
@@ -4568,6 +4570,8 @@
     return-void
 
     .line 451
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

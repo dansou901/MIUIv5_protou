@@ -107,14 +107,14 @@
     goto :goto_0
 
     :pswitch_0
-    const v2, 0x40700ec
+    const v2, 0x40700e5
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :pswitch_1
-    const v2, 0x40700ed
+    const v2, 0x40700e6
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

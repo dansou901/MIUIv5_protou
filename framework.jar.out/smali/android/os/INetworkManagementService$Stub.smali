@@ -170,8 +170,6 @@
 
 .field static final TRANSACTION_startTethering:I = 0x14
 
-.field static final TRANSACTION_startTraceroute:I = 0x55
-
 .field static final TRANSACTION_startWpsRegistrar:I = 0x3f
 
 .field static final TRANSACTION_stopAccessPoint:I = 0x23
@@ -185,8 +183,6 @@
 .field static final TRANSACTION_stopTcpdump:I = 0x52
 
 .field static final TRANSACTION_stopTethering:I = 0x15
-
-.field static final TRANSACTION_stopTraceroute:I = 0x56
 
 .field static final TRANSACTION_stopWpsRegistrar:I = 0x40
 
@@ -288,7 +284,7 @@
     .line 42
     sparse-switch p1, :sswitch_data_0
 
-    .line 948
+    .line 930
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -2983,54 +2979,6 @@
 
     goto/16 :goto_0
 
-    .line 931
-    :sswitch_55
-    const-string v0, "android.os.INetworkManagementService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 933
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 935
-    .local v1, _arg0:Ljava/lang/String;
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 936
-    .restart local v2       #_arg1:Ljava/lang/String;
-    invoke-virtual {p0, v1, v2}, Landroid/os/INetworkManagementService$Stub;->startTraceroute(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 937
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 938
-    const/4 v0, 0x1
-
-    goto/16 :goto_0
-
-    .line 942
-    .end local v1           #_arg0:Ljava/lang/String;
-    .end local v2           #_arg1:Ljava/lang/String;
-    :sswitch_56
-    const-string v0, "android.os.INetworkManagementService"
-
-    invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 943
-    invoke-virtual {p0}, Landroid/os/INetworkManagementService$Stub;->stopTraceroute()V
-
-    .line 944
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 945
-    const/4 v0, 0x1
-
-    goto/16 :goto_0
-
     .line 42
     nop
 
@@ -3120,8 +3068,6 @@
         0x52 -> :sswitch_52
         0x53 -> :sswitch_53
         0x54 -> :sswitch_54
-        0x55 -> :sswitch_55
-        0x56 -> :sswitch_56
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

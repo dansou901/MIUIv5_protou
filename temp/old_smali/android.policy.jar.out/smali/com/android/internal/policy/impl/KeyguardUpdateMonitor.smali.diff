@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor.smali	2013-07-12 21:44:51.751843940 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor.smali	2013-07-12 21:42:28.725165480 +0000
+*** ./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor.smali	2013-07-31 22:23:27.867405273 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor.smali	2013-07-31 22:21:57.367397719 +0000
 ***************
 *** 10,16 ****
           Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallbackImpl;,

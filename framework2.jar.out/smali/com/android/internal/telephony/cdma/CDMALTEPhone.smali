@@ -74,7 +74,7 @@
     .line 176
     const-string v3, "CDMA"
 
-    const-string v4, "unexpected result from user object."
+    const-string/jumbo v4, "unexpected result from user object."
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -722,7 +722,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updateCurrentCarrierInProvider from UICC: numeric="
+    const-string/jumbo v5, "updateCurrentCarrierInProvider from UICC: numeric="
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -780,7 +780,7 @@
 
     .line 220
     :cond_0
-    const-string v4, "updateCurrentCarrierInProvider mIccRecords == null ret false"
+    const-string/jumbo v4, "updateCurrentCarrierInProvider mIccRecords == null ret false"
 
     invoke-virtual {p0, v4}, Lcom/android/internal/telephony/cdma/CDMALTEPhone;->log(Ljava/lang/String;)V
 

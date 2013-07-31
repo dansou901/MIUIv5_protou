@@ -44,7 +44,7 @@
 
     iget-boolean v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mBootCompleted:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -60,12 +60,6 @@
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHWResetIndicator:Landroid/app/ProgressDialog;
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
-
     new-instance v1, Landroid/app/ProgressDialog;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -78,17 +72,6 @@
 
     iput-object v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHWResetIndicator:Landroid/app/ProgressDialog;
 
-    sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "WindowManager"
-
-    const-string v1, "mPowerLongPress_Toast(), init mHWResetIndicator"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     invoke-static {}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$1000()I
 
     move-result v0
@@ -142,7 +125,7 @@
     .local v6, hwResetText_singular:I
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string v0, "WindowManager"
 
@@ -176,7 +159,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_0
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$29$1;
 
     int-to-long v2, v8
@@ -203,7 +186,7 @@
 
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const-string v0, "WindowManager"
 
@@ -211,7 +194,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHWResetIndicator:Landroid/app/ProgressDialog;
@@ -221,6 +204,6 @@
     .end local v6           #hwResetText_singular:I
     .end local v7           #hwResetText:I
     .end local v8           #countDownStart:I
-    :cond_3
+    :cond_2
     return-void
 .end method

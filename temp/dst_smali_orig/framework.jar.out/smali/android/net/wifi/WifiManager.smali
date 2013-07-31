@@ -108,8 +108,6 @@
 
 .field public static final EXTRA_MULTIPLE_NETWORKS_CHANGED:Ljava/lang/String; = "multipleChanges"
 
-.field public static final EXTRA_NETWORK_ID:Ljava/lang/String; = "networkID"
-
 .field public static final EXTRA_NETWORK_INFO:Ljava/lang/String; = "networkInfo"
 
 .field public static final EXTRA_NEW_RSSI:Ljava/lang/String; = "newRssi"
@@ -147,8 +145,6 @@
 .field public static final L2PE_FAIL:Ljava/lang/String; = "android.net.hotspot.L2PE_FAIL"
 
 .field public static final L2PE_SUCCESSFUL:Ljava/lang/String; = "android.net.hotspot.L2PE_SUCCESSFUL"
-
-.field public static final LAN_PROBLEM_ERROR:I = 0x9
 
 .field public static final LINK_CONFIGURATION_CHANGED_ACTION:Ljava/lang/String; = "android.net.wifi.LINK_CONFIGURATION_CHANGED"
 
@@ -202,13 +198,9 @@
 
 .field public static final TRAFFIC_STATS_POLL:I = 0x25016
 
-.field public static final WAN_PROBLEM_ERROR:I = 0xa
-
 .field public static final WEP_ERROR:I = 0x8
 
 .field public static final WIFIDISPLAY_AP_STATE_CHANGED_ACTION:Ljava/lang/String; = "android.net.wifi.WIFIDISPLAY_AP_STATE_CHANGED"
-
-.field public static final WIFIOFFLOAD_NOTIFICATION:I = 0xb
 
 .field public static final WIFI_AP_SET_INTERFACE_ADDRESS:Ljava/lang/String; = "com.htc.wifi.SET_HOTSPOT_INTERFACE_ADDRESS"
 
@@ -1270,31 +1262,6 @@
     return-void
 .end method
 
-.method public getATTAssociationManual()I
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->getAssociationManual()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, -0x1
-
-    goto :goto_0
-.end method
-
 .method public getAssocListStr()Ljava/lang/String;
     .locals 2
 
@@ -2200,81 +2167,6 @@
     goto :goto_0
 .end method
 
-.method public isHotspotRestricted()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isHotspotRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isMdmHotspotRestricted()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isMdmHotspotRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isMdmWifiRestricted()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isMdmWifiRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method public isMulticastEnabled()Z
     .locals 2
 
@@ -2384,31 +2276,6 @@
     iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
 
     invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isWifiPowerModeNormal()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isWifiRestricted()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->isWifiRestricted()Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2554,56 +2421,6 @@
     goto :goto_0
 .end method
 
-.method public retryLanDetection()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->retryLanDetection()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public retryWanDetection()Z
-    .locals 2
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1}, Landroid/net/wifi/IWifiManager;->retryWanDetection()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method public save(Landroid/net/wifi/WifiManager$Channel;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager$ActionListener;)V
     .locals 4
     .parameter "c"
@@ -2660,32 +2477,6 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setATTAssociationManual(I)Z
-    .locals 2
-    .parameter "isManual"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setAssociationManual(I)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    const/4 v1, 0x1
 
     :goto_0
     return v1
@@ -2874,84 +2665,6 @@
 
     :catch_0
     move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public setHotspotRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setHotspotRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setMdmHotspotRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setMdmHotspotRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setMdmWifiRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setMdmWifiRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -3415,32 +3128,6 @@
     goto :goto_0
 .end method
 
-.method public setWifiRestricted(Z)Z
-    .locals 2
-    .parameter "enable"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->setWifiRestricted(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
 .method public setWifidisplayApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
     .locals 4
     .parameter "wifiConfig"
@@ -3751,32 +3438,6 @@
     move-exception v0
 
     .local v0, e:Landroid/os/RemoteException;
-    goto :goto_0
-.end method
-
-.method public startWifiOffload(Z)Z
-    .locals 2
-    .parameter "enabled"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/net/wifi/WifiManager;->mService:Landroid/net/wifi/IWifiManager;
-
-    invoke-interface {v1, p1}, Landroid/net/wifi/IWifiManager;->startWifiOffload(Z)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const/4 v1, 0x0
-
     goto :goto_0
 .end method
 

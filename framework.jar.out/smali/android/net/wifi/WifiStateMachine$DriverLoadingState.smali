@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 5914
+    .line 5614
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 4
 
     .prologue
-    .line 5917
+    .line 5617
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -64,9 +64,9 @@
     move-result-object v2
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 5918
+    .line 5618
     const v1, 0xc365
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->getName()Ljava/lang/String;
@@ -75,23 +75,23 @@
 
     invoke-static {v1, v2}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 5920
+    .line 5620
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
-    .line 5921
+    .line 5621
     .local v0, message:Landroid/os/Message;
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->getCurrentMessage()Landroid/os/Message;
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$5000(Landroid/net/wifi/WifiStateMachine;)Landroid/os/Message;
+    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$4700(Landroid/net/wifi/WifiStateMachine;)Landroid/os/Message;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/os/Message;->copyFrom(Landroid/os/Message;)V
 
-    .line 5925
+    .line 5625
     new-instance v1, Ljava/lang/Thread;
 
     new-instance v2, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;
@@ -102,7 +102,7 @@
 
     invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
-    .line 5964
+    .line 5664
     return-void
 .end method
 
@@ -111,7 +111,7 @@
     .parameter "message"
 
     .prologue
-    .line 5968
+    .line 5668
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -145,66 +145,66 @@
     move-result-object v1
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 5969
+    .line 5669
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 5997
+    .line 5697
     const/4 v0, 0x0
 
-    .line 5999
+    .line 5699
     :goto_0
     return v0
 
-    .line 5971
+    .line 5671
     :sswitch_0
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDriverLoadedState:Lcom/android/internal/util/State;
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$4500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$4200(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v1
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5400(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 5999
+    .line 5699
     :goto_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 5974
+    .line 5674
     :sswitch_1
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDriverFailedState:Lcom/android/internal/util/State;
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$5500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$5200(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v1
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5600(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5300(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
-    .line 5994
+    .line 5694
     :sswitch_2
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$5700(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+    invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$5400(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     goto :goto_1
 
-    .line 5969
+    .line 5669
     :sswitch_data_0
     .sparse-switch
         0x20001 -> :sswitch_2

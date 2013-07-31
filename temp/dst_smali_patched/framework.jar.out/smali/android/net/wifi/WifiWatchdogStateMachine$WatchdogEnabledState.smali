@@ -82,14 +82,15 @@
 
     iget v2, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v2, :sswitch_data_0
+    packed-switch v2, :pswitch_data_0
 
+    :pswitch_0
     move v2, v3
 
     :goto_0
     return v2
 
-    :sswitch_0
+    :pswitch_1
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->isWatchdogEnabled()Z
@@ -122,7 +123,7 @@
 
     goto :goto_0
 
-    :sswitch_1
+    :pswitch_2
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/content/Intent;
@@ -181,7 +182,7 @@
 
     aget v2, v2, v4
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_1
 
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -197,7 +198,7 @@
 
     goto :goto_1
 
-    :pswitch_0
+    :pswitch_3
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const-string v2, "linkProperties"
@@ -209,7 +210,7 @@
     check-cast v2, Landroid/net/LinkProperties;
 
     #setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mLinkProperties:Landroid/net/LinkProperties;
-    invoke-static {v4, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1102(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
+    invoke-static {v4, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1002(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/LinkProperties;)Landroid/net/LinkProperties;
 
     iget-object v4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -222,7 +223,7 @@
     check-cast v2, Landroid/net/wifi/WifiInfo;
 
     #setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1202(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/wifi/WifiInfo;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v4, v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1102(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/wifi/WifiInfo;)Landroid/net/wifi/WifiInfo;
 
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -236,7 +237,7 @@
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1200(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1100(Landroid/net/wifi/WifiWatchdogStateMachine;)Landroid/net/wifi/WifiInfo;
 
     move-result-object v2
 
@@ -250,7 +251,7 @@
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWsmChannel:Lcom/android/internal/util/AsyncChannel;
-    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$900(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1200(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
 
     move-result-object v2
 
@@ -277,7 +278,7 @@
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWsmChannel:Lcom/android/internal/util/AsyncChannel;
-    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$900(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
+    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1200(Landroid/net/wifi/WifiWatchdogStateMachine;)Lcom/android/internal/util/AsyncChannel;
 
     move-result-object v2
 
@@ -285,7 +286,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_1
+    :pswitch_4
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->shouldCheckWalledGarden()Z
@@ -326,7 +327,7 @@
 
     .end local v0           #intent:Landroid/content/Intent;
     .end local v1           #networkInfo:Landroid/net/NetworkInfo;
-    :sswitch_2
+    :pswitch_5
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/Integer;
@@ -363,36 +364,20 @@
 
     goto/16 :goto_1
 
-    :sswitch_3
-    iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
-
-    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->doLanDetection()V
-    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1300(Landroid/net/wifi/WifiWatchdogStateMachine;)V
-
-    goto/16 :goto_1
-
-    :sswitch_4
-    iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$WatchdogEnabledState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
-
-    #calls: Landroid/net/wifi/WifiWatchdogStateMachine;->doWanDetection()V
-    invoke-static {v2}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1500(Landroid/net/wifi/WifiWatchdogStateMachine;)V
-
-    goto/16 :goto_1
-
     nop
 
-    :sswitch_data_0
-    .sparse-switch
-        0x21001 -> :sswitch_0
-        0x21002 -> :sswitch_1
-        0x21005 -> :sswitch_2
-        0x2101e -> :sswitch_3
-        0x2101f -> :sswitch_4
-    .end sparse-switch
-
     :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
+    .packed-switch 0x21001
         :pswitch_1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_0
+        :pswitch_5
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x1
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method

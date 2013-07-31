@@ -31,6 +31,7 @@
 .field public static final COMPONENT_ENABLED_STATE_DISABLED_USER:I = 0x3
 
 .field public static final COMPONENT_ENABLED_STATE_DISABLE_AUTOSTART:I = 0x40000000
+
 .field public static final COMPONENT_ENABLED_STATE_ENABLED:I = 0x1
 
 .field public static final COMPONENT_ENABLED_STATE_SHOW_FLOATING_WINDOW:I = 0x8000000
@@ -162,6 +163,18 @@
 .field public static final GET_UNINSTALLED_PACKAGES:I = 0x2000
 
 .field public static final GET_URI_PERMISSION_PATTERNS:I = 0x800
+
+.field public static final HAS_ACTIVITY:I = 0x20000
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
+.field public static final HAS_ACTIVITY_OR_SERVICES:I = 0x40000
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field public static final HTC_FOTA_APP_INSTALLER:Ljava/lang/String; = "HTCFotaAppInstaller"
 

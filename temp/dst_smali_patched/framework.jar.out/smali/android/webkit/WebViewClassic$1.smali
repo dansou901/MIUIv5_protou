@@ -85,7 +85,7 @@
     iget-object v4, p0, Landroid/webkit/WebViewClassic$1;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -94,7 +94,7 @@
     move-result-object v3
 
     .local v3, pm:Landroid/content/pm/PackageManager;
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$2100()Ljava/util/Set;
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1700()Ljava/util/Set;
 
     move-result-object v4
 
@@ -169,7 +169,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$1;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v0
 
@@ -178,7 +178,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$1;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v0
 

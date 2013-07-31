@@ -10,7 +10,8 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/telephony/cdma/CdmaConnection$1;,
-        Lcom/android/internal/telephony/cdma/CdmaConnection$MyHandler;
+        Lcom/android/internal/telephony/cdma/CdmaConnection$MyHandler;,
+        Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;
     }
 .end annotation
 
@@ -418,11 +419,7 @@
 
     move-result-object v1
 
-    invoke-static {p2}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -442,17 +439,13 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "[CDMAConn] CdmaConnection: formated dialString="
+    const-string v2, "[CDMAConn] CdmaConnection:formated dialString="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-static {p2}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -833,7 +826,7 @@
 
     sget v1, Lcom/android/internal/telephony/Connection;->PRESENTATION_RESTRICTED:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_0
 
     sget v0, Lcom/android/internal/telephony/Connection;->PRESENTATION_ALLOWED:I
 
@@ -844,21 +837,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->address:Ljava/lang/String;
 
     :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    iget v0, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->numberPresentation:I
-
-    sget v1, Lcom/android/internal/telephony/Connection;->PRESENTATION_PAYPHONE:I
-
-    if-ne v0, v1, :cond_0
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->address:Ljava/lang/String;
-
-    goto :goto_0
 .end method
 
 .method private isConnectingInOrOut()Z
@@ -1146,7 +1125,7 @@
     :cond_3
     sget-object v1, Lcom/android/internal/telephony/Connection$PostDialState;->PAUSE:Lcom/android/internal/telephony/Connection$PostDialState;
 
-    iput-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->postDialState:Lcom/android/internal/telephony/Connection$PostDialState;
+    invoke-static {p0, v1}, Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;->setPostDialState(Lcom/android/internal/telephony/cdma/CdmaConnection;Lcom/android/internal/telephony/Connection$PostDialState;)V
 
     iget v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->nextPostDialChar:I
 
@@ -1942,6 +1921,9 @@
 
 .method public getRemainingPostDialString()Ljava/lang/String;
     .locals 6
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v5, 0x0
@@ -1989,7 +1971,11 @@
     move-result-object v1
 
     .local v1, subStr:Ljava/lang/String;
-    if-eqz v1, :cond_1
+    invoke-static {v1}, Lcom/android/internal/telephony/cdma/CdmaConnection$Injector;->nullifyString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
 
     sget-char v3, Landroid/telephony/PhoneNumberUtils;->WAIT:C
 
@@ -3002,10 +2988,6 @@
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaConnection;->address:Ljava/lang/String;
-
-    invoke-static {v1}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

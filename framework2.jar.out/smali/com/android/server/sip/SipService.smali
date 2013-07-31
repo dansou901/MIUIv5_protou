@@ -135,7 +135,7 @@
     iput-object v0, p0, Lcom/android/server/sip/SipService;->mConnectivityReceiver:Lcom/android/server/sip/SipService$ConnectivityReceiver;
 
     .line 127
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1518,7 +1518,7 @@
 
     .line 111
     :try_start_0
-    const-string v1, "sip"
+    const-string/jumbo v1, "sip"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1527,7 +1527,7 @@
     if-nez v1, :cond_0
 
     .line 112
-    const-string v1, "sip"
+    const-string/jumbo v1, "sip"
 
     new-instance v2, Lcom/android/server/sip/SipService;
 

@@ -70,7 +70,7 @@
     .line 184
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcRadio$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcRadio;
 
-    const-string v1, "timerId"
+    const-string/jumbo v1, "timerId"
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcRadio$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcRadio;
 
@@ -110,7 +110,7 @@
     .line 187
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcRadio$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcRadio;
 
-    const-string v1, "timerId"
+    const-string/jumbo v1, "timerId"
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcRadio$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcRadio;
 

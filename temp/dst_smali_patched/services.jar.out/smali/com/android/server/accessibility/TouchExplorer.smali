@@ -2606,35 +2606,34 @@
 .end method
 
 .method private sendMotionEvent(Landroid/view/MotionEvent;III)V
-    .locals 24
+    .locals 23
     .parameter "prototype"
     .parameter "action"
     .parameter "pointerIdBits"
     .parameter "policyFlags"
 
     .prologue
-    :try_start_0
     invoke-virtual/range {p1 .. p2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    const/16 v19, 0x0
+    const/16 v18, 0x0
 
-    .local v19, event:Landroid/view/MotionEvent;
+    .local v18, event:Landroid/view/MotionEvent;
     const/4 v2, -0x1
 
     move/from16 v0, p3
 
     if-ne v0, v2, :cond_1
 
-    move-object/from16 v19, p1
+    move-object/from16 v18, p1
 
     :goto_0
     if-nez p2, :cond_2
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v2
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
 
@@ -2643,67 +2642,67 @@
 
     iget v2, v0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerId:I
 
-    if-ltz v2, :cond_6
+    if-ltz v2, :cond_5
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/server/accessibility/TouchExplorer;->mLongPressingPointerId:I
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v2}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v23
+    move-result v22
 
-    .local v23, remappedIndex:I
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getPointerCount()I
+    .local v22, remappedIndex:I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getPointerCount()I
 
-    move-result v21
+    move-result v20
 
-    .local v21, pointerCount:I
-    invoke-static/range {v21 .. v21}, Landroid/view/MotionEvent$PointerProperties;->createArray(I)[Landroid/view/MotionEvent$PointerProperties;
+    .local v20, pointerCount:I
+    invoke-static/range {v20 .. v20}, Landroid/view/MotionEvent$PointerProperties;->createArray(I)[Landroid/view/MotionEvent$PointerProperties;
 
     move-result-object v8
 
     .local v8, props:[Landroid/view/MotionEvent$PointerProperties;
-    invoke-static/range {v21 .. v21}, Landroid/view/MotionEvent$PointerCoords;->createArray(I)[Landroid/view/MotionEvent$PointerCoords;
+    invoke-static/range {v20 .. v20}, Landroid/view/MotionEvent$PointerCoords;->createArray(I)[Landroid/view/MotionEvent$PointerCoords;
 
     move-result-object v9
 
     .local v9, coords:[Landroid/view/MotionEvent$PointerCoords;
-    const/16 v20, 0x0
+    const/16 v19, 0x0
 
-    .local v20, i:I
+    .local v19, i:I
     :goto_2
-    move/from16 v0, v20
-
-    move/from16 v1, v21
-
-    if-ge v0, v1, :cond_4
-
-    aget-object v2, v8, v20
-
-    move-object/from16 v0, v19
+    move/from16 v0, v19
 
     move/from16 v1, v20
+
+    if-ge v0, v1, :cond_3
+
+    aget-object v2, v8, v19
+
+    move-object/from16 v0, v18
+
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1, v2}, Landroid/view/MotionEvent;->getPointerProperties(ILandroid/view/MotionEvent$PointerProperties;)V
 
-    aget-object v2, v9, v20
+    aget-object v2, v9, v19
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
-    move/from16 v1, v20
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1, v2}, Landroid/view/MotionEvent;->getPointerCoords(ILandroid/view/MotionEvent$PointerCoords;)V
 
-    move/from16 v0, v20
+    move/from16 v0, v19
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
     if-ne v0, v1, :cond_0
 
-    aget-object v2, v9, v20
+    aget-object v2, v9, v19
 
     iget v3, v2, Landroid/view/MotionEvent$PointerCoords;->x:F
 
@@ -2717,7 +2716,7 @@
 
     iput v3, v2, Landroid/view/MotionEvent$PointerCoords;->x:F
 
-    aget-object v2, v9, v20
+    aget-object v2, v9, v19
 
     iget v3, v2, Landroid/view/MotionEvent$PointerCoords;->y:F
 
@@ -2732,15 +2731,15 @@
     iput v3, v2, Landroid/view/MotionEvent$PointerCoords;->y:F
 
     :cond_0
-    add-int/lit8 v20, v20, 0x1
+    add-int/lit8 v19, v19, 0x1
 
     goto :goto_2
 
     .end local v8           #props:[Landroid/view/MotionEvent$PointerProperties;
     .end local v9           #coords:[Landroid/view/MotionEvent$PointerCoords;
-    .end local v20           #i:I
-    .end local v21           #pointerCount:I
-    .end local v23           #remappedIndex:I
+    .end local v19           #i:I
+    .end local v20           #pointerCount:I
+    .end local v22           #remappedIndex:I
     :cond_1
     move-object/from16 v0, p1
 
@@ -2748,7 +2747,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/MotionEvent;->split(I)Landroid/view/MotionEvent;
 
-    move-result-object v19
+    move-result-object v18
 
     goto :goto_0
 
@@ -2761,79 +2760,39 @@
 
     move-result-wide v2
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v0, v2, v3}, Landroid/view/MotionEvent;->setDownTime(J)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
-    .end local v19           #event:Landroid/view/MotionEvent;
-    :catch_0
-    move-exception v18
-
-    .local v18, e:Ljava/lang/Exception;
-    const-string v2, "TouchExplorer"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "sendMotionEvent():Exception: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .end local v18           #e:Ljava/lang/Exception;
-    :cond_3
-    :goto_3
-    return-void
-
     .restart local v8       #props:[Landroid/view/MotionEvent$PointerProperties;
     .restart local v9       #coords:[Landroid/view/MotionEvent$PointerCoords;
-    .restart local v19       #event:Landroid/view/MotionEvent;
-    .restart local v20       #i:I
-    .restart local v21       #pointerCount:I
-    .restart local v23       #remappedIndex:I
-    :cond_4
-    :try_start_1
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getDownTime()J
+    .restart local v19       #i:I
+    .restart local v20       #pointerCount:I
+    .restart local v22       #remappedIndex:I
+    :cond_3
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getDownTime()J
 
     move-result-wide v2
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getEventTime()J
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getEventTime()J
 
     move-result-wide v4
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getAction()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v6
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getPointerCount()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v7
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getMetaState()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getMetaState()I
 
     move-result v10
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getButtonState()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getButtonState()I
 
     move-result v11
 
@@ -2841,45 +2800,45 @@
 
     const/high16 v13, 0x3f80
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getDeviceId()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getDeviceId()I
 
     move-result v14
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getEdgeFlags()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getEdgeFlags()I
 
     move-result v15
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getSource()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getSource()I
 
     move-result v16
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->getFlags()I
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->getFlags()I
 
     move-result v17
 
     invoke-static/range {v2 .. v17}, Landroid/view/MotionEvent;->obtain(JJII[Landroid/view/MotionEvent$PointerProperties;[Landroid/view/MotionEvent$PointerCoords;IIFFIIII)Landroid/view/MotionEvent;
 
-    move-result-object v22
+    move-result-object v21
 
-    .local v22, remapped:Landroid/view/MotionEvent;
-    move-object/from16 v0, v19
+    .local v21, remapped:Landroid/view/MotionEvent;
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_4
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->recycle()V
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->recycle()V
 
-    :cond_5
-    move-object/from16 v19, v22
+    :cond_4
+    move-object/from16 v18, v21
 
     .end local v8           #props:[Landroid/view/MotionEvent$PointerProperties;
     .end local v9           #coords:[Landroid/view/MotionEvent$PointerCoords;
-    .end local v20           #i:I
-    .end local v21           #pointerCount:I
-    .end local v22           #remapped:Landroid/view/MotionEvent;
-    .end local v23           #remappedIndex:I
-    :cond_6
+    .end local v19           #i:I
+    .end local v20           #pointerCount:I
+    .end local v21           #remapped:Landroid/view/MotionEvent;
+    .end local v22           #remappedIndex:I
+    :cond_5
     const/high16 v2, 0x4000
 
     or-int p4, p4, v2
@@ -2888,7 +2847,7 @@
 
     iget-object v2, v0, Lcom/android/server/accessibility/TouchExplorer;->mInputFilter:Lcom/android/server/input/InputFilter;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move/from16 v1, p4
 
@@ -2898,21 +2857,20 @@
 
     iget-object v2, v0, Lcom/android/server/accessibility/TouchExplorer;->mInjectedPointerTracker:Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/server/accessibility/TouchExplorer$InjectedPointerTracker;->onMotionEvent(Landroid/view/MotionEvent;)V
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     move-object/from16 v1, p1
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_6
 
-    invoke-virtual/range {v19 .. v19}, Landroid/view/MotionEvent;->recycle()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-virtual/range {v18 .. v18}, Landroid/view/MotionEvent;->recycle()V
 
-    goto :goto_3
+    :cond_6
+    return-void
 .end method
 
 .method private sendMotionEventStripInactivePointers(Landroid/view/MotionEvent;I)V

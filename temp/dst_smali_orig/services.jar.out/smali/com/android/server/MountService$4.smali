@@ -49,12 +49,12 @@
     iget-object v7, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->waitForUmsProceeding()V
-    invoke-static {v7}, Lcom/android/server/MountService;->access$3400(Lcom/android/server/MountService;)V
+    invoke-static {v7}, Lcom/android/server/MountService;->access$2900(Lcom/android/server/MountService;)V
 
     iget-object v7, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mVolumes:Ljava/util/ArrayList;
-    invoke-static {v7}, Lcom/android/server/MountService;->access$3500(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    invoke-static {v7}, Lcom/android/server/MountService;->access$3000(Lcom/android/server/MountService;)Ljava/util/ArrayList;
 
     move-result-object v8
 
@@ -66,7 +66,7 @@
     iget-object v7, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mVolumes:Ljava/util/ArrayList;
-    invoke-static {v7}, Lcom/android/server/MountService;->access$3500(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    invoke-static {v7}, Lcom/android/server/MountService;->access$3000(Lcom/android/server/MountService;)Ljava/util/ArrayList;
 
     move-result-object v7
 
@@ -87,7 +87,7 @@
     iget-object v7, p0, Lcom/android/server/MountService$4;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mVolumes:Ljava/util/ArrayList;
-    invoke-static {v7}, Lcom/android/server/MountService;->access$3500(Lcom/android/server/MountService;)Ljava/util/ArrayList;
+    invoke-static {v7}, Lcom/android/server/MountService;->access$3000(Lcom/android/server/MountService;)Ljava/util/ArrayList;
 
     move-result-object v7
 
@@ -157,7 +157,7 @@
 
     if-nez v7, :cond_2
 
-    invoke-static {}, Lcom/android/server/MountService;->access$3600()Z
+    invoke-static {}, Lcom/android/server/MountService;->access$3100()Z
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -456,7 +456,7 @@
     aget-object v8, v4, v1
 
     #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
-    invoke-static {v7, v8}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;Ljava/lang/String;)I
+    invoke-static {v7, v8}, Lcom/android/server/MountService;->access$1400(Lcom/android/server/MountService;Ljava/lang/String;)I
 
     move-result v5
 

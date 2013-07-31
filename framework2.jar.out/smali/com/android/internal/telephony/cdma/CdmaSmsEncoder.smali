@@ -1589,7 +1589,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "unsupported EMS user data encoding ("
+    const-string/jumbo v4, "unsupported EMS user data encoding ("
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4010,7 +4010,7 @@
     .line 1807
     const-string v6, "encodeTeleserviceParamUserDataEx"
 
-    const-string v7, "user data encode fail!!!!!!!"
+    const-string/jumbo v7, "user data encode fail!!!!!!!"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6404,7 +6404,7 @@
     .line 1896
     const-string v3, "Cdma"
 
-    const-string v4, "user data with null payloadStr"
+    const-string/jumbo v4, "user data with null payloadStr"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6445,7 +6445,7 @@
     .line 1908
     const-string v3, "CdmaSmsEncoder"
 
-    const-string v4, "user data with octet encoding but null payload"
+    const-string/jumbo v4, "user data with octet encoding but null payload"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6581,7 +6581,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "unsupported user data encoding ("
+    const-string/jumbo v5, "unsupported user data encoding ("
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6676,7 +6676,7 @@
     .prologue
     .line 2048
     :try_start_0
-    const-string v1, "utf-16be"
+    const-string/jumbo v1, "utf-16be"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
     :try_end_0

@@ -59,7 +59,7 @@
 
     .prologue
     .line 80
-    const-string v0, "text/plain"
+    const-string/jumbo v0, "text/plain"
 
     if-nez p3, :cond_0
 

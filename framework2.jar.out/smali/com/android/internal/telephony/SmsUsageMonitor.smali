@@ -58,7 +58,7 @@
 
     .line 77
     .local v0, resolver:Landroid/content/ContentResolver;
-    const-string v1, "sms_outgoing_check_max_count"
+    const-string/jumbo v1, "sms_outgoing_check_max_count"
 
     const v2, 0x7fffffff
 
@@ -69,7 +69,7 @@
     iput v1, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mMaxAllowed:I
 
     .line 81
-    const-string v1, "sms_outgoing_check_interval_ms"
+    const-string/jumbo v1, "sms_outgoing_check_interval_ms"
 
     const v2, 0x1b7740
 
@@ -314,9 +314,24 @@
     .locals 3
     .parameter "appName"
     .parameter "smsWaiting"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 104
+    const-string v1, "com.android.mms"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mSmsStamp:Ljava/util/HashMap;
 
     monitor-enter v2
@@ -336,7 +351,7 @@
 
     .line 108
     .local v0, sentList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/Long;>;"
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     .line 109
     new-instance v0, Ljava/util/ArrayList;
@@ -351,7 +366,7 @@
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 113
-    :cond_0
+    :cond_1
     invoke-direct {p0, v0, p2}, Lcom/android/internal/telephony/SmsUsageMonitor;->isUnderLimit(Ljava/util/ArrayList;I)Z
 
     move-result v1

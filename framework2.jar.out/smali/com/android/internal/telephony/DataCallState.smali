@@ -1417,7 +1417,7 @@
 
     move-result-object v5
 
-    const-string v6, "version="
+    const-string/jumbo v6, "version="
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 

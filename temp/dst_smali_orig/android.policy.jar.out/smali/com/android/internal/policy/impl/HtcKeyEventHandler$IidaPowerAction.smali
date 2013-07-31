@@ -57,7 +57,7 @@
     move-result-object v0
 
     .local v0, name:Ljava/lang/String;
-    const-string v2, " com.kddi.android.iida.iidahome/"
+    const-string v2, "com.kddi.android.iida.iidahome"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -65,7 +65,7 @@
 
     if-nez v2, :cond_0
 
-    const-string v2, " com.kddi.android.iida.listhome.portal/"
+    const-string v2, "com.kddi.android.iida.listhome.portal"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -76,23 +76,6 @@
     const-string v2, " Keyguard "
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaPowerAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
-
-    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$200(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getKeyguardMediator()Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isLockScreen()Z
 
     move-result v2
 

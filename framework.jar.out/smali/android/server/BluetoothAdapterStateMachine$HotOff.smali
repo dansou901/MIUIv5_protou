@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 371
+    .line 368
     iput-object p1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 371
+    .line 368
     invoke-direct {p0, p1}, Landroid/server/BluetoothAdapterStateMachine$HotOff;-><init>(Landroid/server/BluetoothAdapterStateMachine;)V
 
     return-void
@@ -50,26 +50,22 @@
     .locals 0
 
     .prologue
-    .line 375
+    .line 372
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .locals 9
+    .locals 6
     .parameter "message"
 
     .prologue
-    const/16 v8, 0xb
+    const/16 v5, 0xb
 
     const/4 v2, 0x0
 
-    const-wide/16 v6, 0x2710
-
-    const/16 v5, 0x69
-
     const/4 v4, 0x1
 
-    .line 379
+    .line 376
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -93,10 +89,10 @@
     #calls: Landroid/server/BluetoothAdapterStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$600(Ljava/lang/String;)V
 
-    .line 381
+    .line 378
     const/4 v0, 0x1
 
-    .line 382
+    .line 379
     .local v0, retValue:Z
     iget v1, p1, Landroid/os/Message;->what:I
 
@@ -104,23 +100,23 @@
 
     move v0, v2
 
-    .line 457
+    .line 444
     .end local v0           #retValue:Z
     :cond_0
     :goto_0
     :sswitch_0
     return v0
 
-    .line 385
+    .line 382
     .restart local v0       #retValue:Z
     :sswitch_1
-    invoke-static {}, Landroid/server/BluetoothAdapterStateMachine;->access$2100()Z
+    invoke-static {}, Landroid/server/BluetoothAdapterStateMachine;->access$2000()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 386
+    .line 383
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
@@ -128,14 +124,14 @@
 
     goto :goto_0
 
-    .line 390
+    .line 387
     :cond_1
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->broadcastState(I)V
-    invoke-static {v1, v8}, Landroid/server/BluetoothAdapterStateMachine;->access$700(Landroid/server/BluetoothAdapterStateMachine;I)V
+    invoke-static {v1, v5}, Landroid/server/BluetoothAdapterStateMachine;->access$700(Landroid/server/BluetoothAdapterStateMachine;I)V
 
-    .line 391
+    .line 388
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Boolean;
@@ -146,30 +142,25 @@
 
     if-eqz v1, :cond_2
 
-    .line 392
+    .line 389
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->persistSwitchSetting(Z)V
     invoke-static {v1, v4}, Landroid/server/BluetoothAdapterStateMachine;->access$1000(Landroid/server/BluetoothAdapterStateMachine;Z)V
 
-    .line 397
+    .line 394
     :cond_2
     :sswitch_2
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #getter for: Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$1600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
+    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$2400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/server/BluetoothService;->switchConnectable(Z)V
 
-    .line 398
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    invoke-virtual {v1, v5, v6, v7}, Landroid/server/BluetoothAdapterStateMachine;->sendMessageDelayed(IJ)V
-
-    .line 399
+    .line 395
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     iget-object v2, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
@@ -184,17 +175,17 @@
 
     goto :goto_0
 
-    .line 403
+    .line 399
     :sswitch_3
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->shutoffBluetooth()V
     invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$3000(Landroid/server/BluetoothAdapterStateMachine;)V
 
-    .line 407
+    .line 403
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
-    const/16 v2, 0x6b
+    const/16 v2, 0x6a
 
     const-wide/16 v3, 0x14
 
@@ -202,7 +193,7 @@
 
     goto :goto_0
 
-    .line 411
+    .line 407
     :sswitch_4
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
@@ -216,7 +207,7 @@
     #calls: Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->access$3600(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 412
+    .line 408
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #getter for: Landroid/server/BluetoothAdapterStateMachine;->mDelayBroadcastStateOff:Z
@@ -226,7 +217,7 @@
 
     if-nez v1, :cond_0
 
-    .line 413
+    .line 409
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     const/16 v2, 0xa
@@ -236,7 +227,7 @@
 
     goto :goto_0
 
-    .line 417
+    .line 413
     :sswitch_5
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
@@ -247,53 +238,13 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    #getter for: Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$1600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/server/BluetoothService;->enableRestrictionCheck()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 419
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    #getter for: Landroid/server/BluetoothAdapterStateMachine;->mPublicState:I
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$3700(Landroid/server/BluetoothAdapterStateMachine;)I
-
-    move-result v1
-
-    const/16 v2, 0xd
-
-    if-ne v1, v2, :cond_3
-
-    .line 420
-    const-string v1, "AIRPLANE_MODE_OFF during BT turning off"
-
-    #calls: Landroid/server/BluetoothAdapterStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$600(Ljava/lang/String;)V
-
-    .line 421
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    #calls: Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v1, p1}, Landroid/server/BluetoothAdapterStateMachine;->access$3800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-
-    goto/16 :goto_0
-
-    .line 423
-    :cond_3
+    .line 414
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->broadcastState(I)V
-    invoke-static {v1, v8}, Landroid/server/BluetoothAdapterStateMachine;->access$700(Landroid/server/BluetoothAdapterStateMachine;I)V
+    invoke-static {v1, v5}, Landroid/server/BluetoothAdapterStateMachine;->access$700(Landroid/server/BluetoothAdapterStateMachine;I)V
 
-    .line 424
+    .line 415
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     iget-object v2, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
@@ -304,63 +255,53 @@
     move-result-object v2
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->access$3900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->access$3700(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 425
+    .line 416
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #getter for: Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$1600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
+    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$2400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/server/BluetoothService;->switchConnectable(Z)V
 
-    .line 426
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    invoke-virtual {v1, v5, v6, v7}, Landroid/server/BluetoothAdapterStateMachine;->sendMessageDelayed(IJ)V
-
     goto/16 :goto_0
 
-    .line 432
+    .line 420
     :sswitch_6
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     iget-object v2, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #getter for: Landroid/server/BluetoothAdapterStateMachine;->mPerProcessState:Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
-    invoke-static {v2}, Landroid/server/BluetoothAdapterStateMachine;->access$4000(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
+    invoke-static {v2}, Landroid/server/BluetoothAdapterStateMachine;->access$3800(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
 
     move-result-object v2
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->access$4100(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/server/BluetoothAdapterStateMachine;->access$3900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 436
+    .line 424
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v1, p1}, Landroid/server/BluetoothAdapterStateMachine;->access$4200(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    invoke-static {v1, p1}, Landroid/server/BluetoothAdapterStateMachine;->access$4000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
 
-    .line 438
+    .line 426
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #getter for: Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
-    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$1600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
+    invoke-static {v1}, Landroid/server/BluetoothAdapterStateMachine;->access$2400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Landroid/server/BluetoothService;->switchConnectable(Z)V
 
-    .line 439
-    iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
-
-    invoke-virtual {v1, v5, v6, v7}, Landroid/server/BluetoothAdapterStateMachine;->sendMessageDelayed(IJ)V
-
     goto/16 :goto_0
 
-    .line 442
+    .line 429
     :sswitch_7
     iget-object v3, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
@@ -369,11 +310,11 @@
     check-cast v1, Landroid/bluetooth/IBluetoothStateChangeCallback;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->perProcessCallback(ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
-    invoke-static {v3, v2, v1}, Landroid/server/BluetoothAdapterStateMachine;->access$2400(Landroid/server/BluetoothAdapterStateMachine;ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
+    invoke-static {v3, v2, v1}, Landroid/server/BluetoothAdapterStateMachine;->access$2300(Landroid/server/BluetoothAdapterStateMachine;ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
 
     goto/16 :goto_0
 
-    .line 447
+    .line 434
     :sswitch_8
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -385,7 +326,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 448
+    .line 435
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     const/4 v2, 0x5
@@ -393,22 +334,20 @@
     const/4 v3, 0x0
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->recoverStateMachine(ILjava/lang/Object;)V
-    invoke-static {v1, v2, v3}, Landroid/server/BluetoothAdapterStateMachine;->access$4300(Landroid/server/BluetoothAdapterStateMachine;ILjava/lang/Object;)V
+    invoke-static {v1, v2, v3}, Landroid/server/BluetoothAdapterStateMachine;->access$4100(Landroid/server/BluetoothAdapterStateMachine;ILjava/lang/Object;)V
 
     goto/16 :goto_0
 
-    .line 452
+    .line 439
     :sswitch_9
     iget-object v1, p0, Landroid/server/BluetoothAdapterStateMachine$HotOff;->this$0:Landroid/server/BluetoothAdapterStateMachine;
 
     #calls: Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v1, p1}, Landroid/server/BluetoothAdapterStateMachine;->access$4400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    invoke-static {v1, p1}, Landroid/server/BluetoothAdapterStateMachine;->access$4200(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
 
     goto/16 :goto_0
 
-    .line 382
-    nop
-
+    .line 379
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_1
@@ -421,6 +360,6 @@
         0x38 -> :sswitch_5
         0x65 -> :sswitch_2
         0x66 -> :sswitch_3
-        0x6b -> :sswitch_4
+        0x6a -> :sswitch_4
     .end sparse-switch
 .end method

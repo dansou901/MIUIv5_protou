@@ -77,38 +77,6 @@
 
 
 # virtual methods
-.method public changeVideoBitRate(I)V
-    .locals 3
-    .parameter "bitRate"
-
-    .prologue
-    .line 439
-    :try_start_0
-    iget-object v1, p0, Lcom/htc/service/WirelessDisplayManager;->mService:Lcom/htc/service/IWirelessDisplayService;
-
-    invoke-interface {v1, p1}, Lcom/htc/service/IWirelessDisplayService;->changeVideoBitRate(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 443
-    :goto_0
-    return-void
-
-    .line 440
-    :catch_0
-    move-exception v0
-
-    .line 441
-    .local v0, ex:Landroid/os/RemoteException;
-    const-string v1, "WirelessDisplayManager"
-
-    const-string v2, "changeVideoBitRate: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public extendTurnOffHotspotTimer()V
     .locals 3
 
@@ -316,45 +284,6 @@
 
     .line 259
     const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getDefaultVideoBitRate()I
-    .locals 4
-
-    .prologue
-    .line 446
-    const/4 v0, 0x0
-
-    .line 448
-    .local v0, defaultBitRate:I
-    :try_start_0
-    iget-object v2, p0, Lcom/htc/service/WirelessDisplayManager;->mService:Lcom/htc/service/IWirelessDisplayService;
-
-    invoke-interface {v2}, Lcom/htc/service/IWirelessDisplayService;->getDefaultVideoBitRate()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    .line 452
-    .end local v0           #defaultBitRate:I
-    :goto_0
-    return v0
-
-    .line 449
-    .restart local v0       #defaultBitRate:I
-    :catch_0
-    move-exception v1
-
-    .line 450
-    .local v1, ex:Landroid/os/RemoteException;
-    const-string v2, "WirelessDisplayManager"
-
-    const-string v3, "getDefaultVideoBitRate: RemoteException"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
@@ -803,38 +732,6 @@
     goto :goto_0
 .end method
 
-.method public requestDelayTimerStop(Z)V
-    .locals 3
-    .parameter "isStop"
-
-    .prologue
-    .line 431
-    :try_start_0
-    iget-object v1, p0, Lcom/htc/service/WirelessDisplayManager;->mService:Lcom/htc/service/IWirelessDisplayService;
-
-    invoke-interface {v1, p1}, Lcom/htc/service/IWirelessDisplayService;->requestDelayTimerStop(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 435
-    :goto_0
-    return-void
-
-    .line 432
-    :catch_0
-    move-exception v0
-
-    .line 433
-    .local v0, ex:Landroid/os/RemoteException;
-    const-string v1, "WirelessDisplayManager"
-
-    const-string v2, "requestDelayTimerStop: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public requestWivuDiscovery(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 3
     .parameter "nwif"
@@ -1099,38 +996,6 @@
     goto :goto_0
 .end method
 
-.method public setWifiNetworkLimit(Z)V
-    .locals 3
-    .parameter "enable"
-
-    .prologue
-    .line 457
-    :try_start_0
-    iget-object v1, p0, Lcom/htc/service/WirelessDisplayManager;->mService:Lcom/htc/service/IWirelessDisplayService;
-
-    invoke-interface {v1, p1}, Lcom/htc/service/IWirelessDisplayService;->setWifiNetworkLimit(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 461
-    :goto_0
-    return-void
-
-    .line 458
-    :catch_0
-    move-exception v0
-
-    .line 459
-    .local v0, ex:Landroid/os/RemoteException;
-    const-string v1, "WirelessDisplayManager"
-
-    const-string v2, "setWifiNetworkLimit: RemoteException"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
 .method public startPatternLockFakeMirror(Z)V
     .locals 3
     .parameter "enable"
@@ -1156,7 +1021,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "WirelessDisplayManager"
 
-    const-string v2, "startPatternLockFakeMirror: RemoteException"
+    const-string/jumbo v2, "startPatternLockFakeMirror: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1187,7 +1052,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "WirelessDisplayManager"
 
-    const-string v2, "stopWivuDiscovery: RemoteException"
+    const-string/jumbo v2, "stopWivuDiscovery: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1220,7 +1085,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "WirelessDisplayManager"
 
-    const-string v2, "usedDongleFound: RemoteException"
+    const-string/jumbo v2, "usedDongleFound: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

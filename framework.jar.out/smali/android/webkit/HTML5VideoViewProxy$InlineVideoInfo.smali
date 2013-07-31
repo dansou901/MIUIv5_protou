@@ -36,25 +36,25 @@
     .parameter "h"
 
     .prologue
-    .line 876
+    .line 847
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 877
+    .line 848
     iput-object p1, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mUrl:Ljava/lang/String;
 
-    .line 878
+    .line 849
     iput p2, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mX:F
 
-    .line 879
+    .line 850
     iput p3, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mY:F
 
-    .line 880
+    .line 851
     iput p4, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mWidth:F
 
-    .line 881
+    .line 852
     iput p5, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mHeight:F
 
-    .line 882
+    .line 853
     return-void
 .end method
 
@@ -64,7 +64,7 @@
     .locals 1
 
     .prologue
-    .line 901
+    .line 872
     iget v0, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mHeight:F
 
     return v0
@@ -74,7 +74,7 @@
     .locals 1
 
     .prologue
-    .line 885
+    .line 856
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mUrl:Ljava/lang/String;
 
     return-object v0
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 897
+    .line 868
     iget v0, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mWidth:F
 
     return v0
@@ -94,7 +94,7 @@
     .locals 1
 
     .prologue
-    .line 889
+    .line 860
     iget v0, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mX:F
 
     return v0
@@ -104,7 +104,7 @@
     .locals 1
 
     .prologue
-    .line 893
+    .line 864
     iget v0, p0, Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;->mY:F
 
     return v0

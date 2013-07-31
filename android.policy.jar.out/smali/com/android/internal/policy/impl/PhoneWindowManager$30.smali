@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 6924
+    .line 6919
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$30;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,18 +43,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 6927
+    .line 6922
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$30;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v2, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    .line 6929
+    .line 6924
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$30;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->goHome()Z
 
-    .line 6930
+    .line 6925
     return-void
 .end method

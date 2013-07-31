@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5811
+    .line 5813
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,21 +41,21 @@
     .locals 1
 
     .prologue
-    .line 5813
+    .line 5815
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     if-eqz v0, :cond_0
 
-    .line 5814
+    .line 5816
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$23;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->forcePasswordTimeout()V
 
-    .line 5816
+    .line 5818
     :cond_0
     return-void
 .end method

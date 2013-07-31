@@ -383,7 +383,7 @@
     if-ne v2, v3, :cond_1
 
     .line 510
-    const v0, 0x407003e
+    const v0, 0x407003b
 
     .line 519
     :cond_0
@@ -442,7 +442,7 @@
     if-ne v2, v3, :cond_2
 
     .line 512
-    const v0, 0x407003f
+    const v0, 0x407003c
 
     goto :goto_0
 
@@ -549,7 +549,7 @@
 
     move-result-object v2
 
-    const v3, 0x4070041
+    const v3, 0x407003e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -593,7 +593,7 @@
 
     move-result-object v2
 
-    const v3, 0x4070043
+    const v3, 0x4070040
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -632,7 +632,7 @@
 
     move-result-object v2
 
-    const v3, 0x4070042
+    const v3, 0x407003f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

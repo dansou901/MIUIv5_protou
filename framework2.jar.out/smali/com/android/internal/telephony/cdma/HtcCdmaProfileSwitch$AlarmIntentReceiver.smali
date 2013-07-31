@@ -70,7 +70,7 @@
     .line 813
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaProfileSwitch$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcCdmaProfileSwitch;
 
-    const-string v1, "timerId"
+    const-string/jumbo v1, "timerId"
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaProfileSwitch$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcCdmaProfileSwitch;
 

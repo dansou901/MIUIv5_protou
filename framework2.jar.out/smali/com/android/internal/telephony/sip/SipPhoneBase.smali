@@ -188,7 +188,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 214
-    const-string v3, "true"
+    const-string/jumbo v3, "true"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

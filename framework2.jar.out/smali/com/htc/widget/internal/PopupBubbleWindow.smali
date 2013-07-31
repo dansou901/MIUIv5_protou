@@ -343,7 +343,7 @@
     iput-object p1, p0, Lcom/htc/widget/internal/PopupBubbleWindow;->mContext:Landroid/content/Context;
 
     .line 281
-    const-string v3, "window"
+    const-string/jumbo v3, "window"
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -693,7 +693,7 @@
     .line 431
     iget-object v0, p0, Lcom/htc/widget/internal/PopupBubbleWindow;->mContext:Landroid/content/Context;
 
-    const-string v1, "window"
+    const-string/jumbo v1, "window"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -930,7 +930,7 @@
     .local v0, res:Landroid/content/res/Resources;
     const-string v3, "DropDownDownTopEast"
 
-    const-string v4, "style"
+    const-string/jumbo v4, "style"
 
     const-string v5, "com.htc"
 
@@ -1014,6 +1014,8 @@
     goto :goto_0
 
     .line 1579
+    nop
+
     nop
 
     :pswitch_data_0
@@ -1536,7 +1538,7 @@
     .local v1, displayFrame:Landroid/graphics/Rect;
     iget-object v7, p0, Lcom/htc/widget/internal/PopupBubbleWindow;->mContext:Landroid/content/Context;
 
-    const-string v8, "window"
+    const-string/jumbo v8, "window"
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -4221,7 +4223,7 @@
     .line 583
     iget-object v0, p0, Lcom/htc/widget/internal/PopupBubbleWindow;->mContext:Landroid/content/Context;
 
-    const-string v1, "window"
+    const-string/jumbo v1, "window"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

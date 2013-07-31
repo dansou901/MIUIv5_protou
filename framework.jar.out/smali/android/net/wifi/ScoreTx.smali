@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
+.field private static final DEBUG:Z = true
 
 .field private static final DEFAULT_TX_RATE:I = 0x36
 
@@ -230,13 +230,36 @@
 .end method
 
 .method private getAttenuation(I)F
-    .locals 6
+    .locals 8
     .parameter "rssi"
 
     .prologue
-    const/high16 v4, 0x40c0
+    const/high16 v7, 0x40c0
 
-    const/high16 v5, 0x3f80
+    const/high16 v6, 0x3f80
+
+    .line 130
+    const-string v3, "ScoreTx"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " + Attenuation RSSI: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 132
     const/4 v0, 0x0
@@ -258,7 +281,30 @@
 
     mul-float/2addr v3, v4
 
-    add-float v0, v5, v3
+    add-float v0, v6, v3
+
+    .line 136
+    const-string v3, "ScoreTx"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " + Attenuation: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     move v1, v0
 
@@ -282,15 +328,61 @@
 
     const/4 v2, 0x0
 
-    .line 151
+    .line 149
     :goto_1
-    div-float v3, v2, v4
+    const-string v3, "ScoreTx"
 
-    div-float v4, v2, v4
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " + Attenuation Steps: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 151
+    div-float v3, v2, v7
+
+    div-float v4, v2, v7
 
     mul-float/2addr v3, v4
 
-    sub-float v0, v5, v3
+    sub-float v0, v6, v3
+
+    .line 152
+    const-string v3, "ScoreTx"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " + Attenuation: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     move v1, v0
 
@@ -349,10 +441,47 @@
 .end method
 
 .method private getPerScore(I)F
-    .locals 2
+    .locals 3
     .parameter "per"
 
     .prologue
+    .line 158
+    const-string v0, "ScoreTx"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, " + getPerScore: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    div-int/lit8 v2, p1, 0x5
+
+    rsub-int/lit8 v2, v2, 0x5
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 160
     const/16 v0, 0x19
 
@@ -388,15 +517,38 @@
 .end method
 
 .method private getPropulatedTxRate(I)I
-    .locals 13
+    .locals 14
     .parameter "rssi"
 
     .prologue
-    const/16 v12, -0x4b
+    const/16 v13, -0x4b
 
     const/16 v8, 0x36
 
-    const/16 v11, -0xff
+    const/16 v12, -0xff
+
+    .line 73
+    const-string v9, "ScoreTx"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, " + Populating TxRate - RSSI: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 75
     const/16 v5, -0xff
@@ -468,7 +620,7 @@
     if-gt v9, v10, :cond_2
 
     .line 85
-    if-lt p1, v12, :cond_3
+    if-lt p1, v13, :cond_3
 
     invoke-virtual {v2}, Landroid/net/wifi/APRecords;->getBSSID()Ljava/lang/String;
 
@@ -484,7 +636,7 @@
 
     .line 86
     :cond_3
-    if-ge p1, v12, :cond_4
+    if-ge p1, v13, :cond_4
 
     invoke-virtual {v2}, Landroid/net/wifi/APRecords;->getBSSID()Ljava/lang/String;
 
@@ -538,19 +690,96 @@
     :cond_5
     if-eqz v3, :cond_0
 
+    .line 99
+    const-string v9, "ScoreTx"
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, " + Populating TxRate Record: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v3}, Landroid/net/wifi/APRecords;->getSSID()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, " ["
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v3}, Landroid/net/wifi/APRecords;->getBSSID()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, "]"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", RSSI: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", TX: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", TxPER: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 101
     if-eqz v7, :cond_0
 
     if-eqz v5, :cond_0
 
     .line 104
-    if-eq v5, v11, :cond_0
+    if-eq v5, v12, :cond_0
 
-    if-eq v6, v11, :cond_0
+    if-eq v6, v12, :cond_0
 
-    if-eq v4, v11, :cond_0
+    if-eq v4, v12, :cond_0
 
-    if-eq v7, v11, :cond_0
+    if-eq v7, v12, :cond_0
 
     .line 107
     const/4 v9, 0x5
@@ -559,7 +788,7 @@
 
     move v8, v7
 
-    goto :goto_0
+    goto/16 :goto_0
 
     .line 111
     :cond_6
@@ -569,7 +798,7 @@
 
     .line 113
     .local v8, ret:I
-    goto :goto_0
+    goto/16 :goto_0
 .end method
 
 .method private loadConfig(Ljava/lang/String;)V
@@ -822,6 +1051,59 @@
     .parameter "txPERRef"
 
     .prologue
+    .line 118
+    const-string v2, "ScoreTx"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " + Populating TxRate: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ", "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     .line 120
     int-to-float v2, p3
 
@@ -839,8 +1121,31 @@
 
     float-to-int v1, v2
 
-    .line 123
+    .line 121
     .local v1, txRef:I
+    const-string v2, "ScoreTx"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " + Populated TxRate Reference: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 123
     invoke-direct {p0, p1}, Landroid/net/wifi/ScoreTx;->getAttenuation(I)F
 
     move-result v2
@@ -865,7 +1170,7 @@
 
 # virtual methods
 .method public Score(I)I
-    .locals 4
+    .locals 5
     .parameter "rssi"
 
     .prologue
@@ -874,8 +1179,31 @@
 
     move-result v1
 
-    .line 170
+    .line 168
     .local v1, txRateRef:I
+    const-string v2, "ScoreTx"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " + Populated TxRate: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 170
     invoke-virtual {p0, v1}, Landroid/net/wifi/ScoreTx;->getTxScore(I)I
 
     move-result v2
@@ -888,8 +1216,31 @@
 
     float-to-int v0, v2
 
-    .line 174
+    .line 172
     .local v0, ret:I
+    const-string v2, "ScoreTx"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " + TxRate Score: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 174
     return v0
 .end method
 

@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/StatusBarManagerService.smali	2013-07-12 21:42:34.741832643 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/StatusBarManagerService.smali	2013-07-12 21:40:29.488488981 +0000
+*** ./smali/com/android/server/StatusBarManagerService.smali	2013-07-31 22:21:59.684064579 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/StatusBarManagerService.smali	2013-07-31 22:21:05.014060016 +0000
 ***************
 *** 69,74 ****
 --- 69,89 ----

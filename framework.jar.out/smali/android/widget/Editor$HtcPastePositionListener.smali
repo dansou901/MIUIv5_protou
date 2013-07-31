@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5235
+    .line 6088
     iput-object p1, p0, Landroid/widget/Editor$HtcPastePositionListener;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .parameter "x1"
 
     .prologue
-    .line 5235
+    .line 6088
     invoke-direct {p0, p1}, Landroid/widget/Editor$HtcPastePositionListener;-><init>(Landroid/widget/Editor;)V
 
     return-void
@@ -57,7 +57,7 @@
     .parameter "parentScrolled"
 
     .prologue
-    .line 5239
+    .line 6092
     iget-object v0, p0, Landroid/widget/Editor$HtcPastePositionListener;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v0}, Landroid/widget/Editor;->useHtcTextSelection()Z
@@ -96,13 +96,13 @@
 
     if-eqz v0, :cond_0
 
-    .line 5240
+    .line 6093
     iget-object v0, p0, Landroid/widget/Editor$HtcPastePositionListener;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->showQuickAction()V
     invoke-static {v0}, Landroid/widget/Editor;->access$1200(Landroid/widget/Editor;)V
 
-    .line 5242
+    .line 6095
     :cond_0
     return-void
 .end method

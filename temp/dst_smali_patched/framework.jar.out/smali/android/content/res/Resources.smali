@@ -7,8 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/content/res/Resources$Theme;,
-        Landroid/content/res/Resources$NotFoundException;,
-        Landroid/content/res/Resources$Injector;
+        Landroid/content/res/Resources$NotFoundException;
     }
 .end annotation
 
@@ -171,11 +170,8 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method private constructor <init>()V
     .locals 3
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_ACCESS:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v2, 0x4
@@ -526,28 +522,6 @@
     return-void
 .end method
 
-.method static clearPreloadedCache()V
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    sget-object v0, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
-
-    sget-object v0, Landroid/content/res/Resources;->sPreloadedColorStateLists:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
-
-    sget-object v0, Landroid/content/res/Resources;->sPreloadedColorDrawables:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
-
-    return-void
-.end method
-
 .method private getCachedColorStateList(J)Landroid/content/res/ColorStateList;
     .locals 4
     .parameter "key"
@@ -687,9 +661,6 @@
 .method private getCachedStyledAttributes(I)Landroid/content/res/TypedArray;
     .locals 5
     .parameter "len"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     iget-object v3, p0, Landroid/content/res/Resources;->mTmpValue:Landroid/util/TypedValue;
@@ -755,7 +726,7 @@
     .restart local v0       #attrs:Landroid/content/res/TypedArray;
     :cond_1
     :try_start_1
-    new-instance v0, Landroid/content/res/MiuiTypedArray;
+    new-instance v0, Landroid/content/res/TypedArray;
 
     .end local v0           #attrs:Landroid/content/res/TypedArray;
     mul-int/lit8 v2, p1, 0x6
@@ -766,7 +737,7 @@
 
     new-array v4, v4, [I
 
-    invoke-direct {v0, p0, v2, v4, p1}, Landroid/content/res/MiuiTypedArray;-><init>(Landroid/content/res/Resources;[I[II)V
+    invoke-direct {v0, p0, v2, v4, p1}, Landroid/content/res/TypedArray;-><init>(Landroid/content/res/Resources;[I[II)V
 
     monitor-exit v3
     :try_end_1
@@ -817,9 +788,6 @@
 
 .method public static getSystem()Landroid/content/res/Resources;
     .locals 3
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     sget-object v2, Landroid/content/res/Resources;->mSync:Ljava/lang/Object;
@@ -832,10 +800,10 @@
     .local v0, ret:Landroid/content/res/Resources;
     if-nez v0, :cond_0
 
-    new-instance v0, Landroid/content/res/MiuiResources;
+    new-instance v0, Landroid/content/res/Resources;
 
     .end local v0           #ret:Landroid/content/res/Resources;
-    invoke-direct {v0}, Landroid/content/res/MiuiResources;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/Resources;-><init>()V
 
     .restart local v0       #ret:Landroid/content/res/Resources;
     sput-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
@@ -951,6 +919,10 @@
 
     goto :goto_0
 
+    nop
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -975,7 +947,7 @@
 .end method
 
 .method public static updateSystemConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
-    .locals 3
+    .locals 1
     .parameter "config"
     .parameter "metrics"
     .parameter "compat"
@@ -988,56 +960,6 @@
     sget-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
 
     invoke-virtual {v0, p0, p1, p2}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
-
-    sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Landroid/app/ActivityThread;->isSystemServer()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "Resources"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Updated system resources "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ": "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-object v2, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     return-void
@@ -2260,35 +2182,6 @@
     goto :goto_0
 .end method
 
-.method getPreloadedDrawable(JI)Landroid/graphics/drawable/Drawable$ConstantState;
-    .locals 2
-    .parameter "key"
-    .parameter "id"
-
-    .prologue
-    sget-object v1, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/graphics/drawable/Drawable$ConstantState;
-
-    .local v0, cs:Landroid/graphics/drawable/Drawable$ConstantState;
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0, p3}, Landroid/content/res/Resources;->isPreloadOverlayed(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
-
-    :cond_0
-    return-object v0
-.end method
-
 .method public getQuantityString(II)Ljava/lang/String;
     .locals 1
     .parameter "id"
@@ -3114,15 +3007,6 @@
     return-object v0
 .end method
 
-.method public isPreloading()Z
-    .locals 1
-
-    .prologue
-    iget-boolean v0, p0, Landroid/content/res/Resources;->mPreloading:Z
-
-    return v0
-.end method
-
 .method isPreloadOverlayed(I)Z
     .locals 1
     .parameter "id"
@@ -3133,7 +3017,7 @@
     return v0
 .end method
 
-.method isPreloading()Z
+.method public isPreloading()Z
     .locals 1
 
     .prologue
@@ -3469,10 +3353,6 @@
     .locals 18
     .parameter "value"
     .parameter "id"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -3645,15 +3525,13 @@
     .end local v4           #dr:Landroid/graphics/drawable/Drawable;
     .restart local v3       #dr:Landroid/graphics/drawable/Drawable;
     :cond_6
-    sget-object v14, Landroid/content/res/Resources;->sPreloadedDrawables:Landroid/util/LongSparseArray;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v14, v10, v11}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    move/from16 v1, p2
 
-    move-result-object v14
+    invoke-virtual {v0, v10, v11, v1}, Landroid/content/res/Resources;->getPreloadedDrawable(JI)Landroid/graphics/drawable/Drawable$ConstantState;
 
-    check-cast v14, Landroid/graphics/drawable/Drawable$ConstantState;
-
-    move-object v2, v14
+    move-result-object v2
 
     goto :goto_2
 
@@ -3819,13 +3697,15 @@
     move-result-object v8
 
     .local v8, is:Ljava/io/InputStream;
+    invoke-static/range {p2 .. p2}, Landroid/content/res/Resources$Injector;->setDrawableId(I)V
+
     const/4 v14, 0x0
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-static {v0, v1, v8, v7, v14}, Landroid/graphics/drawable/Drawable;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, v1, v8, v7, v14}, Landroid/content/res/Resources$Injector;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
@@ -3949,31 +3829,6 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_5
-.end method
-
-.method loadOverlayDrawable(Landroid/util/TypedValue;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .parameter "value"
-    .parameter "id"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method loadOverlayTypedArray(Landroid/content/res/TypedArray;)Landroid/content/res/TypedArray;
-    .locals 0
-    .parameter "array"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    return-object p1
 .end method
 
 .method loadXmlResourceParser(ILjava/lang/String;)Landroid/content/res/XmlResourceParser;
@@ -4327,6 +4182,9 @@
 
 .method public final newTheme()Landroid/content/res/Resources$Theme;
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     new-instance v0, Landroid/content/res/Resources$Theme;
@@ -4369,11 +4227,7 @@
 
     iput-object v2, v0, Landroid/content/res/TypedArray;->mXml:Landroid/content/res/XmlBlock$Parser;
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->loadOverlayTypedArray(Landroid/content/res/TypedArray;)Landroid/content/res/TypedArray;
-
-    move-result-object v3
-
-    return-object v3
+    return-object v0
 .end method
 
 .method public obtainTypedArray(I)Landroid/content/res/TypedArray;
@@ -4445,11 +4299,7 @@
 
     aput v4, v2, v4
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->loadOverlayTypedArray(Landroid/content/res/TypedArray;)Landroid/content/res/TypedArray;
-
-    move-result-object v2
-
-    return-object v2
+    return-object v0
 .end method
 
 .method public openRawResource(I)Ljava/io/InputStream;
@@ -5078,9 +4928,6 @@
     .parameter "config"
     .parameter "metrics"
     .parameter "compat"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     move-object/from16 v0, p0
@@ -5192,7 +5039,13 @@
 
     invoke-static/range {v21 .. v21}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
 
-    move-result v21
+    move-result v2
+
+    const/high16 v3, -0x8000
+
+    and-int v3, v3, v21
+
+    or-int v21, v2, v3
 
     :cond_5
     move-object/from16 v0, p0

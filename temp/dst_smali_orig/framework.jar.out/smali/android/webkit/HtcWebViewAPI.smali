@@ -106,9 +106,6 @@
 .method public abstract resumeFPDoPlay()V
 .end method
 
-.method public abstract saveHitTestImage(Ljava/lang/String;)V
-.end method
-
 .method public abstract sendMessagePowerSavePolicy(Z)V
 .end method
 

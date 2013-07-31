@@ -29,12 +29,12 @@
     .parameter
 
     .prologue
-    .line 6911
+    .line 7754
     iput-object p1, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6917
+    .line 7760
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->mPostpone:Z
@@ -48,7 +48,7 @@
     .parameter "x1"
 
     .prologue
-    .line 6911
+    .line 7754
     invoke-direct {p0, p1}, Landroid/webkit/WebViewClassic$SendScrollToWebCore;-><init>(Landroid/webkit/WebViewClassic;)V
 
     return-void
@@ -60,22 +60,22 @@
     .locals 1
 
     .prologue
-    .line 6913
+    .line 7756
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mInOverScrollMode:Z
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$3400(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$3200(Landroid/webkit/WebViewClassic;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 6914
+    .line 7757
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->sendOurVisibleRect()Landroid/graphics/Rect;
 
-    .line 6916
+    .line 7759
     :cond_0
     return-void
 .end method
@@ -85,29 +85,29 @@
     .parameter "force"
 
     .prologue
-    .line 6920
+    .line 7763
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 6921
+    .line 7764
     iget-boolean v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->mPostpone:Z
 
     if-eqz v0, :cond_0
 
     if-eqz p1, :cond_1
 
-    .line 6922
+    .line 7765
     :cond_0
     invoke-virtual {p0}, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->run()V
 
-    .line 6926
+    .line 7769
     :goto_0
     return-void
 
-    .line 6924
+    .line 7767
     :cond_1
     iget-object v0, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->this$0:Landroid/webkit/WebViewClassic;
 
@@ -123,7 +123,7 @@
     .parameter "set"
 
     .prologue
-    .line 6918
+    .line 7761
     iput-boolean p1, p0, Landroid/webkit/WebViewClassic$SendScrollToWebCore;->mPostpone:Z
 
     return-void

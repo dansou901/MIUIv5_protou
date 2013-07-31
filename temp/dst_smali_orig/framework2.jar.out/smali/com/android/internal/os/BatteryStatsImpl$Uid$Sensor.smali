@@ -120,38 +120,6 @@
 
 
 # virtual methods
-.method attach()V
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;->attach()V
-
-    :cond_0
-    return-void
-.end method
-
-.method detach()V
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;->detach()V
-
-    :cond_0
-    return-void
-.end method
-
 .method public getHandle()I
     .locals 1
 
@@ -179,29 +147,6 @@
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
 
     return-object v0
-.end method
-
-.method isRunning()Z
-    .locals 2
-
-    .prologue
-    const/4 v0, 0x0
-
-    .local v0, wlactive:Z
-    iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Sensor;->mTimer:Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;
-
-    invoke-virtual {v1}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;->isRunningLocked()Z
-
-    move-result v1
-
-    or-int/2addr v0, v1
-
-    :cond_0
-    return v0
 .end method
 
 .method readFromParcelLocked(Ljava/util/ArrayList;Landroid/os/Parcel;)V

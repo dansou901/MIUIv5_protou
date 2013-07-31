@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/ActionBarContainer.smali	2013-07-12 21:42:48.621833787 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ActionBarContainer.smali	2013-07-12 21:40:39.091823107 +0000
+*** ./smali/com/android/internal/widget/ActionBarContainer.smali	2013-07-31 22:22:08.060731945 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ActionBarContainer.smali	2013-07-31 22:21:10.960727179 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/LockSettingsService.smali	2013-07-12 21:42:49.001833818 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/LockSettingsService.smali	2013-07-12 21:40:39.355156462 +0000
+*** ./smali/com/android/internal/widget/LockSettingsService.smali	2013-07-31 22:22:08.350731969 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/LockSettingsService.smali	2013-07-31 22:21:11.120727193 +0000
 ***************
 *** 6,12 ****
   # annotations

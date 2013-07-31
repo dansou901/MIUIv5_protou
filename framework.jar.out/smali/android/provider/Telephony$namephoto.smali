@@ -31,25 +31,25 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 3825
+    .line 3824
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3826
+    .line 3825
     iput-object v0, p0, Landroid/provider/Telephony$namephoto;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 3827
+    .line 3826
     iput-object v0, p0, Landroid/provider/Telephony$namephoto;->mName:Ljava/lang/String;
 
-    .line 3828
+    .line 3827
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Landroid/provider/Telephony$namephoto;->mPersonId:J
 
-    .line 3829
+    .line 3828
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/provider/Telephony$namephoto;->isFromSIM:Z
 
-    .line 3830
+    .line 3829
     return-void
 .end method

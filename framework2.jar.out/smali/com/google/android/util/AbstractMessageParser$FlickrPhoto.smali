@@ -77,7 +77,7 @@
     invoke-direct {p0, v1, p5}, Lcom/google/android/util/AbstractMessageParser$Token;-><init>(Lcom/google/android/util/AbstractMessageParser$Token$Type;Ljava/lang/String;)V
 
     .line 1040
-    const-string v1, "tags"
+    const-string/jumbo v1, "tags"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -126,7 +126,7 @@
     iput-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->photo:Ljava/lang/String;
 
     .line 1049
-    const-string v0, "tags"
+    const-string/jumbo v0, "tags"
 
     iput-object v0, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->grouping:Ljava/lang/String;
 
@@ -584,7 +584,7 @@
 
     .line 1093
     :cond_0
-    const-string v0, "tags"
+    const-string/jumbo v0, "tags"
 
     iget-object v1, p0, Lcom/google/android/util/AbstractMessageParser$FlickrPhoto;->grouping:Ljava/lang/String;
 

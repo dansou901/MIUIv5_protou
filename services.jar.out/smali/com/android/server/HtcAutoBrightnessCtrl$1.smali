@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 553
+    .line 516
     iput-object p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl$1;->this$0:Lcom/android/server/HtcAutoBrightnessCtrl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,28 +40,28 @@
     .parameter "intent"
 
     .prologue
-    .line 557
+    .line 520
     if-nez p2, :cond_1
 
-    .line 558
+    .line 521
     const-string v1, "HtcAutoBrightnessCtrl"
 
     const-string v2, "CarModeReceiver intent is null"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 568
+    .line 531
     :cond_0
     :goto_0
     return-void
 
-    .line 562
+    .line 525
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 564
+    .line 527
     .local v0, action:Ljava/lang/String;
     const-string v1, "com.htc.AutoMotive.Service.ModeChange"
 
@@ -71,7 +71,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 565
+    .line 528
     iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl$1;->this$0:Lcom/android/server/HtcAutoBrightnessCtrl;
 
     #calls: Lcom/android/server/HtcAutoBrightnessCtrl;->checkCarMode(Landroid/content/Intent;)V

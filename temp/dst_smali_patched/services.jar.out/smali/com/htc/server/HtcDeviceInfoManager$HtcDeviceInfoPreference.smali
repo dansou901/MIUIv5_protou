@@ -154,10 +154,9 @@
     goto :goto_1
 .end method
 
-.method private declared-synchronized getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method private declared-synchronized getProperty(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
     .parameter "key"
-    .parameter "defaultValue"
 
     .prologue
     monitor-enter p0
@@ -176,7 +175,7 @@
     :cond_0
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
@@ -222,28 +221,29 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    if-nez v0, :cond_2
+
+    const-string v0, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_1
-    if-nez v0, :cond_3
-
     .end local v0           #value:Ljava/lang/String;
-    .end local p2
     :cond_2
     :goto_0
     monitor-exit p0
 
-    return-object p2
+    return-object v0
 
-    .restart local v0       #value:Ljava/lang/String;
-    .restart local p2
     :cond_3
-    move-object p2, v0
+    :try_start_1
+    const-string v0, ""
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .end local v0           #value:Ljava/lang/String;
     :catchall_0
     move-exception v1
 
@@ -664,9 +664,7 @@
     .prologue
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_CLIENT_STAT_LOG_OUTPUT:Ljava/lang/String;
 
-    const-string v2, ""
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -684,9 +682,7 @@
     .prologue
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_USE_TIME_LOG_OUTPUT:Ljava/lang/String;
 
-    const-string v2, ""
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -699,14 +695,12 @@
 .end method
 
 .method public getUBSwitch()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .prologue
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UB_SWITCH:Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -715,14 +709,12 @@
 .end method
 
 .method public getUIMode()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .prologue
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UI_MODE:Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

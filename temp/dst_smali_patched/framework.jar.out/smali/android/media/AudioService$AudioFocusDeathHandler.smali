@@ -45,7 +45,7 @@
     .locals 3
 
     .prologue
-    invoke-static {}, Landroid/media/AudioService;->access$11900()Ljava/lang/Object;
+    invoke-static {}, Landroid/media/AudioService;->access$10900()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -63,7 +63,7 @@
     iget-object v2, p0, Landroid/media/AudioService$AudioFocusDeathHandler;->mCb:Landroid/os/IBinder;
 
     #calls: Landroid/media/AudioService;->removeFocusStackEntryForClient(Landroid/os/IBinder;)V
-    invoke-static {v0, v2}, Landroid/media/AudioService;->access$12000(Landroid/media/AudioService;Landroid/os/IBinder;)V
+    invoke-static {v0, v2}, Landroid/media/AudioService;->access$11000(Landroid/media/AudioService;Landroid/os/IBinder;)V
 
     monitor-exit v1
 

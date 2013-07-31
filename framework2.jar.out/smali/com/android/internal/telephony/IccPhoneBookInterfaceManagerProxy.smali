@@ -20,7 +20,7 @@
     iput-object p1, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;->mIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
 
     .line 45
-    const-string v0, "simphonebook"
+    const-string/jumbo v0, "simphonebook"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -29,7 +29,7 @@
     if-nez v0, :cond_0
 
     .line 46
-    const-string v0, "simphonebook"
+    const-string/jumbo v0, "simphonebook"
 
     invoke-static {v0, p0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
@@ -153,6 +153,19 @@
     return-void
 .end method
 
+.method public getAdnCapacity()I
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;->mIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->getAdnCapacity()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public getAdnRecordsInEf(I)Ljava/util/List;
     .locals 1
     .parameter "efid"
@@ -218,6 +231,19 @@
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public getFreeAdn()I
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManagerProxy;->mIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->getFreeAdn()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getLastError()Lcom/android/internal/telephony/ADNErrorType;

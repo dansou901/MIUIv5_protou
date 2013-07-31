@@ -26,18 +26,18 @@
     .parameter "context"
 
     .prologue
-    .line 1577
+    .line 1500
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1578
+    .line 1501
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->mContext:Landroid/content/Context;
 
-    .line 1591
+    .line 1514
     iget-object v0, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->init3LMPublicKey(Landroid/content/Context;)V
 
-    .line 1593
+    .line 1516
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .parameter "blob"
 
     .prologue
-    .line 1599
+    .line 1522
     :try_start_0
     const-string v3, "X509"
 
@@ -54,7 +54,7 @@
 
     move-result-object v0
 
-    .line 1600
+    .line 1523
     .local v0, certFactory:Ljava/security/cert/CertificateFactory;
     new-instance v3, Ljava/io/ByteArrayInputStream;
 
@@ -64,7 +64,7 @@
 
     move-result-object v2
 
-    .line 1602
+    .line 1525
     .local v2, x509Cert:Ljava/security/cert/Certificate;
     invoke-virtual {v2}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
     :try_end_0
@@ -72,17 +72,17 @@
 
     move-result-object v3
 
-    .line 1608
+    .line 1531
     .end local v0           #certFactory:Ljava/security/cert/CertificateFactory;
     .end local v2           #x509Cert:Ljava/security/cert/Certificate;
     :goto_0
     return-object v3
 
-    .line 1604
+    .line 1527
     :catch_0
     move-exception v1
 
-    .line 1605
+    .line 1528
     .local v1, e:Ljava/security/cert/CertificateException;
     const-string v3, "DeviceManager3LM"
 
@@ -106,7 +106,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1608
+    .line 1531
     const/4 v3, 0x0
 
     goto :goto_0
@@ -117,12 +117,12 @@
     .parameter "context"
 
     .prologue
-    .line 1626
+    .line 1549
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    .line 1628
+    .line 1551
     .local v2, resources:Landroid/content/res/Resources;
     const-string v3, "1"
 
@@ -138,14 +138,14 @@
 
     if-eqz v3, :cond_0
 
-    .line 1629
+    .line 1552
     const/high16 v3, 0x407
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1633
+    .line 1556
     .local v0, cert:Ljava/lang/String;
     :goto_0
     const/4 v3, 0x0
@@ -158,22 +158,22 @@
 
     move-result-object v1
 
-    .line 1634
+    .line 1557
     .local v1, key:Ljava/security/PublicKey;
     if-eqz v1, :cond_1
 
-    .line 1635
+    .line 1558
     invoke-interface {v1}, Ljava/security/PublicKey;->getEncoded()[B
 
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->m3LMPublicKey:[B
 
-    .line 1639
+    .line 1562
     :goto_1
     return-void
 
-    .line 1631
+    .line 1554
     .end local v0           #cert:Ljava/lang/String;
     .end local v1           #key:Ljava/security/PublicKey;
     :cond_0
@@ -186,7 +186,7 @@
     .restart local v0       #cert:Ljava/lang/String;
     goto :goto_0
 
-    .line 1637
+    .line 1560
     .restart local v1       #key:Ljava/security/PublicKey;
     :cond_1
     const-string v3, "DeviceManager3LM"
@@ -221,31 +221,31 @@
     .parameter "blob"
 
     .prologue
-    .line 1612
+    .line 1535
     invoke-direct {p0, p1}, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->extractPublicKey([B)Ljava/security/PublicKey;
 
     move-result-object v0
 
-    .line 1614
+    .line 1537
     .local v0, blobKey:Ljava/security/PublicKey;
     iget-object v1, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->m3LMPublicKey:[B
 
     if-nez v1, :cond_0
 
-    .line 1615
+    .line 1538
     iget-object v1, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v1}, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->init3LMPublicKey(Landroid/content/Context;)V
 
-    .line 1616
+    .line 1539
     iget-object v1, p0, Lcom/android/server/DeviceManager3LMService$PublicKey3LM;->m3LMPublicKey:[B
 
     if-nez v1, :cond_0
 
-    .line 1617
+    .line 1540
     const/4 v1, 0x1
 
-    .line 1621
+    .line 1544
     :goto_0
     return v1
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1900
+    .line 1893
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Lcom/htc/server/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 1903
+    .line 1896
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1904
+    .line 1897
     return-void
 .end method
 
@@ -84,7 +84,7 @@
 
     const/4 v3, 0x0
 
-    .line 1907
+    .line 1900
     const-string v5, "WfdStateMachine"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -119,12 +119,12 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1908
+    .line 1901
     iget v5, p1, Landroid/os/Message;->what:I
 
     sparse-switch v5, :sswitch_data_0
 
-    .line 1981
+    .line 1974
     const-string v3, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -160,11 +160,11 @@
     :goto_0
     move v3, v4
 
-    .line 1984
+    .line 1977
     :sswitch_0
     return v3
 
-    .line 1910
+    .line 1903
     :sswitch_1
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -174,7 +174,7 @@
 
     move-result v2
 
-    .line 1911
+    .line 1904
     .local v2, wifiState:I
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -192,14 +192,14 @@
 
     if-ne v2, v5, :cond_0
 
-    .line 1913
+    .line 1906
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
 
     invoke-virtual {v5, v4}, Ljava/util/BitSet;->clear(I)V
 
-    .line 1915
+    .line 1908
     :cond_0
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -209,7 +209,7 @@
 
     move-result v1
 
-    .line 1916
+    .line 1909
     .local v1, wifiApState:I
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -229,14 +229,14 @@
 
     if-ne v1, v5, :cond_1
 
-    .line 1918
+    .line 1911
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
 
     invoke-virtual {v5, v8}, Ljava/util/BitSet;->clear(I)V
 
-    .line 1920
+    .line 1913
     :cond_1
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -250,7 +250,7 @@
 
     if-eqz v5, :cond_3
 
-    .line 1921
+    .line 1914
     :cond_2
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -258,95 +258,95 @@
 
     invoke-virtual {v5, v9}, Ljava/util/BitSet;->set(I)V
 
-    .line 1923
+    .line 1916
     :cond_3
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
-    .line 1924
+    .line 1917
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
 
-    .line 1925
+    .line 1918
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
-    .line 1926
+    .line 1919
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
 
-    .line 1927
+    .line 1920
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
-    .line 1928
+    .line 1921
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
-    .line 1929
+    .line 1922
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
-    .line 1930
+    .line 1923
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
-    .line 1931
+    .line 1924
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsDfsChannel:Z
 
-    .line 1932
+    .line 1925
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsWivuTimeout:Z
 
-    .line 1933
+    .line 1926
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    .line 1934
+    .line 1927
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    .line 1935
+    .line 1928
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
 
-    .line 1936
+    .line 1929
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
 
-    .line 1937
+    .line 1930
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
 
-    .line 1939
+    .line 1932
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsConnectionRequest:Z
 
-    .line 1941
+    .line 1934
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const-string v6, ""
 
     iput-object v6, v5, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
 
-    .line 1942
+    .line 1935
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
@@ -367,13 +367,13 @@
 
     if-eqz v5, :cond_6
 
-    .line 1943
+    .line 1936
     :cond_4
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 1944
+    .line 1937
     .local v0, intent:Landroid/content/Intent;
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -383,7 +383,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->setClassName(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1945
+    .line 1938
     const-string v5, "reset_wifi"
 
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -396,7 +396,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1946
+    .line 1939
     const-string v5, "reset_ap"
 
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -409,7 +409,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1947
+    .line 1940
     const-string v5, "reconnect_dfs"
 
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -422,7 +422,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1948
+    .line 1941
     const-string v5, "reset_dongle"
 
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -435,7 +435,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1949
+    .line 1942
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
@@ -444,7 +444,7 @@
 
     if-eqz v5, :cond_5
 
-    .line 1950
+    .line 1943
     const-string v5, "dongle_bssid"
 
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -455,7 +455,7 @@
 
     invoke-virtual {v0, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1951
+    .line 1944
     :cond_5
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -463,7 +463,7 @@
 
     invoke-virtual {v5, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 1952
+    .line 1945
     const-string v5, "WfdStateMachine"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -548,14 +548,14 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1956
+    .line 1949
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
 
     invoke-virtual {v5}, Ljava/util/BitSet;->clear()V
 
-    .line 1959
+    .line 1952
     .end local v0           #intent:Landroid/content/Intent;
     :cond_6
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -566,14 +566,14 @@
 
     if-eqz v5, :cond_7
 
-    .line 1960
+    .line 1953
     const-string v5, "WfdStateMachine"
 
     const-string v6, "Stopping mirror mode anyway."
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1961
+    .line 1954
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
@@ -582,7 +582,7 @@
 
     goto/16 :goto_0
 
-    .line 1963
+    .line 1956
     :cond_7
     const-string v5, "WfdStateMachine"
 
@@ -590,14 +590,14 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1964
+    .line 1957
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-static {v5, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    .line 1966
+    .line 1959
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/16 v6, 0x1a
@@ -605,33 +605,33 @@
     #calls: Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
     invoke-static {v5, v6}, Lcom/htc/server/WfdStateMachine;->access$100(Lcom/htc/server/WfdStateMachine;I)V
 
-    .line 1967
+    .line 1960
     const-string v5, "WfdStateMachine"
 
     const-string v6, "Resetting is complete."
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1968
+    .line 1961
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iput-boolean v3, v5, Lcom/htc/server/WfdStateMachine;->mIsResetting:Z
 
-    .line 1972
+    .line 1965
     const-string v3, "WfdStateMachine"
 
     const-string v5, "[0619] ====>>> @LinkReset: Finish service, NOT quit state machine. <<<===="
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1973
+    .line 1966
     const-string v3, "WfdStateMachine"
 
     const-string v5, "[0619] ====>>> @LinkReset: transitionTo LinkInitState <<<===="
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1974
+    .line 1967
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine$LinkResetState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -642,7 +642,7 @@
 
     goto/16 :goto_0
 
-    .line 1908
+    .line 1901
     :sswitch_data_0
     .sparse-switch
         -0x1 -> :sswitch_0

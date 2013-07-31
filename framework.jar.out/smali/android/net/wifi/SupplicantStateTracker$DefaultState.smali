@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 202
+    .line 180
     iput-object p1, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 206
+    .line 184
     return-void
 .end method
 
@@ -51,12 +51,12 @@
 
     const/4 v6, 0x1
 
-    .line 210
+    .line 188
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 248
+    .line 218
     const-string v2, "SupplicantStateTracker"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -79,114 +79,92 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 251
-    :cond_0
+    .line 221
     :goto_0
     return v6
 
-    .line 215
+    .line 190
     :sswitch_0
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
-    #getter for: Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-    invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$000(Landroid/net/wifi/SupplicantStateTracker;)Z
+    invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$008(Landroid/net/wifi/SupplicantStateTracker;)I
 
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 216
+    .line 191
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
-    invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$108(Landroid/net/wifi/SupplicantStateTracker;)I
+    #setter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
+    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$102(Landroid/net/wifi/SupplicantStateTracker;Z)Z
 
-    .line 217
+    goto :goto_0
+
+    .line 195
+    :sswitch_1
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$208(Landroid/net/wifi/SupplicantStateTracker;)I
 
-    .line 218
-    iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
-
-    #setter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
-    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-
-    .line 219
-    iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
-
-    #setter for: Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$002(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-
-    goto :goto_0
-
-    .line 225
-    :sswitch_1
-    iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
-
-    invoke-static {v2}, Landroid/net/wifi/SupplicantStateTracker;->access$408(Landroid/net/wifi/SupplicantStateTracker;)I
-
-    .line 226
+    .line 196
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #setter for: Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemInSupplicantBroadcast:Z
-    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$502(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
 
     goto :goto_0
 
-    .line 230
+    .line 200
     :sswitch_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/StateChangeResult;
 
-    .line 231
+    .line 201
     .local v1, stateChangeResult:Landroid/net/wifi/StateChangeResult;
     iget-object v0, v1, Landroid/net/wifi/StateChangeResult;->state:Landroid/net/wifi/SupplicantState;
 
-    .line 233
+    .line 203
     .local v0, state:Landroid/net/wifi/SupplicantState;
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     iget-object v3, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #getter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
-    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
+    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
 
     move-result v3
 
     iget-object v4, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #getter for: Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemInSupplicantBroadcast:Z
-    invoke-static {v4}, Landroid/net/wifi/SupplicantStateTracker;->access$500(Landroid/net/wifi/SupplicantStateTracker;)Z
+    invoke-static {v4}, Landroid/net/wifi/SupplicantStateTracker;->access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
 
     move-result v4
 
     iget v5, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
     #calls: Landroid/net/wifi/SupplicantStateTracker;->sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;ZZI)V
-    invoke-static {v2, v0, v3, v4, v5}, Landroid/net/wifi/SupplicantStateTracker;->access$600(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
+    invoke-static {v2, v0, v3, v4, v5}, Landroid/net/wifi/SupplicantStateTracker;->access$400(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
 
-    .line 235
+    .line 205
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #setter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
-    invoke-static {v2, v7}, Landroid/net/wifi/SupplicantStateTracker;->access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+    invoke-static {v2, v7}, Landroid/net/wifi/SupplicantStateTracker;->access$102(Landroid/net/wifi/SupplicantStateTracker;Z)Z
 
-    .line 237
+    .line 207
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #setter for: Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemInSupplicantBroadcast:Z
-    invoke-static {v2, v7}, Landroid/net/wifi/SupplicantStateTracker;->access$502(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+    invoke-static {v2, v7}, Landroid/net/wifi/SupplicantStateTracker;->access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
 
-    .line 239
+    .line 209
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #calls: Landroid/net/wifi/SupplicantStateTracker;->transitionOnSupplicantStateChange(Landroid/net/wifi/StateChangeResult;)V
-    invoke-static {v2, v1}, Landroid/net/wifi/SupplicantStateTracker;->access$700(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
+    invoke-static {v2, v1}, Landroid/net/wifi/SupplicantStateTracker;->access$500(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
 
     goto :goto_0
 
-    .line 242
+    .line 212
     .end local v0           #state:Landroid/net/wifi/SupplicantState;
     .end local v1           #stateChangeResult:Landroid/net/wifi/StateChangeResult;
     :sswitch_3
@@ -195,25 +173,25 @@
     iget-object v3, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #getter for: Landroid/net/wifi/SupplicantStateTracker;->mUninitializedState:Lcom/android/internal/util/State;
-    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$800(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
+    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$600(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
 
     move-result-object v3
 
     #calls: Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$900(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
+    invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$700(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 
-    .line 245
+    .line 215
     :sswitch_4
     iget-object v2, p0, Landroid/net/wifi/SupplicantStateTracker$DefaultState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #setter for: Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
-    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$1002(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+    invoke-static {v2, v6}, Landroid/net/wifi/SupplicantStateTracker;->access$802(Landroid/net/wifi/SupplicantStateTracker;Z)Z
 
     goto :goto_0
 
-    .line 210
+    .line 188
     nop
 
     :sswitch_data_0

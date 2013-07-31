@@ -1013,7 +1013,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "true"
+    const-string/jumbo v0, "true"
 
     :goto_0
     invoke-virtual {v1, v2, v0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V

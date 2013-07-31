@@ -33,20 +33,20 @@
     .parameter "format"
 
     .prologue
-    .line 1734
+    .line 1524
     iput-object p1, p0, Landroid/mtp/MtpDatabase$MtpHandler$MtpScanData;->this$1:Landroid/mtp/MtpDatabase$MtpHandler;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1735
+    .line 1525
     iput-object p2, p0, Landroid/mtp/MtpDatabase$MtpHandler$MtpScanData;->mPath:Ljava/lang/String;
 
-    .line 1736
+    .line 1526
     iput p3, p0, Landroid/mtp/MtpDatabase$MtpHandler$MtpScanData;->mHandle:I
 
-    .line 1737
+    .line 1527
     iput p4, p0, Landroid/mtp/MtpDatabase$MtpHandler$MtpScanData;->mFormat:I
 
-    .line 1738
+    .line 1528
     return-void
 .end method

@@ -53,10 +53,6 @@
 
 .field public dns_sec:Ljava/lang/String;
 
-.field public http_proxy_addr:Ljava/lang/String;
-
-.field public http_proxy_port:Ljava/lang/String;
-
 .field public id:I
 
 .field public name:Ljava/lang/String;
@@ -134,14 +130,6 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->pdnLabelMapping:Ljava/util/HashMap;
-
-    const-string v2, "3rdumts"
-
-    sget-object v3, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_CUSTOMIZE2:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
     sget-object v1, Lcom/android/internal/telephony/APNParam;->classIdMapping:Ljava/util/HashMap;
 
     sget-object v2, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_ADMIN:Lcom/android/internal/telephony/APNParam$ClassId;
@@ -163,14 +151,6 @@
     sget-object v2, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_TETHERING:Lcom/android/internal/telephony/APNParam$ClassId;
 
     const-string v3, "pam"
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->classIdMapping:Ljava/util/HashMap;
-
-    sget-object v2, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_CUSTOMIZE2:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    const-string v3, "3rdumts"
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -318,22 +298,6 @@
 
     sget-object v1, Lcom/android/internal/telephony/APNParam;->pdnLabelMapping:Ljava/util/HashMap;
 
-    const-string v2, "1"
-
-    sget-object v3, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_IMS:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->pdnLabelMapping:Ljava/util/HashMap;
-
-    const-string v2, "2"
-
-    sget-object v3, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_ADMIN:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->pdnLabelMapping:Ljava/util/HashMap;
-
     const-string v2, "3"
 
     sget-object v3, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_INTERNET:Lcom/android/internal/telephony/APNParam$ClassId;
@@ -345,22 +309,6 @@
     const-string v2, "4"
 
     sget-object v3, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_TETHERING:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->classIdMapping:Ljava/util/HashMap;
-
-    sget-object v2, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_IMS:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    const-string v3, "1"
-
-    invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    sget-object v1, Lcom/android/internal/telephony/APNParam;->classIdMapping:Ljava/util/HashMap;
-
-    sget-object v2, Lcom/android/internal/telephony/APNParam$ClassId;->CLASS_ADMIN:Lcom/android/internal/telephony/APNParam$ClassId;
-
-    const-string v3, "2"
 
     invoke-virtual {v1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -709,34 +657,6 @@
     invoke-direct/range {p0 .. p12}, Lcom/android/internal/telephony/APNParam;-><init>(ILjava/lang/String;Ljava/lang/String;IIIILjava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
 
     iput-object p13, p0, Lcom/android/internal/telephony/APNParam;->apn_types:[Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>(ILjava/lang/String;Ljava/lang/String;IIIILjava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-    .parameter "n_id"
-    .parameter "n_pdn_label"
-    .parameter "n_name"
-    .parameter "n_type"
-    .parameter "n_state"
-    .parameter "n_timer"
-    .parameter "n_rat"
-    .parameter "n_user"
-    .parameter "n_pass"
-    .parameter "n_auth_type"
-    .parameter "n_dns_pri"
-    .parameter "n_dns_sec"
-    .parameter "n_apn_type"
-    .parameter "n_http_proxy_addr"
-    .parameter "n_http_proxy_port"
-
-    .prologue
-    invoke-direct/range {p0 .. p13}, Lcom/android/internal/telephony/APNParam;-><init>(ILjava/lang/String;Ljava/lang/String;IIIILjava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
-
-    iput-object p14, p0, Lcom/android/internal/telephony/APNParam;->http_proxy_addr:Ljava/lang/String;
-
-    iput-object p15, p0, Lcom/android/internal/telephony/APNParam;->http_proxy_port:Ljava/lang/String;
 
     return-void
 .end method
@@ -1173,22 +1093,6 @@
     goto :goto_0
 
     :cond_1
-    const-string v2, ", HttpProxyAddr="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/android/internal/telephony/APNParam;->http_proxy_addr:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, ", HttpProxyPort="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/android/internal/telephony/APNParam;->http_proxy_port:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     const-string v2, " }"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

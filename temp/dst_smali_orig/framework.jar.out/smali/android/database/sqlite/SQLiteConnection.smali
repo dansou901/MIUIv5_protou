@@ -521,54 +521,51 @@
     :goto_0
     iget v4, p1, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;->mNumParameters:I
 
-    if-eq v1, v4, :cond_2
+    if-eq v1, v4, :cond_1
 
-    new-instance v5, Landroid/database/sqlite/SQLiteBindOrColumnIndexOutOfRangeException;
+    new-instance v4, Landroid/database/sqlite/SQLiteBindOrColumnIndexOutOfRangeException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v6, "Expected "
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
     iget v6, p1, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;->mNumParameters:I
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
     const-string v6, " bind arguments but "
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    if-nez p2, :cond_1
+    array-length v6, p2
 
-    const-string v4, "null"
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :goto_1
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    move-result-object v5
 
     const-string v6, " were provided."
 
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-direct {v5, v4}, Landroid/database/sqlite/SQLiteBindOrColumnIndexOutOfRangeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v5}, Landroid/database/sqlite/SQLiteBindOrColumnIndexOutOfRangeException;-><init>(Ljava/lang/String;)V
 
-    throw v5
+    throw v4
 
     .end local v1           #count:I
     :cond_0
@@ -578,27 +575,20 @@
 
     .restart local v1       #count:I
     :cond_1
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    goto :goto_1
+    if-nez v1, :cond_3
 
     :cond_2
-    if-nez v1, :cond_4
-
-    :cond_3
     return-void
 
-    :cond_4
+    :cond_3
     iget v3, p1, Landroid/database/sqlite/SQLiteConnection$PreparedStatement;->mStatementPtr:I
 
     .local v3, statementPtr:I
     const/4 v2, 0x0
 
     .local v2, i:I
-    :goto_2
-    if-ge v2, v1, :cond_3
+    :goto_1
+    if-ge v2, v1, :cond_2
 
     aget-object v0, p2, v2
 
@@ -612,7 +602,7 @@
     :pswitch_0
     instance-of v4, v0, Ljava/lang/Boolean;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_5
 
     iget v6, p0, Landroid/database/sqlite/SQLiteConnection;->mConnectionPtr:I
 
@@ -625,17 +615,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_4
 
     const-wide/16 v4, 0x1
 
-    :goto_3
+    :goto_2
     invoke-static {v6, v3, v7, v4, v5}, Landroid/database/sqlite/SQLiteConnection;->nativeBindLong(IIIJ)V
 
-    :goto_4
+    :goto_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
     .restart local v0       #arg:Ljava/lang/Object;
     :pswitch_1
@@ -645,7 +635,7 @@
 
     invoke-static {v4, v3, v5}, Landroid/database/sqlite/SQLiteConnection;->nativeBindNull(III)V
 
-    goto :goto_4
+    goto :goto_3
 
     :pswitch_2
     iget v4, p0, Landroid/database/sqlite/SQLiteConnection;->mConnectionPtr:I
@@ -661,7 +651,7 @@
 
     invoke-static {v4, v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteConnection;->nativeBindLong(IIIJ)V
 
-    goto :goto_4
+    goto :goto_3
 
     .restart local v0       #arg:Ljava/lang/Object;
     :pswitch_3
@@ -678,7 +668,7 @@
 
     invoke-static {v4, v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteConnection;->nativeBindDouble(IIID)V
 
-    goto :goto_4
+    goto :goto_3
 
     .restart local v0       #arg:Ljava/lang/Object;
     :pswitch_4
@@ -693,15 +683,15 @@
 
     invoke-static {v4, v3, v5, v0}, Landroid/database/sqlite/SQLiteConnection;->nativeBindBlob(III[B)V
 
-    goto :goto_4
-
-    :cond_5
-    const-wide/16 v4, 0x0
-
     goto :goto_3
 
+    :cond_4
+    const-wide/16 v4, 0x0
+
+    goto :goto_2
+
     .restart local v0       #arg:Ljava/lang/Object;
-    :cond_6
+    :cond_5
     iget v4, p0, Landroid/database/sqlite/SQLiteConnection;->mConnectionPtr:I
 
     add-int/lit8 v5, v2, 0x1
@@ -712,7 +702,9 @@
 
     invoke-static {v4, v3, v5, v6}, Landroid/database/sqlite/SQLiteConnection;->nativeBindString(IIILjava/lang/String;)V
 
-    goto :goto_4
+    goto :goto_3
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

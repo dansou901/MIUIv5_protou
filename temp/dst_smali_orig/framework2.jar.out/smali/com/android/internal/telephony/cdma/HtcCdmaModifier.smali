@@ -2285,7 +2285,7 @@
     :sswitch_28
     const-string v0, "Silverstar"
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_29
     const-string v0, "South Central"
@@ -2735,17 +2735,6 @@
     goto :goto_0
 
     :cond_5
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v4, 0x75
-
-    if-ne v3, v4, :cond_6
-
-    const-string v2, "123"
-
-    goto :goto_0
-
-    :cond_6
     move-object v2, p1
 
     move v0, p0
@@ -2756,26 +2745,26 @@
     move-result-object v1
 
     .local v1, projectFlagId:Ljava/lang/Integer;
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    :cond_7
-    if-nez v1, :cond_8
+    :cond_6
+    if-nez v1, :cond_7
 
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/4 v4, 0x4
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_7
 
     sget-boolean v3, Lcom/android/internal/telephony/cdma/CDMAPhone;->mDetectVMbyCarrierIdFromNV:Z
 
     if-eqz v3, :cond_0
 
-    :cond_8
+    :cond_7
     sparse-switch v0, :sswitch_data_0
 
     goto :goto_0
@@ -2786,11 +2775,7 @@
     goto :goto_0
 
     :sswitch_1
-    sget-boolean v3, Lcom/android/internal/telephony/HtcBuildUtils;->CDMA_EHRPD_CONFIG:Z
-
-    if-nez v3, :cond_0
-
-    const-string v2, ""
+    const-string v2, "0000000000"
 
     goto :goto_0
 
@@ -2800,27 +2785,27 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v2, "6603951000"
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string v2, "*86"
-
-    goto :goto_0
-
-    :sswitch_5
     const-string v2, "*89"
 
     goto :goto_0
 
-    :sswitch_6
+    :sswitch_4
     const-string v2, "6057256245"
 
     goto :goto_0
 
-    :sswitch_7
+    :sswitch_5
     const-string v2, "4064850808"
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string v2, "*95"
+
+    goto :goto_0
+
+    :sswitch_7
+    const-string v2, "7018529600"
 
     goto :goto_0
 
@@ -2830,51 +2815,26 @@
     goto :goto_0
 
     :sswitch_9
-    const-string v2, "5804682301"
-
-    goto :goto_0
-
-    :sswitch_a
-    const-string v2, "*86"
-
-    goto :goto_0
-
-    :sswitch_b
-    const-string v2, "3078806269"
-
-    goto :goto_0
-
-    :sswitch_c
-    const-string v2, "7018529600"
-
-    goto :goto_0
-
-    :sswitch_d
-    const-string v2, "4358239090"
-
-    goto :goto_0
-
-    :sswitch_e
     const-string v2, "123"
 
     goto :goto_0
 
-    :sswitch_f
+    :sswitch_a
     const-string v2, "9078226245"
 
     goto :goto_0
 
-    :sswitch_10
+    :sswitch_b
     const-string v2, "8154886245"
 
     goto :goto_0
 
-    :sswitch_11
-    const-string v2, "9073737900"
+    :sswitch_c
+    const-string v2, "9077457900"
 
     goto :goto_0
 
-    :sswitch_12
+    :sswitch_d
     const-string v2, "#9"
 
     goto :goto_0
@@ -2883,23 +2843,18 @@
     .sparse-switch
         0xf -> :sswitch_0
         0x66 -> :sswitch_1
-        0x6c -> :sswitch_12
+        0x6c -> :sswitch_d
         0x6d -> :sswitch_2
-        0x74 -> :sswitch_4
-        0x75 -> :sswitch_b
-        0x77 -> :sswitch_10
-        0x79 -> :sswitch_9
-        0x7c -> :sswitch_11
-        0x7d -> :sswitch_c
-        0x80 -> :sswitch_7
-        0x81 -> :sswitch_5
-        0x83 -> :sswitch_e
-        0x85 -> :sswitch_6
-        0x87 -> :sswitch_f
-        0x8a -> :sswitch_d
-        0x8b -> :sswitch_a
-        0x93 -> :sswitch_8
-        0x99 -> :sswitch_3
+        0x77 -> :sswitch_b
+        0x79 -> :sswitch_6
+        0x7c -> :sswitch_c
+        0x7d -> :sswitch_7
+        0x80 -> :sswitch_5
+        0x81 -> :sswitch_3
+        0x82 -> :sswitch_8
+        0x83 -> :sswitch_9
+        0x85 -> :sswitch_4
+        0x87 -> :sswitch_a
     .end sparse-switch
 .end method
 

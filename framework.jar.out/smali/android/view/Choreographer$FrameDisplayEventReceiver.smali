@@ -34,13 +34,13 @@
     .parameter "looper"
 
     .prologue
-    .line 684
+    .line 680
     iput-object p1, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
-    .line 685
+    .line 681
     invoke-direct {p0, p2}, Landroid/view/DisplayEventReceiver;-><init>(Landroid/os/Looper;)V
 
-    .line 686
+    .line 682
     return-void
 .end method
 
@@ -54,7 +54,7 @@
     .prologue
     const/4 v7, 0x1
 
-    .line 695
+    .line 691
     const-string v3, "Choregrapher"
 
     const-string v4, "ONVSYNC"
@@ -63,18 +63,18 @@
 
     invoke-static {v7, v3, v4, v5}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 696
+    .line 692
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v1
 
-    .line 697
+    .line 693
     .local v1, now:J
     cmp-long v3, p1, v1
 
     if-lez v3, :cond_0
 
-    .line 698
+    .line 694
     const-string v3, "Choreographer"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -117,30 +117,30 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 701
+    .line 697
     move-wide p1, v1
 
-    .line 704
+    .line 700
     :cond_0
     iget-boolean v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
 
     if-eqz v3, :cond_1
 
-    .line 705
+    .line 701
     const-string v3, "Choreographer"
 
     const-string v4, "Already have a pending vsync event.  There should only be one at a time."
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 711
+    .line 707
     :goto_0
     iput-wide p1, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mTimestampNanos:J
 
-    .line 712
+    .line 708
     iput p3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mFrame:I
 
-    .line 713
+    .line 709
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
     #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
@@ -152,11 +152,11 @@
 
     move-result-object v0
 
-    .line 714
+    .line 710
     .local v0, msg:Landroid/os/Message;
     invoke-virtual {v0, v7}, Landroid/os/Message;->setAsynchronous(Z)V
 
-    .line 715
+    .line 711
     iget-object v3, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
     #getter for: Landroid/view/Choreographer;->mHandler:Landroid/view/Choreographer$FrameHandler;
@@ -170,7 +170,7 @@
 
     invoke-virtual {v3, v0, v4, v5}, Landroid/view/Choreographer$FrameHandler;->sendMessageAtTime(Landroid/os/Message;J)Z
 
-    .line 716
+    .line 712
     const/4 v3, 0x2
 
     const-string v4, "Choregrapher"
@@ -181,10 +181,10 @@
 
     invoke-static {v3, v4, v5, v6}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 717
+    .line 713
     return-void
 
-    .line 708
+    .line 704
     .end local v0           #msg:Landroid/os/Message;
     :cond_1
     iput-boolean v7, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
@@ -196,12 +196,12 @@
     .locals 4
 
     .prologue
-    .line 721
+    .line 717
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mHavePendingVsync:Z
 
-    .line 722
+    .line 718
     const/4 v0, 0x1
 
     const-string v1, "Choregrapher"
@@ -212,7 +212,7 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 723
+    .line 719
     iget-object v0, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->this$0:Landroid/view/Choreographer;
 
     iget-wide v1, p0, Landroid/view/Choreographer$FrameDisplayEventReceiver;->mTimestampNanos:J
@@ -221,7 +221,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/Choreographer;->doFrame(JI)V
 
-    .line 724
+    .line 720
     const/4 v0, 0x2
 
     const-string v1, "Choregrapher"
@@ -232,6 +232,6 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 725
+    .line 721
     return-void
 .end method

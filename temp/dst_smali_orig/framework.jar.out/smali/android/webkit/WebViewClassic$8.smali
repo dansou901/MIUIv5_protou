@@ -145,14 +145,14 @@
     iget-object v2, p0, Landroid/webkit/WebViewClassic$8;->this$0:Landroid/webkit/WebViewClassic;
 
     #setter for: Landroid/webkit/WebViewClassic;->mLoadedPicture:Landroid/webkit/WebViewCore$DrawData;
-    invoke-static {v2, p1}, Landroid/webkit/WebViewClassic;->access$2702(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewCore$DrawData;)Landroid/webkit/WebViewCore$DrawData;
+    invoke-static {v2, p1}, Landroid/webkit/WebViewClassic;->access$2302(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewCore$DrawData;)Landroid/webkit/WebViewCore$DrawData;
 
     iget-object v2, p0, Landroid/webkit/WebViewClassic$8;->this$0:Landroid/webkit/WebViewClassic;
 
     iget-object v3, p0, Landroid/webkit/WebViewClassic$8;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mLoadedPicture:Landroid/webkit/WebViewCore$DrawData;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$2700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore$DrawData;
+    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore$DrawData;
 
     move-result-object v3
 
@@ -163,7 +163,7 @@
     iget-object v2, p0, Landroid/webkit/WebViewClassic$8;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mLoadedPicture:Landroid/webkit/WebViewCore$DrawData;
-    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$2700(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore$DrawData;
+    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore$DrawData;
 
     move-result-object v2
 

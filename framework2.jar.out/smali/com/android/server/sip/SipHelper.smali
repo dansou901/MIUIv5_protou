@@ -1628,7 +1628,7 @@
 
     const-string v3, "message"
 
-    const-string v4, "sipfrag"
+    const-string/jumbo v4, "sipfrag"
 
     invoke-interface {v2, v3, v4}, Ljavax/sip/header/HeaderFactory;->createContentTypeHeader(Ljava/lang/String;Ljava/lang/String;)Ljavax/sip/header/ContentTypeHeader;
 

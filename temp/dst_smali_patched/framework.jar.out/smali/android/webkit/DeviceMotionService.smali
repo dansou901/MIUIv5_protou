@@ -12,8 +12,6 @@
 
 .field private static final INTERVAL_MILLIS:I = 0x64
 
-.field private static final LOGTAG:Ljava/lang/String; = "DeviceMotionService"
-
 
 # instance fields
 .field private mContext:Landroid/content/Context;

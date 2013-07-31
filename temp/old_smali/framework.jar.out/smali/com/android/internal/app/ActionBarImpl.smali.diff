@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/app/ActionBarImpl.smali	2013-07-12 21:43:04.731835116 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ActionBarImpl.smali	2013-07-12 21:40:52.838490907 +0000
+*** ./smali/com/android/internal/app/ActionBarImpl.smali	2013-07-31 22:22:19.370732889 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ActionBarImpl.smali	2013-07-31 22:21:17.490727724 +0000
 ***************
 *** 546,556 ****
       return-void

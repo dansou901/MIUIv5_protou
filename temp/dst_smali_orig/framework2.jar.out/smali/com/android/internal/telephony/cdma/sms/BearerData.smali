@@ -1033,6 +1033,8 @@
 
     goto :goto_2
 
+    nop
+
     :array_0
     .array-data 0x1
         0x31t
@@ -2214,6 +2216,8 @@
 
     goto/16 :goto_2
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0
@@ -2279,13 +2283,7 @@
 
     if-eq v7, v8, :cond_0
 
-    if-nez v4, :cond_0
-
-    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isAPTG()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
+    if-eqz v4, :cond_1
 
     :cond_0
     mul-int/lit8 v7, p1, 0x8
@@ -4652,6 +4650,8 @@
 
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -5275,6 +5275,8 @@
     invoke-static {p0}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeIs91ShortMessage(Lcom/android/internal/telephony/cdma/sms/BearerData;)V
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x82
@@ -7660,337 +7662,309 @@
     .end annotation
 
     .prologue
-    const/4 v5, 0x0
-
-    .local v5, offset:I
-    if-eqz p1, :cond_0
-
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    const/4 v11, 0x1
 
     const/4 v10, 0x0
 
-    aget-byte v9, v9, v10
+    const/4 v4, 0x0
 
-    and-int/lit16 v8, v9, 0xff
+    .local v4, offset:I
+    if-eqz p1, :cond_0
 
-    .local v8, udhLen:I
-    add-int/lit8 v9, v8, 0x1
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    add-int/2addr v5, v9
+    aget-byte v8, v8, v10
 
-    new-array v4, v8, [B
+    and-int/lit16 v7, v8, 0xff
 
-    .local v4, headerData:[B
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    .local v7, udhLen:I
+    add-int/lit8 v8, v7, 0x1
 
-    const/4 v10, 0x1
+    add-int/2addr v4, v8
 
-    const/4 v11, 0x0
+    new-array v3, v7, [B
 
-    invoke-static {v9, v10, v4, v11, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    .local v3, headerData:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    invoke-static {v4}, Lcom/android/internal/telephony/SmsHeader;->fromByteArray([B)Lcom/android/internal/telephony/SmsHeader;
+    invoke-static {v8, v11, v3, v10, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    move-result-object v9
+    invoke-static {v3}, Lcom/android/internal/telephony/SmsHeader;->fromByteArray([B)Lcom/android/internal/telephony/SmsHeader;
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    move-result-object v8
 
-    .end local v4           #headerData:[B
-    .end local v8           #udhLen:I
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
+
+    .end local v3           #headerData:[B
+    .end local v7           #udhLen:I
     :cond_0
     const/16 v2, 0x9
 
     .local v2, encodingTypeFromDcs:I
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    const/16 v10, 0xa
+    const/16 v9, 0xa
 
-    if-ne v9, v10, :cond_1
+    if-ne v8, v9, :cond_1
 
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgType:I
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgType:I
 
-    and-int/lit16 v9, v9, 0xff
+    and-int/lit16 v8, v8, 0xff
 
-    int-to-byte v9, v9
+    int-to-byte v8, v8
 
-    invoke-static {v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->getEncodingTypeFromDcs(B)I
+    invoke-static {v8}, Lcom/android/internal/telephony/cdma/sms/BearerData;->getEncodingTypeFromDcs(B)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
     :cond_1
-    sget-short v9, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v8, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v10, 0x51
+    const/16 v9, 0x51
 
-    if-ne v9, v10, :cond_2
+    if-ne v8, v9, :cond_2
 
-    const/4 v9, 0x1
+    if-ne p1, v11, :cond_2
 
-    if-ne p1, v9, :cond_2
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    sub-int/2addr v8, v4
 
-    if-eqz v9, :cond_2
+    iput v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->userDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    .local v3, header:Lcom/android/internal/telephony/SmsHeader;
-    if-eqz v3, :cond_2
+    array-length v8, v8
 
-    iget-object v9, v3, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
+    sub-int/2addr v8, v4
 
-    if-eqz v9, :cond_2
+    new-array v6, v8, [B
 
-    iget-object v9, v3, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
+    .local v6, truePayload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v9, v9, Lcom/android/internal/telephony/SmsHeader$PortAddrs;->destPort:I
+    array-length v9, v6
 
-    const/16 v10, 0xb84
+    invoke-static {v8, v4, v6, v10, v9}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    if-ne v9, v10, :cond_2
+    iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    const/4 v4, 0x0
 
-    sub-int/2addr v9, v5
-
-    iput v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
-
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
-
-    array-length v9, v9
-
-    sub-int/2addr v9, v5
-
-    new-array v7, v9, [B
-
-    .local v7, truePayload:[B
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
-
-    const/4 v10, 0x0
-
-    array-length v11, v7
-
-    invoke-static {v9, v5, v7, v10, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    iput-object v7, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
-
-    const/4 v5, 0x0
-
-    .end local v3           #header:Lcom/android/internal/telephony/SmsHeader;
-    .end local v7           #truePayload:[B
+    .end local v6           #truePayload:[B
     :cond_2
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    packed-switch v9, :pswitch_data_0
+    packed-switch v8, :pswitch_data_0
 
     :pswitch_0
-    new-instance v9, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
+    new-instance v8, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "unsupported user data encoding ("
+    const-string v10, "unsupported user data encoding ("
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    iget v11, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
+    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->msgEncoding:I
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    const-string v11, ")"
+    const-string v10, ")"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-direct {v9, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;-><init>(Ljava/lang/String;)V
 
-    throw v9
+    throw v8
 
     :pswitch_1
     const/4 v1, 0x0
 
     .local v1, decodingtypeUTF8:Z
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    new-array v6, v9, [B
+    new-array v5, v8, [B
 
-    .local v6, payload:[B
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    .local v5, payload:[B
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    iget-object v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    array-length v10, v10
+    array-length v9, v9
 
-    if-ge v9, v10, :cond_3
+    if-ge v8, v9, :cond_3
 
     iget v0, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
     .local v0, copyLen:I
     :goto_0
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    const/4 v10, 0x0
+    invoke-static {v8, v10, v5, v10, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    const/4 v11, 0x0
-
-    invoke-static {v9, v10, v6, v11, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    iput-object v6, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iput-object v5, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     if-nez v1, :cond_4
 
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeLatin([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeLatin([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     .end local v0           #copyLen:I
     .end local v1           #decodingtypeUTF8:Z
-    .end local v6           #payload:[B
+    .end local v5           #payload:[B
     :goto_1
     return-void
 
     .restart local v1       #decodingtypeUTF8:Z
-    .restart local v6       #payload:[B
+    .restart local v5       #payload:[B
     :cond_3
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    array-length v0, v9
+    array-length v0, v8
 
     goto :goto_0
 
     .restart local v0       #copyLen:I
     :cond_4
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUtf8([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUtf8([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     .end local v0           #copyLen:I
     .end local v1           #decodingtypeUTF8:Z
-    .end local v6           #payload:[B
+    .end local v5           #payload:[B
     :pswitch_2
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decode7bitAscii([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decode7bitAscii([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     :pswitch_3
     invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isSupportWemtUnicodeByteCount()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_5
+    if-eqz v8, :cond_5
 
-    const/16 v9, 0x1005
+    const/16 v8, 0x1005
 
-    if-ne p3, v9, :cond_5
+    if-ne p3, v8, :cond_5
+
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+
+    div-int/lit8 v8, v8, 0x2
+
+    iput v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+
+    :cond_5
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
     iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    div-int/lit8 v9, v9, 0x2
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUtf16([BII)Ljava/lang/String;
 
-    iput v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    move-result-object v8
 
-    :cond_5
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
-
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
-
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeUtf16([BII)Ljava/lang/String;
-
-    move-result-object v9
-
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     :pswitch_4
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decode7bitGsm([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decode7bitGsm([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     :pswitch_5
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeLatin([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeLatin([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     :pswitch_6
     if-nez p2, :cond_6
 
-    sget-boolean v9, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
+    sget-boolean v8, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
 
-    if-eqz v9, :cond_6
+    if-eqz v8, :cond_6
 
-    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {p0, v5, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->kddiDecodeShiftJis(Lcom/android/internal/telephony/cdma/sms/UserData;II)Ljava/lang/String;
+    invoke-static {p0, v4, v8}, Lcom/android/internal/telephony/cdma/sms/BearerData;->kddiDecodeShiftJis(Lcom/android/internal/telephony/cdma/sms/UserData;II)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
 
     :cond_6
-    iget-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
+    iget-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payload:[B
 
-    iget v10, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
+    iget v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->numFields:I
 
-    invoke-static {v9, v5, v10}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeShiftJis([BII)Ljava/lang/String;
+    invoke-static {v8, v4, v9}, Lcom/android/internal/telephony/cdma/sms/BearerData;->decodeShiftJis([BII)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v8
 
-    iput-object v9, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
+    iput-object v8, p0, Lcom/android/internal/telephony/cdma/sms/UserData;->payloadStr:Ljava/lang/String;
 
     goto :goto_1
+
+    nop
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -8120,27 +8094,44 @@
     .end annotation
 
     .prologue
-    rem-int/lit8 v2, p1, 0x2
-
-    .local v2, padding:I
-    add-int v3, p1, v2
-
-    div-int/lit8 v3, v3, 0x2
-
-    sub-int/2addr p2, v3
+    const/4 v2, 0x1
 
     mul-int/lit8 v0, p2, 0x2
 
     .local v0, byteCount:I
-    if-ltz v0, :cond_0
+    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    if-ne v3, v2, :cond_3
+
+    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
+
+    const/4 v4, 0x2
+
+    if-ne v3, v4, :cond_3
+
+    .local v2, isAsiaChs:Z
+    :goto_0
+    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v4, 0xd8
+
+    if-eq v3, v4, :cond_0
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    sub-int/2addr v0, p1
+
+    :cond_1
+    if-ltz v0, :cond_2
 
     add-int v3, v0, p1
 
     array-length v4, p0
 
-    if-le v3, v4, :cond_1
+    if-le v3, v4, :cond_4
 
-    :cond_0
+    :cond_2
     new-instance v3, Lcom/android/internal/telephony/cdma/sms/BearerData$CodingException;
 
     const-string v4, "UTF-16 decode failed: offset or length out of range"
@@ -8149,13 +8140,20 @@
 
     throw v3
 
-    :cond_1
+    .end local v2           #isAsiaChs:Z
+    :cond_3
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    .restart local v2       #isAsiaChs:Z
+    :cond_4
     :try_start_0
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v4, 0x51
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_5
 
     new-instance v3, Ljava/lang/String;
 
@@ -8167,10 +8165,10 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_1
     return-object v3
 
-    :cond_2
+    :cond_5
     new-instance v3, Ljava/lang/String;
 
     const-string v4, "utf-16be"
@@ -8179,7 +8177,7 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v1
@@ -11052,6 +11050,8 @@
 
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -11362,6 +11362,8 @@
     const-string v0, "he"
 
     goto :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -26,12 +26,12 @@
     .parameter
 
     .prologue
-    .line 542
+    .line 556
     iput-object p1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$BaseKeyAction;-><init>(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)V
 
-    .line 543
+    .line 557
     const-string v0, "com.android.camera/.CameraEntry"
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->CAMERA_PACKAGE:Ljava/lang/String;
@@ -46,7 +46,7 @@
     .parameter "keyEvent"
 
     .prologue
-    .line 547
+    .line 561
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -72,7 +72,7 @@
     .parameter "policyFlags"
 
     .prologue
-    .line 568
+    .line 582
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v0
@@ -81,7 +81,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 569
+    .line 583
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -95,11 +95,11 @@
 
     invoke-static {p2, v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
-    .line 571
+    .line 585
     :cond_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->breakAction()V
 
-    .line 572
+    .line 586
     const/4 v0, -0x1
 
     return v0
@@ -112,7 +112,7 @@
     .parameter "policyFlags"
 
     .prologue
-    .line 577
+    .line 591
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -126,10 +126,10 @@
 
     invoke-static {p2, v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
-    .line 579
+    .line 593
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->breakAction()V
 
-    .line 580
+    .line 594
     const/4 v0, -0x1
 
     return v0
@@ -142,7 +142,7 @@
     .parameter "policyFlags"
 
     .prologue
-    .line 552
+    .line 566
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -156,10 +156,10 @@
 
     invoke-static {p2, v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
-    .line 554
+    .line 568
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->breakAction()V
 
-    .line 555
+    .line 569
     const/4 v0, -0x1
 
     return v0
@@ -172,7 +172,7 @@
     .parameter "policyFlags"
 
     .prologue
-    .line 560
+    .line 574
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -186,10 +186,10 @@
 
     invoke-static {p2, v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
-    .line 562
+    .line 576
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaCameraAction;->breakAction()V
 
-    .line 563
+    .line 577
     const/4 v0, -0x1
 
     return v0

@@ -412,15 +412,6 @@
     goto :goto_1
 .end method
 
-.method attach()V
-    .locals 0
-
-    .prologue
-    invoke-super {p0}, Lcom/android/internal/os/BatteryStatsImpl$Timer;->attach()V
-
-    return-void
-.end method
-
 .method protected computeCurrentCountLocked()I
     .locals 1
 

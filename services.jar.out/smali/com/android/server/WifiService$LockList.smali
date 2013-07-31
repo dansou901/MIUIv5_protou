@@ -35,19 +35,19 @@
     .parameter
 
     .prologue
-    .line 3402
+    .line 3303
     iput-object p1, p0, Lcom/android/server/WifiService$LockList;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3403
+    .line 3304
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
-    .line 3404
+    .line 3305
     return-void
 .end method
 
@@ -57,29 +57,29 @@
     .parameter "x1"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;-><init>(Lcom/android/server/WifiService;)V
 
     return-void
 .end method
 
-.method static synthetic access$6600(Lcom/android/server/WifiService$LockList;)Ljava/util/List;
+.method static synthetic access$6400(Lcom/android/server/WifiService$LockList;)Ljava/util/List;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 3399
+    .line 3300
     iget-object v0, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method static synthetic access$6700(Lcom/android/server/WifiService$LockList;)Z
+.method static synthetic access$6500(Lcom/android/server/WifiService$LockList;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0}, Lcom/android/server/WifiService$LockList;->hasLocks()Z
 
     move-result v0
@@ -87,12 +87,12 @@
     return v0
 .end method
 
-.method static synthetic access$6800(Lcom/android/server/WifiService$LockList;)I
+.method static synthetic access$6600(Lcom/android/server/WifiService$LockList;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0}, Lcom/android/server/WifiService$LockList;->getStrongestLockMode()I
 
     move-result v0
@@ -100,37 +100,37 @@
     return v0
 .end method
 
-.method static synthetic access$6900(Lcom/android/server/WifiService$LockList;Ljava/io/PrintWriter;)V
+.method static synthetic access$6700(Lcom/android/server/WifiService$LockList;Ljava/io/PrintWriter;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;->dump(Ljava/io/PrintWriter;)V
 
     return-void
 .end method
 
-.method static synthetic access$7600(Lcom/android/server/WifiService$LockList;Lcom/android/server/WifiService$WifiLock;)V
+.method static synthetic access$7400(Lcom/android/server/WifiService$LockList;Lcom/android/server/WifiService$WifiLock;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;->addLock(Lcom/android/server/WifiService$WifiLock;)V
 
     return-void
 .end method
 
-.method static synthetic access$7700(Lcom/android/server/WifiService$LockList;Landroid/os/IBinder;)I
+.method static synthetic access$7500(Lcom/android/server/WifiService$LockList;Landroid/os/IBinder;)I
     .locals 1
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;->findLockByBinder(Landroid/os/IBinder;)I
 
     move-result v0
@@ -138,13 +138,13 @@
     return v0
 .end method
 
-.method static synthetic access$7800(Lcom/android/server/WifiService$LockList;Landroid/os/IBinder;)Lcom/android/server/WifiService$WifiLock;
+.method static synthetic access$7600(Lcom/android/server/WifiService$LockList;Landroid/os/IBinder;)Lcom/android/server/WifiService$WifiLock;
     .locals 1
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 3399
+    .line 3300
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;->removeLock(Landroid/os/IBinder;)Lcom/android/server/WifiService$WifiLock;
 
     move-result-object v0
@@ -157,7 +157,7 @@
     .parameter "lock"
 
     .prologue
-    .line 3427
+    .line 3328
     iget-object v0, p1, Lcom/android/server/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     invoke-direct {p0, v0}, Lcom/android/server/WifiService$LockList;->findLockByBinder(Landroid/os/IBinder;)I
@@ -166,12 +166,12 @@
 
     if-gez v0, :cond_0
 
-    .line 3428
+    .line 3329
     iget-object v0, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 3430
+    .line 3331
     :cond_0
     return-void
 .end method
@@ -181,7 +181,7 @@
     .parameter "pw"
 
     .prologue
-    .line 3452
+    .line 3353
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -202,18 +202,18 @@
 
     check-cast v1, Lcom/android/server/WifiService$WifiLock;
 
-    .line 3453
+    .line 3354
     .local v1, l:Lcom/android/server/WifiService$WifiLock;
     const-string v2, "    "
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    .line 3454
+    .line 3355
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 3456
+    .line 3357
     .end local v1           #l:Lcom/android/server/WifiService$WifiLock;
     :cond_0
     return-void
@@ -224,14 +224,14 @@
     .parameter "binder"
 
     .prologue
-    .line 3444
+    .line 3345
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v1
 
-    .line 3445
+    .line 3346
     .local v1, size:I
     add-int/lit8 v0, v1, -0x1
 
@@ -239,7 +239,7 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    .line 3446
+    .line 3347
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -252,19 +252,19 @@
 
     if-ne v2, p1, :cond_0
 
-    .line 3448
+    .line 3349
     .end local v0           #i:I
     :goto_1
     return v0
 
-    .line 3445
+    .line 3346
     .restart local v0       #i:I
     :cond_0
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    .line 3448
+    .line 3349
     :cond_1
     const/4 v0, -0x1
 
@@ -277,7 +277,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 3411
+    .line 3312
     monitor-enter p0
 
     :try_start_0
@@ -291,50 +291,50 @@
 
     if-eqz v1, :cond_1
 
-    .line 3423
+    .line 3324
     :cond_0
     :goto_0
     monitor-exit p0
 
     return v0
 
-    .line 3415
+    .line 3316
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/server/WifiService$LockList;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mFullHighPerfLocksAcquired:I
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$7200(Lcom/android/server/WifiService;)I
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$7000(Lcom/android/server/WifiService;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mFullHighPerfLocksReleased:I
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$7300(Lcom/android/server/WifiService;)I
+    invoke-static {v2}, Lcom/android/server/WifiService;->access$7100(Lcom/android/server/WifiService;)I
 
     move-result v2
 
     if-le v1, v2, :cond_2
 
-    .line 3416
+    .line 3317
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 3419
+    .line 3320
     :cond_2
     iget-object v1, p0, Lcom/android/server/WifiService$LockList;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mFullLocksAcquired:I
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$7400(Lcom/android/server/WifiService;)I
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$7200(Lcom/android/server/WifiService;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mFullLocksReleased:I
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$7500(Lcom/android/server/WifiService;)I
+    invoke-static {v2}, Lcom/android/server/WifiService;->access$7300(Lcom/android/server/WifiService;)I
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -342,12 +342,12 @@
 
     if-gt v1, v2, :cond_0
 
-    .line 3423
+    .line 3324
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 3411
+    .line 3312
     :catchall_0
     move-exception v0
 
@@ -360,7 +360,7 @@
     .locals 1
 
     .prologue
-    .line 3407
+    .line 3308
     monitor-enter p0
 
     :try_start_0
@@ -399,16 +399,16 @@
     .parameter "binder"
 
     .prologue
-    .line 3433
+    .line 3334
     invoke-direct {p0, p1}, Lcom/android/server/WifiService$LockList;->findLockByBinder(Landroid/os/IBinder;)I
 
     move-result v0
 
-    .line 3434
+    .line 3335
     .local v0, index:I
     if-ltz v0, :cond_0
 
-    .line 3435
+    .line 3336
     iget-object v2, p0, Lcom/android/server/WifiService$LockList;->mList:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -417,11 +417,11 @@
 
     check-cast v1, Lcom/android/server/WifiService$WifiLock;
 
-    .line 3436
+    .line 3337
     .local v1, ret:Lcom/android/server/WifiService$WifiLock;
     invoke-virtual {v1}, Lcom/android/server/WifiService$WifiLock;->unlinkDeathRecipient()V
 
-    .line 3439
+    .line 3340
     .end local v1           #ret:Lcom/android/server/WifiService$WifiLock;
     :goto_0
     return-object v1

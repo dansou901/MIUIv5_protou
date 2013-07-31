@@ -45,16 +45,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->this$1:Landroid/net/wifi/WifiStateMachine$DriverLoadingState;
-
-    iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v1
-
-    monitor-enter v1
+    monitor-enter p0
 
     :try_start_0
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->this$1:Landroid/net/wifi/WifiStateMachine$DriverLoadingState;
@@ -62,7 +53,7 @@
     iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$4800(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
@@ -77,14 +68,14 @@
     iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$4800(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     :cond_0
-    monitor-exit v1
+    monitor-exit p0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -115,7 +106,7 @@
     const-string v1, "Driver load successful"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->this$1:Landroid/net/wifi/WifiStateMachine$DriverLoadingState;
 
@@ -126,16 +117,7 @@
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
     :goto_1
-    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->this$1:Landroid/net/wifi/WifiStateMachine$DriverLoadingState;
-
-    iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
-
-    move-result-object v1
-
-    monitor-enter v1
+    monitor-enter p0
 
     :try_start_1
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->this$1:Landroid/net/wifi/WifiStateMachine$DriverLoadingState;
@@ -143,7 +125,7 @@
     iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$4800(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
@@ -158,14 +140,14 @@
     iget-object v0, v0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$5100(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$4800(Landroid/net/wifi/WifiStateMachine;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     :cond_1
-    monitor-exit v1
+    monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -175,7 +157,7 @@
     move-exception v0
 
     :try_start_2
-    monitor-exit v1
+    monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -189,7 +171,7 @@
     const/4 v1, 0x2
 
     #calls: Landroid/net/wifi/WifiStateMachine;->setWifiState(I)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5200(Landroid/net/wifi/WifiStateMachine;I)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$4900(Landroid/net/wifi/WifiStateMachine;I)V
 
     goto :goto_0
 
@@ -201,7 +183,7 @@
     const/16 v1, 0xc
 
     #calls: Landroid/net/wifi/WifiStateMachine;->setWifiApState(I)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5300(Landroid/net/wifi/WifiStateMachine;I)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5000(Landroid/net/wifi/WifiStateMachine;I)V
 
     goto :goto_0
 
@@ -213,7 +195,7 @@
     const-string v1, "Failed to load driver!"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2300(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$DriverLoadingState$1;->val$message:Landroid/os/Message;
 
@@ -240,7 +222,7 @@
     const/4 v1, 0x4
 
     #calls: Landroid/net/wifi/WifiStateMachine;->setWifiState(I)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5200(Landroid/net/wifi/WifiStateMachine;I)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$4900(Landroid/net/wifi/WifiStateMachine;I)V
 
     goto :goto_2
 
@@ -252,7 +234,7 @@
     const/16 v1, 0xe
 
     #calls: Landroid/net/wifi/WifiStateMachine;->setWifiApState(I)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5300(Landroid/net/wifi/WifiStateMachine;I)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$5000(Landroid/net/wifi/WifiStateMachine;I)V
 
     goto :goto_2
 
@@ -260,7 +242,7 @@
     move-exception v0
 
     :try_start_3
-    monitor-exit v1
+    monitor-exit p0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 

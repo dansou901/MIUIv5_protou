@@ -1222,7 +1222,7 @@
 
     .line 917
     .local v3, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
-    const-string v2, "smsc"
+    const-string/jumbo v2, "smsc"
 
     move-object/from16 v0, v20
 
@@ -1397,7 +1397,7 @@
 
     .line 1077
     .local v0, map:Ljava/util/HashMap;
-    const-string v4, "smsc"
+    const-string/jumbo v4, "smsc"
 
     invoke-virtual {v0, v4}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -3880,8 +3880,6 @@
 
     move-object/from16 v2, v19
 
-    invoke-virtual {v3, v0, v1, v2, v4}, Lcom/android/internal/telephony/ConcatedUtil;->insertRawTable(ILjava/lang/String;Lcom/android/internal/telephony/SmsHeader$ConcatRef;I)I
-
     .line 569
     new-instance v14, Landroid/os/Bundle;
 
@@ -4945,8 +4943,6 @@
 
     move-object/from16 v2, v22
 
-    invoke-virtual {v3, v0, v1, v2, v4}, Lcom/android/internal/telephony/ConcatedUtil;->insertRawTable(ILjava/lang/String;Lcom/android/internal/telephony/SmsHeader$ConcatRef;I)I
-
     .line 717
     new-instance v17, Landroid/os/Bundle;
 
@@ -5427,7 +5423,7 @@
 
     .line 958
     .local v11, map:Ljava/util/HashMap;
-    const-string v0, "smsc"
+    const-string/jumbo v0, "smsc"
 
     invoke-virtual {v11, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 

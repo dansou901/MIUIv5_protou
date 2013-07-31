@@ -153,7 +153,7 @@
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->forceDisableAp()V
-    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v0}, Lcom/htc/server/WfdStateMachine;->access$1700(Lcom/htc/server/WfdStateMachine;)V
 
     :cond_0
     return-void
@@ -255,7 +255,7 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->setL2peApInfo()V
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1900(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
 
     const-string v3, "WfdStateMachine"
 
@@ -320,7 +320,7 @@
     const/16 v3, 0x28
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendConfiguringProgress(I)V
-    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;I)V
+    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2100(Lcom/htc/server/WfdStateMachine;I)V
 
     goto :goto_1
 
@@ -378,7 +378,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->requestUnlockOnDemand()V
-    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1700(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1600(Lcom/htc/server/WfdStateMachine;)V
 
     goto :goto_2
 
@@ -394,7 +394,7 @@
     const/16 v3, 0xa
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendConfiguringProgress(I)V
-    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;I)V
+    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2100(Lcom/htc/server/WfdStateMachine;I)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -418,7 +418,7 @@
     const/16 v3, 0x28
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendConfiguringProgress(I)V
-    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;I)V
+    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2100(Lcom/htc/server/WfdStateMachine;I)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -517,7 +517,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->preloadDlnaService()V
-    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1200(Lcom/htc/server/WfdStateMachine;)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -532,7 +532,7 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -588,7 +588,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-    invoke-static {v1, v2, v2}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+    invoke-static {v1, v2, v2}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
 
     :goto_5
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -614,7 +614,7 @@
     const/16 v4, 0x8
 
     #calls: Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-    invoke-static {v3, v4, v1}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+    invoke-static {v3, v4, v1}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
 
     goto :goto_5
 
@@ -642,7 +642,7 @@
     const/4 v4, 0x2
 
     #calls: Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-    invoke-static {v3, v4, v2}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+    invoke-static {v3, v4, v2}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
 
     :goto_6
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -678,7 +678,7 @@
     const/16 v4, 0x8
 
     #calls: Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-    invoke-static {v3, v4, v1}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+    invoke-static {v3, v4, v1}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
 
     goto :goto_6
 
@@ -715,7 +715,7 @@
     const/16 v3, 0x32
 
     #calls: Lcom/htc/server/WfdStateMachine;->sendConfiguringProgress(I)V
-    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;I)V
+    invoke-static {v1, v3}, Lcom/htc/server/WfdStateMachine;->access$2100(Lcom/htc/server/WfdStateMachine;I)V
 
     sget-boolean v1, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
@@ -821,7 +821,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->preloadDlnaService()V
-    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1200(Lcom/htc/server/WfdStateMachine;)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -836,7 +836,7 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -869,7 +869,7 @@
     const/4 v3, 0x3
 
     #calls: Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-    invoke-static {v1, v3, v2}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+    invoke-static {v1, v3, v2}, Lcom/htc/server/WfdStateMachine;->access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlWpsState;->this$0:Lcom/htc/server/WfdStateMachine;
 

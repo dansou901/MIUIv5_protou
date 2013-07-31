@@ -110,14 +110,14 @@
     iget-object v2, v2, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mMenuWrapper:Landroid/widget/Editor$MenuWrapper;
-    invoke-static {v2}, Landroid/widget/Editor;->access$2700(Landroid/widget/Editor;)Landroid/widget/Editor$MenuWrapper;
+    invoke-static {v2}, Landroid/widget/Editor;->access$3200(Landroid/widget/Editor;)Landroid/widget/Editor$MenuWrapper;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     #getter for: Landroid/widget/Editor$HandleView;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Landroid/widget/Editor$HandleView;->access$2800(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
+    invoke-static {v3}, Landroid/widget/Editor$HandleView;->access$3300(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -154,7 +154,7 @@
     iget-object v5, v5, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mIsLongPressed:Z
-    invoke-static {v5}, Landroid/widget/Editor;->access$2900(Landroid/widget/Editor;)Z
+    invoke-static {v5}, Landroid/widget/Editor;->access$3400(Landroid/widget/Editor;)Z
 
     move-result v5
 
@@ -168,7 +168,7 @@
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     #getter for: Landroid/widget/Editor$HandleView;->mIsDragging:Z
-    invoke-static {v0}, Landroid/widget/Editor$HandleView;->access$3000(Landroid/widget/Editor$HandleView;)Z
+    invoke-static {v0}, Landroid/widget/Editor$HandleView;->access$3500(Landroid/widget/Editor$HandleView;)Z
 
     move-result v0
 

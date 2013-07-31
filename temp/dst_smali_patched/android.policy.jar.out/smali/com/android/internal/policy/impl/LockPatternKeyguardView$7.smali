@@ -47,7 +47,7 @@
     .prologue
     const/4 v3, 0x1
 
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1100()Z
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1200()Z
 
     move-result v0
 

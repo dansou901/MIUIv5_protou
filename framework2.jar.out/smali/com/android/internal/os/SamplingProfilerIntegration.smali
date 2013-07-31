@@ -777,7 +777,7 @@
 
     .line 153
     :cond_0
-    const-string v0, "zygote"
+    const-string/jumbo v0, "zygote"
 
     invoke-static {v0, v1}, Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshotFile(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
 

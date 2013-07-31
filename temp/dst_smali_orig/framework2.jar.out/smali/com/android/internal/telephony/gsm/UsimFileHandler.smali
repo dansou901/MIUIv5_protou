@@ -77,31 +77,16 @@
     move-result-object v0
 
     .local v0, path:Ljava/lang/String;
-    if-nez v0, :cond_2
+    if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
+    sget-object v0, Lcom/android/internal/telephony/gsm/UsimFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     .end local v0           #path:Ljava/lang/String;
+    :cond_0
     :goto_0
-    return-object v1
+    return-object v0
 
     :sswitch_0
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isRemovedMFPath()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string v1, "3F007F43"
-
-    goto :goto_0
-
-    :cond_0
-    const-string v1, "7F43"
-
-    goto :goto_0
-
-    :sswitch_1
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
     move-result v1
@@ -110,67 +95,60 @@
 
     if-ne v1, v2, :cond_1
 
-    const-string v1, "3F007FFF"
+    const-string v0, "3F007FFF"
 
     goto :goto_0
 
     :cond_1
-    const-string v1, "3F007F10"
+    const-string v0, "3F007F10"
+
+    goto :goto_0
+
+    :sswitch_1
+    const-string v0, "3F007FFF"
 
     goto :goto_0
 
     :sswitch_2
-    const-string v1, "3F007FFF"
+    const-string v0, "3F00"
 
     goto :goto_0
 
     :sswitch_3
-    const-string v1, "3F00"
-
-    goto :goto_0
-
-    :sswitch_4
-    iget-object v1, p0, Lcom/android/internal/telephony/IccFileHandler;->DFPhonebookPath:Ljava/lang/String;
-
-    goto :goto_0
-
-    .restart local v0       #path:Ljava/lang/String;
-    :cond_2
-    move-object v1, v0
+    sget-object v0, Lcom/android/internal/telephony/gsm/UsimFileHandler;->DFPhonebookPath:Ljava/lang/String;
 
     goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
-        0x2f00 -> :sswitch_3
-        0x4f30 -> :sswitch_4
-        0x6f02 -> :sswitch_0
-        0x6f05 -> :sswitch_2
-        0x6f11 -> :sswitch_2
-        0x6f13 -> :sswitch_2
-        0x6f14 -> :sswitch_2
-        0x6f15 -> :sswitch_2
-        0x6f16 -> :sswitch_2
-        0x6f17 -> :sswitch_2
-        0x6f18 -> :sswitch_2
-        0x6f38 -> :sswitch_2
-        0x6f3c -> :sswitch_1
-        0x6f3e -> :sswitch_2
-        0x6f40 -> :sswitch_2
-        0x6f45 -> :sswitch_2
-        0x6f46 -> :sswitch_2
-        0x6f4e -> :sswitch_2
-        0x6f62 -> :sswitch_2
-        0x6f7b -> :sswitch_2
-        0x6fad -> :sswitch_2
-        0x6fc5 -> :sswitch_2
-        0x6fc6 -> :sswitch_2
-        0x6fc7 -> :sswitch_2
-        0x6fc8 -> :sswitch_2
-        0x6fc9 -> :sswitch_2
-        0x6fca -> :sswitch_2
-        0x6fcb -> :sswitch_2
-        0x6fcd -> :sswitch_2
+        0x2f00 -> :sswitch_2
+        0x4f30 -> :sswitch_3
+        0x6f05 -> :sswitch_1
+        0x6f11 -> :sswitch_1
+        0x6f13 -> :sswitch_1
+        0x6f14 -> :sswitch_1
+        0x6f15 -> :sswitch_1
+        0x6f16 -> :sswitch_1
+        0x6f17 -> :sswitch_1
+        0x6f18 -> :sswitch_1
+        0x6f38 -> :sswitch_1
+        0x6f3c -> :sswitch_0
+        0x6f3e -> :sswitch_1
+        0x6f40 -> :sswitch_1
+        0x6f45 -> :sswitch_1
+        0x6f46 -> :sswitch_1
+        0x6f4e -> :sswitch_1
+        0x6f62 -> :sswitch_1
+        0x6f7b -> :sswitch_1
+        0x6fad -> :sswitch_1
+        0x6fc5 -> :sswitch_1
+        0x6fc6 -> :sswitch_1
+        0x6fc7 -> :sswitch_1
+        0x6fc8 -> :sswitch_1
+        0x6fc9 -> :sswitch_1
+        0x6fca -> :sswitch_1
+        0x6fcb -> :sswitch_1
+        0x6fcd -> :sswitch_1
     .end sparse-switch
 .end method
 

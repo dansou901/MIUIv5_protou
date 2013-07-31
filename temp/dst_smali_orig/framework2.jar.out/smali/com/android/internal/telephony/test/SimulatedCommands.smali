@@ -2777,15 +2777,6 @@
     return-void
 .end method
 
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
 .method public setTTYMode(ILandroid/os/Message;)V
     .locals 2
     .parameter "ttyMode"

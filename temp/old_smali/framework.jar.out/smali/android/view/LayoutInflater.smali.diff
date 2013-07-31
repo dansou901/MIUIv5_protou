@@ -1,5 +1,5 @@
-*** ./smali/android/view/LayoutInflater.smali	2013-07-12 21:44:28.511842024 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/LayoutInflater.smali	2013-07-12 21:42:04.901830182 +0000
+*** ./smali/android/view/LayoutInflater.smali	2013-07-31 22:23:11.187403881 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/LayoutInflater.smali	2013-07-31 22:21:48.527396982 +0000
 ***************
 *** 1503,1508 ****
 --- 1503,1516 ----

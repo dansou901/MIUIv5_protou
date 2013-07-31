@@ -34,377 +34,170 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 11
+    .locals 8
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v10, 0x0
-
-    const/4 v7, 0x0
-
     const/4 v1, 0x1
+
+    const/4 v3, 0x0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
     .local v0, action:Ljava/lang/String;
-    sget-short v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v8, 0xa8
+    const/16 v5, 0xa8
 
-    if-ne v6, v8, :cond_0
+    if-ne v4, v5, :cond_0
 
-    const-string v6, "MountService"
+    const-string v4, "MountService"
 
-    const-string v8, "InitISO"
+    const-string v5, "InitISO"
 
-    invoke-static {v6, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v1}, Lcom/android/server/MountService;->access$802(Z)Z
 
     :cond_0
-    const-string v6, "android.intent.action.BOOT_COMPLETED"
+    const-string v4, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_1
-
-    const-string v6, "android.intent.action.USER_PRESENT"
-
-    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_8
-
-    :cond_1
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$900(Lcom/android/server/MountService;)Landroid/content/Context;
-
-    move-result-object v6
-
-    const-string v8, "device_policy"
-
-    invoke-virtual {v6, v8}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/app/admin/DevicePolicyManager;
-
-    .local v3, mDPM:Landroid/app/admin/DevicePolicyManager;
-    invoke-virtual {v3, v10}, Landroid/app/admin/DevicePolicyManager;->getAllowStorageCardStatus(Landroid/content/ComponentName;)I
-
-    move-result v5
-
-    .local v5, status:I
-    if-ne v5, v1, :cond_4
-
-    invoke-static {v1}, Lcom/android/server/MountService;->access$1002(Z)Z
-
-    :cond_2
-    :goto_0
-    const-string v8, "MountService"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "EAS policy: SD card is "
-
-    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-static {}, Lcom/android/server/MountService;->access$1000()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    const-string v6, "ENABLED"
-
-    :goto_1
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v8, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #setter for: Lcom/android/server/MountService;->mBooted:Z
-    invoke-static {v6, v1}, Lcom/android/server/MountService;->access$1102(Lcom/android/server/MountService;Z)Z
-
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #setter for: Lcom/android/server/MountService;->mBootTimeMount:Z
-    invoke-static {v6, v1}, Lcom/android/server/MountService;->access$1202(Lcom/android/server/MountService;Z)Z
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v6
-
-    const-string v8, "sd_encryption"
-
-    invoke-static {v6, v8, v7}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    .local v4, sdEncryption:I
-    if-ne v4, v1, :cond_6
+    if-nez v4, :cond_1
+
+    const-string v4, "android.intent.action.USER_PRESENT"
+
+    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    :cond_1
+    iget-object v4, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    #setter for: Lcom/android/server/MountService;->mBooted:Z
+    invoke-static {v4, v1}, Lcom/android/server/MountService;->access$902(Lcom/android/server/MountService;Z)Z
+
+    iget-object v4, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    #setter for: Lcom/android/server/MountService;->mBootTimeMount:Z
+    invoke-static {v4, v1}, Lcom/android/server/MountService;->access$1002(Lcom/android/server/MountService;Z)Z
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v4
+
+    const-string v5, "sd_encryption"
+
+    invoke-static {v4, v5, v3}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    .local v2, sdEncryption:I
+    if-ne v2, v1, :cond_3
 
     invoke-static {}, Landroid/security/KeyStore;->getInstance()Landroid/security/KeyStore;
 
-    move-result-object v6
+    move-result-object v4
 
-    invoke-virtual {v6}, Landroid/security/KeyStore;->state()Landroid/security/KeyStore$State;
+    invoke-virtual {v4}, Landroid/security/KeyStore;->state()Landroid/security/KeyStore$State;
 
-    move-result-object v6
+    move-result-object v4
 
-    sget-object v8, Landroid/security/KeyStore$State;->UNLOCKED:Landroid/security/KeyStore$State;
+    sget-object v5, Landroid/security/KeyStore$State;->UNLOCKED:Landroid/security/KeyStore$State;
 
-    if-eq v6, v8, :cond_6
+    if-eq v4, v5, :cond_3
 
-    .end local v3           #mDPM:Landroid/app/admin/DevicePolicyManager;
-    .end local v4           #sdEncryption:I
-    .end local v5           #status:I
-    :cond_3
-    :goto_2
+    .end local v2           #sdEncryption:I
+    :cond_2
+    :goto_0
     return-void
 
-    .restart local v3       #mDPM:Landroid/app/admin/DevicePolicyManager;
-    .restart local v5       #status:I
-    :cond_4
-    if-nez v5, :cond_2
+    .restart local v2       #sdEncryption:I
+    :cond_3
+    const-string v4, "simulator"
 
-    invoke-static {v7}, Lcom/android/server/MountService;->access$1002(Z)Z
+    const-string v5, "ro.product.device"
+
+    invoke-static {v5}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+
+    const/4 v5, 0x0
+
+    const-string v6, "/sdcard"
+
+    const/4 v7, 0x4
+
+    #calls: Lcom/android/server/MountService;->notifyVolumeStateChange(Ljava/lang/String;Ljava/lang/String;II)V
+    invoke-static {v4, v5, v6, v3, v7}, Lcom/android/server/MountService;->access$1100(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;II)V
 
     goto :goto_0
 
+    :cond_4
+    new-instance v3, Lcom/android/server/MountService$1$1;
+
+    invoke-direct {v3, p0}, Lcom/android/server/MountService$1$1;-><init>(Lcom/android/server/MountService$1;)V
+
+    invoke-virtual {v3}, Lcom/android/server/MountService$1$1;->start()V
+
+    goto :goto_0
+
+    .end local v2           #sdEncryption:I
     :cond_5
-    const-string v6, "DISABLED"
+    const-string v4, "android.hardware.usb.action.USB_STATE"
 
-    goto :goto_1
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .restart local v4       #sdEncryption:I
-    :cond_6
-    const-string v6, "simulator"
+    move-result v4
 
-    const-string v8, "ro.product.device"
+    if-eqz v4, :cond_2
 
-    invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string v4, "connected"
 
-    move-result-object v8
+    invoke-virtual {p2, v4, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v6, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v4
 
-    move-result v6
+    if-eqz v4, :cond_6
 
-    if-eqz v6, :cond_7
+    const-string v4, "mass_storage"
 
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+    invoke-virtual {p2, v4, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    const-string v8, "/sdcard"
+    move-result v4
 
-    const/4 v9, 0x4
-
-    #calls: Lcom/android/server/MountService;->notifyVolumeStateChange(Ljava/lang/String;Ljava/lang/String;II)V
-    invoke-static {v6, v10, v8, v7, v9}, Lcom/android/server/MountService;->access$1300(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;II)V
-
-    goto :goto_2
-
-    :cond_7
-    new-instance v6, Lcom/android/server/MountService$1$1;
-
-    invoke-direct {v6, p0}, Lcom/android/server/MountService$1$1;-><init>(Lcom/android/server/MountService$1;)V
-
-    invoke-virtual {v6}, Lcom/android/server/MountService$1$1;->start()V
-
-    goto :goto_2
-
-    .end local v3           #mDPM:Landroid/app/admin/DevicePolicyManager;
-    .end local v4           #sdEncryption:I
-    .end local v5           #status:I
-    :cond_8
-    const-string v6, "android.hardware.usb.action.USB_STATE"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_a
-
-    const-string v6, "connected"
-
-    invoke-virtual {p2, v6, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    const-string v6, "mass_storage"
-
-    invoke-virtual {p2, v6, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
+    if-eqz v4, :cond_6
 
     .local v1, available:Z
-    :goto_3
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
+    :goto_1
+    iget-object v3, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
 
-    const-string v7, "ums"
+    const-string v4, "ums"
 
     #calls: Lcom/android/server/MountService;->notifyShareAvailabilityChange(Ljava/lang/String;Z)V
-    invoke-static {v6, v7, v1}, Lcom/android/server/MountService;->access$2100(Lcom/android/server/MountService;Ljava/lang/String;Z)V
+    invoke-static {v3, v4, v1}, Lcom/android/server/MountService;->access$1800(Lcom/android/server/MountService;Ljava/lang/String;Z)V
 
-    goto :goto_2
+    goto :goto_0
 
     .end local v1           #available:Z
-    :cond_9
-    move v1, v7
+    :cond_6
+    move v1, v3
 
-    goto :goto_3
-
-    :cond_a
-    const-string v6, "com.htc.admin.ALLOW_STORAGE_CARD_CHANGE"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    const-string v6, "com.htc.admin.extra.ALLOW_STATUS"
-
-    invoke-virtual {p2, v6, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v5
-
-    .restart local v5       #status:I
-    if-ne v5, v1, :cond_b
-
-    invoke-static {}, Lcom/android/server/MountService;->access$1000()Z
-
-    move-result v6
-
-    if-nez v6, :cond_b
-
-    const-string v6, "MountService"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "onReceive(): get ["
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "], status = allow"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v1}, Lcom/android/server/MountService;->access$1002(Z)Z
-
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #calls: Lcom/android/server/MountService;->mountSdcard()V
-    invoke-static {v6}, Lcom/android/server/MountService;->access$2200(Lcom/android/server/MountService;)V
-
-    goto/16 :goto_2
-
-    :cond_b
-    if-nez v5, :cond_3
-
-    invoke-static {}, Lcom/android/server/MountService;->access$1000()Z
-
-    move-result v6
-
-    if-ne v6, v1, :cond_3
-
-    const-string v6, "MountService"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v9, "onReceive(): get ["
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    const-string v9, "], status = disable"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v6, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {v7}, Lcom/android/server/MountService;->access$1002(Z)Z
-
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #calls: Lcom/android/server/MountService;->unmountSdcard()V
-    invoke-static {v6}, Lcom/android/server/MountService;->access$2300(Lcom/android/server/MountService;)V
-
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v6, "android.settings.MEMORY_CARD_SETTINGS"
-
-    invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v2, in:Landroid/content/Intent;
-    const/high16 v6, 0x1000
-
-    invoke-virtual {v2, v6}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    const-string v6, "SD_POLICY"
-
-    invoke-virtual {v2, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    iget-object v6, p0, Lcom/android/server/MountService$1;->this$0:Lcom/android/server/MountService;
-
-    #getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
-    invoke-static {v6}, Lcom/android/server/MountService;->access$900(Lcom/android/server/MountService;)Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    goto/16 :goto_2
+    goto :goto_1
 .end method

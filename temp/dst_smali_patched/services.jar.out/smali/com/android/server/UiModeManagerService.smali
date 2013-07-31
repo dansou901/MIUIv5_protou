@@ -6,7 +6,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/UiModeManagerService$SettingsObserver;
+        Lcom/android/server/UiModeManagerService$SettingsObserver;,
+        Lcom/android/server/UiModeManagerService$Injector;
     }
 .end annotation
 
@@ -142,6 +143,12 @@
     .end annotation
 .end field
 
+.field mNormalType:I
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field private mNotificationManager:Landroid/app/NotificationManager;
 
 .field private final mResultReceiver:Landroid/content/BroadcastReceiver;
@@ -208,6 +215,8 @@
     const/4 v5, 0x0
 
     invoke-direct {p0}, Landroid/app/IUiModeManager$Stub;-><init>()V
+
+    iput v10, p0, Lcom/android/server/UiModeManagerService;->mNormalType:I
 
     new-instance v1, Ljava/lang/Object;
 
@@ -433,6 +442,10 @@
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mUpdateLocationReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v3, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, v1}, Lcom/android/server/UiModeManagerService$Injector;->registerUIModeScaleChangedOjbserver(Lcom/android/server/UiModeManagerService;Landroid/content/Context;)V
 
     const-string v1, "power"
 
@@ -1075,7 +1088,7 @@
     invoke-direct {v1}, Landroid/app/Notification;-><init>()V
 
     .local v1, n:Landroid/app/Notification;
-    const v2, 0x4020037
+    const v2, 0x402005f
 
     iput v2, v1, Landroid/app/Notification;->icon:I
 
@@ -1095,7 +1108,7 @@
 
     iget-object v3, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x40700a7
+    const v4, 0x40700a0
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1103,7 +1116,7 @@
 
     iget-object v4, p0, Lcom/android/server/UiModeManagerService;->mContext:Landroid/content/Context;
 
-    const v5, 0x40700a8
+    const v5, 0x40700a1
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3374,10 +3387,6 @@
     move/from16 v0, p2
 
     invoke-virtual {v2, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const/high16 v1, 0x1000
-
-    invoke-virtual {v2, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     move-object/from16 v0, p0
 

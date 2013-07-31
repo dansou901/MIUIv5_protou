@@ -34,18 +34,18 @@
     .parameter "response"
 
     .prologue
-    .line 8792
+    .line 8692
     iput-object p1, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->this$0:Lcom/android/internal/telephony/RIL;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
-    .line 8793
+    .line 8693
     iput-boolean p2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mQuery:Z
 
-    .line 8794
+    .line 8694
     iput-object p3, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
-    .line 8795
+    .line 8695
     return-void
 .end method
 
@@ -59,17 +59,17 @@
 
     const/4 v5, 0x0
 
-    .line 8803
+    .line 8703
     iget-boolean v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mQuery:Z
 
     if-eqz v2, :cond_2
 
-    .line 8804
+    .line 8704
     invoke-static {}, Lcom/android/internal/telephony/HtcSimLock;->getSubsidyLock()I
 
     move-result v1
 
-    .line 8805
+    .line 8705
     .local v1, subsidyLockTypes:I
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->this$0:Lcom/android/internal/telephony/RIL;
 
@@ -94,19 +94,19 @@
     #calls: Lcom/android/internal/telephony/RIL;->riljLog(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/internal/telephony/RIL;->access$800(Lcom/android/internal/telephony/RIL;Ljava/lang/String;)V
 
-    .line 8806
+    .line 8706
     if-gtz v1, :cond_0
 
-    .line 8807
+    .line 8707
     const/4 v1, 0x0
 
-    .line 8809
+    .line 8709
     :cond_0
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
     if-eqz v2, :cond_1
 
-    .line 8810
+    .line 8710
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
     invoke-static {v1, v6}, Ljava/lang/Integer;->toString(II)Ljava/lang/String;
@@ -115,18 +115,18 @@
 
     invoke-static {v2, v3, v5}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 8811
+    .line 8711
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 8823
+    .line 8723
     .end local v1           #subsidyLockTypes:I
     :cond_1
     :goto_0
     return-void
 
-    .line 8814
+    .line 8714
     :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mSubsidyType:Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    .line 8815
+    .line 8715
     .local v0, result:I
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->this$0:Lcom/android/internal/telephony/RIL;
 
@@ -165,15 +165,15 @@
     #calls: Lcom/android/internal/telephony/RIL;->riljLog(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/internal/telephony/RIL;->access$800(Lcom/android/internal/telephony/RIL;Ljava/lang/String;)V
 
-    .line 8816
+    .line 8716
     if-nez v0, :cond_3
 
-    .line 8817
+    .line 8717
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
     invoke-static {v2, v5, v5}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 8821
+    .line 8721
     :goto_1
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
@@ -181,7 +181,7 @@
 
     goto :goto_0
 
-    .line 8819
+    .line 8719
     :cond_3
     iget-object v2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mMessage:Landroid/os/Message;
 
@@ -202,12 +202,12 @@
     .parameter "password"
 
     .prologue
-    .line 8798
+    .line 8698
     iput-object p1, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mSubsidyType:Ljava/lang/String;
 
-    .line 8799
+    .line 8699
     iput-object p2, p0, Lcom/android/internal/telephony/RIL$SubsidyLockTrustZoneThread;->mPassword:Ljava/lang/String;
 
-    .line 8800
+    .line 8700
     return-void
 .end method

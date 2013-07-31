@@ -26,13 +26,13 @@
     .parameter "bitmap"
 
     .prologue
-    .line 2694
+    .line 2687
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 2695
+    .line 2688
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 2696
+    .line 2689
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->hasAlpha()Z
@@ -46,10 +46,10 @@
     :goto_0
     iput v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mOpacity:I
 
-    .line 2697
+    .line 2690
     return-void
 
-    .line 2696
+    .line 2689
     :cond_0
     const/4 v0, -0x1
 
@@ -63,7 +63,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 2701
+    .line 2694
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->getBounds()Landroid/graphics/Rect;
@@ -108,7 +108,7 @@
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 2706
+    .line 2699
     return-void
 .end method
 
@@ -116,7 +116,7 @@
     .locals 1
 
     .prologue
-    .line 2728
+    .line 2721
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -130,7 +130,7 @@
     .locals 1
 
     .prologue
-    .line 2723
+    .line 2716
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -144,7 +144,7 @@
     .locals 1
 
     .prologue
-    .line 2738
+    .line 2731
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -158,7 +158,7 @@
     .locals 1
 
     .prologue
-    .line 2733
+    .line 2726
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -172,7 +172,7 @@
     .locals 1
 
     .prologue
-    .line 2710
+    .line 2703
     iget v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$FastBitmapDrawable;->mOpacity:I
 
     return v0
@@ -183,7 +183,7 @@
     .parameter "alpha"
 
     .prologue
-    .line 2715
+    .line 2708
     return-void
 .end method
 
@@ -192,6 +192,6 @@
     .parameter "cf"
 
     .prologue
-    .line 2719
+    .line 2712
     return-void
 .end method

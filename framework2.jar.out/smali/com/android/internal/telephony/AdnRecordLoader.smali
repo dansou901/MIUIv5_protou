@@ -258,7 +258,7 @@
     .line 161
     new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string v2, "wrong ADN format"
+    const-string/jumbo v2, "wrong ADN format"
 
     iget-object v3, v8, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -333,7 +333,7 @@
     .line 179
     new-instance v1, Ljava/lang/RuntimeException;
 
-    const-string v2, "update EF adn record failed"
+    const-string/jumbo v2, "update EF adn record failed"
 
     iget-object v3, v8, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

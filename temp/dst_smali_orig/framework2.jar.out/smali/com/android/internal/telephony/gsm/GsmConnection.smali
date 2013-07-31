@@ -398,7 +398,7 @@
     .local v0, pm:Landroid/os/PowerManager;
     const/4 v1, 0x1
 
-    const-string v2, "GSM_60"
+    const-string v2, "GSM"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5569
+    .line 5526
     iput-object p1, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "callback"
 
     .prologue
-    .line 5583
+    .line 5540
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .locals 1
 
     .prologue
-    .line 5575
+    .line 5532
     iget-object v0, p0, Landroid/view/ViewRootImpl$2;->this$0:Landroid/view/ViewRootImpl;
 
     #getter for: Landroid/view/ViewRootImpl;->mSurface:Landroid/view/Surface;
@@ -65,7 +65,7 @@
     .locals 1
 
     .prologue
-    .line 5624
+    .line 5581
     const/4 v0, 0x0
 
     return-object v0
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 5579
+    .line 5536
     const/4 v0, 0x0
 
     return v0
@@ -85,7 +85,7 @@
     .locals 1
 
     .prologue
-    .line 5614
+    .line 5571
     const/4 v0, 0x0
 
     return-object v0
@@ -96,7 +96,7 @@
     .parameter "dirty"
 
     .prologue
-    .line 5618
+    .line 5575
     const/4 v0, 0x0
 
     return-object v0
@@ -107,7 +107,7 @@
     .parameter "callback"
 
     .prologue
-    .line 5586
+    .line 5543
     return-void
 .end method
 
@@ -116,7 +116,7 @@
     .parameter "format"
 
     .prologue
-    .line 5607
+    .line 5564
     return-void
 .end method
 
@@ -126,7 +126,7 @@
     .parameter "height"
 
     .prologue
-    .line 5589
+    .line 5546
     return-void
 .end method
 
@@ -135,7 +135,7 @@
     .parameter "format"
 
     .prologue
-    .line 5595
+    .line 5552
     return-void
 .end method
 
@@ -144,7 +144,7 @@
     .parameter "screenOn"
 
     .prologue
-    .line 5611
+    .line 5568
     return-void
 .end method
 
@@ -152,7 +152,7 @@
     .locals 0
 
     .prologue
-    .line 5592
+    .line 5549
     return-void
 .end method
 
@@ -161,7 +161,7 @@
     .parameter "format"
 
     .prologue
-    .line 5602
+    .line 5559
     return-void
 .end method
 
@@ -170,7 +170,7 @@
     .parameter "type"
 
     .prologue
-    .line 5598
+    .line 5555
     return-void
 .end method
 
@@ -179,6 +179,6 @@
     .parameter "canvas"
 
     .prologue
-    .line 5622
+    .line 5579
     return-void
 .end method

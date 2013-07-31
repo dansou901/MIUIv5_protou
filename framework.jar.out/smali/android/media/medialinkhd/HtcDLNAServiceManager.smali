@@ -4527,7 +4527,7 @@
     :try_start_0
     const-string v1, "HtcDLNAServiceManager "
 
-    const-string v2, "mDTCPService.FillBuffer"
+    const-string/jumbo v2, "mDTCPService.FillBuffer"
 
     invoke-static {v1, v2}, Landroid/media/medialinkhd/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 

@@ -36,24 +36,24 @@
     .parameter "view"
 
     .prologue
-    .line 9365
+    .line 10375
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 9359
+    .line 10369
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mProgress:F
 
-    .line 9366
+    .line 10376
     iput-object p1, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
-    .line 9367
+    .line 10377
     new-instance v0, Landroid/graphics/Paint;
 
     iget-object v1, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mTouchHightlightPaint:Landroid/graphics/Paint;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9400(Landroid/webkit/WebViewClassic;)Landroid/graphics/Paint;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9500(Landroid/webkit/WebViewClassic;)Landroid/graphics/Paint;
 
     move-result-object v1
 
@@ -61,7 +61,7 @@
 
     iput-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
-    .line 9368
+    .line 10378
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getAlpha()I
@@ -70,7 +70,7 @@
 
     iput v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mMaxAlpha:I
 
-    .line 9369
+    .line 10379
     return-void
 .end method
 
@@ -83,19 +83,19 @@
     .prologue
     const/4 v13, 0x1
 
-    .line 9399
+    .line 10409
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
     if-nez v9, :cond_0
 
-    .line 9400
+    .line 10410
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPreviousRegion:Landroid/graphics/Region;
 
     invoke-virtual {v9}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v1
 
-    .line 9401
+    .line 10411
     .local v1, bounds:Landroid/graphics/Rect;
     new-instance v2, Landroid/graphics/Point;
 
@@ -109,13 +109,13 @@
 
     invoke-direct {v2, v9, v10}, Landroid/graphics/Point;-><init>(II)V
 
-    .line 9402
+    .line 10412
     .local v2, from:Landroid/graphics/Point;
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mNewRegion:Landroid/graphics/Region;
 
     invoke-virtual {v9, v1}, Landroid/graphics/Region;->getBounds(Landroid/graphics/Rect;)Z
 
-    .line 9403
+    .line 10413
     new-instance v6, Landroid/graphics/Point;
 
     invoke-virtual {v1}, Landroid/graphics/Rect;->centerX()I
@@ -128,7 +128,7 @@
 
     invoke-direct {v6, v9, v10}, Landroid/graphics/Point;-><init>(II)V
 
-    .line 9404
+    .line 10414
     .local v6, to:Landroid/graphics/Point;
     new-instance v9, Landroid/graphics/Point;
 
@@ -148,7 +148,7 @@
 
     iput-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
-    .line 9406
+    .line 10416
     .end local v1           #bounds:Landroid/graphics/Rect;
     .end local v2           #from:Landroid/graphics/Point;
     .end local v6           #to:Landroid/graphics/Point;
@@ -163,7 +163,7 @@
 
     float-to-int v0, v9
 
-    .line 9407
+    .line 10417
     .local v0, alpha:I
     new-instance v3, Landroid/graphics/RegionIterator;
 
@@ -171,13 +171,13 @@
 
     invoke-direct {v3, v9}, Landroid/graphics/RegionIterator;-><init>(Landroid/graphics/Region;)V
 
-    .line 9408
+    .line 10418
     .local v3, iter:Landroid/graphics/RegionIterator;
     new-instance v4, Landroid/graphics/Rect;
 
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
-    .line 9409
+    .line 10419
     .local v4, r:Landroid/graphics/Rect;
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -187,7 +187,7 @@
 
     invoke-virtual {v9, v10}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 9410
+    .line 10420
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
     iget v9, v9, Landroid/graphics/Point;->x:I
@@ -198,7 +198,7 @@
 
     mul-float v7, v9, v10
 
-    .line 9411
+    .line 10421
     .local v7, tx:F
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
@@ -210,13 +210,13 @@
 
     mul-float v8, v9, v10
 
-    .line 9412
+    .line 10422
     .local v8, ty:F
     invoke-virtual {p1, v13}, Landroid/graphics/Canvas;->save(I)I
 
     move-result v5
 
-    .line 9413
+    .line 10423
     .local v5, save:I
     neg-float v9, v7
 
@@ -224,7 +224,7 @@
 
     invoke-virtual {p1, v9, v10}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 9414
+    .line 10424
     :goto_0
     invoke-virtual {v3, v4}, Landroid/graphics/RegionIterator;->next(Landroid/graphics/Rect;)Z
 
@@ -232,18 +232,18 @@
 
     if-eqz v9, :cond_1
 
-    .line 9415
+    .line 10425
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v4, v9}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     goto :goto_0
 
-    .line 9417
+    .line 10427
     :cond_1
     invoke-virtual {p1, v5}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    .line 9418
+    .line 10428
     new-instance v3, Landroid/graphics/RegionIterator;
 
     .end local v3           #iter:Landroid/graphics/RegionIterator;
@@ -251,25 +251,25 @@
 
     invoke-direct {v3, v9}, Landroid/graphics/RegionIterator;-><init>(Landroid/graphics/Region;)V
 
-    .line 9419
+    .line 10429
     .restart local v3       #iter:Landroid/graphics/RegionIterator;
     new-instance v4, Landroid/graphics/Rect;
 
     .end local v4           #r:Landroid/graphics/Rect;
     invoke-direct {v4}, Landroid/graphics/Rect;-><init>()V
 
-    .line 9420
+    .line 10430
     .restart local v4       #r:Landroid/graphics/Rect;
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v9, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 9421
+    .line 10431
     invoke-virtual {p1, v13}, Landroid/graphics/Canvas;->save(I)I
 
     move-result v5
 
-    .line 9422
+    .line 10432
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
     iget v9, v9, Landroid/graphics/Point;->x:I
@@ -278,7 +278,7 @@
 
     sub-float v7, v9, v7
 
-    .line 9423
+    .line 10433
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mTranslate:Landroid/graphics/Point;
 
     iget v9, v9, Landroid/graphics/Point;->y:I
@@ -287,10 +287,10 @@
 
     sub-float v8, v9, v8
 
-    .line 9424
+    .line 10434
     invoke-virtual {p1, v7, v8}, Landroid/graphics/Canvas;->translate(FF)V
 
-    .line 9425
+    .line 10435
     :goto_1
     invoke-virtual {v3, v4}, Landroid/graphics/RegionIterator;->next(Landroid/graphics/Rect;)Z
 
@@ -298,18 +298,18 @@
 
     if-eqz v9, :cond_2
 
-    .line 9426
+    .line 10436
     iget-object v9, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v4, v9}, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     goto :goto_1
 
-    .line 9428
+    .line 10438
     :cond_2
     invoke-virtual {p1, v5}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    .line 9429
+    .line 10439
     return-void
 .end method
 
@@ -317,7 +317,7 @@
     .locals 1
 
     .prologue
-    .line 9381
+    .line 10391
     const/4 v0, 0x0
 
     return v0
@@ -327,7 +327,7 @@
     .locals 1
 
     .prologue
-    .line 9394
+    .line 10404
     iget v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mProgress:F
 
     return v0
@@ -338,7 +338,7 @@
     .parameter "alpha"
 
     .prologue
-    .line 9377
+    .line 10387
     return-void
 .end method
 
@@ -347,7 +347,7 @@
     .parameter "cf"
 
     .prologue
-    .line 9373
+    .line 10383
     return-void
 .end method
 
@@ -356,20 +356,20 @@
     .parameter "p"
 
     .prologue
-    .line 9385
+    .line 10395
     iput p1, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mProgress:F
 
-    .line 9386
+    .line 10396
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mFocusTransition:Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9500(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9600(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
 
     move-result-object v0
 
     if-ne v0, p0, :cond_1
 
-    .line 9387
+    .line 10397
     iget v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mProgress:F
 
     const/high16 v1, 0x3f80
@@ -378,21 +378,21 @@
 
     if-nez v0, :cond_0
 
-    .line 9388
+    .line 10398
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     const/4 v1, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mFocusTransition:Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$9502(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewClassic$FocusTransitionDrawable;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$9602(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewClassic$FocusTransitionDrawable;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
 
-    .line 9389
+    .line 10399
     :cond_0
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     invoke-virtual {v0}, Landroid/webkit/WebViewClassic;->invalidate()V
 
-    .line 9391
+    .line 10401
     :cond_1
     return-void
 .end method

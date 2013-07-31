@@ -208,7 +208,7 @@
 
     move-result-object v3
 
-    const v4, 0x40700d0
+    const v4, 0x40700c9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -502,7 +502,7 @@
     if-eqz v8, :cond_b
 
     .line 284
-    const-string v8, "spn"
+    const-string/jumbo v8, "spn"
 
     iget-object v9, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->spn:Ljava/lang/String;
 
@@ -768,7 +768,7 @@
     .restart local v4       #opName:Ljava/lang/String;
     .restart local v5       #serviceStatus:I
     :cond_b
-    const-string v8, "spn"
+    const-string/jumbo v8, "spn"
 
     iget-object v9, v3, Lcom/android/internal/telephony/gsm/OperatorInfo;->spn:Ljava/lang/String;
 
@@ -830,7 +830,7 @@
     invoke-virtual {v2, v7, v12}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     .line 319
-    const-string v9, "spn"
+    const-string/jumbo v9, "spn"
 
     move-object v7, v8
 
@@ -1632,7 +1632,7 @@
 
     .line 383
     :try_start_3
-    const-string v9, "unregisterForDataServiceStateChanged"
+    const-string/jumbo v9, "unregisterForDataServiceStateChanged"
 
     const/4 v10, 0x1
 
@@ -1838,6 +1838,8 @@
     goto/16 :goto_0
 
     .line 340
+    nop
+
     nop
 
     :sswitch_data_0

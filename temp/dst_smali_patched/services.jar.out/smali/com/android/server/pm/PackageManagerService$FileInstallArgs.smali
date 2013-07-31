@@ -71,7 +71,7 @@
     const-string v0, ".apk"
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getNextCodePath(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v2, p3, v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, p3, v0}, Lcom/android/server/pm/PackageManagerService;->access$3400(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
@@ -1001,7 +1001,7 @@
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$FileInstallArgs;->installDir:Ljava/io/File;
 
     #calls: Lcom/android/server/pm/PackageManagerService;->createTempPackageFile(Ljava/io/File;)Ljava/io/File;
-    invoke-static {v1, v2}, Lcom/android/server/pm/PackageManagerService;->access$2500(Lcom/android/server/pm/PackageManagerService;Ljava/io/File;)Ljava/io/File;
+    invoke-static {v1, v2}, Lcom/android/server/pm/PackageManagerService;->access$2400(Lcom/android/server/pm/PackageManagerService;Ljava/io/File;)Ljava/io/File;
 
     move-result-object v0
 
@@ -1126,7 +1126,7 @@
     const-string v7, ".apk"
 
     #calls: Lcom/android/server/pm/PackageManagerService;->getNextCodePath(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {p3, p2, v7}, Lcom/android/server/pm/PackageManagerService;->access$3500(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, p2, v7}, Lcom/android/server/pm/PackageManagerService;->access$3400(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

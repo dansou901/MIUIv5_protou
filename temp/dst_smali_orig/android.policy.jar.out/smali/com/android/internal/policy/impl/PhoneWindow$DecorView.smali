@@ -4,20 +4,27 @@
 
 # interfaces
 .implements Lcom/android/internal/view/RootViewSurfaceTaker;
+.implements Landroid/view/IMagnifyView;
+.implements Lcom/miui/internal/v5/widget/ActionBarView$ActionBarViewHolder;
 
 
 # annotations
+.annotation build Landroid/annotation/MiuiHook;
+    value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/internal/policy/impl/PhoneWindow;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x10
     name = "DecorView"
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;,
         Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
     }
 .end annotation
@@ -45,6 +52,8 @@
 .field private final mFrameOffsets:Landroid/graphics/Rect;
 
 .field private final mFramePadding:Landroid/graphics/Rect;
+
+.field private mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
 
 .field private mMenuBackground:Landroid/graphics/drawable/Drawable;
 
@@ -906,6 +915,113 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getActionBarView()Lcom/miui/internal/v5/widget/ActionBarView;
+    .locals 2
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
+
+    invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getActionBarView()Lcom/android/internal/widget/ActionBarView;
+
+    move-result-object v0
+
+    .local v0, abv:Lcom/android/internal/widget/ActionBarView;
+    instance-of v1, v0, Lcom/miui/internal/v5/widget/ActionBarView;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lcom/miui/internal/v5/widget/ActionBarView;
+
+    .end local v0           #abv:Lcom/android/internal/widget/ActionBarView;
+    :goto_0
+    return-object v0
+
+    .restart local v0       #abv:Lcom/android/internal/widget/ActionBarView;
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public hideMagnifier()V
+    .locals 2
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setVisibile(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public invalidateMagnifier()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->setNeedsRedraw()V
+
+    :cond_0
+    return-void
+.end method
+
+.method miuiCreateActionModeCallbackWrapper(Landroid/view/ActionMode$Callback;)Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+    .locals 1
+    .parameter "callback"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    instance-of v0, p1, Lmiui/v5/view/SearchActionMode$Callback;
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$SearchActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+
+    goto :goto_0
 .end method
 
 .method protected onAttachedToWindow()V
@@ -1922,6 +2038,23 @@
     return v1
 .end method
 
+.method public setMagnifierZoom(F)V
+    .locals 1
+    .parameter "zoom"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setZoom(F)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setSurfaceFormat(I)V
     .locals 1
     .parameter "format"
@@ -2134,6 +2267,70 @@
     goto :goto_1
 .end method
 
+.method public showMagnifier(Landroid/graphics/Point;)V
+    .locals 3
+    .parameter "touchPoint"
+
+    .prologue
+    const/4 v2, -0x1
+
+    if-nez p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MagnifierContainer;-><init>(Landroid/view/ViewGroup;)V
+
+    iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const v1, 0x3f8ccccd
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setZoom(F)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v1, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setPosition(Landroid/graphics/Point;)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierContainer;->setVisibile(Z)V
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mMagnifierContainer:Lcom/android/internal/policy/impl/MagnifierContainer;
+
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierContainer;->setNeedsRedraw()V
+
+    goto :goto_0
+.end method
+
 .method public startActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
     .locals 11
     .parameter "callback"
@@ -2154,9 +2351,9 @@
     invoke-virtual {v5}, Landroid/view/ActionMode;->finish()V
 
     :cond_0
-    new-instance v4, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+    invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->miuiCreateActionModeCallbackWrapper(Landroid/view/ActionMode$Callback;)Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
 
-    invoke-direct {v4, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+    move-result-object v4
 
     .local v4, wrappedCallback:Landroid/view/ActionMode$Callback;
     const/4 v2, 0x0

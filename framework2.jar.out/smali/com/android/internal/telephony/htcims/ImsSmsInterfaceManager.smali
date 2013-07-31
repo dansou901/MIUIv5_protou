@@ -1455,7 +1455,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateMessageOnIccEf: index="
+    const-string/jumbo v2, "updateMessageOnIccEf: index="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1765,7 +1765,7 @@
     .line 630
     const-string v3, "ImsSmsInterfaceManager"
 
-    const-string v4, "updateNvItem"
+    const-string/jumbo v4, "updateNvItem"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1784,7 +1784,7 @@
 
     const-string v5, "android.permission.SEND_SMS"
 
-    const-string v6, "updateNvItem"
+    const-string/jumbo v6, "updateNvItem"
 
     invoke-virtual {v3, v5, v6}, Landroid/content/Context;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
 

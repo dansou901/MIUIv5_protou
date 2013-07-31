@@ -122,7 +122,7 @@
 
     const-string v8, "list_primary_m_bold"
 
-    const-string v9, "style"
+    const-string/jumbo v9, "style"
 
     const-string v10, "com.htc"
 

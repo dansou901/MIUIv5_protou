@@ -203,14 +203,6 @@
     .end annotation
 .end method
 
-.method public abstract getNextMessageIdInPreference()I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract getSMSC()Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {

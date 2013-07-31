@@ -25,19 +25,19 @@
     .locals 1
 
     .prologue
-    .line 3337
+    .line 3331
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3338
+    .line 3332
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData$KddiUtf16EncodeResult;->payload:[B
 
-    .line 3339
+    .line 3333
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/telephony/cdma/sms/BearerData$KddiUtf16EncodeResult;->emojiCount:I
 
-    .line 3340
+    .line 3334
     return-void
 .end method

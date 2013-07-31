@@ -69,6 +69,8 @@
     .locals 7
 
     .prologue
+    const/4 v6, 0x0
+
     sget-boolean v0, Landroid/webkit/DeviceMotionService$2;->$assertionsDisabled:Z
 
     if-nez v0, :cond_0
@@ -89,7 +91,6 @@
     throw v0
 
     :cond_0
-    :try_start_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
     #getter for: Landroid/webkit/DeviceMotionService;->mManager:Landroid/webkit/DeviceMotionAndOrientationManager;
@@ -106,9 +107,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
-
-    aget v2, v2, v3
+    aget v2, v2, v6
 
     float-to-double v2, v2
 
@@ -172,25 +171,8 @@
 
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
-    const/4 v1, 0x0
-
     #setter for: Landroid/webkit/DeviceMotionService;->mHaveSentErrorEvent:Z
-    invoke-static {v0, v1}, Landroid/webkit/DeviceMotionService;->access$502(Landroid/webkit/DeviceMotionService;Z)Z
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v6}, Landroid/webkit/DeviceMotionService;->access$502(Landroid/webkit/DeviceMotionService;Z)Z
 
-    :goto_0
     return-void
-
-    :catch_0
-    move-exception v6
-
-    .local v6, e:Ljava/lang/NullPointerException;
-    const-string v0, "DeviceMotionService"
-
-    const-string v1, "mLastAcceleration is null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method

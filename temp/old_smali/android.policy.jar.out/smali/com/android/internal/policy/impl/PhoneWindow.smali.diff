@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/PhoneWindow.smali	2013-07-12 21:44:51.738510606 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneWindow.smali	2013-07-12 21:42:28.705165478 +0000
+*** ./smali/com/android/internal/policy/impl/PhoneWindow.smali	2013-07-31 22:23:27.850738605 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneWindow.smali	2013-07-31 22:21:57.357397719 +0000
 ***************
 *** 16,22 ****
           Lcom/android/internal/policy/impl/PhoneWindow$DecorView;,

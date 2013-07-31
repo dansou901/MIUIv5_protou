@@ -30,19 +30,19 @@
     .parameter "state2Bits"
 
     .prologue
-    .line 64
+    .line 63
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 65
+    .line 64
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mDevName:Ljava/lang/String;
 
-    .line 66
+    .line 65
     iput p2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
-    .line 67
+    .line 66
     iput p3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
 
-    .line 68
+    .line 67
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .locals 2
 
     .prologue
-    .line 81
+    .line 80
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p0}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->getSwitchStatePath()Ljava/lang/String;
@@ -61,7 +61,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 82
+    .line 81
     .local v0, f:Ljava/io/File;
     if-eqz v0, :cond_0
 
@@ -88,7 +88,7 @@
     .parameter "switchState"
 
     .prologue
-    .line 86
+    .line 85
     iget v2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
     iget v3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
@@ -97,7 +97,7 @@
 
     xor-int/lit8 v0, v2, -0x1
 
-    .line 87
+    .line 86
     .local v0, preserveMask:I
     const/4 v2, 0x1
 
@@ -105,7 +105,7 @@
 
     iget v1, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
 
-    .line 91
+    .line 89
     .local v1, setBits:I
     :goto_0
     and-int v2, p1, v0
@@ -114,7 +114,7 @@
 
     return v2
 
-    .line 87
+    .line 86
     .end local v1           #setBits:I
     :cond_0
     const/4 v2, 0x2
@@ -126,19 +126,6 @@
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x3
-
-    if-ne p2, v2, :cond_2
-
-    iget v2, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState1Bits:I
-
-    iget v3, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mState2Bits:I
-
-    add-int v1, v2, v3
-
-    goto :goto_0
-
-    :cond_2
     const/4 v1, 0x0
 
     goto :goto_0
@@ -148,7 +135,7 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 69
     iget-object v0, p0, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->mDevName:Ljava/lang/String;
 
     return-object v0
@@ -158,7 +145,7 @@
     .locals 4
 
     .prologue
-    .line 73
+    .line 72
     const-string v0, "/devices/virtual/switch/%s"
 
     const/4 v1, 0x1
@@ -182,7 +169,7 @@
     .locals 4
 
     .prologue
-    .line 77
+    .line 76
     const-string v0, "/sys/class/switch/%s/state"
 
     const/4 v1, 0x1

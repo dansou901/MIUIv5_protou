@@ -4432,7 +4432,7 @@
 
     .prologue
     .line 1797
-    const/16 v0, 0x23f
+    const/16 v0, 0x2d7
 
     return v0
 .end method
@@ -4452,7 +4452,7 @@
 
     .prologue
     .line 1819
-    const-string v0, "4.5a"
+    const-string v0, "4.5"
 
     return-object v0
 .end method

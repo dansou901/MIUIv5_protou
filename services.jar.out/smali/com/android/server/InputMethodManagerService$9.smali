@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2586
+    .line 2582
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$9;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "whichButton"
 
     .prologue
-    .line 2589
+    .line 2585
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$9;->this$0:Lcom/android/server/InputMethodManagerService;
 
     #calls: Lcom/android/server/InputMethodManagerService;->showConfigureInputMethods()V
     invoke-static {v0}, Lcom/android/server/InputMethodManagerService;->access$1800(Lcom/android/server/InputMethodManagerService;)V
 
-    .line 2590
+    .line 2586
     return-void
 .end method

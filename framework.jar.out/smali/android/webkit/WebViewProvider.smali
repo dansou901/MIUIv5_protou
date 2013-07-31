@@ -61,6 +61,9 @@
 .method public abstract destroy()V
 .end method
 
+.method public abstract doNotResetTextSelectionRectangle()V
+.end method
+
 .method public abstract documentHasImages(Landroid/os/Message;)V
 .end method
 
@@ -92,9 +95,6 @@
 .end method
 
 .method public abstract getFavicon()Landroid/graphics/Bitmap;
-.end method
-
-.method public abstract getHTML5VideoResource()[Ljava/lang/String;
 .end method
 
 .method public abstract getHitTestResult()Landroid/webkit/WebView$HitTestResult;
@@ -233,6 +233,9 @@
 .end method
 
 .method public abstract restorePicture(Landroid/os/Bundle;Ljava/io/File;)Z
+.end method
+
+.method public abstract restoreSelect()V
 .end method
 
 .method public abstract restoreState(Landroid/os/Bundle;)Landroid/webkit/WebBackForwardList;

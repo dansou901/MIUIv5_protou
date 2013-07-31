@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 139
+    .line 135
     iput-object p1, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
     .parameter "rhs"
 
     .prologue
-    .line 142
+    .line 138
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     iget-object v3, v3, Landroid/net/wifi/ScoreHelper;->scoreMap:Ljava/util/HashMap;
@@ -88,7 +88,7 @@
 
     move-result v1
 
-    .line 143
+    .line 139
     .local v1, lScore:I
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
@@ -124,15 +124,15 @@
 
     move-result v2
 
-    .line 144
+    .line 140
     .local v2, rScore:I
     sub-int v0, v1, v2
 
-    .line 145
+    .line 141
     .local v0, delta:I
     if-nez v0, :cond_0
 
-    .line 146
+    .line 142
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     iget-object v3, v3, Landroid/net/wifi/ScoreHelper;->scoreMap:Ljava/util/HashMap;
@@ -199,10 +199,10 @@
 
     sub-int v0, v4, v3
 
-    .line 147
+    .line 143
     if-nez v0, :cond_0
 
-    .line 148
+    .line 144
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     iget-object v3, v3, Landroid/net/wifi/ScoreHelper;->scoreMap:Ljava/util/HashMap;
@@ -269,10 +269,10 @@
 
     sub-int v0, v4, v3
 
-    .line 149
+    .line 145
     if-nez v0, :cond_0
 
-    .line 150
+    .line 146
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     iget-object v3, v3, Landroid/net/wifi/ScoreHelper;->scoreMap:Ljava/util/HashMap;
@@ -339,10 +339,10 @@
 
     sub-int v0, v4, v3
 
-    .line 151
+    .line 147
     if-nez v0, :cond_0
 
-    .line 152
+    .line 148
     iget-object v3, p0, Landroid/net/wifi/ScoreHelper$2;->this$0:Landroid/net/wifi/ScoreHelper;
 
     iget-object v3, v3, Landroid/net/wifi/ScoreHelper;->scoreMap:Ljava/util/HashMap;
@@ -409,12 +409,12 @@
 
     sub-int v0, v4, v3
 
-    .line 153
+    .line 149
     if-nez v0, :cond_0
 
     const/4 v3, 0x0
 
-    .line 158
+    .line 154
     :goto_0
     return v3
 
@@ -437,7 +437,7 @@
     .parameter "x1"
 
     .prologue
-    .line 139
+    .line 135
     check-cast p1, Landroid/net/wifi/ScanResult;
 
     .end local p1

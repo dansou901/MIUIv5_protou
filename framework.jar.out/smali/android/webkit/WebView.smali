@@ -166,10 +166,10 @@
     .parameter "Listener"
 
     .prologue
-    .line 2322
+    .line 2348
     invoke-static {p0}, Landroid/webkit/WebView;->SetWebViewTabEffectListener(Landroid/webkit/HTCWebCore$OnWebViewTabEffectListener;)V
 
-    .line 2323
+    .line 2349
     return-void
 .end method
 
@@ -469,7 +469,7 @@
     .locals 3
 
     .prologue
-    .line 1889
+    .line 1915
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v1
@@ -480,7 +480,7 @@
 
     if-eq v1, v2, :cond_0
 
-    .line 1890
+    .line 1916
     new-instance v0, Ljava/lang/Throwable;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -529,7 +529,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
 
-    .line 1895
+    .line 1921
     .local v0, throwable:Ljava/lang/Throwable;
     const-string/jumbo v1, "webview_proxy"
 
@@ -539,10 +539,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1896
+    .line 1922
     invoke-static {v0}, Landroid/os/StrictMode;->onWebViewMethodCalledOnWrongThread(Ljava/lang/Throwable;)V
 
-    .line 1898
+    .line 1924
     :cond_0
     return-void
 .end method
@@ -603,15 +603,15 @@
     .locals 2
 
     .prologue
-    .line 1873
+    .line 1899
     invoke-static {}, Landroid/webkit/WebView;->checkThread()V
 
-    .line 1874
+    .line 1900
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     if-nez v0, :cond_0
 
-    .line 1877
+    .line 1903
     invoke-static {}, Landroid/webkit/WebView;->getFactory()Landroid/webkit/WebViewFactoryProvider;
 
     move-result-object v0
@@ -626,7 +626,7 @@
 
     iput-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
-    .line 1879
+    .line 1905
     :cond_0
     return-void
 .end method
@@ -659,7 +659,7 @@
     .locals 2
 
     .prologue
-    .line 1884
+    .line 1910
     const-class v1, Landroid/webkit/WebView;
 
     monitor-enter v1
@@ -667,7 +667,7 @@
     :try_start_0
     invoke-static {}, Landroid/webkit/WebView;->checkThread()V
 
-    .line 1885
+    .line 1911
     invoke-static {}, Landroid/webkit/WebViewFactory;->getProvider()Landroid/webkit/WebViewFactoryProvider;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -678,7 +678,7 @@
 
     return-object v0
 
-    .line 1884
+    .line 1910
     :catchall_0
     move-exception v0
 
@@ -726,7 +726,7 @@
     .parameter "bHostFullScreenMode"
 
     .prologue
-    .line 2320
+    .line 2346
     return-void
 .end method
 
@@ -736,7 +736,7 @@
     .parameter "flag"
 
     .prologue
-    .line 2264
+    .line 2290
     return-void
 .end method
 
@@ -747,7 +747,7 @@
     .parameter "maxScale"
 
     .prologue
-    .line 2255
+    .line 2281
     return-void
 .end method
 
@@ -756,7 +756,7 @@
     .parameter "nType"
 
     .prologue
-    .line 2175
+    .line 2201
     return-void
 .end method
 
@@ -766,7 +766,7 @@
     .locals 1
 
     .prologue
-    .line 2291
+    .line 2317
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -775,7 +775,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->EndAnimationZoomOut()V
 
-    .line 2292
+    .line 2318
     return-void
 .end method
 
@@ -787,7 +787,7 @@
     .parameter "fly"
 
     .prologue
-    .line 2352
+    .line 2373
     return-void
 .end method
 
@@ -796,7 +796,7 @@
     .parameter "ctx"
 
     .prologue
-    .line 2224
+    .line 2250
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -805,7 +805,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->SetOwnerActivityContext(Landroid/content/Context;)V
 
-    .line 2225
+    .line 2251
     return-void
 .end method
 
@@ -815,7 +815,7 @@
     .parameter "fOriginalScale"
 
     .prologue
-    .line 2288
+    .line 2314
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -824,7 +824,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/webkit/HtcWebViewAPI;->StartAnimationZoomOut(ZF)V
 
-    .line 2289
+    .line 2315
     return-void
 .end method
 
@@ -954,7 +954,7 @@
     .parameter "distance"
 
     .prologue
-    .line 2066
+    .line 2092
     const/4 v0, 0x1
 
     return v0
@@ -1061,7 +1061,7 @@
     .locals 1
 
     .prologue
-    .line 2315
+    .line 2341
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1070,7 +1070,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->clearWebCoreMemoryCache()V
 
-    .line 2316
+    .line 2342
     return-void
 .end method
 
@@ -1078,7 +1078,7 @@
     .locals 1
 
     .prologue
-    .line 1951
+    .line 1977
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1096,7 +1096,7 @@
     .locals 1
 
     .prologue
-    .line 1946
+    .line 1972
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1114,7 +1114,7 @@
     .locals 1
 
     .prologue
-    .line 1971
+    .line 1997
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1123,7 +1123,7 @@
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider$ScrollDelegate;->computeScroll()V
 
-    .line 1972
+    .line 1998
     return-void
 .end method
 
@@ -1131,7 +1131,7 @@
     .locals 1
 
     .prologue
-    .line 1966
+    .line 1992
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1149,7 +1149,7 @@
     .locals 1
 
     .prologue
-    .line 1961
+    .line 1987
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1167,7 +1167,7 @@
     .locals 1
 
     .prologue
-    .line 1956
+    .line 1982
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getScrollDelegate()Landroid/webkit/WebViewProvider$ScrollDelegate;
@@ -1236,7 +1236,7 @@
     .locals 1
 
     .prologue
-    .line 2188
+    .line 2214
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1245,7 +1245,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->disableMultiTouch()V
 
-    .line 2189
+    .line 2215
     return-void
 .end method
 
@@ -1254,7 +1254,7 @@
     .parameter "event"
 
     .prologue
-    .line 2132
+    .line 2158
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -1266,6 +1266,19 @@
     move-result v0
 
     return v0
+.end method
+
+.method public doNotResetTextSelectionRectangle()V
+    .locals 1
+
+    .prologue
+    .line 1755
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->doNotResetTextSelectionRectangle()V
+
+    .line 1757
+    return-void
 .end method
 
 .method public documentAsText(Landroid/os/Message;)V
@@ -1324,7 +1337,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2178
+    .line 2204
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1333,7 +1346,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->enableHTCZoomMethod(Z)V
 
-    .line 2179
+    .line 2205
     return-void
 .end method
 
@@ -1341,7 +1354,7 @@
     .locals 1
 
     .prologue
-    .line 2183
+    .line 2209
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1350,7 +1363,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->enableMultiTouch()V
 
-    .line 2184
+    .line 2210
     return-void
 .end method
 
@@ -1359,7 +1372,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2170
+    .line 2196
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1368,7 +1381,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->enableMultiTouchZoomOutToTabMode(Z)V
 
-    .line 2171
+    .line 2197
     return-void
 .end method
 
@@ -1376,7 +1389,7 @@
     .locals 1
 
     .prologue
-    .line 2166
+    .line 2192
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1385,7 +1398,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->enableSmartZoom()V
 
-    .line 2167
+    .line 2193
     return-void
 .end method
 
@@ -1394,7 +1407,7 @@
     .parameter "enable"
 
     .prologue
-    .line 2200
+    .line 2226
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1403,7 +1416,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->enableTBS(Z)V
 
-    .line 2201
+    .line 2227
     return-void
 .end method
 
@@ -1504,7 +1517,7 @@
     .locals 1
 
     .prologue
-    .line 2294
+    .line 2320
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1513,7 +1526,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->fnPausePlayGifAnimation()V
 
-    .line 2295
+    .line 2321
     return-void
 .end method
 
@@ -1521,7 +1534,7 @@
     .locals 1
 
     .prologue
-    .line 2297
+    .line 2323
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1530,7 +1543,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->fnResumePlayGifAnimation()V
 
-    .line 2298
+    .line 2324
     return-void
 .end method
 
@@ -1538,7 +1551,7 @@
     .locals 1
 
     .prologue
-    .line 2196
+    .line 2222
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1572,7 +1585,7 @@
     .locals 1
 
     .prologue
-    .line 2309
+    .line 2335
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1651,20 +1664,6 @@
     return-object v0
 .end method
 
-.method public getHTML5VideoResource()[Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 2374
-    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
-
-    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHTML5VideoResource()[Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getHitTestResult()Landroid/webkit/WebView$HitTestResult;
     .locals 1
 
@@ -1705,7 +1704,7 @@
     .locals 1
 
     .prologue
-    .line 2306
+    .line 2332
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1774,7 +1773,7 @@
     .parameter "callback"
 
     .prologue
-    .line 2272
+    .line 2298
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1783,7 +1782,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->getPureReaderContents(Landroid/os/Message;)V
 
-    .line 2273
+    .line 2299
     return-void
 .end method
 
@@ -1890,7 +1889,7 @@
     .locals 1
 
     .prologue
-    .line 1756
+    .line 1782
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     return-object v0
@@ -1919,7 +1918,7 @@
     .locals 1
 
     .prologue
-    .line 2192
+    .line 2218
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -1986,7 +1985,7 @@
     .locals 1
 
     .prologue
-    .line 2312
+    .line 2338
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2005,7 +2004,7 @@
     .parameter "html"
 
     .prologue
-    .line 2275
+    .line 2301
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2014,7 +2013,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->insertHtmlToTheEnd(Ljava/lang/String;)V
 
-    .line 2276
+    .line 2302
     return-void
 .end method
 
@@ -2038,7 +2037,7 @@
     .locals 1
 
     .prologue
-    .line 2355
+    .line 2376
     invoke-virtual {p0}, Landroid/webkit/WebView;->onCheckIsTextEditor()Z
 
     move-result v0
@@ -2081,7 +2080,7 @@
     .locals 1
 
     .prologue
-    .line 2282
+    .line 2308
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2099,7 +2098,7 @@
     .locals 1
 
     .prologue
-    .line 2342
+    .line 2368
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2117,7 +2116,7 @@
     .locals 1
 
     .prologue
-    .line 2232
+    .line 2258
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2135,7 +2134,7 @@
     .locals 1
 
     .prologue
-    .line 2228
+    .line 2254
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2277,7 +2276,7 @@
     .end annotation
 
     .prologue
-    .line 2244
+    .line 2270
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2295,7 +2294,7 @@
     .locals 1
 
     .prologue
-    .line 2240
+    .line 2266
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2313,10 +2312,10 @@
     .locals 1
 
     .prologue
-    .line 1909
+    .line 1935
     invoke-super {p0}, Landroid/widget/AbsoluteLayout;->onAttachedToWindow()V
 
-    .line 1910
+    .line 1936
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2325,7 +2324,7 @@
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider$ViewDelegate;->onAttachedToWindow()V
 
-    .line 1911
+    .line 1937
     return-void
 .end method
 
@@ -2358,7 +2357,7 @@
     .parameter "newConfig"
 
     .prologue
-    .line 2086
+    .line 2112
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2367,7 +2366,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 2087
+    .line 2113
     return-void
 .end method
 
@@ -2376,7 +2375,7 @@
     .parameter "outAttrs"
 
     .prologue
-    .line 2091
+    .line 2117
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2394,7 +2393,7 @@
     .locals 1
 
     .prologue
-    .line 1915
+    .line 1941
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2403,10 +2402,10 @@
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider$ViewDelegate;->onDetachedFromWindow()V
 
-    .line 1916
+    .line 1942
     invoke-super {p0}, Landroid/widget/AbsoluteLayout;->onDetachedFromWindow()V
 
-    .line 1917
+    .line 1943
     return-void
 .end method
 
@@ -2415,7 +2414,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 2076
+    .line 2102
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2424,7 +2423,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 2077
+    .line 2103
     return-void
 .end method
 
@@ -2438,7 +2437,7 @@
     .parameter "b"
 
     .prologue
-    .line 2056
+    .line 2082
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2459,7 +2458,7 @@
 
     invoke-interface/range {v0 .. v6}, Landroid/webkit/WebViewProvider$ViewDelegate;->onDrawVerticalScrollBar(Landroid/graphics/Canvas;Landroid/graphics/drawable/Drawable;IIII)V
 
-    .line 2057
+    .line 2083
     return-void
 .end method
 
@@ -2470,7 +2469,7 @@
     .parameter "previouslyFocusedRect"
 
     .prologue
-    .line 2108
+    .line 2134
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2479,10 +2478,10 @@
 
     invoke-interface {v0, p1, p2, p3}, Landroid/webkit/WebViewProvider$ViewDelegate;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    .line 2109
+    .line 2135
     invoke-super {p0, p1, p2, p3}, Landroid/widget/AbsoluteLayout;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    .line 2110
+    .line 2136
     return-void
 .end method
 
@@ -2491,7 +2490,7 @@
     .parameter "event"
 
     .prologue
-    .line 1986
+    .line 2012
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2522,7 +2521,7 @@
     .parameter "event"
 
     .prologue
-    .line 1976
+    .line 2002
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2540,7 +2539,7 @@
     .locals 0
 
     .prologue
-    .line 2366
+    .line 2387
     return-void
 .end method
 
@@ -2549,10 +2548,10 @@
     .parameter "event"
 
     .prologue
-    .line 2042
+    .line 2068
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 2043
+    .line 2069
     const-class v0, Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -2561,7 +2560,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 2044
+    .line 2070
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2570,7 +2569,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    .line 2045
+    .line 2071
     return-void
 .end method
 
@@ -2579,10 +2578,10 @@
     .parameter "info"
 
     .prologue
-    .line 2035
+    .line 2061
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 2036
+    .line 2062
     const-class v0, Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -2591,7 +2590,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityNodeInfo;->setClassName(Ljava/lang/CharSequence;)V
 
-    .line 2037
+    .line 2063
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2600,7 +2599,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 2038
+    .line 2064
     return-void
 .end method
 
@@ -2610,7 +2609,7 @@
     .parameter "event"
 
     .prologue
-    .line 1996
+    .line 2022
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2631,7 +2630,7 @@
     .parameter "event"
 
     .prologue
-    .line 2006
+    .line 2032
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2651,7 +2650,7 @@
     .parameter "event"
 
     .prologue
-    .line 2001
+    .line 2027
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2673,10 +2672,10 @@
     .end annotation
 
     .prologue
-    .line 2143
+    .line 2169
     invoke-super {p0, p1, p2}, Landroid/widget/AbsoluteLayout;->onMeasure(II)V
 
-    .line 2144
+    .line 2170
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2685,7 +2684,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider$ViewDelegate;->onMeasure(II)V
 
-    .line 2145
+    .line 2171
     return-void
 .end method
 
@@ -2693,7 +2692,7 @@
     .locals 0
 
     .prologue
-    .line 2365
+    .line 2386
     return-void
 .end method
 
@@ -2705,7 +2704,7 @@
     .parameter "clampedY"
 
     .prologue
-    .line 2061
+    .line 2087
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2714,7 +2713,7 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/webkit/WebViewProvider$ViewDelegate;->onOverScrolled(IIZZ)V
 
-    .line 2062
+    .line 2088
     return-void
 .end method
 
@@ -2758,10 +2757,10 @@
     .parameter "oldt"
 
     .prologue
-    .line 2126
+    .line 2152
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/AbsoluteLayout;->onScrollChanged(IIII)V
 
-    .line 2127
+    .line 2153
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2770,7 +2769,7 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/webkit/WebViewProvider$ViewDelegate;->onScrollChanged(IIII)V
 
-    .line 2128
+    .line 2154
     return-void
 .end method
 
@@ -2778,7 +2777,7 @@
     .locals 0
 
     .prologue
-    .line 2285
+    .line 2311
     return-void
 .end method
 
@@ -2786,7 +2785,7 @@
     .locals 0
 
     .prologue
-    .line 2284
+    .line 2310
     return-void
 .end method
 
@@ -2798,10 +2797,10 @@
     .parameter "oh"
 
     .prologue
-    .line 2120
+    .line 2146
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/AbsoluteLayout;->onSizeChanged(IIII)V
 
-    .line 2121
+    .line 2147
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2810,7 +2809,7 @@
 
     invoke-interface {v0, p1, p2, p3, p4}, Landroid/webkit/WebViewProvider$ViewDelegate;->onSizeChanged(IIII)V
 
-    .line 2122
+    .line 2148
     return-void
 .end method
 
@@ -2819,7 +2818,7 @@
     .parameter "event"
 
     .prologue
-    .line 1981
+    .line 2007
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2838,7 +2837,7 @@
     .parameter "event"
 
     .prologue
-    .line 1991
+    .line 2017
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2858,10 +2857,10 @@
     .parameter "visibility"
 
     .prologue
-    .line 2096
+    .line 2122
     invoke-super {p0, p1, p2}, Landroid/widget/AbsoluteLayout;->onVisibilityChanged(Landroid/view/View;I)V
 
-    .line 2097
+    .line 2123
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2870,7 +2869,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider$ViewDelegate;->onVisibilityChanged(Landroid/view/View;I)V
 
-    .line 2098
+    .line 2124
     return-void
 .end method
 
@@ -2879,7 +2878,7 @@
     .parameter "hasWindowFocus"
 
     .prologue
-    .line 2102
+    .line 2128
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2888,10 +2887,10 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onWindowFocusChanged(Z)V
 
-    .line 2103
+    .line 2129
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->onWindowFocusChanged(Z)V
 
-    .line 2104
+    .line 2130
     return-void
 .end method
 
@@ -2900,10 +2899,10 @@
     .parameter "visibility"
 
     .prologue
-    .line 2070
+    .line 2096
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->onWindowVisibilityChanged(I)V
 
-    .line 2071
+    .line 2097
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -2912,7 +2911,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->onWindowVisibilityChanged(I)V
 
-    .line 2072
+    .line 2098
     return-void
 .end method
 
@@ -2990,7 +2989,7 @@
     .locals 1
 
     .prologue
-    .line 2300
+    .line 2326
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -2999,7 +2998,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->pauseFPDoPlay()V
 
-    .line 2301
+    .line 2327
     return-void
 .end method
 
@@ -3025,7 +3024,7 @@
     .parameter "arguments"
 
     .prologue
-    .line 2049
+    .line 2075
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3043,7 +3042,7 @@
     .locals 1
 
     .prologue
-    .line 2081
+    .line 2107
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3126,7 +3125,7 @@
     .locals 1
 
     .prologue
-    .line 2330
+    .line 2356
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3135,7 +3134,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->removeMessagePowerSavePolicy()V
 
-    .line 2331
+    .line 2357
     return-void
 .end method
 
@@ -3146,7 +3145,7 @@
     .parameter "immediate"
 
     .prologue
-    .line 2149
+    .line 2175
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3166,7 +3165,7 @@
     .parameter "previouslyFocusedRect"
 
     .prologue
-    .line 2137
+    .line 2163
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3218,7 +3217,7 @@
     .locals 1
 
     .prologue
-    .line 2258
+    .line 2284
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3227,7 +3226,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->resetCacheDrawBitmap()V
 
-    .line 2259
+    .line 2285
     return-void
 .end method
 
@@ -3252,6 +3251,19 @@
     return v0
 .end method
 
+.method public restoreSelect()V
+    .locals 1
+
+    .prologue
+    .line 1764
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->restoreSelect()V
+
+    .line 1766
+    return-void
+.end method
+
 .method public restoreState(Landroid/os/Bundle;)Landroid/webkit/WebBackForwardList;
     .locals 1
     .parameter "inState"
@@ -3274,7 +3286,7 @@
     .locals 1
 
     .prologue
-    .line 2303
+    .line 2329
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3283,7 +3295,7 @@
 
     invoke-interface {v0}, Landroid/webkit/HtcWebViewAPI;->resumeFPDoPlay()V
 
-    .line 2304
+    .line 2330
     return-void
 .end method
 
@@ -3316,27 +3328,6 @@
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->safeDestroy()V
 
     .line 654
-    return-void
-.end method
-
-.method public saveHitTestImage(Ljava/lang/String;)V
-    .locals 1
-    .parameter "imagePath"
-
-    .prologue
-    .line 2346
-    invoke-static {}, Landroid/webkit/WebView;->checkThread()V
-
-    .line 2347
-    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
-
-    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->saveHitTestImage(Ljava/lang/String;)V
-
-    .line 2348
     return-void
 .end method
 
@@ -3451,7 +3442,7 @@
     .parameter "bImmediate"
 
     .prologue
-    .line 2326
+    .line 2352
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3460,7 +3451,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->sendMessagePowerSavePolicy(Z)V
 
-    .line 2327
+    .line 2353
     return-void
 .end method
 
@@ -3469,7 +3460,7 @@
     .parameter "color"
 
     .prologue
-    .line 2154
+    .line 2180
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3478,7 +3469,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->setBackgroundColor(I)V
 
-    .line 2155
+    .line 2181
     return-void
 .end method
 
@@ -3521,7 +3512,7 @@
     .parameter "value"
 
     .prologue
-    .line 2248
+    .line 2274
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3530,7 +3521,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setDragAfterActionDown(Z)V
 
-    .line 2249
+    .line 2275
     return-void
 .end method
 
@@ -3559,7 +3550,7 @@
     .parameter "bottom"
 
     .prologue
-    .line 2115
+    .line 2141
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3615,7 +3606,7 @@
     .parameter "bInPerf"
 
     .prologue
-    .line 2334
+    .line 2360
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3624,7 +3615,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setInPerf(Z)V
 
-    .line 2335
+    .line 2361
     return-void
 .end method
 
@@ -3650,7 +3641,7 @@
     .parameter "bSet"
 
     .prologue
-    .line 2208
+    .line 2234
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3659,7 +3650,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setIsCacheDrawBitmap(Z)V
 
-    .line 2209
+    .line 2235
     return-void
 .end method
 
@@ -3668,7 +3659,7 @@
     .parameter "bIsLoading"
 
     .prologue
-    .line 2236
+    .line 2262
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3677,7 +3668,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setIsLoading(Z)V
 
-    .line 2237
+    .line 2263
     return-void
 .end method
 
@@ -3687,10 +3678,10 @@
     .parameter "paint"
 
     .prologue
-    .line 2159
+    .line 2185
     invoke-super {p0, p1, p2}, Landroid/widget/AbsoluteLayout;->setLayerType(ILandroid/graphics/Paint;)V
 
-    .line 2160
+    .line 2186
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3699,7 +3690,7 @@
 
     invoke-interface {v0, p1, p2}, Landroid/webkit/WebViewProvider$ViewDelegate;->setLayerType(ILandroid/graphics/Paint;)V
 
-    .line 2161
+    .line 2187
     return-void
 .end method
 
@@ -3708,7 +3699,7 @@
     .parameter "params"
 
     .prologue
-    .line 1921
+    .line 1947
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3717,7 +3708,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1922
+    .line 1948
     return-void
 .end method
 
@@ -3793,10 +3784,10 @@
     .parameter "mode"
 
     .prologue
-    .line 1930
+    .line 1956
     invoke-direct {p0}, Landroid/webkit/WebView;->ensureProviderCreated()V
 
-    .line 1931
+    .line 1957
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3805,7 +3796,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->setOverScrollMode(I)V
 
-    .line 1932
+    .line 1958
     return-void
 .end method
 
@@ -3860,7 +3851,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 2278
+    .line 2304
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3869,7 +3860,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setPureZoomMode(Z)V
 
-    .line 2279
+    .line 2305
     return-void
 .end method
 
@@ -3878,7 +3869,7 @@
     .parameter "bSet"
 
     .prologue
-    .line 2220
+    .line 2246
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3887,7 +3878,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setScaleWithoutCheck(Z)V
 
-    .line 2221
+    .line 2247
     return-void
 .end method
 
@@ -3896,7 +3887,7 @@
     .parameter "style"
 
     .prologue
-    .line 1940
+    .line 1966
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -3905,10 +3896,10 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/WebViewProvider$ViewDelegate;->setScrollBarStyle(I)V
 
-    .line 1941
+    .line 1967
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->setScrollBarStyle(I)V
 
-    .line 1942
+    .line 1968
     return-void
 .end method
 
@@ -3917,7 +3908,7 @@
     .parameter "slowNetwork"
 
     .prologue
-    .line 2338
+    .line 2364
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3926,7 +3917,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setSlowNetwork(Z)V
 
-    .line 2339
+    .line 2365
     return-void
 .end method
 
@@ -3951,7 +3942,7 @@
     .parameter "slop"
 
     .prologue
-    .line 2204
+    .line 2230
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -3960,7 +3951,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setTouchSlop(I)V
 
-    .line 2205
+    .line 2231
     return-void
 .end method
 
@@ -4020,7 +4011,7 @@
     .parameter "fLower"
 
     .prologue
-    .line 2216
+    .line 2242
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -4029,7 +4020,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setZoomLowerBound(F)V
 
-    .line 2217
+    .line 2243
     return-void
 .end method
 
@@ -4038,7 +4029,7 @@
     .parameter "fUpper"
 
     .prologue
-    .line 2212
+    .line 2238
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
@@ -4047,7 +4038,7 @@
 
     invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->setZoomUpperBound(F)V
 
-    .line 2213
+    .line 2239
     return-void
 .end method
 
@@ -4057,7 +4048,7 @@
     .parameter "y"
 
     .prologue
-    .line 2324
+    .line 2350
     return-void
 .end method
 
@@ -4067,7 +4058,7 @@
     .end annotation
 
     .prologue
-    .line 2030
+    .line 2056
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -4105,7 +4096,7 @@
     .parameter "callback"
 
     .prologue
-    .line 2361
+    .line 2382
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getViewDelegate()Landroid/webkit/WebViewProvider$ViewDelegate;
@@ -4140,10 +4131,10 @@
     .parameter "mode"
 
     .prologue
-    .line 1935
+    .line 1961
     invoke-super {p0, p1}, Landroid/widget/AbsoluteLayout;->setOverScrollMode(I)V
 
-    .line 1936
+    .line 1962
     return-void
 .end method
 

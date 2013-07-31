@@ -668,7 +668,7 @@
     if-eqz v21, :cond_2
 
     .line 414
-    const-string v26, "sw1sw2"
+    const-string/jumbo v26, "sw1sw2"
 
     move-object/from16 v0, v21
 
@@ -979,7 +979,7 @@
     if-eqz v21, :cond_0
 
     .line 457
-    const-string v26, "sw1sw2"
+    const-string/jumbo v26, "sw1sw2"
 
     move-object/from16 v0, v21
 

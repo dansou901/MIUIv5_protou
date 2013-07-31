@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/multiwaveview/GlowPadView.smali	2013-07-12 21:42:47.658500375 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/multiwaveview/GlowPadView.smali	2013-07-12 21:40:38.365156380 +0000
+*** ./smali/com/android/internal/widget/multiwaveview/GlowPadView.smali	2013-07-31 22:22:07.330731884 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/multiwaveview/GlowPadView.smali	2013-07-31 22:21:10.574060480 +0000
 ***************
 *** 562,568 ****
       .parameter "x3"

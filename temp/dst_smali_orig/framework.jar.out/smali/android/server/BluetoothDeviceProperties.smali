@@ -48,7 +48,7 @@
 
 # virtual methods
 .method addProperties(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/Map;
-    .locals 12
+    .locals 11
     .parameter "address"
     .parameter "properties"
     .annotation system Ldalvik/annotation/Signature;
@@ -67,234 +67,191 @@
     .end annotation
 
     .prologue
-    iget-object v9, p0, Landroid/server/BluetoothDeviceProperties;->mPropertiesMap:Ljava/util/HashMap;
-
-    monitor-enter v9
-
-    :try_start_0
     iget-object v8, p0, Landroid/server/BluetoothDeviceProperties;->mPropertiesMap:Ljava/util/HashMap;
 
-    invoke-virtual {v8, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    monitor-enter v8
 
-    move-result-object v6
+    :try_start_0
+    iget-object v7, p0, Landroid/server/BluetoothDeviceProperties;->mPropertiesMap:Ljava/util/HashMap;
 
-    check-cast v6, Ljava/util/Map;
+    invoke-virtual {v7, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .local v6, propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    if-nez v6, :cond_0
+    move-result-object v5
 
-    new-instance v6, Ljava/util/HashMap;
+    check-cast v5, Ljava/util/Map;
 
-    .end local v6           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
-    invoke-direct {v6}, Ljava/util/HashMap;-><init>()V
+    .local v5, propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    if-nez v5, :cond_0
 
-    .restart local v6       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    new-instance v5, Ljava/util/HashMap;
+
+    .end local v5           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
+
+    .restart local v5       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, i:I
+    .local v0, i:I
     :goto_0
-    array-length v8, p2
+    array-length v7, p2
 
-    if-ge v1, v8, :cond_6
+    if-ge v0, v7, :cond_6
 
-    aget-object v4, p2, v1
+    aget-object v3, p2, v0
 
-    .local v4, name:Ljava/lang/String;
-    const/4 v5, 0x0
+    .local v3, name:Ljava/lang/String;
+    const/4 v4, 0x0
 
-    .local v5, newValue:Ljava/lang/String;
-    if-nez v4, :cond_1
+    .local v4, newValue:Ljava/lang/String;
+    if-nez v3, :cond_1
 
-    const-string v8, "BluetoothDeviceProperties"
+    const-string v7, "BluetoothDeviceProperties"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Error: Remote Device Property at index "
+    const-string v10, "Error: Remote Device Property at index "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    const-string v11, " is null"
+    const-string v10, " is null"
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v8, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    const-string v8, "UUIDs"
+    const-string v7, "UUIDs"
 
-    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_2
+    if-nez v7, :cond_2
 
-    const-string v8, "Nodes"
+    const-string v7, "Nodes"
 
-    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_2
-
-    const-string v8, "Services"
-
-    invoke-virtual {v4, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_5
+    if-eqz v7, :cond_5
 
     :cond_2
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    .local v7, str:Ljava/lang/StringBuilder;
-    add-int/lit8 v1, v1, 0x1
+    .local v6, str:Ljava/lang/StringBuilder;
+    add-int/lit8 v0, v0, 0x1
 
-    aget-object v8, p2, v1
+    aget-object v7, p2, v0
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v7
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v2
 
-    .local v3, len:I
-    const/4 v2, 0x0
+    .local v2, len:I
+    const/4 v1, 0x0
 
-    .local v2, j:I
+    .local v1, j:I
     :goto_2
-    if-ge v2, v3, :cond_3
+    if-ge v1, v2, :cond_3
+
+    add-int/lit8 v0, v0, 0x1
+
+    aget-object v7, p2, v0
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v7, ","
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v1, v1, 0x1
-
-    aget-object v8, p2, v1
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, ","
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
     :cond_3
-    if-lez v3, :cond_4
+    if-lez v2, :cond_4
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    .end local v2           #j:I
-    .end local v3           #len:I
-    .end local v7           #str:Ljava/lang/StringBuilder;
+    .end local v1           #j:I
+    .end local v2           #len:I
+    .end local v6           #str:Ljava/lang/StringBuilder;
     :cond_4
     :goto_3
-    invoke-interface {v6, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v5, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
-    .end local v1           #i:I
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #newValue:Ljava/lang/String;
-    .end local v6           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v0           #i:I
+    .end local v3           #name:Ljava/lang/String;
+    .end local v4           #newValue:Ljava/lang/String;
+    .end local v5           #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :catchall_0
-    move-exception v8
+    move-exception v7
 
-    monitor-exit v9
+    monitor-exit v8
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v8
+    throw v7
 
-    .restart local v1       #i:I
-    .restart local v4       #name:Ljava/lang/String;
-    .restart local v5       #newValue:Ljava/lang/String;
-    .restart local v6       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .restart local v0       #i:I
+    .restart local v3       #name:Ljava/lang/String;
+    .restart local v4       #newValue:Ljava/lang/String;
+    .restart local v5       #propertyValues:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_5
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     :try_start_1
-    aget-object v5, p2, v1
+    aget-object v4, p2, v0
+
+    goto :goto_3
+
+    .end local v3           #name:Ljava/lang/String;
+    .end local v4           #newValue:Ljava/lang/String;
+    :cond_6
+    iget-object v7, p0, Landroid/server/BluetoothDeviceProperties;->mPropertiesMap:Ljava/util/HashMap;
+
+    invoke-virtual {v7, p1, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    monitor-exit v8
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_3
+    iget-object v7, p0, Landroid/server/BluetoothDeviceProperties;->mService:Landroid/server/BluetoothService;
 
-    :catch_0
-    move-exception v0
+    invoke-virtual {v7, p1}, Landroid/server/BluetoothService;->updateDeviceServiceChannelCache(Ljava/lang/String;)V
 
-    .local v0, e:Ljava/lang/Exception;
-    :try_start_2
-    const-string v8, "BluetoothDeviceProperties"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Error in retrieving protperties"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v8, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v5, 0x0
-
-    goto :goto_3
-
-    .end local v0           #e:Ljava/lang/Exception;
-    .end local v4           #name:Ljava/lang/String;
-    .end local v5           #newValue:Ljava/lang/String;
-    :cond_6
-    iget-object v8, p0, Landroid/server/BluetoothDeviceProperties;->mPropertiesMap:Ljava/util/HashMap;
-
-    invoke-virtual {v8, p1, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    monitor-exit v9
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    iget-object v8, p0, Landroid/server/BluetoothDeviceProperties;->mService:Landroid/server/BluetoothService;
-
-    invoke-virtual {v8, p1}, Landroid/server/BluetoothService;->updateDeviceServiceChannelCache(Ljava/lang/String;)V
-
-    return-object v6
+    return-object v5
 .end method
 
 .method getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;

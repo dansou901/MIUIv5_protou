@@ -1928,7 +1928,7 @@
     if-nez v0, :cond_0
 
     .line 252
-    const-string v0, "storage"
+    const-string/jumbo v0, "storage"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2141,7 +2141,7 @@
 
     .line 309
     :cond_4
-    const-string v1, "storage_volume"
+    const-string/jumbo v1, "storage_volume"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -2368,7 +2368,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "updateProgressState - "
+    const-string/jumbo v6, "updateProgressState - "
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2520,7 +2520,7 @@
 
     if-nez v4, :cond_7
 
-    const-string v4, "unmounted"
+    const-string/jumbo v4, "unmounted"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2528,7 +2528,7 @@
 
     if-nez v4, :cond_7
 
-    const-string v4, "unmountable"
+    const-string/jumbo v4, "unmountable"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2548,7 +2548,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "updateProgressState - "
+    const-string/jumbo v6, "updateProgressState - "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2690,7 +2690,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "storage state: "
+    const-string/jumbo v6, "storage state: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

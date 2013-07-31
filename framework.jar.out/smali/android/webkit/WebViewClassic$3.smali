@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 2411
+    .line 2424
     iput-object p1, p0, Landroid/webkit/WebViewClassic$3;->this$0:Landroid/webkit/WebViewClassic;
 
     iput-object p2, p0, Landroid/webkit/WebViewClassic$3;->val$neverRemember:Landroid/os/Message;
@@ -48,30 +48,30 @@
     .parameter "which"
 
     .prologue
-    .line 2414
+    .line 2427
     iget-object v0, p0, Landroid/webkit/WebViewClassic$3;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mResumeMsg:Landroid/os/Message;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2400(Landroid/webkit/WebViewClassic;)Landroid/os/Message;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2000(Landroid/webkit/WebViewClassic;)Landroid/os/Message;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 2415
+    .line 2428
     iget-object v0, p0, Landroid/webkit/WebViewClassic$3;->val$neverRemember:Landroid/os/Message;
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 2416
+    .line 2429
     iget-object v0, p0, Landroid/webkit/WebViewClassic$3;->this$0:Landroid/webkit/WebViewClassic;
 
     const/4 v1, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mResumeMsg:Landroid/os/Message;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2402(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$2002(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
 
-    .line 2418
+    .line 2431
     :cond_0
     return-void
 .end method

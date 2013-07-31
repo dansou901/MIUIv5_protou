@@ -65,79 +65,6 @@
     return v0
 .end method
 
-.method public static getDefaultLauncher(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
-    .parameter "context"
-
-    .prologue
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v3, "android.intent.action.MAIN"
-
-    invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v0, intent:Landroid/content/Intent;
-    const-string v3, "android.intent.category.HOME"
-
-    invoke-virtual {v0, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v0, v4}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
-
-    move-result-object v2
-
-    .local v2, resInfo:Landroid/content/pm/ResolveInfo;
-    iget-object v3, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    if-nez v3, :cond_0
-
-    const-string v3, "HtcPolicyUtils"
-
-    const-string v4, "there is no home app?"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v1, ""
-
-    :goto_0
-    return-object v1
-
-    :cond_0
-    iget-object v3, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v1, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    .local v1, name:Ljava/lang/String;
-    const-string v3, "HtcPolicyUtils"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "default launcher = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method public static final getForegroundAppName()Ljava/lang/String;
     .locals 5
 
@@ -187,7 +114,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "current foreground appName = "
+    const-string v4, "Screen capture: appName="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

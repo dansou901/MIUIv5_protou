@@ -44,8 +44,6 @@
 
 .field public static final HTC_FELICA_UID:I = 0x2705
 
-.field public static final HTC_FULLBACKUP_UID:I = 0x2701
-
 .field public static final HTC_GALLERY_UID:I = 0x2708
 
 .field public static final HTC_GREADER_UID:I = 0x270a
@@ -211,7 +209,7 @@
     .line 44
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1101
+    .line 1096
     return-void
 .end method
 
@@ -235,7 +233,7 @@
     .parameter "pid"
 
     .prologue
-    .line 1206
+    .line 1201
     invoke-static {p0}, Landroid/os/Process;->getGfxMem(I)J
 
     move-result-wide v0
@@ -255,24 +253,24 @@
 
     const/4 v4, 0x0
 
-    .line 770
+    .line 765
     new-array v0, v3, [Ljava/lang/String;
 
     const-string v2, "PPid:"
 
     aput-object v2, v0, v4
 
-    .line 771
+    .line 766
     .local v0, procStatusLabels:[Ljava/lang/String;
     new-array v1, v3, [J
 
-    .line 772
+    .line 767
     .local v1, procStatusValues:[J
     const-wide/16 v2, -0x1
 
     aput-wide v2, v1, v4
 
-    .line 773
+    .line 768
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -299,7 +297,7 @@
 
     invoke-static {v2, v0, v1}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
 
-    .line 774
+    .line 769
     aget-wide v2, v1, v4
 
     long-to-int v2, v2
@@ -337,24 +335,24 @@
 
     const/4 v4, 0x0
 
-    .line 785
+    .line 780
     new-array v0, v3, [Ljava/lang/String;
 
     const-string v2, "Tgid:"
 
     aput-object v2, v0, v4
 
-    .line 786
+    .line 781
     .local v0, procStatusLabels:[Ljava/lang/String;
     new-array v1, v3, [J
 
-    .line 787
+    .line 782
     .local v1, procStatusValues:[J
     const-wide/16 v2, -0x1
 
     aput-wide v2, v1, v4
 
-    .line 788
+    .line 783
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -381,7 +379,7 @@
 
     invoke-static {v2, v0, v1}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
 
-    .line 789
+    .line 784
     aget-wide v2, v1, v4
 
     long-to-int v2, v2
@@ -412,24 +410,24 @@
 
     const/4 v4, 0x0
 
-    .line 756
+    .line 751
     new-array v0, v3, [Ljava/lang/String;
 
     const-string v2, "Uid:"
 
     aput-object v2, v0, v4
 
-    .line 757
+    .line 752
     .local v0, procStatusLabels:[Ljava/lang/String;
     new-array v1, v3, [J
 
-    .line 758
+    .line 753
     .local v1, procStatusValues:[J
     const-wide/16 v2, -0x1
 
     aput-wide v2, v1, v4
 
-    .line 759
+    .line 754
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -456,7 +454,7 @@
 
     invoke-static {v2, v0, v1}, Landroid/os/Process;->readProcLines(Ljava/lang/String;[Ljava/lang/String;[J)V
 
-    .line 760
+    .line 755
     aget-wide v2, v1, v4
 
     long-to-int v2, v2
@@ -471,7 +469,7 @@
     .locals 2
 
     .prologue
-    .line 731
+    .line 726
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v1
@@ -480,7 +478,7 @@
 
     move-result v0
 
-    .line 732
+    .line 727
     .local v0, uid:I
     const v1, 0x182b8
 
@@ -506,7 +504,7 @@
     .parameter "pid"
 
     .prologue
-    .line 955
+    .line 950
     const-string v4, "Process"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -529,7 +527,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 956
+    .line 951
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -550,7 +548,7 @@
 
     aget-object v3, v0, v1
 
-    .line 957
+    .line 952
     .local v3, ste:Ljava/lang/StackTraceElement;
     const-string v4, "Process"
 
@@ -560,19 +558,19 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 956
+    .line 951
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 960
+    .line 955
     .end local v3           #ste:Ljava/lang/StackTraceElement;
     :cond_0
     const/16 v4, 0x9
 
     invoke-static {p0, v4}, Landroid/os/Process;->sendSignal(II)V
 
-    .line 961
+    .line 956
     return-void
 .end method
 
@@ -581,7 +579,7 @@
     .parameter "pid"
 
     .prologue
-    .line 985
+    .line 980
     const-string v4, "Process"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -604,7 +602,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 986
+    .line 981
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v4
@@ -625,7 +623,7 @@
 
     aget-object v3, v0, v1
 
-    .line 987
+    .line 982
     .local v3, ste:Ljava/lang/StackTraceElement;
     const-string v4, "Process"
 
@@ -635,19 +633,19 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 986
+    .line 981
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 990
+    .line 985
     .end local v3           #ste:Ljava/lang/StackTraceElement;
     :cond_0
     const/16 v4, 0x9
 
     invoke-static {p0, v4}, Landroid/os/Process;->sendSignalQuiet(II)V
 
-    .line 991
+    .line 986
     return-void
 .end method
 
@@ -675,20 +673,20 @@
     .end annotation
 
     .prologue
-    .line 478
+    .line 473
     sget-boolean v4, Landroid/os/Process;->sPreviousZygoteOpenFailed:Z
 
     if-eqz v4, :cond_2
 
-    .line 483
+    .line 478
     const/4 v3, 0x0
 
-    .line 493
+    .line 488
     .local v3, retryCount:I
     :goto_0
     const/4 v2, 0x0
 
-    .line 494
+    .line 489
     .local v2, retry:I
     :goto_1
     sget-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
@@ -699,10 +697,10 @@
 
     if-ge v2, v4, :cond_1
 
-    .line 497
+    .line 492
     if-lez v2, :cond_0
 
-    .line 499
+    .line 494
     :try_start_0
     const-string v4, "Zygote"
 
@@ -710,14 +708,14 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 500
+    .line 495
     const-wide/16 v4, 0x1f4
 
     invoke-static {v4, v5}, Ljava/lang/Thread;->sleep(J)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 507
+    .line 502
     :cond_0
     :goto_2
     :try_start_1
@@ -727,7 +725,7 @@
 
     sput-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
-    .line 509
+    .line 504
     sget-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
     new-instance v5, Landroid/net/LocalSocketAddress;
@@ -740,7 +738,7 @@
 
     invoke-virtual {v4, v5}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
 
-    .line 512
+    .line 507
     new-instance v4, Ljava/io/DataInputStream;
 
     sget-object v5, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
@@ -753,7 +751,7 @@
 
     sput-object v4, Landroid/os/Process;->sZygoteInputStream:Ljava/io/DataInputStream;
 
-    .line 515
+    .line 510
     new-instance v4, Ljava/io/BufferedWriter;
 
     new-instance v5, Ljava/io/OutputStreamWriter;
@@ -772,32 +770,32 @@
 
     sput-object v4, Landroid/os/Process;->sZygoteWriter:Ljava/io/BufferedWriter;
 
-    .line 521
+    .line 516
     const-string v4, "Zygote"
 
     const-string v5, "Process: zygote socket opened"
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 523
+    .line 518
     const/4 v4, 0x0
 
     sput-boolean v4, Landroid/os/Process;->sPreviousZygoteOpenFailed:Z
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 539
+    .line 534
     :cond_1
     sget-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
     if-nez v4, :cond_4
 
-    .line 540
+    .line 535
     const/4 v4, 0x1
 
     sput-boolean v4, Landroid/os/Process;->sPreviousZygoteOpenFailed:Z
 
-    .line 541
+    .line 536
     new-instance v4, Landroid/os/ZygoteStartFailedEx;
 
     const-string v5, "connect failed"
@@ -806,7 +804,7 @@
 
     throw v4
 
-    .line 485
+    .line 480
     .end local v2           #retry:I
     .end local v3           #retryCount:I
     :cond_2
@@ -815,18 +813,18 @@
     .restart local v3       #retryCount:I
     goto :goto_0
 
-    .line 525
+    .line 520
     .restart local v2       #retry:I
     :catch_0
     move-exception v0
 
-    .line 526
+    .line 521
     .local v0, ex:Ljava/io/IOException;
     sget-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
     if-eqz v4, :cond_3
 
-    .line 528
+    .line 523
     :try_start_2
     sget-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
@@ -834,23 +832,23 @@
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 
-    .line 535
+    .line 530
     :cond_3
     :goto_3
     const/4 v4, 0x0
 
     sput-object v4, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
-    .line 495
+    .line 490
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
-    .line 529
+    .line 524
     :catch_1
     move-exception v1
 
-    .line 530
+    .line 525
     .local v1, ex2:Ljava/io/IOException;
     const-string v4, "Process"
 
@@ -860,13 +858,13 @@
 
     goto :goto_3
 
-    .line 543
+    .line 538
     .end local v0           #ex:Ljava/io/IOException;
     .end local v1           #ex2:Ljava/io/IOException;
     :cond_4
     return-void
 
-    .line 501
+    .line 496
     :catch_2
     move-exception v4
 
@@ -980,7 +978,7 @@
     .parameter "zygoteArgs"
 
     .prologue
-    .line 456
+    .line 451
     :try_start_0
     invoke-static/range {p0 .. p7}, Landroid/os/Process;->startViaZygote(Ljava/lang/String;Ljava/lang/String;II[III[Ljava/lang/String;)Landroid/os/Process$ProcessStartResult;
     :try_end_0
@@ -990,11 +988,11 @@
 
     return-object v1
 
-    .line 458
+    .line 453
     :catch_0
     move-exception v0
 
-    .line 459
+    .line 454
     .local v0, ex:Landroid/os/ZygoteStartFailedEx;
     const-string v1, "Process"
 
@@ -1002,7 +1000,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 461
+    .line 456
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string v2, "Starting VM process through Zygote failed"
@@ -1029,24 +1027,24 @@
     .end annotation
 
     .prologue
-    .line 631
+    .line 626
     const-class v10, Landroid/os/Process;
 
     monitor-enter v10
 
-    .line 632
+    .line 627
     :try_start_0
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 636
+    .line 631
     .local v2, argsForZygote:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v9, "--runtime-init"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 637
+    .line 632
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -1067,7 +1065,7 @@
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 638
+    .line 633
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -1088,61 +1086,61 @@
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 639
+    .line 634
     and-int/lit8 v9, p5, 0x10
 
     if-eqz v9, :cond_0
 
-    .line 640
+    .line 635
     const-string v9, "--enable-jni-logging"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 642
+    .line 637
     :cond_0
     and-int/lit8 v9, p5, 0x8
 
     if-eqz v9, :cond_1
 
-    .line 643
+    .line 638
     const-string v9, "--enable-safemode"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 645
+    .line 640
     :cond_1
     and-int/lit8 v9, p5, 0x1
 
     if-eqz v9, :cond_2
 
-    .line 646
+    .line 641
     const-string v9, "--enable-debugger"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 648
+    .line 643
     :cond_2
     and-int/lit8 v9, p5, 0x2
 
     if-eqz v9, :cond_3
 
-    .line 649
+    .line 644
     const-string v9, "--enable-checkjni"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 651
+    .line 646
     :cond_3
     and-int/lit8 v9, p5, 0x4
 
     if-eqz v9, :cond_4
 
-    .line 652
+    .line 647
     const-string v9, "--enable-assert"
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 654
+    .line 649
     :cond_4
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1166,7 +1164,7 @@
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 660
+    .line 655
     if-eqz p4, :cond_7
 
     move-object/from16 v0, p4
@@ -1175,23 +1173,23 @@
 
     if-lez v9, :cond_7
 
-    .line 661
+    .line 656
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 662
+    .line 657
     .local v7, sb:Ljava/lang/StringBuilder;
     const-string v9, "--setgroups="
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 664
+    .line 659
     move-object/from16 v0, p4
 
     array-length v8, v0
 
-    .line 665
+    .line 660
     .local v8, sz:I
     const/4 v4, 0x0
 
@@ -1199,26 +1197,26 @@
     :goto_0
     if-ge v4, v8, :cond_6
 
-    .line 666
+    .line 661
     if-eqz v4, :cond_5
 
-    .line 667
+    .line 662
     const/16 v9, 0x2c
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 669
+    .line 664
     :cond_5
     aget v9, p4, v4
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 665
+    .line 660
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
-    .line 672
+    .line 667
     :cond_6
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1226,14 +1224,14 @@
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 675
+    .line 670
     .end local v4           #i:I
     .end local v7           #sb:Ljava/lang/StringBuilder;
     .end local v8           #sz:I
     :cond_7
     if-eqz p1, :cond_8
 
-    .line 676
+    .line 671
     new-instance v9, Ljava/lang/StringBuilder;
 
     invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
@@ -1254,14 +1252,14 @@
 
     invoke-virtual {v2, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 679
+    .line 674
     :cond_8
     invoke-virtual {v2, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 681
+    .line 676
     if-eqz p7, :cond_9
 
-    .line 682
+    .line 677
     move-object/from16 v3, p7
 
     .local v3, arr$:[Ljava/lang/String;
@@ -1276,16 +1274,16 @@
 
     aget-object v1, v3, v5
 
-    .line 683
+    .line 678
     .local v1, arg:Ljava/lang/String;
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 682
+    .line 677
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
-    .line 687
+    .line 682
     .end local v1           #arg:Ljava/lang/String;
     .end local v3           #arr$:[Ljava/lang/String;
     .end local v5           #i$:I
@@ -1299,7 +1297,7 @@
 
     return-object v9
 
-    .line 688
+    .line 683
     .end local v2           #argsForZygote:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     :catchall_0
     move-exception v9
@@ -1317,7 +1315,7 @@
     .end annotation
 
     .prologue
-    .line 916
+    .line 911
     const/4 v0, 0x1
 
     return v0
@@ -1330,15 +1328,15 @@
     .parameter "nice"
 
     .prologue
-    .line 1148
+    .line 1143
     packed-switch p1, :pswitch_data_0
 
-    .line 1169
+    .line 1164
     :cond_0
     :goto_0
     return-void
 
-    .line 1150
+    .line 1145
     :pswitch_0
     invoke-static {}, Landroid/os/StrictMode;->vmIllegalSetOomAdjEnabled()Z
 
@@ -1346,7 +1344,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1151
+    .line 1146
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1385,7 +1383,7 @@
 
     goto :goto_0
 
-    .line 1156
+    .line 1151
     :pswitch_1
     invoke-static {}, Landroid/os/StrictMode;->vmIllegalSetThreadPriorityEnabled()Z
 
@@ -1393,7 +1391,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 1158
+    .line 1153
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v1
@@ -1402,7 +1400,7 @@
 
     move-result-object v0
 
-    .line 1159
+    .line 1154
     .local v0, threadName:Ljava/lang/String;
     const-string v1, "SensorThread"
 
@@ -1412,7 +1410,7 @@
 
     if-nez v1, :cond_0
 
-    .line 1164
+    .line 1159
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1473,7 +1471,7 @@
 
     goto/16 :goto_0
 
-    .line 1148
+    .line 1143
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -1502,11 +1500,11 @@
     .end annotation
 
     .prologue
-    .line 555
+    .line 550
     .local p0, args:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-static {}, Landroid/os/Process;->openZygoteSocketIfNeeded()V
 
-    .line 569
+    .line 564
     :try_start_0
     sget-object v6, Landroid/os/Process;->sZygoteWriter:Ljava/io/BufferedWriter;
 
@@ -1520,17 +1518,17 @@
 
     invoke-virtual {v6, v7}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    .line 570
+    .line 565
     sget-object v6, Landroid/os/Process;->sZygoteWriter:Ljava/io/BufferedWriter;
 
     invoke-virtual {v6}, Ljava/io/BufferedWriter;->newLine()V
 
-    .line 572
+    .line 567
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v5
 
-    .line 573
+    .line 568
     .local v5, sz:I
     const/4 v3, 0x0
 
@@ -1538,14 +1536,14 @@
     :goto_0
     if-ge v3, v5, :cond_2
 
-    .line 574
+    .line 569
     invoke-virtual {p0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    .line 575
+    .line 570
     .local v0, arg:Ljava/lang/String;
     const/16 v6, 0xa
 
@@ -1555,7 +1553,7 @@
 
     if-ltz v6, :cond_1
 
-    .line 576
+    .line 571
     new-instance v6, Landroid/os/ZygoteStartFailedEx;
 
     const-string v7, "embedded newlines not allowed"
@@ -1566,42 +1564,42 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 593
+    .line 588
     .end local v0           #arg:Ljava/lang/String;
     .end local v3           #i:I
     .end local v5           #sz:I
     :catch_0
     move-exception v1
 
-    .line 595
+    .line 590
     .local v1, ex:Ljava/io/IOException;
     :try_start_1
     sget-object v6, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
     if-eqz v6, :cond_0
 
-    .line 596
+    .line 591
     sget-object v6, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
     invoke-virtual {v6}, Landroid/net/LocalSocket;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 603
+    .line 598
     :cond_0
     :goto_1
     const/4 v6, 0x0
 
     sput-object v6, Landroid/os/Process;->sZygoteSocket:Landroid/net/LocalSocket;
 
-    .line 605
+    .line 600
     new-instance v6, Landroid/os/ZygoteStartFailedEx;
 
     invoke-direct {v6, v1}, Landroid/os/ZygoteStartFailedEx;-><init>(Ljava/lang/Throwable;)V
 
     throw v6
 
-    .line 579
+    .line 574
     .end local v1           #ex:Ljava/io/IOException;
     .restart local v0       #arg:Ljava/lang/String;
     .restart local v3       #i:I
@@ -1612,29 +1610,29 @@
 
     invoke-virtual {v6, v0}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
 
-    .line 580
+    .line 575
     sget-object v6, Landroid/os/Process;->sZygoteWriter:Ljava/io/BufferedWriter;
 
     invoke-virtual {v6}, Ljava/io/BufferedWriter;->newLine()V
 
-    .line 573
+    .line 568
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 583
+    .line 578
     .end local v0           #arg:Ljava/lang/String;
     :cond_2
     sget-object v6, Landroid/os/Process;->sZygoteWriter:Ljava/io/BufferedWriter;
 
     invoke-virtual {v6}, Ljava/io/BufferedWriter;->flush()V
 
-    .line 586
+    .line 581
     new-instance v4, Landroid/os/Process$ProcessStartResult;
 
     invoke-direct {v4}, Landroid/os/Process$ProcessStartResult;-><init>()V
 
-    .line 587
+    .line 582
     .local v4, result:Landroid/os/Process$ProcessStartResult;
     sget-object v6, Landroid/os/Process;->sZygoteInputStream:Ljava/io/DataInputStream;
 
@@ -1644,12 +1642,12 @@
 
     iput v6, v4, Landroid/os/Process$ProcessStartResult;->pid:I
 
-    .line 588
+    .line 583
     iget v6, v4, Landroid/os/Process$ProcessStartResult;->pid:I
 
     if-gez v6, :cond_3
 
-    .line 589
+    .line 584
     new-instance v6, Landroid/os/ZygoteStartFailedEx;
 
     const-string v7, "fork() failed"
@@ -1658,7 +1656,7 @@
 
     throw v6
 
-    .line 591
+    .line 586
     :cond_3
     sget-object v6, Landroid/os/Process;->sZygoteInputStream:Ljava/io/DataInputStream;
 
@@ -1670,10 +1668,10 @@
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 592
+    .line 587
     return-object v4
 
-    .line 598
+    .line 593
     .end local v3           #i:I
     .end local v4           #result:Landroid/os/Process$ProcessStartResult;
     .end local v5           #sz:I
@@ -1681,7 +1679,7 @@
     :catch_1
     move-exception v2
 
-    .line 600
+    .line 595
     .local v2, ex2:Ljava/io/IOException;
     const-string v6, "Process"
 

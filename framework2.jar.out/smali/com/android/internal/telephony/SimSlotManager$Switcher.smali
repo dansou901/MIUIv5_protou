@@ -183,7 +183,7 @@
     .line 1133
     const-string v0, "SSM"
 
-    const-string v1, "turn off radio"
+    const-string/jumbo v1, "turn off radio"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -214,7 +214,7 @@
     .line 1138
     const-string v0, "SSM"
 
-    const-string v1, "switch slot"
+    const-string/jumbo v1, "switch slot"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -258,7 +258,7 @@
     .line 1147
     const-string v0, "SSM"
 
-    const-string v1, "turn on radio"
+    const-string/jumbo v1, "turn on radio"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -881,7 +881,7 @@
     new-instance v1, Ljava/lang/RuntimeException;
 
     .end local v1           #re:Ljava/lang/RuntimeException;
-    const-string v2, "switch slot failed"
+    const-string/jumbo v2, "switch slot failed"
 
     invoke-direct {v1, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
@@ -945,7 +945,7 @@
     .line 1183
     const-string v0, "SSM"
 
-    const-string v1, "start switching"
+    const-string/jumbo v1, "start switching"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -2020,34 +2020,11 @@
     :cond_6
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    if-eq v7, v9, :cond_7
-
-    sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/4 v8, 0x4
-
-    if-eq v7, v8, :cond_7
-
-    sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v8, 0x75
-
-    if-ne v7, v8, :cond_8
-
-    :cond_7
-    const/4 v7, 0x2
-
-    sget v8, Lcom/android/internal/telephony/HtcTelephonyCapability;->BUILT_RAT_CAPABILITIES:I
-
-    invoke-static {v7, v8}, Lcom/android/internal/telephony/HtcTelephonyCapability;->isCapabilitiesEnabled(II)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_8
+    if-ne v7, v9, :cond_7
 
     invoke-direct {p0}, Lcom/android/internal/telephony/IccCardProxy;->setUICCStatus()V
 
-    :cond_8
+    :cond_7
     sget-object v7, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/IccCardProxy;->searchIccOperatorNumeric([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
@@ -2055,11 +2032,11 @@
     move-result-object v0
 
     .local v0, apnOperatorNumeric:Ljava/lang/String;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_8
 
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
-    :cond_9
+    :cond_8
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const-string v8, "gsm.apn.operator.numeric"
@@ -2070,19 +2047,19 @@
 
     const/16 v8, 0x49
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v8, 0x54
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v8, 0x1fd
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
     const-string v4, ""
 
@@ -2094,9 +2071,9 @@
 
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_c
+    if-ne v7, v8, :cond_b
 
-    :cond_a
+    :cond_9
     :goto_2
     const-string v7, "IccCardProxy"
 
@@ -2154,7 +2131,7 @@
 
     .end local v4           #operatorNumeric:Ljava/lang/String;
     .end local v5           #operatorSpn:Ljava/lang/String;
-    :cond_b
+    :cond_a
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->recordsLoadedRegistrants:Landroid/os/RegistrantList;
 
     new-instance v8, Landroid/os/AsyncResult;
@@ -2171,7 +2148,7 @@
 
     .restart local v4       #operatorNumeric:Ljava/lang/String;
     .restart local v5       #operatorSpn:Ljava/lang/String;
-    :cond_c
+    :cond_b
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->UNKNOWN_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     .local v6, searchTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -2215,11 +2192,11 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_c
 
     const-string v5, ""
 
-    :cond_d
+    :cond_c
     :goto_3
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -2234,7 +2211,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_e
+    if-nez v7, :cond_d
 
     const/4 v7, 0x0
 
@@ -2256,13 +2233,13 @@
 
     move-result-object v3
 
-    :cond_e
+    :cond_d
     :goto_4
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v8, 0x51
 
-    if-eq v7, v8, :cond_a
+    if-eq v7, v8, :cond_9
 
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -2270,7 +2247,7 @@
 
     invoke-virtual {v7, v8, v3}, Lcom/android/internal/telephony/PhoneBase;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_9
 
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -2288,16 +2265,16 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_f
+    if-nez v4, :cond_e
 
     const-string v4, ""
 
-    :cond_f
+    :cond_e
     invoke-direct {p0, v6}, Lcom/android/internal/telephony/IccCardProxy;->searchIccServiceProviderName([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_d
+    if-nez v5, :cond_c
 
     const-string v5, ""
 
@@ -2306,7 +2283,7 @@
     :pswitch_1
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    if-ne v7, v9, :cond_11
+    if-ne v7, v9, :cond_10
 
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
@@ -2318,11 +2295,11 @@
     :goto_6
     array-length v7, v6
 
-    if-ge v2, v7, :cond_12
+    if-ge v2, v7, :cond_11
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_11
 
-    if-nez v4, :cond_10
+    if-nez v4, :cond_f
 
     aget-object v7, v6, v2
 
@@ -2330,18 +2307,18 @@
 
     move-result-object v4
 
-    :cond_10
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_6
 
-    :cond_11
+    :cond_10
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->CSIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_5
 
-    :cond_12
-    if-nez v4, :cond_13
+    :cond_11
+    if-nez v4, :cond_12
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccCardProxy;->getCdmaSubscriptionSource()I
 
@@ -2349,20 +2326,20 @@
 
     const/4 v8, -0x1
 
-    if-ne v7, v8, :cond_13
+    if-ne v7, v8, :cond_12
 
     iget-object v4, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
+    :cond_12
+    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
+
+    if-eqz v7, :cond_14
+
+    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
+
+    if-ne v7, v4, :cond_14
+
     :cond_13
-    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
-
-    if-eqz v7, :cond_15
-
-    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
-
-    if-ne v7, v4, :cond_15
-
-    :cond_14
     :goto_7
     sget-object v7, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
@@ -2372,8 +2349,8 @@
 
     goto :goto_3
 
-    :cond_15
-    if-nez v4, :cond_14
+    :cond_14
+    if-nez v4, :cond_13
 
     const-string v4, ""
 
@@ -3535,6 +3512,8 @@
     sget-object v18, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_7
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

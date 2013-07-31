@@ -1193,7 +1193,7 @@
 
     .line 490
     .local v7, SIZE:I
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v5
 
@@ -2515,7 +2515,7 @@
 
     aget-object v8, v8, v10
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v10
 
@@ -2704,7 +2704,7 @@
 
     aget-object v8, v8, v10
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v10
 
@@ -3155,7 +3155,7 @@
 
     .line 180
     :cond_4
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
 

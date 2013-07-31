@@ -1,5 +1,5 @@
-*** ./smali/android/widget/RemoteViews.smali	2013-07-12 21:43:22.361836569 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/RemoteViews.smali	2013-07-12 21:41:06.175158673 +0000
+*** ./smali/android/widget/RemoteViews.smali	2013-07-31 22:22:31.464067232 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/RemoteViews.smali	2013-07-31 22:21:23.867394923 +0000
 ***************
 *** 71,76 ****
 --- 71,82 ----

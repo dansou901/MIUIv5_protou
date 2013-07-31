@@ -46,12 +46,6 @@
     .parameter "windowToken"
 
     .prologue
-    const-string v0, "WindowManager"
-
-    const-string v1, "Check Keyguard window and wait for drawn."
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     if-eqz p1, :cond_0
 
     :try_start_0

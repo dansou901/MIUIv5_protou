@@ -214,7 +214,7 @@
 
     .prologue
     .line 113
-    const-string v1, "ulog.enable_debugging_policy"
+    const-string/jumbo v1, "ulog.enable_debugging_policy"
 
     const/4 v2, 0x1
 
@@ -234,7 +234,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "ulog.enable_debugging_policy: "
+    const-string/jumbo v3, "ulog.enable_debugging_policy: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -587,11 +587,11 @@
 
     .prologue
     .line 86
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     const-string v1, "ro.build.type"
 
-    const-string v2, "user"
+    const-string/jumbo v2, "user"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

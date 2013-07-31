@@ -1,11 +1,14 @@
 .class Lcom/htc/server/WirelessDisplayService$15;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "WirelessDisplayService.java"
+
+# interfaces
+.implements Landroid/content/ServiceConnection;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/htc/server/WirelessDisplayService;-><init>(Landroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/htc/server/WirelessDisplayService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,28 +29,50 @@
     .prologue
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$15;->this$0:Lcom/htc/server/WirelessDisplayService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
-    .parameter "context"
-    .parameter "intent"
+    .parameter "name"
+    .parameter "service"
 
     .prologue
     const-string v0, "WirelessDisplayService"
 
-    const-string v1, "Receive INTENT_NOTIFY_EXTEND_TURNOFF_HOTSPOT_TIMER"
+    const-string v1, "Connected to WHDMI WfdService."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$15;->this$0:Lcom/htc/server/WirelessDisplayService;
 
-    invoke-virtual {v0}, Lcom/htc/server/WirelessDisplayService;->extendTurnOffHotspotTimer()V
+    #setter for: Lcom/htc/server/WirelessDisplayService;->mAutoConfigService:Landroid/os/IBinder;
+    invoke-static {v0, p2}, Lcom/htc/server/WirelessDisplayService;->access$2702(Lcom/htc/server/WirelessDisplayService;Landroid/os/IBinder;)Landroid/os/IBinder;
+
+    return-void
+.end method
+
+.method public onServiceDisconnected(Landroid/content/ComponentName;)V
+    .locals 2
+    .parameter "name"
+
+    .prologue
+    const-string v0, "WirelessDisplayService"
+
+    const-string v1, "Disconnected to WHDMI WfdService."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$15;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    const/4 v1, 0x0
+
+    #setter for: Lcom/htc/server/WirelessDisplayService;->mAutoConfigService:Landroid/os/IBinder;
+    invoke-static {v0, v1}, Lcom/htc/server/WirelessDisplayService;->access$2702(Lcom/htc/server/WirelessDisplayService;Landroid/os/IBinder;)Landroid/os/IBinder;
 
     return-void
 .end method

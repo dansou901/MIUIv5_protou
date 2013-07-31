@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 658
+    .line 654
     iput-object p1, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
-    .line 659
+    .line 655
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 660
+    .line 656
     return-void
 .end method
 
@@ -42,16 +42,16 @@
     .parameter "msg"
 
     .prologue
-    .line 664
+    .line 660
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 675
+    .line 671
     :goto_0
     return-void
 
-    .line 666
+    .line 662
     :pswitch_0
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -65,7 +65,7 @@
 
     goto :goto_0
 
-    .line 669
+    .line 665
     :pswitch_1
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -73,7 +73,7 @@
 
     goto :goto_0
 
-    .line 672
+    .line 668
     :pswitch_2
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -83,7 +83,7 @@
 
     goto :goto_0
 
-    .line 664
+    .line 660
     nop
 
     :pswitch_data_0

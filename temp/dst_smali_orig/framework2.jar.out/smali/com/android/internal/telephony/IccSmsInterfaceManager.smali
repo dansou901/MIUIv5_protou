@@ -263,7 +263,7 @@
 .end method
 
 .method protected buildValidRawData(Ljava/util/ArrayList;Z)Ljava/util/ArrayList;
-    .locals 8
+    .locals 6
     .parameter
     .parameter "isCdmaFormat"
     .annotation system Ldalvik/annotation/Signature;
@@ -343,54 +343,6 @@
     .end local v0           #ba:[B
     .end local v3           #rawData:Lcom/android/internal/telephony/SmsRawData;
     :cond_1
-    const-string v5, "buildValidRawData"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "messages count : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v5, "buildValidRawData"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "ret.size() : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-object v4
 .end method
 
@@ -631,19 +583,6 @@
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->enforceReceiveAndSend(Ljava/lang/String;)V
 
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getNextMessageIdInPreference()I
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mDispatcher:Lcom/android/internal/telephony/SMSDispatcher;
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/SMSDispatcher;->getNextMessageIdInPreference()I
-
-    move-result v0
 
     return v0
 .end method

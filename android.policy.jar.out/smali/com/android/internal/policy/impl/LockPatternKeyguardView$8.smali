@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2885
+    .line 2865
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,8 +41,8 @@
     .locals 2
 
     .prologue
-    .line 2887
-    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1100()Z
+    .line 2867
+    invoke-static {}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$1200()Z
 
     move-result v0
 
@@ -54,7 +54,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2888
+    .line 2868
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$8;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
@@ -62,6 +62,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
-    .line 2889
+    .line 2869
     return-void
 .end method

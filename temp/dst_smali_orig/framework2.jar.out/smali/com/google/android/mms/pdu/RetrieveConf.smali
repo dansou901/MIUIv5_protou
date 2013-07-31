@@ -50,7 +50,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x82
 
@@ -59,26 +59,11 @@
     return-void
 .end method
 
-.method public getApplicationID()[B
-    .locals 2
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
-
-    const-string v1, "Application-ID"
-
-    invoke-virtual {v0, v1}, Lcom/google/android/mms/pdu/PduHeaders;->getExtraTextString(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getCc()[Lcom/google/android/mms/pdu/EncodedStringValue;
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x82
 
@@ -93,7 +78,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x84
 
@@ -108,7 +93,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x86
 
@@ -123,7 +108,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x89
 
@@ -138,7 +123,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8a
 
@@ -153,7 +138,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8b
 
@@ -168,7 +153,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x90
 
@@ -179,26 +164,11 @@
     return v0
 .end method
 
-.method public getReplyToApplicationID()[B
-    .locals 2
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
-
-    const-string v1, "Reply-To-Application-ID"
-
-    invoke-virtual {v0, v1}, Lcom/google/android/mms/pdu/PduHeaders;->getExtraTextString(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public getRetrieveStatus()I
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x99
 
@@ -213,7 +183,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x9a
 
@@ -228,7 +198,7 @@
     .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x98
 
@@ -239,26 +209,12 @@
     return-object v0
 .end method
 
-.method public setApplicationID([B)V
-    .locals 2
-    .parameter "value"
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
-
-    const-string v1, "Application-ID"
-
-    invoke-virtual {v0, p1, v1}, Lcom/google/android/mms/pdu/PduHeaders;->setExtraTextString([BLjava/lang/String;)V
-
-    return-void
-.end method
-
 .method public setContentType([B)V
     .locals 2
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x84
 
@@ -277,7 +233,7 @@
     .end annotation
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x86
 
@@ -291,7 +247,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x89
 
@@ -305,7 +261,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8a
 
@@ -319,7 +275,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x8b
 
@@ -338,25 +294,11 @@
     .end annotation
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x90
 
     invoke-virtual {v0, p1, v1}, Lcom/google/android/mms/pdu/PduHeaders;->setOctet(II)V
-
-    return-void
-.end method
-
-.method public setReplyToApplicationID([B)V
-    .locals 2
-    .parameter "value"
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
-
-    const-string v1, "Reply-To-Application-ID"
-
-    invoke-virtual {v0, p1, v1}, Lcom/google/android/mms/pdu/PduHeaders;->setExtraTextString([BLjava/lang/String;)V
 
     return-void
 .end method
@@ -371,7 +313,7 @@
     .end annotation
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x99
 
@@ -385,7 +327,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x9a
 
@@ -399,7 +341,7 @@
     .parameter "value"
 
     .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/GenericPdu;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
+    iget-object v0, p0, Lcom/google/android/mms/pdu/RetrieveConf;->mPduHeaders:Lcom/google/android/mms/pdu/PduHeaders;
 
     const/16 v1, 0x98
 

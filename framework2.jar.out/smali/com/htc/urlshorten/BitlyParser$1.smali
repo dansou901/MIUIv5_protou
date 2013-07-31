@@ -57,7 +57,7 @@
 
     move-result-object v8
 
-    const-string v9, "version"
+    const-string/jumbo v9, "version"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -141,7 +141,7 @@
 
     move-result-object v8
 
-    const-string v9, "xml"
+    const-string/jumbo v9, "xml"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

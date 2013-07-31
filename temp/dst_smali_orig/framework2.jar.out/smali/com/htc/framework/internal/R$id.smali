@@ -15,8 +15,6 @@
 
 
 # static fields
-.field public static final alwaysUse:I = 0x4110038
-
 .field public static final arrow_down:I = 0x411001f
 
 .field public static final arrow_up:I = 0x411001e
@@ -36,8 +34,6 @@
 .field public static final description:I = 0x4110019
 
 .field public static final divider:I = 0x4110032
-
-.field public static final donotshow:I = 0x4110039
 
 .field public static final emergencyCall:I = 0x4110009
 

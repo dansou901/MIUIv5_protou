@@ -220,8 +220,6 @@
 
 .field public static final RIL_REQUEST_CDMA_BURST_DTMF:I = 0x55
 
-.field public static final RIL_REQUEST_CDMA_CLEAR_AVOID_NETWORK:I = 0xfe0
-
 .field public static final RIL_REQUEST_CDMA_DELETE_SMS_ON_RUIM:I = 0x61
 
 .field public static final RIL_REQUEST_CDMA_EXIT_POWERSAVE_MODE:I = 0xfa4
@@ -276,8 +274,6 @@
 
 .field public static final RIL_REQUEST_CDMA_HTC_DM_COMMAND_EX:I = 0xfc5
 
-.field public static final RIL_REQUEST_CDMA_QUERY_AVOID_NETWORK:I = 0xfdf
-
 .field public static final RIL_REQUEST_CDMA_QUERY_CAVE:I = 0xfd2
 
 .field public static final RIL_REQUEST_CDMA_QUERY_MD5:I = 0xfd9
@@ -299,8 +295,6 @@
 .field public static final RIL_REQUEST_CDMA_REQUEST_MD5:I = 0xfd8
 
 .field public static final RIL_REQUEST_CDMA_REQUEST_VPM:I = 0xfd6
-
-.field public static final RIL_REQUEST_CDMA_SELECT_NEXT_NETWORK:I = 0xfde
 
 .field public static final RIL_REQUEST_CDMA_SEND_SMS:I = 0x57
 
@@ -463,8 +457,6 @@
 .field public static final RIL_REQUEST_GET_DATA_SUBSCRIPTION:I = 0x1585
 
 .field public static final RIL_REQUEST_GET_DATA_SUBSCRIPTION_SOURCE:I = 0x806
-
-.field public static final RIL_REQUEST_GET_DPDT_SWITCH:I = 0x842
 
 .field public static final RIL_REQUEST_GET_DRX_INFO:I = 0x836
 
@@ -682,8 +674,6 @@
 
 .field public static final RIL_REQUEST_SET_DEVICE_MEMORY:I = 0x7db
 
-.field public static final RIL_REQUEST_SET_DPDT_SWITCH:I = 0x843
-
 .field public static final RIL_REQUEST_SET_EHRPD_APN_PARAMS:I = 0x1263
 
 .field public static final RIL_REQUEST_SET_EMERGENCY_CALL_CATEGORY:I = 0x7fa
@@ -743,8 +733,6 @@
 .field public static final RIL_REQUEST_SET_SUBSCRIPTION_MODE:I = 0x1586
 
 .field public static final RIL_REQUEST_SET_SUPP_SVC_NOTIFICATION:I = 0x3e
-
-.field public static final RIL_REQUEST_SET_TD_LAB_MODE:I = 0x1339
 
 .field public static final RIL_REQUEST_SET_TRANSMIT_POWER:I = 0x1587
 

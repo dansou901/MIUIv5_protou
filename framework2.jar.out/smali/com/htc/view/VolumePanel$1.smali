@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 548
+    .line 536
     iput-object p1, p0, Lcom/htc/view/VolumePanel$1;->this$0:Lcom/htc/view/VolumePanel;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,13 +43,13 @@
     .parameter "event"
 
     .prologue
-    .line 550
+    .line 538
     iget-object v0, p0, Lcom/htc/view/VolumePanel$1;->this$0:Lcom/htc/view/VolumePanel;
 
     #calls: Lcom/htc/view/VolumePanel;->resetTimeout()V
     invoke-static {v0}, Lcom/htc/view/VolumePanel;->access$000(Lcom/htc/view/VolumePanel;)V
 
-    .line 551
+    .line 539
     const/4 v0, 0x0
 
     return v0

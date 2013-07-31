@@ -131,7 +131,7 @@
     goto :goto_0
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/BackupManagerService$PerformFullBackupTask;Landroid/content/pm/PackageInfo;Ljava/io/File;Z)V
+.method static synthetic access$1100(Lcom/android/server/BackupManagerService$PerformFullBackupTask;Landroid/content/pm/PackageInfo;Ljava/io/File;Z)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -149,7 +149,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/BackupManagerService$PerformFullBackupTask;Landroid/content/pm/PackageInfo;Landroid/app/backup/BackupDataOutput;)V
+.method static synthetic access$1200(Lcom/android/server/BackupManagerService$PerformFullBackupTask;Landroid/content/pm/PackageInfo;Landroid/app/backup/BackupDataOutput;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -791,7 +791,7 @@
     const/16 v18, 0x200
 
     #calls: Lcom/android/server/BackupManagerService;->randomBytes(I)[B
-    invoke-static/range {v17 .. v18}, Lcom/android/server/BackupManagerService;->access$1400(Lcom/android/server/BackupManagerService;I)[B
+    invoke-static/range {v17 .. v18}, Lcom/android/server/BackupManagerService;->access$1300(Lcom/android/server/BackupManagerService;I)[B
 
     move-result-object v15
 
@@ -817,7 +817,7 @@
     move/from16 v2, v19
 
     #calls: Lcom/android/server/BackupManagerService;->buildPasswordKey(Ljava/lang/String;[BI)Ljavax/crypto/SecretKey;
-    invoke-static {v0, v1, v15, v2}, Lcom/android/server/BackupManagerService;->access$1500(Lcom/android/server/BackupManagerService;Ljava/lang/String;[BI)Ljavax/crypto/SecretKey;
+    invoke-static {v0, v1, v15, v2}, Lcom/android/server/BackupManagerService;->access$1400(Lcom/android/server/BackupManagerService;Ljava/lang/String;[BI)Ljavax/crypto/SecretKey;
 
     move-result-object v16
 
@@ -836,7 +836,7 @@
     move-object/from16 v17, v0
 
     #getter for: Lcom/android/server/BackupManagerService;->mRng:Ljava/security/SecureRandom;
-    invoke-static/range {v17 .. v17}, Lcom/android/server/BackupManagerService;->access$1600(Lcom/android/server/BackupManagerService;)Ljava/security/SecureRandom;
+    invoke-static/range {v17 .. v17}, Lcom/android/server/BackupManagerService;->access$1500(Lcom/android/server/BackupManagerService;)Ljava/security/SecureRandom;
 
     move-result-object v17
 
@@ -853,7 +853,7 @@
     const/16 v18, 0x200
 
     #calls: Lcom/android/server/BackupManagerService;->randomBytes(I)[B
-    invoke-static/range {v17 .. v18}, Lcom/android/server/BackupManagerService;->access$1400(Lcom/android/server/BackupManagerService;I)[B
+    invoke-static/range {v17 .. v18}, Lcom/android/server/BackupManagerService;->access$1300(Lcom/android/server/BackupManagerService;I)[B
 
     move-result-object v7
 
@@ -912,7 +912,7 @@
     move-object/from16 v0, v17
 
     #calls: Lcom/android/server/BackupManagerService;->byteArrayToHex([B)Ljava/lang/String;
-    invoke-static {v0, v15}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
+    invoke-static {v0, v15}, Lcom/android/server/BackupManagerService;->access$1600(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
 
     move-result-object v17
 
@@ -939,7 +939,7 @@
     move-object/from16 v0, v17
 
     #calls: Lcom/android/server/BackupManagerService;->byteArrayToHex([B)Ljava/lang/String;
-    invoke-static {v0, v7}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
+    invoke-static {v0, v7}, Lcom/android/server/BackupManagerService;->access$1600(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
 
     move-result-object v17
 
@@ -1002,7 +1002,7 @@
     move-object/from16 v0, v17
 
     #calls: Lcom/android/server/BackupManagerService;->byteArrayToHex([B)Ljava/lang/String;
-    invoke-static {v0, v3}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
+    invoke-static {v0, v3}, Lcom/android/server/BackupManagerService;->access$1600(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
 
     move-result-object v17
 
@@ -1048,7 +1048,7 @@
     move/from16 v2, v19
 
     #calls: Lcom/android/server/BackupManagerService;->makeKeyChecksum([B[BI)[B
-    invoke-static {v0, v1, v7, v2}, Lcom/android/server/BackupManagerService;->access$1800(Lcom/android/server/BackupManagerService;[B[BI)[B
+    invoke-static {v0, v1, v7, v2}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[B[BI)[B
 
     move-result-object v6
 
@@ -1135,7 +1135,7 @@
     move-object/from16 v0, v17
 
     #calls: Lcom/android/server/BackupManagerService;->byteArrayToHex([B)Ljava/lang/String;
-    invoke-static {v0, v8}, Lcom/android/server/BackupManagerService;->access$1700(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
+    invoke-static {v0, v8}, Lcom/android/server/BackupManagerService;->access$1600(Lcom/android/server/BackupManagerService;[B)Ljava/lang/String;
 
     move-result-object v17
 
@@ -1204,7 +1204,7 @@
     iget-object v2, p0, Lcom/android/server/BackupManagerService$PerformFullBackupTask;->this$0:Lcom/android/server/BackupManagerService;
 
     #getter for: Lcom/android/server/BackupManagerService;->mActivityManager:Landroid/app/IActivityManager;
-    invoke-static {v2}, Lcom/android/server/BackupManagerService;->access$1100(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
+    invoke-static {v2}, Lcom/android/server/BackupManagerService;->access$1000(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
 
     move-result-object v2
 
@@ -1225,7 +1225,7 @@
     iget-object v2, p0, Lcom/android/server/BackupManagerService$PerformFullBackupTask;->this$0:Lcom/android/server/BackupManagerService;
 
     #getter for: Lcom/android/server/BackupManagerService;->mActivityManager:Landroid/app/IActivityManager;
-    invoke-static {v2}, Lcom/android/server/BackupManagerService;->access$1100(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
+    invoke-static {v2}, Lcom/android/server/BackupManagerService;->access$1000(Lcom/android/server/BackupManagerService;)Landroid/app/IActivityManager;
 
     move-result-object v2
 
@@ -1745,23 +1745,9 @@
     check-cast v19, Landroid/content/pm/PackageInfo;
 
     .restart local v19       #pkg:Landroid/content/pm/PackageInfo;
-    move-object/from16 v0, v19
+    sget-boolean v21, Lcom/android/server/BackupManagerService$Injector;->FALSE:Z
 
-    iget-object v0, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    move-object/from16 v21, v0
-
-    move-object/from16 v0, v21
-
-    iget v0, v0, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    move/from16 v21, v0
-
-    const v22, 0x8000
-
-    and-int v21, v21, v22
-
-    if-eqz v21, :cond_3
+    if-nez v21, :cond_3
 
     move-object/from16 v0, v19
 

@@ -70,7 +70,7 @@
 
     .line 2567
     :try_start_0
-    const-string v2, "state"
+    const-string/jumbo v2, "state"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

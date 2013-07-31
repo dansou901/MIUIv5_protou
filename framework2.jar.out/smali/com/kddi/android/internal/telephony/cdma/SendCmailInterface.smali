@@ -26,7 +26,7 @@
 
     .line 31
     .local v0, type:Ljava/lang/String;
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -720,7 +720,7 @@
     .line 71
     const-string v1, "SendCmailInterface"
 
-    const-string v2, "snedCmail Start"
+    const-string/jumbo v2, "snedCmail Start"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -737,7 +737,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "snedCmail by "
+    const-string/jumbo v3, "snedCmail by "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -808,7 +808,7 @@
     .line 104
     const-string v1, "SendCmailInterface"
 
-    const-string v2, "snedCmai End"
+    const-string/jumbo v2, "snedCmai End"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 

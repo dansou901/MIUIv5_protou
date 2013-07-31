@@ -135,7 +135,7 @@
     iget v9, p1, Landroid/os/Message;->arg2:I
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->showRoamingGuideDialogAndWait(Ljava/lang/Object;II)V
-    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$1100(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
+    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$700(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
 
     :cond_0
     :goto_1
@@ -321,7 +321,7 @@
     iget v9, p1, Landroid/os/Message;->arg2:I
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->showRoamingGuideDialogAndWait(Ljava/lang/Object;II)V
-    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$1100(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
+    invoke-static {v6, v7, v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->access$700(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/Object;II)V
 
     goto/16 :goto_1
 

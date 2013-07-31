@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2688
+    .line 2654
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,14 +38,14 @@
     .locals 6
 
     .prologue
-    .line 2693
+    .line 2659
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget-object v0, v3, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
 
-    .line 2694
+    .line 2660
     .local v0, bssid:Ljava/lang/String;
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -63,7 +63,7 @@
 
     move-result v1
 
-    .line 2697
+    .line 2663
     .local v1, channel:I
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -71,10 +71,10 @@
 
     if-nez v3, :cond_0
 
-    .line 2698
+    .line 2664
     add-int/lit16 v1, v1, 0x300
 
-    .line 2702
+    .line 2668
     :goto_0
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -84,7 +84,7 @@
 
     move-result v2
 
-    .line 2704
+    .line 2670
     .local v2, ret:Z
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$6;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -92,7 +92,7 @@
 
     if-nez v3, :cond_1
 
-    .line 2705
+    .line 2671
     const-string v3, "WfdStateMachine"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -135,18 +135,18 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2708
+    .line 2674
     :goto_1
     return-void
 
-    .line 2700
+    .line 2666
     .end local v2           #ret:Z
     :cond_0
     add-int/lit16 v1, v1, 0x400
 
     goto :goto_0
 
-    .line 2707
+    .line 2673
     .restart local v2       #ret:Z
     :cond_1
     const-string v3, "WfdStateMachine"

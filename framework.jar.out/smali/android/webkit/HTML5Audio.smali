@@ -256,14 +256,14 @@
     .locals 2
 
     .prologue
-    .line 385
+    .line 380
     iget v0, p0, Landroid/webkit/HTML5Audio;->mState:I
 
     sget v1, Landroid/webkit/HTML5Audio;->PREPARED:I
 
     if-lt v0, v1, :cond_0
 
-    .line 386
+    .line 381
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->getDuration()I
@@ -276,7 +276,7 @@
 
     div-float/2addr v0, v1
 
-    .line 388
+    .line 383
     :goto_0
     return v0
 
@@ -891,11 +891,9 @@
 .end method
 
 .method private teardown()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
     .line 372
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->abandonAudioFocus()V
 
@@ -905,7 +903,9 @@
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 
     .line 374
-    iput-object v1, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     .line 375
     sget v0, Landroid/webkit/HTML5Audio;->ERROR:I
@@ -918,25 +918,6 @@
     iput v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
     .line 377
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    if-eqz v0, :cond_0
-
-    .line 378
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    invoke-virtual {v0}, Ljava/util/Timer;->purge()I
-
-    .line 379
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
-
-    .line 380
-    iput-object v1, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    .line 382
-    :cond_0
     return-void
 .end method
 

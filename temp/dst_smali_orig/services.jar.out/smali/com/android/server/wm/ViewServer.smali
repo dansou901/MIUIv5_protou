@@ -17,15 +17,9 @@
 # static fields
 .field private static final COMMAND_CHECK_DEVICE_VERSION:Ljava/lang/String; = "CHECKDEVICE"
 
-.field private static final COMMAND_IS_ROTATION_LOCKED:Ljava/lang/String; = "IS_ROTATION_LOCKED"
-
-.field private static final COMMAND_LOCK_DEVICE_ROTATION:Ljava/lang/String; = "LOCK_DEVICE_ROTATION"
-
 .field private static final COMMAND_PROTOCOL_VERSION:Ljava/lang/String; = "PROTOCOL"
 
 .field private static final COMMAND_SERVER_VERSION:Ljava/lang/String; = "SERVER"
-
-.field private static final COMMAND_SET_TRACE_FLAG:Ljava/lang/String; = "SET_TRACE_FLAG"
 
 .field private static final COMMAND_WINDOW_MANAGER_AUTOLIST:Ljava/lang/String; = "AUTOLIST"
 

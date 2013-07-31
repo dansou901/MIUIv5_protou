@@ -1,13 +1,9 @@
-.class public Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;
+.class Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;
 .super Ljava/lang/Object;
 .source "KeyguardUpdateMonitor.java"
 
 
 # annotations
-.annotation build Landroid/annotation/MiuiHook;
-    value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-.end annotation
-
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 .end annotation
@@ -568,7 +564,9 @@
     .end local v1           #lock:I
     .end local v3           #state:Lcom/android/internal/telephony/IccCard$State;
     :cond_16
-    sget-object v3, Lcom/android/internal/telephony/IccCard$State;->UNKNOWN:Lcom/android/internal/telephony/IccCard$State;
+    invoke-static {v4}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$Injector;->getIccCardState(Ljava/lang/String;)Lcom/android/internal/telephony/IccCard$State;
+
+    move-result-object v3
 
     .restart local v3       #state:Lcom/android/internal/telephony/IccCard$State;
     goto/16 :goto_0

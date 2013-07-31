@@ -1,15 +1,19 @@
-.class public final Lcom/android/server/LightsService$Light;
+.class public Lcom/android/server/LightsService$Light;
 .super Ljava/lang/Object;
 .source "LightsService.java"
 
 
 # annotations
+.annotation build Landroid/annotation/MiuiHook;
+    value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_ACCESS:Landroid/annotation/MiuiHook$MiuiHookType;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/server/LightsService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x11
+    accessFlags = 0x1
     name = "Light"
 .end annotation
 
@@ -46,6 +50,21 @@
     return-void
 .end method
 
+.method constructor <init>(Lcom/android/server/LightsService;II)V
+    .locals 0
+    .parameter
+    .parameter "id"
+    .parameter "unused"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Lcom/android/server/LightsService$Light;-><init>(Lcom/android/server/LightsService;I)V
+
+    return-void
+.end method
+
 .method synthetic constructor <init>(Lcom/android/server/LightsService;ILcom/android/server/LightsService$1;)V
     .locals 0
     .parameter "x0"
@@ -68,104 +87,6 @@
     return-void
 .end method
 
-.method private setLightLocked(IIIII)V
-    .locals 7
-    .parameter "color"
-    .parameter "mode"
-    .parameter "onMS"
-    .parameter "offMS"
-    .parameter "brightnessMode"
-
-    .prologue
-    iget v0, p0, Lcom/android/server/LightsService$Light;->mColor:I
-
-    if-ne p1, v0, :cond_0
-
-    iget v0, p0, Lcom/android/server/LightsService$Light;->mMode:I
-
-    if-ne p2, v0, :cond_0
-
-    iget v0, p0, Lcom/android/server/LightsService$Light;->mOnMS:I
-
-    if-ne p3, v0, :cond_0
-
-    iget v0, p0, Lcom/android/server/LightsService$Light;->mOffMS:I
-
-    if-eq p4, v0, :cond_1
-
-    :cond_0
-    const-string v0, "LightsService"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "setLight #"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/server/LightsService$Light;->mId:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ": color=#"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput p1, p0, Lcom/android/server/LightsService$Light;->mColor:I
-
-    iput p2, p0, Lcom/android/server/LightsService$Light;->mMode:I
-
-    iput p3, p0, Lcom/android/server/LightsService$Light;->mOnMS:I
-
-    iput p4, p0, Lcom/android/server/LightsService$Light;->mOffMS:I
-
-    iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
-
-    #getter for: Lcom/android/server/LightsService;->mNativePointer:I
-    invoke-static {v0}, Lcom/android/server/LightsService;->access$200(Lcom/android/server/LightsService;)I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/server/LightsService$Light;->mId:I
-
-    move v2, p1
-
-    move v3, p2
-
-    move v4, p3
-
-    move v5, p4
-
-    move v6, p5
-
-    #calls: Lcom/android/server/LightsService;->setLight_native(IIIIIII)V
-    invoke-static/range {v0 .. v6}, Lcom/android/server/LightsService;->access$300(IIIIIII)V
-
-    :cond_1
-    return-void
-.end method
-
 .method private stopFlashing()V
     .locals 6
 
@@ -185,7 +106,7 @@
 
     move-object v0, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     monitor-exit p0
 
@@ -245,7 +166,7 @@
 
     move v3, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
 
@@ -372,7 +293,7 @@
     move v5, p2
 
     :try_start_0
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     monitor-exit p0
 
@@ -408,7 +329,7 @@
     move v1, p1
 
     :try_start_0
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     monitor-exit p0
 
@@ -447,7 +368,7 @@
     move v4, p4
 
     :try_start_0
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     monitor-exit p0
 
@@ -461,6 +382,104 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
+.end method
+
+.method setLightLocked(IIIII)V
+    .locals 7
+    .parameter "color"
+    .parameter "mode"
+    .parameter "onMS"
+    .parameter "offMS"
+    .parameter "brightnessMode"
+
+    .prologue
+    iget v0, p0, Lcom/android/server/LightsService$Light;->mColor:I
+
+    if-ne p1, v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/LightsService$Light;->mMode:I
+
+    if-ne p2, v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/LightsService$Light;->mOnMS:I
+
+    if-ne p3, v0, :cond_0
+
+    iget v0, p0, Lcom/android/server/LightsService$Light;->mOffMS:I
+
+    if-eq p4, v0, :cond_1
+
+    :cond_0
+    const-string v0, "LightsService"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setLight #"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/LightsService$Light;->mId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ": color=#"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput p1, p0, Lcom/android/server/LightsService$Light;->mColor:I
+
+    iput p2, p0, Lcom/android/server/LightsService$Light;->mMode:I
+
+    iput p3, p0, Lcom/android/server/LightsService$Light;->mOnMS:I
+
+    iput p4, p0, Lcom/android/server/LightsService$Light;->mOffMS:I
+
+    iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
+
+    #getter for: Lcom/android/server/LightsService;->mNativePointer:I
+    invoke-static {v0}, Lcom/android/server/LightsService;->access$200(Lcom/android/server/LightsService;)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/server/LightsService$Light;->mId:I
+
+    move v2, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    move v5, p4
+
+    move v6, p5
+
+    #calls: Lcom/android/server/LightsService;->setLight_native(IIIIIII)V
+    invoke-static/range {v0 .. v6}, Lcom/android/server/LightsService;->access$300(IIIIIII)V
+
+    :cond_1
+    return-void
 .end method
 
 .method public turnOff()V
@@ -482,7 +501,7 @@
     move-object v0, p0
 
     :try_start_0
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
 
     monitor-exit p0
 

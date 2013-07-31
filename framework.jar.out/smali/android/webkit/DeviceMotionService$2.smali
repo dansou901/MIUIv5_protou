@@ -30,7 +30,7 @@
     .locals 1
 
     .prologue
-    .line 101
+    .line 99
     const-class v0, Landroid/webkit/DeviceMotionService;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -57,7 +57,7 @@
     .parameter
 
     .prologue
-    .line 101
+    .line 99
     iput-object p1, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,9 @@
     .locals 7
 
     .prologue
-    .line 104
+    const/4 v6, 0x0
+
+    .line 102
     sget-boolean v0, Landroid/webkit/DeviceMotionService$2;->$assertionsDisabled:Z
 
     if-nez v0, :cond_0
@@ -91,9 +93,8 @@
 
     throw v0
 
-    .line 106
+    .line 103
     :cond_0
-    :try_start_0
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
     #getter for: Landroid/webkit/DeviceMotionService;->mManager:Landroid/webkit/DeviceMotionAndOrientationManager;
@@ -110,9 +111,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
-
-    aget v2, v2, v3
+    aget v2, v2, v6
 
     float-to-double v2, v2
 
@@ -156,7 +155,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/webkit/DeviceMotionAndOrientationManager;->onMotionChange(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;D)V
 
-    .line 109
+    .line 106
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
     #getter for: Landroid/webkit/DeviceMotionService;->mHandler:Landroid/os/Handler;
@@ -175,31 +174,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 111
+    .line 108
     iget-object v0, p0, Landroid/webkit/DeviceMotionService$2;->this$0:Landroid/webkit/DeviceMotionService;
 
-    const/4 v1, 0x0
-
     #setter for: Landroid/webkit/DeviceMotionService;->mHaveSentErrorEvent:Z
-    invoke-static {v0, v1}, Landroid/webkit/DeviceMotionService;->access$502(Landroid/webkit/DeviceMotionService;Z)Z
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v0, v6}, Landroid/webkit/DeviceMotionService;->access$502(Landroid/webkit/DeviceMotionService;Z)Z
 
-    .line 116
-    :goto_0
+    .line 109
     return-void
-
-    .line 112
-    :catch_0
-    move-exception v6
-
-    .line 113
-    .local v6, e:Ljava/lang/NullPointerException;
-    const-string v0, "DeviceMotionService"
-
-    const-string/jumbo v1, "mLastAcceleration is null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method

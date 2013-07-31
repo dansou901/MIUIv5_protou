@@ -1,7 +1,63 @@
-*** AbsListView$FlingRunnable.smali	2013-07-12 21:43:20.188503057 +0000
---- AbsListView$FlingRunnable.smali	2013-07-12 21:41:04.381825192 +0000
+*** AbsListView$FlingRunnable.smali	2013-07-31 22:22:29.907400435 +0000
+--- AbsListView$FlingRunnable.smali	2013-07-31 22:21:23.047394855 +0000
 ***************
-*** 945,951 ****
+*** 574,580 ****
+  
+      sub-int v2, v20, v2
+  
+!     neg-int v4, v2
+  
+      .local v4, overshoot:I
+      move-object/from16 v0, p0
+--- 643,665 ----
+  
+      sub-int v2, v20, v2
+  
+!     neg-int v2, v2
+! 
+!     move-object/from16 v0, p0
+! 
+!     iget-object v3, v0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+! 
+!     move-object/from16 v0, p0
+! 
+!     iget-object v5, v0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+! 
+!     invoke-virtual {v5}, Landroid/widget/AbsListView;->getScrollY()I
+! 
+!     move-result v5
+! 
+!     invoke-static {v3, v2, v5}, Landroid/widget/AbsListView$Injector;->scaleOverScrollDeltaY(Landroid/widget/AbsListView;II)I
+! 
+!     move-result v4
+  
+      .local v4, overshoot:I
+      move-object/from16 v0, p0
+***************
+*** 799,805 ****
+      move-result v19
+  
+      .local v19, currY:I
+!     sub-int v7, v19, v9
+  
+      .local v7, deltaY:I
+      move-object/from16 v0, p0
+--- 884,896 ----
+      move-result v19
+  
+      .local v19, currY:I
+!     sub-int v2, v19, v9
+! 
+!     move-object/from16 v0, p0
+! 
+!     invoke-direct {v0, v2, v9}, Landroid/widget/AbsListView$FlingRunnable;->scaleOverScrollDeltaY(II)I
+! 
+!     move-result v7
+  
+      .local v7, deltaY:I
+      move-object/from16 v0, p0
+***************
+*** 923,929 ****
       .end local v9           #scrollY:I
       .end local v19           #currY:I
       :cond_11
@@ -9,7 +65,7 @@
   
       goto/16 :goto_0
   
---- 1036,1042 ----
+--- 1014,1020 ----
       .end local v9           #scrollY:I
       .end local v19           #currY:I
       :cond_11

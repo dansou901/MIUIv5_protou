@@ -15,14 +15,6 @@
 
 
 # virtual methods
-.method public abstract changeVideoBitRate(I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract extendTurnOffHotspotTimer()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -64,14 +56,6 @@
 .end method
 
 .method public abstract getDefaultDongle()Lcom/htc/service/DongleInfo;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract getDefaultVideoBitRate()I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -195,14 +179,6 @@
     .end annotation
 .end method
 
-.method public abstract requestDelayTimerStop(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract requestWivuDiscovery(Ljava/lang/String;Ljava/lang/String;Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -260,14 +236,6 @@
 .end method
 
 .method public abstract setMirrorDisplayOnOff(Z)I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setWifiNetworkLimit(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

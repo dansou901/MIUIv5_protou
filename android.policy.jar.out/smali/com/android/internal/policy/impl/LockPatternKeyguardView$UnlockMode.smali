@@ -70,7 +70,7 @@
 
     const/4 v3, 0x0
 
-    .line 180
+    .line 179
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "Pattern"
@@ -79,7 +79,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Pattern:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 185
+    .line 184
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "SimPin"
@@ -88,7 +88,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SimPin:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 190
+    .line 189
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "SimPuk"
@@ -97,7 +97,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SimPuk:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 195
+    .line 194
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "Account"
@@ -106,7 +106,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Account:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 200
+    .line 199
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "Password"
@@ -115,7 +115,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Password:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 205
+    .line 204
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "Unknown"
@@ -126,7 +126,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Unknown:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 211
+    .line 210
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "NetworkLock"
@@ -137,7 +137,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->NetworkLock:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 218
+    .line 217
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "Device"
@@ -148,7 +148,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->Device:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 225
+    .line 224
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "UimPin"
@@ -159,7 +159,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->UimPin:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 230
+    .line 229
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "SubSimPin"
@@ -170,7 +170,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SubSimPin:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 235
+    .line 234
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "UimPuk"
@@ -181,7 +181,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->UimPuk:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 240
+    .line 239
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "SubSimPuk"
@@ -192,7 +192,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SubSimPuk:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 245
+    .line 244
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "DualPuk"
@@ -203,7 +203,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->DualPuk:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 250
+    .line 249
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     const-string v1, "DualPin"
@@ -214,7 +214,7 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->DualPin:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
-    .line 175
+    .line 174
     const/16 v0, 0xe
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
@@ -309,7 +309,7 @@
     .end annotation
 
     .prologue
-    .line 175
+    .line 174
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -320,7 +320,7 @@
     .parameter "name"
 
     .prologue
-    .line 175
+    .line 174
     const-class v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -336,7 +336,7 @@
     .locals 1
 
     .prologue
-    .line 175
+    .line 174
     sget-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->$VALUES:[Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     invoke-virtual {v0}, [Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->clone()Ljava/lang/Object;
@@ -354,7 +354,7 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 252
     sget-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SimPin:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     if-eq p0, v0, :cond_0
@@ -387,7 +387,7 @@
     .locals 1
 
     .prologue
-    .line 257
+    .line 256
     sget-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;->SimPuk:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
     if-eq p0, v0, :cond_0

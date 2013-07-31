@@ -329,7 +329,7 @@
 
     .line 71
     .local v13, value:Ljava/lang/Object;
-    const-string v14, "simultaneousTween"
+    const-string/jumbo v14, "simultaneousTween"
 
     invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -438,7 +438,7 @@
     .line 81
     .restart local v13       #value:Ljava/lang/Object;
     :cond_8
-    const-string v14, "syncWith"
+    const-string/jumbo v14, "syncWith"
 
     invoke-virtual {v14, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

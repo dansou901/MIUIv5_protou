@@ -9819,6 +9819,8 @@
 
     throw v3
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_2

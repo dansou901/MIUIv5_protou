@@ -19,16 +19,17 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$20;Landroid/content/Context;)V
+.method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$20;Landroid/content/Context;I)V
     .locals 0
     .parameter
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    .line 5656
+    .line 5658
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
-    invoke-direct {p0, p2}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p2, p3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
 
     return-void
 .end method
@@ -40,7 +41,7 @@
     .parameter "ev"
 
     .prologue
-    .line 5672
+    .line 5674
     const/4 v0, 0x1
 
     return v0
@@ -51,7 +52,7 @@
     .parameter "event"
 
     .prologue
-    .line 5660
+    .line 5662
     const/4 v0, 0x1
 
     return v0
@@ -62,7 +63,7 @@
     .parameter "event"
 
     .prologue
-    .line 5663
+    .line 5665
     const/4 v0, 0x1
 
     return v0
@@ -73,7 +74,7 @@
     .parameter "event"
 
     .prologue
-    .line 5676
+    .line 5678
     const/4 v0, 0x1
 
     return v0
@@ -84,7 +85,7 @@
     .parameter "ev"
 
     .prologue
-    .line 5666
+    .line 5668
     const/4 v0, 0x1
 
     return v0
@@ -95,7 +96,7 @@
     .parameter "ev"
 
     .prologue
-    .line 5669
+    .line 5671
     const/4 v0, 0x1
 
     return v0

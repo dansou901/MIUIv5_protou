@@ -28,12 +28,12 @@
     .parameter
 
     .prologue
-    .line 6393
+    .line 6222
     iput-object p1, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0}, Landroid/app/backup/IRestoreObserver$Stub;-><init>()V
 
-    .line 6395
+    .line 6224
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->sets:[Landroid/app/backup/RestoreSet;
@@ -49,7 +49,7 @@
     .parameter "currentPackage"
 
     .prologue
-    .line 6410
+    .line 6239
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
@@ -86,7 +86,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6411
+    .line 6240
     :cond_0
     return-void
 .end method
@@ -96,7 +96,7 @@
     .parameter "error"
 
     .prologue
-    .line 6414
+    .line 6243
     const-string v0, "BackupManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -119,25 +119,25 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6415
+    .line 6244
     monitor-enter p0
 
-    .line 6416
+    .line 6245
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->done:Z
 
-    .line 6417
+    .line 6246
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
 
-    .line 6418
+    .line 6247
     monitor-exit p0
 
-    .line 6419
+    .line 6248
     return-void
 
-    .line 6418
+    .line 6247
     :catchall_0
     move-exception v0
 
@@ -153,28 +153,28 @@
     .parameter "result"
 
     .prologue
-    .line 6398
+    .line 6227
     monitor-enter p0
 
-    .line 6399
+    .line 6228
     :try_start_0
     iput-object p1, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->sets:[Landroid/app/backup/RestoreSet;
 
-    .line 6400
+    .line 6229
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->done:Z
 
-    .line 6401
+    .line 6230
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
 
-    .line 6402
+    .line 6231
     monitor-exit p0
 
-    .line 6403
+    .line 6232
     return-void
 
-    .line 6402
+    .line 6231
     :catchall_0
     move-exception v0
 
@@ -190,7 +190,7 @@
     .parameter "numPackages"
 
     .prologue
-    .line 6406
+    .line 6235
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
@@ -223,7 +223,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6407
+    .line 6236
     :cond_0
     return-void
 .end method
@@ -232,10 +232,10 @@
     .locals 1
 
     .prologue
-    .line 6424
+    .line 6253
     monitor-enter p0
 
-    .line 6425
+    .line 6254
     :goto_0
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->done:Z
@@ -244,7 +244,7 @@
 
     if-nez v0, :cond_0
 
-    .line 6427
+    .line 6256
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
@@ -253,26 +253,21 @@
 
     goto :goto_0
 
-    .line 6428
+    .line 6257
     :catch_0
     move-exception v0
 
     goto :goto_0
 
-    .line 6431
+    .line 6260
     :cond_0
-    const/4 v0, 0x0
-
     :try_start_2
-    iput-boolean v0, p0, Lcom/android/server/BackupManagerService$RestoreObserver;->done:Z
-
-    .line 6432
     monitor-exit p0
 
-    .line 6433
+    .line 6261
     return-void
 
-    .line 6432
+    .line 6260
     :catchall_0
     move-exception v0
 

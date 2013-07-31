@@ -608,7 +608,7 @@
     :try_start_2
     const-string v8, "KddiPacketSMSManager"
 
-    const-string v11, "wait! "
+    const-string/jumbo v11, "wait! "
 
     invoke-static {v8, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2055,6 +2055,8 @@
     goto/16 :goto_7
 
     .line 2045
+    nop
+
     nop
 
     :pswitch_data_0

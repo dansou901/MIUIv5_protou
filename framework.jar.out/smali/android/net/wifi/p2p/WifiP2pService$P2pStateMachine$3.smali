@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1996
+    .line 1883
     iput-object p1, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$3;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "which"
 
     .prologue
-    .line 1999
+    .line 1886
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$3;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -73,13 +73,13 @@
     #calls: Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;->access$700(Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;Ljava/lang/String;)V
 
-    .line 2000
+    .line 1887
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$3;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
 
     const v1, 0x23003
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;->sendMessage(I)V
 
-    .line 2001
+    .line 1888
     return-void
 .end method

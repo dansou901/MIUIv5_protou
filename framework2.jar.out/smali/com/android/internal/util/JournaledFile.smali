@@ -113,7 +113,7 @@
     .line 64
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string v1, "uncommitted write already in progress"
+    const-string/jumbo v1, "uncommitted write already in progress"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

@@ -134,7 +134,7 @@
     iget v3, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
     #calls: Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(I)V
-    invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$1200(Landroid/net/wifi/SupplicantStateTracker;I)V
+    invoke-static {v2, v3}, Landroid/net/wifi/SupplicantStateTracker;->access$1000(Landroid/net/wifi/SupplicantStateTracker;I)V
 
     :cond_2
     invoke-virtual {v0}, Landroid/net/wifi/SupplicantState;->ordinal()I
@@ -148,21 +148,21 @@
     iget-object v3, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #getter for: Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
-    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
+    invoke-static {v3}, Landroid/net/wifi/SupplicantStateTracker;->access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
 
     move-result v3
 
     iget-object v4, p0, Landroid/net/wifi/SupplicantStateTracker$HandshakeState;->this$0:Landroid/net/wifi/SupplicantStateTracker;
 
     #getter for: Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemInSupplicantBroadcast:Z
-    invoke-static {v4}, Landroid/net/wifi/SupplicantStateTracker;->access$500(Landroid/net/wifi/SupplicantStateTracker;)Z
+    invoke-static {v4}, Landroid/net/wifi/SupplicantStateTracker;->access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
 
     move-result v4
 
     iget v5, v1, Landroid/net/wifi/StateChangeResult;->networkId:I
 
     #calls: Landroid/net/wifi/SupplicantStateTracker;->sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;ZZI)V
-    invoke-static {v2, v0, v3, v4, v5}, Landroid/net/wifi/SupplicantStateTracker;->access$600(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
+    invoke-static {v2, v0, v3, v4, v5}, Landroid/net/wifi/SupplicantStateTracker;->access$400(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
 
     const/4 v2, 0x1
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 3710
+    .line 3656
     iput-object p1, p0, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SetIpForwardingEnabledErrorState;->this$1:Lcom/android/server/connectivity/Tethering$TetherMasterSM;
 
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/Tethering$TetherMasterSM$ErrorState;-><init>(Lcom/android/server/connectivity/Tethering$TetherMasterSM;)V
@@ -38,8 +38,8 @@
     .locals 3
 
     .prologue
-    .line 3714
-    invoke-static {}, Lcom/android/server/connectivity/Tethering;->access$2600()Z
+    .line 3660
+    invoke-static {}, Lcom/android/server/connectivity/Tethering;->access$2400()Z
 
     move-result v0
 
@@ -71,7 +71,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3716
+    .line 3662
     :cond_0
     const-string v0, "Tethering"
 
@@ -79,12 +79,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3717
+    .line 3663
     const/4 v0, 0x7
 
     invoke-virtual {p0, v0}, Lcom/android/server/connectivity/Tethering$TetherMasterSM$SetIpForwardingEnabledErrorState;->notify(I)V
 
-    .line 3718
+    .line 3664
     return-void
 .end method
 
@@ -92,8 +92,8 @@
     .locals 3
 
     .prologue
-    .line 3722
-    invoke-static {}, Lcom/android/server/connectivity/Tethering;->access$2600()Z
+    .line 3668
+    invoke-static {}, Lcom/android/server/connectivity/Tethering;->access$2400()Z
 
     move-result v0
 
@@ -125,7 +125,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3723
+    .line 3669
     :cond_0
     return-void
 .end method

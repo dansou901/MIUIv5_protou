@@ -591,14 +591,6 @@
     .end annotation
 .end method
 
-.method public abstract startTraceroute(Ljava/lang/String;Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract startWpsRegistrar(Landroid/net/wifi/WpsInfo;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -648,14 +640,6 @@
 .end method
 
 .method public abstract stopTethering()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract stopTraceroute()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

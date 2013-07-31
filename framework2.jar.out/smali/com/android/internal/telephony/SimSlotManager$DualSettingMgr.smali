@@ -1057,7 +1057,7 @@
     .line 1677
     const-string v1, "SSM"
 
-    const-string v2, "startDualSetting, send Intent to PhoneApp! "
+    const-string/jumbo v2, "startDualSetting, send Intent to PhoneApp! "
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

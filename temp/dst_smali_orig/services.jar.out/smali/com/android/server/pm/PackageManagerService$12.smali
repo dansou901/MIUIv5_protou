@@ -57,7 +57,7 @@
     iget-boolean v2, p0, Lcom/android/server/pm/PackageManagerService$12;->val$reportStatus:Z
 
     #calls: Lcom/android/server/pm/PackageManagerService;->updateExternalMediaStatusInner(ZZ)V
-    invoke-static {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->access$4400(Lcom/android/server/pm/PackageManagerService;ZZ)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->access$4200(Lcom/android/server/pm/PackageManagerService;ZZ)V
 
     return-void
 .end method

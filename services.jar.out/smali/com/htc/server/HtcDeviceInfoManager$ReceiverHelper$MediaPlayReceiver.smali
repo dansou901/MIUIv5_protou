@@ -24,13 +24,13 @@
     .parameter "handler"
 
     .prologue
-    .line 388
+    .line 385
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 389
+    .line 386
     iput-object p1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$MediaPlayReceiver;->mHandler:Landroid/os/Handler;
 
-    .line 390
+    .line 387
     return-void
 .end method
 
@@ -42,14 +42,14 @@
     .parameter "intent"
 
     .prologue
-    .line 393
+    .line 390
     const-string v1, "HtcDeviceInfoManager"
 
     const-string v2, "MediaReceiver.onReceive"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 396
+    .line 393
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$MediaPlayReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x1e
@@ -58,10 +58,10 @@
 
     move-result-object v0
 
-    .line 397
+    .line 394
     .local v0, msg:Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 399
+    .line 396
     return-void
 .end method

@@ -1,5 +1,5 @@
-*** ./smali/android/graphics/drawable/NinePatchDrawable.smali	2013-07-12 21:43:59.511839632 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/NinePatchDrawable.smali	2013-07-12 21:41:36.091827807 +0000
+*** ./smali/android/graphics/drawable/NinePatchDrawable.smali	2013-07-31 22:22:51.377402227 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/NinePatchDrawable.smali	2013-07-31 22:21:37.630729405 +0000
 ***************
 *** 218,223 ****
 --- 218,226 ----

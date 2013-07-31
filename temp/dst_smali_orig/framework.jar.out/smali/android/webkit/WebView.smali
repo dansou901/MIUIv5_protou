@@ -1142,6 +1142,17 @@
     return v0
 .end method
 
+.method public doNotResetTextSelectionRectangle()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->doNotResetTextSelectionRectangle()V
+
+    return-void
+.end method
+
 .method public documentAsText(Landroid/os/Message;)V
     .locals 1
     .parameter "callback"
@@ -1471,19 +1482,6 @@
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getFavicon()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getHTML5VideoResource()[Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
-
-    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHTML5VideoResource()[Ljava/lang/String;
 
     move-result-object v0
 
@@ -2906,6 +2904,17 @@
     return v0
 .end method
 
+.method public restoreSelect()V
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
+
+    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->restoreSelect()V
+
+    return-void
+.end method
+
 .method public restoreState(Landroid/os/Bundle;)Landroid/webkit/WebBackForwardList;
     .locals 1
     .parameter "inState"
@@ -2959,24 +2968,6 @@
     iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
 
     invoke-interface {v0}, Landroid/webkit/WebViewProvider;->safeDestroy()V
-
-    return-void
-.end method
-
-.method public saveHitTestImage(Ljava/lang/String;)V
-    .locals 1
-    .parameter "imagePath"
-
-    .prologue
-    invoke-static {}, Landroid/webkit/WebView;->checkThread()V
-
-    iget-object v0, p0, Landroid/webkit/WebView;->mProvider:Landroid/webkit/WebViewProvider;
-
-    invoke-interface {v0}, Landroid/webkit/WebViewProvider;->getHtcWebViewAPIIntf()Landroid/webkit/HtcWebViewAPI;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Landroid/webkit/HtcWebViewAPI;->saveHitTestImage(Ljava/lang/String;)V
 
     return-void
 .end method

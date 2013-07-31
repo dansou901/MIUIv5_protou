@@ -137,7 +137,7 @@
     :cond_3
     const-string v1, "GSM"
 
-    const-string v2, "we don\'t support offline alarm"
+    const-string/jumbo v2, "we don\'t support offline alarm"
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 5217
+    .line 4922
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    .line 5218
+    .line 4923
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 5220
+    .line 4925
     return-void
 .end method
 
@@ -42,16 +42,16 @@
     .parameter "msg"
 
     .prologue
-    .line 5223
+    .line 4928
     iget v7, p1, Landroid/os/Message;->what:I
 
     packed-switch v7, :pswitch_data_0
 
-    .line 5347
+    .line 5052
     :goto_0
     return-void
 
-    .line 5225
+    .line 4930
     :pswitch_0
     const-string v7, "WifiStateMachine"
 
@@ -59,7 +59,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5226
+    .line 4931
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v7}, Landroid/net/wifi/WifiStateMachine;->getCwRegisterCapability()Z
@@ -68,7 +68,7 @@
 
     if-nez v7, :cond_0
 
-    .line 5227
+    .line 4932
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] no register capability"
@@ -77,7 +77,7 @@
 
     goto :goto_0
 
-    .line 5230
+    .line 4935
     :cond_0
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -88,22 +88,22 @@
 
     if-nez v7, :cond_1
 
-    .line 5231
+    .line 4936
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] mCWService does not bind!!"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5232
+    .line 4937
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto :goto_0
 
-    .line 5236
+    .line 4941
     :cond_1
     :try_start_0
     const-string v7, "com.htc.cw.ICWService$Stub"
@@ -112,7 +112,7 @@
 
     move-result-object v5
 
-    .line 5237
+    .line 4942
     .local v5, stubrefClass:Ljava/lang/Class;
     const-string v7, "asInterface"
 
@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    .line 5238
+    .line 4943
     .local v0, asInterface:Ljava/lang/reflect/Method;
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -141,10 +141,10 @@
 
     if-nez v7, :cond_2
 
-    .line 5239
+    .line 4944
     const-string v7, "Get the ICWService"
 
-    const-string v8, "mCWService is null..."
+    const-string/jumbo v8, "mCWService is null..."
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
@@ -156,19 +156,19 @@
 
     goto :goto_0
 
-    .line 5250
+    .line 4955
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v5           #stubrefClass:Ljava/lang/Class;
     :catch_0
     move-exception v2
 
-    .line 5252
+    .line 4957
     .local v2, e:Ljava/lang/IllegalArgumentException;
     invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 5242
+    .line 4947
     .end local v2           #e:Ljava/lang/IllegalArgumentException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v5       #stubrefClass:Ljava/lang/Class;
@@ -193,7 +193,7 @@
 
     move-result-object v1
 
-    .line 5243
+    .line 4948
     .local v1, cWrefClass:Ljava/lang/Object;
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -209,11 +209,11 @@
 
     move-result-object v3
 
-    .line 5244
+    .line 4949
     .local v3, register:Ljava/lang/reflect/Method;
     if-nez v3, :cond_3
 
-    .line 5245
+    .line 4950
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] can not get the CWService method register"
@@ -228,7 +228,7 @@
 
     goto :goto_0
 
-    .line 5253
+    .line 4958
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v3           #register:Ljava/lang/reflect/Method;
@@ -236,13 +236,13 @@
     :catch_1
     move-exception v2
 
-    .line 5255
+    .line 4960
     .local v2, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5248
+    .line 4953
     .end local v2           #e:Ljava/lang/IllegalAccessException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v1       #cWrefClass:Ljava/lang/Object;
@@ -256,7 +256,7 @@
 
     invoke-virtual {v3, v1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 5249
+    .line 4954
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] call CW Register success"
@@ -271,7 +271,7 @@
 
     goto/16 :goto_0
 
-    .line 5256
+    .line 4961
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v3           #register:Ljava/lang/reflect/Method;
@@ -279,35 +279,35 @@
     :catch_2
     move-exception v2
 
-    .line 5258
+    .line 4963
     .local v2, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5259
+    .line 4964
     .end local v2           #e:Ljava/lang/reflect/InvocationTargetException;
     :catch_3
     move-exception v2
 
-    .line 5261
+    .line 4966
     .local v2, e:Ljava/lang/NoSuchMethodException;
     invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5262
+    .line 4967
     .end local v2           #e:Ljava/lang/NoSuchMethodException;
     :catch_4
     move-exception v2
 
-    .line 5264
+    .line 4969
     .local v2, e:Ljava/lang/ClassNotFoundException;
     invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5269
+    .line 4974
     .end local v2           #e:Ljava/lang/ClassNotFoundException;
     :pswitch_1
     const-string v7, "WifiStateMachine"
@@ -316,7 +316,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5270
+    .line 4975
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mCWService:Landroid/os/IBinder;
@@ -326,22 +326,22 @@
 
     if-nez v7, :cond_4
 
-    .line 5271
+    .line 4976
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] mCWService does not bind!!"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5272
+    .line 4977
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto/16 :goto_0
 
-    .line 5275
+    .line 4980
     :cond_4
     :try_start_3
     const-string v7, "com.htc.cw.ICWService$Stub"
@@ -350,7 +350,7 @@
 
     move-result-object v5
 
-    .line 5276
+    .line 4981
     .restart local v5       #stubrefClass:Ljava/lang/Class;
     const-string v7, "asInterface"
 
@@ -368,7 +368,7 @@
 
     move-result-object v0
 
-    .line 5277
+    .line 4982
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -379,10 +379,10 @@
 
     if-nez v7, :cond_5
 
-    .line 5278
+    .line 4983
     const-string v7, "Get the ICWService"
 
-    const-string v8, "mCWService is null..."
+    const-string/jumbo v8, "mCWService is null..."
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
@@ -394,19 +394,19 @@
 
     goto/16 :goto_0
 
-    .line 5289
+    .line 4994
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v5           #stubrefClass:Ljava/lang/Class;
     :catch_5
     move-exception v2
 
-    .line 5291
+    .line 4996
     .local v2, e:Ljava/lang/IllegalArgumentException;
     invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5281
+    .line 4986
     .end local v2           #e:Ljava/lang/IllegalArgumentException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v5       #stubrefClass:Ljava/lang/Class;
@@ -431,7 +431,7 @@
 
     move-result-object v1
 
-    .line 5282
+    .line 4987
     .restart local v1       #cWrefClass:Ljava/lang/Object;
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -447,11 +447,11 @@
 
     move-result-object v6
 
-    .line 5283
+    .line 4988
     .local v6, unRegister:Ljava/lang/reflect/Method;
     if-nez v6, :cond_6
 
-    .line 5284
+    .line 4989
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] can not get the CWService method unRegister"
@@ -466,7 +466,7 @@
 
     goto/16 :goto_0
 
-    .line 5292
+    .line 4997
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v5           #stubrefClass:Ljava/lang/Class;
@@ -474,13 +474,13 @@
     :catch_6
     move-exception v2
 
-    .line 5294
+    .line 4999
     .local v2, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5287
+    .line 4992
     .end local v2           #e:Ljava/lang/IllegalAccessException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v1       #cWrefClass:Ljava/lang/Object;
@@ -494,7 +494,7 @@
 
     invoke-virtual {v6, v1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 5288
+    .line 4993
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] call CW unRegister success"
@@ -509,7 +509,7 @@
 
     goto/16 :goto_0
 
-    .line 5295
+    .line 5000
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v5           #stubrefClass:Ljava/lang/Class;
@@ -517,35 +517,35 @@
     :catch_7
     move-exception v2
 
-    .line 5297
+    .line 5002
     .local v2, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5298
+    .line 5003
     .end local v2           #e:Ljava/lang/reflect/InvocationTargetException;
     :catch_8
     move-exception v2
 
-    .line 5300
+    .line 5005
     .local v2, e:Ljava/lang/NoSuchMethodException;
     invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5301
+    .line 5006
     .end local v2           #e:Ljava/lang/NoSuchMethodException;
     :catch_9
     move-exception v2
 
-    .line 5303
+    .line 5008
     .local v2, e:Ljava/lang/ClassNotFoundException;
     invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5308
+    .line 5013
     .end local v2           #e:Ljava/lang/ClassNotFoundException;
     :pswitch_2
     const-string v7, "WifiStateMachine"
@@ -554,7 +554,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5309
+    .line 5014
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mCWService:Landroid/os/IBinder;
@@ -564,22 +564,22 @@
 
     if-nez v7, :cond_7
 
-    .line 5310
+    .line 5015
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] mCWService does not bind!!"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5311
+    .line 5016
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto/16 :goto_0
 
-    .line 5314
+    .line 5019
     :cond_7
     :try_start_6
     const-string v7, "com.htc.cw.ICWService$Stub"
@@ -588,7 +588,7 @@
 
     move-result-object v5
 
-    .line 5315
+    .line 5020
     .restart local v5       #stubrefClass:Ljava/lang/Class;
     const-string v7, "asInterface"
 
@@ -606,7 +606,7 @@
 
     move-result-object v0
 
-    .line 5316
+    .line 5021
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -617,10 +617,10 @@
 
     if-nez v7, :cond_8
 
-    .line 5317
+    .line 5022
     const-string v7, "Get the ICWService"
 
-    const-string v8, "mCWService is null..."
+    const-string/jumbo v8, "mCWService is null..."
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
@@ -632,19 +632,19 @@
 
     goto/16 :goto_0
 
-    .line 5328
+    .line 5033
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v5           #stubrefClass:Ljava/lang/Class;
     :catch_a
     move-exception v2
 
-    .line 5330
+    .line 5035
     .local v2, e:Ljava/lang/IllegalArgumentException;
     invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5320
+    .line 5025
     .end local v2           #e:Ljava/lang/IllegalArgumentException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v5       #stubrefClass:Ljava/lang/Class;
@@ -669,7 +669,7 @@
 
     move-result-object v1
 
-    .line 5321
+    .line 5026
     .restart local v1       #cWrefClass:Ljava/lang/Object;
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -685,11 +685,11 @@
 
     move-result-object v4
 
-    .line 5322
+    .line 5027
     .local v4, registerExpire:Ljava/lang/reflect/Method;
     if-nez v4, :cond_9
 
-    .line 5323
+    .line 5028
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] can not get the CWService method registerExpire"
@@ -704,7 +704,7 @@
 
     goto/16 :goto_0
 
-    .line 5331
+    .line 5036
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v4           #registerExpire:Ljava/lang/reflect/Method;
@@ -712,13 +712,13 @@
     :catch_b
     move-exception v2
 
-    .line 5333
+    .line 5038
     .local v2, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5326
+    .line 5031
     .end local v2           #e:Ljava/lang/IllegalAccessException;
     .restart local v0       #asInterface:Ljava/lang/reflect/Method;
     .restart local v1       #cWrefClass:Ljava/lang/Object;
@@ -732,7 +732,7 @@
 
     invoke-virtual {v4, v1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 5327
+    .line 5032
     const-string v7, "WifiStateMachine"
 
     const-string v8, "[C+W] call CW registerExpire success"
@@ -747,7 +747,7 @@
 
     goto/16 :goto_0
 
-    .line 5334
+    .line 5039
     .end local v0           #asInterface:Ljava/lang/reflect/Method;
     .end local v1           #cWrefClass:Ljava/lang/Object;
     .end local v4           #registerExpire:Ljava/lang/reflect/Method;
@@ -755,35 +755,37 @@
     :catch_c
     move-exception v2
 
-    .line 5336
+    .line 5041
     .local v2, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5337
+    .line 5042
     .end local v2           #e:Ljava/lang/reflect/InvocationTargetException;
     :catch_d
     move-exception v2
 
-    .line 5339
+    .line 5044
     .local v2, e:Ljava/lang/NoSuchMethodException;
     invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5340
+    .line 5045
     .end local v2           #e:Ljava/lang/NoSuchMethodException;
     :catch_e
     move-exception v2
 
-    .line 5342
+    .line 5047
     .local v2, e:Ljava/lang/ClassNotFoundException;
     invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 5223
+    .line 4928
+    nop
+
     :pswitch_data_0
     .packed-switch 0x3e9
         :pswitch_0

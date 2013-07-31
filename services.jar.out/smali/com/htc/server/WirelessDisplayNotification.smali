@@ -17,11 +17,11 @@
 
 .field private static final EXTRA_DONGLE_VERSION:Ljava/lang/String; = "com.htc.wifidisplay.intent.extra.DONGLE_VERSION"
 
-.field private static final ICON_DONGLES_AVAILABLE:I = 0x402003a
+.field private static final ICON_DONGLES_AVAILABLE:I = 0x4020062
 
-.field private static final ICON_MIRROR_MODE_READY:I = 0x402003b
+.field private static final ICON_MIRROR_MODE_READY:I = 0x4020063
 
-.field private static final ICON_MIRROR_MODE_RUNNING:I = 0x402003c
+.field private static final ICON_MIRROR_MODE_RUNNING:I = 0x4020064
 
 .field private static final INTENT_CONFIG_DONGLES_LIST:Ljava/lang/String; = "com.htc.wifidisplay.NOTIFICATION_CONFIGURE_TOOL"
 
@@ -32,7 +32,7 @@
 #the value of this static final field might be set in the static constructor
 .field private static final JPN_SKU:Z = false
 
-.field private static final NOTIFICATION_ID:I = 0x402003a
+.field private static final NOTIFICATION_ID:I = 0x4020062
 
 .field private static final NOTIFICATION_TYPE_DONGLES_AVAILABLE:I = 0x2
 
@@ -260,7 +260,7 @@
 
     .line 257
     .local v6, res:Landroid/content/res/Resources;
-    const v5, 0x4070077
+    const v5, 0x4070070
 
     .line 258
     .local v5, nTitleResId:I
@@ -269,7 +269,7 @@
     if-eqz v7, :cond_0
 
     .line 259
-    const v5, 0x4070078
+    const v5, 0x4070071
 
     .line 263
     :cond_0
@@ -304,11 +304,11 @@
     if-eq p1, v7, :cond_2
 
     .line 283
-    const v3, 0x4070037
+    const v3, 0x4070034
 
     .line 284
     .local v3, nTickerConnected:I
-    const v4, 0x4070074
+    const v4, 0x407006d
 
     .line 285
     .local v4, nTickerDetected:I
@@ -317,10 +317,10 @@
     if-eqz v7, :cond_1
 
     .line 286
-    const v3, 0x4070038
+    const v3, 0x4070035
 
     .line 287
-    const v4, 0x4070075
+    const v4, 0x407006e
 
     .line 289
     :cond_1
@@ -392,7 +392,7 @@
     .end local v1           #intent:Landroid/content/Intent;
     .end local v2           #n:Landroid/app/Notification;
     :pswitch_1
-    const v7, 0x402003a
+    const v7, 0x4020062
 
     invoke-virtual {v0, v7}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -404,7 +404,7 @@
     invoke-virtual {v0, v7}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 267
-    const v7, 0x4070079
+    const v7, 0x4070072
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -416,7 +416,7 @@
 
     .line 271
     :pswitch_2
-    const v7, 0x402003c
+    const v7, 0x4020064
 
     invoke-virtual {v0, v7}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -428,7 +428,7 @@
     invoke-virtual {v0, v7}, Landroid/app/Notification$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/app/Notification$Builder;
 
     .line 273
-    const v7, 0x4070035
+    const v7, 0x4070032
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -872,7 +872,7 @@
 
     .line 180
     :cond_4
-    const v9, 0x402003a
+    const v9, 0x4020062
 
     invoke-virtual {v5, v9}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -945,7 +945,7 @@
     if-nez v7, :cond_11
 
     .line 238
-    const v9, 0x402003a
+    const v9, 0x4020062
 
     invoke-virtual {v5, v9}, Landroid/app/NotificationManager;->cancel(I)V
 
@@ -1102,13 +1102,13 @@
     if-eq v7, v9, :cond_12
 
     .line 247
-    const v9, 0x402003a
+    const v9, 0x4020062
 
     invoke-virtual {v5, v9}, Landroid/app/NotificationManager;->cancel(I)V
 
     .line 249
     :cond_12
-    const v9, 0x402003a
+    const v9, 0x4020062
 
     invoke-virtual {v5, v9, v6}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 

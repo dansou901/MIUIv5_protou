@@ -106,21 +106,13 @@
 
 .field public static final VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING:I = 0x2
 
-.field private static final mEnableDLNAHiddenFuncFileName:Ljava/lang/String; = ".enableDLNAhiddnefunc"
-
-.field private static mForceDisableDLNA:Z
-
 .field private static mNetworkType:Ljava/lang/String;
 
 
 # instance fields
-.field private final ACTION_AUDIO_STREAMING_MODE_CHANGE:Ljava/lang/String;
-
 .field private final DISABLE_DLNA:I
 
 .field private final DLNAPrepareFailed:I
-
-.field private final KEY_AUDIO_STREAMING_MODE:Ljava/lang/String;
 
 .field private final TAG_UB:Ljava/lang/String;
 
@@ -133,10 +125,6 @@
 .field private final UB_STOP:I
 
 .field private cb:Landroid/view/SurfaceHolder$Callback;
-
-.field isAudioOnly:Z
-
-.field isStreamingPlay:Z
 
 .field private mContext:Landroid/content/Context;
 
@@ -160,7 +148,11 @@
 
 .field private final mDummyWidth:I
 
+.field private final mEnableDLNAHiddenFuncFileName:Ljava/lang/String;
+
 .field private mEventHandler:Landroid/media/MediaPlayer$EventHandler;
+
+.field private mForceDisableDLNA:Z
 
 .field private mICallBack:Landroid/os/IBinder;
 
@@ -227,8 +219,6 @@
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
     invoke-static {}, Landroid/media/MediaPlayer;->native_init()V
-
-    sput-boolean v3, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     const/4 v0, 0x7
 
@@ -333,6 +323,8 @@
 
     iput-boolean v2, p0, Landroid/media/MediaPlayer;->mDLNAMode:Z
 
+    iput-boolean v2, p0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
+
     const-string v1, ""
 
     iput-object v1, p0, Landroid/media/MediaPlayer;->mPath:Ljava/lang/String;
@@ -353,6 +345,10 @@
 
     iput-object v3, p0, Landroid/media/MediaPlayer;->mDLNAThumbnail:Landroid/graphics/Bitmap;
 
+    const-string v1, ".enableDLNAhiddnefunc"
+
+    iput-object v1, p0, Landroid/media/MediaPlayer;->mEnableDLNAHiddenFuncFileName:Ljava/lang/String;
+
     iput v4, p0, Landroid/media/MediaPlayer;->UB_START:I
 
     const/4 v1, 0x2
@@ -362,18 +358,6 @@
     const-string v1, "HtcDeviceInfoManager"
 
     iput-object v1, p0, Landroid/media/MediaPlayer;->TAG_UB:Ljava/lang/String;
-
-    iput-boolean v2, p0, Landroid/media/MediaPlayer;->isStreamingPlay:Z
-
-    iput-boolean v2, p0, Landroid/media/MediaPlayer;->isAudioOnly:Z
-
-    const-string v1, "com.htc.Audio.Streaming.ModeChange"
-
-    iput-object v1, p0, Landroid/media/MediaPlayer;->ACTION_AUDIO_STREAMING_MODE_CHANGE:Ljava/lang/String;
-
-    const-string v1, "audio_streaming_status"
-
-    iput-object v1, p0, Landroid/media/MediaPlayer;->KEY_AUDIO_STREAMING_MODE:Ljava/lang/String;
 
     new-instance v1, Landroid/os/Binder;
 
@@ -717,7 +701,7 @@
 
     const/4 v3, 0x1
 
-    sput-boolean v3, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
+    iput-boolean v3, p0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     goto :goto_0
 
@@ -1041,12 +1025,13 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Ljava/lang/String;)Z
+.method static synthetic access$2200(Landroid/media/MediaPlayer;Ljava/lang/String;)Z
     .locals 1
     .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    invoke-static {p0}, Landroid/media/MediaPlayer;->enableDLNAHiddenFunc(Ljava/lang/String;)Z
+    invoke-direct {p0, p1}, Landroid/media/MediaPlayer;->enableDLNAHiddenFunc(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -2345,7 +2330,7 @@
     goto :goto_1
 .end method
 
-.method private static enableDLNAHiddenFunc(Ljava/lang/String;)Z
+.method private enableDLNAHiddenFunc(Ljava/lang/String;)Z
     .locals 9
     .parameter "func"
 
@@ -2372,7 +2357,7 @@
 
     if-eqz v7, :cond_2
 
-    if-eqz p0, :cond_3
+    if-eqz p1, :cond_3
 
     new-instance v4, Ljava/io/FileInputStream;
 
@@ -2405,7 +2390,7 @@
 
     invoke-direct {v7, v1, v8, v5}, Ljava/lang/String;-><init>([BII)V
 
-    invoke-virtual {v7, p0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v7, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -2510,7 +2495,7 @@
 
     .local v0, count:I
     :goto_1
-    const/16 v5, 0x32
+    const/4 v5, 0x5
 
     if-ge v0, v5, :cond_1
 
@@ -2519,7 +2504,7 @@
 
     if-nez v5, :cond_1
 
-    const-wide/16 v5, 0xa
+    const-wide/16 v5, 0xc8
 
     invoke-static {v5, v6}, Ljava/lang/Thread;->sleep(J)V
     :try_end_1
@@ -3521,123 +3506,6 @@
     goto :goto_0
 .end method
 
-.method private static isForceDisableDLNA()Z
-    .locals 5
-
-    .prologue
-    const/4 v2, 0x1
-
-    const-string v3, "MediaPlayer"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "[DLNA]AP force disable DLNA: "
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    sget-boolean v1, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "TRUE"
-
-    :goto_0
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-boolean v1, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
-
-    if-eqz v1, :cond_1
-
-    move v1, v2
-
-    .local v0, forceDisableDLNA:Ljava/lang/String;
-    :goto_1
-    return v1
-
-    .end local v0           #forceDisableDLNA:Ljava/lang/String;
-    :cond_0
-    const-string v1, "FALSE"
-
-    goto :goto_0
-
-    :cond_1
-    const-string v1, "MediaPlayer"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "[DLNA]Force disable DLNA: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "dlna.marketapp.forceDisableDLNA"
-
-    invoke-static {v4}, Landroid/media/MediaPluginDLNA;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v1, "dlna.marketapp.forceDisableDLNA"
-
-    invoke-static {v1}, Landroid/media/MediaPluginDLNA;->getSystemProperty(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .restart local v0       #forceDisableDLNA:Ljava/lang/String;
-    if-eqz v0, :cond_2
-
-    const-string v1, "1"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    :cond_2
-    const-string v1, "forceDisableDLNA"
-
-    invoke-static {v1}, Landroid/media/MediaPlayer;->enableDLNAHiddenFunc(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    :cond_3
-    move v1, v2
-
-    goto :goto_1
-
-    :cond_4
-    const/4 v1, 0x0
-
-    goto :goto_1
-.end method
-
 .method private isNeedAddProxyInfo(Ljava/lang/String;)Z
     .locals 1
     .parameter "path"
@@ -3962,7 +3830,7 @@
 
     move-result-object v3
 
-    const v4, 0x4020005
+    const v4, 0x4020028
 
     invoke-static {v3, v4}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -4255,7 +4123,7 @@
 
     iput-boolean v3, p0, Landroid/media/MediaPlayer;->mPrepareDone:Z
 
-    sput-boolean v3, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
+    iput-boolean v3, p0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     const-string v1, ""
 
@@ -4580,12 +4448,6 @@
     return-void
 
     :cond_1
-    invoke-static {}, Landroid/media/MediaPlayer;->isForceDisableDLNA()Z
-
-    move-result v3
-
-    sput-boolean v3, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
-
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -4616,12 +4478,6 @@
     .end local v0           #fd:Ljava/io/FileDescriptor;
     .end local v2           #is:Ljava/io/FileInputStream;
     :cond_2
-    invoke-direct {p0, p1}, Landroid/media/MediaPlayer;->isStreaming(Ljava/lang/String;)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Landroid/media/MediaPlayer;->isStreamingPlay:Z
-
     invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaPlayer;->_setDataSource(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V
 
     goto :goto_0
@@ -4918,183 +4774,64 @@
 .end method
 
 .method private stayAwake(Z)V
-    .locals 7
+    .locals 1
     .parameter "awake"
 
     .prologue
-    const/4 v4, 0x2
+    if-eqz p1, :cond_1
 
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
-
-    if-ne v3, v4, :cond_1
-
-    iget-boolean v3, p0, Landroid/media/MediaPlayer;->isStreamingPlay:Z
-
-    if-eqz v3, :cond_1
-
-    iget-boolean v3, p0, Landroid/media/MediaPlayer;->isAudioOnly:Z
-
-    if-eqz v3, :cond_1
-
-    const-string v5, "MediaPlayer"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "notify streaming music "
-
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    if-eqz p1, :cond_3
-
-    const-string v3, "on"
+    const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v0}, Landroid/media/MediaPlayer;->start_stop_notify(I)V
 
-    move-result-object v3
+    iget-object v0, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    const-string v6, " to handle screen light"
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz p1, :cond_2
 
-    move-result-object v3
+    iget-object v0, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
 
-    move-result-object v3
+    move-result v0
 
-    invoke-static {v5, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-nez v0, :cond_2
 
-    move v2, p1
+    iget-object v0, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .local v2, status:Z
-    :try_start_0
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v3, "com.htc.Audio.Streaming.ModeChange"
-
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v1, intent:Landroid/content/Intent;
-    const-string v3, "audio_streaming_status"
-
-    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mContext:Landroid/content/Context;
-
-    if-nez v3, :cond_0
-
-    invoke-direct {p0}, Landroid/media/MediaPlayer;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     :cond_0
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mContext:Landroid/content/Context;
-
-    if-eqz v3, :cond_4
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .end local v1           #intent:Landroid/content/Intent;
-    .end local v2           #status:Z
-    :cond_1
     :goto_1
-    if-eqz p1, :cond_5
-
-    const/4 v3, 0x1
-
-    :goto_2
-    invoke-direct {p0, v3}, Landroid/media/MediaPlayer;->start_stop_notify(I)V
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    if-eqz v3, :cond_2
-
-    if-eqz p1, :cond_6
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v3
-
-    if-nez v3, :cond_6
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->acquire()V
-
-    :cond_2
-    :goto_3
     iput-boolean p1, p0, Landroid/media/MediaPlayer;->mStayAwake:Z
 
     invoke-direct {p0}, Landroid/media/MediaPlayer;->updateSurfaceScreenOn()V
 
     return-void
 
-    :cond_3
-    const-string v3, "off"
+    :cond_1
+    const/4 v0, 0x2
 
     goto :goto_0
 
-    .restart local v1       #intent:Landroid/content/Intent;
-    .restart local v2       #status:Z
-    :cond_4
-    :try_start_1
-    const-string v3, "MediaPlayer"
+    :cond_2
+    if-nez p1, :cond_0
 
-    const-string v5, "error: no context"
+    iget-object v0, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
 
-    goto :goto_1
+    move-result v0
 
-    .end local v1           #intent:Landroid/content/Intent;
-    :catch_0
-    move-exception v0
+    if-eqz v0, :cond_0
 
-    .local v0, e:Ljava/lang/Exception;
-    const-string v3, "MediaPlayer"
+    iget-object v0, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     goto :goto_1
-
-    .end local v0           #e:Ljava/lang/Exception;
-    .end local v2           #status:Z
-    :cond_5
-    move v3, v4
-
-    goto :goto_2
-
-    :cond_6
-    if-nez p1, :cond_2
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, p0, Landroid/media/MediaPlayer;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v3}, Landroid/os/PowerManager$WakeLock;->release()V
-
-    goto :goto_3
 .end method
 
 .method private updateSurfaceScreenOn()V
@@ -6412,7 +6149,7 @@
     :goto_1
     iput v1, p0, Landroid/media/MediaPlayer;->mPreSeekSec:I
 
-    sget-boolean v1, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
+    iget-boolean v1, p0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     if-nez v1, :cond_3
 
@@ -6704,12 +6441,6 @@
     move-result-object v0
 
     iput-object v0, p0, Landroid/media/MediaPlayer;->mPath:Ljava/lang/String;
-
-    invoke-static {}, Landroid/media/MediaPlayer;->isForceDisableDLNA()Z
-
-    move-result v0
-
-    sput-boolean v0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     invoke-virtual {p2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
@@ -7778,7 +7509,7 @@
 
     invoke-direct {p0, v5}, Landroid/media/MediaPlayer;->stayAwake(Z)V
 
-    sget-boolean v2, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
+    iget-boolean v2, p0, Landroid/media/MediaPlayer;->mForceDisableDLNA:Z
 
     if-nez v2, :cond_4
 

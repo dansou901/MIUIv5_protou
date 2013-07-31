@@ -28,13 +28,13 @@
     .parameter "ws"
 
     .prologue
-    .line 3384
+    .line 3285
     iput-object p1, p0, Lcom/android/server/WifiService$WifiLock;->this$0:Lcom/android/server/WifiService;
 
-    .line 3385
+    .line 3286
     invoke-direct/range {p0 .. p5}, Lcom/android/server/WifiService$DeathRecipient;-><init>(Lcom/android/server/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
 
-    .line 3386
+    .line 3287
     return-void
 .end method
 
@@ -44,32 +44,32 @@
     .locals 3
 
     .prologue
-    .line 3389
+    .line 3290
     iget-object v0, p0, Lcom/android/server/WifiService$WifiLock;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mLocks:Lcom/android/server/WifiService$LockList;
-    invoke-static {v0}, Lcom/android/server/WifiService;->access$7000(Lcom/android/server/WifiService;)Lcom/android/server/WifiService$LockList;
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$6800(Lcom/android/server/WifiService;)Lcom/android/server/WifiService$LockList;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 3390
+    .line 3291
     :try_start_0
     iget-object v0, p0, Lcom/android/server/WifiService$WifiLock;->this$0:Lcom/android/server/WifiService;
 
     iget-object v2, p0, Lcom/android/server/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     #calls: Lcom/android/server/WifiService;->releaseWifiLockLocked(Landroid/os/IBinder;)Z
-    invoke-static {v0, v2}, Lcom/android/server/WifiService;->access$7100(Lcom/android/server/WifiService;Landroid/os/IBinder;)Z
+    invoke-static {v0, v2}, Lcom/android/server/WifiService;->access$6900(Lcom/android/server/WifiService;Landroid/os/IBinder;)Z
 
-    .line 3391
+    .line 3292
     monitor-exit v1
 
-    .line 3392
+    .line 3293
     return-void
 
-    .line 3391
+    .line 3292
     :catchall_0
     move-exception v0
 
@@ -84,7 +84,7 @@
     .locals 2
 
     .prologue
-    .line 3395
+    .line 3296
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

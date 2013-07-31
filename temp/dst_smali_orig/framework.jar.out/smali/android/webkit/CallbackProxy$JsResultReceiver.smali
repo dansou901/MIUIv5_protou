@@ -58,7 +58,7 @@
 .end method
 
 .method private notifyCallbackProxy()V
-    .locals 3
+    .locals 2
 
     .prologue
     iget-object v1, p0, Landroid/webkit/CallbackProxy$JsResultReceiver;->this$0:Landroid/webkit/CallbackProxy;
@@ -66,19 +66,6 @@
     monitor-enter v1
 
     :try_start_0
-    invoke-static {}, Landroid/webkit/CallbackProxy;->access$000()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "CallbackProxy"
-
-    const-string v2, "Main thread notify "
-
-    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     iget-object v0, p0, Landroid/webkit/CallbackProxy$JsResultReceiver;->this$0:Landroid/webkit/CallbackProxy;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V

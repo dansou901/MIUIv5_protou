@@ -44,8 +44,6 @@
 
 .field public static final HTC_FELICA_UID:I = 0x2705
 
-.field public static final HTC_FULLBACKUP_UID:I = 0x2701
-
 .field public static final HTC_GALLERY_UID:I = 0x2708
 
 .field public static final HTC_GREADER_UID:I = 0x270a

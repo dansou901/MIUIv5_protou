@@ -73,43 +73,13 @@
 
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v3, 0x14a
-
-    if-eq v2, v3, :cond_0
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
     const/16 v3, 0xe1
 
     if-eq v2, v3, :cond_0
 
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v3, 0x2b
-
-    if-eq v2, v3, :cond_0
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0xe0
-
-    if-eq v2, v3, :cond_0
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x2d8
-
-    if-eq v2, v3, :cond_0
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
     const/16 v3, 0x49
-
-    if-eq v2, v3, :cond_0
-
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v3, 0x4a
 
     if-ne v2, v3, :cond_1
 

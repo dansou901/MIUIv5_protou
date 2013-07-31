@@ -86,11 +86,50 @@
 
 # virtual methods
 .method protected checkConditionBeforeDispatching(Landroid/view/KeyEvent;)Z
-    .locals 2
+    .locals 1
     .parameter "keyEvent"
 
     .prologue
     .line 472
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method protected longPressBeforeDispatch(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)I
+    .locals 2
+    .parameter "win"
+    .parameter "event"
+    .parameter "policyFlags"
+
+    .prologue
+    .line 483
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "HtcKeyEventHandler"
+
+    const-string v1, "IidaDefaultAction longPressBeforeDispatch: launch camera"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 484
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_1
+
+    .line 485
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaDefaultAction;->resetKeyStatus()V
+
+    .line 486
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaDefaultAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -103,19 +142,16 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getContext()Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaDefaultAction;->mCameraIntent:Landroid/content/Intent;
 
-    move-result-object v0
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->launchActivitybyIntent(Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;Landroid/content/Intent;)V
 
-    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->getDefaultLauncher(Landroid/content/Context;)Ljava/lang/String;
+    .line 488
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaDefaultAction;->breakAction()V
 
-    move-result-object v0
-
-    const-string v1, "com.kddi.android.iida.iidahome"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
+    .line 489
+    const/4 v0, -0x1
 
     return v0
 .end method

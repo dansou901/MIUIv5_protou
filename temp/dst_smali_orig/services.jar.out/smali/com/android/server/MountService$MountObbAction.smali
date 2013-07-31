@@ -63,12 +63,12 @@
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->waitForReady()V
-    invoke-static {v10}, Lcom/android/server/MountService;->access$4200(Lcom/android/server/MountService;)V
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)V
 
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #calls: Lcom/android/server/MountService;->warnOnNotMounted()V
-    invoke-static {v10}, Lcom/android/server/MountService;->access$4300(Lcom/android/server/MountService;)V
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)V
 
     invoke-virtual {p0}, Lcom/android/server/MountService$MountObbAction;->getObbInfo()Landroid/content/res/ObbInfo;
 
@@ -84,7 +84,7 @@
     iget v12, v12, Lcom/android/server/MountService$ObbState;->callerUid:I
 
     #calls: Lcom/android/server/MountService;->isUidOwnerOfPackageOrSystem(Ljava/lang/String;I)Z
-    invoke-static {v10, v11, v12}, Lcom/android/server/MountService;->access$4400(Lcom/android/server/MountService;Ljava/lang/String;I)Z
+    invoke-static {v10, v11, v12}, Lcom/android/server/MountService;->access$4000(Lcom/android/server/MountService;Ljava/lang/String;I)Z
 
     move-result v10
 
@@ -137,7 +137,7 @@
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v11
 
@@ -147,7 +147,7 @@
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbPathToStateMap:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3900(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3400(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v10
 
@@ -228,7 +228,7 @@
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$2600(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$2100(Lcom/android/server/MountService;)Lcom/android/server/NativeDaemonConnector;
 
     move-result-object v10
 
@@ -312,7 +312,7 @@
     iget-object v10, p0, Lcom/android/server/MountService$MountObbAction;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mObbMounts:Ljava/util/Map;
-    invoke-static {v10}, Lcom/android/server/MountService;->access$3800(Lcom/android/server/MountService;)Ljava/util/Map;
+    invoke-static {v10}, Lcom/android/server/MountService;->access$3300(Lcom/android/server/MountService;)Ljava/util/Map;
 
     move-result-object v11
 
@@ -324,7 +324,7 @@
     iget-object v12, p0, Lcom/android/server/MountService$ObbAction;->mObbState:Lcom/android/server/MountService$ObbState;
 
     #calls: Lcom/android/server/MountService;->addObbStateLocked(Lcom/android/server/MountService$ObbState;)V
-    invoke-static {v10, v12}, Lcom/android/server/MountService;->access$4500(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
+    invoke-static {v10, v12}, Lcom/android/server/MountService;->access$4100(Lcom/android/server/MountService;Lcom/android/server/MountService$ObbState;)V
 
     monitor-exit v11
     :try_end_3

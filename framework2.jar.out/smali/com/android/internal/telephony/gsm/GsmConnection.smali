@@ -456,7 +456,7 @@
     .local v0, pm:Landroid/os/PowerManager;
     const/4 v1, 0x1
 
-    const-string v2, "GSM_60"
+    const-string v2, "GSM"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
@@ -2797,7 +2797,7 @@
     if-nez v7, :cond_0
 
     .line 622
-    const-string v7, "update: phone # changed!"
+    const-string/jumbo v7, "update: phone # changed!"
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/gsm/GsmConnection;->log(Ljava/lang/String;)V
 
@@ -2874,7 +2874,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "update: parent="
+    const-string/jumbo v8, "update: parent="
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

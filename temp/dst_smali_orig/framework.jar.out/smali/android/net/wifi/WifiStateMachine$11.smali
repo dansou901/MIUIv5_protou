@@ -34,107 +34,95 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 3
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
-
-    const-string v2, "WifiStateMachine"
-
-    const-string v3, "Get WIFI_P2P_CONNECTION_CHANGED_ACTION intent"
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v2, "networkInfo"
-
-    invoke-virtual {p2, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/net/NetworkInfo;
+    const-string v1, "android.net.wifi.IPV6_RENEW"
 
-    .local v0, mNetworkInfo_intent:Landroid/net/NetworkInfo;
-    invoke-virtual {v0}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "WifiStateMachine"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Received intent "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .local v1, state:Landroid/net/NetworkInfo$State;
-    const-string v2, "WifiStateMachine"
+    invoke-virtual {p2}, Landroid/content/Intent;->toString()Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "state: "
+    move-result-object v1
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " Sending an IPv6 renewal "
 
-    move-result-object v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    sget-object v2, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-ne v1, v2, :cond_1
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v2, "WifiStateMachine"
+    const v1, 0x20086
 
-    const-string v3, "start P2P ARP filter"
+    invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->startPacketFiltering_p2p_arp()V
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2, v6}, Landroid/net/wifi/WifiStateMachine;->setP2pConnected(Z)V
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mP2pIsConnected:Z
-    invoke-static {v2, v6}, Landroid/net/wifi/WifiStateMachine;->access$2202(Landroid/net/wifi/WifiStateMachine;Z)Z
-
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
-    sget-object v2, Landroid/net/NetworkInfo$State;->DISCONNECTED:Landroid/net/NetworkInfo$State;
+    :cond_0
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    if-ne v1, v2, :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const-string v2, "WifiStateMachine"
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "stop P2P ARP filter"
+    const-string v2, "Received unexpected intent "
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->stopPacketFiltering_p2p_arp()V
+    invoke-virtual {p2}, Landroid/content/Intent;->toString()Ljava/lang/String;
 
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
+    move-result-object v2
 
-    invoke-virtual {v2, v5}, Landroid/net/wifi/WifiStateMachine;->setP2pConnected(Z)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$11;->this$0:Landroid/net/wifi/WifiStateMachine;
+    move-result-object v1
 
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mP2pIsConnected:Z
-    invoke-static {v2, v5}, Landroid/net/wifi/WifiStateMachine;->access$2202(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

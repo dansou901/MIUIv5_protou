@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/content/PackageMonitor.smali	2013-07-12 21:42:53.055167486 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/content/PackageMonitor.smali	2013-07-12 21:40:42.078490020 +0000
+*** ./smali/com/android/internal/content/PackageMonitor.smali	2013-07-31 22:22:11.110732200 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/content/PackageMonitor.smali	2013-07-31 22:21:12.990727349 +0000
 ***************
 *** 1114,1119 ****
 --- 1114,1135 ----

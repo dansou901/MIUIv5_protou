@@ -300,7 +300,7 @@
 
     .line 443
     .local v0, values:Landroid/content/ContentValues;
-    const-string v1, "state"
+    const-string/jumbo v1, "state"
 
     const-string v2, "readonly"
 
@@ -346,7 +346,7 @@
     if-eqz p3, :cond_0
 
     .line 449
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1822,13 +1822,13 @@
 
     const/4 v6, 0x4
 
-    const-string v7, "state"
+    const-string/jumbo v7, "state"
 
     aput-object v7, v4, v6
 
     const/4 v6, 0x5
 
-    const-string v7, "user"
+    const-string/jumbo v7, "user"
 
     aput-object v7, v4, v6
 
@@ -2466,7 +2466,7 @@
 
     .line 373
     .restart local v39       #values:Landroid/content/ContentValues;
-    const-string v3, "state"
+    const-string/jumbo v3, "state"
 
     const-string v4, "hidden"
 
@@ -2901,7 +2901,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 413
-    const-string v3, "type"
+    const-string/jumbo v3, "type"
 
     const-string v4, "*"
 

@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final DEBUG:Z = false
+.field private static final DEBUG:Z = true
 
 .field private static final SCORE_2400:F = 1.0f
 
@@ -255,7 +255,7 @@
 .end method
 
 .method private getPopulationDecay(II)F
-    .locals 1
+    .locals 3
     .parameter "population"
     .parameter "degree"
 
@@ -274,6 +274,38 @@
     const/4 p2, 0x2
 
     :cond_1
+    const-string v0, "ScoreFrequencyBand"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, " + getPopulationDecay: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object v0, p0, Landroid/net/wifi/ScoreFrequencyBand;->ChannelScoreDecayTable:[[F
 
     aget-object v0, v0, p2
@@ -284,7 +316,7 @@
 .end method
 
 .method private varargs getPopulationDecay([I)F
-    .locals 3
+    .locals 5
     .parameter "ChannelPopulation"
 
     .prologue
@@ -312,6 +344,28 @@
     goto :goto_0
 
     :cond_0
+    const-string v2, "ScoreFrequencyBand"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " + getPopulationDecay: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     return v1
 .end method
 
@@ -563,18 +617,50 @@
 
 # virtual methods
 .method public varargs Score(I[I)I
-    .locals 4
+    .locals 6
     .parameter "freq"
     .parameter "ChannelPopulation"
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
+
+    const-string v1, "ScoreFrequencyBand"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " + getFrequencyBandScore: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Landroid/net/wifi/ScoreFrequencyBand;->ScoreTable:[F
 
-    aget v0, v1, v2
+    aget v0, v1, v5
 
     .local v0, ret:F
     const/16 v1, 0x1388
@@ -583,9 +669,31 @@
 
     iget-object v1, p0, Landroid/net/wifi/ScoreFrequencyBand;->ScoreTable:[F
 
-    aget v0, v1, v3
+    aget v0, v1, v4
 
     :cond_0
+    const-string v1, "ScoreFrequencyBand"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " + getFrequencyBandScore - ret1: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     const/high16 v1, 0x3f80
 
     cmpl-float v1, v0, v1
@@ -599,22 +707,66 @@
     mul-float/2addr v0, v1
 
     :goto_0
+    const-string v1, "ScoreFrequencyBand"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " + getFrequencyBandScore - ret2: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     iget v1, p0, Landroid/net/wifi/ScoreBase;->WEIGHT:I
 
     int-to-float v1, v1
 
     mul-float/2addr v0, v1
 
+    const-string v1, "ScoreFrequencyBand"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " + getFrequencyBandScore - ret3: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     float-to-int v1, v0
 
     return v1
 
     :cond_1
-    new-array v1, v2, [I
+    new-array v1, v5, [I
 
-    aget v2, p2, v3
+    aget v2, p2, v4
 
-    aput v2, v1, v3
+    aput v2, v1, v4
 
     invoke-direct {p0, v1}, Landroid/net/wifi/ScoreFrequencyBand;->getPopulationDecay([I)F
 

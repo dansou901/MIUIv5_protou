@@ -15,8 +15,6 @@
 # static fields
 .field private static final ACCESSORY_START_MATCH:Ljava/lang/String; = "DEVPATH=/devices/virtual/misc/usb_accessory"
 
-.field private static final ATSMODE_PATH:Ljava/lang/String; = "/sys/devices/platform/android_usb/ats"
-
 .field private static final AUDIO_MODE_NONE:I = 0x0
 
 .field private static final AUDIO_MODE_SOURCE:I = 0x1
@@ -85,8 +83,6 @@
 
 .field private mAdbEnabled:Z
 
-.field private mAdbEnabledByUsb:Z
-
 .field private mAdbNotificationShown:Z
 
 .field private mAudioSourceEnabled:Z
@@ -137,8 +133,6 @@
 .end field
 
 .field private mPreAdbEnabled:Z
-
-.field private mPreAdbEnabledByUsb:Z
 
 .field private final mSettingsManager:Lcom/android/server/usb/UsbSettingsManager;
 
@@ -293,31 +287,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1002(Lcom/android/server/usb/UsbDeviceManager;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mbSmartUsb:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-static {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$1000(Lcom/android/server/usb/UsbDeviceManager;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
     .parameter "x1"
@@ -330,7 +300,28 @@
     return-object v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$1100(Lcom/android/server/usb/UsbDeviceManager;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabled:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1102(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabled:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -340,7 +331,7 @@
     return v0
 .end method
 
-.method static synthetic access$1302(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$1202(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -351,7 +342,7 @@
     return p1
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/usb/UsbDeviceManager;)Landroid/os/UEventObserver;
+.method static synthetic access$1300(Lcom/android/server/usb/UsbDeviceManager;)Landroid/os/UEventObserver;
     .locals 1
     .parameter "x0"
 
@@ -361,7 +352,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/Context;
+.method static synthetic access$1400(Lcom/android/server/usb/UsbDeviceManager;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
@@ -371,7 +362,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$1500(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -381,7 +372,7 @@
     return v0
 .end method
 
-.method static synthetic access$1602(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$1502(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -392,7 +383,7 @@
     return p1
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$1600(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -402,7 +393,7 @@
     return v0
 .end method
 
-.method static synthetic access$1702(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$1602(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -413,7 +404,7 @@
     return p1
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$1700(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -423,7 +414,7 @@
     return v0
 .end method
 
-.method static synthetic access$1802(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$1702(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -434,7 +425,7 @@
     return p1
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$1800(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -446,17 +437,7 @@
     return v0
 .end method
 
-.method static synthetic access$200(Lcom/android/server/usb/UsbDeviceManager;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/server/usb/UsbDeviceManager;->mPreAdbEnabledByUsb:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2000(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$1900(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
     .parameter "x1"
@@ -469,18 +450,16 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/server/usb/UsbDeviceManager;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
+.method static synthetic access$200()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mPreAdbEnabledByUsb:Z
+    sget-object v0, Lcom/android/server/usb/UsbDeviceManager;->TAG:Ljava/lang/String;
 
-    return p1
+    return-object v0
 .end method
 
-.method static synthetic access$2100(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$2000(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
     .parameter "x1"
@@ -493,7 +472,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$2100(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -503,7 +482,7 @@
     return v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/usb/UsbDeviceManager;)[Ljava/lang/String;
+.method static synthetic access$2200(Lcom/android/server/usb/UsbDeviceManager;)[Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
@@ -513,7 +492,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2302(Lcom/android/server/usb/UsbDeviceManager;[Ljava/lang/String;)[Ljava/lang/String;
+.method static synthetic access$2202(Lcom/android/server/usb/UsbDeviceManager;[Ljava/lang/String;)[Ljava/lang/String;
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -524,7 +503,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$2400(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbSettingsManager;
+.method static synthetic access$2300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbSettingsManager;
     .locals 1
     .parameter "x0"
 
@@ -534,7 +513,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2500(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$2400(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -544,7 +523,7 @@
     return v0
 .end method
 
-.method static synthetic access$2502(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$2402(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -555,28 +534,7 @@
     return p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/server/usb/UsbDeviceManager;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabledByUsb:Z
-
-    return v0
-.end method
-
-.method static synthetic access$2602(Lcom/android/server/usb/UsbDeviceManager;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabledByUsb:Z
-
-    return p1
-.end method
-
-.method static synthetic access$2700(Lcom/android/server/usb/UsbDeviceManager;)I
+.method static synthetic access$2500(Lcom/android/server/usb/UsbDeviceManager;)I
     .locals 1
     .parameter "x0"
 
@@ -586,7 +544,7 @@
     return v0
 .end method
 
-.method static synthetic access$2702(Lcom/android/server/usb/UsbDeviceManager;I)I
+.method static synthetic access$2502(Lcom/android/server/usb/UsbDeviceManager;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -597,7 +555,7 @@
     return p1
 .end method
 
-.method static synthetic access$2800(Lcom/android/server/usb/UsbDeviceManager;)Landroid/app/NotificationManager;
+.method static synthetic access$2600(Lcom/android/server/usb/UsbDeviceManager;)Landroid/app/NotificationManager;
     .locals 1
     .parameter "x0"
 
@@ -607,7 +565,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2900(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$2700(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -617,16 +575,7 @@
     return v0
 .end method
 
-.method static synthetic access$300()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    sget-object v0, Lcom/android/server/usb/UsbDeviceManager;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3000(Lcom/android/server/usb/UsbDeviceManager;)Z
+.method static synthetic access$2800(Lcom/android/server/usb/UsbDeviceManager;)Z
     .locals 1
     .parameter "x0"
 
@@ -636,7 +585,7 @@
     return v0
 .end method
 
-.method static synthetic access$3002(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+.method static synthetic access$2802(Lcom/android/server/usb/UsbDeviceManager;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -647,28 +596,7 @@
     return p1
 .end method
 
-.method static synthetic access$400(Lcom/android/server/usb/UsbDeviceManager;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabled:Z
-
-    return v0
-.end method
-
-.method static synthetic access$402(Lcom/android/server/usb/UsbDeviceManager;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mAdbEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+.method static synthetic access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
     .locals 1
     .parameter "x0"
 
@@ -678,7 +606,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/usb/UsbDeviceManager;)V
+.method static synthetic access$400(Lcom/android/server/usb/UsbDeviceManager;)V
     .locals 0
     .parameter "x0"
 
@@ -688,7 +616,7 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/server/usb/UsbDeviceManager;)I
+.method static synthetic access$500(Lcom/android/server/usb/UsbDeviceManager;)I
     .locals 1
     .parameter "x0"
 
@@ -698,7 +626,7 @@
     return v0
 .end method
 
-.method static synthetic access$702(Lcom/android/server/usb/UsbDeviceManager;I)I
+.method static synthetic access$502(Lcom/android/server/usb/UsbDeviceManager;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -709,7 +637,7 @@
     return p1
 .end method
 
-.method static synthetic access$900(Lcom/android/server/usb/UsbDeviceManager;)I
+.method static synthetic access$700(Lcom/android/server/usb/UsbDeviceManager;)I
     .locals 1
     .parameter "x0"
 
@@ -719,7 +647,7 @@
     return v0
 .end method
 
-.method static synthetic access$902(Lcom/android/server/usb/UsbDeviceManager;I)I
+.method static synthetic access$702(Lcom/android/server/usb/UsbDeviceManager;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -728,6 +656,30 @@
     iput p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mHostCable:I
 
     return p1
+.end method
+
+.method static synthetic access$802(Lcom/android/server/usb/UsbDeviceManager;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/server/usb/UsbDeviceManager;->mbSmartUsb:Z
+
+    return p1
+.end method
+
+.method static synthetic access$900(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-static {p0, p1}, Lcom/android/server/usb/UsbDeviceManager;->containsFunction(Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private static addFunction(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;

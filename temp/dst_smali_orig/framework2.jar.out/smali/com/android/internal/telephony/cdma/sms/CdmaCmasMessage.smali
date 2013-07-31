@@ -257,7 +257,7 @@
     return-object v1
 
     :pswitch_0
-    const v1, 0x40700d2
+    const v1, 0x40700cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -266,7 +266,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v1, 0x40700d3
+    const v1, 0x40700cc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -275,7 +275,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x40700d4
+    const v1, 0x40700cd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -284,7 +284,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v1, 0x40700d5
+    const v1, 0x40700ce
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -293,7 +293,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v1, 0x40700d6
+    const v1, 0x40700cf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
     goto :goto_0
 
     :pswitch_5
-    const v1, 0x40700d7
+    const v1, 0x40700d0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
     goto :goto_0
 
     :pswitch_6
-    const v1, 0x40700d8
+    const v1, 0x40700d1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
     goto :goto_0
 
     :pswitch_7
-    const v1, 0x40700d9
+    const v1, 0x40700d2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -329,7 +329,7 @@
     goto :goto_0
 
     :pswitch_8
-    const v1, 0x40700da
+    const v1, 0x40700d3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -338,7 +338,7 @@
     goto :goto_0
 
     :pswitch_9
-    const v1, 0x40700db
+    const v1, 0x40700d4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
     goto :goto_0
 
     :pswitch_a
-    const v1, 0x40700dc
+    const v1, 0x40700d5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -356,7 +356,7 @@
     goto :goto_0
 
     :pswitch_b
-    const v1, 0x40700dd
+    const v1, 0x40700d6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -401,7 +401,7 @@
     return-object v1
 
     :pswitch_0
-    const v1, 0x40700de
+    const v1, 0x40700d7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -410,7 +410,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v1, 0x40700df
+    const v1, 0x40700d8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -419,7 +419,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v1, 0x40700e0
+    const v1, 0x40700d9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -428,7 +428,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v1, 0x40700e1
+    const v1, 0x40700da
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -437,7 +437,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v1, 0x40700e2
+    const v1, 0x40700db
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -446,7 +446,7 @@
     goto :goto_0
 
     :pswitch_5
-    const v1, 0x40700e3
+    const v1, 0x40700dc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -455,7 +455,7 @@
     goto :goto_0
 
     :pswitch_6
-    const v1, 0x40700e4
+    const v1, 0x40700dd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -464,7 +464,7 @@
     goto :goto_0
 
     :pswitch_7
-    const v1, 0x40700e5
+    const v1, 0x40700de
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -682,7 +682,7 @@
 
     aget-object v3, p0, v3
 
-    const-string v4, "start-system-server"
+    const-string/jumbo v4, "start-system-server"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

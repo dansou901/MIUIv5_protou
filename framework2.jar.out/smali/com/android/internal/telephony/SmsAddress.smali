@@ -42,7 +42,7 @@
     .locals 0
 
     .prologue
-    .line 21
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,12 +56,12 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 76
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    .line 75
+    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v1
+    const/16 v2, 0x94
 
-    if-nez v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -69,7 +69,7 @@
 
     if-ne v1, v2, :cond_2
 
-    .line 78
+    .line 77
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
@@ -83,7 +83,7 @@
 
     if-lez v1, :cond_3
 
-    .line 79
+    .line 78
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     const-string v2, "6245"
@@ -94,12 +94,12 @@
 
     if-eqz v1, :cond_3
 
-    .line 90
+    .line 89
     :cond_1
     :goto_0
     return v0
 
-    .line 82
+    .line 81
     :cond_2
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -107,7 +107,7 @@
 
     if-ne v1, v2, :cond_3
 
-    .line 83
+    .line 82
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     if-eqz v1, :cond_3
@@ -120,7 +120,7 @@
 
     if-lez v1, :cond_3
 
-    .line 84
+    .line 83
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     const-string v2, "36245"
@@ -131,7 +131,7 @@
 
     if-nez v1, :cond_1
 
-    .line 90
+    .line 89
     :cond_3
     iget-object v1, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
@@ -152,7 +152,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 51
     iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     return-object v0
@@ -162,7 +162,7 @@
     .locals 2
 
     .prologue
-    .line 59
+    .line 58
     iget v0, p0, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     const/4 v1, 0x5
@@ -184,7 +184,7 @@
     .locals 2
 
     .prologue
-    .line 66
+    .line 65
     iget v0, p0, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     const/4 v1, 0x3

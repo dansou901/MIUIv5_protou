@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 60
+    .locals 69
     .parameter "msg"
 
     .prologue
@@ -483,9 +483,9 @@
 
     if-nez v2, :cond_5
 
-    const/16 v58, 0x0
+    const/16 v67, 0x0
 
-    .local v58, xPercent:F
+    .local v67, xPercent:F
     :goto_2
     new-instance v28, Landroid/graphics/Rect;
 
@@ -513,7 +513,7 @@
 
     iget v5, v0, Landroid/os/Message;->arg2:I
 
-    move/from16 v0, v58
+    move/from16 v0, v67
 
     move-object/from16 v1, v28
 
@@ -546,7 +546,7 @@
     goto/16 :goto_1
 
     .end local v28           #contentBounds:Landroid/graphics/Rect;
-    .end local v58           #xPercent:F
+    .end local v67           #xPercent:F
     :cond_5
     move-object/from16 v0, p1
 
@@ -556,12 +556,12 @@
 
     invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
 
-    move-result v58
+    move-result v67
 
-    .restart local v58       #xPercent:F
+    .restart local v67       #xPercent:F
     goto :goto_2
 
-    .end local v58           #xPercent:F
+    .end local v67           #xPercent:F
     :sswitch_5
     invoke-static {}, Landroid/webkit/CookieManagerClassic;->getInstance()Landroid/webkit/CookieManagerClassic;
 
@@ -573,22 +573,22 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v48, v0
+    move-object/from16 v53, v0
 
-    check-cast v48, Landroid/webkit/WebViewCore$GetUrlData;
+    check-cast v53, Landroid/webkit/WebViewCore$GetUrlData;
 
-    .local v48, param:Landroid/webkit/WebViewCore$GetUrlData;
+    .local v53, param:Landroid/webkit/WebViewCore$GetUrlData;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
 
     iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
 
-    move-object/from16 v0, v48
+    move-object/from16 v0, v53
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$GetUrlData;->mUrl:Ljava/lang/String;
 
-    move-object/from16 v0, v48
+    move-object/from16 v0, v53
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$GetUrlData;->mExtraHeaders:Ljava/util/Map;
 
@@ -597,7 +597,7 @@
 
     goto/16 :goto_1
 
-    .end local v48           #param:Landroid/webkit/WebViewCore$GetUrlData;
+    .end local v53           #param:Landroid/webkit/WebViewCore$GetUrlData;
     :sswitch_6
     invoke-static {}, Landroid/webkit/CookieManagerClassic;->getInstance()Landroid/webkit/CookieManagerClassic;
 
@@ -609,11 +609,11 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v48, v0
+    move-object/from16 v53, v0
 
-    check-cast v48, Landroid/webkit/WebViewCore$PostUrlData;
+    check-cast v53, Landroid/webkit/WebViewCore$PostUrlData;
 
-    .local v48, param:Landroid/webkit/WebViewCore$PostUrlData;
+    .local v53, param:Landroid/webkit/WebViewCore$PostUrlData;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -625,11 +625,11 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v48
+    move-object/from16 v0, v53
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$PostUrlData;->mUrl:Ljava/lang/String;
 
-    move-object/from16 v0, v48
+    move-object/from16 v0, v53
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$PostUrlData;->mPostData:[B
 
@@ -637,7 +637,7 @@
 
     goto/16 :goto_1
 
-    .end local v48           #param:Landroid/webkit/WebViewCore$PostUrlData;
+    .end local v53           #param:Landroid/webkit/WebViewCore$PostUrlData;
     :sswitch_7
     invoke-static {}, Landroid/webkit/CookieManagerClassic;->getInstance()Landroid/webkit/CookieManagerClassic;
 
@@ -649,12 +649,12 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v41, v0
+    move-object/from16 v44, v0
 
-    check-cast v41, Landroid/webkit/WebViewCore$BaseUrlData;
+    check-cast v44, Landroid/webkit/WebViewCore$BaseUrlData;
 
-    .local v41, loadParams:Landroid/webkit/WebViewCore$BaseUrlData;
-    move-object/from16 v0, v41
+    .local v44, loadParams:Landroid/webkit/WebViewCore$BaseUrlData;
+    move-object/from16 v0, v44
 
     iget-object v3, v0, Landroid/webkit/WebViewCore$BaseUrlData;->mBaseUrl:Ljava/lang/String;
 
@@ -665,23 +665,23 @@
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v38
+    move-result v41
 
-    .local v38, i:I
-    if-lez v38, :cond_6
+    .local v41, i:I
+    if-lez v41, :cond_6
 
     const/4 v2, 0x0
 
-    move/from16 v0, v38
+    move/from16 v0, v41
 
     invoke-virtual {v3, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v56
+    move-result-object v61
 
-    .local v56, scheme:Ljava/lang/String;
+    .local v61, scheme:Ljava/lang/String;
     const-string v2, "http"
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v61
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -691,7 +691,7 @@
 
     const-string v2, "ftp"
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v61
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -701,7 +701,7 @@
 
     const-string v2, "about"
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v61
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -711,7 +711,7 @@
 
     const-string v2, "javascript"
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v61
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -736,13 +736,13 @@
 
     move-result v4
 
-    move-object/from16 v0, v56
+    move-object/from16 v0, v61
 
     #calls: Landroid/webkit/WebViewCore;->nativeRegisterURLSchemeAsLocal(ILjava/lang/String;)V
     invoke-static {v2, v4, v0}, Landroid/webkit/WebViewCore;->access$2000(Landroid/webkit/WebViewCore;ILjava/lang/String;)V
 
-    .end local v38           #i:I
-    .end local v56           #scheme:Ljava/lang/String;
+    .end local v41           #i:I
+    .end local v61           #scheme:Ljava/lang/String;
     :cond_6
     move-object/from16 v0, p0
 
@@ -755,19 +755,19 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$BaseUrlData;->mData:Ljava/lang/String;
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$BaseUrlData;->mMimeType:Ljava/lang/String;
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
     iget-object v6, v0, Landroid/webkit/WebViewCore$BaseUrlData;->mEncoding:Ljava/lang/String;
 
-    move-object/from16 v0, v41
+    move-object/from16 v0, v44
 
     iget-object v7, v0, Landroid/webkit/WebViewCore$BaseUrlData;->mHistoryUrl:Ljava/lang/String;
 
@@ -796,7 +796,7 @@
     goto/16 :goto_1
 
     .end local v3           #baseUrl:Ljava/lang/String;
-    .end local v41           #loadParams:Landroid/webkit/WebViewCore$BaseUrlData;
+    .end local v44           #loadParams:Landroid/webkit/WebViewCore$BaseUrlData;
     :sswitch_8
     move-object/from16 v0, p0
 
@@ -1104,11 +1104,11 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v49, v0
+    move-object/from16 v54, v0
 
-    check-cast v49, Landroid/graphics/Point;
+    check-cast v54, Landroid/graphics/Point;
 
-    .local v49, pt:Landroid/graphics/Point;
+    .local v54, pt:Landroid/graphics/Point;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1137,11 +1137,11 @@
     const/4 v2, 0x1
 
     :goto_3
-    move-object/from16 v0, v49
+    move-object/from16 v0, v54
 
     iget v7, v0, Landroid/graphics/Point;->x:I
 
-    move-object/from16 v0, v49
+    move-object/from16 v0, v54
 
     iget v10, v0, Landroid/graphics/Point;->y:I
 
@@ -1155,17 +1155,17 @@
 
     goto :goto_3
 
-    .end local v49           #pt:Landroid/graphics/Point;
+    .end local v54           #pt:Landroid/graphics/Point;
     :sswitch_f
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v50, v0
+    move-object/from16 v55, v0
 
-    check-cast v50, Landroid/graphics/Point;
+    check-cast v55, Landroid/graphics/Point;
 
-    .local v50, pt2:Landroid/graphics/Point;
+    .local v55, pt2:Landroid/graphics/Point;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1209,11 +1209,11 @@
     const/4 v2, 0x1
 
     :goto_4
-    move-object/from16 v0, v50
+    move-object/from16 v0, v55
 
     iget v7, v0, Landroid/graphics/Point;->x:I
 
-    move-object/from16 v0, v50
+    move-object/from16 v0, v55
 
     iget v10, v0, Landroid/graphics/Point;->y:I
 
@@ -1233,17 +1233,17 @@
 
     goto :goto_4
 
-    .end local v50           #pt2:Landroid/graphics/Point;
+    .end local v55           #pt2:Landroid/graphics/Point;
     :sswitch_10
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v51, v0
+    move-object/from16 v56, v0
 
-    check-cast v51, Landroid/graphics/Rect;
+    check-cast v56, Landroid/graphics/Rect;
 
-    .local v51, r:Landroid/graphics/Rect;
+    .local v56, r:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1261,19 +1261,19 @@
 
     move-result v5
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v56
 
     iget v6, v0, Landroid/graphics/Rect;->left:I
 
-    move-object/from16 v0, v51
+    move-object/from16 v0, v56
 
     iget v7, v0, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual/range {v51 .. v51}, Landroid/graphics/Rect;->width()I
+    invoke-virtual/range {v56 .. v56}, Landroid/graphics/Rect;->width()I
 
     move-result v8
 
-    invoke-virtual/range {v51 .. v51}, Landroid/graphics/Rect;->height()I
+    invoke-virtual/range {v56 .. v56}, Landroid/graphics/Rect;->height()I
 
     move-result v9
 
@@ -1282,7 +1282,7 @@
 
     goto/16 :goto_1
 
-    .end local v51           #r:Landroid/graphics/Rect;
+    .end local v56           #r:Landroid/graphics/Rect;
     :sswitch_11
     move-object/from16 v0, p0
 
@@ -1556,16 +1556,16 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v42, v0
+    move-object/from16 v45, v0
 
-    check-cast v42, Ljava/util/Map;
+    check-cast v45, Ljava/util/Map;
 
-    .local v42, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .local v45, map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     sget-object v5, Landroid/webkit/BrowserFrame;->sJavaBridge:Landroid/webkit/JWebCoreJavaBridge;
 
     const-string v2, "type"
 
-    move-object/from16 v0, v42
+    move-object/from16 v0, v45
 
     invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1575,7 +1575,7 @@
 
     const-string v4, "subtype"
 
-    move-object/from16 v0, v42
+    move-object/from16 v0, v45
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1587,7 +1587,7 @@
 
     goto/16 :goto_1
 
-    .end local v42           #map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
+    .end local v45           #map:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     :sswitch_18
     move-object/from16 v0, p0
 
@@ -1654,11 +1654,11 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v53, v0
+    move-object/from16 v58, v0
 
-    check-cast v53, Landroid/webkit/WebViewCore$ReplaceTextData;
+    check-cast v58, Landroid/webkit/WebViewCore$ReplaceTextData;
 
-    .local v53, rep:Landroid/webkit/WebViewCore$ReplaceTextData;
+    .local v58, rep:Landroid/webkit/WebViewCore$ReplaceTextData;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1684,19 +1684,19 @@
 
     iget v7, v0, Landroid/os/Message;->arg2:I
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v58
 
     iget-object v8, v0, Landroid/webkit/WebViewCore$ReplaceTextData;->mReplace:Ljava/lang/String;
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v58
 
     iget v9, v0, Landroid/webkit/WebViewCore$ReplaceTextData;->mNewStart:I
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v58
 
     iget v10, v0, Landroid/webkit/WebViewCore$ReplaceTextData;->mNewEnd:I
 
-    move-object/from16 v0, v53
+    move-object/from16 v0, v58
 
     iget v11, v0, Landroid/webkit/WebViewCore$ReplaceTextData;->mTextGeneration:I
 
@@ -1705,18 +1705,18 @@
 
     goto/16 :goto_1
 
-    .end local v53           #rep:Landroid/webkit/WebViewCore$ReplaceTextData;
+    .end local v58           #rep:Landroid/webkit/WebViewCore$ReplaceTextData;
     :sswitch_1b
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v40, v0
+    move-object/from16 v43, v0
 
-    check-cast v40, Landroid/webkit/WebViewCore$JSKeyData;
+    check-cast v43, Landroid/webkit/WebViewCore$JSKeyData;
 
-    .local v40, jsData:Landroid/webkit/WebViewCore$JSKeyData;
-    move-object/from16 v0, v40
+    .local v43, jsData:Landroid/webkit/WebViewCore$JSKeyData;
+    move-object/from16 v0, v43
 
     iget-object v0, v0, Landroid/webkit/WebViewCore$JSKeyData;->mEvent:Landroid/view/KeyEvent;
 
@@ -1755,7 +1755,7 @@
 
     move-result v5
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v43
 
     iget-object v7, v0, Landroid/webkit/WebViewCore$JSKeyData;->mCurrentText:Ljava/lang/String;
 
@@ -1784,7 +1784,7 @@
     .end local v8           #keyCode:I
     .end local v9           #keyValue:I
     .end local v34           #evt:Landroid/view/KeyEvent;
-    .end local v40           #jsData:Landroid/webkit/WebViewCore$JSKeyData;
+    .end local v43           #jsData:Landroid/webkit/WebViewCore$JSKeyData;
     :sswitch_1c
     move-object/from16 v0, p0
 
@@ -1881,11 +1881,11 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v40, v0
+    move-object/from16 v43, v0
 
-    check-cast v40, Landroid/webkit/WebViewCore$JSInterfaceData;
+    check-cast v43, Landroid/webkit/WebViewCore$JSInterfaceData;
 
-    .local v40, jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
+    .local v43, jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1897,15 +1897,15 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v43
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$JSInterfaceData;->mObject:Ljava/lang/Object;
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v43
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$JSInterfaceData;->mInterfaceName:Ljava/lang/String;
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v43
 
     iget-boolean v7, v0, Landroid/webkit/WebViewCore$JSInterfaceData;->mRequireAnnotation:Z
 
@@ -1913,17 +1913,17 @@
 
     goto/16 :goto_1
 
-    .end local v40           #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
+    .end local v43           #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
     :sswitch_20
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v40, v0
+    move-object/from16 v43, v0
 
-    check-cast v40, Landroid/webkit/WebViewCore$JSInterfaceData;
+    check-cast v43, Landroid/webkit/WebViewCore$JSInterfaceData;
 
-    .restart local v40       #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
+    .restart local v43       #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -1935,7 +1935,7 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v40
+    move-object/from16 v0, v43
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$JSInterfaceData;->mInterfaceName:Ljava/lang/String;
 
@@ -1943,7 +1943,7 @@
 
     goto/16 :goto_1
 
-    .end local v40           #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
+    .end local v43           #jsData:Landroid/webkit/WebViewCore$JSInterfaceData;
     :sswitch_21
     move-object/from16 v0, p0
 
@@ -2041,26 +2041,26 @@
     #calls: Landroid/webkit/WebViewCore;->performHitTest(IIIZ)Landroid/webkit/WebViewCore$WebKitHitTest;
     invoke-static {v2, v4, v5, v7, v10}, Landroid/webkit/WebViewCore;->access$4000(Landroid/webkit/WebViewCore;IIIZ)Landroid/webkit/WebViewCore$WebKitHitTest;
 
-    move-result-object v36
+    move-result-object v39
 
-    .local v36, hit:Landroid/webkit/WebViewCore$WebKitHitTest;
+    .local v39, hit:Landroid/webkit/WebViewCore$WebKitHitTest;
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v37, v0
+    move-object/from16 v40, v0
 
-    check-cast v37, Landroid/os/Message;
+    check-cast v40, Landroid/os/Message;
 
-    .local v37, hrefMsg:Landroid/os/Message;
-    invoke-virtual/range {v37 .. v37}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+    .local v40, hrefMsg:Landroid/os/Message;
+    invoke-virtual/range {v40 .. v40}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v32
 
     .local v32, data:Landroid/os/Bundle;
     const-string v2, "url"
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v39
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$WebKitHitTest;->mLinkUrl:Ljava/lang/String;
 
@@ -2070,7 +2070,7 @@
 
     const-string v2, "title"
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v39
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$WebKitHitTest;->mAnchorText:Ljava/lang/String;
 
@@ -2080,7 +2080,7 @@
 
     const-string v2, "src"
 
-    move-object/from16 v0, v36
+    move-object/from16 v0, v39
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$WebKitHitTest;->mImageUrl:Ljava/lang/String;
 
@@ -2088,23 +2088,23 @@
 
     invoke-virtual {v0, v2, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual/range {v37 .. v37}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual/range {v40 .. v40}, Landroid/os/Message;->sendToTarget()V
 
     goto/16 :goto_1
 
     .end local v32           #data:Landroid/os/Bundle;
-    .end local v36           #hit:Landroid/webkit/WebViewCore$WebKitHitTest;
-    .end local v37           #hrefMsg:Landroid/os/Message;
+    .end local v39           #hit:Landroid/webkit/WebViewCore$WebKitHitTest;
+    .end local v40           #hrefMsg:Landroid/os/Message;
     :sswitch_25
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v39, v0
+    move-object/from16 v42, v0
 
-    check-cast v39, Landroid/os/Message;
+    check-cast v42, Landroid/os/Message;
 
-    .local v39, imageResult:Landroid/os/Message;
+    .local v42, imageResult:Landroid/os/Message;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -2125,11 +2125,11 @@
     const/4 v2, 0x1
 
     :goto_8
-    move-object/from16 v0, v39
+    move-object/from16 v0, v42
 
     iput v2, v0, Landroid/os/Message;->arg1:I
 
-    invoke-virtual/range {v39 .. v39}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual/range {v42 .. v42}, Landroid/os/Message;->sendToTarget()V
 
     goto/16 :goto_1
 
@@ -2138,7 +2138,7 @@
 
     goto :goto_8
 
-    .end local v39           #imageResult:Landroid/os/Message;
+    .end local v42           #imageResult:Landroid/os/Message;
     :sswitch_26
     move-object/from16 v0, p1
 
@@ -2255,9 +2255,9 @@
     #calls: Landroid/webkit/WebViewCore;->nativeModifySelection(III)Ljava/lang/String;
     invoke-static {v2, v4, v5, v7}, Landroid/webkit/WebViewCore;->access$4400(Landroid/webkit/WebViewCore;III)Ljava/lang/String;
 
-    move-result-object v45
+    move-result-object v48
 
-    .local v45, modifiedSelectionString:Ljava/lang/String;
+    .local v48, modifiedSelectionString:Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -2273,7 +2273,7 @@
 
     const/16 v4, 0x82
 
-    move-object/from16 v0, v45
+    move-object/from16 v0, v48
 
     invoke-virtual {v2, v4, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
@@ -2294,7 +2294,7 @@
 
     goto/16 :goto_1
 
-    .end local v45           #modifiedSelectionString:Ljava/lang/String;
+    .end local v48           #modifiedSelectionString:Ljava/lang/String;
     :sswitch_29
     move-object/from16 v0, p1
 
@@ -2563,22 +2563,22 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v55, v0
+    move-object/from16 v60, v0
 
-    check-cast v55, Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
+    check-cast v60, Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
 
-    .local v55, saveMessage:Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
+    .local v60, saveMessage:Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
 
     iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
 
-    move-object/from16 v0, v55
+    move-object/from16 v0, v60
 
     iget-object v4, v0, Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;->mBasename:Ljava/lang/String;
 
-    move-object/from16 v0, v55
+    move-object/from16 v0, v60
 
     iget-boolean v5, v0, Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;->mAutoname:Z
 
@@ -2587,7 +2587,7 @@
 
     move-result-object v2
 
-    move-object/from16 v0, v55
+    move-object/from16 v0, v60
 
     iput-object v2, v0, Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;->mResultFile:Ljava/lang/String;
 
@@ -2606,7 +2606,7 @@
 
     const/16 v4, 0x84
 
-    move-object/from16 v0, v55
+    move-object/from16 v0, v60
 
     invoke-virtual {v2, v4, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
@@ -2616,7 +2616,7 @@
 
     goto/16 :goto_1
 
-    .end local v55           #saveMessage:Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
+    .end local v60           #saveMessage:Landroid/webkit/WebViewClassic$SaveWebArchiveMessage;
     :sswitch_31
     move-object/from16 v0, p1
 
@@ -2911,18 +2911,18 @@
 
     iget v0, v0, Landroid/os/Message;->arg1:I
 
-    move/from16 v46, v0
+    move/from16 v51, v0
 
-    .local v46, nativeLayer:I
+    .local v51, nativeLayer:I
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v52, v0
+    move-object/from16 v57, v0
 
-    check-cast v52, Landroid/graphics/Rect;
+    check-cast v57, Landroid/graphics/Rect;
 
-    .local v52, rect:Landroid/graphics/Rect;
+    .local v57, rect:Landroid/graphics/Rect;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -2940,17 +2940,17 @@
 
     move-result v4
 
-    move/from16 v0, v46
+    move/from16 v0, v51
 
-    move-object/from16 v1, v52
+    move-object/from16 v1, v57
 
     #calls: Landroid/webkit/WebViewCore;->nativeScrollLayer(IILandroid/graphics/Rect;)V
     invoke-static {v2, v4, v0, v1}, Landroid/webkit/WebViewCore;->access$5900(Landroid/webkit/WebViewCore;IILandroid/graphics/Rect;)V
 
     goto/16 :goto_1
 
-    .end local v46           #nativeLayer:I
-    .end local v52           #rect:Landroid/graphics/Rect;
+    .end local v51           #nativeLayer:I
+    .end local v57           #rect:Landroid/graphics/Rect;
     :sswitch_3d
     move-object/from16 v0, p1
 
@@ -2958,11 +2958,11 @@
 
     check-cast v2, [I
 
-    move-object/from16 v35, v2
+    move-object/from16 v38, v2
 
-    check-cast v35, [I
+    check-cast v38, [I
 
-    .local v35, handles:[I
+    .local v38, handles:[I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -2982,19 +2982,19 @@
 
     const/4 v2, 0x0
 
-    aget v12, v35, v2
+    aget v12, v38, v2
 
     const/4 v2, 0x1
 
-    aget v13, v35, v2
+    aget v13, v38, v2
 
     const/4 v2, 0x2
 
-    aget v14, v35, v2
+    aget v14, v38, v2
 
     const/4 v2, 0x3
 
-    aget v15, v35, v2
+    aget v15, v38, v2
 
     #calls: Landroid/webkit/WebViewCore;->nativeDeleteText(IIIII)V
     invoke-static/range {v10 .. v15}, Landroid/webkit/WebViewCore;->access$6000(Landroid/webkit/WebViewCore;IIIII)V
@@ -3055,7 +3055,7 @@
 
     goto/16 :goto_1
 
-    .end local v35           #handles:[I
+    .end local v38           #handles:[I
     :sswitch_3e
     move-object/from16 v0, p1
 
@@ -3063,11 +3063,11 @@
 
     check-cast v2, [I
 
-    move-object/from16 v35, v2
+    move-object/from16 v38, v2
 
-    check-cast v35, [I
+    check-cast v38, [I
 
-    .restart local v35       #handles:[I
+    .restart local v38       #handles:[I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -3087,19 +3087,19 @@
 
     const/4 v2, 0x0
 
-    aget v12, v35, v2
+    aget v12, v38, v2
 
     const/4 v2, 0x1
 
-    aget v13, v35, v2
+    aget v13, v38, v2
 
     const/4 v2, 0x2
 
-    aget v14, v35, v2
+    aget v14, v38, v2
 
     const/4 v2, 0x3
 
-    aget v15, v35, v2
+    aget v15, v38, v2
 
     #calls: Landroid/webkit/WebViewCore;->nativeGetText(IIIII)Ljava/lang/String;
     invoke-static/range {v10 .. v15}, Landroid/webkit/WebViewCore;->access$6200(Landroid/webkit/WebViewCore;IIIII)Ljava/lang/String;
@@ -3148,19 +3148,19 @@
 
     const/4 v2, 0x0
 
-    aget v12, v35, v2
+    aget v12, v38, v2
 
     const/4 v2, 0x1
 
-    aget v13, v35, v2
+    aget v13, v38, v2
 
     const/4 v2, 0x2
 
-    aget v14, v35, v2
+    aget v14, v38, v2
 
     const/4 v2, 0x3
 
-    aget v15, v35, v2
+    aget v15, v38, v2
 
     invoke-virtual/range {v10 .. v15}, Landroid/webkit/HTCWebCoreImpl;->nativeGetHtml(IIIII)Ljava/lang/String;
 
@@ -3225,7 +3225,7 @@
     goto :goto_c
 
     .end local v30           #copiedText:Ljava/lang/String;
-    .end local v35           #handles:[I
+    .end local v38           #handles:[I
     :sswitch_3f
     move-object/from16 v0, p0
 
@@ -3347,16 +3347,16 @@
 
     iget v0, v0, Landroid/os/Message;->arg1:I
 
-    move/from16 v57, v0
+    move/from16 v66, v0
 
-    .local v57, x:I
+    .local v66, x:I
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/os/Message;->arg2:I
 
-    move/from16 v59, v0
+    move/from16 v68, v0
 
-    .local v59, y:I
+    .local v68, y:I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -3389,9 +3389,9 @@
 
     move-result v5
 
-    move/from16 v0, v57
+    move/from16 v0, v66
 
-    move/from16 v1, v59
+    move/from16 v1, v68
 
     #calls: Landroid/webkit/WebViewCore;->nativeSelectWordAt(IIII)Z
     invoke-static {v2, v4, v0, v1, v5}, Landroid/webkit/WebViewCore;->access$6600(Landroid/webkit/WebViewCore;IIII)Z
@@ -3435,8 +3435,8 @@
 
     goto/16 :goto_1
 
-    .end local v57           #x:I
-    .end local v59           #y:I
+    .end local v66           #x:I
+    .end local v68           #y:I
     :sswitch_42
     move-object/from16 v0, p0
 
@@ -3465,12 +3465,12 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v54, v0
+    move-object/from16 v59, v0
 
-    check-cast v54, Landroid/webkit/WebViewCore$FindAllRequest;
+    check-cast v59, Landroid/webkit/WebViewCore$FindAllRequest;
 
-    .local v54, request:Landroid/webkit/WebViewCore$FindAllRequest;
-    if-eqz v54, :cond_1b
+    .local v59, request:Landroid/webkit/WebViewCore$FindAllRequest;
+    if-eqz v59, :cond_1b
 
     move-object/from16 v0, p0
 
@@ -3489,16 +3489,16 @@
 
     move-result v4
 
-    move-object/from16 v0, v54
+    move-object/from16 v0, v59
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$FindAllRequest;->mSearchText:Ljava/lang/String;
 
     #calls: Landroid/webkit/WebViewCore;->nativeFindAll(ILjava/lang/String;)I
     invoke-static {v2, v4, v5}, Landroid/webkit/WebViewCore;->access$6800(Landroid/webkit/WebViewCore;ILjava/lang/String;)I
 
-    move-result v43
+    move-result v46
 
-    .local v43, matchCount:I
+    .local v46, matchCount:I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -3521,32 +3521,32 @@
     #calls: Landroid/webkit/WebViewCore;->nativeFindNext(IZ)I
     invoke-static {v2, v4, v5}, Landroid/webkit/WebViewCore;->access$6900(Landroid/webkit/WebViewCore;IZ)I
 
-    move-result v44
+    move-result v47
 
-    .local v44, matchIndex:I
-    monitor-enter v54
+    .local v47, matchIndex:I
+    monitor-enter v59
 
     :try_start_5
-    move/from16 v0, v43
+    move/from16 v0, v46
 
-    move-object/from16 v1, v54
+    move-object/from16 v1, v59
 
     iput v0, v1, Landroid/webkit/WebViewCore$FindAllRequest;->mMatchCount:I
 
-    move/from16 v0, v44
+    move/from16 v0, v47
 
-    move-object/from16 v1, v54
+    move-object/from16 v1, v59
 
     iput v0, v1, Landroid/webkit/WebViewCore$FindAllRequest;->mMatchIndex:I
 
-    invoke-virtual/range {v54 .. v54}, Ljava/lang/Object;->notify()V
+    invoke-virtual/range {v59 .. v59}, Ljava/lang/Object;->notify()V
 
-    monitor-exit v54
+    monitor-exit v59
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    .end local v43           #matchCount:I
-    .end local v44           #matchIndex:I
+    .end local v46           #matchCount:I
+    .end local v47           #matchIndex:I
     :goto_d
     move-object/from16 v0, p0
 
@@ -3563,7 +3563,7 @@
 
     const/16 v4, 0x7e
 
-    move-object/from16 v0, v54
+    move-object/from16 v0, v59
 
     invoke-static {v2, v4, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
 
@@ -3573,20 +3573,20 @@
 
     goto/16 :goto_1
 
-    .restart local v43       #matchCount:I
-    .restart local v44       #matchIndex:I
+    .restart local v46       #matchCount:I
+    .restart local v47       #matchIndex:I
     :catchall_2
     move-exception v2
 
     :try_start_6
-    monitor-exit v54
+    monitor-exit v59
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     throw v2
 
-    .end local v43           #matchCount:I
-    .end local v44           #matchIndex:I
+    .end local v46           #matchCount:I
+    .end local v47           #matchIndex:I
     :cond_1b
     move-object/from16 v0, p0
 
@@ -3612,17 +3612,17 @@
 
     goto :goto_d
 
-    .end local v54           #request:Landroid/webkit/WebViewCore$FindAllRequest;
+    .end local v59           #request:Landroid/webkit/WebViewCore$FindAllRequest;
     :sswitch_44
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v54, v0
+    move-object/from16 v59, v0
 
-    check-cast v54, Landroid/webkit/WebViewCore$FindAllRequest;
+    check-cast v59, Landroid/webkit/WebViewCore$FindAllRequest;
 
-    .restart local v54       #request:Landroid/webkit/WebViewCore$FindAllRequest;
+    .restart local v59       #request:Landroid/webkit/WebViewCore$FindAllRequest;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -3652,19 +3652,19 @@
     #calls: Landroid/webkit/WebViewCore;->nativeFindNext(IZ)I
     invoke-static {v4, v5, v2}, Landroid/webkit/WebViewCore;->access$6900(Landroid/webkit/WebViewCore;IZ)I
 
-    move-result v44
+    move-result v47
 
-    .restart local v44       #matchIndex:I
-    monitor-enter v54
+    .restart local v47       #matchIndex:I
+    monitor-enter v59
 
     :try_start_7
-    move/from16 v0, v44
+    move/from16 v0, v47
 
-    move-object/from16 v1, v54
+    move-object/from16 v1, v59
 
     iput v0, v1, Landroid/webkit/WebViewCore$FindAllRequest;->mMatchIndex:I
 
-    monitor-exit v54
+    monitor-exit v59
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_3
 
@@ -3683,7 +3683,7 @@
 
     const/16 v4, 0x7e
 
-    move-object/from16 v0, v54
+    move-object/from16 v0, v59
 
     invoke-static {v2, v4, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
 
@@ -3693,25 +3693,25 @@
 
     goto/16 :goto_1
 
-    .end local v44           #matchIndex:I
+    .end local v47           #matchIndex:I
     :cond_1c
     const/4 v2, 0x0
 
     goto :goto_e
 
-    .restart local v44       #matchIndex:I
+    .restart local v47       #matchIndex:I
     :catchall_3
     move-exception v2
 
     :try_start_8
-    monitor-exit v54
+    monitor-exit v59
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
     throw v2
 
-    .end local v44           #matchIndex:I
-    .end local v54           #request:Landroid/webkit/WebViewCore$FindAllRequest;
+    .end local v47           #matchIndex:I
+    .end local v59           #request:Landroid/webkit/WebViewCore$FindAllRequest;
     :sswitch_45
     move-object/from16 v0, p0
 
@@ -3744,22 +3744,22 @@
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v54, v0
+    move-object/from16 v59, v0
 
-    check-cast v54, Landroid/webkit/WebViewCore$SaveViewStateRequest;
+    check-cast v59, Landroid/webkit/WebViewCore$SaveViewStateRequest;
 
-    .local v54, request:Landroid/webkit/WebViewCore$SaveViewStateRequest;
+    .local v59, request:Landroid/webkit/WebViewCore$SaveViewStateRequest;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
 
     iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
 
-    move-object/from16 v0, v54
+    move-object/from16 v0, v59
 
     iget-object v4, v0, Landroid/webkit/WebViewCore$SaveViewStateRequest;->mStream:Ljava/io/OutputStream;
 
-    move-object/from16 v0, v54
+    move-object/from16 v0, v59
 
     iget-object v5, v0, Landroid/webkit/WebViewCore$SaveViewStateRequest;->mCallback:Landroid/webkit/ValueCallback;
 
@@ -3768,8 +3768,392 @@
 
     goto/16 :goto_1
 
-    .end local v54           #request:Landroid/webkit/WebViewCore$SaveViewStateRequest;
+    .end local v59           #request:Landroid/webkit/WebViewCore$SaveViewStateRequest;
     :sswitch_47
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    const/4 v4, 0x2
+
+    #setter for: Landroid/webkit/WebViewCore;->mTextSelectionChangeReason:I
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$4302(Landroid/webkit/WebViewCore;I)I
+
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    move-object/from16 v37, v0
+
+    check-cast v37, Landroid/webkit/WebViewCore$FindKikinEntityData;
+
+    .local v37, fked:Landroid/webkit/WebViewCore$FindKikinEntityData;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v10, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mNativeClass:I
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$300(Landroid/webkit/WebViewCore;)I
+
+    move-result v11
+
+    move-object/from16 v0, v37
+
+    iget v12, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mX:I
+
+    move-object/from16 v0, v37
+
+    iget v13, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mY:I
+
+    move-object/from16 v0, v37
+
+    iget-boolean v14, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mShouldLookNearbyText:Z
+
+    move-object/from16 v0, v37
+
+    iget-boolean v15, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mIsCheckingForTextAtPointOfTouch:Z
+
+    #calls: Landroid/webkit/WebViewCore;->nativeSelectEntity(IIIZZ)Ljava/util/ArrayList;
+    invoke-static/range {v10 .. v15}, Landroid/webkit/WebViewCore;->access$7200(Landroid/webkit/WebViewCore;IIIZZ)Ljava/util/ArrayList;
+
+    move-result-object v64
+
+    .local v64, selectionRects:Ljava/util/List;,"Ljava/util/List<Landroid/graphics/Rect;>;"
+    new-instance v50, Landroid/webkit/WebViewCore$ModifySelectionData;
+
+    const/4 v2, 0x0
+
+    move-object/from16 v0, v37
+
+    iget-boolean v4, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mIsFirstTouch:Z
+
+    move-object/from16 v0, v37
+
+    iget-boolean v5, v0, Landroid/webkit/WebViewCore$FindKikinEntityData;->mIsCheckingForTextAtPointOfTouch:Z
+
+    move-object/from16 v0, v50
+
+    move-object/from16 v1, v64
+
+    invoke-direct {v0, v1, v2, v4, v5}, Landroid/webkit/WebViewCore$ModifySelectionData;-><init>(Ljava/util/List;ZZZ)V
+
+    .local v50, msd:Landroid/webkit/WebViewCore$ModifySelectionData;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x12e
+
+    move-object/from16 v0, v50
+
+    invoke-static {v2, v4, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v49
+
+    .local v49, modifySelectionMessage:Landroid/os/Message;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x12e
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    move-object/from16 v0, v49
+
+    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    const/4 v4, 0x0
+
+    #setter for: Landroid/webkit/WebViewCore;->mTextSelectionChangeReason:I
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$4302(Landroid/webkit/WebViewCore;I)I
+
+    goto/16 :goto_1
+
+    .end local v37           #fked:Landroid/webkit/WebViewCore$FindKikinEntityData;
+    .end local v49           #modifySelectionMessage:Landroid/os/Message;
+    .end local v50           #msd:Landroid/webkit/WebViewCore$ModifySelectionData;
+    .end local v64           #selectionRects:Ljava/util/List;,"Ljava/util/List<Landroid/graphics/Rect;>;"
+    :sswitch_48
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    move-object/from16 v65, v0
+
+    check-cast v65, Landroid/webkit/WebViewCore$UpdateSelectionData;
+
+    .local v65, usd:Landroid/webkit/WebViewCore$UpdateSelectionData;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v4, v4, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mNativeClass:I
+    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$300(Landroid/webkit/WebViewCore;)I
+
+    move-result v4
+
+    move-object/from16 v0, v65
+
+    iget-object v5, v0, Landroid/webkit/WebViewCore$UpdateSelectionData;->mOldQuery:Ljava/lang/String;
+
+    move-object/from16 v0, v65
+
+    iget-object v7, v0, Landroid/webkit/WebViewCore$UpdateSelectionData;->mNewQuery:Ljava/lang/String;
+
+    move-object/from16 v0, v65
+
+    iget-boolean v10, v0, Landroid/webkit/WebViewCore$UpdateSelectionData;->mShouldRedrawSelection:Z
+
+    #calls: Landroid/webkit/WebViewCore;->nativeUpdateSelection(ILjava/lang/String;Ljava/lang/String;Z)Ljava/util/ArrayList;
+    invoke-static {v2, v4, v5, v7, v10}, Landroid/webkit/WebViewCore;->access$7300(Landroid/webkit/WebViewCore;ILjava/lang/String;Ljava/lang/String;Z)Ljava/util/ArrayList;
+
+    move-result-object v36
+
+    .local v36, extensionRects:Ljava/util/List;,"Ljava/util/List<Landroid/graphics/Rect;>;"
+    if-eqz v36, :cond_3
+
+    invoke-interface/range {v36 .. v36}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-lez v2, :cond_3
+
+    new-instance v50, Landroid/webkit/WebViewCore$ModifySelectionData;
+
+    const/4 v2, 0x1
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    move-object/from16 v0, v50
+
+    move-object/from16 v1, v36
+
+    invoke-direct {v0, v1, v2, v4, v5}, Landroid/webkit/WebViewCore$ModifySelectionData;-><init>(Ljava/util/List;ZZZ)V
+
+    .restart local v50       #msd:Landroid/webkit/WebViewCore$ModifySelectionData;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x12e
+
+    move-object/from16 v0, v50
+
+    invoke-static {v2, v4, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v35
+
+    .local v35, extendSelectionMessage:Landroid/os/Message;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x12e
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    move-object/from16 v0, v35
+
+    invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessageAtFrontOfQueue(Landroid/os/Message;)Z
+
+    goto/16 :goto_1
+
+    .end local v35           #extendSelectionMessage:Landroid/os/Message;
+    .end local v36           #extensionRects:Ljava/util/List;,"Ljava/util/List<Landroid/graphics/Rect;>;"
+    .end local v50           #msd:Landroid/webkit/WebViewCore$ModifySelectionData;
+    .end local v65           #usd:Landroid/webkit/WebViewCore$UpdateSelectionData;
+    :sswitch_49
+    move-object/from16 v0, p1
+
+    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    move-object/from16 v63, v0
+
+    check-cast v63, Lcom/kikin/selection/Selection$Mode;
+
+    .local v63, selectionMode:Lcom/kikin/selection/Selection$Mode;
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v4, v4, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mNativeClass:I
+    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$300(Landroid/webkit/WebViewCore;)I
+
+    move-result v4
+
+    #calls: Landroid/webkit/WebViewCore;->nativeGetSelectionExtract(I)Lcom/kikin/selection/Selection;
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7400(Landroid/webkit/WebViewCore;I)Lcom/kikin/selection/Selection;
+
+    move-result-object v62
+
+    .local v62, selectionExtract:Lcom/kikin/selection/Selection;
+    invoke-virtual/range {v62 .. v63}, Lcom/kikin/selection/Selection;->setMode(Lcom/kikin/selection/Selection$Mode;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x131
+
+    invoke-virtual {v2, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mWebViewClassic:Landroid/webkit/WebViewClassic;
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$1100(Landroid/webkit/WebViewCore;)Landroid/webkit/WebViewClassic;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+
+    const/16 v4, 0x131
+
+    move-object/from16 v0, v62
+
+    invoke-static {v2, v4, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
+
+    goto/16 :goto_1
+
+    .end local v62           #selectionExtract:Lcom/kikin/selection/Selection;
+    .end local v63           #selectionMode:Lcom/kikin/selection/Selection$Mode;
+    :sswitch_4a
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v2, v2, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
+
+    iget-object v4, v4, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
+
+    #getter for: Landroid/webkit/WebViewCore;->mNativeClass:I
+    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$300(Landroid/webkit/WebViewCore;)I
+
+    move-result v4
+
+    #calls: Landroid/webkit/WebViewCore;->nativeRedrawSelectedEntity(I)V
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7500(Landroid/webkit/WebViewCore;I)V
+
+    goto/16 :goto_1
+
+    :sswitch_4b
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -3822,13 +4206,13 @@
     const/16 v17, 0x0
 
     #calls: Landroid/webkit/WebViewCore;->nativeSetMonthValue(IIIIIII)V
-    invoke-static/range {v10 .. v17}, Landroid/webkit/WebViewCore;->access$7200(Landroid/webkit/WebViewCore;IIIIIII)V
+    invoke-static/range {v10 .. v17}, Landroid/webkit/WebViewCore;->access$7600(Landroid/webkit/WebViewCore;IIIIIII)V
 
     goto/16 :goto_1
 
     .end local v12           #year:I
     .end local v13           #month:I
-    :sswitch_48
+    :sswitch_4c
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -3892,14 +4276,14 @@
     const/16 v17, 0x0
 
     #calls: Landroid/webkit/WebViewCore;->nativeSetDateValue(IIIIIII)V
-    invoke-static/range {v10 .. v17}, Landroid/webkit/WebViewCore;->access$7300(Landroid/webkit/WebViewCore;IIIIIII)V
+    invoke-static/range {v10 .. v17}, Landroid/webkit/WebViewCore;->access$7700(Landroid/webkit/WebViewCore;IIIIIII)V
 
     goto/16 :goto_1
 
     .end local v12           #year:I
     .end local v13           #month:I
     .end local v14           #day:I
-    :sswitch_49
+    :sswitch_4d
     move-object/from16 v0, p1
 
     iget-object v2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -3976,7 +4360,7 @@
     move/from16 v17, v12
 
     #calls: Landroid/webkit/WebViewCore;->nativeSetTimeValue(IIIIIII)V
-    invoke-static/range {v15 .. v22}, Landroid/webkit/WebViewCore;->access$7400(Landroid/webkit/WebViewCore;IIIIIII)V
+    invoke-static/range {v15 .. v22}, Landroid/webkit/WebViewCore;->access$7800(Landroid/webkit/WebViewCore;IIIIIII)V
 
     goto/16 :goto_1
 
@@ -3984,7 +4368,7 @@
     .end local v20           #hour:I
     .end local v21           #minute:I
     .end local v22           #second:I
-    :sswitch_4a
+    :sswitch_4e
     const-string v2, "mc"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -4013,16 +4397,16 @@
 
     goto/16 :goto_1
 
-    :sswitch_4b
+    :sswitch_4f
     move-object/from16 v0, p1
 
     iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    move-object/from16 v47, v0
+    move-object/from16 v52, v0
 
-    check-cast v47, Landroid/graphics/Point;
+    check-cast v52, Landroid/graphics/Point;
 
-    .local v47, p:Landroid/graphics/Point;
+    .local v52, p:Landroid/graphics/Point;
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -4040,21 +4424,21 @@
 
     move-result v4
 
-    move-object/from16 v0, v47
+    move-object/from16 v0, v52
 
     iget v5, v0, Landroid/graphics/Point;->x:I
 
-    move-object/from16 v0, v47
+    move-object/from16 v0, v52
 
     iget v7, v0, Landroid/graphics/Point;->y:I
 
     #calls: Landroid/webkit/WebViewCore;->nativeGetHitTestNode(III)I
-    invoke-static {v4, v5, v7}, Landroid/webkit/WebViewCore;->access$7600(III)I
+    invoke-static {v4, v5, v7}, Landroid/webkit/WebViewCore;->access$8000(III)I
 
     move-result v4
 
     #setter for: Landroid/webkit/WebViewCore;->mFocusedNodeScaleBegin:I
-    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7502(Landroid/webkit/WebViewCore;I)I
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7902(Landroid/webkit/WebViewCore;I)I
 
     move-object/from16 v0, p0
 
@@ -4069,17 +4453,17 @@
     iget-object v4, v4, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
 
     #getter for: Landroid/webkit/WebViewCore;->mFocusedNodeScaleBegin:I
-    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$7500(Landroid/webkit/WebViewCore;)I
+    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$7900(Landroid/webkit/WebViewCore;)I
 
     move-result v4
 
     #setter for: Landroid/webkit/WebViewCore;->mLastHitTestNode:I
-    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7702(Landroid/webkit/WebViewCore;I)I
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$8102(Landroid/webkit/WebViewCore;I)I
 
     goto/16 :goto_1
 
-    .end local v47           #p:Landroid/graphics/Point;
-    :sswitch_4c
+    .end local v52           #p:Landroid/graphics/Point;
+    :sswitch_50
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -4093,16 +4477,16 @@
     iget-object v4, v4, Landroid/webkit/WebViewCore$EventHub;->this$0:Landroid/webkit/WebViewCore;
 
     #getter for: Landroid/webkit/WebViewCore;->mLastHitTestNode:I
-    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$7700(Landroid/webkit/WebViewCore;)I
+    invoke-static {v4}, Landroid/webkit/WebViewCore;->access$8100(Landroid/webkit/WebViewCore;)I
 
     move-result v4
 
     #setter for: Landroid/webkit/WebViewCore;->mFocusedNodeScaleBegin:I
-    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7502(Landroid/webkit/WebViewCore;I)I
+    invoke-static {v2, v4}, Landroid/webkit/WebViewCore;->access$7902(Landroid/webkit/WebViewCore;I)I
 
     goto/16 :goto_1
 
-    :sswitch_4d
+    :sswitch_51
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/webkit/WebViewCore$EventHub$1;->this$1:Landroid/webkit/WebViewCore$EventHub;
@@ -4115,7 +4499,7 @@
     move-result v2
 
     #calls: Landroid/webkit/WebViewCore;->nativeCancelShowedRect(I)V
-    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$7800(I)V
+    invoke-static {v2}, Landroid/webkit/WebViewCore;->access$8200(I)V
 
     goto/16 :goto_1
 
@@ -4198,14 +4582,18 @@
         0xdf -> :sswitch_c
         0xe0 -> :sswitch_45
         0xe1 -> :sswitch_46
-        0x119 -> :sswitch_47
-        0x11a -> :sswitch_48
-        0x11b -> :sswitch_49
+        0x119 -> :sswitch_4b
+        0x11a -> :sswitch_4c
+        0x11b -> :sswitch_4d
         0x11c -> :sswitch_0
-        0x11d -> :sswitch_4a
+        0x11d -> :sswitch_4e
         0x11e -> :sswitch_f
-        0x122 -> :sswitch_4b
-        0x123 -> :sswitch_4c
-        0x124 -> :sswitch_4d
+        0x122 -> :sswitch_4f
+        0x123 -> :sswitch_50
+        0x124 -> :sswitch_51
+        0x12c -> :sswitch_47
+        0x12d -> :sswitch_48
+        0x12f -> :sswitch_49
+        0x130 -> :sswitch_4a
     .end sparse-switch
 .end method

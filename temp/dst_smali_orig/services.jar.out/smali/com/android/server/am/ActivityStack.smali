@@ -19,6 +19,9 @@
 
 .field static final DEBUG_CONFIGURATION:Z = false
 
+#the value of this static final field might be set in the static constructor
+.field static final DEBUG_NAV_BAR:Z = false
+
 .field static final DEBUG_PAUSE:Z = false
 
 .field static final DEBUG_RESULTS:Z = false
@@ -96,9 +99,15 @@
 
 .field static final VALIDATE_TOKENS:Z
 
+.field static final isWVGA:Z
+
 .field static final localLOGV:Z
 
 .field static final mActivityTrigger:Lcom/android/internal/app/ActivityTrigger;
+
+.field private static mDuringLaunchActivity:Z
+
+.field private static mLaunchActivityLock:Ljava/lang/Object;
 
 .field private static sEnableGCRunnable:Ljava/lang/Runnable;
 
@@ -112,17 +121,11 @@
 
 .field private lastTimeDoHtcAnim:J
 
-.field mAdjustCpuRef:I
-
 .field private final mCPUStopRunnable:Ljava/lang/Runnable;
 
 .field mConfigWillChange:Z
 
 .field final mContext:Landroid/content/Context;
-
-.field final mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
-.field final mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
 
 .field private mCurrentUser:I
 
@@ -275,9 +278,29 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .locals 3
 
     .prologue
+    const/4 v2, 0x0
+
+    const-string v0, "debug_nav_bar"
+
+    invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/ActivityStack;->DEBUG_NAV_BAR:Z
+
+    const-string v0, "4.0a"
+
+    sget-object v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Extra_Sense_Version:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/am/ActivityStack;->isWVGA:Z
+
     const-string v0, "show_starting_window"
 
     const/4 v1, 0x1
@@ -301,6 +324,14 @@
     invoke-direct {v0}, Lcom/android/internal/app/ActivityTrigger;-><init>()V
 
     sput-object v0, Lcom/android/server/am/ActivityStack;->mActivityTrigger:Lcom/android/internal/app/ActivityTrigger;
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/android/server/am/ActivityStack;->mLaunchActivityLock:Ljava/lang/Object;
+
+    sput-boolean v2, Lcom/android/server/am/ActivityStack;->mDuringLaunchActivity:Z
 
     new-instance v0, Lcom/android/server/am/ActivityStack$4;
 
@@ -388,8 +419,6 @@
 
     iput-object v1, p0, Lcom/android/server/am/ActivityStack;->mWaitingActivityVisible:Ljava/util/ArrayList;
 
-    iput v3, p0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
     iput-object v4, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
     iput-object v4, p0, Lcom/android/server/am/ActivityStack;->mLastPausedActivity:Lcom/android/server/am/ActivityRecord;
@@ -475,30 +504,6 @@
 
     invoke-virtual {v1, v3}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    const/16 v1, 0x400
-
-    const/4 v2, 0x4
-
-    const-string v3, "ActivityManager-MultiCore-Num"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/PowerManager;->newHtcCpuCtrl(IILjava/lang/String;)Landroid/os/PowerManager$HtcCpuCtrl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    const/16 v1, 0x100
-
-    const/4 v2, 0x5
-
-    const-string v3, "ActivityManager-MultiCore-Freq"
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/PowerManager;->newHtcCpuCtrl(IILjava/lang/String;)Landroid/os/PowerManager$HtcCpuCtrl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
     return-void
 .end method
 
@@ -533,43 +538,43 @@
 .end method
 
 .method private final completePauseLocked()V
-    .locals 14
+    .locals 13
 
     .prologue
-    const-wide/16 v12, 0x0
-
-    const/4 v9, 0x0
+    const-wide/16 v11, 0x0
 
     const/4 v8, 0x0
+
+    const/4 v7, 0x0
 
     iget-object v3, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
     .local v3, prev:Lcom/android/server/am/ActivityRecord;
     if-eqz v3, :cond_0
 
-    iput-boolean v8, v3, Lcom/android/server/am/ActivityRecord;->bCollapseStatusBarAfterResume:Z
+    iput-boolean v7, v3, Lcom/android/server/am/ActivityRecord;->bCollapseStatusBarAfterResume:Z
 
-    iget-boolean v6, v3, Lcom/android/server/am/ActivityRecord;->finishing:Z
+    iget-boolean v5, v3, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v5, :cond_5
 
-    const/4 v6, 0x2
+    const/4 v5, 0x2
 
-    invoke-direct {p0, v3, v6}, Lcom/android/server/am/ActivityStack;->finishCurrentActivityLocked(Lcom/android/server/am/ActivityRecord;I)Lcom/android/server/am/ActivityRecord;
+    invoke-direct {p0, v3, v5}, Lcom/android/server/am/ActivityStack;->finishCurrentActivityLocked(Lcom/android/server/am/ActivityRecord;I)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v3
 
     :goto_0
-    iput-object v9, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
+    iput-object v8, p0, Lcom/android/server/am/ActivityStack;->mPausingActivity:Lcom/android/server/am/ActivityRecord;
 
     :cond_0
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v6}, Lcom/android/server/am/ActivityManagerService;->isSleeping()Z
+    invoke-virtual {v5}, Lcom/android/server/am/ActivityManagerService;->isSleeping()Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_a
+    if-nez v5, :cond_a
 
     invoke-virtual {p0, v3}, Lcom/android/server/am/ActivityStack;->resumeTopActivityLocked(Lcom/android/server/am/ActivityRecord;)Z
 
@@ -579,65 +584,65 @@
 
     invoke-virtual {v3}, Lcom/android/server/am/ActivityRecord;->resumeKeyDispatchingLocked()V
 
-    iget-object v6, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
+    iget-object v5, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_3
 
-    iget-wide v6, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
+    iget-wide v5, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
 
-    cmp-long v6, v6, v12
+    cmp-long v5, v5, v11
 
-    if-lez v6, :cond_3
+    if-lez v5, :cond_3
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v6, v6, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
+    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
 
-    invoke-virtual {v6}, Lcom/android/server/am/BatteryStatsService;->isOnBattery()Z
+    invoke-virtual {v5}, Lcom/android/server/am/BatteryStatsService;->isOnBattery()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_3
 
     const-wide/16 v1, 0x0
 
     .local v1, diff:J
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v7, v6, Lcom/android/server/am/ActivityManagerService;->mProcessStatsThread:Ljava/lang/Thread;
+    iget-object v6, v5, Lcom/android/server/am/ActivityManagerService;->mProcessStatsThread:Ljava/lang/Thread;
 
-    monitor-enter v7
+    monitor-enter v6
 
     :try_start_0
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v6, v6, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/internal/os/ProcessStats;
+    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mProcessStats:Lcom/android/internal/os/ProcessStats;
 
-    iget-object v8, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
+    iget-object v7, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    iget v8, v8, Lcom/android/server/am/ProcessRecord;->pid:I
+    iget v7, v7, Lcom/android/server/am/ProcessRecord;->pid:I
 
-    invoke-virtual {v6, v8}, Lcom/android/internal/os/ProcessStats;->getCpuTimeForPid(I)J
+    invoke-virtual {v5, v7}, Lcom/android/internal/os/ProcessStats;->getCpuTimeForPid(I)J
 
-    move-result-wide v8
+    move-result-wide v7
 
-    iget-wide v10, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
+    iget-wide v9, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
 
-    sub-long v1, v8, v10
+    sub-long v1, v7, v9
 
-    monitor-exit v7
+    monitor-exit v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    cmp-long v6, v1, v12
+    cmp-long v5, v1, v11
 
-    if-lez v6, :cond_3
+    if-lez v5, :cond_3
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v6, v6, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
+    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mBatteryStatsService:Lcom/android/server/am/BatteryStatsService;
 
-    invoke-virtual {v6}, Lcom/android/server/am/BatteryStatsService;->getActiveStatistics()Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-virtual {v5}, Lcom/android/server/am/BatteryStatsService;->getActiveStatistics()Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v0
 
@@ -645,17 +650,17 @@
     monitor-enter v0
 
     :try_start_1
+    iget-object v5, v3, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
+
     iget-object v6, v3, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v6, v6, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
 
-    iget v6, v6, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    iget-object v7, v3, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-
-    iget-object v7, v7, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v0, v6, v7}, Lcom/android/internal/os/BatteryStatsImpl;->getProcessStatsLocked(ILjava/lang/String;)Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
+    invoke-virtual {v0, v5, v6}, Lcom/android/internal/os/BatteryStatsImpl;->getProcessStatsLocked(ILjava/lang/String;)Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
 
     move-result-object v4
 
@@ -673,53 +678,53 @@
     .end local v1           #diff:J
     .end local v4           #ps:Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;
     :cond_3
-    iput-wide v12, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
+    iput-wide v11, v3, Lcom/android/server/am/ActivityRecord;->cpuTimeAtResume:J
 
     :cond_4
     return-void
 
     :cond_5
-    iget-object v6, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
+    iget-object v5, v3, Lcom/android/server/am/ActivityRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_9
 
-    iget-boolean v6, v3, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
+    iget-boolean v5, v3, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_6
 
-    iput-boolean v8, v3, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
+    iput-boolean v7, v3, Lcom/android/server/am/ActivityRecord;->waitingVisible:Z
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mWaitingVisibleActivities:Ljava/util/ArrayList;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mWaitingVisibleActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v6, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     :cond_6
-    iget-boolean v6, v3, Lcom/android/server/am/ActivityRecord;->configDestroy:Z
+    iget-boolean v5, v3, Lcom/android/server/am/ActivityRecord;->configDestroy:Z
 
-    if-eqz v6, :cond_7
+    if-eqz v5, :cond_7
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    const-string v7, "pause-config"
+    const-string v6, "pause-config"
 
-    invoke-virtual {p0, v3, v6, v8, v7}, Lcom/android/server/am/ActivityStack;->destroyActivityLocked(Lcom/android/server/am/ActivityRecord;ZZLjava/lang/String;)Z
+    invoke-virtual {p0, v3, v5, v7, v6}, Lcom/android/server/am/ActivityStack;->destroyActivityLocked(Lcom/android/server/am/ActivityRecord;ZZLjava/lang/String;)Z
 
     goto :goto_0
 
     :cond_7
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mStoppingActivities:Ljava/util/ArrayList;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mStoppingActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v6, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object v6, p0, Lcom/android/server/am/ActivityStack;->mStoppingActivities:Ljava/util/ArrayList;
+    iget-object v5, p0, Lcom/android/server/am/ActivityStack;->mStoppingActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
-    move-result v6
+    move-result v5
 
-    const/4 v7, 0x3
+    const/4 v6, 0x3
 
-    if-le v6, v7, :cond_8
+    if-le v5, v6, :cond_8
 
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->scheduleIdleLocked()V
 
@@ -738,44 +743,37 @@
     :cond_a
     invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->checkReadyForSleepLocked()V
 
-    invoke-virtual {p0, v9}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
+    invoke-virtual {p0, v8}, Lcom/android/server/am/ActivityStack;->topRunningActivityLocked(Lcom/android/server/am/ActivityRecord;)Lcom/android/server/am/ActivityRecord;
 
     move-result-object v5
 
-    .local v5, top:Lcom/android/server/am/ActivityRecord;
-    if-eqz v5, :cond_b
+    if-nez v5, :cond_1
 
-    if-eqz v3, :cond_1
-
-    if-eq v5, v3, :cond_1
-
-    :cond_b
-    invoke-virtual {p0, v9}, Lcom/android/server/am/ActivityStack;->resumeTopActivityLocked(Lcom/android/server/am/ActivityRecord;)Z
+    invoke-virtual {p0, v8}, Lcom/android/server/am/ActivityStack;->resumeTopActivityLocked(Lcom/android/server/am/ActivityRecord;)Z
 
     goto/16 :goto_1
 
-    .end local v5           #top:Lcom/android/server/am/ActivityRecord;
     .restart local v1       #diff:J
     :catchall_0
-    move-exception v6
+    move-exception v5
 
     :try_start_2
-    monitor-exit v7
+    monitor-exit v6
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v6
+    throw v5
 
     .restart local v0       #bsi:Lcom/android/internal/os/BatteryStatsImpl;
     :catchall_1
-    move-exception v6
+    move-exception v5
 
     :try_start_3
     monitor-exit v0
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    throw v6
+    throw v5
 .end method
 
 .method private final completeResumeLocked(Lcom/android/server/am/ActivityRecord;)V
@@ -1592,64 +1590,6 @@
     return v0
 .end method
 
-.method static isRaiseCPUEnabled()Z
-    .locals 2
-
-    .prologue
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x1e
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x1f
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x131
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x12f
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x12d
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x1d
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x43
-
-    if-ne v0, v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method private logCaller(Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ActivityRecord;Lcom/android/server/am/ProcessRecord;)V
     .locals 4
     .parameter "targetRecord"
@@ -2337,14 +2277,6 @@
     iput-object v0, p1, Lcom/android/server/am/ActivityRecord;->state:Lcom/android/server/am/ActivityStack$ActivityState;
 
     :goto_2
-    const-string v0, "ActivityManager"
-
-    const-string v1, "re-launch activiy due to configuration changed, start to call checkReadyForSleepLocked()"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityStack;->checkReadyForSleepLocked()V
-
     return v7
 
     :cond_3
@@ -4240,227 +4172,133 @@
 .end method
 
 .method private startLaunchActivity(Landroid/content/pm/ActivityInfo;)V
-    .locals 13
+    .locals 12
     .parameter "aInfo"
 
     .prologue
-    if-nez p1, :cond_1
+    const/4 v8, 0x1
 
-    :cond_0
-    :goto_0
-    return-void
+    sput-boolean v8, Lcom/android/server/am/ActivityStack;->mDuringLaunchActivity:Z
 
-    :cond_1
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    invoke-virtual {p0, v9}, Lcom/android/server/am/ActivityStack;->enableGC(Z)V
+    invoke-virtual {p0, v8}, Lcom/android/server/am/ActivityStack;->enableGC(Z)V
 
     invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileMulticoreSwitch()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_0
+    if-eqz v8, :cond_2
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v4
 
     .local v4, origId:J
-    const-string v9, "CpuWake"
+    const-string v8, "CpuWake"
 
-    const-string v10, ">>nativeAcquireCpuPerfWakeLock()"
+    const-string v9, ">>nativeAcquireCpuPerfWakeLock()"
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/android/server/PowerManagerService;->nativeAcquireCpuPerfWakeLock()V
 
-    const-string v9, "CpuWake"
+    const-string v8, "CpuWake"
 
-    const-string v10, "<<nativeAcquireCpuPerfWakeLock()"
+    const-string v9, "<<nativeAcquireCpuPerfWakeLock()"
 
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {}, Lcom/android/server/am/ActivityStack;->isRaiseCPUEnabled()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_4
-
-    const/4 v6, 0x0
-
-    .local v6, pr:Lcom/android/server/am/ProcessRecord;
-    iget-object v10, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    monitor-enter v10
-
-    :try_start_0
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v11, p1, Landroid/content/pm/ActivityInfo;->processName:Ljava/lang/String;
-
-    iget-object v12, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-
-    iget v12, v12, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    invoke-virtual {v9, v11, v12}, Lcom/android/server/am/ActivityManagerService;->getProcessRecordLocked(Ljava/lang/String;I)Lcom/android/server/am/ProcessRecord;
-
-    move-result-object v6
-
-    monitor-exit v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v6, :cond_4
-
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    if-eqz v9, :cond_2
-
-    const-string v9, "CpuWake"
-
-    const-string v10, ">>acquire mCpuPerf_cpu_count wakelock"
-
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    invoke-virtual {v9}, Landroid/os/PowerManager$HtcCpuCtrl;->acquire()V
-
-    const-string v9, "CpuWake"
-
-    const-string v10, "<<acquire mCpuPerf_cpu_count wakelock"
-
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    if-eqz v9, :cond_3
-
-    const-string v9, "CpuWake"
-
-    const-string v10, ">>acquire mCpuPerf_Freq wakelock"
-
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    invoke-virtual {v9}, Landroid/os/PowerManager$HtcCpuCtrl;->acquire()V
-
-    const-string v9, "CpuWake"
-
-    const-string v10, "<<acquire mCpuPerf_Freq wakelock"
-
-    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    iget v9, p0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
-    add-int/lit8 v9, v9, 0x1
-
-    iput v9, p0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
-    .end local v6           #pr:Lcom/android/server/am/ProcessRecord;
-    :cond_4
     invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getProfileMulticoreTimeout()I
 
-    move-result v8
+    move-result v7
 
-    .local v8, time:I
-    sget-boolean v9, Lcom/android/server/am/HtcAmsUtil;->IS_LITE_SENSE:Z
+    .local v7, time:I
+    sget-boolean v8, Lcom/android/server/am/ActivityManagerService;->isSense40a:Z
 
-    if-nez v9, :cond_6
+    if-nez v8, :cond_1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_1
 
-    :try_start_1
+    :try_start_0
     sget-object v0, Lcom/android/server/am/ActivityManagerService;->sPrevTopApp:Lcom/android/server/am/ProcessRecord;
 
     .local v0, app:Lcom/android/server/am/ProcessRecord;
-    if-nez v0, :cond_7
+    if-nez v0, :cond_3
 
     const-string v1, ""
 
     .local v1, currentProcess:Ljava/lang/String;
-    :goto_1
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
+    :goto_0
+    iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v0, v9, Lcom/android/server/am/ActivityManagerService;->mHomeProcess:Lcom/android/server/am/ProcessRecord;
+    iget-object v0, v8, Lcom/android/server/am/ActivityManagerService;->mHomeProcess:Lcom/android/server/am/ProcessRecord;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_4
 
     const-string v3, ""
 
     .local v3, homeProcess:Ljava/lang/String;
-    :goto_2
-    iget-object v9, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    :goto_1
+    iget-object v8, p1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v7, v9, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
+    iget-object v6, v8, Landroid/content/pm/ApplicationInfo;->processName:Ljava/lang/String;
 
-    .local v7, targetProcess:Ljava/lang/String;
-    invoke-virtual {v1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .local v6, targetProcess:Ljava/lang/String;
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v8
 
-    if-nez v9, :cond_5
+    if-nez v8, :cond_0
 
-    invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_6
+    if-eqz v8, :cond_1
 
-    :cond_5
-    const/16 v8, 0x3e8
+    :cond_0
+    const/16 v7, 0x3e8
 
     .end local v0           #app:Lcom/android/server/am/ProcessRecord;
     .end local v1           #currentProcess:Ljava/lang/String;
     .end local v3           #homeProcess:Ljava/lang/String;
-    .end local v7           #targetProcess:Ljava/lang/String;
-    :cond_6
-    :goto_3
-    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mHandler:Landroid/os/Handler;
+    .end local v6           #targetProcess:Ljava/lang/String;
+    :cond_1
+    :goto_2
+    iget-object v8, p0, Lcom/android/server/am/ActivityStack;->mHandler:Landroid/os/Handler;
 
-    iget-object v10, p0, Lcom/android/server/am/ActivityStack;->mCPUStopRunnable:Ljava/lang/Runnable;
+    iget-object v9, p0, Lcom/android/server/am/ActivityStack;->mCPUStopRunnable:Ljava/lang/Runnable;
 
-    int-to-long v11, v8
+    int-to-long v10, v7
 
-    invoke-virtual {v9, v10, v11, v12}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v8, v9, v10, v11}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto/16 :goto_0
+    .end local v4           #origId:J
+    .end local v7           #time:I
+    :cond_2
+    return-void
 
-    .end local v8           #time:I
-    .restart local v6       #pr:Lcom/android/server/am/ProcessRecord;
-    :catchall_0
-    move-exception v9
-
-    :try_start_2
-    monitor-exit v10
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v9
-
-    .end local v6           #pr:Lcom/android/server/am/ProcessRecord;
     .restart local v0       #app:Lcom/android/server/am/ProcessRecord;
-    .restart local v8       #time:I
-    :cond_7
-    :try_start_3
+    .restart local v4       #origId:J
+    .restart local v7       #time:I
+    :cond_3
+    :try_start_1
     iget-object v1, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_0
 
     .restart local v1       #currentProcess:Ljava/lang/String;
-    :cond_8
+    :cond_4
     iget-object v3, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_2
+    goto :goto_1
 
     .end local v0           #app:Lcom/android/server/am/ProcessRecord;
     .end local v1           #currentProcess:Ljava/lang/String;
@@ -4468,13 +4306,13 @@
     move-exception v2
 
     .local v2, e:Ljava/lang/Exception;
-    const-string v9, "ActivityManager"
+    const-string v8, "ActivityManager"
 
-    const-string v10, "startLaunchActivity get appname failed"
+    const-string v9, "startLaunchActivity get appname failed"
 
-    invoke-static {v9, v10, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v8, v9, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method private final startPausingLocked(ZZ)V
@@ -6756,7 +6594,9 @@
     check-cast v3, Lcom/android/server/am/ActivityRecord;
 
     .local v3, r:Lcom/android/server/am/ActivityRecord;
-    iget-boolean v4, v3, Lcom/android/server/am/ActivityRecord;->finishing:Z
+    invoke-static {p3, v3}, Lcom/android/server/am/ActivityStack$Injector;->isDestroyHomeReasonAlwaysOrFinishing(Ljava/lang/String;Lcom/android/server/am/ActivityRecord;)Z
+
+    move-result v4
 
     if-eqz v4, :cond_1
 
@@ -7798,6 +7638,16 @@
     if-nez v8, :cond_e
 
     :cond_7
+    iget-object v8, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v8, v0, v3}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_0
+
     iget v8, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
 
     or-int/2addr v8, v0
@@ -8392,14 +8242,41 @@
 .end method
 
 .method public finishLaunchActivity()V
-    .locals 1
+    .locals 2
 
     .prologue
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/server/am/ActivityStack;->mDuringLaunchActivity:Z
+
+    sget-object v1, Lcom/android/server/am/ActivityStack;->mLaunchActivityLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    sget-object v0, Lcom/android/server/am/ActivityStack;->mLaunchActivityLock:Ljava/lang/Object;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityStack;->enableGC(Z)V
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method
 
 .method final finishSubActivityLocked(Landroid/os/IBinder;Ljava/lang/String;I)V
@@ -9447,9 +9324,7 @@
 
     if-eqz p4, :cond_1
 
-    invoke-static {}, Lcom/htc/view/NavigationBarConfiguration;->isLessEqualWVGA()Z
-
-    move-result v2
+    sget-boolean v2, Lcom/android/server/am/ActivityStack;->isWVGA:Z
 
     if-nez v2, :cond_0
 
@@ -9493,7 +9368,19 @@
 
     move-result-object v2
 
-    const-string v3, "com.android.internal.app"
+    const-string v3, "com.android.internal.app.ResolverActivity"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ActivityRecord;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "com.android.internal.app.ChooserActivity"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -9529,7 +9416,7 @@
     invoke-virtual {v2, v3, v4}, Lcom/android/server/wm/WindowManagerService;->setNavigationBarVisibility(Ljava/lang/String;Z)V
 
     :goto_0
-    sget-boolean v2, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v2, Lcom/android/server/am/ActivityStack;->DEBUG_NAV_BAR:Z
 
     if-eqz v2, :cond_0
 
@@ -11682,9 +11569,7 @@
     monitor-enter v3
 
     :try_start_1
-    invoke-static {}, Lcom/htc/view/NavigationBarConfiguration;->isLessEqualWVGA()Z
-
-    move-result v2
+    sget-boolean v2, Lcom/android/server/am/ActivityStack;->isWVGA:Z
 
     if-nez v2, :cond_d
 
@@ -11728,7 +11613,19 @@
 
     move-result-object v2
 
-    const-string v4, "com.android.internal.app"
+    const-string v4, "com.android.internal.app.ResolverActivity"
+
+    invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_d
+
+    invoke-virtual/range {v21 .. v21}, Lcom/android/server/am/ActivityRecord;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, "com.android.internal.app.ChooserActivity"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     :try_end_1
@@ -11766,7 +11663,7 @@
     invoke-virtual {v2, v4, v5}, Lcom/android/server/wm/WindowManagerService;->setNavigationBarVisibility(Ljava/lang/String;Z)V
 
     :goto_6
-    sget-boolean v2, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v2, Lcom/android/server/am/ActivityStack;->DEBUG_NAV_BAR:Z
 
     if-eqz v2, :cond_d
 

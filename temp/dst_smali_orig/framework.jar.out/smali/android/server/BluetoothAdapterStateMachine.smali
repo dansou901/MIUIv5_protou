@@ -34,7 +34,7 @@
 
 .field static final PER_PROCESS_TURN_ON:I = 0x3
 
-.field private static final POWER_DOWN_TIMEOUT:I = 0x6b
+.field private static final POWER_DOWN_TIMEOUT:I = 0x6a
 
 .field private static final POWER_DOWN_TIMEOUT_TIME:I = 0x14
 
@@ -54,15 +54,11 @@
 
 .field static final TURN_HOT:I = 0x5
 
-.field private static final TURN_OFF_TIMEOUT:I = 0x6a
+.field private static final TURN_OFF_TIMEOUT:I = 0x69
 
 .field private static final TURN_OFF_TIMEOUT_TIME:I = 0x1388
 
 .field private static final TURN_ON_CONTINUE:I = 0x65
-
-.field private static final TURN_ON_TIMEOUT:I = 0x69
-
-.field private static final TURN_ON_TIMEOUT_TIME:I = 0x2710
 
 .field static final USER_TURN_OFF:I = 0x2
 
@@ -271,17 +267,7 @@
     return v0
 .end method
 
-.method static synthetic access$1600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1700(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$1600(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -292,13 +278,24 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$1700(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
     invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1800(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     return-void
 .end method
@@ -314,18 +311,7 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$2100()Z
+.method static synthetic access$2000()Z
     .locals 1
 
     .prologue
@@ -334,7 +320,7 @@
     return v0
 .end method
 
-.method static synthetic access$2200(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$2100(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -345,7 +331,7 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$2200(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -356,7 +342,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Landroid/server/BluetoothAdapterStateMachine;ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
+.method static synthetic access$2300(Landroid/server/BluetoothAdapterStateMachine;ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -366,6 +352,16 @@
     invoke-direct {p0, p1, p2}, Landroid/server/BluetoothAdapterStateMachine;->perProcessCallback(ZLandroid/bluetooth/IBluetoothStateChangeCallback;)V
 
     return-void
+.end method
+
+.method static synthetic access$2400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothService;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mBluetoothService:Landroid/server/BluetoothService;
+
+    return-object v0
 .end method
 
 .method static synthetic access$2500(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothEventLoop;
@@ -506,25 +502,25 @@
     return-void
 .end method
 
-.method static synthetic access$3700(Landroid/server/BluetoothAdapterStateMachine;)I
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mPublicState:I
-
-    return v0
-.end method
-
-.method static synthetic access$3800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$3700(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     return-void
+.end method
+
+.method static synthetic access$3800(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mPerProcessState:Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
+
+    return-object v0
 .end method
 
 .method static synthetic access$3900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
@@ -538,23 +534,25 @@
     return-void
 .end method
 
-.method static synthetic access$4000(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mPerProcessState:Landroid/server/BluetoothAdapterStateMachine$PerProcessState;
-
-    return-object v0
-.end method
-
-.method static synthetic access$4100(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$4000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$4100(Landroid/server/BluetoothAdapterStateMachine;ILjava/lang/Object;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+    .parameter "x2"
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Landroid/server/BluetoothAdapterStateMachine;->recoverStateMachine(ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -570,30 +568,38 @@
     return-void
 .end method
 
-.method static synthetic access$4300(Landroid/server/BluetoothAdapterStateMachine;ILjava/lang/Object;)V
+.method static synthetic access$4300(Landroid/server/BluetoothAdapterStateMachine;)I
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mPublicState:I
+
+    return v0
+.end method
+
+.method static synthetic access$4400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$BluetoothOn;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mBluetoothOn:Landroid/server/BluetoothAdapterStateMachine$BluetoothOn;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4500(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
-    .parameter "x2"
 
     .prologue
-    invoke-direct {p0, p1, p2}, Landroid/server/BluetoothAdapterStateMachine;->recoverStateMachine(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
 
     return-void
 .end method
 
-.method static synthetic access$4400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$4500(Landroid/server/BluetoothAdapterStateMachine;I)V
+.method static synthetic access$4600(Landroid/server/BluetoothAdapterStateMachine;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -602,16 +608,6 @@
     invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
 
     return-void
-.end method
-
-.method static synthetic access$4600(Landroid/server/BluetoothAdapterStateMachine;)Landroid/server/BluetoothAdapterStateMachine$BluetoothOn;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mBluetoothOn:Landroid/server/BluetoothAdapterStateMachine$BluetoothOn;
-
-    return-object v0
 .end method
 
 .method static synthetic access$4700(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
@@ -625,35 +621,35 @@
     return-void
 .end method
 
-.method static synthetic access$4800(Landroid/server/BluetoothAdapterStateMachine;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$4900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$5000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$4800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
     invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$4900(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$5000(Landroid/server/BluetoothAdapterStateMachine;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
 
     return-void
 .end method
@@ -669,18 +665,7 @@
     return-void
 .end method
 
-.method static synthetic access$5200(Landroid/server/BluetoothAdapterStateMachine;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$5300(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$5200(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -691,18 +676,7 @@
     return-void
 .end method
 
-.method static synthetic access$5400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$5500(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$5300(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -713,12 +687,34 @@
     return-void
 .end method
 
-.method static synthetic access$5600(Landroid/server/BluetoothAdapterStateMachine;)V
+.method static synthetic access$5400(Landroid/server/BluetoothAdapterStateMachine;)V
     .locals 0
     .parameter "x0"
 
     .prologue
     invoke-direct {p0}, Landroid/server/BluetoothAdapterStateMachine;->finishSwitchingOff()V
+
+    return-void
+.end method
+
+.method static synthetic access$5500(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$5600(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
@@ -734,24 +730,24 @@
     return-void
 .end method
 
-.method static synthetic access$5800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$5900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$5800(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
     invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$5900(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
@@ -766,40 +762,7 @@
     return-void
 .end method
 
-.method static synthetic access$6000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$6100(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$6200(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$6300(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$6000(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -810,29 +773,7 @@
     return-void
 .end method
 
-.method static synthetic access$6400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$6500(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$6600(Landroid/server/BluetoothAdapterStateMachine;Z)V
+.method static synthetic access$6100(Landroid/server/BluetoothAdapterStateMachine;Z)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -843,7 +784,7 @@
     return-void
 .end method
 
-.method static synthetic access$6700(Landroid/server/BluetoothAdapterStateMachine;)V
+.method static synthetic access$6200(Landroid/server/BluetoothAdapterStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -853,7 +794,7 @@
     return-void
 .end method
 
-.method static synthetic access$6800(Landroid/server/BluetoothAdapterStateMachine;)Landroid/os/Message;
+.method static synthetic access$6300(Landroid/server/BluetoothAdapterStateMachine;)Landroid/os/Message;
     .locals 1
     .parameter "x0"
 
@@ -865,7 +806,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$6900(Landroid/server/BluetoothAdapterStateMachine;)Landroid/os/Message;
+.method static synthetic access$6400(Landroid/server/BluetoothAdapterStateMachine;)Landroid/os/Message;
     .locals 1
     .parameter "x0"
 
@@ -875,6 +816,61 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method static synthetic access$6500(Landroid/server/BluetoothAdapterStateMachine;I)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$6600(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$6700(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$6800(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+
+    return-void
+.end method
+
+.method static synthetic access$6900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
 .end method
 
 .method static synthetic access$700(Landroid/server/BluetoothAdapterStateMachine;I)V
@@ -888,24 +884,24 @@
     return-void
 .end method
 
-.method static synthetic access$7000(Landroid/server/BluetoothAdapterStateMachine;I)V
+.method static synthetic access$7000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
 
-.method static synthetic access$7100(Landroid/server/BluetoothAdapterStateMachine;I)V
+.method static synthetic access$7100(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
@@ -921,73 +917,40 @@
     return-void
 .end method
 
-.method static synthetic access$7300(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+.method static synthetic access$7300(Landroid/server/BluetoothAdapterStateMachine;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
 
     return-void
 .end method
 
-.method static synthetic access$7400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$7500(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
+.method static synthetic access$7400(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
     invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$7500(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
 
     return-void
 .end method
 
 .method static synthetic access$7600(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$7700(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$7800(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$7900(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1006,72 +969,6 @@
     iget-object v0, p0, Landroid/server/BluetoothAdapterStateMachine;->mWarmUp:Landroid/server/BluetoothAdapterStateMachine$WarmUp;
 
     return-object v0
-.end method
-
-.method static synthetic access$8000(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$8100(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$8200(Landroid/server/BluetoothAdapterStateMachine;I)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->removeMessages(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$8300(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$8400(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
-.end method
-
-.method static synthetic access$8500(Landroid/server/BluetoothAdapterStateMachine;Landroid/os/Message;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/server/BluetoothAdapterStateMachine;->deferMessage(Landroid/os/Message;)V
-
-    return-void
 .end method
 
 .method static synthetic access$900(Landroid/server/BluetoothAdapterStateMachine;Lcom/android/internal/util/IState;)V

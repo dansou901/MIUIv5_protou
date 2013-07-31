@@ -1649,7 +1649,7 @@
     invoke-direct {p0, v1, v2, v3}, Lcom/android/internal/telephony/HtcIccType;->DFtoString(Ljava/lang/StringBuilder;Ljava/lang/String;Lcom/android/internal/telephony/HtcIccType$DF;)V
 
     .line 563
-    const-string v2, "tdma"
+    const-string/jumbo v2, "tdma"
 
     iget-object v3, p0, Lcom/android/internal/telephony/HtcIccType;->TDMA_part:Lcom/android/internal/telephony/HtcIccType$DF;
 

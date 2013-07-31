@@ -90,7 +90,7 @@
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1629
+    .line 1624
     return-void
 .end method
 
@@ -100,64 +100,64 @@
     .parameter "tracker"
 
     .prologue
-    .line 525
+    .line 524
     move-object/from16 v0, p1
 
     iget v9, v0, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->mMessageRef:I
 
-    .line 526
+    .line 525
     .local v9, msgRef:I
     move-object/from16 v0, p1
 
     iget-object v6, v0, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->mDeliveryIntent:Landroid/app/PendingIntent;
 
-    .line 527
+    .line 526
     .local v6, deliveryIntent:Landroid/app/PendingIntent;
     invoke-virtual {v6}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
 
     move-result-object v8
 
-    .line 528
+    .line 527
     .local v8, intent:Landroid/content/Intent;
     invoke-virtual {v8}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 529
+    .line 528
     .local v1, action:Ljava/lang/String;
     invoke-virtual {v8}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v5
 
-    .line 530
+    .line 529
     .local v5, data:Landroid/net/Uri;
     invoke-virtual {v8}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v3
 
-    .line 532
+    .line 531
     .local v3, cn:Landroid/content/ComponentName;
     const/4 v10, 0x0
 
-    .line 533
+    .line 532
     .local v10, pkg:Ljava/lang/String;
     const/4 v2, 0x0
 
-    .line 534
+    .line 533
     .local v2, cls:Ljava/lang/String;
     if-eqz v3, :cond_0
 
-    .line 535
+    .line 534
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v10
 
-    .line 536
+    .line 535
     invoke-virtual {v3}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 539
+    .line 538
     :cond_0
     new-instance v12, Landroid/content/ContentValues;
 
@@ -165,9 +165,9 @@
 
     invoke-direct {v12, v13}, Landroid/content/ContentValues;-><init>(I)V
 
-    .line 540
+    .line 539
     .local v12, values:Landroid/content/ContentValues;
-    const-string v13, "tp_mr"
+    const-string/jumbo v13, "tp_mr"
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -175,24 +175,24 @@
 
     invoke-virtual {v12, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 541
+    .line 540
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v13
 
     if-nez v13, :cond_1
 
-    .line 542
+    .line 541
     const-string v13, "action"
 
     invoke-virtual {v12, v13, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 544
+    .line 543
     :cond_1
     if-eqz v5, :cond_2
 
-    .line 545
-    const-string v13, "uri"
+    .line 544
+    const-string/jumbo v13, "uri"
 
     invoke-virtual {v5}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
@@ -200,7 +200,7 @@
 
     invoke-virtual {v12, v13, v14}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 547
+    .line 546
     :cond_2
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -208,12 +208,12 @@
 
     if-nez v13, :cond_3
 
-    .line 548
+    .line 547
     const-string v13, "pkg_name"
 
     invoke-virtual {v12, v13, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 550
+    .line 549
     :cond_3
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -221,29 +221,29 @@
 
     if-nez v13, :cond_4
 
-    .line 551
+    .line 550
     const-string v13, "class_name"
 
     invoke-virtual {v12, v13, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 554
+    .line 553
     :cond_4
     const/4 v11, 0x0
 
-    .line 556
+    .line 555
     .local v11, retUri:Landroid/net/Uri;
     :try_start_0
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
 
-    .line 558
+    .line 557
     .local v4, cr:Landroid/content/ContentResolver;
     move-object/from16 v0, p0
 
     invoke-static {v0, v9}, Lcom/android/internal/telephony/HtcMessageHelper;->deleteMsgRefFromPendingList(Landroid/content/Context;I)I
 
-    .line 560
+    .line 559
     sget-object v13, Landroid/provider/HtcMessages$HtcSms$PendingMsg;->CONTENT_URI:Landroid/net/Uri;
 
     invoke-virtual {v4, v13, v12}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
@@ -252,16 +252,16 @@
 
     move-result-object v11
 
-    .line 565
+    .line 564
     .end local v4           #cr:Landroid/content/ContentResolver;
     :goto_0
     return-object v11
 
-    .line 561
+    .line 560
     :catch_0
     move-exception v7
 
-    .line 562
+    .line 561
     .local v7, e:Ljava/lang/Exception;
     const-string v13, "SMS"
 
@@ -285,7 +285,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 563
+    .line 562
     invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -297,38 +297,38 @@
     .parameter "isAscii"
 
     .prologue
-    .line 1105
+    .line 1104
     if-eqz p1, :cond_0
 
     const/16 v8, 0x9a
 
-    .line 1106
+    .line 1105
     .local v8, seglen:I
     :goto_0
     const/4 v2, 0x6
 
-    .line 1107
+    .line 1106
     .local v2, maxseg:I
     const/4 v10, 0x0
 
-    .line 1108
+    .line 1107
     .local v10, strlen:I
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1111
+    .line 1110
     .local v4, newString:Ljava/lang/String;
     if-nez p0, :cond_1
 
-    .line 1112
+    .line 1111
     const/4 v13, 0x0
 
-    .line 1163
+    .line 1162
     :goto_1
     return-object v13
 
-    .line 1105
+    .line 1104
     .end local v2           #maxseg:I
     .end local v4           #newString:Ljava/lang/String;
     .end local v8           #seglen:I
@@ -338,7 +338,7 @@
 
     goto :goto_0
 
-    .line 1118
+    .line 1117
     .restart local v2       #maxseg:I
     .restart local v4       #newString:Ljava/lang/String;
     .restart local v8       #seglen:I
@@ -350,25 +350,25 @@
     :goto_2
     if-gt v0, v2, :cond_2
 
-    .line 1120
+    .line 1119
     add-int/lit8 v13, v0, -0x1
 
     mul-int v12, v13, v8
 
-    .line 1121
+    .line 1120
     .local v12, thisSegmentStart:I
     mul-int v5, v0, v8
 
-    .line 1125
+    .line 1124
     .local v5, nextSegmentStart:I
     invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v10
 
-    .line 1126
+    .line 1125
     if-lt v5, v10, :cond_3
 
-    .line 1150
+    .line 1149
     .end local v5           #nextSegmentStart:I
     .end local v12           #thisSegmentStart:I
     :cond_2
@@ -391,17 +391,17 @@
     :goto_3
     add-int v7, v14, v13
 
-    .line 1154
+    .line 1153
     .local v7, segcount:I
     new-array v9, v7, [Ljava/lang/String;
 
-    .line 1155
+    .line 1154
     .local v9, strarray:[Ljava/lang/String;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1156
+    .line 1155
     .local v3, newAppendedString:Ljava/lang/StringBuilder;
     const/4 v1, 0x0
 
@@ -409,12 +409,12 @@
     :goto_4
     if-ge v1, v7, :cond_9
 
-    .line 1157
+    .line 1156
     add-int/lit8 v13, v7, -0x1
 
     if-ne v1, v13, :cond_8
 
-    .line 1158
+    .line 1157
     const/16 v13, 0x28
 
     invoke-virtual {v3, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -455,13 +455,13 @@
 
     invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1156
+    .line 1155
     :goto_5
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
-    .line 1129
+    .line 1128
     .end local v1           #i:I
     .end local v3           #newAppendedString:Ljava/lang/StringBuilder;
     .end local v7           #segcount:I
@@ -505,10 +505,10 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1133
+    .line 1132
     move v11, v5
 
-    .line 1136
+    .line 1135
     .local v11, thisSegmentEnd:I
     :cond_4
     invoke-virtual {v4, v11}, Ljava/lang/String;->charAt(I)C
@@ -521,7 +521,7 @@
 
     if-nez v13, :cond_5
 
-    .line 1140
+    .line 1139
     :goto_6
     const-string v13, "SMS"
 
@@ -555,60 +555,60 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1143
+    .line 1142
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 1144
+    .line 1143
     .local v6, sb:Ljava/lang/StringBuilder;
     if-lt v11, v12, :cond_6
 
     if-ge v11, v5, :cond_6
 
-    .line 1145
+    .line 1144
     add-int/lit8 v1, v11, 0x1
 
     .restart local v1       #i:I
     :goto_7
     if-ge v1, v5, :cond_6
 
-    .line 1146
+    .line 1145
     add-int/lit8 v13, v11, 0x1
 
     const/16 v14, 0x20
 
     invoke-virtual {v6, v13, v14}, Ljava/lang/StringBuilder;->insert(IC)Ljava/lang/StringBuilder;
 
-    .line 1145
+    .line 1144
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_7
 
-    .line 1138
+    .line 1137
     .end local v1           #i:I
     .end local v6           #sb:Ljava/lang/StringBuilder;
     :cond_5
     add-int/lit8 v11, v11, -0x1
 
-    .line 1139
+    .line 1138
     if-ge v11, v12, :cond_4
 
     goto :goto_6
 
-    .line 1147
+    .line 1146
     .restart local v6       #sb:Ljava/lang/StringBuilder;
     :cond_6
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    .line 1118
+    .line 1117
     add-int/lit8 v0, v0, 0x1
 
     goto/16 :goto_2
 
-    .line 1150
+    .line 1149
     .end local v5           #nextSegmentStart:I
     .end local v6           #sb:Ljava/lang/StringBuilder;
     .end local v11           #thisSegmentEnd:I
@@ -618,7 +618,7 @@
 
     goto/16 :goto_3
 
-    .line 1160
+    .line 1159
     .restart local v1       #i:I
     .restart local v3       #newAppendedString:Ljava/lang/StringBuilder;
     .restart local v7       #segcount:I
@@ -666,7 +666,7 @@
 
     goto/16 :goto_5
 
-    .line 1163
+    .line 1162
     :cond_9
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -683,10 +683,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1193
+    .line 1188
     const/4 v1, 0x0
 
-    .line 1195
+    .line 1190
     .local v1, pkgInfo:Landroid/content/pm/PackageInfo;
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -701,7 +701,7 @@
 
     move-result-object v1
 
-    .line 1199
+    .line 1194
     :goto_0
     if-eqz v1, :cond_0
 
@@ -713,18 +713,18 @@
 
     if-eqz v3, :cond_0
 
-    .line 1200
+    .line 1195
     const/4 v2, 0x1
 
-    .line 1202
+    .line 1197
     :cond_0
     return v2
 
-    .line 1196
+    .line 1191
     :catch_0
     move-exception v0
 
-    .line 1197
+    .line 1192
     .local v0, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v3, "SMS"
 
@@ -741,12 +741,12 @@
     .parameter "packageName"
 
     .prologue
-    .line 1214
+    .line 1209
     sget-object v2, Lcom/android/internal/telephony/HtcMessageHelper;->VZWSIGNATURE:[Ljava/lang/String;
 
     array-length v1, v2
 
-    .line 1215
+    .line 1210
     .local v1, vzwSignaturelen:I
     const/4 v0, 0x0
 
@@ -754,7 +754,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    .line 1216
+    .line 1211
     const-string v2, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -777,7 +777,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1217
+    .line 1212
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
@@ -792,27 +792,27 @@
 
     if-ltz v2, :cond_0
 
-    .line 1218
+    .line 1213
     const-string v2, "SMS"
 
     const-string v3, "check success"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1219
+    .line 1214
     const/4 v2, 0x1
 
-    .line 1223
+    .line 1218
     :goto_1
     return v2
 
-    .line 1215
+    .line 1210
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 1222
+    .line 1217
     :cond_1
     const-string v2, "SMS"
 
@@ -820,7 +820,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1223
+    .line 1218
     const/4 v2, 0x0
 
     goto :goto_1
@@ -836,16 +836,16 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 295
+    .line 294
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
-    .line 296
+    .line 295
     .local v1, mPm:Landroid/content/pm/PackageManager;
     const/4 v2, 0x0
 
-    .line 298
+    .line 297
     .local v2, pkgInfo:Landroid/content/pm/PackageInfo;
     const/16 v4, 0x40
 
@@ -856,7 +856,7 @@
 
     move-result-object v2
 
-    .line 310
+    .line 309
     iget-object v4, v2, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
     invoke-static {v1, p1, p2, v4, v3}, Lcom/android/internal/telephony/HtcMessageHelper;->checkCallingSignature(Landroid/content/pm/PackageManager;II[Landroid/content/pm/Signature;Z)Z
@@ -866,11 +866,11 @@
     :goto_0
     return v3
 
-    .line 303
+    .line 302
     :catch_0
     move-exception v0
 
-    .line 305
+    .line 304
     .local v0, ex:Ljava/lang/Exception;
     const-string v4, "SMS"
 
@@ -923,36 +923,36 @@
     .parameter "smsb"
 
     .prologue
-    .line 696
+    .line 695
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 697
+    .line 696
     invoke-static {p0, p1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheck3gpp2JEADuplication(Landroid/content/Context;Lcom/android/internal/telephony/SmsMessageBase;)Z
 
     move-result v0
 
-    .line 701
+    .line 700
     :goto_0
     return v0
 
-    .line 698
+    .line 697
     :cond_0
     sget-boolean v0, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
 
     if-eqz v0, :cond_1
 
-    .line 699
+    .line 698
     invoke-static {p1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheckEarthquakeAlertDuplication(Lcom/android/internal/telephony/SmsMessageBase;)Z
 
     move-result v0
 
     goto :goto_0
 
-    .line 701
+    .line 700
     :cond_1
     const/4 v0, 0x0
 
@@ -965,19 +965,19 @@
     .parameter "pdu"
 
     .prologue
-    .line 687
+    .line 686
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 688
+    .line 687
     invoke-static {p0, p1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheck3gppJEADuplication(Landroid/content/Context;[B)Z
 
     move-result v0
 
-    .line 690
+    .line 689
     :goto_0
     return v0
 
@@ -998,29 +998,29 @@
     .prologue
     const/4 v9, 0x1
 
-    .line 316
+    .line 315
     if-eqz p3, :cond_0
 
     array-length v10, p3
 
     if-nez v10, :cond_1
 
-    .line 337
+    .line 336
     :cond_0
     :goto_0
     return v9
 
-    .line 319
+    .line 318
     :cond_1
     invoke-static {p0, p1, p2}, Lcom/android/internal/telephony/HtcMessageHelper;->getUidSignatures(Landroid/content/pm/PackageManager;II)[Landroid/content/pm/Signature;
 
     move-result-object v2
 
-    .line 320
+    .line 319
     .local v2, callingSignatures:[Landroid/content/pm/Signature;
     if-eqz v2, :cond_4
 
-    .line 321
+    .line 320
     move-object v0, v2
 
     .local v0, arr$:[Landroid/content/pm/Signature;
@@ -1041,7 +1041,7 @@
 
     aget-object v8, v0, v4
 
-    .line 322
+    .line 321
     .local v8, sig:Landroid/content/pm/Signature;
     move-object v1, p3
 
@@ -1058,7 +1058,7 @@
 
     aget-object v7, v1, v3
 
-    .line 323
+    .line 322
     .local v7, matchSig:Landroid/content/pm/Signature;
     if-eqz v7, :cond_2
 
@@ -1068,13 +1068,13 @@
 
     if-nez v10, :cond_0
 
-    .line 322
+    .line 321
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    .line 321
+    .line 320
     .end local v7           #matchSig:Landroid/content/pm/Signature;
     :cond_3
     add-int/lit8 v3, v4, 0x1
@@ -1085,7 +1085,7 @@
     .restart local v4       #i$:I
     goto :goto_1
 
-    .line 332
+    .line 331
     .end local v1           #arr$:[Landroid/content/pm/Signature;
     .end local v4           #i$:I
     .end local v6           #len$:I
@@ -1093,7 +1093,7 @@
     :cond_4
     if-eqz p4, :cond_5
 
-    .line 334
+    .line 333
     const-wide/16 v9, 0x1388
 
     :try_start_0
@@ -1101,14 +1101,14 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 337
+    .line 336
     :cond_5
     :goto_3
     const/4 v9, 0x0
 
     goto :goto_0
 
-    .line 335
+    .line 334
     :catch_0
     move-exception v9
 
@@ -1121,17 +1121,17 @@
     .parameter "smsb"
 
     .prologue
-    .line 283
+    .line 282
     invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isSupportSprintDuplicatedCmasDetection()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 284
+    .line 283
     invoke-static {p0}, Lcom/android/internal/telephony/HtcMessageHelper;->deleteMarkedOldCmasMessage(Landroid/content/Context;)V
 
-    .line 286
+    .line 285
     :cond_0
     invoke-static {p0, p1}, Lcom/android/internal/telephony/HtcMessageHelper;->checkCmasDuplicationByMessageID(Landroid/content/Context;Lcom/android/internal/telephony/SmsMessageBase;)Z
 
@@ -1146,20 +1146,20 @@
     .parameter "smsb"
 
     .prologue
-    .line 205
+    .line 204
     const/4 v12, 0x0
 
-    .line 211
+    .line 210
     .local v12, result:Z
     const/4 v10, 0x1
 
-    .line 212
+    .line 211
     .local v10, isCdma:Z
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getMessageIdentifier()I
 
     move-result v11
 
-    .line 213
+    .line 212
     .local v11, msg_id:I
     const-string v0, "SMS"
 
@@ -1183,7 +1183,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 216
+    .line 215
     const/4 v0, 0x4
 
     :try_start_0
@@ -1213,11 +1213,11 @@
 
     aput-object v1, v2, v0
 
-    .line 222
+    .line 221
     .local v2, projection:[Ljava/lang/String;
     const-string v3, "protocol = ?  AND is_cdma_format = ? "
 
-    .line 227
+    .line 226
     .local v3, selection:Ljava/lang/String;
     invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isSupportSprintDuplicatedCmasDetection()Z
 
@@ -1225,7 +1225,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 228
+    .line 227
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1244,7 +1244,7 @@
 
     move-result-object v3
 
-    .line 233
+    .line 232
     :cond_0
     const/4 v0, 0x2
 
@@ -1271,7 +1271,7 @@
     :goto_0
     aput-object v0, v4, v1
 
-    .line 240
+    .line 239
     .local v4, selectionArgs:[Ljava/lang/String;
     invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isSupportSprintDuplicatedCmasDetection()Z
 
@@ -1279,12 +1279,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 241
+    .line 240
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v7
 
-    .line 242
+    .line 241
     .local v7, currentTimeMillis:J
     const/4 v0, 0x3
 
@@ -1320,7 +1320,7 @@
 
     aput-object v1, v4, v0
 
-    .line 250
+    .line 249
     .end local v7           #currentTimeMillis:J
     .restart local v4       #selectionArgs:[Ljava/lang/String;
     :cond_1
@@ -1338,11 +1338,11 @@
 
     move-result-object v6
 
-    .line 252
+    .line 251
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_3
 
-    .line 254
+    .line 253
     :try_start_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -1350,7 +1350,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 255
+    .line 254
     const-string v0, "SMS"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1381,15 +1381,15 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 257
+    .line 256
     const/4 v12, 0x1
 
-    .line 260
+    .line 259
     :cond_2
     :try_start_2
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 267
+    .line 266
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -1398,7 +1398,7 @@
     :goto_2
     return v12
 
-    .line 233
+    .line 232
     .restart local v2       #projection:[Ljava/lang/String;
     .restart local v3       #selection:Ljava/lang/String;
     :cond_4
@@ -1410,7 +1410,7 @@
 
     goto :goto_0
 
-    .line 242
+    .line 241
     .restart local v7       #currentTimeMillis:J
     :cond_5
     const/4 v0, 0x0
@@ -1421,7 +1421,7 @@
 
     goto :goto_1
 
-    .line 260
+    .line 259
     .end local v7           #currentTimeMillis:J
     .restart local v4       #selectionArgs:[Ljava/lang/String;
     .restart local v6       #c:Landroid/database/Cursor;
@@ -1434,7 +1434,7 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 263
+    .line 262
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -1442,7 +1442,7 @@
     :catch_0
     move-exception v9
 
-    .line 264
+    .line 263
     .local v9, e:Ljava/lang/Exception;
     const-string v0, "SMS"
 
@@ -1466,7 +1466,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 265
+    .line 264
     invoke-virtual {v9}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_2
@@ -1478,19 +1478,19 @@
     .parameter "smsb"
 
     .prologue
-    .line 396
+    .line 395
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 397
+    .line 396
     invoke-static {p0, p1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheckSmsDuplication(Landroid/content/Context;Lcom/android/internal/telephony/SmsMessageBase;)Z
 
     move-result v0
 
-    .line 399
+    .line 398
     :goto_0
     return v0
 
@@ -1505,12 +1505,12 @@
     .parameter "context"
 
     .prologue
-    .line 188
+    .line 187
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    .line 189
+    .line 188
     .local v0, currentTimeMillis:J
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1548,7 +1548,7 @@
 
     move-result-object v2
 
-    .line 192
+    .line 191
     .local v2, selectionForDeleteOldCmas:Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1560,7 +1560,7 @@
 
     invoke-virtual {v3, v4, v2, v5}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 195
+    .line 194
     return-void
 .end method
 
@@ -1570,10 +1570,10 @@
     .parameter "msgRef"
 
     .prologue
-    .line 510
+    .line 509
     const/4 v0, 0x0
 
-    .line 512
+    .line 511
     .local v0, count:I
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1586,7 +1586,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "tp_mr = "
+    const-string/jumbo v5, "tp_mr = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1608,15 +1608,15 @@
 
     move-result v0
 
-    .line 519
+    .line 518
     :goto_0
     return v0
 
-    .line 515
+    .line 514
     :catch_0
     move-exception v1
 
-    .line 516
+    .line 515
     .local v1, e:Ljava/lang/Exception;
     const-string v2, "SMS"
 
@@ -1640,7 +1640,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 517
+    .line 516
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -1653,20 +1653,20 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 877
+    .line 876
     if-nez p0, :cond_0
 
-    .line 902
+    .line 901
     :goto_0
     return-object v5
 
-    .line 881
+    .line 880
     :cond_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .line 882
+    .line 881
     .local v0, charCount:I
     const-string v6, "kddi-emoji"
 
@@ -1678,13 +1678,13 @@
 
     move-result-object v1
 
-    .line 883
+    .line 882
     .local v1, encoder:Ljava/nio/charset/CharsetEncoder;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 885
+    .line 884
     .local v4, sb:Ljava/lang/StringBuilder;
     const/4 v3, 0x0
 
@@ -1692,19 +1692,19 @@
     :goto_1
     if-ge v3, v0, :cond_1
 
-    .line 888
+    .line 887
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 885
+    .line 884
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 898
+    .line 897
     :cond_1
     :try_start_0
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -1721,11 +1721,11 @@
 
     goto :goto_0
 
-    .line 900
+    .line 899
     :catch_0
     move-exception v2
 
-    .line 901
+    .line 900
     .local v2, ex:Ljava/io/UnsupportedEncodingException;
     const-string v6, "encodeShiftJis"
 
@@ -1747,20 +1747,20 @@
 
     const/4 v3, 0x0
 
-    .line 1524
+    .line 1519
     const/4 v2, 0x0
 
-    .line 1526
+    .line 1521
     .local v2, result:I
     aget-char v0, p0, v3
 
-    .line 1527
+    .line 1522
     .local v0, hi_char:C
     const/4 v4, 0x1
 
     aget-char v1, p0, v4
 
-    .line 1530
+    .line 1525
     .local v1, lo_char:C
     if-lt v0, v5, :cond_0
 
@@ -1768,12 +1768,12 @@
 
     if-le v0, v4, :cond_1
 
-    .line 1544
+    .line 1539
     :cond_0
     :goto_0
     return v3
 
-    .line 1534
+    .line 1529
     :cond_1
     if-lt v1, v6, :cond_0
 
@@ -1781,7 +1781,7 @@
 
     if-gt v1, v4, :cond_0
 
-    .line 1538
+    .line 1533
     sub-int v3, v0, v5
 
     mul-int/lit16 v3, v3, 0x400
@@ -1796,7 +1796,7 @@
 
     move v3, v2
 
-    .line 1544
+    .line 1539
     goto :goto_0
 .end method
 
@@ -1816,7 +1816,7 @@
 
     const/4 v1, 0x0
 
-    .line 455
+    .line 454
     const/4 v0, 0x5
 
     new-array v2, v0, [Ljava/lang/String;
@@ -1825,7 +1825,7 @@
 
     aput-object v0, v2, v1
 
-    const-string v0, "uri"
+    const-string/jumbo v0, "uri"
 
     aput-object v0, v2, v3
 
@@ -1839,11 +1839,11 @@
 
     const/4 v0, 0x4
 
-    const-string v1, "tp_mr"
+    const-string/jumbo v1, "tp_mr"
 
     aput-object v1, v2, v0
 
-    .line 462
+    .line 461
     .local v2, projection:[Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1855,7 +1855,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "tp_mr = "
+    const-string/jumbo v5, "tp_mr = "
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1875,15 +1875,15 @@
 
     move-result-object v7
 
-    .line 467
+    .line 466
     .local v7, c:Landroid/database/Cursor;
     const/4 v9, 0x0
 
-    .line 468
+    .line 467
     .local v9, intent:Landroid/content/Intent;
     if-eqz v7, :cond_2
 
-    .line 471
+    .line 470
     :try_start_0
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -1891,14 +1891,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 472
+    .line 471
     const/4 v0, 0x0
 
     invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 473
+    .line 472
     .local v6, action:Ljava/lang/String;
     const/4 v0, 0x1
 
@@ -1906,7 +1906,7 @@
 
     move-result-object v12
 
-    .line 474
+    .line 473
     .local v12, uriStr:Ljava/lang/String;
     const/4 v0, 0x2
 
@@ -1914,7 +1914,7 @@
 
     move-result-object v11
 
-    .line 475
+    .line 474
     .local v11, pkg:Ljava/lang/String;
     const/4 v0, 0x3
 
@@ -1922,7 +1922,7 @@
 
     move-result-object v8
 
-    .line 476
+    .line 475
     .local v8, cls:Ljava/lang/String;
     new-instance v10, Landroid/content/Intent;
 
@@ -1934,7 +1934,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 478
+    .line 477
     .end local v9           #intent:Landroid/content/Intent;
     .local v10, intent:Landroid/content/Intent;
     :try_start_1
@@ -1950,7 +1950,7 @@
 
     if-nez v0, :cond_0
 
-    .line 480
+    .line 479
     new-instance v0, Landroid/content/ComponentName;
 
     invoke-direct {v0, v11, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -1962,7 +1962,7 @@
     :cond_0
     move-object v9, v10
 
-    .line 485
+    .line 484
     .end local v6           #action:Ljava/lang/String;
     .end local v8           #cls:Ljava/lang/String;
     .end local v10           #intent:Landroid/content/Intent;
@@ -1972,11 +1972,11 @@
     :cond_1
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 488
+    .line 487
     :cond_2
     return-object v9
 
-    .line 485
+    .line 484
     :catchall_0
     move-exception v0
 
@@ -2005,7 +2005,7 @@
     .locals 1
 
     .prologue
-    .line 1028
+    .line 1027
     const-string v0, "com.kddi.android.intent.action.ESIGNAL_RECEIVED"
 
     return-object v0
@@ -2015,7 +2015,7 @@
     .locals 1
 
     .prologue
-    .line 1032
+    .line 1031
     const-string v0, "com.kddi.android.permission.RECEIVE_ESIGNAL"
 
     return-object v0
@@ -2027,12 +2027,12 @@
     .parameter "skipEsnCheck"
 
     .prologue
-    .line 951
+    .line 950
     new-instance v9, Ljava/lang/String;
 
     invoke-direct {v9}, Ljava/lang/String;-><init>()V
 
-    .line 961
+    .line 960
     .local v9, resultString:Ljava/lang/String;
     const/16 v11, 0x10
 
@@ -2040,7 +2040,7 @@
 
     fill-array-data v5, :array_0
 
-    .line 971
+    .line 970
     .local v5, repKddislamdownData:[B
     const/4 v11, 0x1
 
@@ -2052,7 +2052,7 @@
 
     aput-byte v12, v6, v11
 
-    .line 972
+    .line 971
     .local v6, repKddislamdownData2:[B
     const/4 v11, 0x2
 
@@ -2060,7 +2060,7 @@
 
     fill-array-data v7, :array_1
 
-    .line 975
+    .line 974
     .local v7, repKddislamdownData3:[B
     array-length v11, v5
 
@@ -2068,21 +2068,21 @@
 
     new-array v8, v11, [B
 
-    .line 983
+    .line 982
     .local v8, resultData:[B
     const/4 v11, 0x1
 
     if-ne p1, v11, :cond_1
 
-    .line 984
+    .line 983
     const/4 v4, 0x0
 
-    .line 989
+    .line 988
     .local v4, offset:I
     :goto_0
     const/4 v1, 0x0
 
-    .line 990
+    .line 989
     .local v1, destPos:I
     const/4 v11, 0x0
 
@@ -2090,12 +2090,12 @@
 
     invoke-static {v5, v11, v8, v1, v12}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 991
+    .line 990
     array-length v11, v5
 
     add-int/2addr v1, v11
 
-    .line 992
+    .line 991
     array-length v11, p0
 
     sub-int/2addr v11, v4
@@ -2104,14 +2104,14 @@
 
     if-lt v11, v12, :cond_0
 
-    .line 994
+    .line 993
     new-instance v2, Ljava/text/DecimalFormat;
 
     const-string v11, "00"
 
     invoke-direct {v2, v11}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 1000
+    .line 999
     .local v2, df:Ljava/text/DecimalFormat;
     add-int/lit8 v11, v4, 0x2
 
@@ -2123,7 +2123,7 @@
 
     move-result-object v0
 
-    .line 1001
+    .line 1000
     .local v0, countValue:Ljava/lang/String;
     const-string v11, "SMS"
 
@@ -2131,7 +2131,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "total: "
+    const-string/jumbo v13, "total: "
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2147,7 +2147,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1003
+    .line 1002
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v11
@@ -2158,20 +2158,20 @@
 
     invoke-static {v11, v12, v8, v1, v13}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1004
+    .line 1003
     add-int/lit8 v1, v1, 0x2
 
-    .line 1005
+    .line 1004
     const/4 v11, 0x0
 
     const/4 v12, 0x1
 
     invoke-static {v6, v11, v8, v1, v12}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1006
+    .line 1005
     add-int/lit8 v1, v1, 0x1
 
-    .line 1007
+    .line 1006
     add-int/lit8 v11, v4, 0x3
 
     aget-byte v11, p0, v11
@@ -2182,14 +2182,14 @@
 
     move-result-object v0
 
-    .line 1008
+    .line 1007
     const-string v11, "SMS"
 
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "unread: "
+    const-string/jumbo v13, "unread: "
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2205,7 +2205,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1009
+    .line 1008
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v11
@@ -2216,17 +2216,17 @@
 
     invoke-static {v11, v12, v8, v1, v13}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1010
+    .line 1009
     add-int/lit8 v1, v1, 0x2
 
-    .line 1011
+    .line 1010
     const/4 v11, 0x0
 
     const/4 v12, 0x2
 
     invoke-static {v7, v11, v8, v1, v12}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1017
+    .line 1016
     .end local v0           #countValue:Ljava/lang/String;
     .end local v2           #df:Ljava/text/DecimalFormat;
     :cond_0
@@ -2243,7 +2243,7 @@
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1019
+    .line 1018
     .end local v9           #resultString:Ljava/lang/String;
     .local v10, resultString:Ljava/lang/String;
     :try_start_1
@@ -2273,13 +2273,13 @@
 
     move-object v9, v10
 
-    .line 1024
+    .line 1023
     .end local v10           #resultString:Ljava/lang/String;
     .restart local v9       #resultString:Ljava/lang/String;
     :goto_1
     return-object v9
 
-    .line 986
+    .line 985
     .end local v1           #destPos:I
     .end local v4           #offset:I
     :cond_1
@@ -2288,12 +2288,12 @@
     .restart local v4       #offset:I
     goto/16 :goto_0
 
-    .line 1020
+    .line 1019
     .restart local v1       #destPos:I
     :catch_0
     move-exception v3
 
-    .line 1021
+    .line 1020
     .local v3, ex:Ljava/io/UnsupportedEncodingException;
     :goto_2
     const-string v11, "SMS"
@@ -2320,7 +2320,7 @@
 
     goto :goto_1
 
-    .line 1020
+    .line 1019
     .end local v3           #ex:Ljava/io/UnsupportedEncodingException;
     .end local v9           #resultString:Ljava/lang/String;
     .restart local v10       #resultString:Ljava/lang/String;
@@ -2333,7 +2333,7 @@
     .restart local v9       #resultString:Ljava/lang/String;
     goto :goto_2
 
-    .line 961
+    .line 960
     :array_0
     .array-data 0x1
         0x93t
@@ -2354,7 +2354,7 @@
         0xa2t
     .end array-data
 
-    .line 972
+    .line 971
     :array_1
     .array-data 0x1
         0x8ct
@@ -2367,27 +2367,27 @@
     .parameter "s"
 
     .prologue
-    .line 1703
+    .line 1698
     if-nez p0, :cond_1
 
-    .line 1704
+    .line 1699
     const/4 v2, 0x0
 
-    .line 1713
+    .line 1708
     :cond_0
     return v2
 
-    .line 1706
+    .line 1701
     :cond_1
     const/4 v2, 0x0
 
-    .line 1707
+    .line 1702
     .local v2, lfCount:I
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .line 1708
+    .line 1703
     .local v0, characterCount:I
     const/4 v1, 0x0
 
@@ -2395,7 +2395,7 @@
     :goto_0
     if-ge v1, v0, :cond_0
 
-    .line 1709
+    .line 1704
     const/16 v3, 0xa
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -2404,10 +2404,10 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 1710
+    .line 1705
     add-int/lit8 v2, v2, 0x1
 
-    .line 1708
+    .line 1703
     :cond_2
     add-int/lit8 v1, v1, 0x1
 
@@ -2421,17 +2421,17 @@
     .parameter "pid"
 
     .prologue
-    .line 341
+    .line 340
     const/4 v2, 0x0
 
-    .line 343
+    .line 342
     .local v2, psName:Ljava/lang/String;
     :try_start_0
     invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->getPackagesForUid(I)[Ljava/lang/String;
 
     move-result-object v1
 
-    .line 344
+    .line 343
     .local v1, packages:[Ljava/lang/String;
     if-eqz v1, :cond_0
 
@@ -2439,17 +2439,17 @@
 
     if-lez v3, :cond_0
 
-    .line 351
+    .line 350
     const/4 v3, 0x0
 
     aget-object v2, v1, v3
 
-    .line 363
+    .line 362
     .end local v1           #packages:[Ljava/lang/String;
     :goto_0
     return-object v2
 
-    .line 355
+    .line 354
     .restart local v1       #packages:[Ljava/lang/String;
     :cond_0
     const-string v3, "SMS"
@@ -2488,12 +2488,12 @@
 
     goto :goto_0
 
-    .line 358
+    .line 357
     .end local v1           #packages:[Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    .line 360
+    .line 359
     .local v0, ex:Ljava/lang/Exception;
     const-string v3, "SMS"
 
@@ -2545,12 +2545,12 @@
     .parameter "message"
 
     .prologue
-    .line 907
+    .line 906
     new-instance v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
 
     invoke-direct {v1}, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;-><init>()V
 
-    .line 908
+    .line 907
     .local v1, ted:Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;
     invoke-virtual {p0}, Ljava/lang/String;->toString()Ljava/lang/String;
 
@@ -2560,7 +2560,7 @@
 
     move-result v0
 
-    .line 909
+    .line 908
     .local v0, byteSize:I
     div-int/lit16 v3, v0, 0x8c
 
@@ -2575,10 +2575,10 @@
 
     iput v2, v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->msgCount:I
 
-    .line 911
+    .line 910
     iput v0, v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitCount:I
 
-    .line 912
+    .line 911
     if-lez v0, :cond_1
 
     iget v2, v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->msgCount:I
@@ -2590,21 +2590,21 @@
     :goto_1
     iput v2, v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitsRemaining:I
 
-    .line 914
+    .line 913
     const/4 v2, 0x3
 
     iput v2, v1, Lcom/android/internal/telephony/SmsMessageBase$TextEncodingDetails;->codeUnitSize:I
 
-    .line 915
+    .line 914
     return-object v1
 
-    .line 909
+    .line 908
     :cond_0
     const/4 v2, 0x0
 
     goto :goto_0
 
-    .line 912
+    .line 911
     :cond_1
     const/16 v2, 0x8c
 
@@ -2616,7 +2616,7 @@
     .parameter "originalSmsc"
 
     .prologue
-    .line 1050
+    .line 1049
     invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->getSenseVersion()F
 
     move-result v3
@@ -2627,10 +2627,10 @@
 
     if-gez v3, :cond_1
 
-    .line 1051
+    .line 1050
     const/4 v0, 0x0
 
-    .line 1053
+    .line 1052
     .local v0, isKddiSim:Z
     const-string v3, "gsm.sim.operator.numeric"
 
@@ -2638,7 +2638,7 @@
 
     move-result-object v2
 
-    .line 1054
+    .line 1053
     .local v2, simMccMnc:Ljava/lang/String;
     const-string v3, "getSmscForKddi"
 
@@ -2662,7 +2662,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1056
+    .line 1055
     const-string v3, "44007"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2919,7 +2919,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 1088
+    .line 1087
     :cond_0
     const-string v3, "+85294981704"
 
@@ -2927,13 +2927,13 @@
 
     move-result-object v1
 
-    .line 1089
+    .line 1088
     .local v1, kddiSmsc:[B
     invoke-static {v1}, Lcom/android/internal/telephony/IccUtils;->bytesToHexString([B)Ljava/lang/String;
 
     move-result-object p0
 
-    .line 1093
+    .line 1092
     .end local v0           #isKddiSim:Z
     .end local v1           #kddiSmsc:[B
     .end local v2           #simMccMnc:Ljava/lang/String;
@@ -2947,14 +2947,14 @@
     .parameter "text"
 
     .prologue
-    .line 1281
+    .line 1276
     const-string v25, "getSprintReassembleSmsInformation"
 
-    const-string v26, "start to parse"
+    const-string/jumbo v26, "start to parse"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1283
+    .line 1278
     if-eqz p0, :cond_0
 
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
@@ -2969,7 +2969,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1284
+    .line 1279
     :cond_0
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -2977,20 +2977,20 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1285
+    .line 1280
     const/16 v19, 0x0
 
-    .line 1512
+    .line 1507
     :goto_0
     return-object v19
 
-    .line 1288
+    .line 1283
     :cond_1
     invoke-virtual/range {p0 .. p0}, Ljava/lang/String;->length()I
 
     move-result v23
 
-    .line 1290
+    .line 1285
     .local v23, totalLength:I
     const-string v25, "("
 
@@ -3002,13 +3002,13 @@
 
     move-result v15
 
-    .line 1291
+    .line 1286
     .local v15, indexOfFirstOpenParenthesis:I
     const/4 v10, -0x1
 
-    .line 1293
+    .line 1288
     .local v10, indexOfFirstCloseParenthesis:I
-    const-string v25, "{"
+    const-string/jumbo v25, "{"
 
     move-object/from16 v0, p0
 
@@ -3018,11 +3018,11 @@
 
     move-result v13
 
-    .line 1294
+    .line 1289
     .local v13, indexOfFirstOpenBraces:I
     const/4 v8, -0x1
 
-    .line 1296
+    .line 1291
     .local v8, indexOfFirstCloseBraces:I
     const-string v25, "["
 
@@ -3034,11 +3034,11 @@
 
     move-result v14
 
-    .line 1297
+    .line 1292
     .local v14, indexOfFirstOpenBrackets:I
     const/4 v9, -0x1
 
-    .line 1299
+    .line 1294
     .local v9, indexOfFirstCloseBrackets:I
     const-string v25, "/"
 
@@ -3050,7 +3050,7 @@
 
     move-result v11
 
-    .line 1300
+    .line 1295
     .local v11, indexOfFirstForwardSlash:I
     const-string v25, "of"
 
@@ -3062,19 +3062,19 @@
 
     move-result v12
 
-    .line 1302
+    .line 1297
     .local v12, indexOfFirstOf:I
     const/4 v6, -0x1
 
-    .line 1304
+    .line 1299
     .local v6, indexOfContent:I
     const/4 v3, -0x1
 
-    .line 1305
+    .line 1300
     .local v3, currentSegment:I
     const/16 v24, -0x1
 
-    .line 1308
+    .line 1303
     .local v24, totalSegment:I
     if-eqz v15, :cond_2
 
@@ -3082,15 +3082,15 @@
 
     if-nez v14, :cond_10
 
-    .line 1309
+    .line 1304
     :cond_2
     const/16 v16, -0x1
 
-    .line 1310
+    .line 1305
     .local v16, indexOfOpen:I
     const/4 v5, -0x1
 
-    .line 1313
+    .line 1308
     .local v5, indexOfClose:I
     const/16 v25, -0x1
 
@@ -3098,23 +3098,23 @@
 
     if-ne v11, v0, :cond_3
 
-    .line 1314
+    .line 1309
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 without forward slash, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1315
+    .line 1310
     const/16 v19, 0x0
 
     goto :goto_0
 
-    .line 1319
+    .line 1314
     :cond_3
     if-nez v15, :cond_5
 
-    .line 1320
+    .line 1315
     const-string v25, ")"
 
     move-object/from16 v0, p0
@@ -3125,13 +3125,13 @@
 
     move-result v10
 
-    .line 1322
+    .line 1317
     move/from16 v16, v15
 
-    .line 1323
+    .line 1318
     move v5, v10
 
-    .line 1337
+    .line 1332
     :cond_4
     :goto_1
     const/16 v25, -0x1
@@ -3140,24 +3140,24 @@
 
     if-ne v5, v0, :cond_7
 
-    .line 1338
+    .line 1333
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 without close parenthesis, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1339
+    .line 1334
     const/16 v19, 0x0
 
     goto :goto_0
 
-    .line 1324
+    .line 1319
     :cond_5
     if-nez v13, :cond_6
 
-    .line 1325
-    const-string v25, "}"
+    .line 1320
+    const-string/jumbo v25, "}"
 
     move-object/from16 v0, p0
 
@@ -3167,19 +3167,19 @@
 
     move-result v8
 
-    .line 1327
+    .line 1322
     move/from16 v16, v13
 
-    .line 1328
+    .line 1323
     move v5, v8
 
     goto :goto_1
 
-    .line 1329
+    .line 1324
     :cond_6
     if-nez v14, :cond_4
 
-    .line 1330
+    .line 1325
     const-string v25, "]"
 
     move-object/from16 v0, p0
@@ -3190,31 +3190,31 @@
 
     move-result v9
 
-    .line 1332
+    .line 1327
     move/from16 v16, v14
 
-    .line 1333
+    .line 1328
     move v5, v9
 
     goto :goto_1
 
-    .line 1343
+    .line 1338
     :cond_7
     if-le v11, v5, :cond_8
 
-    .line 1344
+    .line 1339
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 forward parenthesis behind close parenthesis, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1345
+    .line 1340
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1350
+    .line 1345
     :cond_8
     add-int/lit8 v25, v5, -0x1
 
@@ -3228,7 +3228,7 @@
 
     if-ne v11, v0, :cond_a
 
-    .line 1352
+    .line 1347
     :cond_9
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3236,16 +3236,16 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1353
+    .line 1348
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1357
+    .line 1352
     :cond_a
     add-int/lit8 v17, v5, 0x1
 
-    .line 1358
+    .line 1353
     .local v17, indexOfRightOfClose:I
     move/from16 v0, v17
 
@@ -3273,7 +3273,7 @@
 
     if-nez v25, :cond_c
 
-    .line 1359
+    .line 1354
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
@@ -3300,14 +3300,14 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1360
+    .line 1355
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v27, "totalLength : "
+    const-string/jumbo v27, "totalLength : "
 
     invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3327,14 +3327,14 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1361
+    .line 1356
     move/from16 v0, v17
 
     move/from16 v1, v23
 
     if-ge v0, v1, :cond_b
 
-    .line 1362
+    .line 1357
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
@@ -3369,7 +3369,7 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1364
+    .line 1359
     :cond_b
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3377,33 +3377,33 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1365
+    .line 1360
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1367
+    .line 1362
     :cond_c
     add-int/lit8 v6, v5, 0x2
 
-    .line 1370
+    .line 1365
     move/from16 v0, v23
 
     if-lt v6, v0, :cond_d
 
-    .line 1371
+    .line 1366
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 has no content, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1372
+    .line 1367
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1377
+    .line 1372
     :cond_d
     add-int/lit8 v25, v16, 0x1
 
@@ -3430,7 +3430,7 @@
 
     move-result v3
 
-    .line 1386
+    .line 1381
     add-int/lit8 v25, v11, 0x1
 
     :try_start_1
@@ -3456,7 +3456,7 @@
 
     move-result v24
 
-    .line 1479
+    .line 1474
     .end local v5           #indexOfClose:I
     .end local v16           #indexOfOpen:I
     .end local v17           #indexOfRightOfClose:I
@@ -3482,7 +3482,7 @@
 
     if-ne v6, v0, :cond_1e
 
-    .line 1480
+    .line 1475
     :cond_f
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3490,19 +3490,19 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1481
+    .line 1476
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1378
+    .line 1373
     .restart local v5       #indexOfClose:I
     .restart local v16       #indexOfOpen:I
     .restart local v17       #indexOfRightOfClose:I
     :catch_0
     move-exception v20
 
-    .line 1379
+    .line 1374
     .local v20, nfe1:Ljava/lang/NumberFormatException;
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3536,24 +3536,24 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1380
+    .line 1375
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 current segment parse fail, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1381
+    .line 1376
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1387
+    .line 1382
     .end local v20           #nfe1:Ljava/lang/NumberFormatException;
     :catch_1
     move-exception v21
 
-    .line 1388
+    .line 1383
     .local v21, nfe2:Ljava/lang/NumberFormatException;
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3561,7 +3561,7 @@
 
     invoke-direct/range {v26 .. v26}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v27, "totalSegment string : "
+    const-string/jumbo v27, "totalSegment string : "
 
     invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3587,19 +3587,19 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1389
+    .line 1384
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 1 without total segment parse fail, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1390
+    .line 1385
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1392
+    .line 1387
     .end local v5           #indexOfClose:I
     .end local v16           #indexOfOpen:I
     .end local v17           #indexOfRightOfClose:I
@@ -3617,7 +3617,7 @@
 
     if-eq v12, v0, :cond_e
 
-    .line 1396
+    .line 1391
     :cond_11
     const/16 v25, -0x1
 
@@ -3631,14 +3631,14 @@
 
     if-ne v12, v0, :cond_12
 
-    .line 1397
+    .line 1392
     const-string v4, "/"
 
-    .line 1398
+    .line 1393
     .local v4, delim:Ljava/lang/String;
     move v7, v11
 
-    .line 1412
+    .line 1407
     .local v7, indexOfDelim:I
     :goto_3
     const/16 v25, 0x0
@@ -3666,7 +3666,7 @@
 
     move-result v3
 
-    .line 1419
+    .line 1414
     const-string v25, "/"
 
     move-object/from16 v0, v25
@@ -3683,19 +3683,19 @@
 
     if-ne v7, v0, :cond_15
 
-    .line 1420
+    .line 1415
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 2 forward slash is the last character, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1421
+    .line 1416
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1399
+    .line 1394
     .end local v4           #delim:Ljava/lang/String;
     .end local v7           #indexOfDelim:I
     :cond_12
@@ -3711,50 +3711,50 @@
 
     if-eq v12, v0, :cond_13
 
-    .line 1400
+    .line 1395
     const-string v4, "of"
 
-    .line 1401
+    .line 1396
     .restart local v4       #delim:Ljava/lang/String;
     move v7, v12
 
     .restart local v7       #indexOfDelim:I
     goto :goto_3
 
-    .line 1402
+    .line 1397
     .end local v4           #delim:Ljava/lang/String;
     .end local v7           #indexOfDelim:I
     :cond_13
     if-ge v11, v12, :cond_14
 
-    .line 1403
+    .line 1398
     const-string v4, "/"
 
-    .line 1404
+    .line 1399
     .restart local v4       #delim:Ljava/lang/String;
     move v7, v11
 
     .restart local v7       #indexOfDelim:I
     goto :goto_3
 
-    .line 1406
+    .line 1401
     .end local v4           #delim:Ljava/lang/String;
     .end local v7           #indexOfDelim:I
     :cond_14
     const-string v4, "of"
 
-    .line 1407
+    .line 1402
     .restart local v4       #delim:Ljava/lang/String;
     move v7, v12
 
     .restart local v7       #indexOfDelim:I
     goto :goto_3
 
-    .line 1413
+    .line 1408
     :catch_2
     move-exception v20
 
-    .line 1414
+    .line 1409
     .restart local v20       #nfe1:Ljava/lang/NumberFormatException;
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3762,12 +3762,12 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1415
+    .line 1410
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1422
+    .line 1417
     .end local v20           #nfe1:Ljava/lang/NumberFormatException;
     :cond_15
     const-string v25, "of"
@@ -3786,19 +3786,19 @@
 
     if-ne v7, v0, :cond_16
 
-    .line 1423
+    .line 1418
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 2 without of is the last word, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1424
+    .line 1419
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1429
+    .line 1424
     :cond_16
     const-string v25, "/"
 
@@ -3810,10 +3810,10 @@
 
     if-eqz v25, :cond_17
 
-    .line 1430
+    .line 1425
     add-int/lit8 v18, v7, 0x1
 
-    .line 1436
+    .line 1431
     .local v18, indexOfTotalSegment:I
     :goto_4
     move/from16 v0, v18
@@ -3842,12 +3842,12 @@
 
     if-eqz v25, :cond_18
 
-    .line 1437
+    .line 1432
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_4
 
-    .line 1432
+    .line 1427
     .end local v18           #indexOfTotalSegment:I
     :cond_17
     add-int/lit8 v18, v7, 0x2
@@ -3855,7 +3855,7 @@
     .restart local v18       #indexOfTotalSegment:I
     goto :goto_4
 
-    .line 1441
+    .line 1436
     :cond_18
     move/from16 v0, v18
 
@@ -3883,7 +3883,7 @@
 
     if-eqz v25, :cond_1a
 
-    .line 1442
+    .line 1437
     :cond_19
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -3891,16 +3891,16 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1443
+    .line 1438
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1447
+    .line 1442
     :cond_1a
     move/from16 v6, v18
 
-    .line 1448
+    .line 1443
     :goto_5
     move/from16 v0, v23
 
@@ -3924,21 +3924,21 @@
 
     if-nez v25, :cond_1b
 
-    .line 1449
+    .line 1444
     add-int/lit8 v6, v6, 0x1
 
     goto :goto_5
 
-    .line 1452
+    .line 1447
     :cond_1b
     add-int/lit8 v6, v6, 0x1
 
-    .line 1455
+    .line 1450
     move/from16 v0, v23
 
     if-lt v6, v0, :cond_1c
 
-    .line 1456
+    .line 1451
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
@@ -3963,19 +3963,19 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1457
+    .line 1452
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 2 can\'t find content, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1458
+    .line 1453
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1462
+    .line 1457
     :cond_1c
     add-int/lit8 v25, v18, 0x1
 
@@ -3983,7 +3983,7 @@
 
     if-ne v0, v6, :cond_1d
 
-    .line 1463
+    .line 1458
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
@@ -4008,7 +4008,7 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1464
+    .line 1459
     const-string v25, "getSprintReassembleSmsInformation"
 
     new-instance v26, Ljava/lang/StringBuilder;
@@ -4035,19 +4035,19 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1465
+    .line 1460
     const-string v25, "getSprintReassembleSmsInformation"
 
     const-string v26, "Type 2 can\'t find space between segment & content, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1466
+    .line 1461
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1471
+    .line 1466
     :cond_1d
     add-int/lit8 v25, v6, -0x1
 
@@ -4078,11 +4078,11 @@
 
     goto/16 :goto_2
 
-    .line 1472
+    .line 1467
     :catch_3
     move-exception v21
 
-    .line 1473
+    .line 1468
     .restart local v21       #nfe2:Ljava/lang/NumberFormatException;
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -4090,12 +4090,12 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1474
+    .line 1469
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1484
+    .line 1479
     .end local v4           #delim:Ljava/lang/String;
     .end local v7           #indexOfDelim:I
     .end local v18           #indexOfTotalSegment:I
@@ -4105,7 +4105,7 @@
 
     if-nez v24, :cond_20
 
-    .line 1485
+    .line 1480
     :cond_1f
     const-string v25, "getSprintReassembleSmsInformation"
 
@@ -4113,12 +4113,12 @@
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1486
+    .line 1481
     const/16 v19, 0x0
 
     goto/16 :goto_0
 
-    .line 1489
+    .line 1484
     :cond_20
     const/16 v25, 0xff
 
@@ -4128,10 +4128,28 @@
 
     if-lt v0, v1, :cond_21
 
+    .line 1485
+    const-string v25, "getSprintReassembleSmsInformation"
+
+    const-string/jumbo v26, "totalSegment size more than one byte, not a Sprint reassmeble SMS"
+
+    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1486
+    const/16 v19, 0x0
+
+    goto/16 :goto_0
+
+    .line 1489
+    :cond_21
+    move/from16 v0, v24
+
+    if-le v3, v0, :cond_22
+
     .line 1490
     const-string v25, "getSprintReassembleSmsInformation"
 
-    const-string v26, "totalSegment size more than one byte, not a Sprint reassmeble SMS"
+    const-string v26, "currentSegment greater than totalSegment, not a Sprint reassmeble SMS"
 
     invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4141,30 +4159,12 @@
     goto/16 :goto_0
 
     .line 1494
-    :cond_21
-    move/from16 v0, v24
-
-    if-le v3, v0, :cond_22
-
-    .line 1495
-    const-string v25, "getSprintReassembleSmsInformation"
-
-    const-string v26, "currentSegment greater than totalSegment, not a Sprint reassmeble SMS"
-
-    invoke-static/range {v25 .. v26}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1496
-    const/16 v19, 0x0
-
-    goto/16 :goto_0
-
-    .line 1499
     :cond_22
     new-instance v22, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1500
+    .line 1495
     .local v22, sb:Ljava/lang/StringBuilder;
     const-string v25, "("
 
@@ -4174,7 +4174,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1501
+    .line 1496
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v25
@@ -4185,7 +4185,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1502
+    .line 1497
     const-string v25, "/"
 
     move-object/from16 v0, v22
@@ -4194,7 +4194,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1503
+    .line 1498
     invoke-static/range {v24 .. v24}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v25
@@ -4205,7 +4205,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1504
+    .line 1499
     const-string v25, ") "
 
     move-object/from16 v0, v22
@@ -4214,7 +4214,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1505
+    .line 1500
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -4227,25 +4227,25 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1507
+    .line 1502
     new-instance v19, Lcom/android/internal/telephony/HtcMessageHelper$SprintReassembleSmsInformation;
 
     invoke-direct/range {v19 .. v19}, Lcom/android/internal/telephony/HtcMessageHelper$SprintReassembleSmsInformation;-><init>()V
 
-    .line 1508
+    .line 1503
     .local v19, info:Lcom/android/internal/telephony/HtcMessageHelper$SprintReassembleSmsInformation;
     move-object/from16 v0, v19
 
     iput v3, v0, Lcom/android/internal/telephony/HtcMessageHelper$SprintReassembleSmsInformation;->currentSegment:I
 
-    .line 1509
+    .line 1504
     move/from16 v0, v24
 
     move-object/from16 v1, v19
 
     iput v0, v1, Lcom/android/internal/telephony/HtcMessageHelper$SprintReassembleSmsInformation;->totalSegment:I
 
-    .line 1510
+    .line 1505
     invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v25
@@ -4293,12 +4293,12 @@
 
     const/4 v4, 0x0
 
-    .line 1555
+    .line 1550
     const/high16 v3, 0x1
 
     sub-int v0, p0, v3
 
-    .line 1556
+    .line 1551
     .local v0, cp2:I
     const v3, 0xfffff
 
@@ -4306,18 +4306,18 @@
 
     move-object v1, v2
 
-    .line 1577
+    .line 1572
     :cond_0
     :goto_0
     return-object v1
 
-    .line 1561
+    .line 1556
     :cond_1
     const/4 v3, 0x2
 
     new-array v1, v3, [C
 
-    .line 1562
+    .line 1557
     .local v1, pair:[C
     shr-int/lit8 v3, v0, 0xa
 
@@ -4329,7 +4329,7 @@
 
     aput-char v3, v1, v4
 
-    .line 1563
+    .line 1558
     and-int/lit16 v3, v0, 0x3ff
 
     add-int/2addr v3, v7
@@ -4338,7 +4338,7 @@
 
     aput-char v3, v1, v5
 
-    .line 1566
+    .line 1561
     aget-char v3, v1, v4
 
     if-lt v3, v6, :cond_2
@@ -4352,10 +4352,10 @@
     :cond_2
     move-object v1, v2
 
-    .line 1567
+    .line 1562
     goto :goto_0
 
-    .line 1570
+    .line 1565
     :cond_3
     aget-char v3, v1, v5
 
@@ -4370,7 +4370,7 @@
     :cond_4
     move-object v1, v2
 
-    .line 1571
+    .line 1566
     goto :goto_0
 .end method
 
@@ -4381,37 +4381,37 @@
     .parameter "pid"
 
     .prologue
-    .line 368
+    .line 367
     :try_start_0
     invoke-static {p0, p1, p2}, Lcom/android/internal/telephony/HtcMessageHelper;->getPackageName(Landroid/content/pm/PackageManager;II)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 369
+    .line 368
     .local v1, packageName:Ljava/lang/String;
     if-eqz v1, :cond_1
 
-    .line 372
+    .line 371
     const/16 v3, 0x40
 
     invoke-virtual {p0, v1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v2
 
-    .line 374
+    .line 373
     .local v2, pkgInfo:Landroid/content/pm/PackageInfo;
     if-eqz v2, :cond_0
 
-    .line 379
+    .line 378
     iget-object v3, v2, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
-    .line 390
+    .line 389
     .end local v1           #packageName:Ljava/lang/String;
     .end local v2           #pkgInfo:Landroid/content/pm/PackageInfo;
     :goto_0
     return-object v3
 
-    .line 382
+    .line 381
     .restart local v1       #packageName:Ljava/lang/String;
     .restart local v2       #pkgInfo:Landroid/content/pm/PackageInfo;
     :cond_0
@@ -4439,7 +4439,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 390
+    .line 389
     .end local v1           #packageName:Ljava/lang/String;
     .end local v2           #pkgInfo:Landroid/content/pm/PackageInfo;
     :cond_1
@@ -4448,11 +4448,11 @@
 
     goto :goto_0
 
-    .line 385
+    .line 384
     :catch_0
     move-exception v0
 
-    .line 387
+    .line 386
     .local v0, ex:Ljava/lang/Exception;
     const-string v3, "SMS"
 
@@ -4543,23 +4543,23 @@
     .parameter "msg"
 
     .prologue
-    .line 1723
+    .line 1718
     if-nez p0, :cond_0
 
-    .line 1724
+    .line 1719
     const/4 v3, 0x0
 
-    .line 1734
+    .line 1729
     :goto_0
     return-object v3
 
-    .line 1727
+    .line 1722
     :cond_0
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1728
+    .line 1723
     .local v2, sb:Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -4567,7 +4567,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1729
+    .line 1724
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -4576,7 +4576,7 @@
 
     move-result v1
 
-    .line 1730
+    .line 1725
     .local v1, lfCount:I
     const/4 v0, 0x0
 
@@ -4584,17 +4584,17 @@
     :goto_1
     if-ge v0, v1, :cond_1
 
-    .line 1731
+    .line 1726
     const-string v3, "1"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1730
+    .line 1725
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 1734
+    .line 1729
     :cond_1
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -4609,16 +4609,16 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 1229
+    .line 1224
     const/4 v0, 0x0
 
-    .line 1230
+    .line 1225
     .local v0, mccMnc:Ljava/lang/String;
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
-    .line 1232
+    .line 1227
     .local v1, tm:Landroid/telephony/TelephonyManager;
     invoke-static {}, Landroid/telephony/TelephonyManager;->dualPhoneEnable()Z
 
@@ -4626,12 +4626,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 1233
+    .line 1228
     invoke-virtual {v1, v3}, Landroid/telephony/TelephonyManager;->getNetworkOperatorExt(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1237
+    .line 1232
     :cond_0
     :goto_0
     const-string v2, "SMS"
@@ -4656,7 +4656,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1238
+    .line 1233
     if-eqz v0, :cond_2
 
     const-string v2, "45429"
@@ -4667,21 +4667,21 @@
 
     if-nez v2, :cond_2
 
-    .line 1239
+    .line 1234
     const-string v2, "SMS"
 
     const-string v3, "Hide Language Indicator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1240
+    .line 1235
     const/4 v2, 0x1
 
-    .line 1243
+    .line 1238
     :goto_1
     return v2
 
-    .line 1234
+    .line 1229
     :cond_1
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
@@ -4689,14 +4689,14 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 1235
+    .line 1230
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getNetworkOperator()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 1243
+    .line 1238
     :cond_2
     const/4 v2, 0x0
 
@@ -4709,16 +4709,16 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 1247
+    .line 1242
     const/4 v0, 0x0
 
-    .line 1248
+    .line 1243
     .local v0, mccMnc:Ljava/lang/String;
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v1
 
-    .line 1250
+    .line 1245
     .local v1, tm:Landroid/telephony/TelephonyManager;
     invoke-static {}, Landroid/telephony/TelephonyManager;->dualPhoneEnable()Z
 
@@ -4726,12 +4726,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 1251
+    .line 1246
     invoke-virtual {v1, v3}, Landroid/telephony/TelephonyManager;->getNetworkOperatorExt(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1255
+    .line 1250
     :cond_0
     :goto_0
     const-string v2, "SMS"
@@ -4756,7 +4756,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1256
+    .line 1251
     if-eqz v0, :cond_2
 
     const-string v2, "45429"
@@ -4767,21 +4767,21 @@
 
     if-nez v2, :cond_2
 
-    .line 1257
+    .line 1252
     const-string v2, "SMS"
 
     const-string v3, "Hide Language Indicator"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1258
+    .line 1253
     const/4 v2, 0x1
 
-    .line 1261
+    .line 1256
     :goto_1
     return v2
 
-    .line 1252
+    .line 1247
     :cond_1
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getPhoneType()I
 
@@ -4789,14 +4789,14 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 1253
+    .line 1248
     invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getNetworkOperator()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 1261
+    .line 1256
     :cond_2
     const/4 v2, 0x0
 
@@ -4827,41 +4827,6 @@
     goto :goto_0
 .end method
 
-.method public static isFollowSprintSpec()Z
-    .locals 2
-
-    .prologue
-    .line 1763
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x94
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xaf
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xc
-
-    if-ne v0, v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static isKddiEmergencyAlert(I)Z
     .locals 2
     .parameter "id"
@@ -4869,7 +4834,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 578
+    .line 577
     const/16 v1, 0x1100
 
     if-eq p0, v1, :cond_0
@@ -4882,12 +4847,12 @@
 
     if-ne p0, v1, :cond_1
 
-    .line 590
+    .line 589
     :cond_0
     :goto_0
     return v0
 
-    .line 586
+    .line 585
     :cond_1
     const v1, 0xa000
 
@@ -4897,7 +4862,7 @@
 
     if-le p0, v1, :cond_0
 
-    .line 590
+    .line 589
     :cond_2
     const/4 v0, 0x0
 
@@ -4909,7 +4874,7 @@
     .parameter "typeId"
 
     .prologue
-    .line 936
+    .line 935
     const v0, 0xef40
 
     if-lt p0, v0, :cond_0
@@ -4918,10 +4883,10 @@
 
     if-gt p0, v0, :cond_0
 
-    .line 937
+    .line 936
     const/4 v0, 0x1
 
-    .line 939
+    .line 938
     :goto_0
     return v0
 
@@ -4936,7 +4901,7 @@
     .parameter "typeId"
 
     .prologue
-    .line 943
+    .line 942
     const/4 v0, 0x2
 
     if-lt p0, v0, :cond_0
@@ -4945,10 +4910,10 @@
 
     if-gt p0, v0, :cond_0
 
-    .line 944
+    .line 943
     const/4 v0, 0x1
 
-    .line 946
+    .line 945
     :goto_0
     return v0
 
@@ -4962,14 +4927,14 @@
     .locals 4
 
     .prologue
-    .line 1037
+    .line 1036
     const-string v1, "gsm.operator.numeric"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1038
+    .line 1037
     .local v0, mccMnc:Ljava/lang/String;
     const-string v1, "isKddiRoaming"
 
@@ -4993,7 +4958,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1039
+    .line 1038
     if-eqz v0, :cond_0
 
     const-string v1, "440"
@@ -5004,11 +4969,11 @@
 
     if-nez v1, :cond_1
 
-    .line 1040
+    .line 1039
     :cond_0
     const/4 v1, 0x0
 
-    .line 1042
+    .line 1041
     :goto_0
     return v1
 
@@ -5023,24 +4988,24 @@
     .parameter "typeId"
 
     .prologue
-    .line 921
+    .line 920
     const/4 v0, 0x0
 
-    .line 922
+    .line 921
     .local v0, isCmail:Z
     const/16 v1, 0x100
 
     if-ne p0, v1, :cond_1
 
-    .line 923
+    .line 922
     const/4 v0, 0x1
 
-    .line 932
+    .line 931
     :cond_0
     :goto_0
     return v0
 
-    .line 924
+    .line 923
     :cond_1
     const/16 v1, 0x103
 
@@ -5050,12 +5015,12 @@
 
     if-gt p0, v1, :cond_2
 
-    .line 925
+    .line 924
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 926
+    .line 925
     :cond_2
     const/16 v1, 0x202
 
@@ -5065,18 +5030,18 @@
 
     if-gt p0, v1, :cond_3
 
-    .line 927
+    .line 926
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 928
+    .line 927
     :cond_3
     const v1, 0xef7f
 
     if-lt p0, v1, :cond_0
 
-    .line 929
+    .line 928
     const/4 v0, 0x1
 
     goto :goto_0
@@ -5087,7 +5052,7 @@
     .parameter "ch"
 
     .prologue
-    .line 1167
+    .line 1166
     const/16 v1, 0x61
 
     if-gt v1, p0, :cond_0
@@ -5108,12 +5073,12 @@
     :cond_1
     const/4 v0, 0x1
 
-    .line 1169
+    .line 1168
     .local v0, bEnglishChar:Z
     :goto_0
     return v0
 
-    .line 1167
+    .line 1166
     .end local v0           #bEnglishChar:Z
     :cond_2
     const/4 v0, 0x0
@@ -5200,59 +5165,16 @@
     goto :goto_0
 .end method
 
-.method public static isSupportReplySmsAckBeforeDispatch()Z
-    .locals 2
-
-    .prologue
-    .line 1747
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x9b
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x94
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xa8
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x71
-
-    if-ne v0, v1, :cond_1
-
-    .line 1751
-    :cond_0
-    const/4 v0, 0x1
-
-    .line 1754
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static isSupportSegmentIndicator()Z
     .locals 2
 
     .prologue
-    .line 1177
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    .line 1172
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v0
+    const/16 v1, 0x94
 
-    if-eqz v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -5281,41 +5203,54 @@
     .locals 2
 
     .prologue
-    .line 169
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    .line 166
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v0
+    const/16 v1, 0x94
 
-    if-eqz v0, :cond_1
+    if-eq v0, v1, :cond_0
 
-    .line 171
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v1, 0xc
+
+    if-eq v0, v1, :cond_0
+
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v1, 0xaf
+
+    if-ne v0, v1, :cond_2
+
+    .line 170
+    :cond_0
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0x95
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0x50
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0xe2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2
 
-    .line 174
-    :cond_0
+    .line 173
+    :cond_1
     const/4 v0, 0x1
 
-    .line 177
+    .line 176
     :goto_0
     return v0
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
@@ -5326,27 +5261,27 @@
     .parameter "smsb"
 
     .prologue
-    .line 766
+    .line 765
     const/4 v0, 0x1
 
     .local v0, result:Z
     move-object v1, p0
 
-    .line 767
+    .line 766
     check-cast v1, Lcom/android/internal/telephony/cdma/SmsMessage;
 
-    .line 769
+    .line 768
     .local v1, sms:Lcom/android/internal/telephony/cdma/SmsMessage;
     sget-boolean v2, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
 
     if-eqz v2, :cond_0
 
-    .line 770
+    .line 769
     invoke-static {v1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiIsSupported3gpp2BCSMS(Lcom/android/internal/telephony/cdma/SmsMessage;)Z
 
     move-result v0
 
-    .line 772
+    .line 771
     :cond_0
     return v0
 .end method
@@ -5357,7 +5292,7 @@
     .parameter "s"
 
     .prologue
-    .line 844
+    .line 843
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
@@ -5365,15 +5300,15 @@
     :cond_0
     const/4 v1, 0x0
 
-    .line 871
+    .line 870
     :goto_0
     return-object v1
 
-    .line 845
+    .line 844
     :cond_1
     const/4 v8, 0x0
 
-    .line 846
+    .line 845
     .local v8, sb:Ljava/lang/StringBuilder;
     sget-object v12, Landroid/util/Patterns;->PHONE:Ljava/util/regex/Pattern;
 
@@ -5383,11 +5318,11 @@
 
     move-result-object v5
 
-    .line 847
+    .line 846
     .local v5, m:Ljava/util/regex/Matcher;
     const/4 v7, 0x0
 
-    .line 848
+    .line 847
     .local v7, offset:I
     :cond_2
     :goto_1
@@ -5397,26 +5332,26 @@
 
     if-eqz v12, :cond_4
 
-    .line 849
+    .line 848
     invoke-virtual {v5}, Ljava/util/regex/Matcher;->start()I
 
     move-result v9
 
-    .line 850
+    .line 849
     .local v9, start:I
     invoke-virtual {v5}, Ljava/util/regex/Matcher;->end()I
 
     move-result v2
 
-    .line 851
+    .line 850
     .local v2, end:I
     sget-object v6, Landroid/text/util/Linkify;->sPhoneNumberMatchFilter:Landroid/text/util/Linkify$MatchFilter;
 
-    .line 852
+    .line 851
     .local v6, matchFilter:Landroid/text/util/Linkify$MatchFilter;
     sget-object v10, Landroid/text/util/Linkify;->sPhoneNumberTransformFilter:Landroid/text/util/Linkify$TransformFilter;
 
-    .line 853
+    .line 852
     .local v10, transformFilter:Landroid/text/util/Linkify$TransformFilter;
     move-object/from16 v0, p1
 
@@ -5426,7 +5361,7 @@
 
     if-eqz v12, :cond_2
 
-    .line 854
+    .line 853
     const/4 v12, 0x0
 
     invoke-virtual {v5, v12}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -5437,7 +5372,7 @@
 
     move-result-object v11
 
-    .line 855
+    .line 854
     .local v11, url:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -5445,7 +5380,7 @@
 
     move-result-object v3
 
-    .line 856
+    .line 855
     .local v3, info:Lcom/android/internal/telephony/CallerInfo;
     if-eqz v3, :cond_2
 
@@ -5457,7 +5392,7 @@
 
     if-lez v12, :cond_2
 
-    .line 857
+    .line 856
     iget-object v12, v3, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
 
     invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -5466,7 +5401,7 @@
 
     if-nez v12, :cond_2
 
-    .line 858
+    .line 857
     if-nez v8, :cond_3
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -5476,7 +5411,7 @@
 
     invoke-direct {v8, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 859
+    .line 858
     .restart local v8       #sb:Ljava/lang/StringBuilder;
     :cond_3
     iget-object v12, v3, Lcom/android/internal/telephony/CallerInfo;->name:Ljava/lang/String;
@@ -5487,7 +5422,7 @@
 
     add-int/lit8 v4, v12, 0x1
 
-    .line 860
+    .line 859
     .local v4, len:I
     add-int v12, v2, v7
 
@@ -5513,12 +5448,12 @@
 
     invoke-virtual {v8, v12, v13}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 861
+    .line 860
     add-int/2addr v7, v4
 
     goto :goto_1
 
-    .line 866
+    .line 865
     .end local v2           #end:I
     .end local v3           #info:Lcom/android/internal/telephony/CallerInfo;
     .end local v4           #len:I
@@ -5529,12 +5464,12 @@
     :cond_4
     if-eqz v8, :cond_5
 
-    .line 867
+    .line 866
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 868
+    .line 867
     .local v1, body:Ljava/lang/String;
     const-string v12, "SMS"
 
@@ -5564,7 +5499,7 @@
     :cond_5
     move-object/from16 v1, p1
 
-    .line 871
+    .line 870
     goto/16 :goto_0
 .end method
 
@@ -5574,19 +5509,19 @@
     .parameter "smsb"
 
     .prologue
-    .line 642
+    .line 641
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->isKddiBCSMS()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 644
+    .line 643
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getMessageIdentifier()I
 
     move-result v0
 
-    .line 645
+    .line 644
     .local v0, msg_id:I
     const-string v1, "SMS"
 
@@ -5610,12 +5545,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 646
+    .line 645
     invoke-static {p0, v0}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheckJEADuplication(Landroid/content/Context;I)Z
 
     move-result v1
 
-    .line 648
+    .line 647
     .end local v0           #msg_id:I
     :goto_0
     return v1
@@ -5634,12 +5569,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 661
+    .line 660
     new-instance v0, Lcom/android/internal/telephony/gsm/SmsCbHeader;
 
     invoke-direct {v0, p1}, Lcom/android/internal/telephony/gsm/SmsCbHeader;-><init>([B)V
 
-    .line 662
+    .line 661
     .local v0, header:Lcom/android/internal/telephony/gsm/SmsCbHeader;
     const-string v3, "SMS"
 
@@ -5667,7 +5602,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 663
+    .line 662
     const-string v3, "SMS"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -5694,7 +5629,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 664
+    .line 663
     const-string v3, "SMS"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -5721,7 +5656,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 665
+    .line 664
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->getServiceCategory()I
 
     move-result v3
@@ -5732,10 +5667,10 @@
 
     if-eqz v3, :cond_2
 
-    .line 667
+    .line 666
     const/4 v1, -0x1
 
-    .line 669
+    .line 668
     .local v1, sn:I
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isGsmFormat()Z
 
@@ -5749,7 +5684,7 @@
 
     if-eqz v3, :cond_3
 
-    .line 673
+    .line 672
     :cond_0
     aget-byte v2, p1, v2
 
@@ -5765,7 +5700,7 @@
 
     or-int v1, v2, v3
 
-    .line 678
+    .line 677
     :cond_1
     :goto_0
     const-string v2, "SMS"
@@ -5774,7 +5709,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "sn: "
+    const-string/jumbo v4, "sn: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5790,17 +5725,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 679
+    .line 678
     invoke-static {p0, v1}, Lcom/android/internal/telephony/HtcMessageHelper;->kddiCheckJEADuplication(Landroid/content/Context;I)Z
 
     move-result v2
 
-    .line 681
+    .line 680
     .end local v1           #sn:I
     :cond_2
     return v2
 
-    .line 674
+    .line 673
     .restart local v1       #sn:I
     :cond_3
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/SmsCbHeader;->isUmtsFormat()Z
@@ -5809,7 +5744,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 676
+    .line 675
     const/4 v2, 0x3
 
     aget-byte v2, p1, v2
@@ -5834,12 +5769,12 @@
     .parameter "smsb"
 
     .prologue
-    .line 706
+    .line 705
     move-object v0, p0
 
     check-cast v0, Lcom/android/internal/telephony/cdma/SmsMessage;
 
-    .line 718
+    .line 717
     .local v0, sms:Lcom/android/internal/telephony/cdma/SmsMessage;
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/SmsMessage;->isKddiEarthquakeAlert()Z
 
@@ -5847,7 +5782,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 719
+    .line 718
     const-string v1, "SMS"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5884,7 +5819,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 720
+    .line 719
     const-string v1, "SMS"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5923,7 +5858,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 721
+    .line 720
     iget v1, v0, Lcom/android/internal/telephony/cdma/SmsMessage;->messageRef:I
 
     sget v2, Lcom/android/internal/telephony/HtcMessageHelper;->mKddiMessageId:I
@@ -5952,41 +5887,41 @@
 
     if-eqz v1, :cond_0
 
-    .line 723
+    .line 722
     const-string v1, "SMS"
 
     const-string v2, "Get duplicated KDDI Earthquake Alert, drop it!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 724
+    .line 723
     const/4 v1, 0x1
 
-    .line 732
+    .line 731
     :goto_0
     return v1
 
-    .line 726
+    .line 725
     :cond_0
     iget v1, v0, Lcom/android/internal/telephony/cdma/SmsMessage;->messageRef:I
 
     sput v1, Lcom/android/internal/telephony/HtcMessageHelper;->mKddiMessageId:I
 
-    .line 727
+    .line 726
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/SmsMessage;->getTimestampMillis()J
 
     move-result-wide v1
 
     sput-wide v1, Lcom/android/internal/telephony/HtcMessageHelper;->mKddiMCTimestamp:J
 
-    .line 728
+    .line 727
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/SmsMessage;->getUserData()[B
 
     move-result-object v1
 
     sput-object v1, Lcom/android/internal/telephony/HtcMessageHelper;->mKddiUserData:[B
 
-    .line 732
+    .line 731
     :cond_1
     const/4 v1, 0x0
 
@@ -5999,10 +5934,10 @@
     .parameter "msg_id"
 
     .prologue
-    .line 596
+    .line 595
     const/4 v8, 0x0
 
-    .line 598
+    .line 597
     .local v8, result:Z
     const/4 v0, 0x4
 
@@ -6033,11 +5968,11 @@
 
     aput-object v1, v2, v0
 
-    .line 604
+    .line 603
     .local v2, projection:[Ljava/lang/String;
     const-string v3, "protocol = ? "
 
-    .line 605
+    .line 604
     .local v3, selection:Ljava/lang/String;
     const/4 v0, 0x1
 
@@ -6051,7 +5986,7 @@
 
     aput-object v1, v4, v0
 
-    .line 608
+    .line 607
     .local v4, selectionArgs:[Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -6067,11 +6002,11 @@
 
     move-result-object v6
 
-    .line 610
+    .line 609
     .local v6, c:Landroid/database/Cursor;
     if-eqz v6, :cond_1
 
-    .line 612
+    .line 611
     :try_start_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -6079,7 +6014,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 613
+    .line 612
     const-string v0, "SMS"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6108,7 +6043,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 615
+    .line 614
     const-string v0, "SMS"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -6139,15 +6074,15 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 616
+    .line 615
     const/4 v8, 0x1
 
-    .line 619
+    .line 618
     :cond_0
     :try_start_2
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    .line 626
+    .line 625
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -6156,7 +6091,7 @@
     :goto_0
     return v8
 
-    .line 619
+    .line 618
     .restart local v2       #projection:[Ljava/lang/String;
     .restart local v3       #selection:Ljava/lang/String;
     .restart local v4       #selectionArgs:[Ljava/lang/String;
@@ -6170,7 +6105,7 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 622
+    .line 621
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -6178,7 +6113,7 @@
     :catch_0
     move-exception v7
 
-    .line 623
+    .line 622
     .local v7, e:Ljava/lang/Exception;
     const-string v0, "SMS"
 
@@ -6202,7 +6137,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 624
+    .line 623
     invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -6214,22 +6149,22 @@
     .parameter "smsb"
 
     .prologue
-    .line 412
+    .line 411
     const/4 v11, 0x0
 
-    .line 413
+    .line 412
     .local v11, result:Z
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v6
 
-    .line 414
+    .line 413
     .local v6, address:Ljava/lang/String;
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getTimestampMillis()J
 
     move-result-wide v8
 
-    .line 424
+    .line 423
     .local v8, date:J
     const/4 v0, 0x2
 
@@ -6248,11 +6183,11 @@
 
     aput-object v1, v2, v0
 
-    .line 428
+    .line 427
     .local v2, projection:[Ljava/lang/String;
     const-string v3, "address = ? AND date = ? "
 
-    .line 430
+    .line 429
     .local v3, selection:Ljava/lang/String;
     const/4 v0, 0x2
 
@@ -6270,7 +6205,7 @@
 
     aput-object v1, v4, v0
 
-    .line 434
+    .line 433
     .local v4, selectionArgs:[Ljava/lang/String;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -6286,11 +6221,11 @@
 
     move-result-object v7
 
-    .line 436
+    .line 435
     .local v7, c:Landroid/database/Cursor;
     if-eqz v7, :cond_1
 
-    .line 438
+    .line 437
     :try_start_1
     invoke-interface {v7}, Landroid/database/Cursor;->moveToFirst()Z
 
@@ -6298,7 +6233,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 439
+    .line 438
     const-string v0, "SMS"
 
     const-string v1, "Detecte duplicated SMS"
@@ -6307,15 +6242,15 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 440
+    .line 439
     const/4 v11, 0x1
 
-    .line 443
+    .line 442
     :cond_0
     :try_start_2
     invoke-interface {v7}, Landroid/database/Cursor;->close()V
 
-    .line 450
+    .line 449
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -6324,7 +6259,7 @@
     :goto_0
     return v11
 
-    .line 443
+    .line 442
     .restart local v2       #projection:[Ljava/lang/String;
     .restart local v3       #selection:Ljava/lang/String;
     .restart local v4       #selectionArgs:[Ljava/lang/String;
@@ -6338,7 +6273,7 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 446
+    .line 445
     .end local v2           #projection:[Ljava/lang/String;
     .end local v3           #selection:Ljava/lang/String;
     .end local v4           #selectionArgs:[Ljava/lang/String;
@@ -6346,7 +6281,7 @@
     :catch_0
     move-exception v10
 
-    .line 447
+    .line 446
     .local v10, e:Ljava/lang/Exception;
     const-string v0, "SMS"
 
@@ -6354,7 +6289,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 448
+    .line 447
     invoke-virtual {v10}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -6366,21 +6301,21 @@
     .parameter "sms"
 
     .prologue
-    .line 817
+    .line 816
     sget-boolean v3, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
 
     if-nez v3, :cond_1
 
-    .line 840
+    .line 839
     :cond_0
     :goto_0
     return-void
 
-    .line 818
+    .line 817
     :cond_1
     iget-object v2, p1, Landroid/telephony/SmsMessage;->mWrappedSmsMessage:Lcom/android/internal/telephony/SmsMessageBase;
 
-    .line 821
+    .line 820
     .local v2, smsb:Lcom/android/internal/telephony/SmsMessageBase;
     instance-of v3, v2, Lcom/android/internal/telephony/cdma/SmsMessage;
 
@@ -6388,10 +6323,10 @@
 
     move-object v0, v2
 
-    .line 822
+    .line 821
     check-cast v0, Lcom/android/internal/telephony/cdma/SmsMessage;
 
-    .line 824
+    .line 823
     .local v0, msg:Lcom/android/internal/telephony/cdma/SmsMessage;
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/SmsMessage;->kddiHasSmsTypeId()Z
 
@@ -6399,12 +6334,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 825
+    .line 824
     invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/SmsMessage;->kddiGetSmsTypeId()I
 
     move-result v1
 
-    .line 833
+    .line 832
     .local v1, smsId:I
     const/16 v3, 0x101
 
@@ -6418,7 +6353,7 @@
 
     if-ne v1, v3, :cond_0
 
-    .line 836
+    .line 835
     :cond_2
     invoke-virtual {p1}, Landroid/telephony/SmsMessage;->getMessageBody()Ljava/lang/String;
 
@@ -6438,10 +6373,10 @@
     .parameter "sms"
 
     .prologue
-    .line 786
+    .line 785
     const/4 v0, 0x0
 
-    .line 787
+    .line 786
     .local v0, result:Z
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
@@ -6449,7 +6384,7 @@
 
     if-eqz v2, :cond_2
 
-    .line 789
+    .line 788
     const-string v2, "kddi.lab.test"
 
     const-string v3, "false"
@@ -6458,9 +6393,9 @@
 
     move-result-object v1
 
-    .line 790
+    .line 789
     .local v1, testMode:Ljava/lang/String;
-    const-string v2, "true"
+    const-string/jumbo v2, "true"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -6470,13 +6405,13 @@
 
     const/4 v0, 0x1
 
-    .line 801
+    .line 800
     .end local v1           #testMode:Ljava/lang/String;
     :cond_0
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 802
+    .line 801
     const-string v2, "SMS"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -6503,17 +6438,17 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 804
+    .line 803
     :cond_1
     return v0
 
-    .line 792
+    .line 791
     :cond_2
     sget-boolean v2, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_CONFIG:Z
 
     if-eqz v2, :cond_0
 
-    .line 798
+    .line 797
     const/4 v0, 0x1
 
     goto :goto_0
@@ -6524,10 +6459,10 @@
     .parameter "sms"
 
     .prologue
-    .line 740
+    .line 739
     const/4 v0, 0x1
 
-    .line 741
+    .line 740
     .local v0, result:Z
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
@@ -6535,12 +6470,12 @@
 
     if-eqz v1, :cond_2
 
-    .line 750
+    .line 749
     :cond_0
     :goto_0
     if-nez v0, :cond_1
 
-    .line 751
+    .line 750
     const-string v1, "SMS"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -6567,11 +6502,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 754
+    .line 753
     :cond_1
     return v0
 
-    .line 746
+    .line 745
     :cond_2
     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/SmsMessage;->isKddiBroadcastSmsReceived()Z
 
@@ -6579,7 +6514,7 @@
 
     if-nez v1, :cond_0
 
-    .line 747
+    .line 746
     const/4 v0, 0x0
 
     goto :goto_0
@@ -6594,7 +6529,7 @@
 
     const/4 v9, 0x0
 
-    .line 1646
+    .line 1641
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -6603,23 +6538,23 @@
 
     if-nez v8, :cond_1
 
-    .line 1647
+    .line 1642
     :cond_0
     new-instance v4, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;
 
     invoke-direct {v4}, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;-><init>()V
 
-    .line 1691
+    .line 1686
     :goto_0
     return-object v4
 
-    .line 1650
+    .line 1645
     :cond_1
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1651
+    .line 1646
     .local v5, sb:Ljava/lang/StringBuilder;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -6627,19 +6562,19 @@
 
     add-int/lit8 v2, v8, -0x2
 
-    .line 1652
+    .line 1647
     .local v2, endPosition:I
     const/4 v8, 0x2
 
     new-array v6, v8, [C
 
-    .line 1654
+    .line 1649
     .local v6, singleEmoji:[C
     new-instance v4, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;
 
     invoke-direct {v4}, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;-><init>()V
 
-    .line 1657
+    .line 1652
     .local v4, result:Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;
     const/4 v3, 0x0
 
@@ -6647,14 +6582,14 @@
     :goto_1
     if-gt v3, v2, :cond_4
 
-    .line 1658
+    .line 1653
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v8
 
     aput-char v8, v6, v9
 
-    .line 1659
+    .line 1654
     add-int/lit8 v8, v3, 0x1
 
     invoke-virtual {p0, v8}, Ljava/lang/String;->charAt(I)C
@@ -6663,46 +6598,46 @@
 
     aput-char v8, v6, v10
 
-    .line 1665
+    .line 1660
     invoke-static {v6}, Lcom/android/internal/telephony/HtcMessageHelper;->getGooglePuaFromSurrogatePair([C)I
 
     move-result v1
 
-    .line 1669
+    .line 1664
     .local v1, codePoint:I
     if-nez v1, :cond_2
 
-    .line 1670
+    .line 1665
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v8
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1657
+    .line 1652
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 1673
+    .line 1668
     :cond_2
     invoke-static {v1}, Lcom/android/internal/telephony/KddiEmojiAlphabet;->puaToUnicode(I)C
 
     move-result v7
 
-    .line 1674
+    .line 1669
     .local v7, unicode:C
     const/4 v8, -0x1
 
     if-eq v7, v8, :cond_3
 
-    .line 1675
+    .line 1670
     new-array v0, v10, [C
 
     aput-char v7, v0, v9
 
-    .line 1676
+    .line 1671
     .local v0, chars:[C
     new-instance v8, Ljava/lang/String;
 
@@ -6710,20 +6645,20 @@
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1677
+    .line 1672
     iget v8, v4, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;->emojiCount:I
 
     add-int/lit8 v8, v8, 0x1
 
     iput v8, v4, Lcom/android/internal/telephony/HtcMessageHelper$KddiReplaceUnicodeEmojiResult;->emojiCount:I
 
-    .line 1678
+    .line 1673
     add-int/lit8 v3, v3, 0x1
 
-    .line 1679
+    .line 1674
     goto :goto_2
 
-    .line 1680
+    .line 1675
     .end local v0           #chars:[C
     :cond_3
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
@@ -6734,7 +6669,7 @@
 
     goto :goto_2
 
-    .line 1685
+    .line 1680
     .end local v1           #codePoint:I
     .end local v7           #unicode:C
     :cond_4
@@ -6750,14 +6685,14 @@
 
     if-ge v3, v8, :cond_5
 
-    .line 1686
+    .line 1681
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v8
 
     invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1689
+    .line 1684
     :cond_5
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -6779,7 +6714,7 @@
 
     const/4 v7, 0x0
 
-    .line 1587
+    .line 1582
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -6788,15 +6723,15 @@
 
     if-nez v6, :cond_1
 
-    .line 1588
+    .line 1583
     :cond_0
     const-string v6, ""
 
-    .line 1626
+    .line 1621
     :goto_0
     return-object v6
 
-    .line 1591
+    .line 1586
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -6804,17 +6739,17 @@
 
     add-int/lit8 v2, v6, -0x1
 
-    .line 1592
+    .line 1587
     .local v2, endPosition:I
     new-array v5, v9, [C
 
-    .line 1594
+    .line 1589
     .local v5, singleEmoji:[C
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1596
+    .line 1591
     .local v4, sb:Ljava/lang/StringBuilder;
     const/4 v3, 0x0
 
@@ -6822,7 +6757,7 @@
     :goto_1
     if-gt v3, v2, :cond_4
 
-    .line 1600
+    .line 1595
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
@@ -6831,41 +6766,41 @@
 
     move-result v1
 
-    .line 1604
+    .line 1599
     .local v1, codePoint:I
     const/4 v5, 0x0
 
-    .line 1605
+    .line 1600
     const/4 v6, -0x1
 
     if-eq v1, v6, :cond_2
 
-    .line 1607
+    .line 1602
     invoke-static {v1}, Lcom/android/internal/telephony/HtcMessageHelper;->getSurrogatePairFromGooglePua(I)[C
 
     move-result-object v5
 
-    .line 1609
+    .line 1604
     if-eqz v5, :cond_2
 
-    .line 1615
+    .line 1610
     :cond_2
     if-nez v5, :cond_3
 
-    .line 1616
+    .line 1611
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v6
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1596
+    .line 1591
     :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
-    .line 1618
+    .line 1613
     :cond_3
     new-array v0, v9, [C
 
@@ -6877,7 +6812,7 @@
 
     aput-char v6, v0, v8
 
-    .line 1619
+    .line 1614
     .local v0, chars:[C
     new-instance v6, Ljava/lang/String;
 
@@ -6887,7 +6822,7 @@
 
     goto :goto_2
 
-    .line 1626
+    .line 1621
     .end local v0           #chars:[C
     .end local v1           #codePoint:I
     :cond_4
@@ -6905,16 +6840,16 @@
     .parameter "fillIn"
 
     .prologue
-    .line 494
+    .line 493
     invoke-static {p0, p1}, Lcom/android/internal/telephony/HtcMessageHelper;->getIntentFromPendingList(Landroid/content/Context;I)Landroid/content/Intent;
 
     move-result-object v2
 
-    .line 495
+    .line 494
     .local v2, retIntent:Landroid/content/Intent;
     if-eqz v2, :cond_1
 
-    .line 497
+    .line 496
     if-eqz p2, :cond_0
 
     const/4 v1, 0x0
@@ -6922,13 +6857,13 @@
     :try_start_0
     invoke-virtual {v2, p2, v1}, Landroid/content/Intent;->fillIn(Landroid/content/Intent;I)I
 
-    .line 498
+    .line 497
     :cond_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v0
 
-    .line 499
+    .line 498
     .local v0, am:Landroid/app/IActivityManager;
     const/4 v1, 0x0
 
@@ -6956,17 +6891,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 505
+    .line 504
     .end local v0           #am:Landroid/app/IActivityManager;
     :cond_1
     :goto_0
     return-void
 
-    .line 501
+    .line 500
     :catch_0
     move-exception v12
 
-    .line 502
+    .line 501
     .local v12, e:Ljava/lang/Exception;
     const-string v1, "SMS"
 

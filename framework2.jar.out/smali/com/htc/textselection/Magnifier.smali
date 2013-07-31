@@ -228,7 +228,7 @@
     iput v1, p0, Lcom/htc/textselection/Magnifier;->DENSITY:F
 
     .line 78
-    const v1, 0x4020061
+    const v1, 0x4020089
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1472,7 +1472,7 @@
 
     move-result-object v21
 
-    const-string v22, "window"
+    const-string/jumbo v22, "window"
 
     invoke-virtual/range {v21 .. v22}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2034,6 +2034,8 @@
     goto/16 :goto_0
 
     .line 211
+    nop
+
     nop
 
     :array_0

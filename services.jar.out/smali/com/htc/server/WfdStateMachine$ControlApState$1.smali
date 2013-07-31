@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1134
+    .line 1127
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlApState;
 
     iput-object p2, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->val$wifiApConfig:Landroid/net/wifi/WifiConfiguration;
@@ -45,12 +45,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1137
+    .line 1130
     sget-boolean v1, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-nez v1, :cond_2
 
-    .line 1138
+    .line 1131
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlApState;
 
     iget-object v1, v1, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -61,7 +61,7 @@
 
     move-result v0
 
-    .line 1139
+    .line 1132
     .local v0, wifiState:I
     const/4 v1, 0x2
 
@@ -71,7 +71,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 1141
+    .line 1134
     :cond_0
     const-string v1, "WfdStateMachine"
 
@@ -79,7 +79,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1142
+    .line 1135
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlApState;
 
     iget-object v1, v1, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -90,7 +90,7 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 1146
+    .line 1139
     :cond_1
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlApState;
 
@@ -102,12 +102,12 @@
 
     invoke-static {v1, v2, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifidisplayApEnabled(Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 1150
+    .line 1143
     .end local v0           #wifiState:I
     :goto_0
     return-void
 
-    .line 1148
+    .line 1141
     :cond_2
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState$1;->this$1:Lcom/htc/server/WfdStateMachine$ControlApState;
 

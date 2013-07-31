@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5737
+    .line 6590
     iput-object p1, p0, Landroid/widget/Editor$2;->this$0:Landroid/widget/Editor;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
     .locals 1
 
     .prologue
-    .line 5739
+    .line 6592
     iget-object v0, p0, Landroid/widget/Editor$2;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->hookIME()V
-    invoke-static {v0}, Landroid/widget/Editor;->access$6300(Landroid/widget/Editor;)V
+    invoke-static {v0}, Landroid/widget/Editor;->access$7500(Landroid/widget/Editor;)V
 
-    .line 5740
+    .line 6593
     return-void
 .end method

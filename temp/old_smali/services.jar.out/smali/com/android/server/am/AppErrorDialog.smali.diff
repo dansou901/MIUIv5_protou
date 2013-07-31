@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/am/AppErrorDialog.smali	2013-07-12 21:42:31.041832338 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/AppErrorDialog.smali	2013-07-12 21:40:26.805155427 +0000
+*** ./smali/com/android/server/am/AppErrorDialog.smali	2013-07-31 22:21:58.200731122 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/AppErrorDialog.smali	2013-07-31 22:21:03.507393224 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

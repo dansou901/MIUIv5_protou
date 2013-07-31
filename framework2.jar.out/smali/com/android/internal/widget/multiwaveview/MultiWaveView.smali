@@ -1219,7 +1219,7 @@
 
     const/4 v5, 0x6
 
-    const-string v6, "x"
+    const-string/jumbo v6, "x"
 
     aput-object v6, v4, v5
 
@@ -1233,7 +1233,7 @@
 
     const/16 v5, 0x8
 
-    const-string v6, "y"
+    const-string/jumbo v6, "y"
 
     aput-object v6, v4, v5
 
@@ -4327,7 +4327,7 @@
 
     const/16 v22, 0x4
 
-    const-string v23, "x"
+    const-string/jumbo v23, "x"
 
     aput-object v23, v21, v22
 
@@ -4337,7 +4337,7 @@
 
     const/16 v22, 0x6
 
-    const-string v23, "y"
+    const-string/jumbo v23, "y"
 
     aput-object v23, v21, v22
 
@@ -6030,7 +6030,7 @@
 
     move-result-object v0
 
-    const-string v1, "vibrator"
+    const-string/jumbo v1, "vibrator"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

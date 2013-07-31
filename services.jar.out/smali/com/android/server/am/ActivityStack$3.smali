@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5263
+    .line 5249
     iput-object p1, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,98 +41,23 @@
     .locals 2
 
     .prologue
-    .line 5266
+    .line 5252
     const-string v0, "CpuWake"
 
     const-string v1, ">>nativeReleaseCpuPerfWakeLock()"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5267
+    .line 5253
     invoke-static {}, Lcom/android/server/PowerManagerService;->nativeReleaseCpuPerfWakeLock()V
 
-    .line 5268
+    .line 5254
     const-string v0, "CpuWake"
 
     const-string v1, "<<nativeReleaseCpuPerfWakeLock()"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5271
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget v0, v0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
-    if-lez v0, :cond_2
-
-    .line 5272
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityStack;->mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    if-eqz v0, :cond_0
-
-    .line 5273
-    const-string v0, "CpuWake"
-
-    const-string v1, ">>release mCpuPerf_cpu_count wakelock"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 5274
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityStack;->mCpuPerf_cpu_count:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$HtcCpuCtrl;->release()V
-
-    .line 5275
-    const-string v0, "CpuWake"
-
-    const-string v1, "<<release mCpuPerf_cpu_count wakelock"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 5277
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityStack;->mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    if-eqz v0, :cond_1
-
-    .line 5278
-    const-string v0, "CpuWake"
-
-    const-string v1, ">>release mCpuPerf_Freq wakelock"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 5279
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget-object v0, v0, Lcom/android/server/am/ActivityStack;->mCpuPerf_Freq:Landroid/os/PowerManager$HtcCpuCtrl;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$HtcCpuCtrl;->release()V
-
-    .line 5280
-    const-string v0, "CpuWake"
-
-    const-string v1, "<<release mCpuPerf_Freq wakelock"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 5282
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/am/ActivityStack$3;->this$0:Lcom/android/server/am/ActivityStack;
-
-    iget v1, v0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
-    add-int/lit8 v1, v1, -0x1
-
-    iput v1, v0, Lcom/android/server/am/ActivityStack;->mAdjustCpuRef:I
-
-    .line 5285
-    :cond_2
+    .line 5255
     return-void
 .end method

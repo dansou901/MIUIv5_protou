@@ -1,0 +1,19 @@
+*** WebSettingsClassic.smali	2013-07-31 22:21:51.810730589 +0000
+--- WebSettingsClassic.smali	2013-07-31 22:23:17.364071063 +0000
+***************
+*** 255,262 ****
+  
+      iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesAutomatically:Z
+  
+-     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
+- 
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mBlockNetworkImage:Z
+  
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mJavaScriptEnabled:Z
+--- 253,258 ----
+  
+      iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesAutomatically:Z
+  
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mBlockNetworkImage:Z
+  
+      iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mJavaScriptEnabled:Z

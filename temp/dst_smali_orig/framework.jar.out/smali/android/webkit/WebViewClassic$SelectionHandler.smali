@@ -76,7 +76,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectingText:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$1100(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -89,13 +89,13 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->resetCaretTimer()V
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8600(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)V
 
     :cond_0
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -104,7 +104,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -126,7 +126,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -148,7 +148,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectingText:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$1100(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -168,7 +168,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -177,7 +177,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -197,7 +197,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectionStarted:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10400(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10500(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -215,7 +215,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mQuickActionsHelper:Landroid/webkit/QuickActionsHelper;
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8400(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$8200(Landroid/webkit/WebViewClassic;)Landroid/webkit/QuickActionsHelper;
 
     move-result-object v6
 
@@ -248,7 +248,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectionStarted:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10400(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10500(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -261,7 +261,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mCanShowPrior:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10500(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$10600(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -279,7 +279,7 @@
     iget-object v9, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mCanShowPost:Z
-    invoke-static {v9}, Landroid/webkit/WebViewClassic;->access$10600(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v9}, Landroid/webkit/WebViewClassic;->access$10700(Landroid/webkit/WebViewClassic;)Z
 
     move-result v9
 
@@ -328,12 +328,12 @@
     invoke-direct {v7}, Landroid/webkit/WebView$HitTestResult;-><init>()V
 
     #setter for: Landroid/webkit/WebViewClassic;->mInitialHitTestResult:Landroid/webkit/WebView$HitTestResult;
-    invoke-static {v6, v7}, Landroid/webkit/WebViewClassic;->access$10702(Landroid/webkit/WebViewClassic;Landroid/webkit/WebView$HitTestResult;)Landroid/webkit/WebView$HitTestResult;
+    invoke-static {v6, v7}, Landroid/webkit/WebViewClassic;->access$10802(Landroid/webkit/WebViewClassic;Landroid/webkit/WebView$HitTestResult;)Landroid/webkit/WebView$HitTestResult;
 
     iget-object v6, p0, Landroid/webkit/WebViewClassic$SelectionHandler;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->setHitTestTypeFromUrl(Ljava/lang/String;)V
-    invoke-static {v6, v5}, Landroid/webkit/WebViewClassic;->access$10800(Landroid/webkit/WebViewClassic;Ljava/lang/String;)V
+    invoke-static {v6, v5}, Landroid/webkit/WebViewClassic;->access$10900(Landroid/webkit/WebViewClassic;Ljava/lang/String;)V
 
     :goto_3
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -370,7 +370,7 @@
     const/4 v7, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mInitialHitTestResult:Landroid/webkit/WebView$HitTestResult;
-    invoke-static {v6, v7}, Landroid/webkit/WebViewClassic;->access$10702(Landroid/webkit/WebViewClassic;Landroid/webkit/WebView$HitTestResult;)Landroid/webkit/WebView$HitTestResult;
+    invoke-static {v6, v7}, Landroid/webkit/WebViewClassic;->access$10802(Landroid/webkit/WebViewClassic;Landroid/webkit/WebView$HitTestResult;)Landroid/webkit/WebView$HitTestResult;
 
     goto :goto_3
 

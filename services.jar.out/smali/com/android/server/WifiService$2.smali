@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 784
+    .line 776
     iput-object p1, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -46,7 +46,7 @@
 
     const/4 v5, 0x0
 
-    .line 788
+    .line 780
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->isAirplaneModeOn()Z
@@ -67,26 +67,26 @@
 
     move v0, v4
 
-    .line 789
+    .line 781
     .local v0, airplane:Z
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 790
+    .line 782
     sget-short v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v7, 0xd8
 
     if-ne v6, v7, :cond_0
 
-    .line 791
+    .line 783
     const-string v6, "WifiService"
 
     const-string v7, "\n[C+W] ACTION_AIRPLANE_MODE_CHANGED trigger CWDeRegister++\n"
 
     invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 792
+    .line 784
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -96,14 +96,14 @@
 
     invoke-virtual {v6}, Landroid/net/wifi/WifiStateMachine;->tryTostartCWDeRegister()V
 
-    .line 793
+    .line 785
     const-string v6, "WifiService"
 
     const-string v7, "\n[C+W] ACTION_AIRPLANE_MODE_CHANGED trigger CWDeRegister--\n"
 
     invoke-static {v6, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 796
+    .line 788
     :cond_0
     const-string v6, "WifiService"
 
@@ -111,7 +111,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 798
+    .line 790
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mAirplaneModeOn:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -128,7 +128,7 @@
 
     invoke-virtual {v6, v7}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 801
+    .line 793
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiApAirplaneModeOverwridden:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -138,7 +138,7 @@
 
     invoke-virtual {v6, v5}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 802
+    .line 794
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mAirplaneModeOn:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -167,13 +167,13 @@
 
     if-ne v6, v7, :cond_1
 
-    .line 803
+    .line 795
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->persistWifiState(Z)V
     invoke-static {v6, v4}, Lcom/android/server/WifiService;->access$2100(Lcom/android/server/WifiService;Z)V
 
-    .line 806
+    .line 798
     :cond_1
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
@@ -193,7 +193,7 @@
 
     if-nez v6, :cond_2
 
-    .line 807
+    .line 799
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->getPersistedWifiApEnabled()Z
@@ -201,7 +201,7 @@
 
     move-result v2
 
-    .line 808
+    .line 800
     .local v2, wifiApEnabled:Z
     iget-object v6, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
@@ -227,7 +227,7 @@
 
     move v1, v4
 
-    .line 809
+    .line 801
     .local v1, wifiApAirplaneMode:Z
     :goto_1
     if-eqz v2, :cond_6
@@ -236,19 +236,19 @@
 
     move v3, v4
 
-    .line 810
+    .line 802
     .local v3, wifiApShouldBeEnabled:Z
     :goto_2
     if-eqz v3, :cond_7
 
-    .line 811
+    .line 803
     const-string v5, "WifiService"
 
     const-string v6, "enable hotspot : receive Intent.ACTION_AIRPLANE_MODE_CHANGED"
 
     invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 812
+    .line 804
     iget-object v5, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
@@ -258,7 +258,7 @@
     #calls: Lcom/android/server/WifiService;->sendAccessPointMhsRequestMessage(ZLandroid/net/wifi/WifiConfiguration;I)V
     invoke-static {v5, v4, v8, v6}, Lcom/android/server/WifiService;->access$2300(Lcom/android/server/WifiService;ZLandroid/net/wifi/WifiConfiguration;I)V
 
-    .line 820
+    .line 812
     .end local v1           #wifiApAirplaneMode:Z
     .end local v2           #wifiApEnabled:Z
     .end local v3           #wifiApShouldBeEnabled:Z
@@ -269,12 +269,12 @@
     #calls: Lcom/android/server/WifiService;->updateWifiState()V
     invoke-static {v4}, Lcom/android/server/WifiService;->access$2400(Lcom/android/server/WifiService;)V
 
-    .line 823
+    .line 815
     sget-boolean v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->HTC_EAP_AKA_flag:Z
 
     if-eqz v4, :cond_3
 
-    .line 824
+    .line 816
     iget-object v4, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->isAirplaneModeOn()Z
@@ -284,7 +284,7 @@
 
     if-nez v4, :cond_3
 
-    .line 825
+    .line 817
     iget-object v4, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -294,7 +294,7 @@
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->notifyGetAirPlaneMode()V
 
-    .line 827
+    .line 819
     :cond_3
     return-void
 
@@ -302,7 +302,7 @@
     :cond_4
     move v0, v5
 
-    .line 788
+    .line 780
     goto/16 :goto_0
 
     .restart local v0       #airplane:Z
@@ -310,17 +310,17 @@
     :cond_5
     move v1, v5
 
-    .line 808
+    .line 800
     goto :goto_1
 
     .restart local v1       #wifiApAirplaneMode:Z
     :cond_6
     move v3, v5
 
-    .line 809
+    .line 801
     goto :goto_2
 
-    .line 814
+    .line 806
     .restart local v3       #wifiApShouldBeEnabled:Z
     :cond_7
     const-string v4, "WifiService"
@@ -329,7 +329,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 815
+    .line 807
     iget-object v4, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -339,7 +339,7 @@
 
     invoke-virtual {v4, v8, v5}, Landroid/net/wifi/WifiStateMachine;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)V
 
-    .line 816
+    .line 808
     iget-object v4, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 
     iget-object v4, v4, Lcom/android/server/WifiService;->mCm:Landroid/net/ConnectivityManager;
@@ -356,7 +356,7 @@
 
     invoke-virtual {v4, v6, v7, v8}, Landroid/net/ConnectivityManager;->htcRequestPermittedTether(IILjava/lang/String;)I
 
-    .line 817
+    .line 809
     :cond_8
     iget-object v4, p0, Lcom/android/server/WifiService$2;->this$0:Lcom/android/server/WifiService;
 

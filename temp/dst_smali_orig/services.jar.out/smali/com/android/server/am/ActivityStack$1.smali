@@ -600,17 +600,8 @@
     invoke-virtual {v3, v5, v6, v7}, Lcom/android/server/am/ActivityStack;->destroyActivitiesLocked(Lcom/android/server/am/ProcessRecord;ZLjava/lang/String;)V
 
     monitor-exit v4
-
-    goto/16 :goto_0
-
-    :catchall_6
-    move-exception v3
-
-    monitor-exit v4
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_6
-
-    throw v3
 
     .end local v0           #args:Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
     :sswitch_a
@@ -630,6 +621,17 @@
     invoke-static {v3, v4}, Lcom/android/server/am/ActivityStack;->access$000(Lcom/android/server/am/ActivityStack;Landroid/content/Context;)V
 
     goto/16 :goto_0
+
+    .restart local v0       #args:Lcom/android/server/am/ActivityStack$ScheduleDestroyArgs;
+    :catchall_6
+    move-exception v3
+
+    :try_start_8
+    monitor-exit v4
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_6
+
+    throw v3
 
     :sswitch_data_0
     .sparse-switch

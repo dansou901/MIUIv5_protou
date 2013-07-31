@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 1016
+    .line 950
     iput-object p1, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
     iput-object p2, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
@@ -40,142 +40,102 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 7
 
     .prologue
-    .line 1021
+    .line 955
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
+    iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
-    iget-object v4, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
+    iget-object v3, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
     #getter for: Lcom/android/server/MountService;->mExternalStoragePath:Ljava/lang/String;
-    invoke-static {v4}, Lcom/android/server/MountService;->access$2900(Lcom/android/server/MountService;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Lcom/android/server/MountService;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/MountService;->access$2400(Lcom/android/server/MountService;)Ljava/lang/String;
 
     move-result-object v3
 
-    const-string v4, "shared"
+    invoke-virtual {v2, v3}, Lcom/android/server/MountService;->getVolumeState(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result v3
+    const-string v3, "shared"
 
-    if-eqz v3, :cond_2
-
-    .line 1023
-    iget-object v3, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
-
-    iget-object v4, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
-
-    const-string v5, "ums"
-
-    const/4 v6, 0x1
-
-    #calls: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
-    invoke-static {v3, v4, v5, v6}, Lcom/android/server/MountService;->access$400(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    .line 1027
-    :cond_0
-    :goto_0
-    invoke-static {}, Lcom/android/server/MountService;->access$1000()Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    .line 1033
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v3, "android.settings.MEMORY_CARD_SETTINGS"
-
-    invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 1034
-    .local v1, in:Landroid/content/Intent;
-    const/high16 v3, 0x1000
-
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    .line 1035
-    const-string v3, "SD_POLICY"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 1036
-    iget-object v3, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
-
-    #getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/android/server/MountService;->access$900(Lcom/android/server/MountService;)Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    .line 1041
-    .end local v1           #in:Landroid/content/Intent;
-    :cond_1
-    :goto_1
-    return-void
-
-    .line 1024
-    :cond_2
-    iget-object v3, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
-
-    iget-object v4, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
-
-    #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
-    invoke-static {v3, v4}, Lcom/android/server/MountService;->access$1700(Lcom/android/server/MountService;Ljava/lang/String;)I
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    .local v2, rc:I
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
-    .line 1025
-    const-string v3, "MountService"
+    .line 957
+    iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
-    const-string v4, "Insertion mount failed (%d)"
+    iget-object v3, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
+
+    const-string v4, "ums"
 
     const/4 v5, 0x1
 
-    new-array v5, v5, [Ljava/lang/Object;
+    #calls: Lcom/android/server/MountService;->doShareUnshareVolume(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v2, v3, v4, v5}, Lcom/android/server/MountService;->access$400(Lcom/android/server/MountService;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    const/4 v6, 0x0
+    .line 964
+    :cond_0
+    :goto_0
+    return-void
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    .line 958
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
-    move-result-object v7
+    iget-object v3, p0, Lcom/android/server/MountService$3;->val$path:Ljava/lang/String;
 
-    aput-object v7, v5, v6
+    #calls: Lcom/android/server/MountService;->doMountVolume(Ljava/lang/String;)I
+    invoke-static {v2, v3}, Lcom/android/server/MountService;->access$1400(Lcom/android/server/MountService;Ljava/lang/String;)I
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result v1
 
-    move-result-object v4
+    .local v1, rc:I
+    if-eqz v1, :cond_0
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 959
+    const-string v2, "MountService"
+
+    const-string v3, "Insertion mount failed (%d)"
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    .line 1038
-    .end local v2           #rc:I
+    .line 961
+    .end local v1           #rc:I
     :catch_0
     move-exception v0
 
-    .line 1039
+    .line 962
     .local v0, ex:Ljava/lang/Exception;
-    const-string v3, "MountService"
+    const-string v2, "MountService"
 
-    const-string v4, "Failed to mount media on insertion"
+    const-string v3, "Failed to mount media on insertion"
 
-    invoke-static {v3, v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_1
+    goto :goto_0
 .end method

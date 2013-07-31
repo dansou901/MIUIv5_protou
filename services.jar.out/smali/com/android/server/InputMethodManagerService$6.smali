@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2523
+    .line 2519
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$6;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,11 +42,11 @@
     .parameter "dialog"
 
     .prologue
-    .line 2526
+    .line 2522
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$6;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideInputMethodMenu()V
 
-    .line 2527
+    .line 2523
     return-void
 .end method

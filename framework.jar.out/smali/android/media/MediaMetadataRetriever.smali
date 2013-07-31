@@ -70,8 +70,6 @@
 
 .field public static final METADATA_KEY_YEAR:I = 0x8
 
-.field public static final OPTION_ARGB888:I = 0x100
-
 .field public static final OPTION_CLOSEST:I = 0x3
 
 .field public static final OPTION_CLOSEST_SYNC:I = 0x2
@@ -153,19 +151,19 @@
     .end annotation
 
     .prologue
-    .line 341
+    .line 325
     :try_start_0
     invoke-direct {p0}, Landroid/media/MediaMetadataRetriever;->native_finalize()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 343
+    .line 327
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 345
+    .line 329
     return-void
 
-    .line 343
+    .line 327
     :catchall_0
     move-exception v0
 
@@ -178,7 +176,7 @@
     .locals 1
 
     .prologue
-    .line 315
+    .line 299
     const v0, 0xffff
 
     invoke-direct {p0, v0}, Landroid/media/MediaMetadataRetriever;->getEmbeddedPicture(I)[B
@@ -192,7 +190,7 @@
     .locals 3
 
     .prologue
-    .line 301
+    .line 285
     const-wide/16 v0, -0x1
 
     const/4 v2, 0x2
@@ -209,7 +207,7 @@
     .parameter "timeUs"
 
     .prologue
-    .line 283
+    .line 267
     const/4 v0, 0x2
 
     invoke-virtual {p0, p1, p2, v0}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime(JI)Landroid/graphics/Bitmap;
@@ -260,64 +258,6 @@
 
     .line 243
     :cond_1
-    invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFrameAtTime(JII)Landroid/graphics/Bitmap;
-    .locals 3
-    .parameter "timeUs"
-    .parameter "option"
-    .parameter "flag"
-
-    .prologue
-    .line 252
-    if-ltz p3, :cond_0
-
-    const/4 v0, 0x3
-
-    if-le p3, v0, :cond_1
-
-    .line 254
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Unsupported option: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 257
-    :cond_1
-    const/16 v0, 0x100
-
-    if-ne p4, v0, :cond_2
-
-    .line 258
-    or-int/lit16 p3, p3, 0x100
-
-    .line 259
-    :cond_2
     invoke-direct {p0, p1, p2, p3}, Landroid/media/MediaMetadataRetriever;->_getFrameAtTime(JI)Landroid/graphics/Bitmap;
 
     move-result-object v0

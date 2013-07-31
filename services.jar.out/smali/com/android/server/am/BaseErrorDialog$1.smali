@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 76
+    .line 73
     iput-object p1, p0, Lcom/android/server/am/BaseErrorDialog$1;->this$0:Lcom/android/server/am/BaseErrorDialog;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,24 +35,24 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 2
     .parameter "msg"
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 78
+    .line 75
     iget v0, p1, Landroid/os/Message;->what:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
-    .line 79
+    .line 76
     iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog$1;->this$0:Lcom/android/server/am/BaseErrorDialog;
 
-    #setter for: Lcom/android/server/am/BaseErrorDialog;->mConsuming:Z
-    invoke-static {v0, v2}, Lcom/android/server/am/BaseErrorDialog;->access$002(Lcom/android/server/am/BaseErrorDialog;Z)Z
+    const/4 v1, 0x0
 
-    .line 80
+    #setter for: Lcom/android/server/am/BaseErrorDialog;->mConsuming:Z
+    invoke-static {v0, v1}, Lcom/android/server/am/BaseErrorDialog;->access$002(Lcom/android/server/am/BaseErrorDialog;Z)Z
+
+    .line 77
     iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog$1;->this$0:Lcom/android/server/am/BaseErrorDialog;
 
     const/4 v1, 0x1
@@ -60,24 +60,7 @@
     #calls: Lcom/android/server/am/BaseErrorDialog;->setEnabled(Z)V
     invoke-static {v0, v1}, Lcom/android/server/am/BaseErrorDialog;->access$100(Lcom/android/server/am/BaseErrorDialog;Z)V
 
-    .line 87
+    .line 79
     :cond_0
-    :goto_0
     return-void
-
-    .line 83
-    :cond_1
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 84
-    iget-object v0, p0, Lcom/android/server/am/BaseErrorDialog$1;->this$0:Lcom/android/server/am/BaseErrorDialog;
-
-    #calls: Lcom/android/server/am/BaseErrorDialog;->setEnabled(Z)V
-    invoke-static {v0, v2}, Lcom/android/server/am/BaseErrorDialog;->access$100(Lcom/android/server/am/BaseErrorDialog;Z)V
-
-    goto :goto_0
 .end method

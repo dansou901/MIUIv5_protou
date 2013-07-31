@@ -43,7 +43,7 @@
     iget-object v0, p0, Landroid/widget/Editor$2;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->hookIME()V
-    invoke-static {v0}, Landroid/widget/Editor;->access$6300(Landroid/widget/Editor;)V
+    invoke-static {v0}, Landroid/widget/Editor;->access$7500(Landroid/widget/Editor;)V
 
     return-void
 .end method

@@ -287,12 +287,11 @@
 .end method
 
 .method public dispose()V
-    .locals 1
+    .locals 2
 
     .prologue
-    monitor-enter p0
+    const/4 v1, 0x0
 
-    :try_start_0
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_0
@@ -315,26 +314,11 @@
     iput v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     :cond_1
-    const/4 v0, 0x0
+    iput-object v1, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
 
-    iput-object v0, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
-
-    monitor-exit p0
+    iput-object v1, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method protected finalize()V
@@ -369,11 +353,8 @@
     .parameter "handled"
 
     .prologue
-    monitor-enter p0
-
     if-nez p1, :cond_0
 
-    :try_start_0
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "event must not be null"
@@ -382,17 +363,7 @@
 
     throw v2
 
-    :catchall_0
-    move-exception v2
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
-
     :cond_0
-    :try_start_1
     iget v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     if-nez v2, :cond_1
@@ -405,8 +376,6 @@
 
     :goto_0
     invoke-virtual {p1}, Landroid/view/InputEvent;->recycleIfNeededAfterDispatch()V
-
-    monitor-exit p0
 
     return-void
 
@@ -456,8 +425,6 @@
     iget v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     invoke-static {v2, v1, p2}, Landroid/view/InputEventReceiver;->nativeFinishInputEvent(IIZ)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 .end method

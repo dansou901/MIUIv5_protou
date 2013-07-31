@@ -42,7 +42,7 @@
     .parameter
 
     .prologue
-    .line 451
+    .line 424
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService$2;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     iput-object p2, p0, Lcom/android/server/DeviceManager3LMService$2;->val$notificationBar:Ljava/lang/String;
@@ -68,10 +68,10 @@
     .locals 7
 
     .prologue
-    .line 453
+    .line 426
     const v0, 0x1080078
 
-    .line 454
+    .line 427
     .local v0, icon:I
     new-instance v1, Landroid/app/Notification;
 
@@ -83,7 +83,7 @@
 
     invoke-direct {v1, v0, v3, v4, v5}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
 
-    .line 457
+    .line 430
     .local v1, notification:Landroid/app/Notification;
     iget-object v3, p0, Lcom/android/server/DeviceManager3LMService$2;->this$0:Lcom/android/server/DeviceManager3LMService;
 
@@ -99,7 +99,7 @@
 
     move-result-object v2
 
-    .line 459
+    .line 432
     .local v2, pendingIntent:Landroid/app/PendingIntent;
     iget v3, v1, Landroid/app/Notification;->flags:I
 
@@ -109,7 +109,7 @@
 
     iput v3, v1, Landroid/app/Notification;->flags:I
 
-    .line 460
+    .line 433
     iget-object v3, p0, Lcom/android/server/DeviceManager3LMService$2;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     iget-object v4, v3, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
@@ -130,7 +130,7 @@
     :goto_0
     invoke-virtual {v1, v4, v5, v3, v2}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
-    .line 462
+    .line 435
     iget-object v3, p0, Lcom/android/server/DeviceManager3LMService$2;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     #getter for: Lcom/android/server/DeviceManager3LMService;->mNotificationManager:Landroid/app/NotificationManager;
@@ -142,10 +142,10 @@
 
     invoke-virtual {v3, v4, v1}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 463
+    .line 436
     return-void
 
-    .line 460
+    .line 433
     :cond_0
     iget-object v3, p0, Lcom/android/server/DeviceManager3LMService$2;->val$text:Ljava/lang/String;
 

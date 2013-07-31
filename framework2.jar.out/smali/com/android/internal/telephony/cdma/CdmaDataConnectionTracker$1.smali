@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 688
+    .line 678
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,19 +40,19 @@
     .parameter "intent"
 
     .prologue
-    .line 690
+    .line 680
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 692
+    .line 682
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 694
+    .line 684
     .local v0, action:Ljava/lang/String;
     const-string v2, "android.intent.action.SIM_STATE_CHANGED"
 
@@ -62,14 +62,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 695
-    const-string v2, "ss"
+    .line 685
+    const-string/jumbo v2, "ss"
 
     invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 696
+    .line 686
     .local v1, status:Ljava/lang/String;
     const-string v2, "LOADED"
 
@@ -79,14 +79,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 697
+    .line 687
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     const-string v3, "get INTENT_VALUE_ICC_LOADED for RUIM"
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->log(Ljava/lang/String;)V
 
-    .line 698
+    .line 688
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
@@ -99,7 +99,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->sendMessage(Landroid/os/Message;)Z
 
-    .line 703
+    .line 693
     .end local v0           #action:Ljava/lang/String;
     .end local v1           #status:Ljava/lang/String;
     :cond_0

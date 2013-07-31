@@ -2183,7 +2183,7 @@
     .line 857
     const-string v1, "[MediaPluginDLNA]"
 
-    const-string v2, "mContext is null, can\'t setMirrorDisplayOnOff!!!"
+    const-string/jumbo v2, "mContext is null, can\'t setMirrorDisplayOnOff!!!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

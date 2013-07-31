@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/statusbar/IStatusBarService.smali	2013-07-12 21:42:46.675166960 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/statusbar/IStatusBarService.smali	2013-07-12 21:40:37.691822991 +0000
+*** ./smali/com/android/internal/statusbar/IStatusBarService.smali	2013-07-31 22:22:06.630731826 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/statusbar/IStatusBarService.smali	2013-07-31 22:21:10.180727114 +0000
 ***************
 *** 163,168 ****
 --- 163,176 ----

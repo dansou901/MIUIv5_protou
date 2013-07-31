@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 4105
+    .line 4237
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$FrameBaseView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
-    .line 4106
+    .line 4238
     invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 4107
+    .line 4239
     return-void
 .end method
 
@@ -42,10 +42,10 @@
     .parameter "canvas"
 
     .prologue
-    .line 4111
+    .line 4243
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->draw(Landroid/graphics/Canvas;)V
 
-    .line 4114
+    .line 4246
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$FrameBaseView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->isRecentAP:Z
@@ -64,14 +64,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 4116
+    .line 4248
     const-string v0, "PhoneWindow"
 
     const-string v1, "generateLayout: thumbnailDrawable:draw"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4117
+    .line 4249
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$FrameBaseView;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #getter for: Lcom/android/internal/policy/impl/PhoneWindow;->thumbnailDrawable:Landroid/graphics/drawable/BitmapDrawable;
@@ -81,7 +81,7 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/BitmapDrawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 4119
+    .line 4251
     :cond_0
     return-void
 .end method

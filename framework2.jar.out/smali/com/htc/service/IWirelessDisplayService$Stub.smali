@@ -26,8 +26,6 @@
 # static fields
 .field private static final DESCRIPTOR:Ljava/lang/String; = "com.htc.service.IWirelessDisplayService"
 
-.field static final TRANSACTION_changeVideoBitRate:I = 0x1f
-
 .field static final TRANSACTION_extendTurnOffHotspotTimer:I = 0x1d
 
 .field static final TRANSACTION_getConnectedDongleIP:I = 0x9
@@ -39,8 +37,6 @@
 .field static final TRANSACTION_getDLNAPreloadEnable:I = 0x14
 
 .field static final TRANSACTION_getDefaultDongle:I = 0x6
-
-.field static final TRANSACTION_getDefaultVideoBitRate:I = 0x20
 
 .field static final TRANSACTION_getDiscoveryDongleList:I = 0x4
 
@@ -66,8 +62,6 @@
 
 .field static final TRANSACTION_popDialog:I = 0x10
 
-.field static final TRANSACTION_requestDelayTimerStop:I = 0x1e
-
 .field static final TRANSACTION_requestWivuDiscovery:I = 0x7
 
 .field static final TRANSACTION_selectDongle:I = 0xd
@@ -83,8 +77,6 @@
 .field static final TRANSACTION_setL2peApInfo:I = 0x17
 
 .field static final TRANSACTION_setMirrorDisplayOnOff:I = 0x1
-
-.field static final TRANSACTION_setWifiNetworkLimit:I = 0x21
 
 .field static final TRANSACTION_startPatternLockFakeMirror:I = 0x18
 
@@ -186,7 +178,7 @@
     .line 41
     sparse-switch p1, :sswitch_data_0
 
-    .line 348
+    .line 313
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v6
@@ -981,112 +973,6 @@
 
     goto/16 :goto_0
 
-    .line 314
-    :sswitch_1e
-    const-string v8, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 316
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    if-eqz v8, :cond_10
-
-    move v0, v6
-
-    .line 317
-    .local v0, _arg0:Z
-    :goto_9
-    invoke-virtual {p0, v0}, Lcom/htc/service/IWirelessDisplayService$Stub;->requestDelayTimerStop(Z)V
-
-    .line 318
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_0
-
-    .end local v0           #_arg0:Z
-    :cond_10
-    move v0, v7
-
-    .line 316
-    goto :goto_9
-
-    .line 323
-    :sswitch_1f
-    const-string v7, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 325
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    .line 326
-    .local v0, _arg0:I
-    invoke-virtual {p0, v0}, Lcom/htc/service/IWirelessDisplayService$Stub;->changeVideoBitRate(I)V
-
-    .line 327
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_0
-
-    .line 332
-    .end local v0           #_arg0:I
-    :sswitch_20
-    const-string v7, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 333
-    invoke-virtual {p0}, Lcom/htc/service/IWirelessDisplayService$Stub;->getDefaultVideoBitRate()I
-
-    move-result v3
-
-    .line 334
-    .local v3, _result:I
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 335
-    invoke-virtual {p3, v3}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
-    .line 340
-    .end local v3           #_result:I
-    :sswitch_21
-    const-string v8, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 342
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    if-eqz v8, :cond_11
-
-    move v0, v6
-
-    .line 343
-    .local v0, _arg0:Z
-    :goto_a
-    invoke-virtual {p0, v0}, Lcom/htc/service/IWirelessDisplayService$Stub;->setWifiNetworkLimit(Z)V
-
-    .line 344
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_0
-
-    .end local v0           #_arg0:Z
-    :cond_11
-    move v0, v7
-
-    .line 342
-    goto :goto_a
-
     .line 41
     nop
 
@@ -1121,10 +1007,6 @@
         0x1b -> :sswitch_1b
         0x1c -> :sswitch_1c
         0x1d -> :sswitch_1d
-        0x1e -> :sswitch_1e
-        0x1f -> :sswitch_1f
-        0x20 -> :sswitch_20
-        0x21 -> :sswitch_21
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

@@ -38,7 +38,7 @@
     iput-object p1, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -53,7 +53,7 @@
     new-instance v1, Landroid/widget/LinearLayout;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -73,7 +73,7 @@
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {p1}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -148,7 +148,7 @@
     iget-object v1, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -237,14 +237,14 @@
     iget-object v4, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->ensureSelectionHandles()V
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1500(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1100(Landroid/webkit/WebViewClassic;)V
 
     iget v4, p1, Landroid/graphics/Point;->y:I
 
     iget-object v5, p0, Landroid/webkit/WebViewClassic$PastePopupWindow;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
-    invoke-static {v5}, Landroid/webkit/WebViewClassic;->access$1600(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v5}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v5
 

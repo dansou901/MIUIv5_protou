@@ -36,7 +36,7 @@
     .parameter
 
     .prologue
-    .line 101
+    .line 99
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->this$0:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
     .parameter "x1"
 
     .prologue
-    .line 101
+    .line 99
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;-><init>(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;)V
 
     return-void

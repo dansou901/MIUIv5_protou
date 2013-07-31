@@ -200,7 +200,7 @@
 
     .prologue
     .line 111
-    const-string v0, "unset"
+    const-string/jumbo v0, "unset"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -413,7 +413,7 @@
     .line 161
     new-instance v8, Lcom/android/internal/util/TypedProperties$ParseException;
 
-    const-string v9, "type name"
+    const-string/jumbo v9, "type name"
 
     invoke-direct {v8, v4, v9}, Lcom/android/internal/util/TypedProperties$ParseException;-><init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
 
@@ -434,7 +434,7 @@
     .line 165
     new-instance v8, Lcom/android/internal/util/TypedProperties$ParseException;
 
-    const-string v9, "valid type name"
+    const-string/jumbo v9, "valid type name"
 
     invoke-direct {v8, v4, v9}, Lcom/android/internal/util/TypedProperties$ParseException;-><init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
 
@@ -503,7 +503,7 @@
     .line 184
     new-instance v8, Lcom/android/internal/util/TypedProperties$ParseException;
 
-    const-string v9, "valid property name"
+    const-string/jumbo v9, "valid property name"
 
     invoke-direct {v8, v4, v9}, Lcom/android/internal/util/TypedProperties$ParseException;-><init>(Ljava/io/StreamTokenizer;Ljava/lang/String;)V
 
@@ -660,7 +660,7 @@
 
     .line 241
     :cond_0
-    const-string v7, "true"
+    const-string/jumbo v7, "true"
 
     iget-object v8, p0, Ljava/io/StreamTokenizer;->sval:Ljava/lang/String;
 
@@ -1134,6 +1134,8 @@
     throw v7
 
     .line 266
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -1704,7 +1706,7 @@
     :cond_2
     new-instance v1, Lcom/android/internal/util/TypedProperties$TypeException;
 
-    const-string v2, "string"
+    const-string/jumbo v2, "string"
 
     invoke-direct {v1, p1, v0, v2}, Lcom/android/internal/util/TypedProperties$TypeException;-><init>(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 

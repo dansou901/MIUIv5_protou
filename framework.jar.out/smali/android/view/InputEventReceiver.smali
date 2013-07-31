@@ -111,10 +111,10 @@
     .locals 0
 
     .prologue
-    .line 206
+    .line 190
     invoke-virtual {p0}, Landroid/view/InputEventReceiver;->onBatchedInputEventPending()V
 
-    .line 207
+    .line 191
     return-void
 .end method
 
@@ -124,17 +124,17 @@
     .parameter "event"
 
     .prologue
-    .line 195
+    .line 179
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
 
-    .line 196
+    .line 180
     const-string v0, "dispatchInputEvent"
 
     invoke-direct {p0, p2, v0}, Landroid/view/InputEventReceiver;->printEventLog(Landroid/view/InputEvent;Ljava/lang/String;)V
 
-    .line 199
+    .line 183
     :cond_0
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
@@ -144,10 +144,10 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 200
+    .line 184
     invoke-virtual {p0, p2}, Landroid/view/InputEventReceiver;->onInputEvent(Landroid/view/InputEvent;)V
 
-    .line 201
+    .line 185
     return-void
 .end method
 
@@ -171,17 +171,17 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 216
+    .line 200
     instance-of v2, p1, Landroid/view/KeyEvent;
 
     if-eqz v2, :cond_1
 
     move-object v0, p1
 
-    .line 217
+    .line 201
     check-cast v0, Landroid/view/KeyEvent;
 
-    .line 218
+    .line 202
     .local v0, keyevent:Landroid/view/KeyEvent;
     invoke-virtual {v0}, Landroid/view/KeyEvent;->getRepeatCount()I
 
@@ -189,7 +189,7 @@
 
     if-ge v2, v3, :cond_0
 
-    .line 219
+    .line 203
     const-string v2, "InputEventReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -220,13 +220,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 227
+    .line 211
     .end local v0           #keyevent:Landroid/view/KeyEvent;
     :cond_0
     :goto_0
     return-void
 
-    .line 221
+    .line 205
     :cond_1
     instance-of v2, p1, Landroid/view/MotionEvent;
 
@@ -234,10 +234,10 @@
 
     move-object v1, p1
 
-    .line 222
+    .line 206
     check-cast v1, Landroid/view/MotionEvent;
 
-    .line 223
+    .line 207
     .local v1, motionevent:Landroid/view/MotionEvent;
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -251,7 +251,7 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 224
+    .line 208
     :cond_2
     const-string v2, "InputEventReceiver"
 
@@ -293,23 +293,23 @@
     .parameter "frameTimeNanos"
 
     .prologue
-    .line 183
+    .line 167
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     if-nez v0, :cond_0
 
-    .line 184
+    .line 168
     const-string v0, "InputEventReceiver"
 
     const-string v1, "Attempted to consume batched input events but the input event receiver has already been disposed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 189
+    .line 173
     :goto_0
     return-void
 
-    .line 187
+    .line 171
     :cond_0
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
@@ -319,65 +319,46 @@
 .end method
 
 .method public dispose()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 90
-    monitor-enter p0
+    const/4 v1, 0x0
 
-    .line 93
-    :try_start_0
+    .line 89
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     if-eqz v0, :cond_0
 
-    .line 94
+    .line 90
     iget-object v0, p0, Landroid/view/InputEventReceiver;->mCloseGuard:Ldalvik/system/CloseGuard;
 
     invoke-virtual {v0}, Ldalvik/system/CloseGuard;->close()V
 
-    .line 96
+    .line 92
     :cond_0
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     if-eqz v0, :cond_1
 
-    .line 97
+    .line 93
     iget v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     invoke-static {v0}, Landroid/view/InputEventReceiver;->nativeDispose(I)V
 
-    .line 98
+    .line 94
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
-    .line 100
+    .line 96
     :cond_1
-    const/4 v0, 0x0
+    iput-object v1, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
 
-    iput-object v0, p0, Landroid/view/InputEventReceiver;->mInputChannel:Landroid/view/InputChannel;
+    .line 97
+    iput-object v1, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
 
-    .line 101
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/view/InputEventReceiver;->mMessageQueue:Landroid/os/MessageQueue;
-
-    .line 104
-    monitor-exit p0
-
-    .line 106
+    .line 98
     return-void
-
-    .line 104
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
 .method protected finalize()V
@@ -416,14 +397,10 @@
     .parameter "handled"
 
     .prologue
-    .line 141
-    monitor-enter p0
-
-    .line 144
+    .line 132
     if-nez p1, :cond_0
 
-    .line 145
-    :try_start_0
+    .line 133
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "event must not be null"
@@ -432,41 +409,27 @@
 
     throw v2
 
-    .line 168
-    :catchall_0
-    move-exception v2
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
-
-    .line 147
+    .line 135
     :cond_0
-    :try_start_1
     iget v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     if-nez v2, :cond_1
 
-    .line 148
+    .line 136
     const-string v2, "InputEventReceiver"
 
     const-string v3, "Attempted to finish an input event but the input event receiver has already been disposed."
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 165
+    .line 153
     :goto_0
     invoke-virtual {p1}, Landroid/view/InputEvent;->recycleIfNeededAfterDispatch()V
 
-    .line 168
-    monitor-exit p0
-
-    .line 170
+    .line 154
     return-void
 
-    .line 151
+    .line 139
     :cond_1
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
@@ -478,11 +441,11 @@
 
     move-result v0
 
-    .line 152
+    .line 140
     .local v0, index:I
     if-gez v0, :cond_2
 
-    .line 153
+    .line 141
     const-string v2, "InputEventReceiver"
 
     const-string v3, "Attempted to finish an input event that is not in progress."
@@ -491,7 +454,7 @@
 
     goto :goto_0
 
-    .line 155
+    .line 143
     :cond_2
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
@@ -499,29 +462,27 @@
 
     move-result v1
 
-    .line 156
+    .line 144
     .local v1, seq:I
     iget-object v2, p0, Landroid/view/InputEventReceiver;->mSeqMap:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->removeAt(I)V
 
-    .line 158
+    .line 146
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v2, :cond_3
 
-    .line 159
+    .line 147
     const-string v2, "finishInputEvent"
 
     invoke-direct {p0, p1, v2}, Landroid/view/InputEventReceiver;->printEventLog(Landroid/view/InputEvent;Ljava/lang/String;)V
 
-    .line 162
+    .line 150
     :cond_3
     iget v2, p0, Landroid/view/InputEventReceiver;->mReceiverPtr:I
 
     invoke-static {v2, v1, p2}, Landroid/view/InputEventReceiver;->nativeFinishInputEvent(IIZ)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 .end method
@@ -530,12 +491,12 @@
     .locals 2
 
     .prologue
-    .line 129
+    .line 121
     const-wide/16 v0, -0x1
 
     invoke-virtual {p0, v0, v1}, Landroid/view/InputEventReceiver;->consumeBatchedInputEvents(J)V
 
-    .line 130
+    .line 122
     return-void
 .end method
 
@@ -544,11 +505,11 @@
     .parameter "event"
 
     .prologue
-    .line 117
+    .line 109
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
-    .line 118
+    .line 110
     return-void
 .end method

@@ -233,7 +233,7 @@
     goto :goto_0
 .end method
 
-.method static synthetic access$2800(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
+.method static synthetic access$3300(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
@@ -243,7 +243,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3000(Landroid/widget/Editor$HandleView;)Z
+.method static synthetic access$3500(Landroid/widget/Editor$HandleView;)Z
     .locals 1
     .parameter "x0"
 
@@ -569,7 +569,7 @@
 
     .local v6, bottomVisible:Z
     :goto_2
-    invoke-static {}, Landroid/widget/Editor;->access$3300()Landroid/graphics/Rect;
+    invoke-static {}, Landroid/widget/Editor;->access$3800()Landroid/graphics/Rect;
 
     move-result-object v4
 
@@ -581,7 +581,7 @@
     move-object/from16 v18, v0
 
     #getter for: Landroid/widget/Editor;->mVisibleRect:Landroid/graphics/Rect;
-    invoke-static/range {v18 .. v18}, Landroid/widget/Editor;->access$3400(Landroid/widget/Editor;)Landroid/graphics/Rect;
+    invoke-static/range {v18 .. v18}, Landroid/widget/Editor;->access$3900(Landroid/widget/Editor;)Landroid/graphics/Rect;
 
     move-result-object v17
 
@@ -936,14 +936,14 @@
     iget-object v3, p0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mStatusBarWindowOffset:I
-    invoke-static {v3}, Landroid/widget/Editor;->access$3100(Landroid/widget/Editor;)I
+    invoke-static {v3}, Landroid/widget/Editor;->access$3600(Landroid/widget/Editor;)I
 
     move-result v3
 
     sub-int/2addr v2, v3
 
     #calls: Landroid/widget/Editor;->isPositionVisible(II)Z
-    invoke-static {v0, v1, v2}, Landroid/widget/Editor;->access$3200(Landroid/widget/Editor;II)Z
+    invoke-static {v0, v1, v2}, Landroid/widget/Editor;->access$3700(Landroid/widget/Editor;II)Z
 
     move-result v0
 
@@ -1398,7 +1398,7 @@
     move-result v3
 
     #setter for: Landroid/widget/Editor;->mPreviousX:F
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3502(Landroid/widget/Editor;F)F
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;F)F
 
     move-object/from16 v0, p0
 
@@ -1494,7 +1494,7 @@
     const/4 v3, 0x1
 
     #setter for: Landroid/widget/Editor;->mDispatchToTheOtherAnchor:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3602(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4102(Landroid/widget/Editor;Z)Z
 
     const/4 v2, 0x0
 
@@ -1531,7 +1531,7 @@
     const/4 v3, 0x1
 
     #setter for: Landroid/widget/Editor;->mDonotPassToLeft:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3702(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4202(Landroid/widget/Editor;Z)Z
 
     :cond_4
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getRawX()F
@@ -1665,7 +1665,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mEasyUpHardDownTriggered:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3802(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4302(Landroid/widget/Editor;Z)Z
 
     goto/16 :goto_0
 
@@ -1697,7 +1697,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mFirstDirection:I
-    invoke-static {v2}, Landroid/widget/Editor;->access$3900(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->access$4400(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -1712,7 +1712,7 @@
     const/4 v3, 0x1
 
     #setter for: Landroid/widget/Editor;->mDonotPassToLeft:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3702(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4202(Landroid/widget/Editor;Z)Z
 
     :cond_6
     move-object/from16 v0, p0
@@ -1728,7 +1728,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$4000(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4500(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -1739,7 +1739,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mDispatchToTheOtherAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$3600(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4100(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -1752,7 +1752,7 @@
     move/from16 v0, v18
 
     #setter for: Landroid/widget/Editor;->mPreviousX:F
-    invoke-static {v2, v0}, Landroid/widget/Editor;->access$3502(Landroid/widget/Editor;F)F
+    invoke-static {v2, v0}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;F)F
 
     const/4 v2, 0x0
 
@@ -1772,7 +1772,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mPreviousX:F
-    invoke-static {v2}, Landroid/widget/Editor;->access$3500(Landroid/widget/Editor;)F
+    invoke-static {v2}, Landroid/widget/Editor;->access$4000(Landroid/widget/Editor;)F
 
     move-result v2
 
@@ -1785,7 +1785,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mDispatchToTheOtherAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$3600(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4100(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -1796,7 +1796,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mDonotPassToLeft:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$3700(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4200(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -1809,7 +1809,7 @@
     const/4 v3, 0x1
 
     #setter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4502(Landroid/widget/Editor;Z)Z
 
     move-object/from16 v0, p0
 
@@ -1818,7 +1818,7 @@
     move/from16 v0, v18
 
     #setter for: Landroid/widget/Editor;->mPreviousX:F
-    invoke-static {v2, v0}, Landroid/widget/Editor;->access$3502(Landroid/widget/Editor;F)F
+    invoke-static {v2, v0}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;F)F
 
     const/4 v2, 0x0
 
@@ -1832,7 +1832,7 @@
     move/from16 v0, v18
 
     #setter for: Landroid/widget/Editor;->mPreviousX:F
-    invoke-static {v2, v0}, Landroid/widget/Editor;->access$3502(Landroid/widget/Editor;F)F
+    invoke-static {v2, v0}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;F)F
 
     move-object/from16 v0, p0
 
@@ -1986,7 +1986,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->canSelectText()Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$4100(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4600(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -2105,7 +2105,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mLastLine:I
-    invoke-static {v2}, Landroid/widget/Editor;->access$4200(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->access$4700(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -2118,7 +2118,7 @@
     const/4 v3, 0x1
 
     #setter for: Landroid/widget/Editor;->mEasyUpHardDownTriggered:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3802(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4302(Landroid/widget/Editor;Z)Z
 
     :cond_c
     move-object/from16 v0, p0
@@ -2126,7 +2126,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #setter for: Landroid/widget/Editor;->mLastLine:I
-    invoke-static {v2, v10}, Landroid/widget/Editor;->access$4202(Landroid/widget/Editor;I)I
+    invoke-static {v2, v10}, Landroid/widget/Editor;->access$4702(Landroid/widget/Editor;I)I
 
     move-object/from16 v0, p0
 
@@ -2195,16 +2195,22 @@
     move-result-wide v3
 
     #setter for: Landroid/widget/Editor;->mAnchorLastMovedMilli:J
-    invoke-static {v2, v3, v4}, Landroid/widget/Editor;->access$4302(Landroid/widget/Editor;J)J
+    invoke-static {v2, v3, v4}, Landroid/widget/Editor;->access$4802(Landroid/widget/Editor;J)J
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #setter for: Landroid/widget/Editor;->mAnchorLastMovedIndex:I
-    invoke-static {v2, v8}, Landroid/widget/Editor;->access$4402(Landroid/widget/Editor;I)I
+    invoke-static {v2, v8}, Landroid/widget/Editor;->access$4902(Landroid/widget/Editor;I)I
 
     :cond_f
+    invoke-static {}, Landroid/widget/Editor;->access$5000()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Landroid/widget/Editor$HandleView;->mConfirmMove:Z
@@ -2227,7 +2233,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mFlags:I
-    invoke-static {v2}, Landroid/widget/Editor;->access$4500(Landroid/widget/Editor;)I
+    invoke-static {v2}, Landroid/widget/Editor;->access$5100(Landroid/widget/Editor;)I
 
     move-result v2
 
@@ -2441,7 +2447,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$4000(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4500(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -2464,7 +2470,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4502(Landroid/widget/Editor;Z)Z
 
     const/4 v2, 0x0
 
@@ -2476,7 +2482,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mDispatchToTheOtherAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$3600(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4100(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -2487,7 +2493,7 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$4000(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$4500(Landroid/widget/Editor;)Z
 
     move-result v2
 
@@ -2512,7 +2518,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mDispatchToTheOtherAnchor:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3602(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4102(Landroid/widget/Editor;Z)Z
 
     move-object/from16 v0, p0
 
@@ -2521,7 +2527,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mPassToLeftAnchor:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4002(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4502(Landroid/widget/Editor;Z)Z
 
     move-object/from16 v0, p0
 
@@ -2530,7 +2536,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mDonotPassToLeft:Z
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3702(Landroid/widget/Editor;Z)Z
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4202(Landroid/widget/Editor;Z)Z
 
     move-object/from16 v0, p0
 
@@ -2539,7 +2545,7 @@
     const/4 v3, 0x0
 
     #setter for: Landroid/widget/Editor;->mChangeTimes:I
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4602(Landroid/widget/Editor;I)I
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$5202(Landroid/widget/Editor;I)I
 
     move-object/from16 v0, p0
 
@@ -2548,7 +2554,7 @@
     const/4 v3, -0x1
 
     #setter for: Landroid/widget/Editor;->mCurrentDirection:I
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4702(Landroid/widget/Editor;I)I
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$5302(Landroid/widget/Editor;I)I
 
     move-object/from16 v0, p0
 
@@ -2557,7 +2563,7 @@
     const/4 v3, -0x1
 
     #setter for: Landroid/widget/Editor;->mPreDirection:I
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4802(Landroid/widget/Editor;I)I
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$5402(Landroid/widget/Editor;I)I
 
     move-object/from16 v0, p0
 
@@ -2566,7 +2572,7 @@
     const/4 v3, -0x1
 
     #setter for: Landroid/widget/Editor;->mFirstDirection:I
-    invoke-static {v2, v3}, Landroid/widget/Editor;->access$3902(Landroid/widget/Editor;I)I
+    invoke-static {v2, v3}, Landroid/widget/Editor;->access$4402(Landroid/widget/Editor;I)I
 
     const/4 v2, 0x0
 
@@ -2584,6 +2590,12 @@
 
     if-eqz v2, :cond_0
 
+    invoke-static {}, Landroid/widget/Editor;->access$5000()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1d
+
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
@@ -2597,6 +2609,7 @@
 
     invoke-virtual {v2}, Lcom/htc/textselection/HtcTextSelectionManager;->dismissMagnifier()V
 
+    :cond_1d
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
@@ -2631,11 +2644,11 @@
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mIsInTextSelectionMode:Z
-    invoke-static {v2}, Landroid/widget/Editor;->access$4900(Landroid/widget/Editor;)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$5500(Landroid/widget/Editor;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -2649,7 +2662,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -2659,7 +2672,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -2676,7 +2689,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1d
+    if-nez v2, :cond_1e
 
     move-object/from16 v0, p0
 
@@ -2685,7 +2698,7 @@
     #calls: Landroid/widget/Editor;->showQuickAction()V
     invoke-static {v2}, Landroid/widget/Editor;->access$1200(Landroid/widget/Editor;)V
 
-    :cond_1d
+    :cond_1e
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -2695,7 +2708,7 @@
     iget-object v4, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mAnchorLastMovedMilli:J
-    invoke-static {v4}, Landroid/widget/Editor;->access$4300(Landroid/widget/Editor;)J
+    invoke-static {v4}, Landroid/widget/Editor;->access$4800(Landroid/widget/Editor;)J
 
     move-result-wide v4
 
@@ -2706,7 +2719,7 @@
 
     cmp-long v2, v23, v2
 
-    if-gez v2, :cond_1e
+    if-gez v2, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -2714,7 +2727,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_1e
+    if-ne v2, v3, :cond_1f
 
     move-object/from16 v0, p0
 
@@ -2736,7 +2749,7 @@
     iget-object v3, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mAnchorLastMovedIndex:I
-    invoke-static {v3}, Landroid/widget/Editor;->access$4400(Landroid/widget/Editor;)I
+    invoke-static {v3}, Landroid/widget/Editor;->access$4900(Landroid/widget/Editor;)I
 
     move-result v3
 
@@ -2744,7 +2757,7 @@
 
     goto/16 :goto_0
 
-    :cond_1e
+    :cond_1f
     move-object/from16 v0, p0
 
     iget v2, v0, Landroid/widget/Editor$HandleView;->mPos:I
@@ -2765,7 +2778,7 @@
 
     const/4 v3, 0x2
 
-    if-ne v2, v3, :cond_1f
+    if-ne v2, v3, :cond_20
 
     move-object/from16 v0, p0
 
@@ -2791,7 +2804,7 @@
 
     goto/16 :goto_0
 
-    :cond_1f
+    :cond_20
     move-object/from16 v0, p0
 
     iget-object v2, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
@@ -3033,7 +3046,7 @@
     iget-object v7, p0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mStatusBarWindowOffset:I
-    invoke-static {v7}, Landroid/widget/Editor;->access$3100(Landroid/widget/Editor;)I
+    invoke-static {v7}, Landroid/widget/Editor;->access$3600(Landroid/widget/Editor;)I
 
     move-result v7
 
@@ -3081,7 +3094,7 @@
     return-void
 .end method
 
-.method protected setOrientationHTC()V
+.method public setOrientationHTC()V
     .locals 3
 
     .prologue
@@ -3161,14 +3174,14 @@
     move-result v2
 
     #setter for: Landroid/widget/Editor;->mAnchorHeight:I
-    invoke-static {v1, v2}, Landroid/widget/Editor;->access$2402(Landroid/widget/Editor;I)I
+    invoke-static {v1, v2}, Landroid/widget/Editor;->access$2902(Landroid/widget/Editor;I)I
 
     iget-object v1, p0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     iget-object v2, p0, Landroid/widget/Editor$HandleView;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     #setter for: Landroid/widget/Editor;->mSelectHandleCenter:Landroid/graphics/drawable/Drawable;
-    invoke-static {v1, v2}, Landroid/widget/Editor;->access$2502(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v1, v2}, Landroid/widget/Editor;->access$3002(Landroid/widget/Editor;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     iget-object v1, p0, Landroid/widget/Editor$HandleView;->mContainer:Landroid/widget/PopupWindow;
 

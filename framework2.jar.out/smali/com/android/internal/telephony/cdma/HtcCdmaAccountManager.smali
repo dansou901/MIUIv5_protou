@@ -1398,7 +1398,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1550,7 +1550,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1641,7 +1641,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1727,7 +1727,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1787,7 +1787,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1841,7 +1841,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simStt rdo:"
+    const-string/jumbo v17, "simStt rdo:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1963,7 +1963,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simUpd:"
+    const-string/jumbo v17, "simUpd:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2020,7 +2020,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simUpd:"
+    const-string/jumbo v17, "simUpd:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2101,7 +2101,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simSwp cmd:"
+    const-string/jumbo v17, "simSwp cmd:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2133,13 +2133,13 @@
 
     .line 422
     :cond_1b
-    const-string v8, "simSwp len:0"
+    const-string/jumbo v8, "simSwp len:0"
 
     goto/16 :goto_1
 
     .line 428
     :cond_1c
-    const-string v8, "simSwp len:null"
+    const-string/jumbo v8, "simSwp len:null"
 
     goto/16 :goto_1
 
@@ -2156,7 +2156,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "simSwp chk:"
+    const-string/jumbo v17, "simSwp chk:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2254,7 +2254,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "src:"
+    const-string/jumbo v17, "src:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2310,7 +2310,7 @@
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "src:"
+    const-string/jumbo v17, "src:"
 
     invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

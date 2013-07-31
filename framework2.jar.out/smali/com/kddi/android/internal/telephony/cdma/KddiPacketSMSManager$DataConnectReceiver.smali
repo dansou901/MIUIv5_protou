@@ -149,7 +149,7 @@
     if-eqz v7, :cond_1
 
     .line 1757
-    const-string v7, "state"
+    const-string/jumbo v7, "state"
 
     invoke-virtual {p2, v7}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -503,7 +503,7 @@
     .line 1800
     const-string v0, "KddiPacketSMSManager"
 
-    const-string v1, "unRegisterForConnectionStateChanges"
+    const-string/jumbo v1, "unRegisterForConnectionStateChanges"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 

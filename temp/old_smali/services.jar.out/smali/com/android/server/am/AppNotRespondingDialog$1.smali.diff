@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/am/AppNotRespondingDialog$1.smali	2013-07-12 21:42:32.618499134 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/AppNotRespondingDialog$1.smali	2013-07-12 21:40:28.018488860 +0000
+*** ./smali/com/android/server/am/AppNotRespondingDialog$1.smali	2013-07-31 22:21:58.890731180 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/AppNotRespondingDialog$1.smali	2013-07-31 22:21:04.220726617 +0000
 ***************
 *** 36,43 ****
 --- 36,62 ----

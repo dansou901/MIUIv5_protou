@@ -59,43 +59,43 @@
 
     const/4 v1, 0x0
 
-    .line 1612
+    .line 1600
     iput-object p1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1614
+    .line 1602
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
-    .line 1615
+    .line 1603
     iput v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
-    .line 1617
+    .line 1605
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
-    .line 1621
+    .line 1609
     new-array v0, v2, [B
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxBuf:[B
 
-    .line 1622
+    .line 1610
     iput v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxPos:I
 
-    .line 1623
+    .line 1611
     iput v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
-    .line 1625
+    .line 1613
     new-array v0, v2, [B
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxBuf:[B
 
-    .line 1626
+    .line 1614
     iput v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxPos:I
 
-    .line 1627
+    .line 1615
     iput v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
-    .line 1870
+    .line 1858
     return-void
 .end method
 
@@ -110,7 +110,7 @@
 
     const/4 v3, 0x0
 
-    .line 1690
+    .line 1678
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -121,7 +121,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1692
+    .line 1680
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
@@ -135,28 +135,28 @@
 
     if-nez v0, :cond_1
 
-    .line 1693
+    .line 1681
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
     invoke-virtual {v0}, Ljava/net/DatagramSocket;->close()V
 
-    .line 1696
+    .line 1684
     :cond_1
     iput-object v5, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
-    .line 1698
+    .line 1686
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxPos:I
 
-    .line 1699
+    .line 1687
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
-    .line 1700
+    .line 1688
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxPos:I
 
-    .line 1701
+    .line 1689
     iput v3, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
-    .line 1704
+    .line 1692
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
@@ -165,7 +165,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
-    .line 1705
+    .line 1693
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     #getter for: Lcom/android/internal/telephony/cat/BipProxy;->mCatService:Lcom/android/internal/telephony/cat/CatService;
@@ -181,7 +181,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 1707
+    .line 1695
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     iget v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
@@ -189,7 +189,7 @@
     #calls: Lcom/android/internal/telephony/cat/BipProxy;->sendChannelStatusEvent(I)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cat/BipProxy;->access$600(Lcom/android/internal/telephony/cat/BipProxy;I)V
 
-    .line 1709
+    .line 1697
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -199,7 +199,7 @@
     #calls: Lcom/android/internal/telephony/cat/BipProxy;->teardownDataConnection(Lcom/android/internal/telephony/cat/CatCmdMessage;I)Z
     invoke-static {v0, p1, v1}, Lcom/android/internal/telephony/cat/BipProxy;->access$800(Lcom/android/internal/telephony/cat/BipProxy;Lcom/android/internal/telephony/cat/CatCmdMessage;I)Z
 
-    .line 1711
+    .line 1699
     return-void
 .end method
 
@@ -207,7 +207,7 @@
     .locals 1
 
     .prologue
-    .line 1863
+    .line 1851
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -218,7 +218,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1864
+    .line 1852
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
@@ -232,7 +232,7 @@
 
     if-nez v0, :cond_2
 
-    .line 1865
+    .line 1853
     :cond_1
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
@@ -240,12 +240,12 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
-    .line 1866
+    .line 1854
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;->start()V
 
-    .line 1868
+    .line 1856
     :cond_2
     return-void
 .end method
@@ -254,7 +254,7 @@
     .locals 1
 
     .prologue
-    .line 1842
+    .line 1830
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -265,7 +265,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1844
+    .line 1832
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
@@ -273,7 +273,7 @@
 
     if-nez v0, :cond_1
 
-    .line 1845
+    .line 1833
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
@@ -282,7 +282,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
-    .line 1847
+    .line 1835
     :cond_1
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
@@ -293,7 +293,7 @@
     .locals 1
 
     .prologue
-    .line 1853
+    .line 1841
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -304,7 +304,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1859
+    .line 1847
     :cond_0
     return-void
 .end method
@@ -320,7 +320,7 @@
 
     const/4 v10, 0x0
 
-    .line 1632
+    .line 1620
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -331,11 +331,11 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1634
+    .line 1622
     :cond_0
     sget-object v2, Lcom/android/internal/telephony/cat/ResultCode;->OK:Lcom/android/internal/telephony/cat/ResultCode;
 
-    .line 1636
+    .line 1624
     .local v2, result:Lcom/android/internal/telephony/cat/ResultCode;
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getChannelSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
@@ -343,7 +343,7 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
-    .line 1637
+    .line 1625
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->channel:I
@@ -352,26 +352,26 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
-    .line 1639
+    .line 1627
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bufSize:I
 
     if-le v0, v1, :cond_1
 
-    .line 1640
+    .line 1628
     sget-object v2, Lcom/android/internal/telephony/cat/ResultCode;->PRFRMD_WITH_MODIFICATION:Lcom/android/internal/telephony/cat/ResultCode;
 
-    .line 1641
+    .line 1629
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iput v1, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bufSize:I
 
-    .line 1651
+    .line 1639
     :goto_0
     const/4 v12, 0x0
 
-    .line 1652
+    .line 1640
     .local v12, addr:Ljava/net/InetAddress;
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -382,7 +382,7 @@
 
     if-ne v0, v1, :cond_3
 
-    .line 1653
+    .line 1641
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget-object v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->destinationAddress:[B
@@ -391,7 +391,7 @@
 
     move-result-object v12
 
-    .line 1660
+    .line 1648
     :goto_1
     new-instance v0, Ljava/net/DatagramSocket;
 
@@ -399,7 +399,7 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
-    .line 1661
+    .line 1649
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -408,7 +408,7 @@
 
     invoke-virtual {v0, v12, v1}, Ljava/net/DatagramSocket;->connect(Ljava/net/InetAddress;I)V
 
-    .line 1666
+    .line 1654
     const v0, 0x8000
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -421,7 +421,7 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelStatus:I
 
-    .line 1667
+    .line 1655
     new-instance v5, Lcom/android/internal/telephony/cat/OpenChannelResponseData;
 
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -440,7 +440,7 @@
 
     invoke-direct {v5, v0, v1, v3}, Lcom/android/internal/telephony/cat/OpenChannelResponseData;-><init>(ILjava/lang/Integer;Lcom/android/internal/telephony/cat/BearerDescription;)V
 
-    .line 1668
+    .line 1656
     .local v5, resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -459,23 +459,23 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1682
+    .line 1670
     new-instance v0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;-><init>(Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
-    .line 1683
+    .line 1671
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mThread:Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel$UdpClientThread;->start()V
 
-    .line 1684
+    .line 1672
     :goto_2
     return v9
 
-    .line 1642
+    .line 1630
     .end local v5           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     .end local v12           #addr:Ljava/net/InetAddress;
     :cond_1
@@ -485,7 +485,7 @@
 
     if-lez v0, :cond_2
 
-    .line 1643
+    .line 1631
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bufSize:I
@@ -494,7 +494,7 @@
 
     iput-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxBuf:[B
 
-    .line 1644
+    .line 1632
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bufSize:I
@@ -505,7 +505,7 @@
 
     goto :goto_0
 
-    .line 1646
+    .line 1634
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
@@ -513,7 +513,7 @@
 
     goto :goto_0
 
-    .line 1655
+    .line 1643
     .restart local v12       #addr:Ljava/net/InetAddress;
     :cond_3
     :try_start_1
@@ -525,11 +525,11 @@
 
     goto :goto_1
 
-    .line 1672
+    .line 1660
     :catch_0
     move-exception v13
 
-    .line 1673
+    .line 1661
     .local v13, e:Ljava/io/IOException;
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -561,7 +561,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1674
+    .line 1662
     :cond_4
     new-instance v5, Lcom/android/internal/telephony/cat/OpenChannelResponseData;
 
@@ -581,7 +581,7 @@
 
     invoke-direct {v5, v0, v1, v3}, Lcom/android/internal/telephony/cat/OpenChannelResponseData;-><init>(ILjava/lang/Integer;Lcom/android/internal/telephony/cat/BearerDescription;)V
 
-    .line 1675
+    .line 1663
     .restart local v5       #resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -598,7 +598,7 @@
 
     invoke-virtual/range {v6 .. v11}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 1677
+    .line 1665
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
@@ -610,7 +610,7 @@
 
     move v9, v10
 
-    .line 1679
+    .line 1667
     goto :goto_2
 .end method
 
@@ -621,7 +621,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1786
+    .line 1774
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -632,15 +632,15 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1788
+    .line 1776
     :cond_0
     sget-object v2, Lcom/android/internal/telephony/cat/ResultCode;->OK:Lcom/android/internal/telephony/cat/ResultCode;
 
-    .line 1789
+    .line 1777
     .local v2, result:Lcom/android/internal/telephony/cat/ResultCode;
     const/4 v5, 0x0
 
-    .line 1791
+    .line 1779
     .local v5, resp:Lcom/android/internal/telephony/cat/ResponseData;
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -690,7 +690,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1793
+    .line 1781
     :cond_1
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getDataSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;
 
@@ -698,25 +698,25 @@
 
     iget v9, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;->length:I
 
-    .line 1795
+    .line 1783
     .local v9, requested:I
     const/16 v0, 0xed
 
     if-le v9, v0, :cond_2
 
-    .line 1807
+    .line 1795
     const/16 v9, 0xed
 
-    .line 1809
+    .line 1797
     :cond_2
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
     if-le v9, v0, :cond_3
 
-    .line 1810
+    .line 1798
     iget v9, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
-    .line 1814
+    .line 1802
     :cond_3
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
@@ -724,48 +724,48 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
-    .line 1815
+    .line 1803
     const/16 v6, 0xff
 
-    .line 1816
+    .line 1804
     .local v6, available:I
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
     if-ge v0, v6, :cond_4
 
-    .line 1817
+    .line 1805
     iget v6, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxLen:I
 
-    .line 1819
+    .line 1807
     :cond_4
     const/4 v7, 0x0
 
-    .line 1820
+    .line 1808
     .local v7, data:[B
     if-lez v9, :cond_5
 
-    .line 1821
+    .line 1809
     new-array v7, v9, [B
 
-    .line 1822
+    .line 1810
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxBuf:[B
 
     iget v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxPos:I
 
     invoke-static {v0, v1, v7, v3, v9}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 1823
+    .line 1811
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxPos:I
 
     add-int/2addr v0, v9
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mRxPos:I
 
-    .line 1826
+    .line 1814
     :cond_5
     if-nez v6, :cond_6
 
-    .line 1828
+    .line 1816
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
     #getter for: Lcom/android/internal/telephony/cat/BipProxy;->mBipHandler:Landroid/os/Handler;
@@ -792,20 +792,20 @@
 
     invoke-virtual {v0, v1, v10, v11}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
-    .line 1832
+    .line 1820
     :cond_6
     invoke-static {v7}, Lcom/android/internal/telephony/IccUtils;->bytesToHexString([B)Ljava/lang/String;
 
     move-result-object v8
 
-    .line 1835
+    .line 1823
     .local v8, hexString:Ljava/lang/String;
     new-instance v5, Lcom/android/internal/telephony/cat/ReceiveDataResponseData;
 
     .end local v5           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     invoke-direct {v5, v7, v6}, Lcom/android/internal/telephony/cat/ReceiveDataResponseData;-><init>([BI)V
 
-    .line 1836
+    .line 1824
     .restart local v5       #resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -820,7 +820,7 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 1837
+    .line 1825
     return-void
 .end method
 
@@ -833,7 +833,7 @@
 
     const/4 v4, 0x0
 
-    .line 1716
+    .line 1704
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -844,13 +844,13 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1718
+    .line 1706
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getDataSettings()Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;
 
     move-result-object v7
 
-    .line 1719
+    .line 1707
     .local v7, dataSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -880,7 +880,7 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1722
+    .line 1710
     :cond_1
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -892,11 +892,11 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1723
+    .line 1711
     :cond_2
     const/4 v10, 0x0
 
-    .line 1725
+    .line 1713
     .local v10, i:I
     :goto_0
     iget-object v0, v7, Lcom/android/internal/telephony/cat/CatCmdMessage$DataSettings;->data:[B
@@ -913,7 +913,7 @@
 
     if-ge v0, v1, :cond_3
 
-    .line 1727
+    .line 1715
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxBuf:[B
 
     iget v1, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxPos:I
@@ -928,12 +928,12 @@
 
     aput-byte v2, v0, v1
 
-    .line 1726
+    .line 1714
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_0
 
-    .line 1729
+    .line 1717
     :cond_3
     iget v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
@@ -945,29 +945,29 @@
 
     iput v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
-    .line 1733
+    .line 1721
     invoke-virtual {p1}, Lcom/android/internal/telephony/cat/CatCmdMessage;->getCmdQualifier()I
 
     move-result v0
 
     if-ne v0, v3, :cond_6
 
-    .line 1735
+    .line 1723
     iput v4, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxPos:I
 
-    .line 1736
+    .line 1724
     iget v11, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
-    .line 1737
+    .line 1725
     .local v11, len:I
     iput v4, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mTxLen:I
 
-    .line 1741
+    .line 1729
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
     if-nez v0, :cond_5
 
-    .line 1742
+    .line 1730
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -978,13 +978,13 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1743
+    .line 1731
     :cond_4
     new-instance v5, Lcom/android/internal/telephony/cat/SendDataResponseData;
 
     invoke-direct {v5, v4}, Lcom/android/internal/telephony/cat/SendDataResponseData;-><init>(I)V
 
-    .line 1744
+    .line 1732
     .local v5, resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -999,12 +999,12 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/cat/CatService;->sendTerminalResponse(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/ResultCode;ZILcom/android/internal/telephony/cat/ResponseData;)V
 
-    .line 1781
+    .line 1769
     .end local v11           #len:I
     :goto_1
     return-void
 
-    .line 1749
+    .line 1737
     .end local v5           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     .restart local v11       #len:I
     :cond_5
@@ -1015,7 +1015,7 @@
 
     move-result-object v9
 
-    .line 1752
+    .line 1740
     .local v9, hexString:Ljava/lang/String;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mDatagramSocket:Ljava/net/DatagramSocket;
 
@@ -1027,7 +1027,7 @@
 
     invoke-virtual {v0, v1}, Ljava/net/DatagramSocket;->send(Ljava/net/DatagramPacket;)V
 
-    .line 1753
+    .line 1741
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
     move-result v0
@@ -1065,19 +1065,19 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 1767
+    .line 1755
     .end local v9           #hexString:Ljava/lang/String;
     .end local v11           #len:I
     :cond_6
     const/16 v6, 0xee
 
-    .line 1768
+    .line 1756
     .local v6, avail:I
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     if-eqz v0, :cond_7
 
-    .line 1772
+    .line 1760
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->mChannelSettings:Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;
 
     iget v0, v0, Lcom/android/internal/telephony/cat/CatCmdMessage$ChannelSettings;->bufSize:I
@@ -1086,21 +1086,21 @@
 
     sub-int v6, v0, v1
 
-    .line 1773
+    .line 1761
     const/16 v0, 0xff
 
     if-le v6, v0, :cond_7
 
-    .line 1774
+    .line 1762
     const/16 v6, 0xff
 
-    .line 1779
+    .line 1767
     :cond_7
     new-instance v5, Lcom/android/internal/telephony/cat/SendDataResponseData;
 
     invoke-direct {v5, v6}, Lcom/android/internal/telephony/cat/SendDataResponseData;-><init>(I)V
 
-    .line 1780
+    .line 1768
     .restart local v5       #resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -1119,14 +1119,14 @@
 
     goto :goto_1
 
-    .line 1754
+    .line 1742
     .end local v5           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     .end local v6           #avail:I
     .restart local v11       #len:I
     :catch_0
     move-exception v8
 
-    .line 1755
+    .line 1743
     .local v8, e:Ljava/io/IOException;
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -1158,13 +1158,13 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1756
+    .line 1744
     :cond_8
     new-instance v5, Lcom/android/internal/telephony/cat/SendDataResponseData;
 
     invoke-direct {v5, v4}, Lcom/android/internal/telephony/cat/SendDataResponseData;-><init>(I)V
 
-    .line 1757
+    .line 1745
     .restart local v5       #resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 
@@ -1181,13 +1181,13 @@
 
     goto/16 :goto_1
 
-    .line 1759
+    .line 1747
     .end local v5           #resp:Lcom/android/internal/telephony/cat/ResponseData;
     .end local v8           #e:Ljava/io/IOException;
     :catch_1
     move-exception v8
 
-    .line 1760
+    .line 1748
     .local v8, e:Ljava/lang/IllegalArgumentException;
     invoke-static {}, Lcom/android/internal/telephony/cat/BipProxy;->access$100()Z
 
@@ -1219,13 +1219,13 @@
 
     invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 1761
+    .line 1749
     :cond_9
     new-instance v5, Lcom/android/internal/telephony/cat/SendDataResponseData;
 
     invoke-direct {v5, v4}, Lcom/android/internal/telephony/cat/SendDataResponseData;-><init>(I)V
 
-    .line 1762
+    .line 1750
     .restart local v5       #resp:Lcom/android/internal/telephony/cat/ResponseData;
     iget-object v0, p0, Lcom/android/internal/telephony/cat/BipProxy$UdpClientChannel;->this$0:Lcom/android/internal/telephony/cat/BipProxy;
 

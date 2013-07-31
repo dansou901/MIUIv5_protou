@@ -101,7 +101,7 @@
 
     move-result-object v1
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -576,7 +576,7 @@
 
     move-result-object v1
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -725,7 +725,7 @@
 
     move-result-object v1
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -912,7 +912,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "}, pid="
+    const-string/jumbo v3, "}, pid="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

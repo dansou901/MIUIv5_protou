@@ -807,16 +807,6 @@
     return-void
 
     :cond_0
-    const-wide/16 v22, 0x8
-
-    const-string v20, "doFrame"
-
-    move-wide/from16 v0, v22
-
-    move-object/from16 v2, v20
-
-    invoke-static {v0, v1, v2}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v10
@@ -923,10 +913,6 @@
 
     invoke-direct/range {p0 .. p0}, Landroid/view/Choreographer;->scheduleVsyncLocked()V
 
-    const-wide/16 v22, 0x8
-
-    invoke-static/range {v22 .. v23}, Landroid/os/Trace;->traceEnd(J)V
-
     monitor-exit v21
 
     goto :goto_0
@@ -1014,10 +1000,6 @@
     move-result-wide v18
 
     .local v18, tempT:J
-    const-wide/16 v20, 0x8
-
-    invoke-static/range {v20 .. v21}, Landroid/os/Trace;->traceEnd(J)V
-
     goto/16 :goto_0
 .end method
 

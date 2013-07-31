@@ -119,7 +119,7 @@
     .line 41
     .restart local v0       #deviceSN:Ljava/lang/String;
     :cond_3
-    const-string v4, "tellhtc_sense3.5"
+    const-string/jumbo v4, "tellhtc_sense3.5"
 
     goto :goto_1
 

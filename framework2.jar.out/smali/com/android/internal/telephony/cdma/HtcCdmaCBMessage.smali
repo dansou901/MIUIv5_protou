@@ -206,7 +206,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "sn:"
+    const-string/jumbo v5, "sn:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -278,7 +278,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updatenum:"
+    const-string/jumbo v5, "updatenum:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -452,7 +452,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "total pages:"
+    const-string/jumbo v5, "total pages:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1228,7 +1228,7 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "utf-16"
+    const-string/jumbo v3, "utf-16"
 
     invoke-direct {v0, v1, v2, v6, v3}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
@@ -1302,6 +1302,8 @@
     goto/16 :goto_2
 
     .line 263
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_3

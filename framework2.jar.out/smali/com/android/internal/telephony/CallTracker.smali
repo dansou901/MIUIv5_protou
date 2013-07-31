@@ -113,7 +113,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mAccMute:Ljava/lang/String;
 
     .line 60
-    const-string v0, "unmute\n"
+    const-string/jumbo v0, "unmute\n"
 
     iput-object v0, p0, Lcom/android/internal/telephony/CallTracker;->mAccUnmute:Ljava/lang/String;
 

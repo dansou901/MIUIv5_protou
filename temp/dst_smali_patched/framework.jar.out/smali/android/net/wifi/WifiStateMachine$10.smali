@@ -51,7 +51,7 @@
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$10;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;)Lcom/htc/service/WirelessDisplayManager;
+    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$2000(Landroid/net/wifi/WifiStateMachine;)Lcom/htc/service/WirelessDisplayManager;
 
     move-result-object v1
 

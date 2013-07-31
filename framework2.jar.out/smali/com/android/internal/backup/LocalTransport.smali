@@ -321,7 +321,7 @@
 
     new-instance v12, Ljava/lang/IllegalStateException;
 
-    const-string v13, "startRestore not called"
+    const-string/jumbo v13, "startRestore not called"
 
     invoke-direct {v12, v13}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
@@ -595,7 +595,7 @@
     .line 88
     const-string v0, "LocalTransport"
 
-    const-string v1, "wiping all data"
+    const-string/jumbo v1, "wiping all data"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -621,7 +621,7 @@
 
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "startRestore not called"
+    const-string/jumbo v2, "startRestore not called"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
@@ -1055,7 +1055,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "start restore "
+    const-string/jumbo v2, "start restore "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -505,52 +505,6 @@
     goto :goto_0
 .end method
 
-.method public listAllTransports()[Ljava/lang/String;
-    .locals 4
-
-    .prologue
-    .line 361
-    invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
-
-    .line 362
-    const/4 v1, 0x0
-
-    .line 363
-    .local v1, result:[Ljava/lang/String;
-    sget-object v2, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    if-eqz v2, :cond_0
-
-    .line 365
-    :try_start_0
-    sget-object v2, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    invoke-interface {v2}, Landroid/app/backup/IBackupManager;->listAllTransports()[Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 370
-    :cond_0
-    :goto_0
-    return-object v1
-
-    .line 366
-    :catch_0
-    move-exception v0
-
-    .line 367
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v2, "BackupManager"
-
-    const-string v3, "BackupStatus couldn\'t connect"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
 .method public registerExternalTransport(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
     .parameter "packagename"
@@ -857,48 +811,6 @@
     const-string v1, "BackupManager"
 
     const-string/jumbo v2, "setBackupProvisioned[Exception]"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method public setTransportForInstall(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
-    .parameter "packagename"
-    .parameter "servicename"
-
-    .prologue
-    .line 344
-    invoke-static {}, Landroid/app/backup/BackupManager;->checkServiceBinder()V
-
-    .line 345
-    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    if-eqz v1, :cond_0
-
-    .line 347
-    :try_start_0
-    sget-object v1, Landroid/app/backup/BackupManager;->sService:Landroid/app/backup/IBackupManager;
-
-    invoke-interface {v1, p1, p2}, Landroid/app/backup/IBackupManager;->setTransportForInstall(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 352
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 348
-    :catch_0
-    move-exception v0
-
-    .line 349
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "BackupManager"
-
-    const-string/jumbo v2, "set install transport fail."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

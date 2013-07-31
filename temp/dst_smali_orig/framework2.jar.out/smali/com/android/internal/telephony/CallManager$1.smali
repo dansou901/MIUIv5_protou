@@ -804,6 +804,8 @@
 
     goto :goto_1
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x64
         :pswitch_0

@@ -63,61 +63,6 @@
 
 
 # virtual methods
-.method public init()V
-    .locals 5
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->oldLayoutBound:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/webkit/WebView;->getLeft()I
-
-    move-result v1
-
-    iget-object v2, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/webkit/WebView;->getTop()I
-
-    move-result v2
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/webkit/WebView;->getRight()I
-
-    move-result v3
-
-    iget-object v4, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/webkit/WebView;->getBottom()I
-
-    move-result v4
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    return-void
-.end method
-
 .method public onGlobalLayout()V
     .locals 5
 
@@ -189,7 +134,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$InnerLayoutChangedListener;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->updateSelectionPopup()V
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$10900(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$11000(Landroid/webkit/WebViewClassic;)V
 
     :cond_0
     return-void

@@ -523,22 +523,6 @@
     .end annotation
 .end method
 
-.method public abstract isBluetoothRestricted()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract isBluetoothTetheringRestricted()Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract isDiscovering()Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -643,23 +627,7 @@
     .end annotation
 .end method
 
-.method public abstract setBluetoothRestricted(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
 .method public abstract setBluetoothTethering(Z)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract setBluetoothTetheringRestricted(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

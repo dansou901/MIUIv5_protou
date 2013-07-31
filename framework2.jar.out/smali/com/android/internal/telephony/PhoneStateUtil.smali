@@ -371,7 +371,7 @@
 
     .prologue
     .line 150
-    const-string v2, "ss"
+    const-string/jumbo v2, "ss"
 
     invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -385,7 +385,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateSimState: state="
+    const-string/jumbo v4, "updateSimState: state="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -876,7 +876,7 @@
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "slot: "
+    const-string/jumbo v16, "slot: "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1016,6 +1016,8 @@
     goto :goto_0
 
     .line 282
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1184,7 +1186,7 @@
     .line 92
     const-string v1, "PhoneStateUtil"
 
-    const-string v2, "unRegisterPhoneStateListener: "
+    const-string/jumbo v2, "unRegisterPhoneStateListener: "
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

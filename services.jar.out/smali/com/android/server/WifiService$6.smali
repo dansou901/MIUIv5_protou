@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 975
+    .line 967
     iput-object p1, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,119 +35,236 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 7
     .parameter "context"
     .parameter "intent"
 
     .prologue
+    .line 970
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v5, 0xd8
+
+    if-ne v4, v5, :cond_2
+
+    .line 971
+    const-string v4, "ss"
+
+    invoke-virtual {p2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 972
+    .local v2, state:Ljava/lang/String;
+    const-string v4, "IMSI"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const-string v4, "LOADED"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 973
+    :cond_0
+    const-string v4, "WifiService"
+
+    const-string v5, "[C+W] Got INTENT_VALUE_ICC_LOADED"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 975
+    iget-object v4, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
+
+    move-result-object v4
+
+    const-string v5, "phone"
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/telephony/TelephonyManager;
+
+    .line 976
+    .local v3, telephonyManager:Landroid/telephony/TelephonyManager;
+    if-eqz v3, :cond_2
+
+    .line 977
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimOperator()Ljava/lang/String;
+
+    move-result-object v1
+
     .line 978
-    const-string v1, "state"
+    .local v1, operatorNum:Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSimOperatorName()Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
+    move-result-object v0
 
     .line 979
-    .local v0, enabled:Z
-    const-string v1, "WifiService"
+    .local v0, operatorName:Ljava/lang/String;
+    const-string v4, "WifiService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "[C+W] get mobile network state = "
+    const-string v6, "[C+W] getSimOperator = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 980
+    const-string v4, "WifiService"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "[C+W] getSimOperatorName = "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 981
-    iget-object v1, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
+    const-string v4, "46003"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string v4, "46005"
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    const-string v4, "China Telecom"
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    :cond_1
+    iget-object v4, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v4}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v1}, Landroid/net/wifi/WifiStateMachine;->getCwRegisterState()Z
+    invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->getCwRegisterCapability()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
-
-    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiStateMachine;->syncGetWifiState()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    if-ne v1, v2, :cond_0
-
-    .line 982
-    if-eqz v0, :cond_1
+    if-nez v4, :cond_2
 
     .line 983
-    const-string v1, "WifiService"
+    const-string v4, "WifiService"
 
-    const-string v2, "[C+W] set detailed state to disconnected"
+    const-string v5, "[C+W] setCwRegisterCapability to true++"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 984
-    iget-object v1, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
+    iget-object v4, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v4}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
-    move-result-object v1
+    move-result-object v4
 
-    sget-object v2, Landroid/net/NetworkInfo$DetailedState;->DISCONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    const/4 v5, 0x1
 
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->setDetailedState(Landroid/net/NetworkInfo$DetailedState;)V
+    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->setCwRegisterCapability(Z)V
 
-    .line 991
-    :cond_0
-    :goto_0
-    return-void
+    .line 985
+    iget-object v4, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v4}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->tryToStartCWRegister()V
 
     .line 986
-    :cond_1
-    const-string v1, "WifiService"
+    const-string v4, "WifiService"
 
-    const-string v2, "[C+W] set detailed state to connected"
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 987
-    iget-object v1, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
+    const-string v6, "[C+W] setCwRegisterCapability to--"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/server/WifiService$6;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v6}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
 
-    move-result-object v1
+    move-result-object v6
 
-    sget-object v2, Landroid/net/NetworkInfo$DetailedState;->CONNECTED:Landroid/net/NetworkInfo$DetailedState;
+    invoke-virtual {v6}, Landroid/net/wifi/WifiStateMachine;->getCwRegisterCapability()Z
 
-    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->setDetailedState(Landroid/net/NetworkInfo$DetailedState;)V
+    move-result v6
 
-    goto :goto_0
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1004
+    .end local v0           #operatorName:Ljava/lang/String;
+    .end local v1           #operatorNum:Ljava/lang/String;
+    .end local v2           #state:Ljava/lang/String;
+    .end local v3           #telephonyManager:Landroid/telephony/TelephonyManager;
+    :cond_2
+    return-void
 .end method

@@ -68,7 +68,7 @@
     return-void
 .end method
 
-.method static synthetic access$5000(Landroid/widget/Editor$InsertionHandleView;)V
+.method static synthetic access$5900(Landroid/widget/Editor$InsertionHandleView;)V
     .locals 0
     .parameter "x0"
 
@@ -663,7 +663,7 @@
     iget-object v1, p0, Landroid/widget/Editor$InsertionHandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mEasyUpHardDownTriggered:Z
-    invoke-static {v1}, Landroid/widget/Editor;->access$3800(Landroid/widget/Editor;)Z
+    invoke-static {v1}, Landroid/widget/Editor;->access$4300(Landroid/widget/Editor;)Z
 
     move-result v1
 

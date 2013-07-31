@@ -103,9 +103,6 @@
 .method public abstract hasRssFeed()Z
 .end method
 
-.method public abstract htcClearUndoRedoOperations()V
-.end method
-
 .method public abstract isDocumentParsing()Z
 .end method
 

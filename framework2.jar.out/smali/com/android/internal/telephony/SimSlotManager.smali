@@ -718,7 +718,7 @@
 
     .line 559
     .local v0, intent:Landroid/content/Intent;
-    const-string v2, "state"
+    const-string/jumbo v2, "state"
 
     const/16 v3, 0x9
 
@@ -752,7 +752,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "tryPwrupSwitch mPwrup "
+    const-string/jumbo v8, "tryPwrupSwitch mPwrup "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -845,7 +845,7 @@
     invoke-virtual {v5, v6}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 590
-    const-string v6, "slot1"
+    const-string/jumbo v6, "slot1"
 
     invoke-virtual {v5, v6, v9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -1020,7 +1020,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateRecord phone type of slot1 "
+    const-string/jumbo v3, "updateRecord phone type of slot1 "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1667,7 +1667,7 @@
 
     .line 294
     .restart local v3       #intent:Landroid/content/Intent;
-    const-string v6, "state"
+    const-string/jumbo v6, "state"
 
     const/16 v7, 0xa
 
@@ -1768,6 +1768,8 @@
     goto/16 :goto_0
 
     .line 238
+    nop
+
     nop
 
     :pswitch_data_0

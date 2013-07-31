@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 5715
+    .line 5672
     iput-object p1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
     .locals 6
 
     .prologue
-    .line 5734
+    .line 5691
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     if-eqz v1, :cond_0
 
-    .line 5735
+    .line 5692
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -61,12 +61,12 @@
 
     const/4 v0, 0x1
 
-    .line 5737
+    .line 5694
     .local v0, registered:Z
     :goto_0
     if-nez v0, :cond_0
 
-    .line 5738
+    .line 5695
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -91,12 +91,12 @@
 
     iput v2, v1, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
 
-    .line 5743
+    .line 5700
     .end local v0           #registered:Z
     :cond_0
     return-void
 
-    .line 5735
+    .line 5692
     :cond_1
     const/4 v0, 0x0
 
@@ -109,7 +109,7 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 5746
+    .line 5703
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -120,19 +120,19 @@
 
     const/4 v0, 0x1
 
-    .line 5748
+    .line 5705
     .local v0, registered:Z
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 5749
+    .line 5706
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
 
     iput v2, v1, Landroid/view/View$AttachInfo;->mAccessibilityWindowId:I
 
-    .line 5750
+    .line 5707
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
@@ -143,11 +143,11 @@
 
     invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityManager;->removeAccessibilityInteractionConnection(Landroid/view/IWindow;)V
 
-    .line 5752
+    .line 5709
     :cond_0
     return-void
 
-    .line 5746
+    .line 5703
     .end local v0           #registered:Z
     :cond_1
     const/4 v0, 0x0
@@ -160,13 +160,13 @@
     .parameter "enabled"
 
     .prologue
-    .line 5718
+    .line 5675
     if-eqz p1, :cond_1
 
-    .line 5719
+    .line 5676
     invoke-virtual {p0}, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->ensureConnection()V
 
-    .line 5720
+    .line 5677
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mAttachInfo:Landroid/view/View$AttachInfo;
@@ -181,7 +181,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 5721
+    .line 5678
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
@@ -190,7 +190,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
-    .line 5722
+    .line 5679
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mView:Landroid/view/View;
@@ -199,7 +199,7 @@
 
     move-result-object v0
 
-    .line 5723
+    .line 5680
     .local v0, focusedView:Landroid/view/View;
     if-eqz v0, :cond_0
 
@@ -209,22 +209,22 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 5724
+    .line 5681
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
-    .line 5731
+    .line 5688
     .end local v0           #focusedView:Landroid/view/View;
     :cond_0
     :goto_0
     return-void
 
-    .line 5728
+    .line 5685
     :cond_1
     invoke-virtual {p0}, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->ensureNoConnection()V
 
-    .line 5729
+    .line 5686
     iget-object v1, p0, Landroid/view/ViewRootImpl$AccessibilityInteractionConnectionManager;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v1, v1, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;

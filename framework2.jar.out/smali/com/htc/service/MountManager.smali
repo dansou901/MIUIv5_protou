@@ -523,7 +523,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "MountManager"
 
-    const-string v2, "unmountISO: RemoteException"
+    const-string/jumbo v2, "unmountISO: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -575,7 +575,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "MountManager"
 
-    const-string v2, "unmountVolume: RemoteException"
+    const-string/jumbo v2, "unmountVolume: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

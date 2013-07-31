@@ -29,7 +29,7 @@
 
     .line 13
     .local v0, uLogData:Lcom/htc/utils/ulog/ReusableULogData;
-    const-string v1, "system_server"
+    const-string/jumbo v1, "system_server"
 
     invoke-virtual {v0, v1}, Lcom/htc/utils/ulog/ReusableULogData;->setAppId(Ljava/lang/String;)Lcom/htc/utils/ulog/ULogDataWritable;
 

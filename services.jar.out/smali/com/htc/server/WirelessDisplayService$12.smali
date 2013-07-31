@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2880
+    .line 2505
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$12;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,72 +35,192 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 5
+    .locals 7
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v4, -0x1
+    const/4 v6, 0x0
 
-    .line 2883
-    const-string v1, "config_state"
+    .line 2508
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    move-result-object v3
+
+    const-string v4, "Direction"
+
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    .line 2509
+    .local v2, direction:I
+    invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v3
+
+    const-string v4, "AbsoluteDirection"
+
+    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 2884
-    .local v0, configState:I
-    const-string v1, "WirelessDisplayService"
+    .line 2510
+    .local v0, absoluteDirection:I
+    const-string v3, "WirelessDisplayService"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "com.htc.wifidisplay.CONFIGURE_STATE_CHANGED_ACTION. state = "
+    const-string v5, "Receive com.htc.action.MULTIPLE_FINGER_SWIPE_EVENT, Direction value="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v5, ", absoluteDirection value = "
 
-    move-result-object v2
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
 
-    .line 2885
-    iget-object v1, p0, Lcom/htc/server/WirelessDisplayService$12;->this$0:Lcom/htc/server/WirelessDisplayService;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mIsBoundToAutoConfigService:Z
-    invoke-static {v1}, Lcom/htc/server/WirelessDisplayService;->access$3900(Lcom/htc/server/WirelessDisplayService;)Z
+    move-result-object v4
 
-    move-result v1
+    const-string v5, ", finger_gesture_enabled : "
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 2886
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    move-result-object v4
 
-    move-result-object v1
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    move-result-object v5
 
-    move-result-object v2
+    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    const/16 v3, 0xd
+    move-result v5
 
-    invoke-virtual {v2, v3, v0, v4}, Lcom/htc/server/WirelessDisplayService$H;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v1, v2}, Lcom/htc/server/WirelessDisplayService$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 2887
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2512
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 2513
+    iget-object v3, p0, Lcom/htc/server/WirelessDisplayService$12;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    invoke-virtual {v3, v6}, Lcom/htc/server/WirelessDisplayService;->setFingerGestureEnable(Z)V
+
+    .line 2514
+    const/4 v3, 0x2
+
+    new-array v1, v3, [Ljava/lang/Object;
+
+    .line 2515
+    .local v1, debug:[Ljava/lang/Object;
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "direction:"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v1, v6
+
+    .line 2516
+    const/4 v3, 0x1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "absoluteDirection"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v1, v3
+
+    .line 2517
+    iget-object v3, p0, Lcom/htc/server/WirelessDisplayService$12;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    const-string v4, "MULTIPLE_FINGER_SWIPE_EVENT"
+
+    #calls: Lcom/htc/server/WirelessDisplayService;->addToHtcWDSrvHistory(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v3, v4, v1}, Lcom/htc/server/WirelessDisplayService;->access$2900(Lcom/htc/server/WirelessDisplayService;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    .line 2518
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
+
+    move-result-object v3
+
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
+
+    move-result-object v4
+
+    const/16 v5, 0x71
+
+    invoke-virtual {v4, v5, v0, v2}, Lcom/htc/server/WirelessDisplayService$H;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/htc/server/WirelessDisplayService$H;->sendMessage(Landroid/os/Message;)Z
+
+    .line 2519
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
+
+    move-result-object v3
+
+    const/16 v4, 0x73
+
+    const-wide/16 v5, 0xbb8
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/htc/server/WirelessDisplayService$H;->sendEmptyMessageDelayed(IJ)Z
+
+    .line 2521
+    .end local v1           #debug:[Ljava/lang/Object;
     :cond_0
     return-void
 .end method

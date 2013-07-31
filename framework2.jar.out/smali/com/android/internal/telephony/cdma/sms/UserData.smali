@@ -373,7 +373,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "{ msgEncoding="
+    const-string/jumbo v2, "{ msgEncoding="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -568,7 +568,7 @@
 
     .line 202
     :cond_0
-    const-string v1, "unset"
+    const-string/jumbo v1, "unset"
 
     goto/16 :goto_0
 .end method

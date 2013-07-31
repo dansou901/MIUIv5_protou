@@ -40,7 +40,7 @@
     .prologue
     const/4 v10, 0x0
 
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
     move-result-object v7
 
@@ -101,7 +101,7 @@
     iget-object v7, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v7
 
@@ -120,7 +120,7 @@
 
     if-eqz v7, :cond_2
 
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
     move-result-object v7
 
@@ -131,7 +131,7 @@
     iget-object v7, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     #calls: Lcom/android/server/usb/UsbDeviceManager;->startAccessoryMode()V
-    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$600(Lcom/android/server/usb/UsbDeviceManager;)V
+    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$400(Lcom/android/server/usb/UsbDeviceManager;)V
 
     goto :goto_0
 
@@ -156,12 +156,12 @@
     move-result v8
 
     #setter for: Lcom/android/server/usb/UsbDeviceManager;->mConnect2Pc:I
-    invoke-static {v7, v8}, Lcom/android/server/usb/UsbDeviceManager;->access$702(Lcom/android/server/usb/UsbDeviceManager;I)I
+    invoke-static {v7, v8}, Lcom/android/server/usb/UsbDeviceManager;->access$502(Lcom/android/server/usb/UsbDeviceManager;I)I
 
     iget-object v7, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v7
 
@@ -170,7 +170,7 @@
     const/4 v9, 0x0
 
     #calls: Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->update2(II)V
-    invoke-static {v7, v8, v9}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$800(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
+    invoke-static {v7, v8, v9}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$600(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -180,7 +180,7 @@
     move-exception v1
 
     .local v1, e:Ljava/lang/NumberFormatException;
-    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$300()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
     move-result-object v7
 
@@ -232,12 +232,12 @@
     move-result v8
 
     #setter for: Lcom/android/server/usb/UsbDeviceManager;->mHostCable:I
-    invoke-static {v7, v8}, Lcom/android/server/usb/UsbDeviceManager;->access$902(Lcom/android/server/usb/UsbDeviceManager;I)I
+    invoke-static {v7, v8}, Lcom/android/server/usb/UsbDeviceManager;->access$702(Lcom/android/server/usb/UsbDeviceManager;I)I
 
     iget-object v7, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v7
 
@@ -246,7 +246,7 @@
     const/4 v9, 0x0
 
     #calls: Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->update2(II)V
-    invoke-static {v7, v8, v9}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$800(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
+    invoke-static {v7, v8, v9}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$600(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -290,14 +290,14 @@
     iget-object v7, p0, Lcom/android/server/usb/UsbDeviceManager$1;->this$0:Lcom/android/server/usb/UsbDeviceManager;
 
     #getter for: Lcom/android/server/usb/UsbDeviceManager;->mHandler:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
-    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$500(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
+    invoke-static {v7}, Lcom/android/server/usb/UsbDeviceManager;->access$300(Lcom/android/server/usb/UsbDeviceManager;)Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     move-result-object v7
 
     const/4 v8, 0x6
 
     #calls: Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->update2(II)V
-    invoke-static {v7, v8, v10}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$800(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
+    invoke-static {v7, v8, v10}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$600(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;II)V
 
     goto/16 :goto_0
 .end method

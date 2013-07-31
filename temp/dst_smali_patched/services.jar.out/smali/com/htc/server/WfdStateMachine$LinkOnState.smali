@@ -242,11 +242,6 @@
 
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine$LinkOnState;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    #calls: Lcom/htc/server/WfdStateMachine;->forceUpdateDongles()V
-    invoke-static {v4}, Lcom/htc/server/WfdStateMachine;->access$2400(Lcom/htc/server/WfdStateMachine;)V
-
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine$LinkOnState;->this$0:Lcom/htc/server/WfdStateMachine;
-
     iget-object v4, v4, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v4, :cond_4
@@ -258,7 +253,7 @@
     iget-object v5, v5, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     #calls: Lcom/htc/server/WfdStateMachine;->updatePairedDongle(Lcom/htc/service/DongleInfo;)V
-    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$2500(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
+    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$2300(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
 
     :cond_4
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine$LinkOnState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -337,7 +332,7 @@
 
     invoke-virtual {v3, v2}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :sswitch_3
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine$LinkOnState;->this$0:Lcom/htc/server/WfdStateMachine;

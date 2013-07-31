@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-12 21:42:48.265167091 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-12 21:40:38.828489752 +0000
+*** ./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-31 22:22:07.787398589 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ScrollingTabContainerView$TabClickListener.smali	2013-07-31 22:21:10.810727167 +0000
 ***************
 *** 111,115 ****
 --- 111,119 ----

@@ -741,7 +741,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unknown message: "
+    const-string/jumbo v3, "unknown message: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -820,6 +820,8 @@
     goto :goto_0
 
     .line 177
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

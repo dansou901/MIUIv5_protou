@@ -68,7 +68,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$500()D
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$400()D
 
     move-result-wide v0
 

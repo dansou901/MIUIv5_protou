@@ -727,7 +727,7 @@
     .line 114
     const-string v0, "HtcGlAnimation"
 
-    const-string v1, "string _openOrClose is null, use system default."
+    const-string/jumbo v1, "string _openOrClose is null, use system default."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -772,7 +772,7 @@
     .line 120
     const-string v0, "HtcGlAnimation"
 
-    const-string v1, "transit is override to open."
+    const-string/jumbo v1, "transit is override to open."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -814,7 +814,7 @@
     .line 126
     const-string v0, "HtcGlAnimation"
 
-    const-string v1, "transit is override to close."
+    const-string/jumbo v1, "transit is override to close."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -836,7 +836,7 @@
     .line 131
     const-string v0, "HtcGlAnimation"
 
-    const-string v1, "unknown transit, use system default."
+    const-string/jumbo v1, "unknown transit, use system default."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 

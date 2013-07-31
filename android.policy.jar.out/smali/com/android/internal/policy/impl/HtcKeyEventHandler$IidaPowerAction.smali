@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 679
+    .line 688
     iput-object p1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaPowerAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$BaseKeyAction;-><init>(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)V
@@ -39,7 +39,7 @@
     .parameter "keyEvent"
 
     .prologue
-    .line 683
+    .line 692
     iget-object v2, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaPowerAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
@@ -51,18 +51,18 @@
 
     move-result-object v1
 
-    .line 685
+    .line 694
     .local v1, state:Landroid/view/WindowManagerPolicy$WindowState;
     if-eqz v1, :cond_1
 
-    .line 686
+    .line 695
     invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 689
+    .line 698
     .local v0, name:Ljava/lang/String;
-    const-string v2, " com.kddi.android.iida.iidahome/"
+    const-string v2, "com.kddi.android.iida.iidahome"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -70,7 +70,7 @@
 
     if-nez v2, :cond_0
 
-    const-string v2, " com.kddi.android.iida.listhome.portal/"
+    const-string v2, "com.kddi.android.iida.listhome.portal"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -86,24 +86,7 @@
 
     if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaPowerAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
-
-    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$200(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getKeyguardMediator()Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->isLockScreen()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 690
+    .line 699
     :cond_0
     const-string v2, "HtcKeyEventHandler"
 
@@ -127,15 +110,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 691
+    .line 700
     const/4 v2, 0x1
 
-    .line 696
+    .line 705
     .end local v0           #name:Ljava/lang/String;
     :goto_0
     return v2
 
-    .line 694
+    .line 703
     :cond_1
     const-string v2, "HtcKeyEventHandler"
 
@@ -143,7 +126,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 696
+    .line 705
     :cond_2
     const/4 v2, 0x0
 
@@ -156,7 +139,7 @@
     .parameter "event"
 
     .prologue
-    .line 701
+    .line 710
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
@@ -165,25 +148,25 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 703
+    .line 712
     and-int/lit8 v0, p1, 0x4
 
     if-eqz v0, :cond_0
 
-    .line 705
+    .line 714
     or-int/lit8 p1, p1, 0x1
 
-    .line 706
+    .line 715
     and-int/lit8 p1, p1, -0x5
 
-    .line 707
+    .line 716
     const-string v0, "HtcKeyEventHandler"
 
     const-string v1, "IidaPowerAction: policyFlags add ACTION_PASS_TO_USER remove ACTION_GO_TO_SLEEP"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 711
+    .line 720
     :cond_0
     return p1
 .end method

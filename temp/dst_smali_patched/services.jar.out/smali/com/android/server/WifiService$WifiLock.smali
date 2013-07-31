@@ -44,7 +44,7 @@
     iget-object v0, p0, Lcom/android/server/WifiService$WifiLock;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mLocks:Lcom/android/server/WifiService$LockList;
-    invoke-static {v0}, Lcom/android/server/WifiService;->access$7000(Lcom/android/server/WifiService;)Lcom/android/server/WifiService$LockList;
+    invoke-static {v0}, Lcom/android/server/WifiService;->access$6800(Lcom/android/server/WifiService;)Lcom/android/server/WifiService$LockList;
 
     move-result-object v1
 
@@ -56,7 +56,7 @@
     iget-object v2, p0, Lcom/android/server/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     #calls: Lcom/android/server/WifiService;->releaseWifiLockLocked(Landroid/os/IBinder;)Z
-    invoke-static {v0, v2}, Lcom/android/server/WifiService;->access$7100(Lcom/android/server/WifiService;Landroid/os/IBinder;)Z
+    invoke-static {v0, v2}, Lcom/android/server/WifiService;->access$6900(Lcom/android/server/WifiService;Landroid/os/IBinder;)Z
 
     monitor-exit v1
 

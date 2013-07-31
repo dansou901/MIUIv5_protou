@@ -547,6 +547,18 @@
     goto :goto_1
 .end method
 
+.method static getURL_MATCHER()Landroid/content/UriMatcher;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    sget-object v0, Lcom/android/internal/telephony/IccProvider;->URL_MATCHER:Landroid/content/UriMatcher;
+
+    return-object v0
+.end method
+
 .method private static insertIntoContact(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;ZJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
     .locals 4
     .parameter "resolver"
@@ -1062,13 +1074,20 @@
     move-object v1, p1
 
     .local v1, retVal:Ljava/lang/String;
+    const/4 v2, 0x1
+
+    if-gt v0, v2, :cond_0
+
+    return-object v1
+
+    :cond_0
     const/4 v2, 0x0
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
     add-int/lit8 v2, v0, -0x1
 
@@ -1076,7 +1095,7 @@
 
     move-result v2
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1
 
     const/4 v2, 0x1
 
@@ -1086,7 +1105,7 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_1
     return-object v1
 .end method
 
@@ -1913,6 +1932,8 @@
 
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2031,6 +2052,8 @@
     const-string v0, "vnd.android.cursor.dir/sim-contact"
 
     return-object v0
+
+    nop
 
     nop
 
@@ -2486,6 +2509,8 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_3
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -3343,6 +3368,8 @@
     const/16 v27, 0x1
 
     goto/16 :goto_0
+
+    nop
 
     nop
 

@@ -27,13 +27,13 @@
     .parameter "remote"
 
     .prologue
-    .line 354
+    .line 319
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 355
+    .line 320
     iput-object p1, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
-    .line 356
+    .line 321
     return-void
 .end method
 
@@ -43,77 +43,10 @@
     .locals 1
 
     .prologue
-    .line 359
+    .line 324
     iget-object v0, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     return-object v0
-.end method
-
-.method public changeVideoBitRate(I)V
-    .locals 5
-    .parameter "bitRate"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 865
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 866
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 868
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v2, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 869
-    invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 870
-    iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x1f
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 871
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 874
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 875
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 877
-    return-void
-
-    .line 874
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 875
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 874
-    throw v2
 .end method
 
 .method public extendTurnOffHotspotTimer()V
@@ -125,25 +58,25 @@
     .end annotation
 
     .prologue
-    .line 836
+    .line 801
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 837
+    .line 802
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 839
+    .line 804
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 840
+    .line 805
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1d
@@ -152,30 +85,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 841
+    .line 806
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 844
+    .line 809
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 845
+    .line 810
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 847
+    .line 812
     return-void
 
-    .line 844
+    .line 809
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 845
+    .line 810
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 844
+    .line 809
     throw v2
 .end method
 
@@ -188,25 +121,25 @@
     .end annotation
 
     .prologue
-    .line 507
+    .line 472
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 508
+    .line 473
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 511
+    .line 476
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 512
+    .line 477
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x9
@@ -215,37 +148,37 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 513
+    .line 478
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 514
+    .line 479
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    .line 517
+    .line 482
     .local v2, _result:Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 518
+    .line 483
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 520
+    .line 485
     return-object v2
 
-    .line 517
+    .line 482
     .end local v2           #_result:Ljava/lang/String;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 518
+    .line 483
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 517
+    .line 482
     throw v3
 .end method
 
@@ -258,25 +191,25 @@
     .end annotation
 
     .prologue
-    .line 524
+    .line 489
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 525
+    .line 490
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 528
+    .line 493
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 529
+    .line 494
     iget-object v4, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xa
@@ -285,37 +218,37 @@
 
     invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 530
+    .line 495
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 531
+    .line 496
     invoke-virtual {v1}, Landroid/os/Parcel;->readLong()J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-wide v2
 
-    .line 534
+    .line 499
     .local v2, _result:J
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 535
+    .line 500
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 537
+    .line 502
     return-wide v2
 
-    .line 534
+    .line 499
     .end local v2           #_result:J
     :catchall_0
     move-exception v4
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 535
+    .line 500
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 534
+    .line 499
     throw v4
 .end method
 
@@ -328,25 +261,25 @@
     .end annotation
 
     .prologue
-    .line 797
+    .line 762
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 798
+    .line 763
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 801
+    .line 766
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 802
+    .line 767
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x1b
@@ -355,17 +288,17 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 803
+    .line 768
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 804
+    .line 769
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 805
+    .line 770
     sget-object v3, Lcom/htc/service/DongleInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -376,18 +309,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 812
+    .line 777
     .local v2, _result:Lcom/htc/service/DongleInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 813
+    .line 778
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 815
+    .line 780
     return-object v2
 
-    .line 808
+    .line 773
     .end local v2           #_result:Lcom/htc/service/DongleInfo;
     :cond_0
     const/4 v2, 0x0
@@ -395,17 +328,17 @@
     .restart local v2       #_result:Lcom/htc/service/DongleInfo;
     goto :goto_0
 
-    .line 812
+    .line 777
     .end local v2           #_result:Lcom/htc/service/DongleInfo;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 813
+    .line 778
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 812
+    .line 777
     throw v3
 .end method
 
@@ -420,25 +353,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 687
+    .line 652
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 688
+    .line 653
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 691
+    .line 656
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 692
+    .line 657
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x14
@@ -447,10 +380,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 693
+    .line 658
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 694
+    .line 659
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -461,28 +394,28 @@
 
     const/4 v2, 0x1
 
-    .line 697
+    .line 662
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 698
+    .line 663
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 700
+    .line 665
     return v2
 
-    .line 697
+    .line 662
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 698
+    .line 663
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 697
+    .line 662
     throw v3
 .end method
 
@@ -495,25 +428,25 @@
     .end annotation
 
     .prologue
-    .line 454
+    .line 419
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 455
+    .line 420
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 458
+    .line 423
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 459
+    .line 424
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x6
@@ -522,17 +455,17 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 460
+    .line 425
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 461
+    .line 426
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 462
+    .line 427
     sget-object v3, Lcom/htc/service/DongleInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v3, v1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -543,18 +476,18 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 469
+    .line 434
     .local v2, _result:Lcom/htc/service/DongleInfo;
     :goto_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 470
+    .line 435
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 472
+    .line 437
     return-object v2
 
-    .line 465
+    .line 430
     .end local v2           #_result:Lcom/htc/service/DongleInfo;
     :cond_0
     const/4 v2, 0x0
@@ -562,87 +495,17 @@
     .restart local v2       #_result:Lcom/htc/service/DongleInfo;
     goto :goto_0
 
-    .line 469
+    .line 434
     .end local v2           #_result:Lcom/htc/service/DongleInfo;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 470
+    .line 435
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 469
-    throw v3
-.end method
-
-.method public getDefaultVideoBitRate()I
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    .line 880
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 881
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 884
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 885
-    iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v4, 0x20
-
-    const/4 v5, 0x0
-
-    invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 886
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-
-    .line 887
-    invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    move-result v2
-
-    .line 890
-    .local v2, _result:I
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 891
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 893
-    return v2
-
-    .line 890
-    .end local v2           #_result:I
-    :catchall_0
-    move-exception v3
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 891
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 890
+    .line 434
     throw v3
 .end method
 
@@ -665,25 +528,25 @@
     .end annotation
 
     .prologue
-    .line 420
+    .line 385
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 421
+    .line 386
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 424
+    .line 389
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 425
+    .line 390
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x4
@@ -692,10 +555,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 426
+    .line 391
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 427
+    .line 392
     sget-object v3, Lcom/htc/service/DongleInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -704,27 +567,27 @@
 
     move-result-object v2
 
-    .line 430
+    .line 395
     .local v2, _result:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 431
+    .line 396
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 433
+    .line 398
     return-object v2
 
-    .line 430
+    .line 395
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 431
+    .line 396
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 430
+    .line 395
     throw v3
 .end method
 
@@ -738,28 +601,28 @@
     .end annotation
 
     .prologue
-    .line 763
+    .line 728
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 764
+    .line 729
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 767
+    .line 732
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 768
+    .line 733
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 769
+    .line 734
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x19
@@ -768,37 +631,37 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 770
+    .line 735
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 771
+    .line 736
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    .line 774
+    .line 739
     .local v2, _result:Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 775
+    .line 740
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 777
+    .line 742
     return-object v2
 
-    .line 774
+    .line 739
     .end local v2           #_result:Ljava/lang/String;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 775
+    .line 740
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 774
+    .line 739
     throw v3
 .end method
 
@@ -813,25 +676,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 655
+    .line 620
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 656
+    .line 621
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 659
+    .line 624
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 660
+    .line 625
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x12
@@ -840,10 +703,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 661
+    .line 626
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 662
+    .line 627
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -854,28 +717,28 @@
 
     const/4 v2, 0x1
 
-    .line 665
+    .line 630
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 666
+    .line 631
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 668
+    .line 633
     return v2
 
-    .line 665
+    .line 630
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 666
+    .line 631
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 665
+    .line 630
     throw v3
 .end method
 
@@ -888,25 +751,25 @@
     .end annotation
 
     .prologue
-    .line 606
+    .line 571
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 607
+    .line 572
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 610
+    .line 575
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 611
+    .line 576
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xf
@@ -915,37 +778,37 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 612
+    .line 577
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 613
+    .line 578
     invoke-virtual {v1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    .line 616
+    .line 581
     .local v2, _result:Ljava/lang/String;
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 617
+    .line 582
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 619
+    .line 584
     return-object v2
 
-    .line 616
+    .line 581
     .end local v2           #_result:Ljava/lang/String;
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 617
+    .line 582
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 616
+    .line 581
     throw v3
 .end method
 
@@ -953,7 +816,7 @@
     .locals 1
 
     .prologue
-    .line 363
+    .line 328
     const-string v0, "com.htc.service.IWirelessDisplayService"
 
     return-object v0
@@ -970,25 +833,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 403
+    .line 368
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 404
+    .line 369
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 407
+    .line 372
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 408
+    .line 373
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x3
@@ -997,10 +860,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 409
+    .line 374
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 410
+    .line 375
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1011,28 +874,28 @@
 
     const/4 v2, 0x1
 
-    .line 413
+    .line 378
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 414
+    .line 379
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 416
+    .line 381
     return v2
 
-    .line 413
+    .line 378
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 414
+    .line 379
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 413
+    .line 378
     throw v3
 .end method
 
@@ -1045,25 +908,25 @@
     .end annotation
 
     .prologue
-    .line 541
+    .line 506
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 542
+    .line 507
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 545
+    .line 510
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 546
+    .line 511
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0xb
@@ -1072,37 +935,37 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 547
+    .line 512
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 548
+    .line 513
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 551
+    .line 516
     .local v2, _result:I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 552
+    .line 517
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 554
+    .line 519
     return v2
 
-    .line 551
+    .line 516
     .end local v2           #_result:I
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 552
+    .line 517
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 551
+    .line 516
     throw v3
 .end method
 
@@ -1125,25 +988,25 @@
     .end annotation
 
     .prologue
-    .line 437
+    .line 402
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 438
+    .line 403
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 441
+    .line 406
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 442
+    .line 407
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x5
@@ -1152,10 +1015,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 443
+    .line 408
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 444
+    .line 409
     sget-object v3, Lcom/htc/service/DongleInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {v1, v3}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
@@ -1164,27 +1027,27 @@
 
     move-result-object v2
 
-    .line 447
+    .line 412
     .local v2, _result:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 448
+    .line 413
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 450
+    .line 415
     return-object v2
 
-    .line 447
+    .line 412
     .end local v2           #_result:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 448
+    .line 413
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 447
+    .line 412
     throw v3
 .end method
 
@@ -1202,25 +1065,25 @@
 
     const/4 v3, 0x0
 
-    .line 558
+    .line 523
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 559
+    .line 524
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 562
+    .line 527
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 563
+    .line 528
     if-eqz p1, :cond_0
 
     move v4, v2
@@ -1228,7 +1091,7 @@
     :goto_0
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 564
+    .line 529
     iget-object v4, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v5, 0xc
@@ -1237,10 +1100,10 @@
 
     invoke-interface {v4, v5, v0, v1, v6}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 565
+    .line 530
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 566
+    .line 531
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1249,40 +1112,40 @@
 
     if-eqz v4, :cond_1
 
-    .line 569
+    .line 534
     .local v2, _result:Z
     :goto_1
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 570
+    .line 535
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 572
+    .line 537
     return v2
 
     .end local v2           #_result:Z
     :cond_0
     move v4, v3
 
-    .line 563
+    .line 528
     goto :goto_0
 
     :cond_1
     move v2, v3
 
-    .line 566
+    .line 531
     goto :goto_1
 
-    .line 569
+    .line 534
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 570
+    .line 535
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 569
+    .line 534
     throw v3
 .end method
 
@@ -1295,25 +1158,25 @@
     .end annotation
 
     .prologue
-    .line 704
+    .line 669
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 705
+    .line 670
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 707
+    .line 672
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 708
+    .line 673
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x15
@@ -1322,30 +1185,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 709
+    .line 674
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 712
+    .line 677
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 713
+    .line 678
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 715
+    .line 680
     return-void
 
-    .line 712
+    .line 677
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 713
+    .line 678
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 712
+    .line 677
     throw v2
 .end method
 
@@ -1361,25 +1224,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 718
+    .line 683
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 719
+    .line 684
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 721
+    .line 686
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 722
+    .line 687
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -1387,7 +1250,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 723
+    .line 688
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x16
@@ -1396,30 +1259,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 724
+    .line 689
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 727
+    .line 692
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 728
+    .line 693
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 730
+    .line 695
     return-void
 
-    .line 727
+    .line 692
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 728
+    .line 693
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 727
+    .line 692
     throw v2
 .end method
 
@@ -1435,25 +1298,25 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 385
+    .line 350
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 386
+    .line 351
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 389
+    .line 354
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v4, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 390
+    .line 355
     if-eqz p1, :cond_0
 
     const/4 v3, 0x1
@@ -1461,7 +1324,7 @@
     :cond_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 391
+    .line 356
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x2
@@ -1470,37 +1333,37 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 392
+    .line 357
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 393
+    .line 358
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 396
+    .line 361
     .local v2, _result:I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 397
+    .line 362
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 399
+    .line 364
     return v2
 
-    .line 396
+    .line 361
     .end local v2           #_result:I
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 397
+    .line 362
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 396
+    .line 361
     throw v3
 .end method
 
@@ -1515,25 +1378,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 623
+    .line 588
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 624
+    .line 589
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 627
+    .line 592
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 628
+    .line 593
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x10
@@ -1542,10 +1405,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 629
+    .line 594
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 630
+    .line 595
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -1556,103 +1419,29 @@
 
     const/4 v2, 0x1
 
-    .line 633
+    .line 598
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 634
+    .line 599
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 636
+    .line 601
     return v2
 
-    .line 633
+    .line 598
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 634
+    .line 599
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 633
+    .line 598
     throw v3
-.end method
-
-.method public requestDelayTimerStop(Z)V
-    .locals 5
-    .parameter "isStop"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 850
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 851
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 853
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 854
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 855
-    iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x1e
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 856
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 859
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 860
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 862
-    return-void
-
-    .line 859
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 860
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 859
-    throw v2
 .end method
 
 .method public requestWivuDiscovery(Ljava/lang/String;Ljava/lang/String;Z)V
@@ -1669,31 +1458,31 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 476
+    .line 441
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 477
+    .line 442
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 479
+    .line 444
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 480
+    .line 445
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 481
+    .line 446
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 482
+    .line 447
     if-eqz p3, :cond_0
 
     const/4 v2, 0x1
@@ -1701,7 +1490,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 483
+    .line 448
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v3, 0x7
@@ -1710,30 +1499,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 484
+    .line 449
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 487
+    .line 452
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 488
+    .line 453
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 490
+    .line 455
     return-void
 
-    .line 487
+    .line 452
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 488
+    .line 453
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 487
+    .line 452
     throw v2
 .end method
 
@@ -1747,28 +1536,28 @@
     .end annotation
 
     .prologue
-    .line 576
+    .line 541
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 577
+    .line 542
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 579
+    .line 544
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 580
+    .line 545
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 581
+    .line 546
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xd
@@ -1777,30 +1566,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 582
+    .line 547
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 585
+    .line 550
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 586
+    .line 551
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 588
+    .line 553
     return-void
 
-    .line 585
+    .line 550
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 586
+    .line 551
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 585
+    .line 550
     throw v2
 .end method
 
@@ -1816,25 +1605,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 672
+    .line 637
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 673
+    .line 638
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 675
+    .line 640
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 676
+    .line 641
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -1842,7 +1631,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 677
+    .line 642
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x13
@@ -1851,30 +1640,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 678
+    .line 643
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 681
+    .line 646
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 682
+    .line 647
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 684
+    .line 649
     return-void
 
-    .line 681
+    .line 646
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 682
+    .line 647
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 681
+    .line 646
     throw v2
 .end method
 
@@ -1889,31 +1678,31 @@
     .end annotation
 
     .prologue
-    .line 781
+    .line 746
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 782
+    .line 747
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 784
+    .line 749
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 785
+    .line 750
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 786
+    .line 751
     invoke-virtual {v0, p2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 787
+    .line 752
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x1a
@@ -1922,30 +1711,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 788
+    .line 753
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 791
+    .line 756
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 792
+    .line 757
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 794
+    .line 759
     return-void
 
-    .line 791
+    .line 756
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 792
+    .line 757
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 791
+    .line 756
     throw v2
 .end method
 
@@ -1961,25 +1750,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 640
+    .line 605
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 641
+    .line 606
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 643
+    .line 608
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 644
+    .line 609
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -1987,7 +1776,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 645
+    .line 610
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x11
@@ -1996,30 +1785,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 646
+    .line 611
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 649
+    .line 614
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 650
+    .line 615
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 652
+    .line 617
     return-void
 
-    .line 649
+    .line 614
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 650
+    .line 615
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 649
+    .line 614
     throw v2
 .end method
 
@@ -2033,28 +1822,28 @@
     .end annotation
 
     .prologue
-    .line 591
+    .line 556
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 592
+    .line 557
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 594
+    .line 559
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 595
+    .line 560
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 596
+    .line 561
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0xe
@@ -2063,30 +1852,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 597
+    .line 562
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 600
+    .line 565
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 601
+    .line 566
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 603
+    .line 568
     return-void
 
-    .line 600
+    .line 565
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 601
+    .line 566
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 600
+    .line 565
     throw v2
 .end method
 
@@ -2100,28 +1889,28 @@
     .end annotation
 
     .prologue
-    .line 733
+    .line 698
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 734
+    .line 699
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 736
+    .line 701
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 737
+    .line 702
     invoke-virtual {v0, p1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 738
+    .line 703
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x17
@@ -2130,30 +1919,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 739
+    .line 704
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 742
+    .line 707
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 743
+    .line 708
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 745
+    .line 710
     return-void
 
-    .line 742
+    .line 707
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 743
+    .line 708
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 742
+    .line 707
     throw v2
 .end method
 
@@ -2171,31 +1960,31 @@
 
     const/4 v4, 0x0
 
-    .line 367
+    .line 332
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 368
+    .line 333
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 371
+    .line 336
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v5, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v5}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 372
+    .line 337
     if-eqz p1, :cond_0
 
     :goto_0
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 373
+    .line 338
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 v4, 0x1
@@ -2204,118 +1993,44 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 374
+    .line 339
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 375
+    .line 340
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v2
 
-    .line 378
+    .line 343
     .local v2, _result:I
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 379
+    .line 344
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 381
+    .line 346
     return v2
 
     .end local v2           #_result:I
     :cond_0
     move v3, v4
 
-    .line 372
+    .line 337
     goto :goto_0
 
-    .line 378
+    .line 343
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 379
+    .line 344
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 378
+    .line 343
     throw v3
-.end method
-
-.method public setWifiNetworkLimit(Z)V
-    .locals 5
-    .parameter "enable"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 897
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v0
-
-    .line 898
-    .local v0, _data:Landroid/os/Parcel;
-    invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
-
-    move-result-object v1
-
-    .line 900
-    .local v1, _reply:Landroid/os/Parcel;
-    :try_start_0
-    const-string v3, "com.htc.service.IWirelessDisplayService"
-
-    invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
-
-    .line 901
-    if-eqz p1, :cond_0
-
-    const/4 v2, 0x1
-
-    :cond_0
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 902
-    iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
-
-    const/16 v3, 0x21
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-
-    .line 903
-    invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 906
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 907
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 909
-    return-void
-
-    .line 906
-    :catchall_0
-    move-exception v2
-
-    invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
-
-    .line 907
-    invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
-
-    .line 906
-    throw v2
 .end method
 
 .method public startPatternLockFakeMirror(Z)V
@@ -2330,25 +2045,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 748
+    .line 713
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 749
+    .line 714
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 751
+    .line 716
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 752
+    .line 717
     if-eqz p1, :cond_0
 
     const/4 v2, 0x1
@@ -2356,7 +2071,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 753
+    .line 718
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x18
@@ -2365,30 +2080,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 754
+    .line 719
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 757
+    .line 722
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 758
+    .line 723
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 760
+    .line 725
     return-void
 
-    .line 757
+    .line 722
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 758
+    .line 723
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 757
+    .line 722
     throw v2
 .end method
 
@@ -2401,25 +2116,25 @@
     .end annotation
 
     .prologue
-    .line 493
+    .line 458
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 494
+    .line 459
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 496
+    .line 461
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v2, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 497
+    .line 462
     iget-object v2, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v3, 0x8
@@ -2428,30 +2143,30 @@
 
     invoke-interface {v2, v3, v0, v1, v4}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 498
+    .line 463
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 501
+    .line 466
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 502
+    .line 467
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 504
+    .line 469
     return-void
 
-    .line 501
+    .line 466
     :catchall_0
     move-exception v2
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 502
+    .line 467
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 501
+    .line 466
     throw v2
 .end method
 
@@ -2466,25 +2181,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 819
+    .line 784
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
 
-    .line 820
+    .line 785
     .local v0, _data:Landroid/os/Parcel;
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v1
 
-    .line 823
+    .line 788
     .local v1, _reply:Landroid/os/Parcel;
     :try_start_0
     const-string v3, "com.htc.service.IWirelessDisplayService"
 
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
 
-    .line 824
+    .line 789
     iget-object v3, p0, Lcom/htc/service/IWirelessDisplayService$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/16 v4, 0x1c
@@ -2493,10 +2208,10 @@
 
     invoke-interface {v3, v4, v0, v1, v5}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
-    .line 825
+    .line 790
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
 
-    .line 826
+    .line 791
     invoke-virtual {v1}, Landroid/os/Parcel;->readInt()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2507,27 +2222,27 @@
 
     const/4 v2, 0x1
 
-    .line 829
+    .line 794
     .local v2, _result:Z
     :cond_0
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 830
+    .line 795
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 832
+    .line 797
     return v2
 
-    .line 829
+    .line 794
     .end local v2           #_result:Z
     :catchall_0
     move-exception v3
 
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
 
-    .line 830
+    .line 795
     invoke-virtual {v0}, Landroid/os/Parcel;->recycle()V
 
-    .line 829
+    .line 794
     throw v3
 .end method

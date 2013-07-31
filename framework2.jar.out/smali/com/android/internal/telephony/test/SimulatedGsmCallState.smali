@@ -2353,7 +2353,7 @@
     :cond_2
     const-string v5, "ModelInterpreter"
 
-    const-string v6, "triggerRing failed; phone already ringing"
+    const-string/jumbo v6, "triggerRing failed; phone already ringing"
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2383,7 +2383,7 @@
     .line 201
     const-string v5, "ModelInterpreter"
 
-    const-string v6, "triggerRing failed; all full"
+    const-string/jumbo v6, "triggerRing failed; all full"
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 

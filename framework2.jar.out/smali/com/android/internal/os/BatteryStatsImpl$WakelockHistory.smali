@@ -62,35 +62,35 @@
     .prologue
     const-wide/16 v1, 0x0
 
-    .line 411
+    .line 401
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 412
+    .line 402
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mName:Ljava/lang/String;
 
-    .line 413
+    .line 403
     iput-wide v1, p0, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mSum:J
 
-    .line 414
+    .line 404
     iput-wide v1, p0, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mTempSum:J
 
-    .line 415
+    .line 405
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mAcquireTimeList:Ljava/util/ArrayList;
 
-    .line 416
+    .line 406
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mReleaseTimeList:Ljava/util/ArrayList;
 
-    .line 417
+    .line 407
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -105,7 +105,7 @@
     .parameter "x0"
 
     .prologue
-    .line 411
+    .line 401
     invoke-direct {p0}, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;-><init>()V
 
     return-void

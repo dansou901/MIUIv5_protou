@@ -30,16 +30,16 @@
     .parameter "intent"
 
     .prologue
-    .line 204
+    .line 203
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 205
+    .line 204
     iput-object p2, p0, Lcom/android/internal/policy/impl/HtcPolicyUtils$LaunchActivityRunnable;->mIntent:Landroid/content/Intent;
 
-    .line 206
+    .line 205
     iput-object p1, p0, Lcom/android/internal/policy/impl/HtcPolicyUtils$LaunchActivityRunnable;->mContext:Landroid/content/Context;
 
-    .line 207
+    .line 206
     const-string v0, "HtcPolicyUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -68,7 +68,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 208
+    .line 207
     return-void
 .end method
 
@@ -78,7 +78,7 @@
     .locals 3
 
     .prologue
-    .line 212
+    .line 211
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/HtcPolicyUtils$LaunchActivityRunnable;->mContext:Landroid/content/Context;
 
@@ -88,15 +88,15 @@
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 216
+    .line 215
     :goto_0
     return-void
 
-    .line 213
+    .line 212
     :catch_0
     move-exception v0
 
-    .line 214
+    .line 213
     .local v0, ex:Landroid/content/ActivityNotFoundException;
     const-string v1, "HtcPolicyUtils"
 

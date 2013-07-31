@@ -20,7 +20,7 @@
     .parameter "convertSessionId"
 
     .prologue
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/mms/util/DrmConvertSession;->mDrmClient:Landroid/drm/DrmManagerClient;
 
@@ -420,7 +420,7 @@
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_6} :catch_1
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_3
     move-exception v1

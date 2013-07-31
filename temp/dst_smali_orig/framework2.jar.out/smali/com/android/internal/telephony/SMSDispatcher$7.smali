@@ -34,661 +34,276 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 21
+    .locals 12
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const-string v17, "SMS"
+    const/4 v8, 0x1
 
-    new-instance v18, Ljava/lang/StringBuilder;
+    const/4 v6, 0x0
 
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v9, "SMS"
 
-    const-string v19, "OoO Intent Received: "
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v18
+    const-string v11, "OoO Intent Received: "
 
-    move-object/from16 v0, v18
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v1, p2
+    move-result-object v10
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v18
+    move-result-object v10
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v10
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    .local v3, action:Ljava/lang/String;
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    .local v0, action:Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v9
 
-    const-string v18, "android.intent.action.BOOT_COMPLETED"
+    const-string v10, "android.intent.action.BOOT_COMPLETED"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v17
+    move-result v9
 
-    if-eqz v17, :cond_2
+    if-eqz v9, :cond_2
 
-    const-string v17, "SMS"
+    const-string v8, "SMS"
 
-    const-string v18, "Receive intent ACTION_BOOT_COMPLETED"
+    const-string v9, "Receive intent ACTION_BOOT_COMPLETED"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-object/from16 v0, p0
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+    iget-object v8, v8, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
 
-    move-object/from16 v17, v0
+    const-string v9, "phone"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
+    move-result-object v7
 
-    move-object/from16 v17, v0
+    check-cast v7, Landroid/telephony/TelephonyManager;
 
-    const-string v18, "phone"
+    .local v7, telephonyManager:Landroid/telephony/TelephonyManager;
+    invoke-virtual {v7}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result v8
 
-    move-result-object v15
+    const/4 v9, 0x2
 
-    check-cast v15, Landroid/telephony/TelephonyManager;
+    if-ne v8, v9, :cond_0
 
-    .local v15, telephonyManager:Landroid/telephony/TelephonyManager;
-    invoke-virtual {v15}, Landroid/telephony/TelephonyManager;->getCurrentPhoneType()I
+    new-instance v8, Ljava/lang/Thread;
 
-    move-result v17
+    new-instance v9, Lcom/android/internal/telephony/SMSDispatcher$7$1;
 
-    const/16 v18, 0x2
+    invoke-direct {v9, p0}, Lcom/android/internal/telephony/SMSDispatcher$7$1;-><init>(Lcom/android/internal/telephony/SMSDispatcher$7;)V
 
-    move/from16 v0, v17
+    invoke-direct {v8, v9}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_0
-
-    new-instance v17, Ljava/lang/Thread;
-
-    new-instance v18, Lcom/android/internal/telephony/SMSDispatcher$7$1;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/SMSDispatcher$7$1;-><init>(Lcom/android/internal/telephony/SMSDispatcher$7;)V
-
-    invoke-direct/range {v17 .. v18}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v8}, Ljava/lang/Thread;->start()V
 
     :cond_0
-    move-object/from16 v0, p0
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+    invoke-virtual {v8}, Lcom/android/internal/telephony/SMSDispatcher;->updateRadiotechForVerizon()V
 
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/SMSDispatcher;->updateRadiotechForVerizon()V
-
-    .end local v15           #telephonyManager:Landroid/telephony/TelephonyManager;
+    .end local v7           #telephonyManager:Landroid/telephony/TelephonyManager;
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v9
 
-    const-string v18, "com.htc.intent.action.ACTION_UPDATE_RADIO_TECH_VERIZON"
+    const-string v10, "com.htc.intent.action.ACTION_UPDATE_RADIO_TECH_VERIZON"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v17
+    move-result v9
 
-    if-eqz v17, :cond_3
+    if-eqz v9, :cond_3
 
-    move-object/from16 v0, p0
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/internal/telephony/SMSDispatcher;->updateRadiotechForVerizon()V
+    invoke-virtual {v8}, Lcom/android/internal/telephony/SMSDispatcher;->updateRadiotechForVerizon()V
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v9
 
-    const-string v18, "com.htc.intent.action.MARK_TO_SEND_QUEUED_SMS"
+    const-string v10, "com.htc.intent.action.MARK_TO_SEND_QUEUED_SMS"
 
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_4
-
-    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isDetectDataActivityAndCallStateForMoSms()Z
-
-    move-result v17
-
-    if-eqz v17, :cond_1
-
-    invoke-static {}, Lcom/android/internal/telephony/PhoneStateUtil;->getDefault()Lcom/android/internal/telephony/PhoneStateUtil;
-
-    move-result-object v8
-
-    .local v8, psu:Lcom/android/internal/telephony/PhoneStateUtil;
-    invoke-virtual {v8}, Lcom/android/internal/telephony/PhoneStateUtil;->markToSendSmsAfterStateReady()V
-
-    goto :goto_0
-
-    .end local v8           #psu:Lcom/android/internal/telephony/PhoneStateUtil;
-    :cond_4
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v18, "com.htc.intent.action.MARK_TO_CHECK_SERVICE_STATE"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_6
-
-    const-string v17, "check"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v17
-
-    invoke-static/range {v17 .. v17}, Lcom/android/internal/telephony/SMSDispatcher;->access$402(Z)Z
-
-    invoke-static {}, Lcom/android/internal/telephony/SMSDispatcher;->access$500()J
-
-    move-result-wide v17
-
-    invoke-static {}, Lcom/android/internal/telephony/SMSDispatcher;->access$600()J
-
-    move-result-wide v19
-
-    cmp-long v17, v17, v19
-
-    if-lez v17, :cond_5
-
-    const/4 v4, 0x1
-
-    .local v4, changeToStateInServiceAfterFail:Z
-    :goto_1
-    invoke-static {}, Lcom/android/internal/telephony/SMSDispatcher;->access$400()Z
-
-    move-result v17
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_1
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    if-ne v4, v0, :cond_1
-
-    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
-
-    move-result-object v16
-
-    .local v16, telm:Landroid/telephony/TelephonyManager;
-    invoke-virtual/range {v16 .. v16}, Landroid/telephony/TelephonyManager;->getServiceState()I
-
-    move-result v13
-
-    .local v13, ss:I
-    if-nez v13, :cond_1
-
-    const/16 v17, 0x0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/internal/telephony/SMSDispatcher;->access$402(Z)Z
-
-    new-instance v10, Landroid/content/Intent;
-
-    const-string v17, "com.htc.intent.action.SEND_QUEUED_SMS"
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v10, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v10, sendIntent:Landroid/content/Intent;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v10}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    .end local v4           #changeToStateInServiceAfterFail:Z
-    .end local v10           #sendIntent:Landroid/content/Intent;
-    .end local v13           #ss:I
-    .end local v16           #telm:Landroid/telephony/TelephonyManager;
-    :cond_5
-    const/4 v4, 0x0
-
-    goto :goto_1
-
-    :cond_6
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v18, "android.intent.action.SERVICE_STATE"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_8
-
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v17
-
-    invoke-static/range {v17 .. v17}, Landroid/telephony/ServiceState;->newFromBundle(Landroid/os/Bundle;)Landroid/telephony/ServiceState;
-
-    move-result-object v12
-
-    .local v12, serviceState:Landroid/telephony/ServiceState;
-    const-string v17, "SMS"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v19, "ss: "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual {v12}, Landroid/telephony/ServiceState;->getState()I
-
-    move-result v19
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v12}, Landroid/telephony/ServiceState;->getState()I
-
-    move-result v17
-
-    if-nez v17, :cond_7
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v17
-
-    invoke-static/range {v17 .. v18}, Lcom/android/internal/telephony/SMSDispatcher;->access$502(J)J
-
-    :cond_7
-    invoke-static {}, Lcom/android/internal/telephony/SMSDispatcher;->access$400()Z
-
-    move-result v17
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-ne v0, v1, :cond_1
-
-    invoke-virtual {v12}, Landroid/telephony/ServiceState;->getState()I
-
-    move-result v17
-
-    if-nez v17, :cond_1
-
-    const/16 v17, 0x0
-
-    invoke-static/range {v17 .. v17}, Lcom/android/internal/telephony/SMSDispatcher;->access$402(Z)Z
-
-    new-instance v10, Landroid/content/Intent;
-
-    const-string v17, "com.htc.intent.action.SEND_QUEUED_SMS"
-
-    move-object/from16 v0, v17
-
-    invoke-direct {v10, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .restart local v10       #sendIntent:Landroid/content/Intent;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v10}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto/16 :goto_0
-
-    .end local v10           #sendIntent:Landroid/content/Intent;
-    .end local v12           #serviceState:Landroid/telephony/ServiceState;
-    :cond_8
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v18, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_9
-
-    const-string v17, "phoneinECMState"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v6
-
-    .local v6, isECM:Z
-    const-string v17, "SMS"
-
-    new-instance v18, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v19, "ACTION_EMERGENCY_CALLBACK_MODE_CHANGED> "
-
-    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v18
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v18, v0
-
-    const/16 v19, 0x16
-
-    new-instance v20, Ljava/lang/Boolean;
-
-    move-object/from16 v0, v20
-
-    invoke-direct {v0, v6}, Ljava/lang/Boolean;-><init>(Z)V
-
-    invoke-virtual/range {v18 .. v20}, Lcom/android/internal/telephony/SMSDispatcher;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v18
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/internal/telephony/SMSDispatcher;->sendMessage(Landroid/os/Message;)Z
-
-    goto/16 :goto_0
-
-    .end local v6           #isECM:Z
-    :cond_9
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v18, "com.htc.intent.action.ACTION_SPRINT_REASSEMBLE_SMS_DISPATCH"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_a
-
-    const-string v17, "address"
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    .local v7, originatingAddress:Ljava/lang/String;
-    const-string v17, "count"
-
-    const/16 v18, 0x0
-
-    move-object/from16 v0, p2
-
-    move-object/from16 v1, v17
-
-    move/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v11
-
-    .local v11, sequenceCount:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v0, v7, v11}, Lcom/android/internal/telephony/SMSDispatcher;->dispatchPendingSprintReassembleSms(Ljava/lang/String;I)V
-
-    goto/16 :goto_0
-
-    .end local v7           #originatingAddress:Ljava/lang/String;
-    .end local v11           #sequenceCount:I
-    :cond_a
-    invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v17
-
-    const-string v18, "com.htc.intent.action.MONITOR_MOBILE_NETWORK_FOR_CB_IMMUTABLE_NOTIFICATION"
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v17
-
-    if-eqz v17, :cond_b
-
-    const-string v17, "SMS"
-
-    const-string v18, "register receiver for ACTION_ANY_DATA_CONNECTION_STATE_CHANGED"
-
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v5, Landroid/content/IntentFilter;
-
-    invoke-direct {v5}, Landroid/content/IntentFilter;-><init>()V
-
-    .local v5, filter:Landroid/content/IntentFilter;
-    const-string v17, "android.intent.action.ANY_DATA_STATE"
-
-    move-object/from16 v0, v17
-
-    invoke-virtual {v5, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v18, v0
-
-    #getter for: Lcom/android/internal/telephony/SMSDispatcher;->mMobileNetworkReceiver:Landroid/content/BroadcastReceiver;
-    invoke-static/range {v18 .. v18}, Lcom/android/internal/telephony/SMSDispatcher;->access$700(Lcom/android/internal/telephony/SMSDispatcher;)Landroid/content/BroadcastReceiver;
-
-    move-result-object v18
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    goto/16 :goto_0
-
-    .end local v5           #filter:Landroid/content/IntentFilter;
-    :cond_b
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p2
-
-    #calls: Lcom/android/internal/telephony/SMSDispatcher;->resetLastSmsFingerprintForCmas(Landroid/content/Intent;)Z
-    invoke-static {v0, v1}, Lcom/android/internal/telephony/SMSDispatcher;->access$800(Lcom/android/internal/telephony/SMSDispatcher;Landroid/content/Intent;)Z
-
-    move-result v17
-
-    const/16 v18, 0x1
-
-    move/from16 v0, v17
-
-    move/from16 v1, v18
-
-    if-eq v0, v1, :cond_1
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/SMSDispatcher$7;->getResultCode()I
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    .local v9, rc:I
-    const/16 v17, -0x1
+    if-eqz v9, :cond_4
 
-    move/from16 v0, v17
+    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isDetectDataActivityAndCallStateForMoSms()Z
 
-    if-eq v9, v0, :cond_c
+    move-result v8
 
-    const/16 v17, 0x1
+    if-eqz v8, :cond_1
 
-    move/from16 v0, v17
+    invoke-static {}, Lcom/android/internal/telephony/PhoneStateUtil;->getDefault()Lcom/android/internal/telephony/PhoneStateUtil;
 
-    if-ne v9, v0, :cond_d
+    move-result-object v3
 
-    :cond_c
-    const/4 v14, 0x1
+    .local v3, psu:Lcom/android/internal/telephony/PhoneStateUtil;
+    invoke-virtual {v3}, Lcom/android/internal/telephony/PhoneStateUtil;->markToSendSmsAfterStateReady()V
 
-    .local v14, success:Z
-    :goto_2
-    move-object/from16 v0, p0
+    goto :goto_0
 
-    iget-object v0, v0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+    .end local v3           #psu:Lcom/android/internal/telephony/PhoneStateUtil;
+    :cond_4
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-result-object v9
 
-    const/16 v18, 0x0
+    const-string v10, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
 
-    move-object/from16 v0, v17
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v1, v18
+    move-result v9
 
-    invoke-virtual {v0, v14, v9, v1}, Lcom/android/internal/telephony/SMSDispatcher;->acknowledgeLastIncomingSms(ZILandroid/os/Message;)V
+    if-eqz v9, :cond_5
+
+    const-string v8, "phoneinECMState"
+
+    invoke-virtual {p2, v8, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    .local v1, isECM:Z
+    const-string v8, "SMS"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "ACTION_EMERGENCY_CALLBACK_MODE_CHANGED> "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+
+    const/16 v10, 0x16
+
+    new-instance v11, Ljava/lang/Boolean;
+
+    invoke-direct {v11, v1}, Ljava/lang/Boolean;-><init>(Z)V
+
+    invoke-virtual {v9, v10, v11}, Lcom/android/internal/telephony/SMSDispatcher;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/android/internal/telephony/SMSDispatcher;->sendMessage(Landroid/os/Message;)Z
+
+    goto :goto_0
+
+    .end local v1           #isECM:Z
+    :cond_5
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string v10, "com.htc.intent.action.ACTION_SPRINT_REASSEMBLE_SMS_DISPATCH"
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_6
+
+    const-string v8, "address"
+
+    invoke-virtual {p2, v8}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    .local v2, originatingAddress:Ljava/lang/String;
+    const-string v8, "count"
+
+    invoke-virtual {p2, v8, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v5
+
+    .local v5, sequenceCount:I
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+
+    invoke-virtual {v8, v2, v5}, Lcom/android/internal/telephony/SMSDispatcher;->dispatchPendingSprintReassembleSms(Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
-    .end local v14           #success:Z
-    :cond_d
-    const/4 v14, 0x0
+    .end local v2           #originatingAddress:Ljava/lang/String;
+    .end local v5           #sequenceCount:I
+    :cond_6
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
-    goto :goto_2
+    #calls: Lcom/android/internal/telephony/SMSDispatcher;->resetLastSmsFingerprintForCmas(Landroid/content/Intent;)Z
+    invoke-static {v9, p2}, Lcom/android/internal/telephony/SMSDispatcher;->access$400(Lcom/android/internal/telephony/SMSDispatcher;Landroid/content/Intent;)Z
+
+    move-result v9
+
+    if-eq v9, v8, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/SMSDispatcher$7;->getResultCode()I
+
+    move-result v4
+
+    .local v4, rc:I
+    const/4 v9, -0x1
+
+    if-eq v4, v9, :cond_7
+
+    if-ne v4, v8, :cond_8
+
+    :cond_7
+    move v6, v8
+
+    .local v6, success:Z
+    :cond_8
+    iget-object v8, p0, Lcom/android/internal/telephony/SMSDispatcher$7;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v6, v4, v9}, Lcom/android/internal/telephony/SMSDispatcher;->acknowledgeLastIncomingSms(ZILandroid/os/Message;)V
+
+    goto/16 :goto_0
 .end method

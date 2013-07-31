@@ -429,7 +429,7 @@
     .prologue
     .line 2782
     :try_start_0
-    const-string v3, "simphonebook"
+    const-string/jumbo v3, "simphonebook"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1382,7 +1382,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "status : "
+    const-string/jumbo v6, "status : "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1487,13 +1487,13 @@
 
     .prologue
     .line 1953
-    const-string v0, "test"
+    const-string/jumbo v0, "test"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "update file efid: "
+    const-string/jumbo v2, "update file efid: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1643,7 +1643,7 @@
 
     .line 2148
     .local v1, sp:Landroid/content/SharedPreferences;
-    const-string v3, "sim_imsi_key"
+    const-string/jumbo v3, "sim_imsi_key"
 
     const-string v4, ""
 
@@ -1659,7 +1659,7 @@
 
     .line 2151
     .local v2, spEditor:Landroid/content/SharedPreferences$Editor;
-    const-string v3, "sim_imsi_key"
+    const-string/jumbo v3, "sim_imsi_key"
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaSIMRecords;->imsi:Ljava/lang/String;
 
@@ -1705,7 +1705,7 @@
     :cond_0
     const-string v3, "ruim.sim.change"
 
-    const-string v4, "true"
+    const-string/jumbo v4, "true"
 
     invoke-static {v3, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1720,7 +1720,7 @@
     :cond_1
     const-string v3, "gsm.sim.change"
 
-    const-string v4, "true"
+    const-string/jumbo v4, "true"
 
     invoke-static {v3, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1883,7 +1883,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "status : "
+    const-string/jumbo v5, "status : "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2002,7 +2002,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "status "
+    const-string/jumbo v8, "status "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2615,7 +2615,7 @@
     .line 2328
     const-string v0, "HtcCdmaSIMRecords"
 
-    const-string v1, "voiceMailNum is empty!! try to search default value from xml!"
+    const-string/jumbo v1, "voiceMailNum is empty!! try to search default value from xml!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3702,7 +3702,7 @@
 
     move-result-object v5
 
-    const-string v6, "xxxxxxxxx"
+    const-string/jumbo v6, "xxxxxxxxx"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3743,7 +3743,7 @@
 
     move-result-object v5
 
-    const-string v6, "xxxxxxxxx"
+    const-string/jumbo v6, "xxxxxxxxx"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5076,7 +5076,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "uim id: "
+    const-string/jumbo v6, "uim id: "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5202,7 +5202,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "simtype= "
+    const-string/jumbo v6, "simtype= "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -8286,7 +8286,7 @@
 
     move-result-object v5
 
-    const-string v6, "xxxxxxxxx "
+    const-string/jumbo v6, "xxxxxxxxx "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -8780,6 +8780,8 @@
     goto/16 :goto_10
 
     .line 832
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -9745,7 +9747,7 @@
 
     move-result-object v0
 
-    const-string v3, "xxxxxxx"
+    const-string/jumbo v3, "xxxxxxx"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

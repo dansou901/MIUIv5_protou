@@ -31,7 +31,7 @@
 
 .field public static final LOCATION_SIP:I = 0x3
 
-.field public static final LOCATION_SUB_GSM:I = 0x5
+.field public static final LOCATION_SUB_GSM:I = 0x1
 
 
 # direct methods

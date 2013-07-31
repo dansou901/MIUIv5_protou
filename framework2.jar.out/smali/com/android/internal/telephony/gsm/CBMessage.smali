@@ -706,7 +706,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "sn:"
+    const-string/jumbo v5, "sn:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -778,7 +778,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updatenum:"
+    const-string/jumbo v5, "updatenum:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -952,7 +952,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "total pages:"
+    const-string/jumbo v5, "total pages:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1626,7 +1626,7 @@
 
     sub-int v4, v8, v13
 
-    const-string v5, "utf-16"
+    const-string/jumbo v5, "utf-16"
 
     invoke-direct {v2, v3, v13, v4, v5}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
@@ -1714,6 +1714,8 @@
     goto/16 :goto_2
 
     .line 511
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_3
@@ -1798,7 +1800,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "sn:"
+    const-string/jumbo v5, "sn:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1870,7 +1872,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updatenum:"
+    const-string/jumbo v5, "updatenum:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2330,7 +2332,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "sn:"
+    const-string/jumbo v11, "sn:"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2406,7 +2408,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "updatenum:"
+    const-string/jumbo v11, "updatenum:"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

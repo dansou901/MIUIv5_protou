@@ -25,13 +25,13 @@
     .parameter "looper"
 
     .prologue
-    .line 475
+    .line 474
     iput-object p1, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
-    .line 476
+    .line 475
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 477
+    .line 476
     return-void
 .end method
 
@@ -50,12 +50,12 @@
 
     const/4 v6, 0x0
 
-    .line 481
+    .line 480
     iget v4, p1, Landroid/os/Message;->what:I
 
     sparse-switch v4, :sswitch_data_0
 
-    .line 633
+    .line 632
     const-string v4, "WifiService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -78,25 +78,25 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 637
+    .line 636
     :cond_0
     :goto_0
     return-void
 
-    .line 483
+    .line 482
     :sswitch_0
     iget v4, p1, Landroid/os/Message;->arg1:I
 
     if-nez v4, :cond_1
 
-    .line 484
+    .line 483
     const-string v4, "WifiService"
 
     const-string v5, "New client listening to asynchronous messages"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 485
+    .line 484
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mClients:Ljava/util/List;
@@ -112,7 +112,7 @@
 
     goto :goto_0
 
-    .line 487
+    .line 486
     :cond_1
     const-string v4, "WifiService"
 
@@ -140,7 +140,7 @@
 
     goto :goto_0
 
-    .line 492
+    .line 491
     :sswitch_1
     iget v4, p1, Landroid/os/Message;->arg1:I
 
@@ -148,14 +148,14 @@
 
     if-ne v4, v5, :cond_2
 
-    .line 493
+    .line 492
     const-string v4, "WifiService"
 
     const-string v5, "Send failed, client connection lost"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 497
+    .line 496
     :goto_1
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -172,7 +172,7 @@
 
     goto :goto_0
 
-    .line 495
+    .line 494
     :cond_2
     const-string v4, "WifiService"
 
@@ -200,13 +200,13 @@
 
     goto :goto_1
 
-    .line 501
+    .line 500
     :sswitch_2
     new-instance v0, Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {v0}, Lcom/android/internal/util/AsyncChannel;-><init>()V
 
-    .line 502
+    .line 501
     .local v0, ac:Lcom/android/internal/util/AsyncChannel;
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -221,7 +221,7 @@
 
     goto :goto_0
 
-    .line 506
+    .line 505
     .end local v0           #ac:Lcom/android/internal/util/AsyncChannel;
     :sswitch_3
     iget-object v7, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
@@ -236,12 +236,12 @@
     #setter for: Lcom/android/server/WifiService;->mEnableTrafficStatsPoll:Z
     invoke-static {v7, v4}, Lcom/android/server/WifiService;->access$302(Lcom/android/server/WifiService;Z)Z
 
-    .line 507
+    .line 506
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     invoke-static {v4}, Lcom/android/server/WifiService;->access$408(Lcom/android/server/WifiService;)I
 
-    .line 508
+    .line 507
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mEnableTrafficStatsPoll:Z
@@ -251,13 +251,13 @@
 
     if-eqz v4, :cond_0
 
-    .line 509
+    .line 508
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->notifyOnDataActivity()V
     invoke-static {v4}, Lcom/android/server/WifiService;->access$500(Lcom/android/server/WifiService;)V
 
-    .line 510
+    .line 509
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mTrafficStatsPollToken:I
@@ -276,10 +276,10 @@
     :cond_3
     move v4, v6
 
-    .line 506
+    .line 505
     goto :goto_2
 
-    .line 516
+    .line 515
     :sswitch_4
     iget v4, p1, Landroid/os/Message;->arg1:I
 
@@ -292,13 +292,13 @@
 
     if-ne v4, v5, :cond_0
 
-    .line 517
+    .line 516
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #calls: Lcom/android/server/WifiService;->notifyOnDataActivity()V
     invoke-static {v4}, Lcom/android/server/WifiService;->access$500(Lcom/android/server/WifiService;)V
 
-    .line 518
+    .line 517
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mTrafficStatsPollToken:I
@@ -314,7 +314,7 @@
 
     goto/16 :goto_0
 
-    .line 527
+    .line 526
     :sswitch_5
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -325,7 +325,7 @@
 
     if-nez v4, :cond_4
 
-    .line 528
+    .line 527
     iget-object v5, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
@@ -346,7 +346,7 @@
     #setter for: Lcom/android/server/WifiService;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
     invoke-static {v5, v4}, Lcom/android/server/WifiService;->access$602(Lcom/android/server/WifiService;Lcom/htc/service/WirelessDisplayManager;)Lcom/htc/service/WirelessDisplayManager;
 
-    .line 530
+    .line 529
     :cond_4
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -357,7 +357,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 531
+    .line 530
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
@@ -371,14 +371,14 @@
 
     if-eqz v4, :cond_5
 
-    .line 532
+    .line 531
     const-string v4, "WifiService"
 
     const-string v5, "[WFD] Mirror Mode is ON, force to stop Mirror mode when connect to AP"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 533
+    .line 532
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
@@ -388,7 +388,7 @@
 
     invoke-virtual {v4, v6}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
 
-    .line 539
+    .line 538
     :cond_5
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -398,14 +398,14 @@
 
     if-eqz v4, :cond_6
 
-    .line 540
+    .line 539
     const-string v4, "WifiService"
 
     const-string v5, "STA select Network to connect but hotspot is ON, turn off hotspot..."
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 541
+    .line 540
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     iget-object v5, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
@@ -417,7 +417,7 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/android/server/WifiService;->setWifidisplayApEnabled(Landroid/net/wifi/WifiConfiguration;Z)V
 
-    .line 544
+    .line 543
     :cond_6
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -434,13 +434,13 @@
 
     goto/16 :goto_0
 
-    .line 551
+    .line 550
     :sswitch_6
     invoke-static {}, Lcom/android/server/DeviceManager3LMService;->getInstance()Lcom/android/server/DeviceManager3LMService;
 
     move-result-object v2
 
-    .line 552
+    .line 551
     .local v2, mDeviceManager:Lcom/android/server/DeviceManager3LMService;
     sget-boolean v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->HTC_FEATURE_3LM:Z
 
@@ -448,7 +448,7 @@
 
     if-eqz v2, :cond_8
 
-    .line 553
+    .line 552
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Landroid/net/wifi/WifiConfiguration;
@@ -461,7 +461,7 @@
 
     if-eqz v4, :cond_7
 
-    .line 554
+    .line 553
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -477,7 +477,7 @@
 
     goto/16 :goto_0
 
-    .line 556
+    .line 555
     :cond_7
     const-string v5, "WifiService"
 
@@ -509,7 +509,7 @@
 
     goto/16 :goto_0
 
-    .line 559
+    .line 558
     :cond_8
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -526,7 +526,7 @@
 
     goto/16 :goto_0
 
-    .line 565
+    .line 564
     .end local v2           #mDeviceManager:Lcom/android/server/DeviceManager3LMService;
     :sswitch_7
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
@@ -544,7 +544,7 @@
 
     goto/16 :goto_0
 
-    .line 569
+    .line 568
     :sswitch_8
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -561,7 +561,7 @@
 
     goto/16 :goto_0
 
-    .line 573
+    .line 572
     :sswitch_9
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -578,7 +578,7 @@
 
     goto/16 :goto_0
 
-    .line 577
+    .line 576
     :sswitch_a
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -595,7 +595,7 @@
 
     goto/16 :goto_0
 
-    .line 582
+    .line 581
     :sswitch_b
     iget-object v6, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -610,7 +610,7 @@
 
     goto/16 :goto_0
 
-    .line 588
+    .line 587
     :sswitch_c
     iget-object v5, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -623,7 +623,7 @@
     #calls: Lcom/android/server/WifiService;->setWifiApEnabledBlockingMHS(ZILandroid/net/wifi/WifiConfiguration;)Z
     invoke-static {v5, v6, v7, v4}, Lcom/android/server/WifiService;->access$900(Lcom/android/server/WifiService;ZILandroid/net/wifi/WifiConfiguration;)Z
 
-    .line 591
+    .line 590
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mEnableMhsFeature:Z
@@ -633,7 +633,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 592
+    .line 591
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     iget-object v4, v4, Lcom/android/server/WifiService;->mCm:Landroid/net/ConnectivityManager;
@@ -652,7 +652,7 @@
 
     invoke-virtual {v4, v5, v7, v8}, Landroid/net/ConnectivityManager;->htcRequestPermittedTether(IILjava/lang/String;)I
 
-    .line 593
+    .line 592
     :cond_9
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -661,7 +661,7 @@
 
     goto/16 :goto_0
 
-    .line 598
+    .line 597
     :sswitch_d
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -681,7 +681,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 599
+    .line 598
     :cond_a
     const/16 v4, 0x2a
 
@@ -695,7 +695,7 @@
 
     goto/16 :goto_0
 
-    .line 605
+    .line 604
     :sswitch_e
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -715,7 +715,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 606
+    .line 605
     :cond_b
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
@@ -726,7 +726,7 @@
 
     if-eqz v4, :cond_c
 
-    .line 607
+    .line 606
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
@@ -744,11 +744,11 @@
 
     move-result-object v1
 
-    .line 608
+    .line 607
     .local v1, key:Ljava/lang/String;
     if-nez v1, :cond_c
 
-    .line 609
+    .line 608
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -758,7 +758,7 @@
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->checkWifiApPassword()V
 
-    .line 612
+    .line 611
     .end local v1           #key:Ljava/lang/String;
     :cond_c
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
@@ -770,7 +770,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 613
+    .line 612
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
@@ -788,11 +788,11 @@
 
     move-result-object v3
 
-    .line 614
+    .line 613
     .local v3, ssid:Ljava/lang/String;
     if-nez v3, :cond_0
 
-    .line 615
+    .line 614
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -804,7 +804,7 @@
 
     goto/16 :goto_0
 
-    .line 622
+    .line 621
     .end local v3           #ssid:Ljava/lang/String;
     :sswitch_f
     const-string v4, "WifiService"
@@ -813,7 +813,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 623
+    .line 622
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mCWRegisteredWhenScreenOff:Z
@@ -836,14 +836,14 @@
 
     if-nez v4, :cond_0
 
-    .line 624
+    .line 623
     const-string v4, "WifiService"
 
     const-string v5, "Trigger CW registration when screen on++"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 625
+    .line 624
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -853,7 +853,7 @@
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->resetCwRetryCounter()V
 
-    .line 626
+    .line 625
     iget-object v4, p0, Lcom/android/server/WifiService$AsyncServiceHandler;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -863,7 +863,7 @@
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->tryToStartCWRegister()V
 
-    .line 627
+    .line 626
     const-string v4, "WifiService"
 
     const-string v5, "Trigger CW registration when screen on--"
@@ -872,7 +872,7 @@
 
     goto/16 :goto_0
 
-    .line 481
+    .line 480
     :sswitch_data_0
     .sparse-switch
         0x1f -> :sswitch_b

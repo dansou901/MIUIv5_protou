@@ -1,0 +1,31 @@
+*** ProgressBar.smali	2013-07-31 22:22:27.504066902 +0000
+--- ProgressBar.smali	2013-07-31 22:21:21.767394748 +0000
+***************
+*** 1175,1180 ****
+      return-void
+  .end method
+  
+  .method getCurrentDrawable()Landroid/graphics/drawable/Drawable;
+      .locals 1
+  
+--- 1183,1202 ----
+      return-void
+  .end method
+  
++ .method public getBgDrawable()Landroid/graphics/drawable/Drawable;
++     .locals 1
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
++ 
++     .prologue
++     invoke-virtual {p0}, Landroid/widget/ProgressBar;->getCurrentDrawable()Landroid/graphics/drawable/Drawable;
++ 
++     move-result-object v0
++ 
++     return-object v0
++ .end method
++ 
+  .method getCurrentDrawable()Landroid/graphics/drawable/Drawable;
+      .locals 1
+  

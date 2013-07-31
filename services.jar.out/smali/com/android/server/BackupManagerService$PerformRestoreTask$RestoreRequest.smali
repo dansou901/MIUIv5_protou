@@ -30,17 +30,17 @@
     .parameter "_version"
 
     .prologue
-    .line 4422
+    .line 4336
     iput-object p1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->this$1:Lcom/android/server/BackupManagerService$PerformRestoreTask;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4423
+    .line 4337
     iput-object p2, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->app:Landroid/content/pm/PackageInfo;
 
-    .line 4424
+    .line 4338
     iput p3, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->storedAppVersion:I
 
-    .line 4425
+    .line 4339
     return-void
 .end method

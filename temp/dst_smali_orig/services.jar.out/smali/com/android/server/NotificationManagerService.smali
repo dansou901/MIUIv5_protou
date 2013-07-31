@@ -9,7 +9,8 @@
         Lcom/android/server/NotificationManagerService$WorkerHandler;,
         Lcom/android/server/NotificationManagerService$SettingsObserver;,
         Lcom/android/server/NotificationManagerService$ToastRecord;,
-        Lcom/android/server/NotificationManagerService$NotificationRecord;
+        Lcom/android/server/NotificationManagerService$NotificationRecord;,
+        Lcom/android/server/NotificationManagerService$Injector;
     }
 .end annotation
 
@@ -5623,7 +5624,7 @@
 
     move-object/from16 v4, v26
 
-    invoke-interface {v0, v1, v2, v3, v4}, Landroid/media/IRingtonePlayer;->htcPlayAsync(Landroid/net/Uri;ZILandroid/os/Bundle;)V
+    invoke-interface {v0, v1, v2, v3}, Landroid/media/IRingtonePlayer;->playAsync(Landroid/net/Uri;ZI)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_5
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
@@ -6854,6 +6855,30 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v4
+.end method
+
+.method getDefaultNotificationColor()I
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget v0, p0, Lcom/android/server/NotificationManagerService;->mDefaultNotificationColor:I
+
+    return v0
+.end method
+
+.method getLedNotification()Lcom/android/server/NotificationManagerService$NotificationRecord;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/NotificationManagerService;->mLedNotification:Lcom/android/server/NotificationManagerService$NotificationRecord;
+
+    return-object v0
 .end method
 
 .method public setNotificationsEnabledForPackage(Ljava/lang/String;Z)V

@@ -79,7 +79,7 @@
     const/4 v1, 0x1
 
     #calls: Landroid/webkit/WebViewInputDispatcher;->dispatchWebKitEvents(Z)V
-    invoke-static {v0, v1}, Landroid/webkit/WebViewInputDispatcher;->access$800(Landroid/webkit/WebViewInputDispatcher;Z)V
+    invoke-static {v0, v1}, Landroid/webkit/WebViewInputDispatcher;->access$1000(Landroid/webkit/WebViewInputDispatcher;Z)V
 
     return-void
 

@@ -29,7 +29,7 @@
     .parameter
 
     .prologue
-    .line 2143
+    .line 2777
     iput-object p1, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "x1"
 
     .prologue
-    .line 2143
+    .line 2777
     invoke-direct {p0, p1}, Landroid/widget/Editor$Blink;-><init>(Landroid/widget/Editor;)V
 
     return-void
@@ -55,20 +55,20 @@
     .locals 1
 
     .prologue
-    .line 2164
+    .line 2798
     iget-boolean v0, p0, Landroid/widget/Editor$Blink;->mCancelled:Z
 
     if-nez v0, :cond_0
 
-    .line 2165
+    .line 2799
     invoke-virtual {p0, p0}, Landroid/widget/Editor$Blink;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 2166
+    .line 2800
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/widget/Editor$Blink;->mCancelled:Z
 
-    .line 2168
+    .line 2802
     :cond_0
     return-void
 .end method
@@ -77,21 +77,21 @@
     .locals 5
 
     .prologue
-    .line 2147
+    .line 2781
     iget-boolean v0, p0, Landroid/widget/Editor$Blink;->mCancelled:Z
 
     if-eqz v0, :cond_1
 
-    .line 2161
+    .line 2795
     :cond_0
     :goto_0
     return-void
 
-    .line 2151
+    .line 2785
     :cond_1
     invoke-virtual {p0, p0}, Landroid/widget/Editor$Blink;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 2153
+    .line 2787
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->shouldBlink()Z
@@ -101,7 +101,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2154
+    .line 2788
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -115,7 +115,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 2155
+    .line 2789
     iget-object v0, p0, Landroid/widget/Editor$Blink;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -125,7 +125,7 @@
 
     invoke-virtual {v0}, Landroid/widget/TextView;->invalidateCursorPath()V
 
-    .line 2159
+    .line 2793
     :cond_2
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -156,11 +156,11 @@
     .locals 1
 
     .prologue
-    .line 2171
+    .line 2805
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/widget/Editor$Blink;->mCancelled:Z
 
-    .line 2172
+    .line 2806
     return-void
 .end method

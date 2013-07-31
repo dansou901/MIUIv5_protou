@@ -71,14 +71,14 @@
     move-result-object v1
 
     #setter for: Landroid/webkit/WebViewClassic;->mListBoxMessage:Landroid/os/Message;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$10102(Landroid/webkit/WebViewClassic;Landroid/os/Message;)Landroid/os/Message;
 
     iget-object v0, p0, Landroid/webkit/WebViewClassic$InvokeListBox$3;->this$1:Landroid/webkit/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9900(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$10000(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
@@ -89,7 +89,7 @@
     iget-object v0, v0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9900(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$10000(Landroid/webkit/WebViewClassic;)Landroid/app/AlertDialog;
 
     move-result-object v0
 
@@ -100,7 +100,7 @@
     iget-object v0, v0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #setter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v0, v4}, Landroid/webkit/WebViewClassic;->access$9902(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v0, v4}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     :cond_0
     return-void

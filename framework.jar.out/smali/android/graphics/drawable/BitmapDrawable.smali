@@ -271,7 +271,7 @@
     .parameter "res"
 
     .prologue
-    .line 551
+    .line 548
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
     .line 66
@@ -281,13 +281,13 @@
 
     iput-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    .line 552
+    .line 549
     iput-object p1, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
-    .line 553
+    .line 550
     if-eqz p2, :cond_0
 
-    .line 554
+    .line 551
     invoke-virtual {p2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v0
@@ -296,7 +296,7 @@
 
     iput v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mTargetDensity:I
 
-    .line 558
+    .line 555
     :goto_0
     if-eqz p1, :cond_1
 
@@ -305,10 +305,10 @@
     :goto_1
     invoke-direct {p0, v0}, Landroid/graphics/drawable/BitmapDrawable;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 559
+    .line 556
     return-void
 
-    .line 556
+    .line 553
     :cond_0
     iget v0, p1, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
 
@@ -316,7 +316,7 @@
 
     goto :goto_0
 
-    .line 558
+    .line 555
     :cond_1
     const/4 v0, 0x0
 
@@ -708,7 +708,7 @@
     .locals 2
 
     .prologue
-    .line 506
+    .line 503
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/BitmapDrawable;->getChangingConfigurations()I
@@ -717,7 +717,7 @@
 
     iput v1, v0, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mChangingConfigurations:I
 
-    .line 507
+    .line 504
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
     return-object v0
@@ -739,7 +739,7 @@
     .locals 1
 
     .prologue
-    .line 491
+    .line 488
     iget v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapHeight:I
 
     return v0
@@ -749,7 +749,7 @@
     .locals 1
 
     .prologue
-    .line 486
+    .line 483
     iget v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapWidth:I
 
     return v0
@@ -761,7 +761,7 @@
     .prologue
     const/4 v1, -0x3
 
-    .line 496
+    .line 493
     iget-object v2, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
     iget v2, v2, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mGravity:I
@@ -770,16 +770,16 @@
 
     if-eq v2, v3, :cond_1
 
-    .line 500
+    .line 497
     :cond_0
     :goto_0
     return v1
 
-    .line 499
+    .line 496
     :cond_1
     iget-object v0, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 500
+    .line 497
     .local v0, bm:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_0
 
@@ -968,16 +968,9 @@
     .line 455
     iget-object v5, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
 
-    iget v6, p0, Landroid/graphics/drawable/BitmapDrawable;->mTargetDensity:I
-
-    iput v6, v5, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mTargetDensity:I
-
-    .line 458
-    iget-object v5, p0, Landroid/graphics/drawable/BitmapDrawable;->mBitmapState:Landroid/graphics/drawable/BitmapDrawable$BitmapState;
-
     iget-object v3, v5, Landroid/graphics/drawable/BitmapDrawable$BitmapState;->mPaint:Landroid/graphics/Paint;
 
-    .line 459
+    .line 456
     .local v3, paint:Landroid/graphics/Paint;
     const/4 v5, 0x2
 
@@ -991,7 +984,7 @@
 
     invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 461
+    .line 458
     const/4 v5, 0x3
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->isFilterBitmap()Z
@@ -1004,7 +997,7 @@
 
     invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
-    .line 463
+    .line 460
     const/4 v5, 0x4
 
     invoke-virtual {v3}, Landroid/graphics/Paint;->isDither()Z
@@ -1017,7 +1010,7 @@
 
     invoke-virtual {v3, v5}, Landroid/graphics/Paint;->setDither(Z)V
 
-    .line 465
+    .line 462
     const/16 v5, 0x77
 
     invoke-virtual {v0, v8, v5}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1026,29 +1019,29 @@
 
     invoke-virtual {p0, v5}, Landroid/graphics/drawable/BitmapDrawable;->setGravity(I)V
 
-    .line 466
+    .line 463
     const/4 v5, 0x5
 
     invoke-virtual {v0, v5, v7}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v4
 
-    .line 467
+    .line 464
     .local v4, tileMode:I
     if-eq v4, v7, :cond_2
 
-    .line 468
+    .line 465
     packed-switch v4, :pswitch_data_0
 
-    .line 481
+    .line 478
     :cond_2
     :goto_0
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 482
+    .line 479
     return-void
 
-    .line 470
+    .line 467
     :pswitch_0
     sget-object v5, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -1058,7 +1051,7 @@
 
     goto :goto_0
 
-    .line 473
+    .line 470
     :pswitch_1
     sget-object v5, Landroid/graphics/Shader$TileMode;->REPEAT:Landroid/graphics/Shader$TileMode;
 
@@ -1068,7 +1061,7 @@
 
     goto :goto_0
 
-    .line 476
+    .line 473
     :pswitch_2
     sget-object v5, Landroid/graphics/Shader$TileMode;->MIRROR:Landroid/graphics/Shader$TileMode;
 
@@ -1078,7 +1071,7 @@
 
     goto :goto_0
 
-    .line 468
+    .line 465
     nop
 
     :pswitch_data_0

@@ -124,7 +124,7 @@
 
 .field static final TRANSACTION_getRemoteServiceChannel:I = 0x23
 
-.field static final TRANSACTION_getRemoteServices:I = 0x58
+.field static final TRANSACTION_getRemoteServices:I = 0x54
 
 .field static final TRANSACTION_getRemoteUuids:I = 0x21
 
@@ -137,10 +137,6 @@
 .field static final TRANSACTION_isAudioGatewaySupported:I = 0x4d
 
 .field static final TRANSACTION_isBluetoothDock:I = 0x2b
-
-.field static final TRANSACTION_isBluetoothRestricted:I = 0x55
-
-.field static final TRANSACTION_isBluetoothTetheringRestricted:I = 0x57
 
 .field static final TRANSACTION_isDiscovering:I = 0x10
 
@@ -168,11 +164,7 @@
 
 .field static final TRANSACTION_setAFH:I = 0x4f
 
-.field static final TRANSACTION_setBluetoothRestricted:I = 0x54
-
 .field static final TRANSACTION_setBluetoothTethering:I = 0x3a
-
-.field static final TRANSACTION_setBluetoothTetheringRestricted:I = 0x56
 
 .field static final TRANSACTION_setDeviceOutOfBandData:I = 0x1b
 
@@ -3090,121 +3082,23 @@
 
     invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
-    move-result v8
+    move-result-object v0
 
-    if-eqz v8, :cond_54
-
-    move v0, v7
-
-    .local v0, _arg0:Z
-    :goto_25
-    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setBluetoothRestricted(Z)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_0
-
-    .end local v0           #_arg0:Z
-    :cond_54
-    move v0, v6
-
-    goto :goto_25
-
-    :sswitch_55
-    const-string v8, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isBluetoothRestricted()Z
+    .restart local v0       #_arg0:Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteServices(Ljava/lang/String;)Z
 
     move-result v4
 
     .local v4, _result:Z
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
-    if-eqz v4, :cond_55
+    if-eqz v4, :cond_54
 
     move v6, v7
 
-    :cond_55
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
-    .end local v4           #_result:Z
-    :sswitch_56
-    const-string v8, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    if-eqz v8, :cond_56
-
-    move v0, v7
-
-    .restart local v0       #_arg0:Z
-    :goto_26
-    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->setBluetoothTetheringRestricted(Z)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto/16 :goto_0
-
-    .end local v0           #_arg0:Z
-    :cond_56
-    move v0, v6
-
-    goto :goto_26
-
-    :sswitch_57
-    const-string v8, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/bluetooth/IBluetooth$Stub;->isBluetoothTetheringRestricted()Z
-
-    move-result v4
-
-    .restart local v4       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v4, :cond_57
-
-    move v6, v7
-
-    :cond_57
-    invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
-
-    goto/16 :goto_0
-
-    .end local v4           #_result:Z
-    :sswitch_58
-    const-string v8, "android.bluetooth.IBluetooth"
-
-    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    .local v0, _arg0:Ljava/lang/String;
-    invoke-virtual {p0, v0}, Landroid/bluetooth/IBluetooth$Stub;->getRemoteServices(Ljava/lang/String;)Z
-
-    move-result v4
-
-    .restart local v4       #_result:Z
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    if-eqz v4, :cond_58
-
-    move v6, v7
-
-    :cond_58
+    :cond_54
     invoke-virtual {p3, v6}, Landroid/os/Parcel;->writeInt(I)V
 
     goto/16 :goto_0
@@ -3295,10 +3189,6 @@
         0x52 -> :sswitch_52
         0x53 -> :sswitch_53
         0x54 -> :sswitch_54
-        0x55 -> :sswitch_55
-        0x56 -> :sswitch_56
-        0x57 -> :sswitch_57
-        0x58 -> :sswitch_58
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

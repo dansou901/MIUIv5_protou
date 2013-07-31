@@ -83,7 +83,7 @@
     .line 52
     new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v5, "{ "
+    const-string/jumbo v5, "{ "
 
     invoke-direct {v3, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -135,7 +135,7 @@
 
     .line 58
     .local v4, strings:[Ljava/lang/String;
-    const-string v5, "{"
+    const-string/jumbo v5, "{"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -197,7 +197,7 @@
 
     .line 73
     :cond_3
-    const-string v5, "}"
+    const-string/jumbo v5, "}"
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

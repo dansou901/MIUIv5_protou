@@ -452,34 +452,38 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .locals 2
 
     .prologue
+    const/4 v1, 0x0
+
     .line 185
-    const-string v0, "dispose()"
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 186
     iget-object v0, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCmdParamsFactory:Lcom/android/internal/telephony/cat/CommandParamsFactory;
 
     if-eqz v0, :cond_0
 
-    .line 187
+    .line 186
     iget-object v0, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCmdParamsFactory:Lcom/android/internal/telephony/cat/CommandParamsFactory;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/CommandParamsFactory;->dispose()V
 
-    .line 189
+    .line 188
     :cond_0
-    const/4 v0, 0x0
+    iput-object v1, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCaller:Landroid/os/Handler;
 
-    sput-object v0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->sInstance:Lcom/android/internal/telephony/cat/RilMessageDecoder;
+    .line 189
+    sput-object v1, Lcom/android/internal/telephony/cat/RilMessageDecoder;->sInstance:Lcom/android/internal/telephony/cat/RilMessageDecoder;
 
-    .line 193
+    .line 190
+    iput-object v1, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCmdParamsFactory:Lcom/android/internal/telephony/cat/CommandParamsFactory;
+
+    .line 191
+    iput-object v1, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder;->mCurrentRilMessage:Lcom/android/internal/telephony/cat/RilMessage;
+
+    .line 192
     invoke-virtual {p0}, Lcom/android/internal/telephony/cat/RilMessageDecoder;->quit()V
 
-    .line 194
+    .line 193
     return-void
 .end method
 

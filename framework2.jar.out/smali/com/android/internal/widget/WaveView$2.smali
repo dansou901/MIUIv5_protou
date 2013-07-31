@@ -212,7 +212,7 @@
 
     const-wide/16 v3, 0x0
 
-    const-string v5, "x"
+    const-string/jumbo v5, "x"
 
     iget-object v6, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 
@@ -230,7 +230,7 @@
 
     const-wide/16 v3, 0x0
 
-    const-string v5, "y"
+    const-string/jumbo v5, "y"
 
     iget-object v6, p0, Lcom/android/internal/widget/WaveView$2;->this$0:Lcom/android/internal/widget/WaveView;
 

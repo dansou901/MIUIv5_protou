@@ -63,37 +63,37 @@
 
 .field public static final automotive_common_transport_small_rest:I = 0x2080142
 
-.field public static final automotive_icon_btn_arrow_up_dark:I = 0x2080143
+.field public static final automotive_icon_btn_arrow_up_dark:I = 0x2080144
 
-.field public static final background:I = 0x2080144
+.field public static final background:I = 0x2080145
 
-.field public static final close_search:I = 0x2080145
+.field public static final close_search:I = 0x2080146
 
-.field public static final common_add_on:I = 0x2080146
+.field public static final common_add_on:I = 0x2080147
 
-.field public static final common_add_rest:I = 0x2080147
+.field public static final common_add_rest:I = 0x2080148
 
 .field public static final common_app_bkg:I = 0x2080001
 
-.field public static final common_app_bkg_down_land_src:I = 0x2080148
+.field public static final common_app_bkg_down_land_src:I = 0x2080149
 
 .field public static final common_app_bkg_down_shadow:I = 0x2080038
 
 .field public static final common_app_bkg_down_src:I = 0x2080039
 
-.field public static final common_app_bkg_src:I = 0x2080149
+.field public static final common_app_bkg_src:I = 0x208014a
 
 .field public static final common_app_bkg_top_src:I = 0x2080118
 
 .field public static final common_app_panel_bkg:I = 0x20800f7
 
-.field public static final common_arrow_down:I = 0x208014a
+.field public static final common_arrow_down:I = 0x208014b
 
 .field public static final common_b_add_on:I = 0x2080002
 
 .field public static final common_b_add_rest:I = 0x2080003
 
-.field public static final common_b_bg_div:I = 0x208014b
+.field public static final common_b_bg_div:I = 0x208014c
 
 .field public static final common_b_button_outer:I = 0x2080004
 
@@ -899,7 +899,7 @@
 
 .field public static final list_selector_background_transition:I = 0x20801c1
 
-.field public static final listview_listbackground:I = 0x2080262
+.field public static final listview_listbackground:I = 0x2080261
 
 .field public static final lockscreen_drag_direction_green:I = 0x20801c2
 
@@ -1179,49 +1179,49 @@
 
 .field public static final section_divider_top:I = 0x2080099
 
-.field public static final text_anchor_bar:I = 0x208024c
+.field public static final text_anchor_bar:I = 0x208024b
 
-.field public static final text_anchor_bar_top:I = 0x208024d
+.field public static final text_anchor_bar_top:I = 0x208024c
 
-.field public static final text_anchor_point:I = 0x208024e
+.field public static final text_anchor_point:I = 0x208024d
 
-.field public static final text_magnifier:I = 0x208024f
+.field public static final text_magnifier:I = 0x208024e
 
-.field public static final tips_arrow_bottom_left:I = 0x2080250
+.field public static final tips_arrow_bottom_left:I = 0x208024f
 
-.field public static final tips_arrow_bottom_right:I = 0x2080251
+.field public static final tips_arrow_bottom_right:I = 0x2080250
 
-.field public static final tips_arrow_down:I = 0x2080252
+.field public static final tips_arrow_down:I = 0x2080251
 
-.field public static final tips_arrow_top_left:I = 0x2080253
+.field public static final tips_arrow_top_left:I = 0x2080252
 
-.field public static final tips_arrow_top_right:I = 0x2080254
+.field public static final tips_arrow_top_right:I = 0x2080253
 
-.field public static final tips_arrow_up:I = 0x2080255
+.field public static final tips_arrow_up:I = 0x2080254
 
-.field public static final tips_close_btn:I = 0x2080256
+.field public static final tips_close_btn:I = 0x2080255
 
-.field public static final toggle_b_outer:I = 0x2080257
+.field public static final toggle_b_outer:I = 0x2080256
 
-.field public static final toggle_b_pressed:I = 0x2080258
+.field public static final toggle_b_pressed:I = 0x2080257
 
-.field public static final toggle_b_rest:I = 0x2080259
+.field public static final toggle_b_rest:I = 0x2080258
 
-.field public static final toggle_button:I = 0x208025a
+.field public static final toggle_button:I = 0x2080259
 
-.field public static final toggle_outer:I = 0x208025b
+.field public static final toggle_outer:I = 0x208025a
 
-.field public static final toggle_pressed:I = 0x208025c
+.field public static final toggle_pressed:I = 0x208025b
 
-.field public static final toggle_rest:I = 0x208025d
+.field public static final toggle_rest:I = 0x208025c
 
-.field public static final translucent_background:I = 0x2080260
+.field public static final translucent_background:I = 0x208025f
 
-.field public static final transparent_background:I = 0x2080261
+.field public static final transparent_background:I = 0x2080260
 
-.field public static final widget_list_divider:I = 0x208025e
+.field public static final widget_list_divider:I = 0x208025d
 
-.field public static final zero_dummy_asset:I = 0x208025f
+.field public static final zero_dummy_asset:I = 0x208025e
 
 
 # direct methods
@@ -1229,7 +1229,7 @@
     .locals 0
 
     .prologue
-    .line 4641
+    .line 4403
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void

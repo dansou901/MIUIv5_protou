@@ -156,7 +156,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/*"
+    const-string/jumbo v2, "text/*"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -167,7 +167,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/html"
+    const-string/jumbo v2, "text/html"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -178,7 +178,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/plain"
+    const-string/jumbo v2, "text/plain"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -191,7 +191,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/x-hdml"
+    const-string/jumbo v2, "text/x-hdml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -204,7 +204,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/x-ttml"
+    const-string/jumbo v2, "text/x-ttml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -217,7 +217,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/x-vCalendar"
+    const-string/jumbo v2, "text/x-vCalendar"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -228,7 +228,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/x-vCard"
+    const-string/jumbo v2, "text/x-vCard"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -241,7 +241,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.wml"
+    const-string/jumbo v2, "text/vnd.wap.wml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -254,7 +254,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.wmlscript"
+    const-string/jumbo v2, "text/vnd.wap.wmlscript"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -267,7 +267,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.wta-event"
+    const-string/jumbo v2, "text/vnd.wap.wta-event"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -657,7 +657,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/xml"
+    const-string/jumbo v2, "text/xml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -722,7 +722,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.si"
+    const-string/jumbo v2, "text/vnd.wap.si"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -748,7 +748,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.sl"
+    const-string/jumbo v2, "text/vnd.wap.sl"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -774,7 +774,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.co"
+    const-string/jumbo v2, "text/vnd.wap.co"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -826,7 +826,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.connectivity-xml"
+    const-string/jumbo v2, "text/vnd.wap.connectivity-xml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -930,7 +930,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/css"
+    const-string/jumbo v2, "text/css"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1177,7 +1177,7 @@
 
     move-result-object v1
 
-    const-string v2, "video/*"
+    const-string/jumbo v2, "video/*"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1333,7 +1333,7 @@
 
     move-result-object v1
 
-    const-string v2, "x-wap.multipart/vnd.uplanet.header-set"
+    const-string/jumbo v2, "x-wap.multipart/vnd.uplanet.header-set"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1450,7 +1450,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/vnd.wap.emn+xml"
+    const-string/jumbo v2, "text/vnd.wap.emn+xml"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1463,7 +1463,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/calendar"
+    const-string/jumbo v2, "text/calendar"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1515,7 +1515,7 @@
 
     move-result-object v1
 
-    const-string v2, "text/directory;profile=vCard"
+    const-string/jumbo v2, "text/directory;profile=vCard"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2260,7 +2260,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "unassigned/0x"
+    const-string/jumbo v9, "unassigned/0x"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

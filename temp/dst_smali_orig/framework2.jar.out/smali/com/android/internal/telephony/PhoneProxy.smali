@@ -4402,20 +4402,6 @@
     return-void
 .end method
 
-.method public addPreferredOperatorList(Ljava/lang/String;ILandroid/os/Message;)V
-    .locals 1
-    .parameter "operatorNumeric"
-    .parameter "act"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telephony/Phone;->addPreferredOperatorList(Ljava/lang/String;ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public canConference()Z
     .locals 1
 
@@ -4532,27 +4518,6 @@
     move-result v1
 
     goto :goto_0
-.end method
-
-.method public cleanUpAllConnections(Ljava/lang/String;)V
-    .locals 1
-    .parameter "cause"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1}, Lcom/android/internal/telephony/Phone;->cleanUpAllConnections(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public cleanUpAllConnectionsExt(Ljava/lang/String;I)V
-    .locals 0
-    .parameter "cause"
-    .parameter "phoneType"
-
-    .prologue
-    return-void
 .end method
 
 .method public clearDisconnected()V
@@ -5766,18 +5731,6 @@
     return-object v0
 .end method
 
-.method public getDpdtSwitchValue(Landroid/os/Message;)V
-    .locals 1
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1}, Lcom/android/internal/telephony/Phone;->getDpdtSwitchValue(Landroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public getEmergencyCallPowerState()Z
     .locals 1
 
@@ -6928,19 +6881,6 @@
     return-object v0
 .end method
 
-.method public getPhoneSlot()I
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0}, Lcom/android/internal/telephony/Phone;->getPhoneSlot()I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getPhoneSubInfo()Lcom/android/internal/telephony/PhoneSubInfo;
     .locals 1
 
@@ -7009,18 +6949,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method public getPreferredOperatorList(Landroid/os/Message;)V
-    .locals 1
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1}, Lcom/android/internal/telephony/Phone;->getPreferredOperatorList(Landroid/os/Message;)V
-
-    return-void
 .end method
 
 .method public getRadioState()Lcom/android/internal/telephony/CommandsInterface$RadioState;
@@ -7679,6 +7607,16 @@
     sget-short v20, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v21, 0x55
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-eq v0, v1, :cond_0
+
+    sget-short v20, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+
+    const/16 v21, 0x1fd
 
     move/from16 v0, v20
 
@@ -8471,12 +8409,6 @@
 
     move-result v20
 
-    if-nez v20, :cond_18
-
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->CKT_LTE_CONFIG()Z
-
-    move-result v20
-
     if-eqz v20, :cond_0
 
     :cond_18
@@ -8616,10 +8548,6 @@
 
     move-object/from16 v21, v0
 
-    invoke-static/range {v21 .. v21}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber2(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
-
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v20
@@ -8635,10 +8563,6 @@
     iget-object v0, v0, Lcom/android/internal/telephony/PhoneProxy;->mMeid:Ljava/lang/String;
 
     move-object/from16 v21, v0
-
-    invoke-static/range {v21 .. v21}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber2(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v21
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10614,19 +10538,6 @@
     return-void
 .end method
 
-.method public removePreferredOperatorList(ILandroid/os/Message;)V
-    .locals 1
-    .parameter "index"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/Phone;->removePreferredOperatorList(ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public removeReferences()V
     .locals 1
 
@@ -11801,19 +11712,6 @@
     return-void
 .end method
 
-.method public setDpdtSwitchValue(ILandroid/os/Message;)V
-    .locals 1
-    .parameter "dpdt"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/Phone;->setDpdtSwitchValue(ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public setEchoSuppressionEnabled(Z)V
     .locals 1
     .parameter "enabled"
@@ -12324,14 +12222,6 @@
     return-void
 .end method
 
-.method public setPhoneSlot(I)V
-    .locals 0
-    .parameter "phoneSlot"
-
-    .prologue
-    return-void
-.end method
-
 .method public setPolicyDataEnabled(Z)Z
     .locals 1
     .parameter "enable"
@@ -12366,20 +12256,6 @@
     .parameter "phoneType"
 
     .prologue
-    return-void
-.end method
-
-.method public setPreferredOperatorList([Ljava/lang/String;[ILandroid/os/Message;)V
-    .locals 1
-    .parameter "operatorNumeric"
-    .parameter "act"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneProxy;->mActivePhone:Lcom/android/internal/telephony/Phone;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telephony/Phone;->setPreferredOperatorList([Ljava/lang/String;[ILandroid/os/Message;)V
-
     return-void
 .end method
 
@@ -12496,25 +12372,6 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telephony/Phone;->setSubsidyLock(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V
 
-    return-void
-.end method
-
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    return-void
-.end method
-
-.method public setTDLabModeExt(ILandroid/os/Message;I)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-    .parameter "phoneType"
-
-    .prologue
     return-void
 .end method
 

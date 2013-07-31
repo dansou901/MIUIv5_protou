@@ -124,7 +124,7 @@
 
     iput p5, p0, Lcom/android/server/HtcWakeLockMonitor$WakeLockRecord;->pid:I
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
@@ -787,7 +787,7 @@
     iput-object v5, p0, Lcom/android/server/HtcWakeLockMonitor$WakeLockRecord;->heldDuration:[J
 
     :cond_2
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 
@@ -1265,7 +1265,7 @@
     .locals 6
 
     .prologue
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v2
 

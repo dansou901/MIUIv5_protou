@@ -47,7 +47,7 @@
     iget-object v0, v0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v0
 

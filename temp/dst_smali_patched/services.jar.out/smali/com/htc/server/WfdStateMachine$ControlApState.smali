@@ -162,7 +162,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->setL2peApInfo()V
-    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1900(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -257,7 +257,7 @@
     iget-object v5, v5, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->SSID:Ljava/lang/String;
 
     #calls: Lcom/htc/server/WfdStateMachine;->getNoWpsApSsid(Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$2000(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$1900(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -280,7 +280,7 @@
     iget-object v5, v5, Landroid/net/wifi/WifiConfiguration$HotspotProfile;->key:Ljava/lang/String;
 
     #calls: Lcom/htc/server/WfdStateMachine;->getNoWpsApKey(Ljava/lang/String;)Ljava/lang/String;
-    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$2100(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/htc/server/WfdStateMachine;->access$2000(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -400,7 +400,7 @@
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v4}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -422,7 +422,7 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -444,7 +444,7 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -460,11 +460,13 @@
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #getter for: Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
-    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/htc/server/WfdStateMachine;->access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v6, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(ILjava/lang/Object;)V
+    const-wide/16 v4, 0x7d0
+
+    invoke-virtual {v1, v6, v3, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(ILjava/lang/Object;J)V
 
     goto/16 :goto_0
 
@@ -660,7 +662,7 @@
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     #calls: Lcom/htc/server/WfdStateMachine;->forceDisableAp()V
-    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1800(Lcom/htc/server/WfdStateMachine;)V
+    invoke-static {v1}, Lcom/htc/server/WfdStateMachine;->access$1700(Lcom/htc/server/WfdStateMachine;)V
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine$ControlApState;->this$0:Lcom/htc/server/WfdStateMachine;
 

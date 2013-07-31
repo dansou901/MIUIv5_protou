@@ -84,7 +84,7 @@
 
     sput-object v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->mRemoteTraceMap:Ljava/util/Map;
 
-    .line 352
+    .line 351
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -93,19 +93,19 @@
 
     sput-object v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->sThresholdToWarningLeak:[I
 
-    .line 353
+    .line 352
     const/4 v0, 0x0
 
     sput v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->sThreasholdLevel:I
 
-    .line 354
+    .line 353
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->sCursorWindowOk:Z
 
     return-void
 
-    .line 352
+    .line 351
     nop
 
     :array_0
@@ -303,40 +303,40 @@
     .locals 3
 
     .prologue
-    .line 344
+    .line 343
     sget-object v1, Landroid/database/sqlite/SQLiteDirectCursorDriver;->mCursorRecordsMap:Ljava/util/Map;
 
     monitor-enter v1
 
-    .line 345
+    .line 344
     :try_start_0
     sget-boolean v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->sCursorWindowOk:Z
 
     if-eqz v0, :cond_0
 
-    .line 346
+    .line 345
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/database/sqlite/SQLiteDirectCursorDriver;->sCursorWindowOk:Z
 
-    .line 347
+    .line 346
     const-string v0, "SQLiteLeakDetect"
 
     const-string v2, "Dump all cursor because abnormal on cursor window is detect"
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 348
+    .line 347
     invoke-static {}, Landroid/database/sqlite/SQLiteDirectCursorDriver;->dumpRecordMapLocked()V
 
-    .line 350
+    .line 349
     :cond_0
     monitor-exit v1
 
-    .line 351
+    .line 350
     return-void
 
-    .line 350
+    .line 349
     :catchall_0
     move-exception v0
 
@@ -414,34 +414,34 @@
     .locals 3
 
     .prologue
-    .line 330
+    .line 329
     invoke-static {}, Landroid/database/sqlite/SQLiteDirectCursorDriver;->getLogPrinterWriter()Ljava/io/PrintWriter;
 
     move-result-object v0
 
-    .line 331
+    .line 330
     .local v0, pw:Ljava/io/PrintWriter;
     if-nez v0, :cond_0
 
-    .line 338
+    .line 337
     :goto_0
     return-void
 
-    .line 334
+    .line 333
     :cond_0
     invoke-static {v0}, Landroid/database/sqlite/SQLiteDirectCursorDriver;->dumpRecordMapLocked(Ljava/io/PrintWriter;)V
 
-    .line 335
+    .line 334
     const-string v1, "SQLiteLeakDetect"
 
     const-string v2, "Dump complete"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 336
+    .line 335
     invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
 
-    .line 337
+    .line 336
     invoke-virtual {v0}, Ljava/io/PrintWriter;->close()V
 
     goto :goto_0
@@ -607,11 +607,11 @@
 
     if-nez v13, :cond_0
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
-    .line 326
+    .line 325
     :goto_0
-    return-object v11
+    return-object v13
 
     .line 287
     :cond_0
@@ -877,9 +877,14 @@
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 320
     .end local v10           #pw:Ljava/io/PrintWriter;
     .local v11, pw:Ljava/io/PrintWriter;
+    move-object v10, v11
+
+    .line 319
+    .end local v11           #pw:Ljava/io/PrintWriter;
+    .restart local v10       #pw:Ljava/io/PrintWriter;
+    :goto_2
     new-instance v1, Ljava/text/SimpleDateFormat;
 
     .end local v1           #formatter:Ljava/text/SimpleDateFormat;
@@ -887,7 +892,7 @@
 
     invoke-direct {v1, v13}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
-    .line 322
+    .line 321
     .restart local v1       #formatter:Ljava/text/SimpleDateFormat;
     new-instance v13, Ljava/lang/StringBuilder;
 
@@ -917,9 +922,9 @@
 
     move-result-object v13
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 323
+    .line 322
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -942,18 +947,16 @@
 
     move-result-object v13
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 324
+    .line 323
     const-string v13, "List of all cursors:\n"
 
-    invoke-virtual {v11, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {v10, v13}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    move-object v10, v11
+    move-object v13, v10
 
-    .line 326
-    .end local v11           #pw:Ljava/io/PrintWriter;
-    .restart local v10       #pw:Ljava/io/PrintWriter;
+    .line 325
     goto/16 :goto_0
 
     .line 308
@@ -986,7 +989,7 @@
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 310
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
     goto/16 :goto_0
 
@@ -1020,10 +1023,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 317
-    const/4 v11, 0x0
-
-    goto/16 :goto_0
+    goto :goto_2
 .end method
 
 .method private static getProcessName(I)Ljava/lang/String;

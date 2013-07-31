@@ -1,5 +1,5 @@
 .class Landroid/net/wifi/WifiStateMachine$16;
-.super Landroid/telephony/PhoneStateListener;
+.super Landroid/content/BroadcastReceiver;
 .source "WifiStateMachine.java"
 
 
@@ -24,34 +24,133 @@
     .parameter
 
     .prologue
-    .line 9808
+    .line 9405
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .locals 2
-    .parameter "signalStrength"
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 5
+    .parameter "context"
+    .parameter "intent"
 
     .prologue
-    .line 9812
-    const-string v0, "WifiStateMachine"
+    const/4 v4, 0x4
 
-    const-string v1, "get mPhoneStateListener"
+    const/4 v3, 0x1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 9408
+    sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->HTC_WIFI_OFFLOAD_flag:Z
 
-    .line 9813
-    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+    if-nez v1, :cond_1
 
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mSignalStrength:Landroid/telephony/SignalStrength;
-    invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$25502(Landroid/net/wifi/WifiStateMachine;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
-
-    .line 9814
+    .line 9429
+    :cond_0
+    :goto_0
     return-void
+
+    .line 9411
+    :cond_1
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 9413
+    .local v0, action:Ljava/lang/String;
+    const-string v1, "com.htc.net.wimax.WIMAX_ENABLED_CHANGED"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 9414
+    const-string v1, "WifiStateMachine"
+
+    const-string v2, "get intent wimax enabled changed action"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 9415
+    const-string v1, "curWimaxEnabledState"
+
+    invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-ne v1, v3, :cond_2
+
+    .line 9417
+    const-string v1, "WifiStateMachine"
+
+    const-string v2, "Wimax Disabled"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 9418
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const/4 v2, 0x0
+
+    #setter for: Landroid/net/wifi/WifiStateMachine;->WimaxStatus:Z
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$8902(Landroid/net/wifi/WifiStateMachine;Z)Z
+
+    .line 9419
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->WimaxStatus:Z
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->setWimaxStatus(Z)Z
+
+    goto :goto_0
+
+    .line 9421
+    :cond_2
+    const-string v1, "curWimaxEnabledState"
+
+    invoke-virtual {p2, v1, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_0
+
+    .line 9423
+    const-string v1, "WifiStateMachine"
+
+    const-string v2, "Wimax Enabled"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 9424
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #setter for: Landroid/net/wifi/WifiStateMachine;->WimaxStatus:Z
+    invoke-static {v1, v3}, Landroid/net/wifi/WifiStateMachine;->access$8902(Landroid/net/wifi/WifiStateMachine;Z)Z
+
+    .line 9425
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$16;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->WimaxStatus:Z
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->setWimaxStatus(Z)Z
+
+    goto :goto_0
 .end method

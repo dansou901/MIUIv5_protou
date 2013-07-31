@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/CallerInfo.smali	2013-07-12 21:42:56.688501119 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/CallerInfo.smali	2013-07-12 21:40:45.051823598 +0000
+*** ./smali/com/android/internal/telephony/CallerInfo.smali	2013-07-31 22:22:13.604065741 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/CallerInfo.smali	2013-07-31 22:21:14.374060798 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

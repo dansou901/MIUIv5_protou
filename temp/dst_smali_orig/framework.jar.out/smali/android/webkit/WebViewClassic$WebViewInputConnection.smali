@@ -457,7 +457,7 @@
     move-result v13
 
     .local v13, newCompsingEnd:I
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1000()Z
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$500()Z
 
     move-result v26
 
@@ -835,7 +835,7 @@
     move-object/from16 v26, v0
 
     #getter for: Landroid/webkit/WebViewClassic;->mAutoCompletePopup:Landroid/webkit/AutoCompletePopup;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/WebViewClassic;->access$1300(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
+    invoke-static/range {v26 .. v26}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
 
     move-result-object v26
 
@@ -893,7 +893,7 @@
     move-object/from16 v26, v0
 
     #getter for: Landroid/webkit/WebViewClassic;->mAutoCompletePopup:Landroid/webkit/AutoCompletePopup;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/WebViewClassic;->access$1300(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
+    invoke-static/range {v26 .. v26}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
 
     move-result-object v26
 
@@ -1616,11 +1616,9 @@
 .end method
 
 .method private updateSelection()V
-    .locals 10
+    .locals 7
 
     .prologue
-    const/16 v9, 0xb6
-
     invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->getEditable()Landroid/text/Editable;
 
     move-result-object v6
@@ -1662,40 +1660,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/view/inputmethod/InputMethodManager;->updateSelection(Landroid/view/View;IIII)V
 
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->focusCandidateIsRichEditable()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    if-ne v2, v2, :cond_0
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v1, v1, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v9}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v1, v1, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
-
-    const/4 v7, 0x1
-
-    const/4 v8, 0x0
-
-    invoke-static {v1, v9, v7, v8}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
-
     :cond_0
     return-void
 .end method
@@ -1713,7 +1677,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->beginTextBatch()V
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$800(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$300(Landroid/webkit/WebViewClassic;)V
 
     :cond_0
     iget v0, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->mBatchLevel:I
@@ -1739,11 +1703,11 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->setComposingText(Ljava/lang/CharSequence;I)Z
 
-    invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->finishComposingText()Z
-
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->isCommit:Z
+
+    invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->finishComposingText()Z
 
     return v1
 .end method
@@ -1780,8 +1744,6 @@
     const/4 v4, -0x1
 
     invoke-virtual {p0, v3, v4}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->htc_commitText(Ljava/lang/CharSequence;I)Z
-
-    invoke-static {v0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->removeComposingSpans(Landroid/text/Spannable;)V
 
     invoke-direct {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->restartInput()V
 
@@ -1977,82 +1939,12 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->commitTextBatch()V
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$400(Landroid/webkit/WebViewClassic;)V
 
     :cond_0
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public finishComposingText()Z
-    .locals 5
-
-    .prologue
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/webkit/WebView;->isEditable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-boolean v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->isCommit:Z
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->getEditable()Landroid/text/Editable;
-
-    move-result-object v0
-
-    .local v0, editable:Landroid/text/Editable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->getComposingSpanStart(Landroid/text/Spannable;)I
-
-    move-result v2
-
-    .local v2, start:I
-    invoke-static {v0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->getComposingSpanEnd(Landroid/text/Spannable;)I
-
-    move-result v1
-
-    .local v1, end:I
-    if-ltz v2, :cond_0
-
-    if-ltz v1, :cond_0
-
-    if-eq v2, v1, :cond_0
-
-    invoke-interface {v0, v2, v1}, Landroid/text/Editable;->subSequence(II)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    const/4 v4, -0x1
-
-    invoke-virtual {p0, v3, v4}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->htc_commitText(Ljava/lang/CharSequence;I)Z
-
-    .end local v0           #editable:Landroid/text/Editable;
-    .end local v1           #end:I
-    .end local v2           #start:I
-    :cond_0
-    invoke-super {p0}, Landroid/view/inputmethod/BaseInputConnection;->finishComposingText()Z
-
-    move-result v3
-
-    return v3
 .end method
 
 .method public getIsAutoFillable()Z
@@ -2240,7 +2132,7 @@
     iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mAutoCompletePopup:Landroid/webkit/AutoCompletePopup;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$1300(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
+    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$900(Landroid/webkit/WebViewClassic;)Landroid/webkit/AutoCompletePopup;
 
     move-result-object v3
 
@@ -2315,25 +2207,6 @@
     .end packed-switch
 .end method
 
-.method public isBatchEditing()Z
-    .locals 1
-
-    .prologue
-    iget v0, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->mBatchLevel:I
-
-    if-lez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public performEditorAction(I)Z
     .locals 7
     .parameter "editorAction"
@@ -2386,7 +2259,7 @@
     iget-object v2, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->hideSoftKeyboard()V
-    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$800(Landroid/webkit/WebViewClassic;)V
 
     goto :goto_0
 
@@ -2394,7 +2267,7 @@
     iget-object v2, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #calls: Landroid/webkit/WebViewClassic;->hideSoftKeyboard()V
-    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$1200(Landroid/webkit/WebViewClassic;)V
+    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$800(Landroid/webkit/WebViewClassic;)V
 
     invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->getEditable()Landroid/text/Editable;
 
@@ -2499,7 +2372,7 @@
 
     if-nez v6, :cond_7
 
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1000()Z
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$500()Z
 
     move-result v6
 
@@ -2791,7 +2664,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mSelectingText:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$1100(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -2800,7 +2673,7 @@
     iget-object v6, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mIsCaretSelection:Z
-    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$300(Landroid/webkit/WebViewClassic;)Z
+    invoke-static {v6}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)Z
 
     move-result v6
 
@@ -2995,7 +2868,7 @@
     move-result v0
 
     .local v0, e:I
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1000()Z
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$500()Z
 
     move-result v6
 
@@ -3091,7 +2964,7 @@
     move-result v4
 
     .local v4, result:Z
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1000()Z
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$500()Z
 
     move-result v6
 
@@ -3212,7 +3085,7 @@
     :cond_0
     invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->finishComposingText()Z
 
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1000()Z
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$500()Z
 
     move-result v3
 
@@ -3327,267 +3200,4 @@
     iput v1, p1, Landroid/view/inputmethod/EditorInfo;->initialSelEnd:I
 
     return-void
-.end method
-
-.method public updateCursor([I)V
-    .locals 10
-    .parameter "screenLoc"
-
-    .prologue
-    const/4 v9, 0x1
-
-    const/4 v8, 0x0
-
-    invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
-
-    move-result-object v0
-
-    .local v0, imm:Landroid/view/inputmethod/InputMethodManager;
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mIsCaretSelection:Z
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$300(Landroid/webkit/WebViewClassic;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->focusCandidateIsEditableText()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->isActive(Landroid/view/View;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->isWatchingCursor(Landroid/view/View;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p0}, Landroid/webkit/WebViewClassic$WebViewInputConnection;->isBatchEditing()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v1}, Landroid/webkit/WebViewClassic;->syncSelectionCursors()V
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectLeftCaretHeight:I
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$400(Landroid/webkit/WebViewClassic;)I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectRightCaretHeight:I
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$500(Landroid/webkit/WebViewClassic;)I
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    if-nez p1, :cond_2
-
-    const/4 v1, 0x2
-
-    new-array v7, v1, [I
-
-    .local v7, mScreenOffset:[I
-    :goto_0
-    if-nez p1, :cond_0
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v7}, Landroid/webkit/WebView;->getLocationOnScreen([I)V
-
-    :cond_0
-    new-instance v6, Landroid/graphics/Rect;
-
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v2, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectCursorLeft:Landroid/graphics/Point;
-    invoke-static {v2}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/graphics/Point;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/graphics/Point;->x:I
-
-    invoke-virtual {v1, v2}, Landroid/webkit/WebViewClassic;->contentToViewDimension(I)I
-
-    move-result v1
-
-    iget-object v2, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectCursorLeft:Landroid/graphics/Point;
-    invoke-static {v3}, Landroid/webkit/WebViewClassic;->access$600(Landroid/webkit/WebViewClassic;)Landroid/graphics/Point;
-
-    move-result-object v3
-
-    iget v3, v3, Landroid/graphics/Point;->y:I
-
-    invoke-virtual {v2, v3}, Landroid/webkit/WebViewClassic;->contentToViewY(I)I
-
-    move-result v2
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v4, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectLeftCaretHeight:I
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$400(Landroid/webkit/WebViewClassic;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroid/webkit/WebViewClassic;->contentToViewDimension(I)I
-
-    move-result v3
-
-    sub-int/2addr v2, v3
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v4, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectCursorRight:Landroid/graphics/Point;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)Landroid/graphics/Point;
-
-    move-result-object v4
-
-    iget v4, v4, Landroid/graphics/Point;->x:I
-
-    invoke-virtual {v3, v4}, Landroid/webkit/WebViewClassic;->contentToViewDimension(I)I
-
-    move-result v3
-
-    iget-object v4, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    iget-object v5, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mSelectCursorRight:Landroid/graphics/Point;
-    invoke-static {v5}, Landroid/webkit/WebViewClassic;->access$700(Landroid/webkit/WebViewClassic;)Landroid/graphics/Point;
-
-    move-result-object v5
-
-    iget v5, v5, Landroid/graphics/Point;->y:I
-
-    invoke-virtual {v4, v5}, Landroid/webkit/WebViewClassic;->contentToViewY(I)I
-
-    move-result v4
-
-    invoke-direct {v6, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    .local v6, cursorRect:Landroid/graphics/Rect;
-    iget-object v1, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    #getter for: Landroid/webkit/WebViewClassic;->mWebView:Landroid/webkit/WebView;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$200(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebView;
-
-    move-result-object v1
-
-    iget v2, v6, Landroid/graphics/Rect;->left:I
-
-    aget v3, v7, v8
-
-    add-int/2addr v2, v3
-
-    iget-object v3, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v3}, Landroid/webkit/WebViewClassic;->getScrollX()I
-
-    move-result v3
-
-    sub-int/2addr v2, v3
-
-    iget v3, v6, Landroid/graphics/Rect;->top:I
-
-    aget v4, v7, v9
-
-    add-int/2addr v3, v4
-
-    iget-object v4, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v4}, Landroid/webkit/WebViewClassic;->getScrollY()I
-
-    move-result v4
-
-    sub-int/2addr v3, v4
-
-    iget v4, v6, Landroid/graphics/Rect;->right:I
-
-    aget v5, v7, v8
-
-    add-int/2addr v4, v5
-
-    iget-object v5, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v5}, Landroid/webkit/WebViewClassic;->getScrollX()I
-
-    move-result v5
-
-    sub-int/2addr v4, v5
-
-    iget v5, v6, Landroid/graphics/Rect;->bottom:I
-
-    aget v8, v7, v9
-
-    add-int/2addr v5, v8
-
-    iget-object v8, p0, Landroid/webkit/WebViewClassic$WebViewInputConnection;->this$0:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v8}, Landroid/webkit/WebViewClassic;->getScrollY()I
-
-    move-result v8
-
-    sub-int/2addr v5, v8
-
-    invoke-virtual/range {v0 .. v5}, Landroid/view/inputmethod/InputMethodManager;->updateCursor(Landroid/view/View;IIII)V
-
-    .end local v6           #cursorRect:Landroid/graphics/Rect;
-    .end local v7           #mScreenOffset:[I
-    :cond_1
-    return-void
-
-    :cond_2
-    move-object v7, p1
-
-    goto/16 :goto_0
 .end method

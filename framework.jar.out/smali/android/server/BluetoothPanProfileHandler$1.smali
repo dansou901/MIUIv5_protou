@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 170
+    .line 150
     iput-object p1, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +42,7 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 173
+    .line 153
     const-string v0, "android.bluetooth.adapter.extra.STATE"
 
     const/16 v1, 0xa
@@ -55,7 +55,7 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 176
+    .line 156
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     #getter for: Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
@@ -65,14 +65,14 @@
 
     if-nez v0, :cond_0
 
-    .line 177
+    .line 157
     const-string v0, "BluetoothPanProfileHandler"
 
     const-string/jumbo v1, "setBluetoothTethering(): call to setBluetoothPanSdpNative(), set NAP role"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 178
+    .line 158
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     #getter for: Landroid/server/BluetoothPanProfileHandler;->mBluetoothService:Landroid/server/BluetoothService;
@@ -82,14 +82,14 @@
 
     invoke-virtual {v0, v2}, Landroid/server/BluetoothService;->setBluetoothPanSdpNative(I)V
 
-    .line 180
+    .line 160
     :cond_0
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     #setter for: Landroid/server/BluetoothPanProfileHandler;->mTetheringOn:Z
     invoke-static {v0, v2}, Landroid/server/BluetoothPanProfileHandler;->access$002(Landroid/server/BluetoothPanProfileHandler;Z)Z
 
-    .line 181
+    .line 161
     iget-object v0, p0, Landroid/server/BluetoothPanProfileHandler$1;->this$0:Landroid/server/BluetoothPanProfileHandler;
 
     #getter for: Landroid/server/BluetoothPanProfileHandler;->mContext:Landroid/content/Context;
@@ -106,7 +106,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 183
+    .line 163
     :cond_1
     return-void
 .end method

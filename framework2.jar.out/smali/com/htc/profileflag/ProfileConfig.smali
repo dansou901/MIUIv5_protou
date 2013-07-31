@@ -648,7 +648,7 @@
     sput v4, Lcom/htc/profileflag/ProfileConfig;->profile_anr_dump_native_uid:I
 
     .line 303
-    const-string v4, "strictmode.policyset"
+    const-string/jumbo v4, "strictmode.policyset"
 
     invoke-static {v4, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
@@ -1365,38 +1365,522 @@
 .end method
 
 .method private static canDoHPROF(I)Z
-    .locals 2
+    .locals 25
     .parameter "length"
 
     .prologue
-    .line 1337
-    sget-boolean v0, Lcom/htc/profileflag/ProfileConfig;->HtcDebug:Z
+    .line 1336
+    :try_start_0
+    const-string v19, "profiler.hprof.once"
 
-    if-nez v0, :cond_0
+    const/16 v20, 0x1
+
+    invoke-static/range {v19 .. v20}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_0
+
+    .line 1337
+    sget-boolean v19, Lcom/htc/profileflag/ProfileConfig;->dumped:Z
+
+    if-eqz v19, :cond_0
 
     .line 1338
-    const-string v0, "ProfileConfig"
+    const-string v19, "ProfileConfig"
 
-    const-string v1, "Not allow HPROF debug info"
+    const-string v20, "HPROF already dumped"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 1339
-    const/4 v0, 0x0
+    const/16 v16, 0x0
 
-    .line 1341
+    .line 1397
     :goto_0
-    return v0
+    return v16
 
+    .line 1343
     :cond_0
-    invoke-static {p0}, Lcom/htc/profileflag/ProfileConfig;->canDoHPROFnative(I)Z
+    sget-boolean v19, Lcom/htc/profileflag/ProfileConfig;->HtcDebug:Z
 
-    move-result v0
+    if-nez v19, :cond_1
+
+    .line 1344
+    const-string v19, "ProfileConfig"
+
+    const-string v20, "Not allow HPROF debug info"
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1345
+    const/16 v16, 0x0
 
     goto :goto_0
-.end method
 
-.method private static native canDoHPROFnative(I)Z
+    .line 1348
+    :cond_1
+    const-string v19, "ProfileConfig"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "canDoHPROF: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move/from16 v0, p0
+
+    div-int/lit16 v0, v0, 0x400
+
+    move/from16 v21, v0
+
+    move/from16 v0, v21
+
+    div-int/lit16 v0, v0, 0x400
+
+    move/from16 v21, v0
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string v21, "mb"
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1350
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v19
+
+    const/16 v20, 0x3e8
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_2
+
+    .line 1351
+    const/16 v19, 0x1
+
+    sput-boolean v19, Lcom/htc/profileflag/ProfileConfig;->dumped:Z
+
+    .line 1352
+    const/16 v16, 0x1
+
+    goto :goto_0
+
+    .line 1355
+    :cond_2
+    const-string v19, "chmod 777 /data/misc"
+
+    invoke-static/range {v19 .. v19}, Lcom/htc/profileflag/ProfileConfig;->runRootCommand(Ljava/lang/String;)Z
+
+    .line 1356
+    new-instance v5, Ljava/io/File;
+
+    const-string v19, "/data/misc/"
+
+    move-object/from16 v0, v19
+
+    invoke-direct {v5, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 1357
+    .local v5, dir:Ljava/io/File;
+    invoke-virtual {v5}, Ljava/io/File;->exists()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_4
+
+    invoke-virtual {v5}, Ljava/io/File;->isDirectory()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_4
+
+    invoke-virtual {v5}, Ljava/io/File;->canRead()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_4
+
+    invoke-virtual {v5}, Ljava/io/File;->canWrite()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_4
+
+    .line 1358
+    new-instance v19, Lcom/htc/profileflag/ProfileConfig$1;
+
+    invoke-direct/range {v19 .. v19}, Lcom/htc/profileflag/ProfileConfig$1;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v5, v0}, Ljava/io/File;->listFiles(Ljava/io/FileFilter;)[Ljava/io/File;
+
+    move-result-object v8
+
+    .line 1364
+    .local v8, hprofs:[Ljava/io/File;
+    new-instance v19, Lcom/htc/profileflag/ProfileConfig$2;
+
+    invoke-direct/range {v19 .. v19}, Lcom/htc/profileflag/ProfileConfig$2;-><init>()V
+
+    move-object/from16 v0, v19
+
+    invoke-static {v8, v0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
+
+    .line 1370
+    const-wide/16 v17, 0x0
+
+    .line 1371
+    .local v17, size:J
+    move-object v2, v8
+
+    .local v2, arr$:[Ljava/io/File;
+    array-length v10, v2
+
+    .local v10, len$:I
+    const/4 v9, 0x0
+
+    .local v9, i$:I
+    :goto_1
+    if-ge v9, v10, :cond_3
+
+    aget-object v7, v2, v9
+
+    .line 1372
+    .local v7, hprof:Ljava/io/File;
+    invoke-virtual {v7}, Ljava/io/File;->length()J
+
+    move-result-wide v19
+
+    add-long v17, v17, v19
+
+    .line 1371
+    add-int/lit8 v9, v9, 0x1
+
+    goto :goto_1
+
+    .line 1375
+    .end local v7           #hprof:Ljava/io/File;
+    :cond_3
+    const-string v19, "profiler.hprof.max"
+
+    const/16 v20, 0x28
+
+    invoke-static/range {v19 .. v20}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    mul-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    mul-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    sub-int v19, v19, p0
+
+    move/from16 v0, v19
+
+    int-to-long v12, v0
+
+    .line 1376
+    .local v12, maxThreshold:J
+    cmp-long v19, v17, v12
+
+    if-lez v19, :cond_4
+
+    .line 1377
+    const-string v19, "ProfileConfig"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "HPROF use more than "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-wide/16 v21, 0x400
+
+    div-long v21, v12, v21
+
+    const-wide/16 v23, 0x400
+
+    div-long v21, v21, v23
+
+    invoke-virtual/range {v20 .. v22}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    const-string v21, "mb, trim!"
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1378
+    move-object v2, v8
+
+    array-length v10, v2
+
+    const/4 v9, 0x0
+
+    :goto_2
+    if-ge v9, v10, :cond_4
+
+    aget-object v7, v2, v9
+
+    .line 1379
+    .restart local v7       #hprof:Ljava/io/File;
+    invoke-virtual {v7}, Ljava/io/File;->length()J
+
+    move-result-wide v19
+
+    sub-long v17, v17, v19
+
+    .line 1380
+    invoke-virtual {v7}, Ljava/io/File;->delete()Z
+
+    .line 1381
+    const-string v19, "ProfileConfig"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "Trim HPROF: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual {v7}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1382
+    cmp-long v19, v17, v12
+
+    if-gez v19, :cond_5
+
+    .line 1388
+    .end local v2           #arr$:[Ljava/io/File;
+    .end local v7           #hprof:Ljava/io/File;
+    .end local v8           #hprofs:[Ljava/io/File;
+    .end local v9           #i$:I
+    .end local v10           #len$:I
+    .end local v12           #maxThreshold:J
+    .end local v17           #size:J
+    :cond_4
+    new-instance v11, Landroid/os/StatFs;
+
+    const-string v19, "/data/misc/"
+
+    move-object/from16 v0, v19
+
+    invoke-direct {v11, v0}, Landroid/os/StatFs;-><init>(Ljava/lang/String;)V
+
+    .line 1389
+    .local v11, mStatFs:Landroid/os/StatFs;
+    invoke-virtual {v11}, Landroid/os/StatFs;->getAvailableBlocks()I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    int-to-long v0, v0
+
+    move-wide/from16 v19, v0
+
+    invoke-virtual {v11}, Landroid/os/StatFs;->getBlockSize()I
+
+    move-result v21
+
+    move/from16 v0, v21
+
+    int-to-long v0, v0
+
+    move-wide/from16 v21, v0
+
+    mul-long v3, v19, v21
+
+    .line 1390
+    .local v3, avail:J
+    const-string v19, "profiler.hprof.min"
+
+    const/16 v20, 0x14
+
+    invoke-static/range {v19 .. v20}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v19
+
+    move/from16 v0, v19
+
+    mul-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    move/from16 v0, v19
+
+    mul-int/lit16 v0, v0, 0x400
+
+    move/from16 v19, v0
+
+    add-int v19, v19, p0
+
+    move/from16 v0, v19
+
+    int-to-long v14, v0
+
+    .line 1391
+    .local v14, minThreshold:J
+    cmp-long v19, v3, v14
+
+    if-ltz v19, :cond_6
+
+    const/16 v16, 0x1
+
+    .line 1392
+    .local v16, result:Z
+    :goto_3
+    if-eqz v16, :cond_7
+
+    const/16 v19, 0x1
+
+    :goto_4
+    sput-boolean v19, Lcom/htc/profileflag/ProfileConfig;->dumped:Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto/16 :goto_0
+
+    .line 1394
+    .end local v3           #avail:J
+    .end local v5           #dir:Ljava/io/File;
+    .end local v11           #mStatFs:Landroid/os/StatFs;
+    .end local v14           #minThreshold:J
+    .end local v16           #result:Z
+    :catch_0
+    move-exception v6
+
+    .line 1395
+    .local v6, ex:Ljava/lang/Exception;
+    const-string v19, "ProfileConfig"
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "error in canDoHPROF "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual {v6}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v21
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    invoke-static {v0, v1, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 1397
+    const/16 v16, 0x0
+
+    goto/16 :goto_0
+
+    .line 1378
+    .end local v6           #ex:Ljava/lang/Exception;
+    .restart local v2       #arr$:[Ljava/io/File;
+    .restart local v5       #dir:Ljava/io/File;
+    .restart local v7       #hprof:Ljava/io/File;
+    .restart local v8       #hprofs:[Ljava/io/File;
+    .restart local v9       #i$:I
+    .restart local v10       #len$:I
+    .restart local v12       #maxThreshold:J
+    .restart local v17       #size:J
+    :cond_5
+    add-int/lit8 v9, v9, 0x1
+
+    goto/16 :goto_2
+
+    .line 1391
+    .end local v2           #arr$:[Ljava/io/File;
+    .end local v7           #hprof:Ljava/io/File;
+    .end local v8           #hprofs:[Ljava/io/File;
+    .end local v9           #i$:I
+    .end local v10           #len$:I
+    .end local v12           #maxThreshold:J
+    .end local v17           #size:J
+    .restart local v3       #avail:J
+    .restart local v11       #mStatFs:Landroid/os/StatFs;
+    .restart local v14       #minThreshold:J
+    :cond_6
+    const/16 v16, 0x0
+
+    goto :goto_3
+
+    .line 1392
+    .restart local v16       #result:Z
+    :cond_7
+    :try_start_1
+    sget-boolean v19, Lcom/htc/profileflag/ProfileConfig;->dumped:Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_4
 .end method
 
 .method private static dumpFD()V
@@ -1825,7 +2309,7 @@
     .locals 1
 
     .prologue
-    .line 1346
+    .line 1402
     sget-boolean v0, Lcom/htc/profileflag/ProfileConfig;->profile_provider_dumpstack_ondying:Z
 
     return v0
@@ -2871,7 +3355,7 @@
 
     move-result-object v7
 
-    const-string v8, "su"
+    const-string/jumbo v8, "su"
 
     invoke-virtual {v7, v8}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
 

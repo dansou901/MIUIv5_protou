@@ -935,7 +935,7 @@
     array-length v6, v11
 
     .local v6, SIZE:I
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 

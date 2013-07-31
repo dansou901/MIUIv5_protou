@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/SMSDispatcher.smali	2013-07-12 21:42:53.435167517 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/SMSDispatcher.smali	2013-07-12 21:40:42.325156706 +0000
+*** ./smali/com/android/internal/telephony/SMSDispatcher.smali	2013-07-31 22:22:11.367398888 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/SMSDispatcher.smali	2013-07-31 22:21:13.137394028 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

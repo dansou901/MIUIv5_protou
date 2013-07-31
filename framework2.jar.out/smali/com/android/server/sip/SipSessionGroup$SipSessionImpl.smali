@@ -1698,7 +1698,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "transaction terminated: "
+    const-string/jumbo v5, "transaction terminated: "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2323,7 +2323,7 @@
     .line 1242
     new-instance v3, Ljavax/sip/SipException;
 
-    const-string v5, "timed out"
+    const-string/jumbo v5, "timed out"
 
     invoke-direct {v3, v5}, Ljavax/sip/SipException;-><init>(Ljava/lang/String;)V
 
@@ -2336,6 +2336,8 @@
     goto :goto_0
 
     .line 1221
+    nop
+
     nop
 
     :sswitch_data_0
@@ -2950,7 +2952,7 @@
     .line 886
     const/4 v0, -0x3
 
-    const-string v1, "transaction terminated"
+    const-string/jumbo v1, "transaction terminated"
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/sip/SipSessionGroup$SipSessionImpl;->onError(ILjava/lang/String;)V
 
@@ -2969,6 +2971,8 @@
     goto :goto_0
 
     .line 879
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

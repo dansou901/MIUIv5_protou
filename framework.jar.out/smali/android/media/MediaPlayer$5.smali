@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 3596
+    .line 3552
     iput-object p1, p0, Landroid/media/MediaPlayer$5;->this$0:Landroid/media/MediaPlayer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -45,26 +45,26 @@
     .parameter "height"
 
     .prologue
-    .line 3598
+    .line 3554
     const-string v1, "MediaPlayer"
 
     const-string v2, "[DLNA]surfaceChanged"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3599
+    .line 3555
     invoke-interface {p1}, Landroid/view/SurfaceHolder;->getSurface()Landroid/view/Surface;
 
     move-result-object v0
 
-    .line 3600
+    .line 3556
     .local v0, surface:Landroid/view/Surface;
     iget-object v1, p0, Landroid/media/MediaPlayer$5;->this$0:Landroid/media/MediaPlayer;
 
     #calls: Landroid/media/MediaPlayer;->processDLNAIcon(Landroid/view/Surface;)V
     invoke-static {v1, v0}, Landroid/media/MediaPlayer;->access$1500(Landroid/media/MediaPlayer;Landroid/view/Surface;)V
 
-    .line 3601
+    .line 3557
     return-void
 .end method
 
@@ -73,7 +73,7 @@
     .parameter "holder"
 
     .prologue
-    .line 3604
+    .line 3560
     return-void
 .end method
 
@@ -82,6 +82,6 @@
     .parameter "holder"
 
     .prologue
-    .line 3607
+    .line 3563
     return-void
 .end method

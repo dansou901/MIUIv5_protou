@@ -496,7 +496,7 @@
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     #calls: Landroid/widget/Editor;->isCursorInsideSuggestionSpan()Z
-    invoke-static {v3}, Landroid/widget/Editor;->access$2300(Landroid/widget/Editor;)Z
+    invoke-static {v3}, Landroid/widget/Editor;->access$2800(Landroid/widget/Editor;)Z
 
     move-result v3
 

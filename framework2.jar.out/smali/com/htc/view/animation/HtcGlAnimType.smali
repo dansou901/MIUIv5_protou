@@ -54,7 +54,7 @@
 
     move-result-object v1
 
-    const-string v2, "zoomTransition"
+    const-string/jumbo v2, "zoomTransition"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    const-string v2, "swipeCubicTransition"
+    const-string/jumbo v2, "swipeCubicTransition"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

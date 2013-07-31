@@ -203,7 +203,7 @@
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     const-string v0, "WfdStateMachine"
 
@@ -213,36 +213,11 @@
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
-
-    const-string v2, "4.0"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
-
-    iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
-
-    const-string v2, "4.5"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
-
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
 
     invoke-virtual {v0, v1}, Ljava/util/BitSet;->set(I)V
 
-    :cond_2
+    :cond_1
     new-instance v0, Lcom/htc/server/WfdStateMachine$ControlWifiState$1;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$ControlWifiState$1;-><init>(Lcom/htc/server/WfdStateMachine$ControlWifiState;)V
@@ -288,7 +263,7 @@
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -304,13 +279,13 @@
 
     invoke-virtual {v0, v2}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    :cond_3
+    :cond_2
     :goto_1
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -333,14 +308,14 @@
 
     invoke-virtual {v0, v2, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_4
+    :cond_3
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsRequestScanning:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -364,7 +339,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_4
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
@@ -380,7 +355,7 @@
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsResetting:Z
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
     const-string v0, "WfdStateMachine"
 
@@ -410,7 +385,7 @@
 
     goto/16 :goto_0
 
-    :cond_6
+    :cond_5
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$ControlWifiState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-boolean v0, v0, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
@@ -426,8 +401,6 @@
     invoke-virtual {v0, v2, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto/16 :goto_0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -572,7 +572,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateMessageOnIccEf: index="
+    const-string/jumbo v1, "updateMessageOnIccEf: index="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2181,7 +2181,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "updateCBMI : "
+    const-string/jumbo v9, "updateCBMI : "
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2480,7 +2480,7 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "updateCBMIR : "
+    const-string/jumbo v12, "updateCBMIR : "
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2920,7 +2920,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateMessageOnIccEf: index="
+    const-string/jumbo v1, "updateMessageOnIccEf: index="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3112,7 +3112,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateMessageOnIccEf: index="
+    const-string/jumbo v2, "updateMessageOnIccEf: index="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

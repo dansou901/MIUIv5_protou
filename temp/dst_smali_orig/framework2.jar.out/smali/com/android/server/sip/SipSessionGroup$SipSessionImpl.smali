@@ -2081,6 +2081,8 @@
 
     nop
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0xc8 -> :sswitch_0
@@ -2651,6 +2653,8 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

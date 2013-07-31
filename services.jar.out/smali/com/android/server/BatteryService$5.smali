@@ -37,7 +37,7 @@
     .parameter
 
     .prologue
-    .line 631
+    .line 618
     iput-object p1, p0, Lcom/android/server/BatteryService$5;->this$0:Lcom/android/server/BatteryService;
 
     iput-object p3, p0, Lcom/android/server/BatteryService$5;->val$sb:Ljava/lang/StringBuilder;
@@ -59,7 +59,7 @@
     .locals 10
 
     .prologue
-    .line 635
+    .line 622
     new-instance v2, Ljava/io/File;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -92,11 +92,11 @@
 
     invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 636
+    .line 623
     .local v2, temp_file:Ljava/io/File;
     const/4 v8, 0x0
 
-    .line 639
+    .line 626
     .local v8, fileWriter:Ljava/io/FileWriter;
     :try_start_0
     new-instance v9, Ljava/io/FileWriter;
@@ -106,7 +106,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 640
+    .line 627
     .end local v8           #fileWriter:Ljava/io/FileWriter;
     .local v9, fileWriter:Ljava/io/FileWriter;
     :try_start_1
@@ -118,12 +118,12 @@
 
     invoke-virtual {v9, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 642
+    .line 629
     const-string v0, "\n----- KERNEL -----\n"
 
     invoke-virtual {v9, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 643
+    .line 630
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->this$0:Lcom/android/server/BatteryService;
 
     new-instance v1, Ljava/io/File;
@@ -141,12 +141,12 @@
     #calls: Lcom/android/server/BatteryService;->logTextFile(Ljava/io/File;Ljava/io/FileWriter;Ljava/lang/Integer;)V
     invoke-static {v0, v1, v9, v3}, Lcom/android/server/BatteryService;->access$500(Lcom/android/server/BatteryService;Ljava/io/File;Ljava/io/FileWriter;Ljava/lang/Integer;)V
 
-    .line 645
+    .line 632
     const-string v0, "\n----- CMDLINE -----\n"
 
     invoke-virtual {v9, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 646
+    .line 633
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->this$0:Lcom/android/server/BatteryService;
 
     new-instance v1, Ljava/io/File;
@@ -164,17 +164,17 @@
     #calls: Lcom/android/server/BatteryService;->logTextFile(Ljava/io/File;Ljava/io/FileWriter;Ljava/lang/Integer;)V
     invoke-static {v0, v1, v9, v3}, Lcom/android/server/BatteryService;->access$500(Lcom/android/server/BatteryService;Ljava/io/File;Ljava/io/FileWriter;Ljava/lang/Integer;)V
 
-    .line 648
+    .line 635
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->val$logFile:Ljava/io/File;
 
     if-eqz v0, :cond_0
 
-    .line 649
+    .line 636
     const-string v0, "\n----- LOG FILE -----\n"
 
     invoke-virtual {v9, v0}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
 
-    .line 650
+    .line 637
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->this$0:Lcom/android/server/BatteryService;
 
     iget-object v1, p0, Lcom/android/server/BatteryService$5;->val$logFile:Ljava/io/File;
@@ -182,7 +182,7 @@
     #calls: Lcom/android/server/BatteryService;->logTextFile(Ljava/io/File;Ljava/io/FileWriter;)V
     invoke-static {v0, v1, v9}, Lcom/android/server/BatteryService;->access$600(Lcom/android/server/BatteryService;Ljava/io/File;Ljava/io/FileWriter;)V
 
-    .line 653
+    .line 640
     :cond_0
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->val$dbox:Landroid/os/DropBoxManager;
 
@@ -194,10 +194,10 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/os/DropBoxManager;->addFile(Ljava/lang/String;Ljava/io/File;IJ)V
 
-    .line 654
+    .line 641
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
-    .line 656
+    .line 643
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -206,14 +206,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 657
+    .line 644
     new-instance v6, Landroid/content/Intent;
 
     const-string v0, "com.htc.intent.action.POWERREPORT"
 
     invoke-direct {v6, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 658
+    .line 645
     .local v6, broadcastIntent:Landroid/content/Intent;
     const-string v0, "fromDropBox"
 
@@ -221,28 +221,28 @@
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 659
+    .line 646
     const-string v0, "tag"
 
     const-string v1, "HTC_BATT_LOG"
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 660
+    .line 647
     const-string v0, "time"
 
     iget-wide v3, p0, Lcom/android/server/BatteryService$5;->val$entryTime:J
 
     invoke-virtual {v6, v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;J)Landroid/content/Intent;
 
-    .line 661
+    .line 648
     const-string v0, "msg"
 
     const-string v1, "Collect htc power logs"
 
     invoke-virtual {v6, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 662
+    .line 649
     iget-object v0, p0, Lcom/android/server/BatteryService$5;->this$0:Lcom/android/server/BatteryService;
 
     #getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
@@ -252,7 +252,7 @@
 
     invoke-virtual {v0, v6}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 663
+    .line 650
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -264,14 +264,14 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 669
+    .line 656
     if-eqz v9, :cond_1
 
-    .line 670
+    .line 657
     :try_start_2
     invoke-virtual {v9}, Ljava/io/FileWriter;->close()V
 
-    .line 671
+    .line 658
     :cond_1
     if-eqz v2, :cond_2
 
@@ -281,7 +281,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 672
+    .line 659
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
@@ -289,7 +289,7 @@
     :cond_2
     move-object v8, v9
 
-    .line 676
+    .line 663
     .end local v6           #broadcastIntent:Landroid/content/Intent;
     .end local v9           #fileWriter:Ljava/io/FileWriter;
     .restart local v8       #fileWriter:Ljava/io/FileWriter;
@@ -297,7 +297,7 @@
     :goto_0
     return-void
 
-    .line 673
+    .line 660
     .end local v8           #fileWriter:Ljava/io/FileWriter;
     .restart local v6       #broadcastIntent:Landroid/content/Intent;
     .restart local v9       #fileWriter:Ljava/io/FileWriter;
@@ -306,17 +306,17 @@
 
     move-object v8, v9
 
-    .line 675
+    .line 662
     .end local v9           #fileWriter:Ljava/io/FileWriter;
     .restart local v8       #fileWriter:Ljava/io/FileWriter;
     goto :goto_0
 
-    .line 665
+    .line 652
     .end local v6           #broadcastIntent:Landroid/content/Intent;
     :catch_1
     move-exception v7
 
-    .line 666
+    .line 653
     .local v7, e:Ljava/lang/Exception;
     :goto_1
     :try_start_3
@@ -330,14 +330,14 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 669
+    .line 656
     if-eqz v8, :cond_4
 
-    .line 670
+    .line 657
     :try_start_4
     invoke-virtual {v8}, Ljava/io/FileWriter;->close()V
 
-    .line 671
+    .line 658
     :cond_4
     if-eqz v2, :cond_3
 
@@ -347,33 +347,33 @@
 
     if-eqz v0, :cond_3
 
-    .line 672
+    .line 659
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
     goto :goto_0
 
-    .line 673
+    .line 660
     :catch_2
     move-exception v0
 
     goto :goto_0
 
-    .line 668
+    .line 655
     .end local v7           #e:Ljava/lang/Exception;
     :catchall_0
     move-exception v0
 
-    .line 669
+    .line 656
     :goto_2
     if-eqz v8, :cond_5
 
-    .line 670
+    .line 657
     :try_start_5
     invoke-virtual {v8}, Ljava/io/FileWriter;->close()V
 
-    .line 671
+    .line 658
     :cond_5
     if-eqz v2, :cond_6
 
@@ -383,23 +383,23 @@
 
     if-eqz v1, :cond_6
 
-    .line 672
+    .line 659
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 674
+    .line 661
     :cond_6
     :goto_3
     throw v0
 
-    .line 673
+    .line 660
     :catch_3
     move-exception v1
 
     goto :goto_3
 
-    .line 668
+    .line 655
     .end local v8           #fileWriter:Ljava/io/FileWriter;
     .restart local v9       #fileWriter:Ljava/io/FileWriter;
     :catchall_1
@@ -411,7 +411,7 @@
     .restart local v8       #fileWriter:Ljava/io/FileWriter;
     goto :goto_2
 
-    .line 665
+    .line 652
     .end local v8           #fileWriter:Ljava/io/FileWriter;
     .restart local v9       #fileWriter:Ljava/io/FileWriter;
     :catch_4

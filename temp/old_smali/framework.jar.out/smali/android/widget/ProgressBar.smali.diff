@@ -1,5 +1,5 @@
-*** ./smali/android/widget/ProgressBar.smali	2013-07-12 21:43:16.775169442 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/ProgressBar.smali	2013-07-12 21:41:01.751824975 +0000
+*** ./smali/android/widget/ProgressBar.smali	2013-07-31 22:22:27.504066902 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/ProgressBar.smali	2013-07-31 22:21:21.767394748 +0000
 ***************
 *** 895,900 ****
 --- 895,908 ----

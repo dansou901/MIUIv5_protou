@@ -345,7 +345,7 @@
 
     move-result-object v13
 
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$500()D
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$400()D
 
     move-result-wide v14
 
@@ -425,7 +425,7 @@
 
     const-string v13, "com.htc.USE_TIME_FLUSH"
 
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$600()J
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$500()J
 
     move-result-wide v14
 
@@ -496,7 +496,7 @@
 
     const-string v13, "com.htc.CLIENT_INFO_FLUSH"
 
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$700()J
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$600()J
 
     move-result-wide v14
 
@@ -601,7 +601,7 @@
 
     const/4 v13, 0x3
 
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$800()J
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper;->access$700()J
 
     move-result-wide v14
 
@@ -1499,7 +1499,7 @@
     .parameter "context"
 
     .prologue
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$500()D
+    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$400()D
 
     move-result-wide v0
 

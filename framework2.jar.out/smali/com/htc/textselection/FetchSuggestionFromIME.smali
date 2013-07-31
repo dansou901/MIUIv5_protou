@@ -825,7 +825,7 @@
     .line 349
     new-instance v20, Ljava/util/StringTokenizer;
 
-    const-string v2, "|"
+    const-string/jumbo v2, "|"
 
     move-object/from16 v0, v20
 

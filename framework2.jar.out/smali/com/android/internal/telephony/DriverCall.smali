@@ -517,7 +517,7 @@
 
     move-result-object v0
 
-    const-string v1, "toa="
+    const-string/jumbo v1, "toa="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -585,7 +585,7 @@
 
     if-eqz v0, :cond_2
 
-    const-string v0, "voc"
+    const-string/jumbo v0, "voc"
 
     :goto_2
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;

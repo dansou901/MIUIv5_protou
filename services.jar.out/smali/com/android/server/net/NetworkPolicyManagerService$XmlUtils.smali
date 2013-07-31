@@ -19,7 +19,7 @@
     .locals 0
 
     .prologue
-    .line 2546
+    .line 2537
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,14 +31,14 @@
     .parameter "name"
 
     .prologue
-    .line 2576
+    .line 2567
     const/4 v1, 0x0
 
     invoke-interface {p0, v1, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2577
+    .line 2568
     .local v0, value:Ljava/lang/String;
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
@@ -58,14 +58,14 @@
     .end annotation
 
     .prologue
-    .line 2548
+    .line 2539
     const/4 v2, 0x0
 
     invoke-interface {p0, v2, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2550
+    .line 2541
     .local v1, value:Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -76,11 +76,11 @@
 
     return v2
 
-    .line 2551
+    .line 2542
     :catch_0
     move-exception v0
 
-    .line 2552
+    .line 2543
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v2, Ljava/net/ProtocolException;
 
@@ -134,14 +134,14 @@
     .end annotation
 
     .prologue
-    .line 2562
+    .line 2553
     const/4 v2, 0x0
 
     invoke-interface {p0, v2, p1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2564
+    .line 2555
     .local v1, value:Ljava/lang/String;
     :try_start_0
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -152,11 +152,11 @@
 
     return-wide v2
 
-    .line 2565
+    .line 2556
     :catch_0
     move-exception v0
 
-    .line 2566
+    .line 2557
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v2, Ljava/net/ProtocolException;
 
@@ -211,7 +211,7 @@
     .end annotation
 
     .prologue
-    .line 2582
+    .line 2573
     const/4 v0, 0x0
 
     invoke-static {p2}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
@@ -220,7 +220,7 @@
 
     invoke-interface {p0, v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 2583
+    .line 2574
     return-void
 .end method
 
@@ -236,7 +236,7 @@
     .end annotation
 
     .prologue
-    .line 2558
+    .line 2549
     const/4 v0, 0x0
 
     invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -245,7 +245,7 @@
 
     invoke-interface {p0, v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 2559
+    .line 2550
     return-void
 .end method
 
@@ -261,7 +261,7 @@
     .end annotation
 
     .prologue
-    .line 2572
+    .line 2563
     const/4 v0, 0x0
 
     invoke-static {p2, p3}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -270,6 +270,6 @@
 
     invoke-interface {p0, v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    .line 2573
+    .line 2564
     return-void
 .end method

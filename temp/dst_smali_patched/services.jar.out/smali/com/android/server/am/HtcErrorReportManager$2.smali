@@ -697,18 +697,6 @@
     #calls: Lcom/android/server/am/HtcErrorReportManager;->writeKernelLog(Ljava/io/OutputStreamWriter;)V
     invoke-static {v2, v14}, Lcom/android/server/am/HtcErrorReportManager;->access$300(Lcom/android/server/am/HtcErrorReportManager;Ljava/io/OutputStreamWriter;)V
 
-    invoke-static {}, Lcom/htc/utils/report/ReportConfig;->isShippingRom()Z
-
-    move-result v2
-
-    if-nez v2, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/server/am/HtcErrorReportManager$2;->val$isSystemServer:Z
-
-    if-eqz v2, :cond_6
-
     const-string v2, "\n----- PROCRANK (procrank) -----\n"
 
     invoke-virtual {v14, v2}, Ljava/io/OutputStreamWriter;->write(Ljava/lang/String;)V

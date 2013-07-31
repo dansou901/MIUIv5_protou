@@ -34,97 +34,110 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .locals 6
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const-string v0, "WirelessDisplayService"
+    const/4 v5, 0x0
 
-    const-string v1, "Receive Configuration Tool notify WIFI DFS"
+    const-string v2, "extra_pincode_check_result"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p2, v2, v5}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$8600()Ljava/util/concurrent/atomic/AtomicBoolean;
+    move-result v1
 
-    move-result-object v0
+    .local v1, pinCodeCheckResult:Z
+    const-string v2, "WirelessDisplayService"
 
-    const/4 v1, 0x1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+    const-string v4, "Receive Configuration Tool notify INTENT_PINCODE_CHECK_DONE, result: "
 
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mSenseVersion:Ljava/lang/String;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$6500(Lcom/htc/server/WirelessDisplayService;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const-string v1, "4.5"
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v3
 
-    move-result v0
+    const-string v4, ", Mirror State: "
 
-    if-nez v0, :cond_1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+    move-result-object v3
 
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mSenseVersion:Ljava/lang/String;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$6500(Lcom/htc/server/WirelessDisplayService;)Ljava/lang/String;
+    iget-object v4, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
 
-    move-result-object v0
+    #getter for: Lcom/htc/server/WirelessDisplayService;->mMirrorDisplayState:Ljava/util/concurrent/atomic/AtomicInteger;
+    invoke-static {v4}, Lcom/htc/server/WirelessDisplayService;->access$000(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const-string v1, "4.0"
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v0
+    move-result v4
 
-    if-nez v0, :cond_1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+    move-result-object v3
 
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mWifiDFSChannelDialog:Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$9800(Lcom/htc/server/WirelessDisplayService;)Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    if-nez v0, :cond_0
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+    iget-object v2, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
 
-    new-instance v1, Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
+    invoke-virtual {v2, v5}, Lcom/htc/server/WirelessDisplayService;->startPatternLockFakeMirror(Z)V
+
+    iget-object v2, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    #calls: Lcom/htc/server/WirelessDisplayService;->startPatternLockStopAudio(Z)V
+    invoke-static {v2, v5}, Lcom/htc/server/WirelessDisplayService;->access$5700(Lcom/htc/server/WirelessDisplayService;Z)V
+
+    iget-object v2, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    #getter for: Lcom/htc/server/WirelessDisplayService;->mMirrorOnOff:Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v2}, Lcom/htc/server/WirelessDisplayService;->access$1800(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v2, "com.htc.intent.action.WIRELESS_DISPLAY_MIRROR_RESULT"
+
+    invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .local v0, mirrorResultIntent:Landroid/content/Intent;
+    const-string v2, "RESULT"
+
+    const-string v3, "SUCCESS"
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     iget-object v2, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #getter for: Lcom/htc/server/WirelessDisplayService;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/htc/server/WirelessDisplayService;->access$200(Lcom/htc/server/WirelessDisplayService;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/htc/server/WirelessDisplayService;->access$500(Lcom/htc/server/WirelessDisplayService;)Landroid/content/Context;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
+    invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mSupportKDDI:Z
-    invoke-static {v3}, Lcom/htc/server/WirelessDisplayService;->access$300(Lcom/htc/server/WirelessDisplayService;)Z
-
-    move-result v3
-
-    invoke-direct {v1, v2, v3}, Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;-><init>(Landroid/content/Context;Z)V
-
-    #setter for: Lcom/htc/server/WirelessDisplayService;->mWifiDFSChannelDialog:Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
-    invoke-static {v0, v1}, Lcom/htc/server/WirelessDisplayService;->access$9802(Lcom/htc/server/WirelessDisplayService;Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;)Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
-
+    .end local v0           #mirrorResultIntent:Landroid/content/Intent;
     :cond_0
-    iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$8;->this$0:Lcom/htc/server/WirelessDisplayService;
-
-    #getter for: Lcom/htc/server/WirelessDisplayService;->mWifiDFSChannelDialog:Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$9800(Lcom/htc/server/WirelessDisplayService;)Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/htc/server/medialinkdialog/WifiDFSChannelDialog;->show()V
-
-    :cond_1
     return-void
 .end method

@@ -25,13 +25,13 @@
     .parameter "handler"
 
     .prologue
-    .line 671
+    .line 665
     iput-object p1, p0, Lcom/android/internal/telephony/DataConnectionTracker$DataRoamingSettingObserver;->this$0:Lcom/android/internal/telephony/DataConnectionTracker;
 
-    .line 672
+    .line 666
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 673
+    .line 667
     return-void
 .end method
 
@@ -42,13 +42,13 @@
     .parameter "selfChange"
 
     .prologue
-    .line 689
+    .line 683
     iget-object v0, p0, Lcom/android/internal/telephony/DataConnectionTracker$DataRoamingSettingObserver;->this$0:Lcom/android/internal/telephony/DataConnectionTracker;
 
     #calls: Lcom/android/internal/telephony/DataConnectionTracker;->handleDataOnRoamingChange()V
     invoke-static {v0}, Lcom/android/internal/telephony/DataConnectionTracker;->access$000(Lcom/android/internal/telephony/DataConnectionTracker;)V
 
-    .line 690
+    .line 684
     return-void
 .end method
 
@@ -57,12 +57,12 @@
     .parameter "context"
 
     .prologue
-    .line 676
+    .line 670
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 677
+    .line 671
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "data_roaming"
 
@@ -74,7 +74,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 679
+    .line 673
     return-void
 .end method
 
@@ -83,15 +83,15 @@
     .parameter "context"
 
     .prologue
-    .line 682
+    .line 676
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 683
+    .line 677
     .local v0, resolver:Landroid/content/ContentResolver;
     invoke-virtual {v0, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 684
+    .line 678
     return-void
 .end method

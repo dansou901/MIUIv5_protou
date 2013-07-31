@@ -41,8 +41,6 @@
 
 .field mLinkUrl:Ljava/lang/String;
 
-.field mNodeRef:I
-
 .field mRichlyEditable:Z
 
 .field mTapHighlightColor:I

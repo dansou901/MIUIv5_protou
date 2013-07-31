@@ -241,7 +241,7 @@
     .line 122
     iget-object v3, p0, Lcom/htc/quickselection/HtcQuickSelectionWindow;->mContext:Landroid/content/Context;
 
-    const-string v4, "window"
+    const-string/jumbo v4, "window"
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -499,7 +499,7 @@
     iput-object v3, p0, Lcom/htc/quickselection/HtcQuickSelectionWindow;->mCircularProgress:Landroid/graphics/drawable/Drawable;
 
     .line 185
-    const v3, 0x402005e
+    const v3, 0x4020086
 
     :try_start_0
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;

@@ -25,7 +25,7 @@
     .parameter "x0"
 
     .prologue
-    .line 504
+    .line 502
     iput-object p1, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
     invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
@@ -41,7 +41,7 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 508
+    .line 506
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
@@ -54,7 +54,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 510
+    .line 508
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
     #getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -64,10 +64,10 @@
 
     invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 513
+    .line 511
     return-void
 
-    .line 510
+    .line 508
     :catchall_0
     move-exception v0
 

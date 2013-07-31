@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 248
     iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -50,7 +50,7 @@
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyAssocListChange()V
 
-    .line 254
+    .line 249
     return-void
 .end method
 
@@ -59,7 +59,7 @@
     .parameter "mac"
 
     .prologue
-    .line 258
+    .line 253
     iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -69,7 +69,7 @@
 
     invoke-virtual {v0, p1}, Landroid/net/wifi/WifiStateMachine;->notifyConnectionRequest(Ljava/lang/String;)V
 
-    .line 259
+    .line 254
     return-void
 .end method
 
@@ -77,14 +77,14 @@
     .locals 2
 
     .prologue
-    .line 281
+    .line 276
     const-string v0, "SoftapMonitor"
 
     const-string v1, "L2PE: SoftapMonitor@handleL2peFailEvent"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 282
+    .line 277
     iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -94,7 +94,7 @@
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyL2peFail()V
 
-    .line 283
+    .line 278
     return-void
 .end method
 
@@ -102,35 +102,10 @@
     .locals 2
 
     .prologue
-    .line 277
-    const-string v0, "SoftapMonitor"
-
-    const-string v1, "L2PE: SoftapMonitor@handleL2peSuccessfulEvent"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 278
-    iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
-
-    #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v0}, Landroid/net/hotspot/SoftapMonitor;->access$600(Landroid/net/hotspot/SoftapMonitor;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyL2peSuccessful()V
-
-    .line 279
-    return-void
-.end method
-
-.method private handleWpsRegistrarFailEvent()V
-    .locals 2
-
-    .prologue
     .line 272
     const-string v0, "SoftapMonitor"
 
-    const-string v1, "SoftapMonitor@handleWpsRegistrarFailEvent"
+    const-string v1, "L2PE: SoftapMonitor@handleL2peSuccessfulEvent"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -142,9 +117,34 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyWpsRegistrarFail()V
+    invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyL2peSuccessful()V
 
     .line 274
+    return-void
+.end method
+
+.method private handleWpsRegistrarFailEvent()V
+    .locals 2
+
+    .prologue
+    .line 267
+    const-string v0, "SoftapMonitor"
+
+    const-string v1, "SoftapMonitor@handleWpsRegistrarFailEvent"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 268
+    iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
+
+    #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v0}, Landroid/net/hotspot/SoftapMonitor;->access$600(Landroid/net/hotspot/SoftapMonitor;)Landroid/net/wifi/WifiStateMachine;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyWpsRegistrarFail()V
+
+    .line 269
     return-void
 .end method
 
@@ -152,14 +152,14 @@
     .locals 2
 
     .prologue
-    .line 264
+    .line 259
     const-string v0, "SoftapMonitor"
 
     const-string v1, "SoftapMonitor@handleWpsRegistrarStartEvent"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 265
+    .line 260
     iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -169,7 +169,7 @@
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyWpsRegistrarStart()V
 
-    .line 266
+    .line 261
     return-void
 .end method
 
@@ -177,14 +177,14 @@
     .locals 2
 
     .prologue
-    .line 268
+    .line 263
     const-string v0, "SoftapMonitor"
 
     const-string v1, "SoftapMonitor@handleWpsRegistrarSuccessfulEvent"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
+    .line 264
     iget-object v0, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -194,7 +194,7 @@
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiStateMachine;->notifyWpsRegistrarSuccessful()V
 
-    .line 270
+    .line 265
     return-void
 .end method
 
@@ -203,7 +203,7 @@
     .parameter "secs"
 
     .prologue
-    .line 294
+    .line 289
     mul-int/lit16 v0, p1, 0x3e8
 
     int-to-long v0, v0
@@ -213,11 +213,11 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 297
+    .line 292
     :goto_0
     return-void
 
-    .line 295
+    .line 290
     :catch_0
     move-exception v0
 
@@ -299,20 +299,20 @@
     #calls: Landroid/net/hotspot/SoftapMonitor;->setAPdownflag(Z)V
     invoke-static {v6, v9}, Landroid/net/hotspot/SoftapMonitor;->access$300(Landroid/net/hotspot/SoftapMonitor;Z)V
 
-    .line 247
+    .line 242
     :goto_1
     iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #setter for: Landroid/net/hotspot/SoftapMonitor;->mRecvErrors:I
     invoke-static {v6, v9}, Landroid/net/hotspot/SoftapMonitor;->access$502(Landroid/net/hotspot/SoftapMonitor;I)I
 
-    .line 248
+    .line 243
     iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
     #setter for: Landroid/net/hotspot/SoftapMonitor;->mNullErrors:I
     invoke-static {v6, v9}, Landroid/net/hotspot/SoftapMonitor;->access$402(Landroid/net/hotspot/SoftapMonitor;I)I
 
-    .line 249
+    .line 244
     return-void
 
     .line 136
@@ -1005,7 +1005,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_15
+    if-eqz v6, :cond_14
 
     .line 222
     const/16 v0, 0xd
@@ -1022,57 +1022,11 @@
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/net/wifi/WifiStateMachine;->getWifidisplayApEnabled()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_14
-
-    .line 225
-    const-string v6, "SoftapMonitor"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v8, "received event="
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", HANGED, ignore in Concurrent Mode"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 228
-    :cond_14
-    iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
-
-    #getter for: Landroid/net/hotspot/SoftapMonitor;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v6}, Landroid/net/hotspot/SoftapMonitor;->access$600(Landroid/net/hotspot/SoftapMonitor;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v6
-
     const v7, 0x2400c
 
     invoke-virtual {v6, v7}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    .line 229
+    .line 225
     const-string v6, "SoftapMonitor"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1103,21 +1057,21 @@
 
     goto/16 :goto_1
 
-    .line 233
+    .line 228
     .end local v0           #event:I
-    :cond_15
+    :cond_14
     const-string v6, "PERF_LOCK"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_16
+    if-eqz v6, :cond_15
 
-    .line 234
+    .line 229
     const/16 v0, 0xe
 
-    .line 235
+    .line 230
     .restart local v0       #event:I
     iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
@@ -1130,7 +1084,7 @@
 
     invoke-virtual {v6, v7}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    .line 236
+    .line 231
     const-string v6, "SoftapMonitor"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1161,9 +1115,9 @@
 
     goto/16 :goto_0
 
-    .line 238
+    .line 233
     .end local v0           #event:I
-    :cond_16
+    :cond_15
     const-string v6, "PERF_UNLOCK"
 
     invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1172,10 +1126,10 @@
 
     if-eqz v6, :cond_0
 
-    .line 239
+    .line 234
     const/16 v0, 0xf
 
-    .line 240
+    .line 235
     .restart local v0       #event:I
     iget-object v6, p0, Landroid/net/hotspot/SoftapMonitor$MonitorThread;->this$0:Landroid/net/hotspot/SoftapMonitor;
 
@@ -1188,7 +1142,7 @@
 
     invoke-virtual {v6, v7}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
 
-    .line 241
+    .line 236
     const-string v6, "SoftapMonitor"
 
     new-instance v7, Ljava/lang/StringBuilder;

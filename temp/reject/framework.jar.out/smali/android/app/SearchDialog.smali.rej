@@ -1,0 +1,26 @@
+*** SearchDialog.smali	2013-07-31 22:21:55.507397564 +0000
+--- SearchDialog.smali	2013-07-31 22:23:24.357404980 +0000
+***************
+*** 776,790 ****
+      .prologue
+      const/4 v7, 0x0
+  
+-     invoke-direct {p0}, Landroid/app/SearchDialog;->miuiUpdateSearchAppIcon()Z
+- 
+-     move-result v4
+- 
+-     if-eqz v4, :cond_miui_0
+- 
+-     return-void
+- 
+-     :cond_miui_0
+      invoke-virtual {p0}, Landroid/app/SearchDialog;->getContext()Landroid/content/Context;
+  
+      move-result-object v4
+--- 720,725 ----
+      .prologue
+      const/4 v7, 0x0
+  
+      invoke-virtual {p0}, Landroid/app/SearchDialog;->getContext()Landroid/content/Context;
+  
+      move-result-object v4

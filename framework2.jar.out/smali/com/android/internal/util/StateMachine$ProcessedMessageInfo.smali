@@ -110,7 +110,7 @@
 
     .line 523
     .local v1, sb:Ljava/lang/StringBuilder;
-    const-string v2, "time="
+    const-string/jumbo v2, "time="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -52,7 +52,7 @@
     .prologue
     const-wide/16 v7, 0x0
 
-    const v6, 0x402003a
+    const v6, 0x4020062
 
     const/4 v5, 0x0
 

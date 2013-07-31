@@ -386,6 +386,8 @@
 
     goto :goto_1
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -4089,6 +4091,8 @@
     invoke-virtual {p0}, Lcom/android/internal/widget/LockPatternView;->invalidate()V
 
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

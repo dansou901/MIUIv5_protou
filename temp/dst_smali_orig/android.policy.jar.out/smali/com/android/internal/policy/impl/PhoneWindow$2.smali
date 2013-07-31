@@ -66,7 +66,7 @@
     return-void
 
     :cond_1
-    sget-boolean v1, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
     if-eqz v1, :cond_0
 
@@ -84,13 +84,13 @@
     move-exception v0
 
     .local v0, ex:Ljava/lang/Exception;
-    sget-boolean v1, Lcom/htc/view/NavigationBarConfiguration;->DEBUG_NAV_BAR:Z
+    sget-boolean v1, Lcom/android/internal/policy/impl/PhoneWindow;->DEBUG_NAV_BAR:Z
 
     if-eqz v1, :cond_2
 
     const-string v1, "PhoneWindow"
 
-    const-string v2, "unable to show navigation bar"
+    const-string v2, "unable to update navigation bar"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

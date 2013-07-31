@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/am/ActivityManagerService.smali	2013-07-12 21:42:32.448499120 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityManagerService.smali	2013-07-12 21:40:27.935155520 +0000
+*** ./smali/com/android/server/am/ActivityManagerService.smali	2013-07-31 22:21:58.820731174 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityManagerService.smali	2013-07-31 22:21:04.147393277 +0000
 ***************
 *** 26,32 ****
           Lcom/android/server/am/ActivityManagerService$ProcessChangeItem;,

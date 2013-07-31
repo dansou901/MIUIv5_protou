@@ -217,7 +217,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->TEST_ICC:Ljava/util/ArrayList;
 
-    .line 810
+    .line 805
     new-array v0, v5, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_SIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -230,7 +230,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->SIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 815
+    .line 810
     new-array v0, v2, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_ISIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -239,7 +239,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->ISIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 819
+    .line 814
     new-array v0, v5, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_USIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -252,7 +252,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 823
+    .line 818
     new-array v0, v7, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_CSIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -273,7 +273,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->CSIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 829
+    .line 824
     new-array v0, v5, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_CSIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -286,7 +286,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->CSIM_ONLY_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 833
+    .line 828
     new-array v0, v7, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -307,7 +307,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->RUIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 839
+    .line 834
     new-array v0, v5, [Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v3, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -320,7 +320,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->RUIM_ONLY_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 843
+    .line 838
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -347,7 +347,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 850
+    .line 845
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -374,7 +374,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 857
+    .line 852
     sget-object v0, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sput-object v0, Lcom/android/internal/telephony/IccCardProxy;->UNKNOWN_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
@@ -498,22 +498,22 @@
     .locals 1
 
     .prologue
-    .line 545
+    .line 540
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mStkService:Lcom/android/internal/telephony/cat/CatService;
 
     if-eqz v0, :cond_0
 
-    .line 546
+    .line 541
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mStkService:Lcom/android/internal/telephony/cat/CatService;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/CatService;->dispose()V
 
-    .line 547
+    .line 542
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mStkService:Lcom/android/internal/telephony/cat/CatService;
 
-    .line 549
+    .line 544
     :cond_0
     return-void
 .end method
@@ -525,19 +525,19 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 899
+    .line 894
     iget-object v10, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
     if-nez v10, :cond_1
 
     move-object v4, v9
 
-    .line 940
+    .line 935
     :cond_0
     :goto_0
     return-object v4
 
-    .line 904
+    .line 899
     :cond_1
     move-object v0, p1
 
@@ -559,7 +559,7 @@
 
     aget-object v8, v0, v3
 
-    .line 905
+    .line 900
     .local v8, searchType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     iget-object v1, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
@@ -576,15 +576,15 @@
 
     aget-object v4, v1, v2
 
-    .line 906
+    .line 901
     .local v4, iccFileH:Lcom/android/internal/telephony/IccFileHandler;
     const/4 v7, 0x0
 
-    .line 907
+    .line 902
     .local v7, matchHandler:Z
     if-eqz v4, :cond_2
 
-    .line 908
+    .line 903
     sget-object v10, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
 
     invoke-virtual {v8}, Lcom/android/internal/telephony/IccCardApplication$AppType;->ordinal()I
@@ -595,52 +595,52 @@
 
     packed-switch v10, :pswitch_data_0
 
-    .line 935
+    .line 930
     :cond_2
     :goto_3
     if-nez v7, :cond_0
 
-    .line 905
+    .line 900
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 910
+    .line 905
     :pswitch_0
     instance-of v7, v4, Lcom/android/internal/telephony/gsm/SIMFileHandler;
 
-    .line 911
+    .line 906
     goto :goto_3
 
-    .line 913
+    .line 908
     :pswitch_1
     instance-of v7, v4, Lcom/android/internal/telephony/gsm/UsimFileHandler;
 
-    .line 914
+    .line 909
     goto :goto_3
 
-    .line 916
+    .line 911
     :pswitch_2
     instance-of v7, v4, Lcom/android/internal/telephony/cdma/RuimFileHandler;
 
-    .line 917
+    .line 912
     goto :goto_3
 
-    .line 919
+    .line 914
     :pswitch_3
     instance-of v7, v4, Lcom/android/internal/telephony/cdma/CsimFileHandler;
 
-    .line 920
+    .line 915
     goto :goto_3
 
-    .line 923
+    .line 918
     :pswitch_4
     instance-of v7, v4, Lcom/android/internal/telephony/ims/ISIMFileHandler;
 
-    .line 924
+    .line 919
     goto :goto_3
 
-    .line 926
+    .line 921
     :pswitch_5
     instance-of v10, v4, Lcom/android/internal/telephony/gsm/SIMFileHandler;
 
@@ -672,7 +672,7 @@
 
     goto :goto_4
 
-    .line 904
+    .line 899
     .end local v4           #iccFileH:Lcom/android/internal/telephony/IccFileHandler;
     .end local v7           #matchHandler:Z
     :cond_4
@@ -690,10 +690,10 @@
     :cond_5
     move-object v4, v9
 
-    .line 940
+    .line 935
     goto :goto_0
 
-    .line 908
+    .line 903
     nop
 
     :pswitch_data_0
@@ -714,19 +714,19 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 983
+    .line 978
     iget-object v10, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
     if-nez v10, :cond_1
 
     move-object v4, v9
 
-    .line 1022
+    .line 1017
     :cond_0
     :goto_0
     return-object v4
 
-    .line 988
+    .line 983
     :cond_1
     move-object v0, p1
 
@@ -748,7 +748,7 @@
 
     aget-object v8, v0, v3
 
-    .line 989
+    .line 984
     .local v8, searchType:Lcom/android/internal/telephony/IccCardApplication$AppType;
     iget-object v1, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
@@ -765,15 +765,15 @@
 
     aget-object v4, v1, v2
 
-    .line 990
+    .line 985
     .local v4, iccRecord:Lcom/android/internal/telephony/IccRecords;
     const/4 v7, 0x0
 
-    .line 991
+    .line 986
     .local v7, matchRecord:Z
     if-eqz v4, :cond_2
 
-    .line 992
+    .line 987
     sget-object v10, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
 
     invoke-virtual {v8}, Lcom/android/internal/telephony/IccCardApplication$AppType;->ordinal()I
@@ -784,52 +784,52 @@
 
     packed-switch v10, :pswitch_data_0
 
-    .line 1017
+    .line 1012
     :cond_2
     :goto_3
     if-nez v7, :cond_0
 
-    .line 989
+    .line 984
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 994
+    .line 989
     :pswitch_0
     instance-of v7, v4, Lcom/android/internal/telephony/gsm/SIMRecords;
 
-    .line 995
+    .line 990
     goto :goto_3
 
-    .line 997
+    .line 992
     :pswitch_1
     instance-of v7, v4, Lcom/android/internal/telephony/gsm/SIMRecords;
 
-    .line 998
+    .line 993
     goto :goto_3
 
-    .line 1000
+    .line 995
     :pswitch_2
     instance-of v7, v4, Lcom/android/internal/telephony/cdma/RuimRecords;
 
-    .line 1001
+    .line 996
     goto :goto_3
 
-    .line 1003
+    .line 998
     :pswitch_3
     instance-of v7, v4, Lcom/android/internal/telephony/cdma/RuimRecords;
 
-    .line 1004
+    .line 999
     goto :goto_3
 
-    .line 1006
+    .line 1001
     :pswitch_4
     instance-of v7, v4, Lcom/android/internal/telephony/ims/HtcIsimRecords;
 
-    .line 1007
+    .line 1002
     goto :goto_3
 
-    .line 1009
+    .line 1004
     :pswitch_5
     instance-of v10, v4, Lcom/android/internal/telephony/gsm/SIMRecords;
 
@@ -861,7 +861,7 @@
 
     goto :goto_4
 
-    .line 988
+    .line 983
     .end local v4           #iccRecord:Lcom/android/internal/telephony/IccRecords;
     .end local v7           #matchRecord:Z
     :cond_4
@@ -879,10 +879,10 @@
     :cond_5
     move-object v4, v9
 
-    .line 1022
+    .line 1017
     goto :goto_0
 
-    .line 992
+    .line 987
     nop
 
     :pswitch_data_0
@@ -901,10 +901,10 @@
     .parameter "searchTypes"
 
     .prologue
-    .line 574
+    .line 569
     const/4 v1, 0x0
 
-    .line 576
+    .line 571
     .local v1, operatorNumeric:Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -916,7 +916,7 @@
 
     if-nez v1, :cond_3
 
-    .line 577
+    .line 572
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccCardProxy;->getCdmaSubscriptionSource()I
 
     move-result v2
@@ -937,28 +937,28 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 580
+    .line 575
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
-    .line 582
+    .line 577
     :cond_1
     if-nez v1, :cond_2
 
-    .line 583
+    .line 578
     aget-object v2, p1, v0
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/IccCardProxy;->getIccOperatorNumeric(Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 576
+    .line 571
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 586
+    .line 581
     :cond_3
     return-object v1
 .end method
@@ -968,10 +968,10 @@
     .parameter "searchTypes"
 
     .prologue
-    .line 610
+    .line 605
     const/4 v2, 0x0
 
-    .line 612
+    .line 607
     .local v2, operatorSpn:Ljava/lang/String;
     const/4 v0, 0x0
 
@@ -983,33 +983,33 @@
 
     if-nez v2, :cond_1
 
-    .line 613
+    .line 608
     if-nez v2, :cond_0
 
-    .line 614
+    .line 609
     aget-object v3, p1, v0
 
     invoke-virtual {p0, v3}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords(Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v1
 
-    .line 615
+    .line 610
     .local v1, iccRecd:Lcom/android/internal/telephony/IccRecords;
     if-eqz v1, :cond_0
 
-    .line 616
+    .line 611
     invoke-virtual {v1}, Lcom/android/internal/telephony/IccRecords;->getServiceProviderName()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 612
+    .line 607
     .end local v1           #iccRecd:Lcom/android/internal/telephony/IccRecords;
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 620
+    .line 615
     :cond_1
     return-object v2
 .end method
@@ -1024,30 +1024,30 @@
 
     const/4 v11, 0x1
 
-    .line 456
+    .line 451
     const/4 v1, 0x0
 
-    .line 457
+    .line 452
     .local v1, appIndex:I
     const/4 v2, 0x0
 
-    .line 458
+    .line 453
     .local v2, e_utran:Z
     const/4 v7, 0x0
 
-    .line 464
+    .line 459
     .local v7, provision:Z
     const/4 v3, 0x0
 
-    .line 465
+    .line 460
     .local v3, epsmmi:Z
     const/4 v4, 0x0
 
-    .line 468
+    .line 463
     .local v4, excpetion:Z
     const/4 v6, 0x0
 
-    .line 469
+    .line 464
     .local v6, operator:Ljava/lang/String;
     :goto_0
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
@@ -1056,14 +1056,14 @@
 
     if-ge v1, v9, :cond_2
 
-    .line 470
+    .line 465
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
     aget-object v9, v9, v1
 
     if-eqz v9, :cond_0
 
-    .line 473
+    .line 468
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
     aget-object v9, v9, v1
@@ -1072,7 +1072,7 @@
 
     move-result-object v0
 
-    .line 474
+    .line 469
     .local v0, AID:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1086,12 +1086,12 @@
 
     if-lt v9, v13, :cond_0
 
-    .line 475
+    .line 470
     invoke-virtual {v0, v12, v13}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 477
+    .line 472
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->AID_USIM:Ljava/lang/String;
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -1100,44 +1100,44 @@
 
     if-eqz v9, :cond_1
 
-    .line 478
+    .line 473
     const-string v9, "IccCardProxy"
 
     const-string v10, "Support AID_USIM"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 479
+    .line 474
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->supportAID:[Z
 
     aput-boolean v11, v9, v11
 
-    .line 480
+    .line 475
     sget-object v9, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_USIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     invoke-virtual {p0, v9}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords(Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v5
 
-    .line 481
+    .line 476
     .local v5, iccRecd:Lcom/android/internal/telephony/IccRecords;
     if-eqz v5, :cond_0
 
-    .line 482
+    .line 477
     instance-of v9, v5, Lcom/android/internal/telephony/gsm/SIMRecords;
 
     if-eqz v9, :cond_0
 
-    .line 483
+    .line 478
     iget-boolean v2, v5, Lcom/android/internal/telephony/IccRecords;->mEUTRAN:Z
 
-    .line 485
+    .line 480
     iget-boolean v3, v5, Lcom/android/internal/telephony/IccRecords;->mEPSMMI:Z
 
-    .line 486
+    .line 481
     iget-boolean v4, v5, Lcom/android/internal/telephony/IccRecords;->mEUTRAN_excpetion:Z
 
-    .line 488
+    .line 483
     check-cast v5, Lcom/android/internal/telephony/gsm/SIMRecords;
 
     .end local v5           #iccRecd:Lcom/android/internal/telephony/IccRecords;
@@ -1145,7 +1145,7 @@
 
     move-result-object v6
 
-    .line 504
+    .line 499
     .end local v0           #AID:Ljava/lang/String;
     :cond_0
     :goto_1
@@ -1153,7 +1153,7 @@
 
     goto :goto_0
 
-    .line 492
+    .line 487
     .restart local v0       #AID:Ljava/lang/String;
     :cond_1
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->AID_CSIM:Ljava/lang/String;
@@ -1164,46 +1164,46 @@
 
     if-eqz v9, :cond_0
 
-    .line 493
+    .line 488
     const-string v9, "IccCardProxy"
 
     const-string v10, "Support AID_CSIM"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 494
+    .line 489
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->supportAID:[Z
 
     aput-boolean v11, v9, v12
 
-    .line 495
+    .line 490
     sget-object v9, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_RUIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     invoke-virtual {p0, v9}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords(Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v5
 
-    .line 496
+    .line 491
     .restart local v5       #iccRecd:Lcom/android/internal/telephony/IccRecords;
     if-eqz v5, :cond_0
 
-    .line 497
+    .line 492
     instance-of v9, v5, Lcom/android/internal/telephony/cdma/RuimRecords;
 
     if-eqz v9, :cond_0
 
-    .line 498
+    .line 493
     iget-boolean v7, v5, Lcom/android/internal/telephony/IccRecords;->mIMSI_M_Programmed:Z
 
     goto :goto_1
 
-    .line 507
+    .line 502
     .end local v0           #AID:Ljava/lang/String;
     .end local v5           #iccRecd:Lcom/android/internal/telephony/IccRecords;
     :cond_2
     const/4 v8, 0x0
 
-    .line 508
+    .line 503
     .local v8, uicc_type:I
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->supportAID:[Z
 
@@ -1213,10 +1213,10 @@
 
     if-ne v2, v11, :cond_6
 
-    .line 509
+    .line 504
     const/4 v8, 0x2
 
-    .line 522
+    .line 517
     :cond_3
     :goto_2
     const-string v9, "IccCardProxy"
@@ -1225,7 +1225,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "uicc_type: "
+    const-string/jumbo v11, "uicc_type: "
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1241,21 +1241,21 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 524
+    .line 519
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v9
 
     if-eqz v9, :cond_4
 
-    .line 525
+    .line 520
     const-string v6, ""
 
-    .line 529
+    .line 524
     :cond_4
     invoke-virtual {p0, v7, v8, v6}, Lcom/android/internal/telephony/IccCardProxy;->broadcastExtraIccStateChangedIntent(ZILjava/lang/String;)V
 
-    .line 533
+    .line 528
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     if-eqz v9, :cond_5
@@ -1266,10 +1266,10 @@
 
     if-eqz v9, :cond_5
 
-    .line 535
+    .line 530
     if-eqz v7, :cond_9
 
-    .line 536
+    .line 531
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     check-cast v9, Lcom/android/internal/telephony/cdma/CDMAPhone;
@@ -1278,12 +1278,12 @@
 
     invoke-virtual {v9, v10}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setHtcCurrentOtaspMode(I)V
 
-    .line 541
+    .line 536
     :cond_5
     :goto_3
     return-void
 
-    .line 510
+    .line 505
     :cond_6
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->supportAID:[Z
 
@@ -1297,7 +1297,7 @@
 
     if-ne v9, v11, :cond_3
 
-    .line 514
+    .line 509
     :cond_7
     if-nez v2, :cond_8
 
@@ -1305,18 +1305,18 @@
 
     if-ne v3, v11, :cond_8
 
-    .line 515
+    .line 510
     const/4 v8, 0x2
 
     goto :goto_2
 
-    .line 517
+    .line 512
     :cond_8
     const/4 v8, 0x1
 
     goto :goto_2
 
-    .line 538
+    .line 533
     :cond_9
     iget-object v9, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -1526,7 +1526,7 @@
     .locals 1
 
     .prologue
-    .line 557
+    .line 552
     iget v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mCdmaSubscriptionSource:I
 
     return v0
@@ -1536,32 +1536,32 @@
     .locals 3
 
     .prologue
-    .line 1071
+    .line 1066
     iget-boolean v2, p0, Lcom/android/internal/telephony/IccCardProxy;->is3gpp:Z
 
     if-eqz v2, :cond_1
 
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 1073
+    .line 1068
     .local v1, searchType:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccCardProxy;->getIccFileHandler([Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccFileHandler;
 
     move-result-object v0
 
-    .line 1074
+    .line 1069
     .local v0, iccfh:Lcom/android/internal/telephony/IccFileHandler;
     if-nez v0, :cond_0
 
-    .line 1075
+    .line 1070
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccFileHandler:Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 1077
+    .line 1072
     :cond_0
     return-object v0
 
-    .line 1071
+    .line 1066
     .end local v0           #iccfh:Lcom/android/internal/telephony/IccFileHandler;
     .end local v1           #searchType:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :cond_1
@@ -1575,15 +1575,15 @@
     .parameter "appType"
 
     .prologue
-    .line 864
+    .line 859
     iget-object v2, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
     if-eqz v2, :cond_0
 
-    .line 866
+    .line 861
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->UNKNOWN_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 867
+    .line 862
     .local v1, searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     sget-object v2, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
 
@@ -1595,58 +1595,58 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 887
+    .line 882
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccCardProxy;->getIccFileHandler([Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccFileHandler;
 
     move-result-object v0
 
-    .line 889
+    .line 884
     .local v0, iccfh:Lcom/android/internal/telephony/IccFileHandler;
     if-eqz v0, :cond_0
 
-    .line 893
+    .line 888
     .end local v0           #iccfh:Lcom/android/internal/telephony/IccFileHandler;
     .end local v1           #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_1
     return-object v0
 
-    .line 869
+    .line 864
     .restart local v1       #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_0
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->SIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 870
+    .line 865
     goto :goto_0
 
-    .line 872
+    .line 867
     :pswitch_1
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 873
+    .line 868
     goto :goto_0
 
-    .line 875
+    .line 870
     :pswitch_2
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->RUIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 876
+    .line 871
     goto :goto_0
 
-    .line 878
+    .line 873
     :pswitch_3
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->CSIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 879
+    .line 874
     goto :goto_0
 
-    .line 882
+    .line 877
     :pswitch_4
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->ISIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_0
 
-    .line 892
+    .line 887
     .end local v1           #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :cond_0
     const-string v2, "IccCardProxy"
@@ -1655,12 +1655,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 893
+    .line 888
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccFileHandler:Lcom/android/internal/telephony/IccFileHandler;
 
     goto :goto_1
 
-    .line 867
+    .line 862
     nop
 
     :pswitch_data_0
@@ -1677,7 +1677,7 @@
     .locals 1
 
     .prologue
-    .line 1034
+    .line 1029
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
     if-eqz v0, :cond_0
@@ -1688,11 +1688,11 @@
 
     if-gtz v0, :cond_1
 
-    .line 1035
+    .line 1030
     :cond_0
     const/4 v0, 0x0
 
-    .line 1037
+    .line 1032
     :goto_0
     return-object v0
 
@@ -1707,25 +1707,25 @@
     .parameter "appType"
 
     .prologue
-    .line 594
+    .line 589
     const/4 v1, 0x0
 
-    .line 596
+    .line 591
     .local v1, operatorNumeric:Ljava/lang/String;
     invoke-virtual {p0, p1}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords(Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v0
 
-    .line 597
+    .line 592
     .local v0, iccRecd:Lcom/android/internal/telephony/IccRecords;
     if-eqz v0, :cond_0
 
-    .line 598
+    .line 593
     instance-of v2, v0, Lcom/android/internal/telephony/cdma/RuimRecords;
 
     if-eqz v2, :cond_1
 
-    .line 599
+    .line 594
     check-cast v0, Lcom/android/internal/telephony/cdma/RuimRecords;
 
     .end local v0           #iccRecd:Lcom/android/internal/telephony/IccRecords;
@@ -1733,19 +1733,19 @@
 
     move-result-object v1
 
-    .line 605
+    .line 600
     :cond_0
     :goto_0
     return-object v1
 
-    .line 601
+    .line 596
     .restart local v0       #iccRecd:Lcom/android/internal/telephony/IccRecords;
     :cond_1
     instance-of v2, v0, Lcom/android/internal/telephony/gsm/SIMRecords;
 
     if-eqz v2, :cond_0
 
-    .line 602
+    .line 597
     check-cast v0, Lcom/android/internal/telephony/gsm/SIMRecords;
 
     .end local v0           #iccRecd:Lcom/android/internal/telephony/IccRecords;
@@ -1760,7 +1760,7 @@
     .locals 1
 
     .prologue
-    .line 629
+    .line 624
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
 
     return-object v0
@@ -1770,32 +1770,32 @@
     .locals 3
 
     .prologue
-    .line 1060
+    .line 1055
     iget-boolean v2, p0, Lcom/android/internal/telephony/IccCardProxy;->is3gpp:Z
 
     if-eqz v2, :cond_1
 
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 1062
+    .line 1057
     .local v1, searchType:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords([Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v0
 
-    .line 1063
+    .line 1058
     .local v0, iccrec:Lcom/android/internal/telephony/IccRecords;
     if-nez v0, :cond_0
 
-    .line 1064
+    .line 1059
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccRecords:Lcom/android/internal/telephony/IccRecords;
 
-    .line 1066
+    .line 1061
     :cond_0
     return-object v0
 
-    .line 1060
+    .line 1055
     .end local v0           #iccrec:Lcom/android/internal/telephony/IccRecords;
     .end local v1           #searchType:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :cond_1
@@ -1809,15 +1809,15 @@
     .parameter "appType"
 
     .prologue
-    .line 949
+    .line 944
     iget-object v2, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
     if-eqz v2, :cond_0
 
-    .line 951
+    .line 946
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->UNKNOWN_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 952
+    .line 947
     .local v1, searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     sget-object v2, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
 
@@ -1829,58 +1829,58 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 970
+    .line 965
     :goto_0
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords([Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v0
 
-    .line 972
+    .line 967
     .local v0, iccrec:Lcom/android/internal/telephony/IccRecords;
     if-eqz v0, :cond_0
 
-    .line 976
+    .line 971
     .end local v0           #iccrec:Lcom/android/internal/telephony/IccRecords;
     .end local v1           #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_1
     return-object v0
 
-    .line 954
+    .line 949
     .restart local v1       #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :pswitch_0
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->SIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 955
+    .line 950
     goto :goto_0
 
-    .line 957
+    .line 952
     :pswitch_1
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 958
+    .line 953
     goto :goto_0
 
-    .line 960
+    .line 955
     :pswitch_2
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->RUIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 961
+    .line 956
     goto :goto_0
 
-    .line 963
+    .line 958
     :pswitch_3
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->CSIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 964
+    .line 959
     goto :goto_0
 
-    .line 966
+    .line 961
     :pswitch_4
     sget-object v1, Lcom/android/internal/telephony/IccCardProxy;->ISIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_0
 
-    .line 975
+    .line 970
     .end local v1           #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :cond_0
     const-string v2, "IccCardProxy"
@@ -1889,12 +1889,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 976
+    .line 971
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccRecords:Lcom/android/internal/telephony/IccRecords;
 
     goto :goto_1
 
-    .line 952
+    .line 947
     nop
 
     :pswitch_data_0
@@ -2005,24 +2005,24 @@
     .locals 6
 
     .prologue
-    .line 1045
+    .line 1040
     const-string v4, "READY"
 
     const/4 v5, 0x0
 
     invoke-virtual {p0, v4, v5}, Lcom/android/internal/telephony/IccCardProxy;->broadcastIccStateChangedIntent(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1046
+    .line 1041
     sget-object v4, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
     invoke-virtual {p0, v4}, Lcom/android/internal/telephony/IccCardProxy;->updateStateProperty(Lcom/android/internal/telephony/IccCard$State;)V
 
-    .line 1049
+    .line 1044
     iget-object v4, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
     if-eqz v4, :cond_1
 
-    .line 1050
+    .line 1045
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
     .local v0, arr$:[Lcom/android/internal/telephony/IccRecords;
@@ -2037,20 +2037,20 @@
 
     aget-object v2, v0, v1
 
-    .line 1051
+    .line 1046
     .local v2, iccRecord:Lcom/android/internal/telephony/IccRecords;
     if-eqz v2, :cond_0
 
-    .line 1052
+    .line 1047
     invoke-virtual {v2}, Lcom/android/internal/telephony/IccRecords;->onReady()V
 
-    .line 1050
+    .line 1045
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 1056
+    .line 1051
     .end local v0           #arr$:[Lcom/android/internal/telephony/IccRecords;
     .end local v1           #i$:I
     .end local v2           #iccRecord:Lcom/android/internal/telephony/IccRecords;
@@ -2205,7 +2205,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 451
+    .line 446
     :cond_1
     :goto_0
     return-void
@@ -2288,93 +2288,70 @@
     :cond_6
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    if-eq v7, v9, :cond_7
+    if-ne v7, v9, :cond_7
 
-    sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/4 v8, 0x4
-
-    if-eq v7, v8, :cond_7
-
-    sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v8, 0x75
-
-    if-ne v7, v8, :cond_8
-
-    :cond_7
-    const/4 v7, 0x2
-
-    sget v8, Lcom/android/internal/telephony/HtcTelephonyCapability;->BUILT_RAT_CAPABILITIES:I
-
-    invoke-static {v7, v8}, Lcom/android/internal/telephony/HtcTelephonyCapability;->isCapabilitiesEnabled(II)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_8
-
-    .line 339
+    .line 334
     invoke-direct {p0}, Lcom/android/internal/telephony/IccCardProxy;->setUICCStatus()V
 
-    .line 345
-    :cond_8
+    .line 340
+    :cond_7
     sget-object v7, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     invoke-direct {p0, v7}, Lcom/android/internal/telephony/IccCardProxy;->searchIccOperatorNumeric([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 346
+    .line 341
     .local v0, apnOperatorNumeric:Ljava/lang/String;
-    if-nez v0, :cond_9
+    if-nez v0, :cond_8
 
-    .line 347
+    .line 342
     iget-object v0, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
-    .line 349
-    :cond_9
+    .line 344
+    :cond_8
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const-string v8, "gsm.apn.operator.numeric"
 
     invoke-virtual {v7, v8, v0}, Lcom/android/internal/telephony/PhoneBase;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 353
+    .line 348
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v8, 0x49
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v8, 0x54
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v8, 0x1fd
 
-    if-eq v7, v8, :cond_b
+    if-eq v7, v8, :cond_a
 
-    .line 360
+    .line 355
     const-string v4, ""
 
-    .line 361
+    .line 356
     .local v4, operatorNumeric:Ljava/lang/String;
     const/4 v5, 0x0
 
-    .line 362
+    .line 357
     .local v5, operatorSpn:Ljava/lang/String;
     iget v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mCdmaSubscriptionSource:I
 
     const/4 v8, 0x1
 
-    if-ne v7, v8, :cond_c
+    if-ne v7, v8, :cond_b
 
-    .line 443
-    :cond_a
+    .line 438
+    :cond_9
     :goto_2
     const-string v7, "IccCardProxy"
 
@@ -2430,10 +2407,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 447
+    .line 442
     .end local v4           #operatorNumeric:Ljava/lang/String;
     .end local v5           #operatorSpn:Ljava/lang/String;
-    :cond_b
+    :cond_a
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->recordsLoadedRegistrants:Landroid/os/RegistrantList;
 
     new-instance v8, Landroid/os/AsyncResult;
@@ -2442,20 +2419,20 @@
 
     invoke-virtual {v7, v8}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 449
+    .line 444
     const-string v7, "LOADED"
 
     invoke-virtual {p0, v7, v10}, Lcom/android/internal/telephony/IccCardProxy;->broadcastIccStateChangedIntent(Ljava/lang/String;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    .line 366
+    .line 361
     .restart local v4       #operatorNumeric:Ljava/lang/String;
     .restart local v5       #operatorSpn:Ljava/lang/String;
-    :cond_c
+    :cond_b
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->UNKNOWN_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 367
+    .line 362
     .local v6, searchTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -2465,7 +2442,7 @@
 
     packed-switch v7, :pswitch_data_0
 
-    .line 412
+    .line 407
     const-string v7, "IccCardProxy"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -2494,19 +2471,19 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 413
+    .line 408
     invoke-direct {p0, v6}, Lcom/android/internal/telephony/IccCardProxy;->searchIccServiceProviderName([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 414
-    if-nez v5, :cond_d
+    .line 409
+    if-nez v5, :cond_c
 
-    .line 415
+    .line 410
     const-string v5, ""
 
-    .line 420
-    :cond_d
+    .line 415
+    :cond_c
     :goto_3
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
@@ -2514,18 +2491,18 @@
 
     invoke-virtual {v7, v8, v4}, Lcom/android/internal/telephony/PhoneBase;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 422
+    .line 417
     const-string v3, ""
 
-    .line 423
+    .line 418
     .local v3, iso:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-nez v7, :cond_e
+    if-nez v7, :cond_d
 
-    .line 425
+    .line 420
     const/4 v7, 0x0
 
     const/4 v8, 0x3
@@ -2546,26 +2523,26 @@
 
     move-result-object v3
 
-    .line 435
-    :cond_e
+    .line 430
+    :cond_d
     :goto_4
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v8, 0x51
 
-    if-eq v7, v8, :cond_a
+    if-eq v7, v8, :cond_9
 
-    .line 436
+    .line 431
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const-string v8, "gsm.sim.operator.iso-country"
 
     invoke-virtual {v7, v8, v3}, Lcom/android/internal/telephony/PhoneBase;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 437
-    if-eqz v5, :cond_a
+    .line 432
+    if-eqz v5, :cond_9
 
-    .line 438
+    .line 433
     iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     const-string v8, "gsm.sim.operator.alpha"
@@ -2574,84 +2551,84 @@
 
     goto/16 :goto_2
 
-    .line 369
+    .line 364
     .end local v3           #iso:Ljava/lang/String;
     :pswitch_0
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->USIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 370
+    .line 365
     invoke-direct {p0, v6}, Lcom/android/internal/telephony/IccCardProxy;->searchIccOperatorNumeric([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 371
-    if-nez v4, :cond_f
+    .line 366
+    if-nez v4, :cond_e
 
-    .line 372
+    .line 367
     const-string v4, ""
 
-    .line 374
-    :cond_f
+    .line 369
+    :cond_e
     invoke-direct {p0, v6}, Lcom/android/internal/telephony/IccCardProxy;->searchIccServiceProviderName([Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 375
-    if-nez v5, :cond_d
+    .line 370
+    if-nez v5, :cond_c
 
-    .line 376
+    .line 371
     const-string v5, ""
 
     goto :goto_3
 
-    .line 383
+    .line 378
     :pswitch_1
     sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    if-ne v7, v9, :cond_11
+    if-ne v7, v9, :cond_10
 
-    .line 384
+    .line 379
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 388
+    .line 383
     :goto_5
     const/4 v4, 0x0
 
-    .line 389
+    .line 384
     const/4 v2, 0x0
 
     :goto_6
     array-length v7, v6
 
-    if-ge v2, v7, :cond_12
+    if-ge v2, v7, :cond_11
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_11
 
-    .line 390
-    if-nez v4, :cond_10
+    .line 385
+    if-nez v4, :cond_f
 
-    .line 391
+    .line 386
     aget-object v7, v6, v2
 
     invoke-virtual {p0, v7}, Lcom/android/internal/telephony/IccCardProxy;->getIccOperatorNumeric(Lcom/android/internal/telephony/IccCardApplication$AppType;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 389
-    :cond_10
+    .line 384
+    :cond_f
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_6
 
-    .line 386
-    :cond_11
+    .line 381
+    :cond_10
     sget-object v6, Lcom/android/internal/telephony/IccCardProxy;->CSIM_TYPE_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_5
 
-    .line 394
-    :cond_12
-    if-nez v4, :cond_13
+    .line 389
+    :cond_11
+    if-nez v4, :cond_12
 
     invoke-virtual {p0}, Lcom/android/internal/telephony/IccCardProxy;->getCdmaSubscriptionSource()I
 
@@ -2659,23 +2636,23 @@
 
     const/4 v8, -0x1
 
-    if-ne v7, v8, :cond_13
+    if-ne v7, v8, :cond_12
 
-    .line 396
+    .line 391
     iget-object v4, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
-    .line 398
+    .line 393
+    :cond_12
+    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
+
+    if-eqz v7, :cond_14
+
+    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
+
+    if-ne v7, v4, :cond_14
+
+    .line 403
     :cond_13
-    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
-
-    if-eqz v7, :cond_15
-
-    iget-object v7, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
-
-    if-ne v7, v4, :cond_15
-
-    .line 408
-    :cond_14
     :goto_7
     sget-object v7, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
@@ -2683,24 +2660,24 @@
 
     move-result-object v5
 
-    .line 410
+    .line 405
     goto :goto_3
 
-    .line 404
-    :cond_15
-    if-nez v4, :cond_14
+    .line 399
+    :cond_14
+    if-nez v4, :cond_13
 
-    .line 405
+    .line 400
     const-string v4, ""
 
     goto :goto_7
 
-    .line 427
+    .line 422
     .restart local v3       #iso:Ljava/lang/String;
     :catch_0
     move-exception v1
 
-    .line 428
+    .line 423
     .local v1, ex:Ljava/lang/NumberFormatException;
     const-string v7, "IccCardProxy"
 
@@ -2726,12 +2703,12 @@
 
     goto :goto_4
 
-    .line 429
+    .line 424
     .end local v1           #ex:Ljava/lang/NumberFormatException;
     :catch_1
     move-exception v1
 
-    .line 430
+    .line 425
     .local v1, ex:Ljava/lang/StringIndexOutOfBoundsException;
     const-string v7, "IccCardProxy"
 
@@ -2757,7 +2734,7 @@
 
     goto/16 :goto_4
 
-    .line 367
+    .line 362
     nop
 
     :pswitch_data_0
@@ -2842,7 +2819,7 @@
     .parameter "nvOperatorNumeric"
 
     .prologue
-    .line 566
+    .line 561
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -2851,12 +2828,12 @@
 
     if-gtz v0, :cond_1
 
-    .line 570
+    .line 565
     :cond_0
     :goto_0
     return-void
 
-    .line 569
+    .line 564
     :cond_1
     iput-object p1, p0, Lcom/android/internal/telephony/IccCardProxy;->mNvOperatorNumeric:Ljava/lang/String;
 
@@ -2896,42 +2873,42 @@
     .parameter "ics"
 
     .prologue
-    .line 644
+    .line 639
     const/16 v16, 0x0
 
-    .line 645
+    .line 640
     .local v16, numApps:I
     const/4 v13, 0x0
 
-    .line 646
+    .line 641
     .local v13, identifiedApps:I
     if-eqz p1, :cond_0
 
-    .line 647
+    .line 642
     invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/IccCardStatus;->getNumApplications()I
 
     move-result v16
 
-    .line 649
+    .line 644
     :cond_0
     if-gez v16, :cond_1
 
-    .line 650
+    .line 645
     const/16 v16, 0x0
 
-    .line 653
+    .line 648
     :cond_1
     move/from16 v0, v16
 
     new-array v14, v0, [Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 654
+    .line 649
     .local v14, newIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
     move/from16 v0, v16
 
     new-array v15, v0, [Lcom/android/internal/telephony/IccRecords;
 
-    .line 656
+    .line 651
     .local v15, newIccRecords:[Lcom/android/internal/telephony/IccRecords;
     move-object/from16 v0, p0
 
@@ -2947,18 +2924,18 @@
 
     move/from16 v17, v0
 
-    .line 657
+    .line 652
     .local v17, oldnumApps:I
     :goto_0
     move/from16 v0, v17
 
     new-array v9, v0, [Z
 
-    .line 659
+    .line 654
     .local v9, disposeExistingIccFileHandler:[Z
     const/4 v12, 0x0
 
-    .line 661
+    .line 656
     .local v12, iccFileHandlerChange:Z
     const/4 v10, 0x0
 
@@ -2974,32 +2951,32 @@
 
     if-ge v10, v3, :cond_9
 
-    .line 662
+    .line 657
     const/4 v8, 0x0
 
-    .line 663
+    .line 658
     .local v8, createNewIccFileHandler:Z
     const/4 v11, 0x0
 
-    .line 664
+    .line 659
     .local v11, icapp:Lcom/android/internal/telephony/IccCardApplication;
     move/from16 v0, v17
 
     if-ge v10, v0, :cond_8
 
-    .line 665
+    .line 660
     move/from16 v0, v16
 
     if-ge v10, v0, :cond_7
 
-    .line 666
+    .line 661
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Lcom/android/internal/telephony/IccCardStatus;->getApplication(I)Lcom/android/internal/telephony/IccCardApplication;
 
     move-result-object v11
 
-    .line 667
+    .line 662
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
@@ -3008,25 +2985,25 @@
 
     if-nez v3, :cond_5
 
-    .line 668
+    .line 663
     const/4 v8, 0x1
 
-    .line 669
+    .line 664
     iget-object v3, v11, Lcom/android/internal/telephony/IccCardApplication;->app_type:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     sget-object v4, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_UNKNOWN:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     if-eq v3, v4, :cond_2
 
-    .line 670
+    .line 665
     const/4 v12, 0x1
 
-    .line 694
+    .line 689
     :cond_2
     :goto_2
     if-eqz v8, :cond_3
 
-    .line 695
+    .line 690
     const-string v3, "IccCardProxy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3051,14 +3028,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 696
+    .line 691
     const/4 v6, 0x0
 
-    .line 697
+    .line 692
     .local v6, icfh:Lcom/android/internal/telephony/IccFileHandler;
     const/4 v2, 0x0
 
-    .line 698
+    .line 693
     .local v2, icr:Lcom/android/internal/telephony/IccRecords;
     sget-object v3, Lcom/android/internal/telephony/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCardApplication$AppType:[I
 
@@ -3072,26 +3049,26 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 724
+    .line 719
     const/4 v6, 0x0
 
-    .line 725
+    .line 720
     const/4 v2, 0x0
 
-    .line 728
+    .line 723
     :goto_3
     aput-object v6, v14, v10
 
-    .line 729
+    .line 724
     aput-object v2, v15, v10
 
-    .line 730
+    .line 725
     if-eqz v6, :cond_3
 
-    .line 731
+    .line 726
     add-int/lit8 v13, v13, 0x1
 
-    .line 661
+    .line 656
     .end local v2           #icr:Lcom/android/internal/telephony/IccRecords;
     .end local v6           #icfh:Lcom/android/internal/telephony/IccFileHandler;
     :cond_3
@@ -3099,7 +3076,7 @@
 
     goto :goto_1
 
-    .line 656
+    .line 651
     .end local v8           #createNewIccFileHandler:Z
     .end local v9           #disposeExistingIccFileHandler:[Z
     .end local v10           #i:I
@@ -3111,7 +3088,7 @@
 
     goto :goto_0
 
-    .line 672
+    .line 667
     .restart local v8       #createNewIccFileHandler:Z
     .restart local v9       #disposeExistingIccFileHandler:[Z
     .restart local v10       #i:I
@@ -3137,7 +3114,7 @@
 
     if-eqz v3, :cond_6
 
-    .line 673
+    .line 668
     const-string v3, "IccCardProxy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3166,7 +3143,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 674
+    .line 669
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
@@ -3175,7 +3152,7 @@
 
     aput-object v3, v14, v10
 
-    .line 675
+    .line 670
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
@@ -3184,26 +3161,26 @@
 
     aput-object v3, v15, v10
 
-    .line 676
+    .line 671
     add-int/lit8 v13, v13, 0x1
 
     goto :goto_2
 
-    .line 678
+    .line 673
     :cond_6
     const/4 v12, 0x1
 
-    .line 679
+    .line 674
     const/4 v3, 0x1
 
     aput-boolean v3, v9, v10
 
-    .line 680
+    .line 675
     const/4 v8, 0x1
 
     goto/16 :goto_2
 
-    .line 683
+    .line 678
     :cond_7
     move-object/from16 v0, p0
 
@@ -3213,33 +3190,33 @@
 
     if-eqz v3, :cond_2
 
-    .line 684
+    .line 679
     const/4 v12, 0x1
 
-    .line 685
+    .line 680
     const/4 v3, 0x1
 
     aput-boolean v3, v9, v10
 
     goto/16 :goto_2
 
-    .line 689
+    .line 684
     :cond_8
     const/4 v12, 0x1
 
-    .line 690
+    .line 685
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v10}, Lcom/android/internal/telephony/IccCardStatus;->getApplication(I)Lcom/android/internal/telephony/IccCardApplication;
 
     move-result-object v11
 
-    .line 691
+    .line 686
     const/4 v8, 0x1
 
     goto/16 :goto_2
 
-    .line 700
+    .line 695
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     :pswitch_0
@@ -3264,7 +3241,7 @@
 
     invoke-direct {v6, v3, v4, v5}, Lcom/android/internal/telephony/gsm/SIMFileHandler;-><init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
 
-    .line 701
+    .line 696
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     new-instance v2, Lcom/android/internal/telephony/gsm/SIMRecords;
 
@@ -3295,11 +3272,11 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/telephony/gsm/SIMRecords;-><init>(Lcom/android/internal/telephony/IccCard;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/IccFileHandler;Z)V
 
-    .line 702
+    .line 697
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     goto/16 :goto_3
 
-    .line 704
+    .line 699
     :pswitch_1
     new-instance v6, Lcom/android/internal/telephony/gsm/UsimFileHandler;
 
@@ -3322,7 +3299,7 @@
 
     invoke-direct {v6, v3, v4, v5}, Lcom/android/internal/telephony/gsm/UsimFileHandler;-><init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
 
-    .line 705
+    .line 700
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     new-instance v2, Lcom/android/internal/telephony/gsm/SIMRecords;
 
@@ -3353,11 +3330,11 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/telephony/gsm/SIMRecords;-><init>(Lcom/android/internal/telephony/IccCard;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/IccFileHandler;Z)V
 
-    .line 706
+    .line 701
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     goto/16 :goto_3
 
-    .line 708
+    .line 703
     :pswitch_2
     new-instance v6, Lcom/android/internal/telephony/cdma/RuimFileHandler;
 
@@ -3380,7 +3357,7 @@
 
     invoke-direct {v6, v3, v4, v5}, Lcom/android/internal/telephony/cdma/RuimFileHandler;-><init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
 
-    .line 709
+    .line 704
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     new-instance v2, Lcom/android/internal/telephony/cdma/RuimRecords;
 
@@ -3411,11 +3388,11 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/telephony/cdma/RuimRecords;-><init>(Lcom/android/internal/telephony/IccCard;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/IccFileHandler;Z)V
 
-    .line 710
+    .line 705
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     goto/16 :goto_3
 
-    .line 712
+    .line 707
     :pswitch_3
     new-instance v6, Lcom/android/internal/telephony/cdma/CsimFileHandler;
 
@@ -3438,7 +3415,7 @@
 
     invoke-direct {v6, v3, v4, v5}, Lcom/android/internal/telephony/cdma/CsimFileHandler;-><init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
 
-    .line 713
+    .line 708
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     new-instance v2, Lcom/android/internal/telephony/cdma/RuimRecords;
 
@@ -3469,11 +3446,11 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/internal/telephony/cdma/RuimRecords;-><init>(Lcom/android/internal/telephony/IccCard;Landroid/content/Context;Lcom/android/internal/telephony/CommandsInterface;Lcom/android/internal/telephony/IccFileHandler;Z)V
 
-    .line 714
+    .line 709
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     goto/16 :goto_3
 
-    .line 717
+    .line 712
     :pswitch_4
     new-instance v6, Lcom/android/internal/telephony/ims/ISIMFileHandler;
 
@@ -3496,7 +3473,7 @@
 
     invoke-direct {v6, v3, v4, v5}, Lcom/android/internal/telephony/ims/ISIMFileHandler;-><init>(Lcom/android/internal/telephony/IccCard;Ljava/lang/String;Lcom/android/internal/telephony/CommandsInterface;)V
 
-    .line 718
+    .line 713
     .restart local v6       #icfh:Lcom/android/internal/telephony/IccFileHandler;
     new-instance v2, Lcom/android/internal/telephony/ims/HtcIsimRecords;
 
@@ -3507,11 +3484,11 @@
 
     invoke-direct {v2, v3, v6}, Lcom/android/internal/telephony/ims/HtcIsimRecords;-><init>(Lcom/android/internal/telephony/PhoneBase;Lcom/android/internal/telephony/IccFileHandler;)V
 
-    .line 719
+    .line 714
     .restart local v2       #icr:Lcom/android/internal/telephony/IccRecords;
     goto/16 :goto_3
 
-    .line 737
+    .line 732
     .end local v2           #icr:Lcom/android/internal/telephony/IccRecords;
     .end local v6           #icfh:Lcom/android/internal/telephony/IccFileHandler;
     .end local v8           #createNewIccFileHandler:Z
@@ -3519,7 +3496,7 @@
     :cond_9
     if-eqz v12, :cond_f
 
-    .line 738
+    .line 733
     const/4 v3, 0x1
 
     move-object/from16 v0, p0
@@ -3534,14 +3511,14 @@
 
     if-eqz v17, :cond_a
 
-    .line 739
+    .line 734
     const-string v3, "IccCardProxy"
 
-    const-string v4, "unregister for sim record events"
+    const-string/jumbo v4, "unregister for sim record events"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 740
+    .line 735
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -3550,7 +3527,7 @@
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/gsm/GSMPhone;->unregisterForSimRecordEvents()V
 
-    .line 743
+    .line 738
     :cond_a
     const/4 v10, 0x0
 
@@ -3559,12 +3536,12 @@
 
     if-ge v10, v0, :cond_d
 
-    .line 744
+    .line 739
     aget-boolean v3, v9, v10
 
     if-eqz v3, :cond_c
 
-    .line 745
+    .line 740
     const-string v3, "IccCardProxy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3593,7 +3570,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 747
+    .line 742
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mUsimStkFH:Lcom/android/internal/telephony/IccFileHandler;
@@ -3606,7 +3583,7 @@
 
     if-ne v3, v4, :cond_b
 
-    .line 748
+    .line 743
     const-string v3, "IccCardProxy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3635,17 +3612,17 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 749
+    .line 744
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/telephony/IccCardProxy;->dispose_StkService()V
 
-    .line 750
+    .line 745
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mUsimStkFH:Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 752
+    .line 747
     :cond_b
     move-object/from16 v0, p0
 
@@ -3655,7 +3632,7 @@
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/IccFileHandler;->dispose()V
 
-    .line 753
+    .line 748
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
@@ -3664,7 +3641,7 @@
 
     aput-object v4, v3, v10
 
-    .line 755
+    .line 750
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
@@ -3673,7 +3650,7 @@
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/IccRecords;->dispose()V
 
-    .line 756
+    .line 751
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
@@ -3682,52 +3659,52 @@
 
     aput-object v4, v3, v10
 
-    .line 743
+    .line 738
     :cond_c
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_4
 
-    .line 760
+    .line 755
     :cond_d
     if-nez v13, :cond_10
 
-    .line 761
+    .line 756
     const-string v3, "IccCardProxy"
 
     const-string v4, "no identified application"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 762
+    .line 757
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 763
+    .line 758
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
-    .line 764
+    .line 759
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccRecords:Lcom/android/internal/telephony/IccRecords;
 
-    .line 765
+    .line 760
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccFileHandler:Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 799
+    .line 794
     :cond_e
     :goto_5
     move-object/from16 v0, p0
@@ -3736,7 +3713,7 @@
 
     if-eqz v3, :cond_f
 
-    .line 800
+    .line 795
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccPhoneBookInterfaceManager:Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;
@@ -3747,7 +3724,7 @@
 
     invoke-virtual {v3, v4}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->setupIccRecords(Lcom/android/internal/telephony/IccRecords;)V
 
-    .line 804
+    .line 799
     :cond_f
     move-object/from16 v0, p0
 
@@ -3767,10 +3744,10 @@
 
     invoke-virtual {v3, v4}, Landroid/os/RegistrantList;->notifyRegistrants(Landroid/os/AsyncResult;)V
 
-    .line 806
+    .line 801
     return-void
 
-    .line 767
+    .line 762
     :cond_10
     const-string v3, "IccCardProxy"
 
@@ -3778,7 +3755,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 769
+    .line 764
     move/from16 v0, v16
 
     new-array v3, v0, [Lcom/android/internal/telephony/IccFileHandler;
@@ -3787,7 +3764,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 770
+    .line 765
     move/from16 v0, v16
 
     new-array v3, v0, [Lcom/android/internal/telephony/IccRecords;
@@ -3796,7 +3773,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
 
-    .line 772
+    .line 767
     const/4 v10, 0x0
 
     :goto_6
@@ -3804,7 +3781,7 @@
 
     if-ge v10, v0, :cond_11
 
-    .line 773
+    .line 768
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccFileHandler:[Lcom/android/internal/telephony/IccFileHandler;
@@ -3813,7 +3790,7 @@
 
     aput-object v4, v3, v10
 
-    .line 774
+    .line 769
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mIccRecords:[Lcom/android/internal/telephony/IccRecords;
@@ -3822,12 +3799,12 @@
 
     aput-object v4, v3, v10
 
-    .line 772
+    .line 767
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_6
 
-    .line 777
+    .line 772
     :cond_11
     move-object/from16 v0, p0
 
@@ -3843,7 +3820,7 @@
 
     sget-object v18, Lcom/android/internal/telephony/IccCardProxy;->USIM_BEFORE_RUIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
-    .line 780
+    .line 775
     .local v18, searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :goto_7
     move-object/from16 v0, p0
@@ -3858,7 +3835,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccRecords:Lcom/android/internal/telephony/IccRecords;
 
-    .line 781
+    .line 776
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
@@ -3871,7 +3848,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccFileHandler:Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 783
+    .line 778
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mUsimStkFH:Lcom/android/internal/telephony/IccFileHandler;
@@ -3890,14 +3867,14 @@
 
     if-eqz v3, :cond_12
 
-    .line 784
+    .line 779
     const-string v3, "IccCardProxy"
 
     const-string v4, "create new CAT service"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 785
+    .line 780
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mDefaultIccFileHandler:Lcom/android/internal/telephony/IccFileHandler;
@@ -3906,7 +3883,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mUsimStkFH:Lcom/android/internal/telephony/IccFileHandler;
 
-    .line 786
+    .line 781
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -3937,7 +3914,7 @@
 
     iput-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mStkService:Lcom/android/internal/telephony/cat/CatService;
 
-    .line 792
+    .line 787
     :cond_12
     const/4 v3, 0x1
 
@@ -3951,14 +3928,14 @@
 
     if-ne v3, v4, :cond_e
 
-    .line 793
+    .line 788
     const-string v3, "IccCardProxy"
 
     const-string v4, "register for sim record events"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 794
+    .line 789
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/telephony/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
@@ -3969,14 +3946,16 @@
 
     goto/16 :goto_5
 
-    .line 777
+    .line 772
     .end local v18           #searchingTypes:[Lcom/android/internal/telephony/IccCardApplication$AppType;
     :cond_13
     sget-object v18, Lcom/android/internal/telephony/IccCardProxy;->RUIM_BEFORE_USIM_SEARCH:[Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     goto :goto_7
 
-    .line 698
+    .line 693
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

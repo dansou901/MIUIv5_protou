@@ -881,14 +881,14 @@
     move-result-object v3
 
     .local v3, mRes:Landroid/content/res/Resources;
-    const v8, 0x40700f7
+    const v8, 0x40700f0
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
     .local v7, title:Ljava/lang/String;
-    const v8, 0x40700f8
+    const v8, 0x40700f1
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -906,7 +906,7 @@
     check-cast v5, Landroid/app/NotificationManager;
 
     .local v5, notificationManager:Landroid/app/NotificationManager;
-    const v1, 0x4020058
+    const v1, 0x4020080
 
     .local v1, id:I
     if-eqz p1, :cond_0
@@ -928,7 +928,7 @@
     invoke-direct {v0}, Landroid/app/Notification;-><init>()V
 
     .local v0, HDMINotification:Landroid/app/Notification;
-    const v8, 0x4020058
+    const v8, 0x4020080
 
     iput v8, v0, Landroid/app/Notification;->icon:I
 

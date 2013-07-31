@@ -334,7 +334,7 @@
     .line 125
     const-string v13, "UsimDataDownloadHandler"
 
-    const-string v14, "startDataDownload() calculated incorrect envelope length, aborting."
+    const-string/jumbo v14, "startDataDownload() calculated incorrect envelope length, aborting."
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -983,7 +983,7 @@
     :cond_0
     const-string v0, "UsimDataDownloadHandler"
 
-    const-string v1, "startDataDownload failed to send message to start data download."
+    const-string/jumbo v1, "startDataDownload failed to send message to start data download."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

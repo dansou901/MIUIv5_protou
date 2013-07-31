@@ -1,74 +1,71 @@
-*** PhoneWindowManager.smali	2013-07-12 21:44:53.108510719 +0000
---- PhoneWindowManager.smali	2013-07-12 21:42:30.015165586 +0000
+*** PhoneWindowManager.smali	2013-07-31 22:21:57.844064426 +0000
+--- PhoneWindowManager.smali	2013-07-31 22:23:28.764072014 +0000
 ***************
-*** 171,176 ****
+*** 170,181 ****
+  
+  
+  # instance fields
+- .field mAboveStatusBarFullScreenWindow:Landroid/view/WindowManagerPolicy$WindowState;
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- .end field
+- 
+  .field mAccelerometerDefault:Z
+  
+  .field mAllowAllRotations:I
+--- 169,174 ----
   
   
   # instance fields
   .field mAccelerometerDefault:Z
   
   .field mAllowAllRotations:I
---- 172,183 ----
-  
-  
-  # instance fields
-+ .field mAboveStatusBarFullScreenWindow:Landroid/view/WindowManagerPolicy$WindowState;
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ .end field
-+ 
-  .field mAccelerometerDefault:Z
-  
-  .field mAllowAllRotations:I
 ***************
-*** 2816,2821 ****
+*** 2802,2809 ****
+      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mAllowLockscreenWhenOn:Z
+  
+      :cond_3
+-     invoke-static {p0, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->setAboveStatusBarFullScreenWindow(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)V
+- 
+      return-void
+  .end method
+  
+--- 2776,2781 ----
       iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mAllowLockscreenWhenOn:Z
   
       :cond_3
       return-void
   .end method
   
---- 2842,2849 ----
-      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mAllowLockscreenWhenOn:Z
-  
-      :cond_3
-+     invoke-static {p0, p1, p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->setAboveStatusBarFullScreenWindow(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManager$LayoutParams;)V
-+ 
-      return-void
-  .end method
-  
 ***************
-*** 3625,3644 ****
+*** 2835,2843 ****
+      .parameter "displayWidth"
+      .parameter "displayHeight"
+      .parameter "displayRotation"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
-      if-nez v3, :cond_6
+      .prologue
+      const/4 v3, 0x0
+--- 2805,2810 ----
+      .parameter "displayWidth"
+      .parameter "displayHeight"
+      .parameter "displayRotation"
   
--     move-object/from16 v0, p0
-- 
--     iget v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mUnrestrictedScreenTop:I
-- 
--     move-object/from16 v0, p0
-- 
--     iget v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarHeight:I
-- 
--     add-int/2addr v3, v4
-- 
--     move-object/from16 v0, p0
-- 
--     iput v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mSystemTop:I
-- 
-      :cond_6
-      return-void
-  
---- 3658,3663 ----
-  
-      if-nez v3, :cond_6
-  
-      :cond_6
-      return-void
-  
+      .prologue
+      const/4 v3, 0x0
 ***************
-*** 5343,5351 ****
+*** 5316,5322 ****
+  
+      if-eqz v5, :cond_5
+  
+!     invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
+  
+      move-result v5
+  
+--- 5284,5292 ----
   
       if-eqz v5, :cond_5
   
@@ -78,33 +75,33 @@
   
       move-result v5
   
---- 5375,5381 ----
+***************
+*** 5326,5333 ****
   
-      if-eqz v5, :cond_5
+      :cond_0
+      :goto_1
+-     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->checkStatusBarVisibility(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+- 
+      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
   
-!     invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
+      iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
+--- 5296,5301 ----
+  
+      :cond_0
+      :goto_1
+      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
+  
+      iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
+***************
+*** 5420,5426 ****
+      :goto_3
+      if-eqz v2, :cond_8
+  
+!     invoke-static {p0, v3}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
   
       move-result v5
   
-***************
-*** 5355,5360 ****
-  
-      :cond_0
-      :goto_1
-      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
-  
-      iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
---- 5385,5392 ----
-  
-      :cond_0
-      :goto_1
-+     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->checkStatusBarVisibility(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
-+ 
-      iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mTopIsFullscreen:Z
-  
-      iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguard:Landroid/view/WindowManagerPolicy$WindowState;
-***************
-*** 5447,5455 ****
+--- 5388,5396 ----
       :goto_3
       if-eqz v2, :cond_8
   
@@ -114,16 +111,16 @@
   
       move-result v5
   
---- 5479,5485 ----
-      :goto_3
-      if-eqz v2, :cond_8
+***************
+*** 5444,5450 ****
+      goto :goto_3
   
-!     invoke-static {p0, v3}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
+      :cond_8
+!     invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
   
       move-result v5
   
-***************
-*** 5473,5481 ****
+--- 5414,5422 ----
       goto :goto_3
   
       :cond_8
@@ -133,26 +130,35 @@
   
       move-result v5
   
---- 5503,5509 ----
-      goto :goto_3
+***************
+*** 5734,5751 ****
+      goto :goto_1
+  .end method
   
-      :cond_8
-!     invoke-static {p0, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->statusBarShowingOrHideing(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
+- .method getContext()Landroid/content/Context;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+- 
+-     return-object v0
+- .end method
+- 
+  .method public getMaxWallpaperLayer()I
+      .locals 1
   
-      move-result v5
+--- 5706,5711 ----
+      goto :goto_1
+  .end method
+  
+  .method public getMaxWallpaperLayer()I
+      .locals 1
   
 ***************
-*** 6315,6323 ****
-  
-      if-nez v6, :cond_0
-  
-!     new-instance v6, Lcom/android/internal/policy/impl/KeyguardViewMediator;
-  
-!     invoke-direct {v6, p1, p0, p4}, Lcom/android/internal/policy/impl/KeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
-  
-      iput-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
-  
---- 6379,6387 ----
+*** 6260,6268 ****
   
       if-nez v6, :cond_0
   
@@ -162,25 +168,136 @@
   
       iput-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
   
+--- 6196,6204 ----
+  
+      if-nez v6, :cond_0
+  
+!     new-instance v6, Lcom/android/internal/policy/impl/KeyguardViewMediator;
+  
+!     invoke-direct {v6, p1, p0, p4}, Lcom/android/internal/policy/impl/KeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
+  
+      iput-object v6, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+  
 ***************
-*** 8500,8505 ****
+*** 8442,8449 ****
+  
+      .restart local v8       #keyguardActive:Z
+      :cond_5
+-     invoke-static/range {p0 .. p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->performReleaseHapticFeedback(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;I)V
+- 
+      if-eqz v2, :cond_6
+  
+      move/from16 v0, p2
+--- 8375,8380 ----
   
       .restart local v8       #keyguardActive:Z
       :cond_5
       if-eqz v2, :cond_6
   
       move/from16 v0, p2
---- 8567,8574 ----
-  
-      .restart local v8       #keyguardActive:Z
-      :cond_5
-+     invoke-static/range {p0 .. p2}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->performReleaseHapticFeedback(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/KeyEvent;I)V
-+ 
-      if-eqz v2, :cond_6
-  
-      move/from16 v0, p2
 ***************
-*** 13191,13211 ****
+*** 8984,8991 ****
+  
+      iput-boolean v12, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPendingPowerKeyUpCanceled:Z
+  
+-     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$Injector;->sendPowerUpBroadcast(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+- 
+      goto/16 :goto_3
+  
+      :cond_22
+--- 8915,8920 ----
+  
+      iput-boolean v12, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPendingPowerKeyUpCanceled:Z
+  
+      goto/16 :goto_3
+  
+      :cond_22
+***************
+*** 12980,13029 ****
+      return-void
+  .end method
+  
+- .method setMaxBacklightBrightness()V
+-     .locals 2
+- 
+-     .prologue
+-     const-string v1, "power"
+- 
+-     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+- 
+-     move-result-object v1
+- 
+-     invoke-static {v1}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+- 
+-     move-result-object v0
+- 
+-     .local v0, power:Landroid/os/IPowerManager;
+-     const/16 v1, 0xff
+- 
+-     :try_start_0
+-     invoke-interface {v0, v1}, Landroid/os/IPowerManager;->setBacklightBrightness(I)V
+-     :try_end_0
+-     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+- 
+-     :goto_0
+-     return-void
+- 
+-     :catch_0
+-     move-exception v1
+- 
+-     goto :goto_0
+- .end method
+- 
+- .method setPowerLongPress(Ljava/lang/Runnable;)V
+-     .locals 0
+-     .parameter "value"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerLongPress:Ljava/lang/Runnable;
+- 
+-     return-void
+- .end method
+- 
+  .method public setRotationLw(I)V
+      .locals 1
+      .parameter "rotation"
+--- 12901,12906 ----
+      return-void
+  .end method
+  
+  .method public setRotationLw(I)V
+      .locals 1
+      .parameter "rotation"
+***************
+*** 13127,13150 ****
+  
+  .method showGlobalActionsDialog()V
+      .locals 4
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+!     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
+  
+      if-nez v1, :cond_0
+  
+!     new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions;
+  
+      iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
+  
+      iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+  
+!     invoke-direct {v1, v2, v3}, Lcom/android/internal/policy/impl/MiuiGlobalActions;-><init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;)V
+  
+!     iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
+  
+      :cond_0
+      invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->keyguardIsShowingTq()Z
+--- 13004,13024 ----
   
   .method showGlobalActionsDialog()V
       .locals 4
@@ -199,31 +316,6 @@
 !     invoke-direct {v1, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions;-><init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;)V
   
 !     iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
-  
-      :cond_0
-      invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->keyguardIsShowingTq()Z
---- 13314,13337 ----
-  
-  .method showGlobalActionsDialog()V
-      .locals 4
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-!     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
-  
-      if-nez v1, :cond_0
-  
-!     new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions;
-  
-      iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
-  
-      iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
-  
-!     invoke-direct {v1, v2, v3}, Lcom/android/internal/policy/impl/MiuiGlobalActions;-><init>(Landroid/content/Context;Landroid/view/WindowManagerPolicy$WindowManagerFuncs;)V
-  
-!     iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mGlobalActions:Lcom/android/internal/policy/impl/MiuiGlobalActions;
   
       :cond_0
       invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->keyguardIsShowingTq()Z

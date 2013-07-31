@@ -79,6 +79,63 @@
     .prologue
     iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
 
+    #getter for: Landroid/widget/AbsListView;->mPaddingBottom:I
+    invoke-static {v0}, Landroid/widget/AbsListView;->access$2100(Landroid/widget/AbsListView;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/AbsListView$FlingRunnable;->startSpringback()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/AbsListView$FlingRunnable;->endFling()V
+
+    goto :goto_0
+.end method
+
+.method private scaleOverScrollDeltaY(II)I
+    .locals 2
+    .parameter "deltaY"
+    .parameter "scrollY"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    move v0, p1
+
+    .local v0, retval:I
+    iget-object v1, p0, Landroid/widget/AbsListView$FlingRunnable;->mScroller:Landroid/widget/OverScroller;
+
+    invoke-virtual {v1}, Landroid/widget/OverScroller;->checkSpringBackState()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+
+    invoke-static {v1, p1, p2}, Landroid/widget/AbsListView$Injector;->scaleOverScrollDeltaY(Landroid/widget/AbsListView;II)I
+
+    move-result v0
+
+    :cond_0
+    return v0
+.end method
+
+.method private endFling2()V
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->this$0:Landroid/widget/AbsListView;
+
     invoke-virtual {v0}, Landroid/widget/AbsListView;->getScrollY()I
 
     move-result v0
@@ -325,6 +382,18 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/widget/AbsListView;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
+.end method
+
+.method protected getScroller()Landroid/widget/OverScroller;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/widget/AbsListView$FlingRunnable;->mScroller:Landroid/widget/OverScroller;
+
+    return-object v0
 .end method
 
 .method protected getScroller()Landroid/widget/OverScroller;

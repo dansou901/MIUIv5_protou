@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 691
+    .line 686
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$DefaultContainerConnection;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "service"
 
     .prologue
-    .line 694
+    .line 689
     invoke-static {p2}, Lcom/android/internal/app/IMediaContainerService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IMediaContainerService;
 
     move-result-object v0
 
-    .line 696
+    .line 691
     .local v0, imcs:Lcom/android/internal/app/IMediaContainerService;
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$DefaultContainerConnection;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 697
+    .line 692
     return-void
 .end method
 
@@ -75,6 +75,6 @@
     .parameter "name"
 
     .prologue
-    .line 701
+    .line 696
     return-void
 .end method

@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-07-12 21:42:58.735167955 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-07-12 21:40:47.148490437 +0000
+*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-07-31 22:22:15.090732532 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-07-31 22:21:15.177394198 +0000
 ***************
 *** 1103,1108 ****
 --- 1103,1112 ----
@@ -26,3 +26,16 @@
       iget-object v0, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCT:Lcom/android/internal/telephony/cdma/CdmaCallTracker;
   
       invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/CdmaCallTracker;->acceptCall()V
+***************
+*** 2934,2939 ****
+--- 2942,2951 ----
+  
+      iput-object v3, p0, Lcom/android/internal/telephony/cdma/CDMAPhone;->mMeid:Ljava/lang/String;
+  
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->sendDeviceIdReadyBroadcast()V
++ 
++     invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CDMAPhone;->setDeviceIdSystemProperty()V
++ 
+      goto :goto_0
+  
+      .end local v0           #ar:Landroid/os/AsyncResult;

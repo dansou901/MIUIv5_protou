@@ -396,7 +396,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -907,7 +907,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1352,7 +1352,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1605,7 +1605,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2299,7 +2299,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "uimauthList"
+    const-string/jumbo v5, "uimauthList"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2737,7 +2737,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3686,7 +3686,7 @@
 
     .line 799
     .local v78, result:Landroid/os/Bundle;
-    const-string v3, "sw1"
+    const-string/jumbo v3, "sw1"
 
     move-object/from16 v0, v61
 
@@ -3697,7 +3697,7 @@
     invoke-virtual {v0, v3, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 800
-    const-string v3, "sw2"
+    const-string/jumbo v3, "sw2"
 
     move-object/from16 v0, v61
 
@@ -6823,7 +6823,7 @@
 
     move-result-object v3
 
-    const-string v4, "sid"
+    const-string/jumbo v4, "sid"
 
     invoke-virtual {v3, v4}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
@@ -7346,7 +7346,7 @@
 
     .line 1318
     .local v14, rat:I
-    const-string v3, "sid"
+    const-string/jumbo v3, "sid"
 
     move-object/from16 v0, v45
 
@@ -8225,7 +8225,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "strArr["
+    const-string/jumbo v5, "strArr["
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10640,6 +10640,8 @@
     throw v3
 
     .line 347
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_2

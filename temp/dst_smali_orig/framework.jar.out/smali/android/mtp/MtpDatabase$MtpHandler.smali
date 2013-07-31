@@ -60,7 +60,7 @@
     iget-object v6, p0, Landroid/mtp/MtpDatabase$MtpHandler;->this$0:Landroid/mtp/MtpDatabase;
 
     #getter for: Landroid/mtp/MtpDatabase;->mSessionActive:Z
-    invoke-static {v6}, Landroid/mtp/MtpDatabase;->access$200(Landroid/mtp/MtpDatabase;)Z
+    invoke-static {v6}, Landroid/mtp/MtpDatabase;->access$000(Landroid/mtp/MtpDatabase;)Z
 
     move-result v6
 
@@ -139,14 +139,14 @@
     iget-object v4, p0, Landroid/mtp/MtpDatabase$MtpHandler;->this$0:Landroid/mtp/MtpDatabase;
 
     #getter for: Landroid/mtp/MtpDatabase;->mMediaScanner:Landroid/media/MediaScanner;
-    invoke-static {v4}, Landroid/mtp/MtpDatabase;->access$400(Landroid/mtp/MtpDatabase;)Landroid/media/MediaScanner;
+    invoke-static {v4}, Landroid/mtp/MtpDatabase;->access$200(Landroid/mtp/MtpDatabase;)Landroid/media/MediaScanner;
 
     move-result-object v4
 
     iget-object v5, p0, Landroid/mtp/MtpDatabase$MtpHandler;->this$0:Landroid/mtp/MtpDatabase;
 
     #getter for: Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
-    invoke-static {v5}, Landroid/mtp/MtpDatabase;->access$300(Landroid/mtp/MtpDatabase;)Ljava/lang/String;
+    invoke-static {v5}, Landroid/mtp/MtpDatabase;->access$100(Landroid/mtp/MtpDatabase;)Ljava/lang/String;
 
     move-result-object v5
 

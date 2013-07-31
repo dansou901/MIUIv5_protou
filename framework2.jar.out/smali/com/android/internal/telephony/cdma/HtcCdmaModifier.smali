@@ -1165,7 +1165,7 @@
 
     sput-object v0, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->mCallEndNumberOverwritten_SprintLen3:[Ljava/lang/String;
 
-    .line 1014
+    .line 981
     new-array v0, v7, [I
 
     fill-array-data v0, :array_0
@@ -1214,7 +1214,7 @@
 
     goto :goto_0
 
-    .line 1014
+    .line 981
     nop
 
     :array_0
@@ -1240,10 +1240,10 @@
     .locals 3
 
     .prologue
-    .line 1020
+    .line 987
     const/4 v0, 0x0
 
-    .line 1021
+    .line 988
     .local v0, i:I
     const/4 v0, 0x0
 
@@ -1254,7 +1254,7 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1022
+    .line 989
     sget-object v1, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->htcCarrierIdWithProjectFlag:[I
 
     add-int/lit8 v2, v0, 0x1
@@ -1265,7 +1265,7 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 1023
+    .line 990
     sget-object v1, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->htcCarrierIdWithProjectFlag:[I
 
     aget v1, v1, v0
@@ -1274,17 +1274,17 @@
 
     move-result-object v1
 
-    .line 1026
+    .line 993
     :goto_1
     return-object v1
 
-    .line 1021
+    .line 988
     :cond_0
     add-int/lit8 v0, v0, 0x2
 
     goto :goto_0
 
-    .line 1026
+    .line 993
     :cond_1
     const/4 v1, 0x0
 
@@ -1585,174 +1585,174 @@
     .parameter "nvValue"
 
     .prologue
-    .line 760
+    .line 727
     const/4 v0, 0x0
 
-    .line 762
+    .line 729
     .local v0, givenMcc:Ljava/lang/String;
     sparse-switch p1, :sswitch_data_0
 
-    .line 810
+    .line 777
     :goto_0
     return-object v0
 
-    .line 764
+    .line 731
     :sswitch_0
     const-string v0, "302"
 
     goto :goto_0
 
-    .line 766
+    .line 733
     :sswitch_1
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 768
+    .line 735
     :sswitch_2
     const-string v0, "302"
 
     goto :goto_0
 
-    .line 770
+    .line 737
     :sswitch_3
     const-string v0, "734"
 
     goto :goto_0
 
-    .line 775
+    .line 742
     :sswitch_4
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 776
+    .line 743
     :sswitch_5
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 778
+    .line 745
     :sswitch_6
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 779
+    .line 746
     :sswitch_7
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 780
+    .line 747
     :sswitch_8
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 781
+    .line 748
     :sswitch_9
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 782
+    .line 749
     :sswitch_a
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 784
+    .line 751
     :sswitch_b
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 787
+    .line 754
     :sswitch_c
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 789
+    .line 756
     :sswitch_d
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 791
+    .line 758
     :sswitch_e
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 793
+    .line 760
     :sswitch_f
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 794
+    .line 761
     :sswitch_10
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 795
+    .line 762
     :sswitch_11
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 796
+    .line 763
     :sswitch_12
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 797
+    .line 764
     :sswitch_13
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 799
+    .line 766
     :sswitch_14
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 800
+    .line 767
     :sswitch_15
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 801
+    .line 768
     :sswitch_16
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 802
+    .line 769
     :sswitch_17
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 803
+    .line 770
     :sswitch_18
     const-string v0, "311"
 
     goto :goto_0
 
-    .line 808
+    .line 775
     :sswitch_19
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 762
+    .line 729
     nop
 
     :sswitch_data_0
@@ -1807,34 +1807,34 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 738
+    .line 705
     if-eqz p0, :cond_0
 
-    .line 740
+    .line 707
     const/4 v3, 0x0
 
     invoke-static {v3, p0}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->getMccByNVvalue(II)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 741
+    .line 708
     .local v0, mcc:Ljava/lang/String;
     if-nez v0, :cond_1
 
-    .line 754
+    .line 721
     .end local v0           #mcc:Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v2
 
-    .line 747
+    .line 714
     .restart local v0       #mcc:Ljava/lang/String;
     :cond_1
     invoke-static {v0, p0}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->getMncByNVvalue(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 749
+    .line 716
     .local v1, mnc:Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1861,25 +1861,25 @@
     .parameter "nvValue"
 
     .prologue
-    .line 819
+    .line 786
     const/4 v0, 0x0
 
-    .line 821
+    .line 788
     .local v0, mnc:Ljava/lang/String;
     sparse-switch p1, :sswitch_data_0
 
-    .line 905
+    .line 872
     :goto_0
     if-nez v0, :cond_0
 
-    .line 906
+    .line 873
     const-string v0, "00"
 
-    .line 909
+    .line 876
     :cond_0
     return-object v0
 
-    .line 823
+    .line 790
     :sswitch_0
     const-string v1, "310"
 
@@ -1889,295 +1889,295 @@
 
     if-eqz v1, :cond_1
 
-    .line 824
+    .line 791
     const-string v0, "012"
 
     goto :goto_0
 
-    .line 827
+    .line 794
     :cond_1
     const-string v0, "280"
 
-    .line 829
+    .line 796
     goto :goto_0
 
-    .line 831
+    .line 798
     :sswitch_1
     const-string v0, "120"
 
     goto :goto_0
 
-    .line 833
+    .line 800
     :sswitch_2
     const-string v0, "86"
 
     goto :goto_0
 
-    .line 835
+    .line 802
     :sswitch_3
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 837
+    .line 804
     :sswitch_4
     const-string v0, "270"
 
     goto :goto_0
 
-    .line 839
+    .line 806
     :sswitch_5
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 841
+    .line 808
     :sswitch_6
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 843
+    .line 810
     :sswitch_7
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 845
+    .line 812
     :sswitch_8
     const-string v0, "470"
 
     goto :goto_0
 
-    .line 847
+    .line 814
     :sswitch_9
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 849
+    .line 816
     :sswitch_a
     const-string v0, "68"
 
     goto :goto_0
 
-    .line 851
+    .line 818
     :sswitch_b
     const-string v0, "280"
 
     goto :goto_0
 
-    .line 853
+    .line 820
     :sswitch_c
     const-string v0, "06"
 
     goto :goto_0
 
-    .line 855
+    .line 822
     :sswitch_d
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 857
+    .line 824
     :sswitch_e
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 859
+    .line 826
     :sswitch_f
     const-string v0, "600"
 
     goto :goto_0
 
-    .line 861
+    .line 828
     :sswitch_10
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 863
+    .line 830
     :sswitch_11
     const-string v0, "130"
 
     goto :goto_0
 
-    .line 865
+    .line 832
     :sswitch_12
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 867
+    .line 834
     :sswitch_13
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 870
+    .line 837
     :sswitch_14
     const-string v0, "050"
 
     goto :goto_0
 
-    .line 871
+    .line 838
     :sswitch_15
     const-string v0, "430"
 
     goto :goto_0
 
-    .line 872
+    .line 839
     :sswitch_16
     const-string v0, "750"
 
     goto :goto_0
 
-    .line 873
+    .line 840
     :sswitch_17
     const-string v0, "440"
 
     goto :goto_0
 
-    .line 874
+    .line 841
     :sswitch_18
     const-string v0, "600"
 
     goto :goto_0
 
-    .line 876
+    .line 843
     :sswitch_19
     const-string v0, "430"
 
     goto :goto_0
 
-    .line 878
+    .line 845
     :sswitch_1a
     const-string v0, "230"
 
     goto :goto_0
 
-    .line 879
+    .line 846
     :sswitch_1b
     const-string v0, "280"
 
     goto :goto_0
 
-    .line 880
+    .line 847
     :sswitch_1c
     const-string v0, "590"
 
     goto :goto_0
 
-    .line 881
+    .line 848
     :sswitch_1d
     const-string v0, "340"
 
     goto :goto_0
 
-    .line 882
+    .line 849
     :sswitch_1e
     const-string v0, "580"
 
     goto :goto_0
 
-    .line 884
+    .line 851
     :sswitch_1f
     const-string v0, "92"
 
     goto :goto_0
 
-    .line 885
+    .line 852
     :sswitch_20
     const-string v0, "310"
 
     goto :goto_0
 
-    .line 886
+    .line 853
     :sswitch_21
     const-string v0, "410"
 
     goto :goto_0
 
-    .line 888
+    .line 855
     :sswitch_22
     const-string v0, "010"
 
     goto :goto_0
 
-    .line 889
+    .line 856
     :sswitch_23
     const-string v0, "100"
 
     goto :goto_0
 
-    .line 890
+    .line 857
     :sswitch_24
     const-string v0, "420"
 
     goto :goto_0
 
-    .line 892
+    .line 859
     :sswitch_25
     const-string v0, "450"
 
     goto :goto_0
 
-    .line 893
+    .line 860
     :sswitch_26
     const-string v0, "360"
 
     goto :goto_0
 
-    .line 894
+    .line 861
     :sswitch_27
     const-string v0, "350"
 
     goto :goto_0
 
-    .line 895
+    .line 862
     :sswitch_28
     const-string v0, "960"
 
     goto :goto_0
 
-    .line 896
+    .line 863
     :sswitch_29
     const-string v0, "960"
 
     goto/16 :goto_0
 
-    .line 897
+    .line 864
     :sswitch_2a
     const-string v0, "610"
 
     goto/16 :goto_0
 
-    .line 898
+    .line 865
     :sswitch_2b
     const-string v0, "960"
 
     goto/16 :goto_0
 
-    .line 899
+    .line 866
     :sswitch_2c
     const-string v0, "050"
 
     goto/16 :goto_0
 
-    .line 901
+    .line 868
     :sswitch_2d
     const-string v0, "440"
 
     goto/16 :goto_0
 
-    .line 903
+    .line 870
     :sswitch_2e
     const-string v0, "930"
 
     goto/16 :goto_0
 
-    .line 821
+    .line 788
     nop
 
     :sswitch_data_0
@@ -2237,348 +2237,348 @@
     .parameter "nvValue"
 
     .prologue
-    .line 918
+    .line 885
     if-nez p0, :cond_0
 
-    .line 920
+    .line 887
     const/4 v0, 0x0
 
-    .line 1010
+    .line 977
     :goto_0
     return-object v0
 
-    .line 923
+    .line 890
     :cond_0
     const/4 v0, 0x0
 
-    .line 925
+    .line 892
     .local v0, name:Ljava/lang/String;
     sparse-switch p0, :sswitch_data_0
 
     goto :goto_0
 
-    .line 951
+    .line 918
     :sswitch_0
     const-string v0, "China Telecom"
 
-    .line 952
+    .line 919
+    goto :goto_0
+
+    .line 894
+    :sswitch_1
+    const-string v0, "Verizon"
+
+    .line 895
+    goto :goto_0
+
+    .line 897
+    :sswitch_2
+    const-string/jumbo v0, "sprint"
+
+    .line 898
+    goto :goto_0
+
+    .line 900
+    :sswitch_3
+    const-string v0, "Telus"
+
+    .line 901
+    goto :goto_0
+
+    .line 903
+    :sswitch_4
+    const-string v0, "Bill Mobility"
+
+    .line 904
+    goto :goto_0
+
+    .line 906
+    :sswitch_5
+    const-string v0, "AllTel"
+
+    .line 907
+    goto :goto_0
+
+    .line 909
+    :sswitch_6
+    const-string v0, "Reliance"
+
+    .line 910
+    goto :goto_0
+
+    .line 912
+    :sswitch_7
+    const-string v0, "USC"
+
+    .line 913
+    goto :goto_0
+
+    .line 915
+    :sswitch_8
+    const-string v0, "MTS"
+
+    .line 916
+    goto :goto_0
+
+    .line 921
+    :sswitch_9
+    const-string v0, "PantherC Sask"
+
+    .line 922
+    goto :goto_0
+
+    .line 924
+    :sswitch_a
+    const-string v0, "PantherC Centennial"
+
+    .line 925
     goto :goto_0
 
     .line 927
-    :sswitch_1
-    const-string v0, "Verizon"
+    :sswitch_b
+    const-string v0, "Movilnet"
 
     .line 928
     goto :goto_0
 
     .line 930
-    :sswitch_2
-    const-string v0, "sprint"
+    :sswitch_c
+    const-string v0, "PantherC MTS"
 
     .line 931
     goto :goto_0
 
     .line 933
-    :sswitch_3
-    const-string v0, "Telus"
+    :sswitch_d
+    const-string v0, "APBW"
 
     .line 934
     goto :goto_0
 
     .line 936
-    :sswitch_4
-    const-string v0, "Bill Mobility"
+    :sswitch_e
+    const-string v0, "PLS"
 
     .line 937
     goto :goto_0
 
-    .line 939
-    :sswitch_5
-    const-string v0, "AllTel"
-
     .line 940
-    goto :goto_0
-
-    .line 942
-    :sswitch_6
-    const-string v0, "Reliance"
-
-    .line 943
-    goto :goto_0
-
-    .line 945
-    :sswitch_7
-    const-string v0, "USC"
-
-    .line 946
-    goto :goto_0
-
-    .line 948
-    :sswitch_8
-    const-string v0, "MTS"
-
-    .line 949
-    goto :goto_0
-
-    .line 954
-    :sswitch_9
-    const-string v0, "PantherC Sask"
-
-    .line 955
-    goto :goto_0
-
-    .line 957
-    :sswitch_a
-    const-string v0, "PantherC Centennial"
-
-    .line 958
-    goto :goto_0
-
-    .line 960
-    :sswitch_b
-    const-string v0, "Movilnet"
-
-    .line 961
-    goto :goto_0
-
-    .line 963
-    :sswitch_c
-    const-string v0, "PantherC MTS"
-
-    .line 964
-    goto :goto_0
-
-    .line 966
-    :sswitch_d
-    const-string v0, "APBW"
-
-    .line 967
-    goto :goto_0
-
-    .line 969
-    :sswitch_e
-    const-string v0, "PLS"
-
-    .line 970
-    goto :goto_0
-
-    .line 973
     :sswitch_f
     const-string v0, "ACS"
 
     goto :goto_0
 
-    .line 974
+    .line 941
     :sswitch_10
     const-string v0, "Alaska Digital"
 
     goto :goto_0
 
-    .line 975
+    .line 942
     :sswitch_11
     const-string v0, "Appalachian"
 
     goto :goto_0
 
-    .line 976
+    .line 943
     :sswitch_12
     const-string v0, "Bluegrass"
 
     goto :goto_0
 
-    .line 977
+    .line 944
     :sswitch_13
     const-string v0, "Cellcom"
 
     goto :goto_0
 
-    .line 978
+    .line 945
     :sswitch_14
     const-string v0, "Carolina West"
 
     goto :goto_0
 
-    .line 979
+    .line 946
     :sswitch_15
     const-string v0, "Cellular 29"
 
     goto :goto_0
 
-    .line 980
+    .line 947
     :sswitch_16
     const-string v0, "Cellular One Nepa"
 
     goto :goto_0
 
-    .line 981
+    .line 948
     :sswitch_17
     const-string v0, "Cellular South"
 
     goto :goto_0
 
-    .line 982
+    .line 949
     :sswitch_18
     const-string v0, "Centennial PR"
 
     goto :goto_0
 
-    .line 983
+    .line 950
     :sswitch_19
     const-string v0, "Golden State"
 
     goto :goto_0
 
-    .line 984
+    .line 951
     :sswitch_1a
     const-string v0, "Illionois Valley"
 
     goto :goto_0
 
-    .line 985
+    .line 952
     :sswitch_1b
     const-string v0, "Inland"
 
     goto :goto_0
 
-    .line 986
+    .line 953
     :sswitch_1c
     const-string v0, "Iusacell"
 
     goto :goto_0
 
-    .line 987
+    .line 954
     :sswitch_1d
     const-string v0, "James Valley"
 
     goto :goto_0
 
-    .line 988
+    .line 955
     :sswitch_1e
     const-string v0, "Leaco"
 
     goto :goto_0
 
-    .line 989
+    .line 956
     :sswitch_1f
     const-string v0, "Lyrix (now Chat Mobility)"
 
     goto :goto_0
 
-    .line 990
+    .line 957
     :sswitch_20
     const-string v0, "Midrivers"
 
     goto :goto_0
 
-    .line 991
+    .line 958
     :sswitch_21
     const-string v0, "MTA"
 
     goto :goto_0
 
-    .line 992
+    .line 959
     :sswitch_22
     const-string v0, "Nex-Tech"
 
     goto :goto_0
 
-    .line 993
+    .line 960
     :sswitch_23
     const-string v0, "Northwest MO"
 
     goto :goto_0
 
-    .line 994
+    .line 961
     :sswitch_24
     const-string v0, "nTelos"
 
     goto :goto_0
 
-    .line 995
+    .line 962
     :sswitch_25
     const-string v0, "Panhandle"
 
     goto :goto_0
 
-    .line 996
+    .line 963
     :sswitch_26
     const-string v0, "Pioneer"
 
     goto :goto_0
 
-    .line 997
+    .line 964
     :sswitch_27
     const-string v0, "Sagebrush"
 
     goto :goto_0
 
-    .line 998
+    .line 965
     :sswitch_28
     const-string v0, "Silverstar"
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 999
+    .line 966
     :sswitch_29
     const-string v0, "South Central"
 
     goto/16 :goto_0
 
-    .line 1000
+    .line 967
     :sswitch_2a
     const-string v0, "SRT Communications"
 
     goto/16 :goto_0
 
-    .line 1001
+    .line 968
     :sswitch_2b
     const-string v0, "Syringa"
 
     goto/16 :goto_0
 
-    .line 1002
+    .line 969
     :sswitch_2c
     const-string v0, "Thumb"
 
     goto/16 :goto_0
 
-    .line 1003
+    .line 970
     :sswitch_2d
     const-string v0, "Unicel"
 
     goto/16 :goto_0
 
-    .line 1004
+    .line 971
     :sswitch_2e
     const-string v0, "United"
 
     goto/16 :goto_0
 
-    .line 1005
+    .line 972
     :sswitch_2f
     const-string v0, "Open Mobile"
 
     goto/16 :goto_0
 
-    .line 1006
+    .line 973
     :sswitch_30
     const-string v0, "Cooper valley"
 
     goto/16 :goto_0
 
-    .line 1007
+    .line 974
     :sswitch_31
     const-string v0, "Mobi PCS"
 
     goto/16 :goto_0
 
-    .line 1008
+    .line 975
     :sswitch_32
     const-string v0, "COX"
 
     goto/16 :goto_0
 
-    .line 925
+    .line 892
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_0
@@ -2974,7 +2974,7 @@
     .line 616
     const-string v2, "1417"
 
-    .line 729
+    .line 696
     :cond_0
     :goto_0
     return-object v2
@@ -3025,219 +3025,162 @@
 
     goto :goto_0
 
-    .line 625
+    .line 627
     :cond_5
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v4, 0x75
-
-    if-ne v3, v4, :cond_6
-
-    .line 626
-    const-string v2, "123"
-
-    goto :goto_0
-
-    .line 629
-    :cond_6
     move-object v2, p1
 
-    .line 631
+    .line 629
     move v0, p0
 
-    .line 632
+    .line 630
     .local v0, carrierId:I
     invoke-static {}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->convertProjectFlagToCarrierId()Ljava/lang/Integer;
 
     move-result-object v1
 
-    .line 633
+    .line 631
     .local v1, projectFlagId:Ljava/lang/Integer;
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
-    .line 634
+    .line 632
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    .line 636
-    :cond_7
-    if-nez v1, :cond_8
+    .line 634
+    :cond_6
+    if-nez v1, :cond_7
 
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/4 v4, 0x4
 
-    if-eq v3, v4, :cond_8
+    if-eq v3, v4, :cond_7
 
     sget-boolean v3, Lcom/android/internal/telephony/cdma/CDMAPhone;->mDetectVMbyCarrierIdFromNV:Z
 
     if-eqz v3, :cond_0
 
-    .line 639
-    :cond_8
+    .line 637
+    :cond_7
     sparse-switch v0, :sswitch_data_0
 
     goto :goto_0
 
-    .line 724
+    .line 691
     :sswitch_0
     const-string v2, "*9"
 
     goto :goto_0
 
-    .line 641
+    .line 639
     :sswitch_1
-    sget-boolean v3, Lcom/android/internal/telephony/HtcBuildUtils;->CDMA_EHRPD_CONFIG:Z
+    const-string v2, "0000000000"
 
-    if-nez v3, :cond_0
-
-    .line 642
-    const-string v2, ""
-
+    .line 640
     goto :goto_0
 
-    .line 646
+    .line 643
     :sswitch_2
     const-string v2, "*86"
 
+    .line 644
+    goto :goto_0
+
     .line 647
-    goto :goto_0
-
-    .line 650
     :sswitch_3
-    const-string v2, "6603951000"
-
-    .line 651
-    goto :goto_0
-
-    .line 654
-    :sswitch_4
-    const-string v2, "*86"
-
-    .line 655
-    goto :goto_0
-
-    .line 658
-    :sswitch_5
     const-string v2, "*89"
 
-    .line 659
+    .line 648
     goto :goto_0
 
-    .line 662
-    :sswitch_6
+    .line 651
+    :sswitch_4
     const-string v2, "6057256245"
 
-    .line 663
+    .line 652
     goto :goto_0
 
-    .line 666
-    :sswitch_7
+    .line 655
+    :sswitch_5
     const-string v2, "4064850808"
 
-    .line 667
+    .line 656
     goto :goto_0
 
-    .line 670
+    .line 659
+    :sswitch_6
+    const-string v2, "*95"
+
+    .line 660
+    goto :goto_0
+
+    .line 663
+    :sswitch_7
+    const-string v2, "7018529600"
+
+    .line 664
+    goto :goto_0
+
+    .line 667
     :sswitch_8
     const-string v2, "*86"
 
+    .line 668
+    goto :goto_0
+
     .line 671
+    :sswitch_9
+    const-string v2, "123"
+
+    .line 672
     goto :goto_0
 
     .line 675
-    :sswitch_9
-    const-string v2, "5804682301"
+    :sswitch_a
+    const-string v2, "9078226245"
 
     .line 676
     goto :goto_0
 
-    .line 680
-    :sswitch_a
-    const-string v2, "*86"
-
-    .line 681
-    goto :goto_0
-
-    .line 684
+    .line 679
     :sswitch_b
-    const-string v2, "3078806269"
-
-    .line 685
-    goto :goto_0
-
-    .line 688
-    :sswitch_c
-    const-string v2, "7018529600"
-
-    .line 689
-    goto :goto_0
-
-    .line 692
-    :sswitch_d
-    const-string v2, "4358239090"
-
-    .line 693
-    goto :goto_0
-
-    .line 702
-    :sswitch_e
-    const-string v2, "123"
-
-    .line 703
-    goto :goto_0
-
-    .line 706
-    :sswitch_f
-    const-string v2, "9078226245"
-
-    .line 707
-    goto :goto_0
-
-    .line 710
-    :sswitch_10
     const-string v2, "8154886245"
 
-    .line 711
+    .line 680
     goto :goto_0
 
-    .line 715
-    :sswitch_11
-    const-string v2, "9073737900"
+    .line 683
+    :sswitch_c
+    const-string v2, "9077457900"
 
-    .line 716
+    .line 684
     goto :goto_0
 
-    .line 720
-    :sswitch_12
+    .line 687
+    :sswitch_d
     const-string v2, "#9"
 
-    .line 721
+    .line 688
     goto :goto_0
 
-    .line 639
+    .line 637
     :sswitch_data_0
     .sparse-switch
         0xf -> :sswitch_0
         0x66 -> :sswitch_1
-        0x6c -> :sswitch_12
+        0x6c -> :sswitch_d
         0x6d -> :sswitch_2
-        0x74 -> :sswitch_4
-        0x75 -> :sswitch_b
-        0x77 -> :sswitch_10
-        0x79 -> :sswitch_9
-        0x7c -> :sswitch_11
-        0x7d -> :sswitch_c
-        0x80 -> :sswitch_7
-        0x81 -> :sswitch_5
-        0x83 -> :sswitch_e
-        0x85 -> :sswitch_6
-        0x87 -> :sswitch_f
-        0x8a -> :sswitch_d
-        0x8b -> :sswitch_a
-        0x93 -> :sswitch_8
-        0x99 -> :sswitch_3
+        0x77 -> :sswitch_b
+        0x79 -> :sswitch_6
+        0x7c -> :sswitch_c
+        0x7d -> :sswitch_7
+        0x80 -> :sswitch_5
+        0x81 -> :sswitch_3
+        0x82 -> :sswitch_8
+        0x83 -> :sswitch_9
+        0x85 -> :sswitch_4
+        0x87 -> :sswitch_a
     .end sparse-switch
 .end method
 

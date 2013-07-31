@@ -776,7 +776,7 @@
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 266
-    const-string v3, "{ ConcatRef "
+    const-string/jumbo v3, "{ ConcatRef "
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -786,7 +786,7 @@
     if-nez v3, :cond_2
 
     .line 268
-    const-string v3, "unset"
+    const-string/jumbo v3, "unset"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -802,7 +802,7 @@
     if-nez v3, :cond_3
 
     .line 278
-    const-string v3, "unset"
+    const-string/jumbo v3, "unset"
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -897,7 +897,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "{ id="
+    const-string/jumbo v4, "{ id="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -982,7 +982,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "{ refNumber="
+    const-string/jumbo v4, "{ refNumber="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1090,7 +1090,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "{ destPort="
+    const-string/jumbo v4, "{ destPort="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

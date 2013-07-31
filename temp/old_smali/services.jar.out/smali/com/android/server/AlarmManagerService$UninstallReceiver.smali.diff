@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/AlarmManagerService$UninstallReceiver.smali	2013-07-12 21:42:35.651832718 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AlarmManagerService$UninstallReceiver.smali	2013-07-12 21:40:30.041822360 +0000
+*** ./smali/com/android/server/AlarmManagerService$UninstallReceiver.smali	2013-07-31 22:22:00.040731276 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AlarmManagerService$UninstallReceiver.smali	2013-07-31 22:21:05.367393379 +0000
 ***************
 *** 200,205 ****
 --- 200,209 ----

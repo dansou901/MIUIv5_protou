@@ -718,17 +718,6 @@
     .parameter "deviceId"
 
     .prologue
-    const/4 v4, -0x1
-
-    if-eq p0, v4, :cond_0
-
-    const-string v2, "KeyCharacterMap"
-
-    const-string v3, "Load KCM of non-default device may incur unexpected result"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
 
     move-result-object v0
@@ -739,13 +728,15 @@
     move-result-object v1
 
     .local v1, inputDevice:Landroid/view/InputDevice;
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    invoke-virtual {v0, v4}, Landroid/hardware/input/InputManager;->getInputDevice(I)Landroid/view/InputDevice;
+    const/4 v2, -0x1
+
+    invoke-virtual {v0, v2}, Landroid/hardware/input/InputManager;->getInputDevice(I)Landroid/view/InputDevice;
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
     new-instance v2, Landroid/view/KeyCharacterMap$UnavailableException;
 
@@ -771,7 +762,7 @@
 
     throw v2
 
-    :cond_1
+    :cond_0
     invoke-virtual {v1}, Landroid/view/InputDevice;->getKeyCharacterMap()Landroid/view/KeyCharacterMap;
 
     move-result-object v2

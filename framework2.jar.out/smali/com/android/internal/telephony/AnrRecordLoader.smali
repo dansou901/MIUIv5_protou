@@ -395,7 +395,7 @@
     .line 253
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "worong ANR format"
+    const-string/jumbo v3, "worong ANR format"
 
     iget-object v5, v9, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -490,7 +490,7 @@
     .line 274
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "update EF ANR record failed"
+    const-string/jumbo v3, "update EF ANR record failed"
 
     iget-object v5, v9, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

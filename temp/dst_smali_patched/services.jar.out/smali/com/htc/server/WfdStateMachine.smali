@@ -229,8 +229,6 @@
 
 .field mFixedModeProperty:Ljava/lang/String;
 
-.field mIfDfsAvailable:Ljava/lang/String;
-
 .field mIsAphConnectable:Z
 
 .field mIsAphConnectableBefore:Z
@@ -318,8 +316,6 @@
 .field mResetDongleCount:I
 
 .field mScanDongleState:Lcom/htc/server/State;
-
-.field mSenseVersion:Ljava/lang/String;
 
 .field private final mSoftapInterface:Ljava/lang/String;
 
@@ -492,10 +488,6 @@
 
     const-string v0, ""
 
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    const-string v0, ""
-
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
     const-string v0, ""
@@ -511,10 +503,6 @@
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
     iput v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
 
     new-instance v0, Landroid/os/RemoteCallbackList;
 
@@ -1190,10 +1178,6 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
-
     const-string v0, "wifi.interface"
 
     const-string v1, "wlan0"
@@ -1372,19 +1356,7 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/htc/server/WfdStateMachine;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1100(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1000(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1394,7 +1366,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1100(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1404,7 +1376,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1200(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1414,7 +1386,7 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+.method static synthetic access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
@@ -1424,7 +1396,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1400(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1434,7 +1406,7 @@
     return-void
 .end method
 
-.method static synthetic access$1600(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1500(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1444,7 +1416,7 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1600(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1454,7 +1426,7 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1700(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1464,7 +1436,7 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1800(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1472,6 +1444,19 @@
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->setL2peApInfo()V
 
     return-void
+.end method
+
+.method static synthetic access$1900(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApSsid(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static synthetic access$200(Lcom/htc/server/WfdStateMachine;)V
@@ -1490,19 +1475,6 @@
     .parameter "x1"
 
     .prologue
-    invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApSsid(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2100(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
     invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -1510,7 +1482,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/htc/server/WfdStateMachine;I)V
+.method static synthetic access$2100(Lcom/htc/server/WfdStateMachine;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1521,7 +1493,7 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+.method static synthetic access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1533,17 +1505,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Lcom/htc/server/WfdStateMachine;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->forceUpdateDongles()V
-
-    return-void
-.end method
-
-.method static synthetic access$2500(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
+.method static synthetic access$2300(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1554,7 +1516,7 @@
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$2400(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1564,7 +1526,7 @@
     return-void
 .end method
 
-.method static synthetic access$2700(Lcom/htc/server/WfdStateMachine;ZLcom/htc/service/DongleInfo;)V
+.method static synthetic access$2500(Lcom/htc/server/WfdStateMachine;ZLcom/htc/service/DongleInfo;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1659,72 +1621,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method private checkIfDfsAvailable()Z
-    .locals 4
-
-    .prologue
-    const/4 v0, 0x0
-
-    .local v0, result:Z
-    const-string v1, "WfdStateMachine"
-
-    const-string v2, "[WFD]===>checkIfDfsAvailable()"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v1, "persist.sys.wfd.dfsavailable"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    const-string v2, "1"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    const-string v1, "WfdStateMachine"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "[WFD]===> persist.sys.wfd.dfsavailable = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method private clearLimitedApInfo()V
@@ -4370,224 +4266,206 @@
 .end method
 
 .method private reportErrorCode(IZ)V
-    .locals 8
+    .locals 7
     .parameter "error"
     .parameter "updateUI"
 
     .prologue
-    const/16 v7, 0x27
+    const/16 v6, 0x27
 
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const-string v1, "WfdStateMachine"
+    const-string v0, "WfdStateMachine"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "[WFD]===>reportErrorCode() error = "
+    const-string v2, "[WFD]===>reportErrorCode() error = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v0, Landroid/content/Intent;
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
-    const-string v1, "com.htc.intent.action.INTENT_NOTIFY_DONGLE_CONNECTION_FAIL"
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
 
-    .local v0, notify_connection_fail:Landroid/content/Intent;
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsShowScanning:Z
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsShowScanning:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
+    const-string v0, "WfdStateMachine"
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
+    const-string v1, "Enable scan....@reportError"
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
+    invoke-static {v0, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    const-string v1, "WfdStateMachine"
+    const/4 v0, 0x2
 
-    const-string v2, "Enable scan....@reportError"
+    if-eq p1, v0, :cond_0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eq p1, v5, :cond_0
 
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
+    const/4 v0, 0x4
 
-    invoke-static {v1, v4}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
-
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v1, v4}, Lcom/htc/service/WirelessDisplayManager;->setWifiNetworkLimit(Z)V
-
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_0
-
-    if-eq p1, v6, :cond_0
-
-    const/4 v1, 0x4
-
-    if-ne p1, v1, :cond_1
+    if-ne p1, v0, :cond_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->forceUpdateDongles()V
-
-    :cond_1
-    if-nez p2, :cond_2
+    if-nez p2, :cond_1
 
     :goto_0
     return-void
 
+    :cond_1
+    iget-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+
+    if-nez v0, :cond_5
+
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-nez v0, :cond_2
+
+    const/16 v0, 0x26
+
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+
+    goto :goto_0
+
     :cond_2
-    iget-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v1, :cond_6
+    if-ne v0, v4, :cond_3
 
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v1, :cond_3
-
-    const/16 v1, 0x26
-
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v6}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 
     :cond_3
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v1, v5, :cond_4
+    if-ne v0, v5, :cond_4
 
-    invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v6}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v3, v0}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
 
     goto :goto_0
 
     :cond_4
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    const/16 v0, 0x28
 
-    if-ne v1, v6, :cond_5
-
-    invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
-
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v4, v1}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 
     :cond_5
-    const/16 v1, 0x28
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    iput v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    :cond_6
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    const-string v0, "WfdStateMachine"
 
-    add-int/lit8 v1, v1, 0x1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iput v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "WfdStateMachine"
+    const-string v2, "[WFD]===>reportErrorCode() mAutoTestContinouslyErrorCount = "
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string v3, "[WFD]===>reportErrorCode() mAutoTestContinouslyErrorCount = "
+    iget v2, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    move-result-object v2
+    const/16 v1, 0xa
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
-
-    const/16 v2, 0xa
-
-    if-lt v1, v2, :cond_7
+    if-lt v0, v1, :cond_6
 
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->retryConfigure()V
 
-    iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
+    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
-    const-string v1, "WfdStateMachine"
+    const-string v0, "WfdStateMachine"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, " mAutoTestContinouslyErrorCount >= 10, mIsHardReset = "
+    const-string v2, " mAutoTestContinouslyErrorCount >= 10, mIsHardReset = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
+    iget-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput v4, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    iput v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    :cond_7
-    const/16 v1, 0x36
+    :cond_6
+    const/16 v0, 0x36
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    const/16 v1, 0xb
+    const/16 v0, 0xb
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 .end method
@@ -5530,755 +5408,714 @@
 .end method
 
 .method attemptToConfigure(Lcom/htc/service/DongleInfo;)V
-    .locals 13
+    .locals 12
     .parameter "info"
 
     .prologue
-    const/16 v5, 0x2e
+    const/16 v4, 0x2e
 
-    const/16 v4, 0x2d
+    const/16 v3, 0x2d
 
-    const/4 v12, 0x3
+    const/4 v11, 0x3
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    const-string v6, "WfdStateMachine"
+    const-string v5, "WfdStateMachine"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "[WFD]===>attemptToConfigure()...mode = "
+    const-string v7, "[WFD]===>attemptToConfigure()...mode = "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    sget-object v8, Lcom/htc/server/WfdUtils;->modeNames:[Ljava/lang/String;
+    sget-object v7, Lcom/htc/server/WfdUtils;->modeNames:[Ljava/lang/String;
 
-    iget v9, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v8, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    aget-object v8, v8, v9
+    aget-object v7, v7, v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :try_start_0
-    const-string v6, "WfdStateMachine"
+    const/16 v5, 0x38
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    const-string v8, "[WFD]===>Dongle status = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    sget-object v8, Lcom/htc/service/DongleInfo;->getStateName:[Ljava/lang/String;
-
-    iget v9, p1, Lcom/htc/service/DongleInfo;->status:I
-
-    aget-object v8, v8, v9
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", isDiscoveredByWivu = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-boolean v8, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", isConnectable = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-boolean v8, p1, Lcom/htc/service/DongleInfo;->isConnectable:Z
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n[WFD]===>, apm = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->pairedApm:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", aph = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->currentAph:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n[WFD]===>, bssid = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", lockType = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget v8, p1, Lcom/htc/service/DongleInfo;->lockType:I
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isConnectable:Z
-
-    if-eqz v6, :cond_1
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v4, "com.htc.intent.action.WIRELESS_DISPLAY_SHOW_DONGLE_CONNECTED"
-
-    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v1, dongleConnectedIntent:Landroid/content/Intent;
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .end local v1           #dongleConnectedIntent:Landroid/content/Intent;
-    :cond_0
-    :goto_1
-    return-void
-
-    :catch_0
-    move-exception v2
-
-    .local v2, e:Ljava/lang/Exception;
-    const/4 v6, 0x5
-
-    invoke-direct {p0, v6, v11}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_0
-
-    .end local v2           #e:Ljava/lang/Exception;
-    :cond_1
-    const/16 v6, 0x38
-
-    invoke-virtual {p0, v6}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->extendTurnOffHotspotTimer()V
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v6, v10}, Lcom/htc/service/WirelessDisplayManager;->setWifiNetworkLimit(Z)V
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->extendTurnOffHotspotTimer()V
 
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->checkIfFixedMode()V
 
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->isCaviumDongle(Lcom/htc/service/DongleInfo;)Z
 
-    move-result v6
+    move-result v5
 
-    iput-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
+    iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    const-string v6, "WfdStateMachine"
+    const-string v5, "WfdStateMachine"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "[WFD]===>attemptToConfigure()...mIsOldCaviumDongle = "
+    const-string v7, "[WFD]===>attemptToConfigure()...mIsOldCaviumDongle = "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-boolean v8, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
+    iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v6, "WfdStateMachine"
+    const-string v5, "WfdStateMachine"
 
-    const-string v7, "Disable scan....@attemptToConfigure"
+    const-string v6, "Disable scan....@attemptToConfigure"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-static {v6, v10}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
+    invoke-static {v5, v9}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
-    const/4 v4, 0x5
+    const/4 v3, 0x5
 
-    invoke-direct {p0, v4, v11}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
+    invoke-direct {p0, v3, v10}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    goto :goto_1
+    :cond_0
+    :goto_0
+    return-void
 
-    :cond_2
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
+    :cond_1
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    const/16 v7, 0x38
+    const/16 v6, 0x38
 
-    if-ne v6, v7, :cond_3
+    if-ne v5, v6, :cond_2
 
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
-    const/16 v7, 0x26
+    const/16 v6, 0x26
 
-    if-ne v6, v7, :cond_3
+    if-ne v5, v6, :cond_2
 
-    const-string v4, "WfdStateMachine"
+    const-string v3, "WfdStateMachine"
 
-    const-string v5, "PBC failed case, retry to configure."
+    const-string v4, "PBC failed case, retry to configure."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
-    goto :goto_1
+    goto :goto_0
+
+    :cond_2
+    :try_start_0
+    const-string v5, "WfdStateMachine"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "[WFD]===>Dongle status = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    sget-object v7, Lcom/htc/service/DongleInfo;->getStateName:[Ljava/lang/String;
+
+    iget v8, p1, Lcom/htc/service/DongleInfo;->status:I
+
+    aget-object v7, v7, v8
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ", isDiscoveredByWivu = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-boolean v7, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n[WFD]===>, apm = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->pairedApm:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ", aph = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->currentAph:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n[WFD]===>, bssid = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ", lockType = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, p1, Lcom/htc/service/DongleInfo;->lockType:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_1
+    const-string v5, "sys.wfd.targetdongle"
+
+    const-string v6, ""
+
+    invoke-static {v5, v6}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    if-eqz v5, :cond_3
+
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->selectedTargetTestDongle(Ljava/lang/String;)Lcom/htc/service/DongleInfo;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
     :cond_3
-    const-string v6, "sys.wfd.targetdongle"
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    const-string v7, ""
-
-    invoke-static {v6, v7}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    if-eqz v6, :cond_4
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    invoke-virtual {p0, v6}, Lcom/htc/server/WfdStateMachine;->selectedTargetTestDongle(Ljava/lang/String;)Lcom/htc/service/DongleInfo;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
-
-    :cond_4
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    if-nez v6, :cond_5
+    if-nez v5, :cond_4
 
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
     :goto_2
-    iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
+    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    iget-boolean v5, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    if-eqz v6, :cond_c
+    if-eqz v5, :cond_b
 
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_8
 
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
 
     move-result-object v0
 
     .local v0, currentDongle:Lcom/htc/service/DongleInfo;
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
-    iget-object v6, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v5, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    iget-object v7, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v6, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_7
+    if-nez v5, :cond_6
 
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v6, :cond_6
+    if-nez v5, :cond_5
 
     :goto_3
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    const/16 v4, 0x39
+    const/16 v3, 0x39
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v4, v11}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
+    invoke-virtual {v3, v10}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
 
-    const-string v4, "WfdStateMachine"
+    const-string v3, "WfdStateMachine"
 
-    const-string v5, "Select a new dongle while mirroring, stop mirror mode first."
+    const-string v4, "Select a new dongle while mirroring, stop mirror mode first."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_5
+    :catch_0
+    move-exception v1
+
+    .local v1, e:Ljava/lang/Exception;
+    const/4 v5, 0x5
+
+    invoke-direct {p0, v5, v10}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_1
+
+    .end local v1           #e:Ljava/lang/Exception;
+    :cond_4
     iget-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     goto :goto_2
 
     .restart local v0       #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_6
-    move v4, v5
+    :cond_5
+    move v3, v4
 
     goto :goto_3
 
-    :cond_7
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    :cond_6
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v4, :cond_8
+    if-nez v3, :cond_7
 
-    const/16 v4, 0x1f
+    const/16 v3, 0x1f
 
     :goto_4
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_8
-    const/16 v4, 0x20
+    :cond_7
+    const/16 v3, 0x20
 
     goto :goto_4
 
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
+    :cond_8
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v5, v11, :cond_9
+
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v9, v5}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
+
     :cond_9
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v6, v12, :cond_a
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v10, v6}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
-
-    :cond_a
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v6, :cond_b
+    if-nez v5, :cond_a
 
     :goto_5
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_b
-    move v4, v5
+    :cond_a
+    move v3, v4
 
     goto :goto_5
 
+    :cond_b
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
+
+    if-eq v5, v9, :cond_c
+
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
+
+    const/4 v6, 0x4
+
+    if-ne v5, v6, :cond_17
+
     :cond_c
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsMultipleWpsDongles:Z
 
-    if-eq v6, v10, :cond_d
+    if-eqz v3, :cond_d
 
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
+    const-string v3, "WfdStateMachine"
 
-    const/4 v7, 0x4
+    const-string v4, "Multiple WPS dongles detected."
 
-    if-ne v6, v7, :cond_18
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_d
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsMultipleWpsDongles:Z
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
-    if-eqz v4, :cond_e
+    if-nez v3, :cond_e
 
-    const-string v4, "WfdStateMachine"
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    const-string v5, "Multiple WPS dongles detected."
+    if-nez v3, :cond_f
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/16 v3, 0x30
+
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     :cond_e
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
-
-    if-nez v4, :cond_f
-
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v4, :cond_10
-
-    const/16 v4, 0x30
-
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
-
-    :cond_f
     :goto_6
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->isConnectToDfsChannels()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_13
+    if-eqz v3, :cond_12
 
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
+    const/16 v3, 0x33
 
-    move-result v4
-
-    if-nez v4, :cond_13
-
-    const/16 v4, 0x33
-
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     :goto_7
-    const-string v4, "WfdStateMachine"
+    const-string v3, "WfdStateMachine"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Check if need to defer configure = "
+    const-string v5, "Check if need to defer configure = "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+    iget-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->clearLimitedApInfo()V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
+
+    :cond_f
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-eq v3, v9, :cond_10
+
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v3, v11, :cond_11
 
     :cond_10
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    const/16 v3, 0x31
 
-    if-eq v4, v10, :cond_11
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-ne v4, v12, :cond_12
+    goto :goto_6
 
     :cond_11
-    const/16 v4, 0x31
+    const/16 v3, 0x32
 
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_6
 
     :cond_12
-    const/16 v4, 0x32
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    if-nez v3, :cond_13
 
-    goto :goto_6
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+
+    goto :goto_7
 
     :cond_13
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
+    const/16 v3, 0x19
 
-    if-nez v4, :cond_14
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->requestWpsOnDemand()V
+
+    sget-boolean v3, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
+
+    if-eqz v3, :cond_14
+
+    const-wide/16 v3, 0x3e8
+
+    invoke-virtual {p0, v9, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_7
 
     :cond_14
-    const/16 v4, 0x19
+    invoke-direct {p0, v9}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
+    move-result v3
 
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->requestWpsOnDemand()V
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    sget-boolean v4, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    if-eqz v4, :cond_15
+    if-eqz v3, :cond_15
 
-    const-wide/16 v4, 0x3e8
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {p0, v10, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
-    goto :goto_7
+    move-result-object v2
 
-    :cond_15
-    invoke-direct {p0, v10}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
+    .local v2, wifiInfo:Landroid/net/wifi/WifiInfo;
+    if-eqz v2, :cond_15
 
-    move-result v4
-
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
-
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
-
-    if-eqz v4, :cond_16
-
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+    invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v3
 
-    .local v3, wifiInfo:Landroid/net/wifi/WifiInfo;
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_15
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_16
+    iput-object v3, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    .end local v2           #wifiInfo:Landroid/net/wifi/WifiInfo;
+    :cond_15
+    iget v3, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    move-result-object v4
+    if-ne v3, v9, :cond_16
 
-    iput-object v4, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
+    const-wide/16 v3, 0x3e8
 
-    .end local v3           #wifiInfo:Landroid/net/wifi/WifiInfo;
+    invoke-virtual {p0, v9, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+
+    goto :goto_7
+
     :cond_16
-    iget v4, p1, Lcom/htc/service/DongleInfo;->status:I
+    const/16 v3, 0x11
 
-    if-ne v4, v10, :cond_17
+    const-wide/16 v4, 0xbb8
 
-    const-wide/16 v4, 0x3e8
-
-    invoke-virtual {p0, v10, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    invoke-virtual {p0, v3, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_7
 
     :cond_17
-    const/16 v4, 0x11
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    const-wide/16 v5, 0xbb8
+    if-eq v5, v11, :cond_18
 
-    invoke-virtual {p0, v4, v5, v6}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    goto :goto_7
+    const/4 v6, 0x2
+
+    if-ne v5, v6, :cond_21
+
+    iget-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
+
+    if-nez v5, :cond_21
 
     :cond_18
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
-
-    if-eq v6, v12, :cond_19
-
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
-
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_22
-
-    iget-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    if-nez v6, :cond_22
-
-    :cond_19
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1d
+    if-eqz v5, :cond_1c
 
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
 
     move-result-object v0
 
     .restart local v0       #currentDongle:Lcom/htc/service/DongleInfo;
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1a
 
-    iget-object v6, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v5, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    iget-object v7, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v6, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_1b
+    if-nez v5, :cond_1a
 
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v6, :cond_1a
+    if-nez v5, :cond_19
 
     :goto_8
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    const/16 v4, 0x39
+    const/16 v3, 0x39
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v4, v11}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
+    invoke-virtual {v3, v10}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
 
-    const-string v4, "WfdStateMachine"
+    const-string v3, "WfdStateMachine"
 
-    const-string v5, "Select a new paired dongle while mirroring, stop mirror mode first."
+    const-string v4, "Select a new paired dongle while mirroring, stop mirror mode first."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_1a
-    move v4, v5
+    :cond_19
+    move v3, v4
 
     goto :goto_8
 
-    :cond_1b
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    :cond_1a
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v4, :cond_1c
+    if-nez v3, :cond_1b
 
-    const/16 v4, 0x1f
+    const/16 v3, 0x1f
 
     :goto_9
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_1c
-    const/16 v4, 0x20
+    :cond_1b
+    const/16 v3, 0x20
 
     goto :goto_9
 
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_1d
-    sget-boolean v6, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
+    :cond_1c
+    sget-boolean v5, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
-    if-nez v6, :cond_1e
+    if-nez v5, :cond_1d
 
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    iget-boolean v5, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    if-nez v6, :cond_1e
+    if-nez v5, :cond_1d
 
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
+
+    :cond_1d
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v5, v11, :cond_1e
+
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v9, v5}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
 
     :cond_1e
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v6, v12, :cond_1f
-
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v10, v6}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
-
-    :cond_1f
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v6, :cond_20
+    if-nez v5, :cond_1f
 
     :goto_a
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    if-nez v4, :cond_21
+    if-nez v3, :cond_20
 
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_20
-    move v4, v5
+    :cond_1f
+    move v3, v4
 
     goto :goto_a
 
+    :cond_20
+    const/4 v3, 0x2
+
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+
+    goto/16 :goto_0
+
     :cond_21
-    const/4 v4, 0x2
+    iget-boolean v3, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    if-nez v3, :cond_0
 
-    goto/16 :goto_1
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    :cond_22
-    iget-boolean v4, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
-
-    if-nez v4, :cond_0
-
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 .end method
 
 .method attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
@@ -6521,12 +6358,6 @@
     move-result v4
 
     if-eqz v4, :cond_7
-
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
-
-    move-result v4
-
-    if-nez v4, :cond_7
 
     const/16 v3, 0x33
 

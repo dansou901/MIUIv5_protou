@@ -36,21 +36,21 @@
     .parameter "thread"
 
     .prologue
-    .line 974
+    .line 977
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 978
+    .line 981
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mApp:Lcom/android/server/am/ProcessRecord;
 
-    .line 979
+    .line 982
     iput p3, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mPid:I
 
-    .line 980
+    .line 983
     iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->mAppThread:Landroid/app/IApplicationThread;
 
-    .line 981
+    .line 984
     return-void
 .end method
 
@@ -60,7 +60,7 @@
     .locals 5
 
     .prologue
-    .line 988
+    .line 991
     const-string v0, "ActivityManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -85,12 +85,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 989
+    .line 992
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
-    .line 990
+    .line 993
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$AppDeathRecipient;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -102,13 +102,13 @@
 
     invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/am/ActivityManagerService;->appDiedLocked(Lcom/android/server/am/ProcessRecord;ILandroid/app/IApplicationThread;)V
 
-    .line 991
+    .line 994
     monitor-exit v1
 
-    .line 992
+    .line 995
     return-void
 
-    .line 991
+    .line 994
     :catchall_0
     move-exception v0
 

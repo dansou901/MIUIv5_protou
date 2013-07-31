@@ -60,7 +60,7 @@
     .line 69
     sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
 
-    const-string v1, "userdebug"
+    const-string/jumbo v1, "userdebug"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -263,7 +263,7 @@
     .line 110
     const-string v2, "Performance"
 
-    const-string v3, "view is not instance of GLSurfaceView"
+    const-string/jumbo v3, "view is not instance of GLSurfaceView"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

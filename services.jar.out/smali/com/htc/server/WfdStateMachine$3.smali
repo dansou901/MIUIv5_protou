@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2600
+    .line 2566
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$3;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -42,19 +42,19 @@
 
     const/4 v1, 0x0
 
-    .line 2604
+    .line 2570
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$3;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     if-eqz v0, :cond_1
 
-    .line 2605
+    .line 2571
     sget-boolean v0, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-nez v0, :cond_2
 
-    .line 2608
+    .line 2574
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$3;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v0, v0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -65,14 +65,14 @@
 
     if-nez v0, :cond_0
 
-    .line 2609
+    .line 2575
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Disable Wifi AP fialed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2610
+    .line 2576
     :cond_0
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$3;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -82,12 +82,12 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 2616
+    .line 2582
     :cond_1
     :goto_0
     return-void
 
-    .line 2612
+    .line 2578
     :cond_2
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$3;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -99,7 +99,7 @@
 
     if-nez v0, :cond_1
 
-    .line 2613
+    .line 2579
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Disable WifiDisplay AP fialed."

@@ -56,91 +56,130 @@
 
 # virtual methods
 .method protected checkConditionBeforeDispatching(Landroid/view/KeyEvent;)Z
-    .locals 5
+    .locals 2
     .parameter "keyEvent"
 
     .prologue
-    iget-object v2, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
-    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
-    invoke-static {v2}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$200(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getFocusedWindow()Landroid/view/WindowManagerPolicy$WindowState;
-
-    move-result-object v1
-
-    .local v1, state:Landroid/view/WindowManagerPolicy$WindowState;
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->getForegroundAppName()Ljava/lang/String;
 
     move-result-object v0
 
-    .local v0, name:Ljava/lang/String;
-    const-string v2, " com.kddi.android.iida.iidahome/"
+    .local v0, activeApp:Ljava/lang/String;
+    const-string v1, "com.kddi.android.iida.iidahome"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    const-string v2, " com.kddi.android.iida.listhome.portal/"
+    const-string v1, "com.kddi.android.iida.iidahome/.Launcher"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
-    const-string v2, " com.kddi.android.iida.widgethome/"
+    const-string v1, "com.kddi.android.iida.listhome.portal"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    if-nez v1, :cond_0
+
+    const-string v1, "com.kddi.android.iida.listhome.portal/.IidaListHomePortal"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "com.kddi.android.iida.widgethome"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "com.kddi.android.iida.widgethome/.Launcher"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     :cond_0
-    const-string v2, "HtcKeyEventHandler"
+    const/4 v1, 0x1
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "IidaHomeAction: name = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x1
-
-    .end local v0           #name:Ljava/lang/String;
     :goto_0
-    return v2
+    return v1
 
     :cond_1
-    const-string v2, "HtcKeyEventHandler"
-
-    const-string v3, "IidaHomeAction: state = null"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method protected longPressBeforeDispatch(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)I
+    .locals 2
+    .parameter "win"
+    .parameter "event"
+    .parameter "policyFlags"
+
+    .prologue
+    invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "HtcKeyEventHandler"
+
+    const-string v1, "IidaHomeAction longPressBeforeDispatch"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->resetKeyStatus()V
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
+
+    iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
+
+    #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mPwmUtil:Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$200(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->mCameraIntent:Landroid/content/Intent;
+
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->launchActivitybyIntent(Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;Landroid/content/Intent;)V
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$IidaHomeAction;->breakAction()V
+
+    const/4 v0, -0x1
+
+    return v0
 .end method

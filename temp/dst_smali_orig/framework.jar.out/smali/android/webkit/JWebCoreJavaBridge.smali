@@ -622,66 +622,125 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .locals 7
     .parameter "msg"
 
     .prologue
-    sget v0, Landroid/webkit/WebCoreThreadWatchdog;->HOST_TYPE_JWEBCOREJAVABRIDGE:I
+    sget v4, Landroid/webkit/WebCoreThreadWatchdog;->HOST_TYPE_JWEBCOREJAVABRIDGE:I
 
-    iget v1, p1, Landroid/os/Message;->what:I
+    iget v5, p1, Landroid/os/Message;->what:I
 
-    invoke-static {v0, v1}, Landroid/webkit/WebCoreThreadWatchdog;->regiestMonitoringMessage(II)V
+    invoke-static {v4, v5}, Landroid/webkit/WebCoreThreadWatchdog;->regiestMonitoringMessage(II)V
 
-    iget v0, p1, Landroid/os/Message;->what:I
+    iget v4, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v4, :sswitch_data_0
 
+    :cond_0
     :goto_0
     invoke-static {}, Landroid/webkit/WebCoreThreadWatchdog;->unRegisterMonitoringMessage()V
 
     return-void
 
     :sswitch_0
-    iget-boolean v0, p0, Landroid/webkit/JWebCoreJavaBridge;->mTimerPaused:Z
+    iget-boolean v4, p0, Landroid/webkit/JWebCoreJavaBridge;->mTimerPaused:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v4, :cond_1
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
-    iput-boolean v0, p0, Landroid/webkit/JWebCoreJavaBridge;->mHasDeferredTimers:Z
+    iput-boolean v4, p0, Landroid/webkit/JWebCoreJavaBridge;->mHasDeferredTimers:Z
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    long-to-double v2, v4
+
+    .local v2, t1:D
     invoke-direct {p0}, Landroid/webkit/JWebCoreJavaBridge;->fireSharedTimer()V
 
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    long-to-double v4, v4
+
+    sub-double v0, v4, v2
+
+    .local v0, elapsed:D
+    const-wide v4, 0x407f400000000000L
+
+    cmpl-double v4, v0, v4
+
+    if-lez v4, :cond_0
+
+    sget-object v4, Landroid/webkit/JWebCoreJavaBridge;->sCurrentMainWebView:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    sget-object v4, Landroid/webkit/JWebCoreJavaBridge;->sCurrentMainWebView:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v4}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/webkit/WebViewClassic;
+
+    invoke-virtual {v4}, Landroid/webkit/WebViewClassic;->isInBrowserApp()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0}, Landroid/webkit/JWebCoreJavaBridge;->pause()V
+
+    const/4 v4, 0x3
+
+    invoke-virtual {p0, v4}, Landroid/webkit/JWebCoreJavaBridge;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v4
+
+    const-wide/16 v5, 0x32
+
+    invoke-virtual {p0, v4, v5, v6}, Landroid/webkit/JWebCoreJavaBridge;->sendMessageDelayed(Landroid/os/Message;J)Z
+
     goto :goto_0
 
+    .end local v0           #elapsed:D
+    .end local v2           #t1:D
     :sswitch_1
     invoke-direct {p0}, Landroid/webkit/JWebCoreJavaBridge;->nativeServiceFuncPtrQueue()V
 
     goto :goto_0
 
     :sswitch_2
-    const/4 v0, 0x0
+    const/4 v4, 0x0
 
-    invoke-static {v0}, Landroid/webkit/PluginManager;->getInstance(Landroid/content/Context;)Landroid/webkit/PluginManager;
+    invoke-static {v4}, Landroid/webkit/PluginManager;->getInstance(Landroid/content/Context;)Landroid/webkit/PluginManager;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Landroid/webkit/PluginManager;->getPluginDirectories()[Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/webkit/PluginManager;->getPluginDirectories()[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/Boolean;
+    check-cast v4, Ljava/lang/Boolean;
 
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v0
+    move-result v4
 
-    invoke-direct {p0, v1, v0}, Landroid/webkit/JWebCoreJavaBridge;->nativeUpdatePluginDirectories([Ljava/lang/String;Z)V
+    invoke-direct {p0, v5, v4}, Landroid/webkit/JWebCoreJavaBridge;->nativeUpdatePluginDirectories([Ljava/lang/String;Z)V
 
     goto :goto_0
 

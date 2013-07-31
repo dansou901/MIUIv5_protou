@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4678
+    .line 4635
     iput-object p1, p0, Landroid/view/ViewRootImpl$TraversalRunnable;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 4
 
     .prologue
-    .line 4681
+    .line 4638
     const/4 v0, 0x1
 
     const-string v1, "ViewRoot"
@@ -52,12 +52,12 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4682
+    .line 4639
     iget-object v0, p0, Landroid/view/ViewRootImpl$TraversalRunnable;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->doTraversal()V
 
-    .line 4683
+    .line 4640
     const/4 v0, 0x2
 
     const-string v1, "ViewRoot"
@@ -68,6 +68,6 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/util/jTestFramework;->print(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4684
+    .line 4641
     return-void
 .end method

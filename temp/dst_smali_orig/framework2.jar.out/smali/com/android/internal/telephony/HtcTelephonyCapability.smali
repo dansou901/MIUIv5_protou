@@ -227,6 +227,20 @@
 
     aput v2, v0, v4
 
+    :goto_1
+    :sswitch_2
+    new-array v0, v4, [I
+
+    .end local v0           #capabilities:[I
+    aput v3, v0, v3
+
+    .restart local v0       #capabilities:[I
+    aget v2, v0, v3
+
+    or-int/lit8 v2, v2, 0x5
+
+    aput v2, v0, v3
+
     goto :goto_0
 
     :pswitch_1
@@ -242,22 +256,7 @@
 
     aput v2, v0, v3
 
-    goto :goto_0
-
-    :sswitch_2
-    new-array v0, v4, [I
-
-    .end local v0           #capabilities:[I
-    aput v3, v0, v3
-
-    .restart local v0       #capabilities:[I
-    aget v2, v0, v3
-
-    or-int/lit8 v2, v2, 0x5
-
-    aput v2, v0, v3
-
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_3
     new-array v0, v4, [I
@@ -390,12 +389,13 @@
 
     goto/16 :goto_0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x11 -> :sswitch_5
         0x12 -> :sswitch_6
         0x13 -> :sswitch_6
-        0x14 -> :sswitch_6
         0x1d -> :sswitch_3
         0x1e -> :sswitch_3
         0x1f -> :sswitch_3
@@ -424,7 +424,6 @@
         0x1fe -> :sswitch_3
         0x240 -> :sswitch_6
         0x241 -> :sswitch_5
-        0x243 -> :sswitch_5
         0x2d8 -> :sswitch_3
     .end sparse-switch
 
@@ -517,7 +516,6 @@
         0x64 -> :sswitch_0
         0xaa -> :sswitch_0
         0xad -> :sswitch_0
-        0x132 -> :sswitch_0
         0x1fd -> :sswitch_0
         0x1fe -> :sswitch_0
     .end sparse-switch
@@ -694,7 +692,6 @@
         0x11 -> :sswitch_2
         0x12 -> :sswitch_3
         0x13 -> :sswitch_3
-        0x14 -> :sswitch_3
         0x1d -> :sswitch_0
         0x1e -> :sswitch_0
         0x1f -> :sswitch_0
@@ -721,7 +718,6 @@
         0x1fe -> :sswitch_0
         0x240 -> :sswitch_3
         0x241 -> :sswitch_2
-        0x243 -> :sswitch_2
         0x2d8 -> :sswitch_0
     .end sparse-switch
 
@@ -771,7 +767,6 @@
         0x11 -> :sswitch_7
         0x12 -> :sswitch_7
         0x13 -> :sswitch_7
-        0x14 -> :sswitch_7
         0x4a -> :sswitch_7
         0x66 -> :sswitch_8
         0x70 -> :sswitch_7
@@ -779,7 +774,6 @@
         0xe4 -> :sswitch_7
         0x240 -> :sswitch_8
         0x241 -> :sswitch_7
-        0x243 -> :sswitch_7
     .end sparse-switch
 
     :pswitch_data_2
@@ -901,7 +895,6 @@
         0x12d -> :sswitch_0
         0x12f -> :sswitch_0
         0x131 -> :sswitch_0
-        0x132 -> :sswitch_0
         0x147 -> :sswitch_0
         0x14a -> :sswitch_0
         0x1fd -> :sswitch_0

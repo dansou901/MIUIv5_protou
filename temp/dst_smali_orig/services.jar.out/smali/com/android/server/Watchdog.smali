@@ -15,11 +15,7 @@
 
 
 # static fields
-.field private static final CB:I = 0x1
-
 .field static final DB:Z = false
-
-.field private static final ENG:I = 0x0
 
 .field static final MEMCHECK_DEFAULT_MIN_ALARM:I = 0xb4
 
@@ -30,8 +26,6 @@
 .field static final MONITOR:I = 0xa9e
 
 .field static final NATIVE_STACKS_OF_INTEREST:[Ljava/lang/String; = null
-
-.field private static final RC:I = 0x2
 
 .field static final REBOOT_ACTION:Ljava/lang/String; = "com.android.service.Watchdog.REBOOT"
 
@@ -122,9 +116,20 @@
     .locals 3
 
     .prologue
-    invoke-static {}, Lcom/android/server/Watchdog;->getTimeToResatrt()I
+    const-string v0, "release-keys"
+
+    sget-object v1, Landroid/os/Build;->TAGS:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x78
+
+    :goto_0
+    mul-int/lit16 v0, v0, 0x3e8
 
     sput v0, Lcom/android/server/Watchdog;->TIME_TO_RESTART:I
 
@@ -159,6 +164,11 @@
     sput-object v0, Lcom/android/server/Watchdog;->NATIVE_STACKS_OF_INTEREST:[Ljava/lang/String;
 
     return-void
+
+    :cond_0
+    const/16 v0, 0x3c
+
+    goto :goto_0
 .end method
 
 .method private constructor <init>()V
@@ -336,186 +346,6 @@
     sget-object v0, Lcom/android/server/Watchdog;->sWatchdog:Lcom/android/server/Watchdog;
 
     return-object v0
-.end method
-
-.method private static getTimeToResatrt()I
-    .locals 10
-
-    .prologue
-    const/16 v4, 0x3a98
-
-    .local v4, result:I
-    const/4 v2, -0x1
-
-    .local v2, modeValue:I
-    const-string v1, "DB"
-
-    .local v1, mode:Ljava/lang/String;
-    const/high16 v5, -0x4080
-
-    .local v5, senseVersion:F
-    :try_start_0
-    sget-object v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    invoke-static {v6}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v5
-
-    :goto_0
-    float-to-double v6, v5
-
-    const-wide/high16 v8, 0x4014
-
-    cmpg-double v6, v6, v8
-
-    if-gez v6, :cond_2
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Sense_"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v6, "release-keys"
-
-    sget-object v7, Landroid/os/Build;->TAGS:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    const/4 v2, 0x1
-
-    const v4, 0x1d4c0
-
-    :goto_1
-    sget-boolean v6, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v6, :cond_0
-
-    const-string v6, "Watchdog"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "mode:"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", value:"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", time:"
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    return v4
-
-    :catch_0
-    move-exception v3
-
-    .local v3, nfe:Ljava/lang/NumberFormatException;
-    const-string v6, "Watchdog"
-
-    const-string v7, "Can not get sense version"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    .end local v3           #nfe:Ljava/lang/NumberFormatException;
-    :cond_1
-    const/4 v2, 0x0
-
-    const v4, 0xea60
-
-    goto :goto_1
-
-    :cond_2
-    const-string v6, "htc.build.stage"
-
-    const-string v7, ""
-
-    invoke-static {v6, v7}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    :try_start_1
-    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result v2
-
-    :goto_2
-    packed-switch v2, :pswitch_data_0
-
-    const v4, 0xea60
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v0
-
-    .local v0, e:Ljava/lang/NumberFormatException;
-    const/4 v2, 0x0
-
-    goto :goto_2
-
-    .end local v0           #e:Ljava/lang/NumberFormatException;
-    :pswitch_0
-    const v4, 0x1d4c0
-
-    goto :goto_1
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method
 
 .method private native native_dumpKernelStacks(Ljava/lang/String;)V

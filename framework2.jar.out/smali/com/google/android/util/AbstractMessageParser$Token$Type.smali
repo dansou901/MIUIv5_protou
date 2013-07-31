@@ -141,7 +141,7 @@
 
     const/4 v2, 0x6
 
-    const-string v3, "v"
+    const-string/jumbo v3, "v"
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/android/util/AbstractMessageParser$Token$Type;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
@@ -154,7 +154,7 @@
 
     const/4 v2, 0x7
 
-    const-string v3, "yt"
+    const-string/jumbo v3, "yt"
 
     invoke-direct {v0, v1, v2, v3}, Lcom/google/android/util/AbstractMessageParser$Token$Type;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 

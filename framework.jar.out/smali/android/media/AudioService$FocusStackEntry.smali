@@ -39,21 +39,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 6453
+    .line 6289
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6444
+    .line 6280
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/media/AudioService$FocusStackEntry;->mStreamType:I
 
-    .line 6445
+    .line 6281
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
-    .line 6446
+    .line 6282
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
-    .line 6454
+    .line 6290
     return-void
 .end method
 
@@ -71,45 +71,45 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 6458
+    .line 6294
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 6444
+    .line 6280
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/media/AudioService$FocusStackEntry;->mStreamType:I
 
-    .line 6445
+    .line 6281
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
-    .line 6446
+    .line 6282
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
-    .line 6459
+    .line 6295
     iput p1, p0, Landroid/media/AudioService$FocusStackEntry;->mStreamType:I
 
-    .line 6460
+    .line 6296
     iput-object p3, p0, Landroid/media/AudioService$FocusStackEntry;->mFocusDispatcher:Landroid/media/IAudioFocusDispatcher;
 
-    .line 6461
+    .line 6297
     iput-object p4, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
-    .line 6462
+    .line 6298
     iput-object p5, p0, Landroid/media/AudioService$FocusStackEntry;->mClientId:Ljava/lang/String;
 
-    .line 6463
+    .line 6299
     iput p2, p0, Landroid/media/AudioService$FocusStackEntry;->mFocusChangeType:I
 
-    .line 6464
+    .line 6300
     iput-object p6, p0, Landroid/media/AudioService$FocusStackEntry;->mHandler:Landroid/media/AudioService$AudioFocusDeathHandler;
 
-    .line 6465
+    .line 6301
     iput-object p7, p0, Landroid/media/AudioService$FocusStackEntry;->mPackageName:Ljava/lang/String;
 
-    .line 6466
+    .line 6302
     iput p8, p0, Landroid/media/AudioService$FocusStackEntry;->mCallingUid:I
 
-    .line 6467
+    .line 6303
     return-void
 .end method
 
@@ -124,13 +124,13 @@
     .end annotation
 
     .prologue
-    .line 6482
+    .line 6318
     invoke-virtual {p0}, Landroid/media/AudioService$FocusStackEntry;->unlinkToDeath()V
 
-    .line 6483
+    .line 6319
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 6484
+    .line 6320
     return-void
 .end method
 
@@ -138,7 +138,7 @@
     .locals 4
 
     .prologue
-    .line 6471
+    .line 6307
     :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
@@ -148,7 +148,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 6472
+    .line 6308
     iget-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mSourceRef:Landroid/os/IBinder;
 
     iget-object v2, p0, Landroid/media/AudioService$FocusStackEntry;->mHandler:Landroid/media/AudioService$AudioFocusDeathHandler;
@@ -157,23 +157,23 @@
 
     invoke-interface {v1, v2, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 6473
+    .line 6309
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/AudioService$FocusStackEntry;->mHandler:Landroid/media/AudioService$AudioFocusDeathHandler;
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 6478
+    .line 6314
     :cond_0
     :goto_0
     return-void
 
-    .line 6475
+    .line 6311
     :catch_0
     move-exception v0
 
-    .line 6476
+    .line 6312
     .local v0, e:Ljava/util/NoSuchElementException;
     const-string v1, "AudioService"
 

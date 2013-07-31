@@ -22,7 +22,7 @@
     .locals 0
 
     .prologue
-    .line 3849
+    .line 3848
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,10 +34,10 @@
     .locals 2
 
     .prologue
-    .line 3851
+    .line 3850
     invoke-static {}, Landroid/graphics/Canvas;->freeCaches()V
 
-    .line 3852
+    .line 3851
     invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
 
     move-result-object v0
@@ -46,17 +46,17 @@
 
     invoke-virtual {v0, v1}, Ldalvik/system/VMRuntime;->gcSoftReferences(Z)V
 
-    .line 3854
+    .line 3853
     invoke-static {}, Lcom/htc/profileflag/ProfileConfig;->getFreeFileMap()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 3855
+    .line 3854
     invoke-static {}, Landroid/os/Process;->releaseFileMapMemory()V
 
-    .line 3856
+    .line 3855
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
@@ -67,7 +67,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3859
+    .line 3858
     :cond_0
     return-void
 .end method

@@ -33,20 +33,20 @@
     .parameter "version"
 
     .prologue
-    .line 1972
+    .line 1911
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1973
+    .line 1912
     iput p2, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mCount:I
 
-    .line 1974
+    .line 1913
     iput-wide p3, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mTotalTime:J
 
-    .line 1975
+    .line 1914
     iput p5, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mVersion:I
 
-    .line 1976
+    .line 1915
     return-void
 .end method

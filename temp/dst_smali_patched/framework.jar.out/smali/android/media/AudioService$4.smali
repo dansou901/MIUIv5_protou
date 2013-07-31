@@ -64,7 +64,7 @@
     iget-object v1, p0, Landroid/media/AudioService$4;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mMediaEventWakeLock:Landroid/os/PowerManager$WakeLock;
-    invoke-static {v1}, Landroid/media/AudioService;->access$8300(Landroid/media/AudioService;)Landroid/os/PowerManager$WakeLock;
+    invoke-static {v1}, Landroid/media/AudioService;->access$7600(Landroid/media/AudioService;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1
 

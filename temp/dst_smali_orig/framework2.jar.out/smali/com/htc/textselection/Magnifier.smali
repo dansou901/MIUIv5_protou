@@ -199,7 +199,7 @@
 
     iput v1, p0, Lcom/htc/textselection/Magnifier;->DENSITY:F
 
-    const v1, 0x4020061
+    const v1, 0x4020089
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1874,6 +1874,8 @@
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/PopupWindow;->showAtLocation(Landroid/view/View;III)V
 
     goto/16 :goto_0
+
+    nop
 
     nop
 

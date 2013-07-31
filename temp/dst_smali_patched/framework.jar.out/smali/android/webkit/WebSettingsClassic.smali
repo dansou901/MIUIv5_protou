@@ -118,8 +118,6 @@
 
 .field private mLoadsImagesAutomatically:Z
 
-.field private mLoadsImagesOnDemand:Z
-
 .field private mMaximumDecodedImageSize:J
 
 .field private mMediaPreloadEnabled:Z
@@ -131,10 +129,6 @@
 .field private mNavDump:Z
 
 .field private mNeedInitialFocus:Z
-
-.field private mNeedsHTCMailQuirks:Z
-
-.field private mNetworkState:Landroid/webkit/WebSettings$NetworkState;
 
 .field private mNetworkType:Ljava/lang/String;
 
@@ -165,8 +159,6 @@
 .field private mStandardFontFamily:Ljava/lang/String;
 
 .field private mSupportMultipleWindows:Z
-
-.field private mSupportRssSniffing:Z
 
 .field private mSupportZoom:Z
 
@@ -287,8 +279,6 @@
 
     iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesAutomatically:Z
 
-    iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
-
     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mBlockNetworkImage:Z
 
     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mJavaScriptEnabled:Z
@@ -304,10 +294,6 @@
     sget-object v1, Landroid/webkit/WebSettings$PluginState;->OFF:Landroid/webkit/WebSettings$PluginState;
 
     iput-object v1, p0, Landroid/webkit/WebSettingsClassic;->mPluginState:Landroid/webkit/WebSettings$PluginState;
-
-    sget-object v1, Landroid/webkit/WebSettings$NetworkState;->WIFI:Landroid/webkit/WebSettings$NetworkState;
-
-    iput-object v1, p0, Landroid/webkit/WebSettingsClassic;->mNetworkState:Landroid/webkit/WebSettings$NetworkState;
 
     iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mJavaScriptCanOpenWindowsAutomatically:Z
 
@@ -411,15 +397,11 @@
 
     iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mWOFFEnabled:Z
 
-    iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mSupportRssSniffing:Z
-
     iput-object v6, p0, Landroid/webkit/WebSettingsClassic;->mUAProfile:Ljava/lang/String;
 
     iput-object v6, p0, Landroid/webkit/WebSettingsClassic;->mDeviceId:Ljava/lang/String;
 
     iput-object v6, p0, Landroid/webkit/WebSettingsClassic;->mNetworkType:Ljava/lang/String;
-
-    iput-boolean v3, p0, Landroid/webkit/WebSettingsClassic;->mNeedsHTCMailQuirks:Z
 
     iput-boolean v2, p0, Landroid/webkit/WebSettingsClassic;->mUseWebViewBackgroundForOverscroll:Z
 
@@ -846,25 +828,7 @@
     move-result-object v4
 
     .local v4, language:Ljava/lang/String;
-    sget-short v9, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v10, 0xe1
-
-    if-ne v9, v10, :cond_b
-
-    iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mWebView:Landroid/webkit/WebViewClassic;
-
-    if-eqz v9, :cond_b
-
-    iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mWebView:Landroid/webkit/WebViewClassic;
-
-    invoke-virtual {v9}, Landroid/webkit/WebViewClassic;->isInBrowserApp()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_b
-
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_7
 
     invoke-static {v4}, Landroid/webkit/WebSettingsClassic;->convertObsoleteLanguageCodeToNew(Ljava/lang/String;)Ljava/lang/String;
 
@@ -872,23 +836,29 @@
 
     invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    const-string v9, "es"
+    invoke-virtual {v5}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result v9
+    .local v2, country:Ljava/lang/String;
+    if-eqz v2, :cond_0
 
-    if-eqz v9, :cond_7
-
-    const-string v9, "-mx"
+    const-string v9, "-"
 
     invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    .end local v2           #country:Ljava/lang/String;
     :cond_0
     :goto_1
     iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mUAStringModel:Ljava/lang/String;
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_8
 
     iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mUAStringModel:Ljava/lang/String;
 
@@ -896,7 +866,7 @@
 
     move-result v9
 
-    if-lez v9, :cond_d
+    if-lez v9, :cond_8
 
     const-string v9, "; "
 
@@ -912,7 +882,7 @@
 
     const/16 v10, 0xd8
 
-    if-ne v9, v10, :cond_e
+    if-ne v9, v10, :cond_9
 
     :cond_2
     :goto_3
@@ -974,7 +944,7 @@
     .local v0, base:Ljava/lang/String;
     iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mUaStringID:Ljava/lang/String;
 
-    if-eqz v9, :cond_f
+    if-eqz v9, :cond_a
 
     iget-object v9, p0, Landroid/webkit/WebSettingsClassic;->mUaStringID:Ljava/lang/String;
 
@@ -982,7 +952,7 @@
 
     move-result v9
 
-    if-lez v9, :cond_f
+    if-lez v9, :cond_a
 
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -1073,98 +1043,11 @@
     :cond_7
     const-string v9, "en"
 
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_8
-
-    const-string v9, "-us"
-
     invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     goto/16 :goto_1
 
     :cond_8
-    const-string v9, "pt"
-
-    invoke-virtual {v9, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_9
-
-    const-string v9, "-br"
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    :cond_9
-    invoke-virtual {v5}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v2
-
-    .local v2, country:Ljava/lang/String;
-    if-eqz v2, :cond_0
-
-    const-string v9, "-"
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    .end local v2           #country:Ljava/lang/String;
-    :cond_a
-    const-string v9, "en-us"
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    :cond_b
-    if-eqz v4, :cond_c
-
-    invoke-static {v4}, Landroid/webkit/WebSettingsClassic;->convertObsoleteLanguageCodeToNew(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v5}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v2
-
-    .restart local v2       #country:Ljava/lang/String;
-    if-eqz v2, :cond_0
-
-    const-string v9, "-"
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    invoke-virtual {v2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    .end local v2           #country:Ljava/lang/String;
-    :cond_c
-    const-string v9, "en"
-
-    invoke-virtual {v1, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    :cond_d
     const-string v9, "REL"
 
     sget-object v10, Landroid/os/Build$VERSION;->CODENAME:Ljava/lang/String;
@@ -1193,7 +1076,7 @@
     goto/16 :goto_2
 
     .end local v7           #model:Ljava/lang/String;
-    :cond_e
+    :cond_9
     sget-object v3, Landroid/os/Build;->ID:Ljava/lang/String;
 
     .local v3, id:Ljava/lang/String;
@@ -1214,7 +1097,7 @@
     .end local v3           #id:Ljava/lang/String;
     .restart local v0       #base:Ljava/lang/String;
     .restart local v6       #mobile:Ljava/lang/String;
-    :cond_f
+    :cond_a
     const/4 v9, 0x2
 
     new-array v9, v9, [Ljava/lang/Object;
@@ -1233,7 +1116,7 @@
 
     move-result-object v9
 
-    goto/16 :goto_4
+    goto :goto_4
 .end method
 
 .method private native nativeIsWebGLAvailable()Z
@@ -2137,27 +2020,6 @@
     return v0
 .end method
 
-.method public getNetwork2GEnabled()Z
-    .locals 2
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/WebSettingsClassic;->mNetworkState:Landroid/webkit/WebSettings$NetworkState;
-
-    sget-object v1, Landroid/webkit/WebSettings$NetworkState;->TWO_G:Landroid/webkit/WebSettings$NetworkState;
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public declared-synchronized getPluginState()Landroid/webkit/WebSettings$PluginState;
     .locals 1
 
@@ -2803,19 +2665,6 @@
 
     .prologue
     iget v0, p0, Landroid/webkit/WebSettingsClassic;->mWebSelectionType:I
-
-    return v0
-.end method
-
-.method public isEnableMyanmar3()Z
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/WebSettingsClassic;->mBrowserFrame:Landroid/webkit/BrowserFrame;
-
-    invoke-virtual {v0}, Landroid/webkit/BrowserFrame;->isEnableMyanmar3()Z
-
-    move-result v0
 
     return v0
 .end method
@@ -3547,37 +3396,6 @@
     throw v0
 .end method
 
-.method public declared-synchronized setLoadsImagesOnDemand(Z)V
-    .locals 1
-    .parameter "flag"
-
-    .prologue
-    monitor-enter p0
-
-    :try_start_0
-    iget-boolean v0, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
-
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mLoadsImagesOnDemand:Z
-
-    invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
 .method setDoubleTapToastCount(I)V
     .locals 3
     .parameter "count"
@@ -3622,18 +3440,6 @@
     invoke-virtual {v0, p1}, Landroid/webkit/WebViewClassic;->updateDoubleTapZoom(I)V
 
     :cond_0
-    return-void
-.end method
-
-.method public setEnableMyanmar3(Z)V
-    .locals 1
-    .parameter "flag"
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/WebSettingsClassic;->mBrowserFrame:Landroid/webkit/BrowserFrame;
-
-    invoke-virtual {v0, p1}, Landroid/webkit/BrowserFrame;->setEnableMyanmar3(Z)V
-
     return-void
 .end method
 
@@ -4252,57 +4058,6 @@
     return-void
 .end method
 
-.method public setNeedsHTCMailQuirks(Z)V
-    .locals 0
-    .parameter "needsQuirks"
-
-    .prologue
-    iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mNeedsHTCMailQuirks:Z
-
-    invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
-
-    return-void
-.end method
-
-.method public declared-synchronized setNetworkState(I)V
-    .locals 2
-    .parameter "intState"
-
-    .prologue
-    monitor-enter p0
-
-    :try_start_0
-    invoke-static {}, Landroid/webkit/WebSettings$NetworkState;->values()[Landroid/webkit/WebSettings$NetworkState;
-
-    move-result-object v1
-
-    aget-object v0, v1, p1
-
-    .local v0, state:Landroid/webkit/WebSettings$NetworkState;
-    iget-object v1, p0, Landroid/webkit/WebSettingsClassic;->mNetworkState:Landroid/webkit/WebSettings$NetworkState;
-
-    if-eq v1, v0, :cond_0
-
-    iput-object v0, p0, Landroid/webkit/WebSettingsClassic;->mNetworkState:Landroid/webkit/WebSettings$NetworkState;
-
-    invoke-direct {p0}, Landroid/webkit/WebSettingsClassic;->postSync()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :cond_0
-    monitor-exit p0
-
-    return-void
-
-    .end local v0           #state:Landroid/webkit/WebSettings$NetworkState;
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-
-    throw v1
-.end method
-
 .method public declared-synchronized setPageCacheCapacity(I)V
     .locals 1
     .parameter "size"
@@ -4766,16 +4521,6 @@
     monitor-exit p0
 
     throw v0
-.end method
-
-.method public setSupportRssSniffing(Z)V
-    .locals 0
-    .parameter "flag"
-
-    .prologue
-    iput-boolean p1, p0, Landroid/webkit/WebSettingsClassic;->mSupportRssSniffing:Z
-
-    return-void
 .end method
 
 .method public setSupportZoom(Z)V

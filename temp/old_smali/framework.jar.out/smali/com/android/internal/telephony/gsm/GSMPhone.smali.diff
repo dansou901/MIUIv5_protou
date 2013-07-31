@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-07-12 21:42:56.321834422 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-07-12 21:40:44.711823570 +0000
+*** ./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-07-31 22:22:13.347399053 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-07-31 22:21:14.210727451 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;
@@ -68,3 +68,16 @@
       return-object v0
   .end method
   
+***************
+*** 2851,2856 ****
+--- 2871,2880 ----
+  
+      iput-object v9, p0, Lcom/android/internal/telephony/gsm/GSMPhone;->mImei:Ljava/lang/String;
+  
++     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GSMPhone;->sendDeviceIdReadyBroadcast()V
++ 
++     invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GSMPhone;->setDeviceIdSystemProperty()V
++ 
+      goto :goto_0
+  
+      .end local v0           #ar:Landroid/os/AsyncResult;

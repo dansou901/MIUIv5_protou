@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1524
+    .line 1517
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$LinkDiscoverState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Lcom/htc/server/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 1527
+    .line 1520
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1528
+    .line 1521
     return-void
 .end method
 
@@ -74,7 +74,7 @@
     .parameter "message"
 
     .prologue
-    .line 1531
+    .line 1524
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -109,7 +109,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1532
+    .line 1525
     const/4 v0, 0x0
 
     return v0

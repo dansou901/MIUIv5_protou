@@ -94,7 +94,7 @@
 
     .line 87
     .local v0, type:Ljava/lang/String;
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -192,7 +192,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "sjisMsg.getBytes(SJIS).length = "
+    const-string/jumbo v5, "sjisMsg.getBytes(SJIS).length = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1455,7 +1455,7 @@
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "sjisMsg.getBytes(SJIS).length = "
+    const-string/jumbo v14, "sjisMsg.getBytes(SJIS).length = "
 
     invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1650,7 +1650,7 @@
     if-ne v12, v0, :cond_16
 
     .line 203
-    const-string v12, "smtran "
+    const-string/jumbo v12, "smtran "
 
     invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1775,7 +1775,7 @@
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "sjisIrcFormat = "
+    const-string/jumbo v14, "sjisIrcFormat = "
 
     invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1803,7 +1803,7 @@
     if-ne v12, v0, :cond_17
 
     .line 211
-    const-string v12, "smstore3 "
+    const-string/jumbo v12, "smstore3 "
 
     invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1925,7 +1925,7 @@
     .line 233
     const-string v12, "PacketSmsDataConvertor"
 
-    const-string v13, "sjisIrcFormat is not sjis"
+    const-string/jumbo v13, "sjisIrcFormat is not sjis"
 
     invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2257,11 +2257,11 @@
     .local v5, response:Ljava/lang/String;
     const/4 v11, 0x0
 
-    const-string v12, "tresp "
+    const-string/jumbo v12, "tresp "
 
     const/4 v13, 0x0
 
-    const-string v14, "tresp "
+    const-string/jumbo v14, "tresp "
 
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
@@ -2394,7 +2394,7 @@
     if-ge v2, v11, :cond_5
 
     .line 297
-    const-string v11, "tresp "
+    const-string/jumbo v11, "tresp "
 
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 
@@ -2551,11 +2551,11 @@
     :cond_6
     const/4 v11, 0x0
 
-    const-string v12, "smresp "
+    const-string/jumbo v12, "smresp "
 
     const/4 v13, 0x0
 
-    const-string v14, "smresp "
+    const-string/jumbo v14, "smresp "
 
     invoke-virtual {v14}, Ljava/lang/String;->length()I
 
@@ -2768,7 +2768,7 @@
     .end local v4           #response:Ljava/lang/String;
     .restart local v5       #response:Ljava/lang/String;
     :cond_9
-    const-string v11, "smresp "
+    const-string/jumbo v11, "smresp "
 
     invoke-virtual {v11}, Ljava/lang/String;->length()I
 

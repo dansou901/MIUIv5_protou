@@ -1012,7 +1012,7 @@
 
     .line 254
     .local v3, mRes:Landroid/content/res/Resources;
-    const v8, 0x40700f7
+    const v8, 0x40700f0
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1020,7 +1020,7 @@
 
     .line 255
     .local v7, title:Ljava/lang/String;
-    const v8, 0x40700f8
+    const v8, 0x40700f1
 
     invoke-virtual {v3, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1040,7 +1040,7 @@
 
     .line 257
     .local v5, notificationManager:Landroid/app/NotificationManager;
-    const v1, 0x4020058
+    const v1, 0x4020080
 
     .line 259
     .local v1, id:I
@@ -1067,7 +1067,7 @@
 
     .line 263
     .local v0, HDMINotification:Landroid/app/Notification;
-    const v8, 0x4020058
+    const v8, 0x4020080
 
     iput v8, v0, Landroid/app/Notification;->icon:I
 

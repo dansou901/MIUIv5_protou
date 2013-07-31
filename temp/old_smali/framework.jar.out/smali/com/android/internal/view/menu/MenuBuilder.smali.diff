@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/view/menu/MenuBuilder.smali	2013-07-12 21:43:02.518501600 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/MenuBuilder.smali	2013-07-12 21:40:50.825157407 +0000
+*** ./smali/com/android/internal/view/menu/MenuBuilder.smali	2013-07-31 22:22:17.787399424 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/MenuBuilder.smali	2013-07-31 22:21:16.637394320 +0000
 ***************
 *** 2475,2480 ****
 --- 2475,2528 ----

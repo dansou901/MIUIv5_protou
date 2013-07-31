@@ -185,7 +185,7 @@
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .local v3, messages:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/telephony/SmsMessage;>;"
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
     invoke-interface {p0}, Ljava/util/List;->size()I
 
@@ -242,59 +242,10 @@
 
     goto :goto_0
 
-    .end local v1           #data:Lcom/android/internal/telephony/SmsRawData;
-    :cond_1
-    const-string v5, "createMessageListFromRawRecords"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "records count : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v5, "createMessageListFromRawRecords"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "messages.size() : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     .end local v0           #count:I
+    .end local v1           #data:Lcom/android/internal/telephony/SmsRawData;
     .end local v2           #i:I
-    :cond_2
+    :cond_1
     return-object v3
 .end method
 

@@ -310,7 +310,7 @@
     iput v3, v2, Lcom/android/internal/app/AlertController$AlertParams;->mIconId:I
 
     .line 91
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -375,7 +375,7 @@
     iput v3, p0, Lcom/android/internal/app/NetInitiatedActivity;->notificationId:I
 
     .line 99
-    const-string v3, "timeout"
+    const-string/jumbo v3, "timeout"
 
     iget v4, p0, Lcom/android/internal/app/NetInitiatedActivity;->default_response_timeout:I
 

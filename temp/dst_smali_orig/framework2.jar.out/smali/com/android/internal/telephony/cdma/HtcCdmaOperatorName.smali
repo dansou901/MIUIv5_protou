@@ -190,7 +190,7 @@
 
     move-result-object v3
 
-    const v4, 0x40700d0
+    const v4, 0x40700c9
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1693,6 +1693,8 @@
     invoke-virtual {p0, v8, v7}, Lcom/android/internal/telephony/cdma/HtcCdmaOperatorName;->updateFromDataServiceState(ZLjava/lang/String;)V
 
     goto/16 :goto_0
+
+    nop
 
     nop
 

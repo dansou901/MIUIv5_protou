@@ -146,7 +146,7 @@
 
     const v6, 0x10402a1
 
-    const v7, 0x4070093
+    const v7, 0x407008c
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -180,7 +180,7 @@
 
     const v6, 0x1040299
 
-    const v7, 0x4070091
+    const v7, 0x407008a
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -197,7 +197,7 @@
 
     const v6, 0x104029b
 
-    const v7, 0x4070092
+    const v7, 0x407008b
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -214,7 +214,7 @@
 
     const v6, 0x104029f
 
-    const v7, 0x4070090
+    const v7, 0x4070089
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -297,9 +297,9 @@
 
     const-string v5, "limit-device-function"
 
-    const v6, 0x4070094
+    const v6, 0x407008d
 
-    const v7, 0x407008f
+    const v7, 0x4070088
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -314,9 +314,9 @@
 
     const-string v5, "get-active-sync-deviceid"
 
-    const v6, 0x4070095
+    const v6, 0x407008e
 
-    const v7, 0x4070096
+    const v7, 0x407008f
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -331,9 +331,9 @@
 
     const-string v5, "add-email"
 
-    const v6, 0x4070097
+    const v6, 0x4070090
 
-    const v7, 0x4070098
+    const v7, 0x4070091
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -348,9 +348,9 @@
 
     const-string v5, "delete-email"
 
-    const v6, 0x4070099
+    const v6, 0x4070092
 
-    const v7, 0x407009a
+    const v7, 0x4070093
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -365,9 +365,9 @@
 
     const-string v5, "add-vpn"
 
-    const v6, 0x407009b
+    const v6, 0x4070094
 
-    const v7, 0x407009c
+    const v7, 0x4070095
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -382,9 +382,9 @@
 
     const-string v5, "delete-vpn"
 
-    const v6, 0x407009d
+    const v6, 0x4070096
 
-    const v7, 0x407009e
+    const v7, 0x4070097
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -399,9 +399,9 @@
 
     const-string v5, "get-vpn-info"
 
-    const v6, 0x407009f
+    const v6, 0x4070098
 
-    const v7, 0x40700a0
+    const v7, 0x4070099
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -416,9 +416,9 @@
 
     const-string v5, "inst-cert"
 
-    const v6, 0x40700a3
+    const v6, 0x407009c
 
-    const v7, 0x40700a4
+    const v7, 0x407009d
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -433,9 +433,9 @@
 
     const-string/jumbo v5, "wipe-all-sdcards"
 
-    const v6, 0x40700a1
+    const v6, 0x407009a
 
-    const v7, 0x40700a2
+    const v7, 0x407009b
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 
@@ -450,9 +450,9 @@
 
     const-string v5, "encrypt-sdcard"
 
-    const v6, 0x40700a5
+    const v6, 0x407009e
 
-    const v7, 0x40700a6
+    const v7, 0x407009f
 
     invoke-direct {v3, v4, v5, v6, v7}, Landroid/app/admin/DeviceAdminInfo$PolicyInfo;-><init>(ILjava/lang/String;II)V
 

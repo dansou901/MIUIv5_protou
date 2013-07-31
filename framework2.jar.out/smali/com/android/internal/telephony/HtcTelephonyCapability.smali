@@ -147,23 +147,23 @@
 
     const/4 v3, 0x0
 
-    .line 422
+    .line 418
     const/4 v0, 0x0
 
-    .line 423
+    .line 419
     .local v0, capabilities:[I
     const/4 v1, 0x0
 
-    .line 426
+    .line 422
     .local v1, preferNetworkMode:Ljava/lang/Integer;
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 518
+    .line 511
     if-nez v1, :cond_0
 
-    .line 519
+    .line 512
     const-string v2, "ro.telephony.default_network"
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -174,7 +174,7 @@
 
     move-result-object v1
 
-    .line 522
+    .line 515
     :cond_0
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -182,14 +182,14 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 543
+    .line 536
     :pswitch_0
     new-array v0, v4, [I
 
     .end local v0           #capabilities:[I
     aput v3, v0, v3
 
-    .line 544
+    .line 537
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -197,18 +197,18 @@
 
     aput v2, v0, v3
 
-    .line 551
+    .line 544
     :goto_0
     return-object v0
 
-    .line 430
+    .line 426
     :sswitch_0
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_0
 
-    .line 431
+    .line 427
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -216,7 +216,7 @@
 
     aput v2, v0, v3
 
-    .line 432
+    .line 428
     aget v2, v0, v4
 
     or-int/lit8 v2, v2, 0x1
@@ -225,19 +225,19 @@
 
     goto :goto_0
 
-    .line 439
+    .line 435
     :sswitch_1
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     packed-switch v2, :pswitch_data_1
 
-    .line 448
+    .line 444
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_1
 
-    .line 449
+    .line 445
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -245,40 +245,22 @@
 
     aput v2, v0, v3
 
-    .line 450
+    .line 446
     aget v2, v0, v4
 
     or-int/lit8 v2, v2, 0x1
 
     aput v2, v0, v4
 
-    goto :goto_0
-
-    .line 442
-    :pswitch_1
-    new-array v0, v4, [I
-
-    .end local v0           #capabilities:[I
-    aput v3, v0, v3
-
-    .line 443
-    .restart local v0       #capabilities:[I
-    aget v2, v0, v3
-
-    or-int/lit8 v2, v2, 0x1
-
-    aput v2, v0, v3
-
-    goto :goto_0
-
-    .line 458
+    .line 453
+    :goto_1
     :sswitch_2
     new-array v0, v4, [I
 
     .end local v0           #capabilities:[I
     aput v3, v0, v3
 
-    .line 459
+    .line 454
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -288,14 +270,31 @@
 
     goto :goto_0
 
-    .line 477
+    .line 438
+    :pswitch_1
+    new-array v0, v4, [I
+
+    .end local v0           #capabilities:[I
+    aput v3, v0, v3
+
+    .line 439
+    .restart local v0       #capabilities:[I
+    aget v2, v0, v3
+
+    or-int/lit8 v2, v2, 0x1
+
+    aput v2, v0, v3
+
+    goto :goto_1
+
+    .line 472
     :sswitch_3
     new-array v0, v4, [I
 
     .end local v0           #capabilities:[I
     aput v3, v0, v3
 
-    .line 478
+    .line 473
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -305,14 +304,14 @@
 
     goto :goto_0
 
-    .line 486
+    .line 481
     :sswitch_4
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_2
 
-    .line 487
+    .line 482
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -320,7 +319,7 @@
 
     aput v2, v0, v3
 
-    .line 488
+    .line 483
     aget v2, v0, v4
 
     const v3, -0x7ffffff0
@@ -331,14 +330,14 @@
 
     goto :goto_0
 
-    .line 499
+    .line 493
     :sswitch_5
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_3
 
-    .line 500
+    .line 494
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -346,7 +345,7 @@
 
     aput v2, v0, v3
 
-    .line 501
+    .line 495
     aget v2, v0, v4
 
     or-int/lit8 v2, v2, 0x1
@@ -355,14 +354,14 @@
 
     goto :goto_0
 
-    .line 511
+    .line 504
     :sswitch_6
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_4
 
-    .line 512
+    .line 505
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -370,7 +369,7 @@
 
     aput v2, v0, v3
 
-    .line 513
+    .line 506
     aget v2, v0, v4
 
     or-int/lit8 v2, v2, 0x1
@@ -379,14 +378,14 @@
 
     goto/16 :goto_0
 
-    .line 524
+    .line 517
     :pswitch_2
     new-array v0, v4, [I
 
     .end local v0           #capabilities:[I
     aput v3, v0, v3
 
-    .line 525
+    .line 518
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -396,14 +395,14 @@
 
     goto/16 :goto_0
 
-    .line 529
+    .line 522
     :pswitch_3
     new-array v0, v5, [I
 
     .end local v0           #capabilities:[I
     fill-array-data v0, :array_5
 
-    .line 530
+    .line 523
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -411,7 +410,7 @@
 
     aput v2, v0, v3
 
-    .line 531
+    .line 524
     aget v2, v0, v4
 
     or-int/lit8 v2, v2, 0x1
@@ -420,14 +419,14 @@
 
     goto/16 :goto_0
 
-    .line 536
+    .line 529
     :pswitch_4
     new-array v0, v4, [I
 
     .end local v0           #capabilities:[I
     aput v3, v0, v3
 
-    .line 537
+    .line 530
     .restart local v0       #capabilities:[I
     aget v2, v0, v3
 
@@ -437,13 +436,14 @@
 
     goto/16 :goto_0
 
-    .line 426
+    .line 422
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x11 -> :sswitch_5
         0x12 -> :sswitch_6
         0x13 -> :sswitch_6
-        0x14 -> :sswitch_6
         0x1d -> :sswitch_3
         0x1e -> :sswitch_3
         0x1f -> :sswitch_3
@@ -472,11 +472,10 @@
         0x1fe -> :sswitch_3
         0x240 -> :sswitch_6
         0x241 -> :sswitch_5
-        0x243 -> :sswitch_5
         0x2d8 -> :sswitch_3
     .end sparse-switch
 
-    .line 522
+    .line 515
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_2
@@ -488,48 +487,48 @@
         :pswitch_4
     .end packed-switch
 
-    .line 430
+    .line 426
     :array_0
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 439
+    .line 435
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_1
     .end packed-switch
 
-    .line 448
+    .line 444
     :array_1
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 486
+    .line 481
     :array_2
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 499
+    .line 493
     :array_3
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 511
+    .line 504
     :array_4
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
         0x0t 0x0t 0x0t 0x0t
     .end array-data
 
-    .line 529
+    .line 522
     :array_5
     .array-data 0x4
         0x0t 0x0t 0x0t 0x0t
@@ -541,30 +540,30 @@
     .locals 2
 
     .prologue
-    .line 555
+    .line 548
     const/4 v0, 0x0
 
-    .line 556
+    .line 549
     .local v0, capabilities:I
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 576
+    .line 568
     or-int/lit8 v0, v0, 0x1
 
-    .line 579
+    .line 571
     :goto_0
     return v0
 
-    .line 573
+    .line 565
     :sswitch_0
     or-int/lit8 v0, v0, 0x2
 
-    .line 574
+    .line 566
     goto :goto_0
 
-    .line 556
+    .line 549
     :sswitch_data_0
     .sparse-switch
         0x1d -> :sswitch_0
@@ -580,7 +579,6 @@
         0x64 -> :sswitch_0
         0xaa -> :sswitch_0
         0xad -> :sswitch_0
-        0x132 -> :sswitch_0
         0x1fd -> :sswitch_0
         0x1fe -> :sswitch_0
     .end sparse-switch
@@ -607,10 +605,10 @@
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 306
+    .line 304
     if-nez v1, :cond_0
 
-    .line 307
+    .line 305
     const-string v2, "ro.telephony.default_network"
 
     invoke-static {v2, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -621,7 +619,7 @@
 
     move-result-object v1
 
-    .line 310
+    .line 308
     :cond_0
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -629,20 +627,20 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 322
+    .line 320
     :pswitch_0
     or-int/lit8 v0, v0, 0x1
 
-    .line 329
+    .line 327
     :goto_0
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     sparse-switch v2, :sswitch_data_1
 
-    .line 366
+    .line 364
     if-nez v1, :cond_1
 
-    .line 367
+    .line 365
     const-string v2, "ro.telephony.default_network"
 
     invoke-static {v2, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -653,7 +651,7 @@
 
     move-result-object v1
 
-    .line 370
+    .line 368
     :cond_1
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -661,7 +659,7 @@
 
     packed-switch v2, :pswitch_data_1
 
-    .line 382
+    .line 380
     :cond_2
     :goto_1
     :pswitch_1
@@ -669,7 +667,7 @@
 
     sparse-switch v2, :sswitch_data_2
 
-    .line 403
+    .line 399
     :goto_2
     return v0
 
@@ -699,54 +697,54 @@
     .line 277
     goto :goto_0
 
-    .line 289
+    .line 288
     :sswitch_2
     or-int/lit8 v0, v0, 0x3
 
-    .line 292
+    .line 291
     goto :goto_0
 
-    .line 300
+    .line 298
     :sswitch_3
     or-int/lit8 v0, v0, 0x5
 
-    .line 303
+    .line 301
     goto :goto_0
 
-    .line 313
+    .line 311
     :pswitch_3
     or-int/lit8 v0, v0, 0x2
 
-    .line 314
+    .line 312
     goto :goto_0
 
-    .line 317
+    .line 315
     :pswitch_4
     or-int/lit8 v0, v0, 0x2
 
-    .line 318
+    .line 316
     goto :goto_0
 
-    .line 344
+    .line 342
     :sswitch_4
     or-int/2addr v0, v4
 
-    .line 345
+    .line 343
     goto :goto_1
 
-    .line 349
+    .line 347
     :sswitch_5
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     packed-switch v2, :pswitch_data_3
 
-    .line 353
+    .line 351
     or-int/2addr v0, v4
 
-    .line 354
+    .line 352
     goto :goto_1
 
-    .line 358
+    .line 356
     :sswitch_6
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -762,35 +760,35 @@
 
     if-eqz v2, :cond_2
 
-    .line 362
+    .line 360
     :cond_3
     or-int/2addr v0, v4
 
     goto :goto_1
 
-    .line 373
+    .line 371
     :pswitch_5
     or-int/2addr v0, v4
 
-    .line 374
+    .line 372
     goto :goto_1
 
-    .line 392
+    .line 388
     :sswitch_7
     const/high16 v2, 0x4000
 
     or-int/2addr v0, v2
 
-    .line 393
+    .line 389
     goto :goto_2
 
-    .line 397
+    .line 393
     :sswitch_8
     const/high16 v2, 0x2000
 
     or-int/2addr v0, v2
 
-    .line 398
+    .line 394
     goto :goto_2
 
     .line 251
@@ -799,7 +797,6 @@
         0x11 -> :sswitch_2
         0x12 -> :sswitch_3
         0x13 -> :sswitch_3
-        0x14 -> :sswitch_3
         0x1d -> :sswitch_0
         0x1e -> :sswitch_0
         0x1f -> :sswitch_0
@@ -826,11 +823,10 @@
         0x1fe -> :sswitch_0
         0x240 -> :sswitch_3
         0x241 -> :sswitch_2
-        0x243 -> :sswitch_2
         0x2d8 -> :sswitch_0
     .end sparse-switch
 
-    .line 310
+    .line 308
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_3
@@ -842,7 +838,7 @@
         :pswitch_4
     .end packed-switch
 
-    .line 329
+    .line 327
     :sswitch_data_1
     .sparse-switch
         0x1d -> :sswitch_4
@@ -865,7 +861,7 @@
         0x2d8 -> :sswitch_4
     .end sparse-switch
 
-    .line 370
+    .line 368
     :pswitch_data_1
     .packed-switch 0x7
         :pswitch_5
@@ -874,13 +870,12 @@
         :pswitch_5
     .end packed-switch
 
-    .line 382
+    .line 380
     :sswitch_data_2
     .sparse-switch
         0x11 -> :sswitch_7
         0x12 -> :sswitch_7
         0x13 -> :sswitch_7
-        0x14 -> :sswitch_7
         0x4a -> :sswitch_7
         0x66 -> :sswitch_8
         0x70 -> :sswitch_7
@@ -888,7 +883,6 @@
         0xe4 -> :sswitch_7
         0x240 -> :sswitch_8
         0x241 -> :sswitch_7
-        0x243 -> :sswitch_7
     .end sparse-switch
 
     .line 274
@@ -897,7 +891,7 @@
         :pswitch_2
     .end packed-switch
 
-    .line 349
+    .line 347
     :pswitch_data_3
     .packed-switch 0x1
         :pswitch_1
@@ -908,34 +902,34 @@
     .locals 2
 
     .prologue
-    .line 642
+    .line 633
     const/4 v0, 0x0
 
-    .line 645
+    .line 636
     .local v0, capabilities:I
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 679
+    .line 670
     :goto_0
     return v0
 
-    .line 657
+    .line 648
     :sswitch_0
     or-int/lit8 v0, v0, 0x1
 
-    .line 658
+    .line 649
     goto :goto_0
 
-    .line 674
+    .line 665
     :sswitch_1
     or-int/lit8 v0, v0, 0x2
 
-    .line 675
+    .line 666
     goto :goto_0
 
-    .line 645
+    .line 636
     nop
 
     :sswitch_data_0
@@ -971,30 +965,30 @@
     .locals 2
 
     .prologue
-    .line 588
+    .line 580
     const/4 v0, 0x0
 
-    .line 591
+    .line 583
     .local v0, capabilities:I
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 635
+    .line 626
     or-int/lit8 v0, v0, 0x1
 
-    .line 638
+    .line 629
     :goto_0
     return v0
 
-    .line 632
+    .line 623
     :sswitch_0
     or-int/lit8 v0, v0, 0x2
 
-    .line 633
+    .line 624
     goto :goto_0
 
-    .line 591
+    .line 583
     :sswitch_data_0
     .sparse-switch
         0x1d -> :sswitch_0
@@ -1027,7 +1021,6 @@
         0x12d -> :sswitch_0
         0x12f -> :sswitch_0
         0x131 -> :sswitch_0
-        0x132 -> :sswitch_0
         0x147 -> :sswitch_0
         0x14a -> :sswitch_0
         0x1fd -> :sswitch_0
@@ -1042,10 +1035,10 @@
     .locals 1
 
     .prologue
-    .line 583
+    .line 575
     const/4 v0, 0x0
 
-    .line 584
+    .line 576
     .local v0, capabilities:I
     return v0
 .end method
@@ -1054,21 +1047,21 @@
     .locals 3
 
     .prologue
-    .line 407
+    .line 403
     const/4 v0, 0x0
 
-    .line 410
+    .line 406
     .local v0, capabilities:I
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->HTC_WIFI_ONLY_flag:Z
 
     if-eqz v1, :cond_0
 
-    .line 411
+    .line 407
     const/high16 v1, 0x4000
 
     or-int/2addr v0, v1
 
-    .line 414
+    .line 410
     :cond_0
     const-string v1, "ro.phone.function"
 
@@ -1080,12 +1073,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 415
+    .line 411
     const/high16 v1, -0x8000
 
     or-int/2addr v0, v1
 
-    .line 418
+    .line 414
     :cond_1
     return v0
 .end method

@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/wm/WindowState.smali	2013-07-12 21:42:40.405166443 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/wm/WindowState.smali	2013-07-12 21:40:33.328489298 +0000
+*** ./smali/com/android/server/wm/WindowState.smali	2013-07-31 22:22:02.247398127 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/wm/WindowState.smali	2013-07-31 22:21:07.247393536 +0000
 ***************
 *** 36,41 ****
 --- 36,43 ----

@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 3691
+    .line 4399
     iput-object p1, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     iput-object p2, p0, Landroid/widget/Editor$HandleView$1;->val$view:Landroid/view/View;
@@ -46,7 +46,7 @@
     .locals 6
 
     .prologue
-    .line 3694
+    .line 4402
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     iget-object v0, v0, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
@@ -57,7 +57,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 3695
+    .line 4403
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     iget-boolean v0, v0, Landroid/widget/Editor$HandleView;->mIsInsertionHandle:Z
@@ -94,7 +94,7 @@
 
     if-lez v0, :cond_1
 
-    .line 3696
+    .line 4404
     :cond_0
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
@@ -114,14 +114,14 @@
     iget-object v2, v2, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mMenuWrapper:Landroid/widget/Editor$MenuWrapper;
-    invoke-static {v2}, Landroid/widget/Editor;->access$2700(Landroid/widget/Editor;)Landroid/widget/Editor$MenuWrapper;
+    invoke-static {v2}, Landroid/widget/Editor;->access$3200(Landroid/widget/Editor;)Landroid/widget/Editor$MenuWrapper;
 
     move-result-object v2
 
     iget-object v3, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     #getter for: Landroid/widget/Editor$HandleView;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Landroid/widget/Editor$HandleView;->access$2800(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
+    invoke-static {v3}, Landroid/widget/Editor$HandleView;->access$3300(Landroid/widget/Editor$HandleView;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -158,7 +158,7 @@
     iget-object v5, v5, Landroid/widget/Editor$HandleView;->this$0:Landroid/widget/Editor;
 
     #getter for: Landroid/widget/Editor;->mIsLongPressed:Z
-    invoke-static {v5}, Landroid/widget/Editor;->access$2900(Landroid/widget/Editor;)Z
+    invoke-static {v5}, Landroid/widget/Editor;->access$3400(Landroid/widget/Editor;)Z
 
     move-result v5
 
@@ -169,11 +169,11 @@
     :goto_0
     invoke-virtual/range {v0 .. v5}, Lcom/htc/textselection/HtcTextSelectionManager;->prepareHtcPasteWindow(Landroid/view/View;Landroid/view/View$OnClickListener;Landroid/content/Context;ZZ)V
 
-    .line 3697
+    .line 4405
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 
     #getter for: Landroid/widget/Editor$HandleView;->mIsDragging:Z
-    invoke-static {v0}, Landroid/widget/Editor$HandleView;->access$3000(Landroid/widget/Editor$HandleView;)Z
+    invoke-static {v0}, Landroid/widget/Editor$HandleView;->access$3500(Landroid/widget/Editor$HandleView;)Z
 
     move-result v0
 
@@ -186,18 +186,18 @@
     #calls: Landroid/widget/Editor;->showQuickAction()V
     invoke-static {v0}, Landroid/widget/Editor;->access$1200(Landroid/widget/Editor;)V
 
-    .line 3701
+    .line 4409
     :cond_1
     :goto_1
     return-void
 
-    .line 3696
+    .line 4404
     :cond_2
     const/4 v5, 0x0
 
     goto :goto_0
 
-    .line 3700
+    .line 4408
     :cond_3
     iget-object v0, p0, Landroid/widget/Editor$HandleView$1;->this$1:Landroid/widget/Editor$HandleView;
 

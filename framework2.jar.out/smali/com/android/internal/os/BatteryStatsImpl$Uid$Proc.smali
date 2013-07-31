@@ -68,36 +68,23 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl$Uid;)V
-    .locals 2
+    .locals 1
     .parameter
 
     .prologue
-    .line 5046
+    .line 4464
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
     invoke-direct {p0}, Landroid/os/BatteryStats$Uid$Proc;-><init>()V
 
-    .line 5047
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    .line 5048
-    :try_start_0
+    .line 4465
     iget-object v0, p1, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mUnpluggables:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 5049
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 5050
+    .line 4466
     iget-object v0, p1, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->getCpuSpeedSteps()I
@@ -108,19 +95,8 @@
 
     iput-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
-    .line 5051
+    .line 4467
     return-void
-
-    .line 5049
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
 .end method
 
 
@@ -131,7 +107,7 @@
     .parameter "stime"
 
     .prologue
-    .line 5227
+    .line 4625
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
     int-to-long v2, p1
@@ -140,7 +116,7 @@
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
-    .line 5228
+    .line 4626
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
     int-to-long v2, p2
@@ -149,7 +125,7 @@
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
-    .line 5229
+    .line 4627
     return-void
 .end method
 
@@ -159,42 +135,42 @@
     .parameter "usedTime"
 
     .prologue
-    .line 5115
+    .line 4513
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     if-nez v1, :cond_0
 
-    .line 5116
+    .line 4514
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
-    .line 5118
+    .line 4516
     :cond_0
     new-instance v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;-><init>()V
 
-    .line 5119
+    .line 4517
     .local v0, ew:Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
     const/4 v1, 0x2
 
     iput v1, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->type:I
 
-    .line 5120
+    .line 4518
     iput-wide p1, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->overTime:J
 
-    .line 5121
+    .line 4519
     iput-wide p3, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->usedTime:J
 
-    .line 5122
+    .line 4520
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 5123
+    .line 4521
     return-void
 .end method
 
@@ -204,42 +180,42 @@
     .parameter "usedTime"
 
     .prologue
-    .line 5104
+    .line 4502
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     if-nez v1, :cond_0
 
-    .line 5105
+    .line 4503
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
-    .line 5107
+    .line 4505
     :cond_0
     new-instance v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
 
     invoke-direct {v0}, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;-><init>()V
 
-    .line 5108
+    .line 4506
     .local v0, ew:Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->type:I
 
-    .line 5109
+    .line 4507
     iput-wide p1, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->overTime:J
 
-    .line 5110
+    .line 4508
     iput-wide p3, v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->usedTime:J
 
-    .line 5111
+    .line 4509
     iget-object v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 5112
+    .line 4510
     return-void
 .end method
 
@@ -248,14 +224,14 @@
     .parameter "ttime"
 
     .prologue
-    .line 5232
+    .line 4630
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
     add-long/2addr v0, p1
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
-    .line 5233
+    .line 4631
     return-void
 .end method
 
@@ -264,7 +240,7 @@
     .parameter "values"
 
     .prologue
-    .line 5305
+    .line 4703
     const/4 v3, 0x0
 
     .local v3, i:I
@@ -279,10 +255,10 @@
 
     if-ge v3, v4, :cond_2
 
-    .line 5306
+    .line 4704
     aget-wide v0, p1, v3
 
-    .line 5307
+    .line 4705
     .local v0, amt:J
     const-wide/16 v4, 0x0
 
@@ -290,16 +266,16 @@
 
     if-eqz v4, :cond_1
 
-    .line 5308
+    .line 4706
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     aget-object v2, v4, v3
 
-    .line 5309
+    .line 4707
     .local v2, c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     if-nez v2, :cond_0
 
-    .line 5310
+    .line 4708
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     new-instance v2, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
@@ -316,106 +292,30 @@
     .restart local v2       #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     aput-object v2, v4, v3
 
-    .line 5312
+    .line 4710
     :cond_0
     aget-wide v4, p1, v3
 
     invoke-virtual {v2, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;->addCountAtomic(J)V
 
-    .line 5305
+    .line 4703
     .end local v2           #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     :cond_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 5315
+    .line 4713
     .end local v0           #amt:J
     :cond_2
     return-void
-.end method
-
-.method attach()V
-    .locals 4
-
-    .prologue
-    .line 5067
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    .line 5068
-    :try_start_0
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
-
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
-
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mUnpluggables:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 5069
-    const/4 v1, 0x0
-
-    .local v1, i:I
-    :goto_0
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
-
-    array-length v2, v2
-
-    if-ge v1, v2, :cond_1
-
-    .line 5070
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
-
-    aget-object v0, v2, v1
-
-    .line 5071
-    .local v0, c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
-    if-eqz v0, :cond_0
-
-    .line 5073
-    iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
-
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
-
-    iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl;->mUnpluggables:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 5069
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 5076
-    .end local v0           #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
-    :cond_1
-    monitor-exit v3
-
-    .line 5077
-    return-void
-
-    .line 5076
-    .end local v1           #i:I
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
 .end method
 
 .method public countExcessivePowers()I
     .locals 1
 
     .prologue
-    .line 5093
+    .line 4491
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
@@ -436,18 +336,10 @@
 .end method
 
 .method detach()V
-    .locals 5
+    .locals 4
 
     .prologue
-    .line 5080
-    invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$400()Ljava/lang/Object;
-
-    move-result-object v3
-
-    monitor-enter v3
-
-    .line 5081
-    :try_start_0
+    .line 4480
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
     iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
@@ -456,7 +348,7 @@
 
     invoke-virtual {v2, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 5082
+    .line 4481
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -467,16 +359,16 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 5083
+    .line 4482
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     aget-object v0, v2, v1
 
-    .line 5084
+    .line 4483
     .local v0, c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     if-eqz v0, :cond_0
 
-    .line 5085
+    .line 4484
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
     iget-object v2, v2, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
@@ -485,44 +377,30 @@
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 5086
+    .line 4485
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v4, v2, v1
+    aput-object v3, v2, v1
 
-    .line 5082
+    .line 4481
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 5089
+    .line 4488
     .end local v0           #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     :cond_1
-    monitor-exit v3
-
-    .line 5090
     return-void
-
-    .line 5089
-    .end local v1           #i:I
-    :catchall_0
-    move-exception v2
-
-    monitor-exit v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
 .end method
 
 .method public getBatteryStats()Lcom/android/internal/os/BatteryStatsImpl;
     .locals 1
 
     .prologue
-    .line 5223
+    .line 4621
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl$Uid;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
@@ -535,12 +413,12 @@
     .parameter "i"
 
     .prologue
-    .line 5097
+    .line 4495
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 5098
+    .line 4496
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -549,7 +427,7 @@
 
     check-cast v0, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
 
-    .line 5100
+    .line 4498
     :goto_0
     return-object v0
 
@@ -564,45 +442,45 @@
     .parameter "which"
 
     .prologue
-    .line 5274
+    .line 4672
     const/4 v2, 0x1
 
     if-ne p1, v2, :cond_1
 
-    .line 5275
+    .line 4673
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastForegroundTime:J
 
-    .line 5284
+    .line 4682
     .local v0, val:J
     :cond_0
     :goto_0
     return-wide v0
 
-    .line 5277
+    .line 4675
     .end local v0           #val:J
     :cond_1
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
-    .line 5278
+    .line 4676
     .restart local v0       #val:J
     const/4 v2, 0x2
 
     if-ne p1, v2, :cond_2
 
-    .line 5279
+    .line 4677
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedForegroundTime:J
 
     sub-long/2addr v0, v2
 
     goto :goto_0
 
-    .line 5280
+    .line 4678
     :cond_2
     const/4 v2, 0x3
 
     if-ne p1, v2, :cond_0
 
-    .line 5281
+    .line 4679
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedForegroundTime:J
 
     sub-long/2addr v0, v2
@@ -615,45 +493,45 @@
     .parameter "which"
 
     .prologue
-    .line 5290
+    .line 4688
     const/4 v1, 0x1
 
     if-ne p1, v1, :cond_1
 
-    .line 5291
+    .line 4689
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastStarts:I
 
-    .line 5300
+    .line 4698
     .local v0, val:I
     :cond_0
     :goto_0
     return v0
 
-    .line 5293
+    .line 4691
     .end local v0           #val:I
     :cond_1
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
-    .line 5294
+    .line 4692
     .restart local v0       #val:I
     const/4 v1, 0x2
 
     if-ne p1, v1, :cond_2
 
-    .line 5295
+    .line 4693
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedStarts:I
 
     sub-int/2addr v0, v1
 
     goto :goto_0
 
-    .line 5296
+    .line 4694
     :cond_2
     const/4 v1, 0x3
 
     if-ne p1, v1, :cond_0
 
-    .line 5297
+    .line 4695
     iget v1, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedStarts:I
 
     sub-int/2addr v0, v1
@@ -666,45 +544,45 @@
     .parameter "which"
 
     .prologue
-    .line 5258
+    .line 4656
     const/4 v2, 0x1
 
     if-ne p1, v2, :cond_1
 
-    .line 5259
+    .line 4657
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastSystemTime:J
 
-    .line 5268
+    .line 4666
     .local v0, val:J
     :cond_0
     :goto_0
     return-wide v0
 
-    .line 5261
+    .line 4659
     .end local v0           #val:J
     :cond_1
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
-    .line 5262
+    .line 4660
     .restart local v0       #val:J
     const/4 v2, 0x2
 
     if-ne p1, v2, :cond_2
 
-    .line 5263
+    .line 4661
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedSystemTime:J
 
     sub-long/2addr v0, v2
 
     goto :goto_0
 
-    .line 5264
+    .line 4662
     :cond_2
     const/4 v2, 0x3
 
     if-ne p1, v2, :cond_0
 
-    .line 5265
+    .line 4663
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedSystemTime:J
 
     sub-long/2addr v0, v2
@@ -720,19 +598,19 @@
     .prologue
     const-wide/16 v1, 0x0
 
-    .line 5319
+    .line 4717
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     array-length v3, v3
 
     if-ge p1, v3, :cond_0
 
-    .line 5320
+    .line 4718
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     aget-object v0, v3, p1
 
-    .line 5321
+    .line 4719
     .local v0, c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     if-eqz v0, :cond_0
 
@@ -742,7 +620,7 @@
 
     int-to-long v1, v1
 
-    .line 5323
+    .line 4721
     .end local v0           #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     :cond_0
     return-wide v1
@@ -753,45 +631,45 @@
     .parameter "which"
 
     .prologue
-    .line 5242
+    .line 4640
     const/4 v2, 0x1
 
     if-ne p1, v2, :cond_1
 
-    .line 5243
+    .line 4641
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastUserTime:J
 
-    .line 5252
+    .line 4650
     .local v0, val:J
     :cond_0
     :goto_0
     return-wide v0
 
-    .line 5245
+    .line 4643
     .end local v0           #val:J
     :cond_1
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
-    .line 5246
+    .line 4644
     .restart local v0       #val:J
     const/4 v2, 0x2
 
     if-ne p1, v2, :cond_2
 
-    .line 5247
+    .line 4645
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedUserTime:J
 
     sub-long/2addr v0, v2
 
     goto :goto_0
 
-    .line 5248
+    .line 4646
     :cond_2
     const/4 v2, 0x3
 
     if-ne p1, v2, :cond_0
 
-    .line 5249
+    .line 4647
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedUserTime:J
 
     sub-long/2addr v0, v2
@@ -803,14 +681,14 @@
     .locals 1
 
     .prologue
-    .line 5236
+    .line 4634
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
-    .line 5237
+    .line 4635
     return-void
 .end method
 
@@ -820,7 +698,7 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 5061
+    .line 4477
     return-void
 .end method
 
@@ -831,32 +709,32 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 5142
+    .line 4540
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 5143
+    .line 4541
     .local v0, N:I
     if-nez v0, :cond_1
 
-    .line 5144
+    .line 4542
     const/4 v4, 0x0
 
     iput-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
-    .line 5161
+    .line 4559
     :cond_0
     :goto_0
     return v3
 
-    .line 5148
+    .line 4546
     :cond_1
     const/16 v4, 0x2710
 
     if-le v0, v4, :cond_2
 
-    .line 5149
+    .line 4547
     const-string v3, "BatteryStatsImpl"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -879,12 +757,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 5150
+    .line 4548
     const/4 v3, 0x0
 
     goto :goto_0
 
-    .line 5153
+    .line 4551
     :cond_2
     new-instance v4, Ljava/util/ArrayList;
 
@@ -892,19 +770,19 @@
 
     iput-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
-    .line 5154
+    .line 4552
     const/4 v2, 0x0
 
     .local v2, i:I
     :goto_1
     if-ge v2, v0, :cond_0
 
-    .line 5155
+    .line 4553
     new-instance v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
 
     invoke-direct {v1}, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;-><init>()V
 
-    .line 5156
+    .line 4554
     .local v1, ew:Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
@@ -912,26 +790,26 @@
 
     iput v4, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->type:I
 
-    .line 5157
+    .line 4555
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     iput-wide v4, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->overTime:J
 
-    .line 5158
+    .line 4556
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v4
 
     iput-wide v4, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->usedTime:J
 
-    .line 5159
+    .line 4557
     iget-object v4, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 5154
+    .line 4552
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
@@ -944,110 +822,110 @@
     .prologue
     const-wide/16 v5, 0x0
 
-    .line 5193
+    .line 4591
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
-    .line 5194
+    .line 4592
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
-    .line 5195
+    .line 4593
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
-    .line 5196
+    .line 4594
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
-    .line 5197
+    .line 4595
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedUserTime:J
 
-    .line 5198
+    .line 4596
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedSystemTime:J
 
-    .line 5199
+    .line 4597
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedForegroundTime:J
 
-    .line 5200
+    .line 4598
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedStarts:I
 
-    .line 5201
+    .line 4599
     iput-wide v5, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastUserTime:J
 
-    .line 5202
+    .line 4600
     iput-wide v5, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastSystemTime:J
 
-    .line 5203
+    .line 4601
     iput-wide v5, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastForegroundTime:J
 
-    .line 5204
+    .line 4602
     const/4 v3, 0x0
 
     iput v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLastStarts:I
 
-    .line 5205
+    .line 4603
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedUserTime:J
 
-    .line 5206
+    .line 4604
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedSystemTime:J
 
-    .line 5207
+    .line 4605
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedForegroundTime:J
 
-    .line 5208
+    .line 4606
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     iput v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedStarts:I
 
-    .line 5210
+    .line 4608
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    .line 5211
+    .line 4609
     .local v0, bins:I
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->this$1:Lcom/android/internal/os/BatteryStatsImpl$Uid;
 
@@ -1057,7 +935,7 @@
 
     move-result v2
 
-    .line 5212
+    .line 4610
     .local v2, steps:I
     if-lt v0, v2, :cond_0
 
@@ -1069,21 +947,21 @@
 
     iput-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
-    .line 5213
+    .line 4611
     const/4 v1, 0x0
 
     .local v1, i:I
     :goto_0
     if-ge v1, v0, :cond_2
 
-    .line 5214
+    .line 4612
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
     if-eqz v3, :cond_1
 
-    .line 5215
+    .line 4613
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     new-instance v4, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
@@ -1098,17 +976,17 @@
 
     aput-object v4, v3, v1
 
-    .line 5213
+    .line 4611
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 5219
+    .line 4617
     :cond_2
     invoke-virtual {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->readExcessivePowerFromParcelLocked(Landroid/os/Parcel;)Z
 
-    .line 5220
+    .line 4618
     return-void
 .end method
 
@@ -1118,27 +996,27 @@
     .parameter "batteryRealtime"
 
     .prologue
-    .line 5054
+    .line 4470
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedUserTime:J
 
-    .line 5055
+    .line 4471
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedSystemTime:J
 
-    .line 5056
+    .line 4472
     iget v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
     iput v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedStarts:I
 
-    .line 5057
+    .line 4473
     iget-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
     iput-wide v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedForegroundTime:J
 
-    .line 5058
+    .line 4474
     return-void
 .end method
 
@@ -1147,21 +1025,21 @@
     .parameter "out"
 
     .prologue
-    .line 5126
+    .line 4524
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     if-nez v3, :cond_1
 
-    .line 5127
+    .line 4525
     const/4 v3, 0x0
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5139
+    .line 4537
     :cond_0
     return-void
 
-    .line 5131
+    .line 4529
     :cond_1
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
@@ -1169,18 +1047,18 @@
 
     move-result v0
 
-    .line 5132
+    .line 4530
     .local v0, N:I
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5133
+    .line 4531
     const/4 v2, 0x0
 
     .local v2, i:I
     :goto_0
     if-ge v2, v0, :cond_0
 
-    .line 5134
+    .line 4532
     iget-object v3, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mExcessivePower:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1189,23 +1067,23 @@
 
     check-cast v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
 
-    .line 5135
+    .line 4533
     .local v1, ew:Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;
     iget v3, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->type:I
 
     invoke-virtual {p1, v3}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5136
+    .line 4534
     iget-wide v3, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->overTime:J
 
     invoke-virtual {p1, v3, v4}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5137
+    .line 4535
     iget-wide v3, v1, Landroid/os/BatteryStats$Uid$Proc$ExcessivePower;->usedTime:J
 
     invoke-virtual {p1, v3, v4}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5133
+    .line 4531
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -1216,74 +1094,74 @@
     .parameter "out"
 
     .prologue
-    .line 5165
+    .line 4563
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUserTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5166
+    .line 4564
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSystemTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5167
+    .line 4565
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mForegroundTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5168
+    .line 4566
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mStarts:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5169
+    .line 4567
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedUserTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5170
+    .line 4568
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedSystemTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5171
+    .line 4569
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedForegroundTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5172
+    .line 4570
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mLoadedStarts:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5173
+    .line 4571
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedUserTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5174
+    .line 4572
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedSystemTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5175
+    .line 4573
     iget-wide v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedForegroundTime:J
 
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 5176
+    .line 4574
     iget v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mUnpluggedStarts:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5178
+    .line 4576
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     array-length v2, v2
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5179
+    .line 4577
     const/4 v1, 0x0
 
     .local v1, i:I
@@ -1294,30 +1172,30 @@
 
     if-ge v1, v2, :cond_1
 
-    .line 5180
+    .line 4578
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->mSpeedBins:[Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
 
     aget-object v0, v2, v1
 
-    .line 5181
+    .line 4579
     .local v0, c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     if-eqz v0, :cond_0
 
-    .line 5182
+    .line 4580
     const/4 v2, 0x1
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 5183
+    .line 4581
     invoke-virtual {v0, p1}, Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;->writeToParcel(Landroid/os/Parcel;)V
 
-    .line 5179
+    .line 4577
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 5185
+    .line 4583
     :cond_0
     const/4 v2, 0x0
 
@@ -1325,11 +1203,11 @@
 
     goto :goto_1
 
-    .line 5189
+    .line 4587
     .end local v0           #c:Lcom/android/internal/os/BatteryStatsImpl$SamplingCounter;
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Uid$Proc;->writeExcessivePowerToParcelLocked(Landroid/os/Parcel;)V
 
-    .line 5190
+    .line 4588
     return-void
 .end method

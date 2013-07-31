@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 337
+    .line 332
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Lcom/htc/server/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 3
 
     .prologue
-    .line 340
+    .line 335
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,7 +65,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 341
+    .line 336
     return-void
 .end method
 
@@ -74,7 +74,7 @@
     .parameter "message"
 
     .prologue
-    .line 344
+    .line 339
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -109,12 +109,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 345
+    .line 340
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 361
+    .line 356
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -147,14 +147,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 364
+    .line 359
     :goto_0
     const/4 v0, 0x1
 
     :goto_1
     return v0
 
-    .line 347
+    .line 342
     :sswitch_0
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -164,7 +164,7 @@
 
     invoke-virtual {v0, v1}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
 
-    .line 348
+    .line 343
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/16 v1, 0x64
@@ -173,7 +173,7 @@
 
     goto :goto_0
 
-    .line 351
+    .line 346
     :sswitch_1
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -183,7 +183,7 @@
 
     invoke-virtual {v0, v1}, Lcom/htc/server/WfdStateMachine;->transitionTo(Lcom/htc/server/IState;)V
 
-    .line 352
+    .line 347
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     const/16 v1, 0x32
@@ -192,7 +192,7 @@
 
     goto :goto_0
 
-    .line 355
+    .line 350
     :sswitch_2
     const-string v0, "WfdStateMachine"
 
@@ -200,20 +200,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 356
+    .line 351
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine$DefaultState;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine;->finishService()V
 
     goto :goto_0
 
-    .line 359
+    .line 354
     :sswitch_3
     const/4 v0, 0x0
 
     goto :goto_1
 
-    .line 345
+    .line 340
     :sswitch_data_0
     .sparse-switch
         -0x1 -> :sswitch_3

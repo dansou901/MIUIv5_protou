@@ -56,11 +56,9 @@
 
 .field private static final REQUEST_STATUS__NEED_RUN:I = 0x1
 
-.field private static final REQUEST_STATUS__NONE:I = 0x0
+.field private static final REQUEST_STATUS__NONE:I
 
-.field private static final SECURITY_DEBUG:Z = false
-
-.field private static final spVoiceMail_prev_number:Ljava/lang/String; = "vm_prev_number_key_cdma"
+.field private static final SECURITY_DEBUG:Z
 
 
 # instance fields
@@ -106,7 +104,7 @@
 
     sput-boolean v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->DEBUG:Z
 
-    .line 110
+    .line 108
     const/4 v0, 0x2
 
     new-array v0, v0, [C
@@ -138,7 +136,7 @@
     .line 57
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
-    .line 444
+    .line 417
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
@@ -215,20 +213,20 @@
     .locals 3
 
     .prologue
-    .line 789
+    .line 758
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.htc.intent.action.VMNumChanged"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 790
+    .line 759
     .local v0, vm_intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     if-eqz v1, :cond_0
 
-    .line 792
+    .line 761
     const-string v1, "phone_type"
 
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
@@ -239,7 +237,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 793
+    .line 762
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
@@ -248,11 +246,11 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V
 
-    .line 799
+    .line 768
     :goto_0
     return-void
 
-    .line 797
+    .line 766
     :cond_0
     const-string v1, "CDMA"
 
@@ -267,7 +265,7 @@
     .locals 5
 
     .prologue
-    .line 172
+    .line 170
     sget-object v1, Lcom/android/internal/telephony/HtcTelephonyCapability;->BUILT_ACCOUNT_CAPABILITIES:[I
 
     .local v1, arr$:[I
@@ -282,28 +280,28 @@
 
     aget v0, v1, v2
 
-    .line 173
+    .line 171
     .local v0, accountType:I
     and-int/lit8 v4, v0, 0x2
 
     if-eqz v4, :cond_0
 
-    .line 174
+    .line 172
     const/4 v4, 0x1
 
-    .line 177
+    .line 175
     .end local v0           #accountType:I
     :goto_1
     return v4
 
-    .line 172
+    .line 170
     .restart local v0       #accountType:I
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 177
+    .line 175
     .end local v0           #accountType:I
     :cond_1
     const/4 v4, 0x0
@@ -320,47 +318,47 @@
 
     const/4 v4, 0x0
 
-    .line 476
+    .line 449
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 477
+    .line 450
     .local v1, strBuf:Ljava/lang/StringBuilder;
     const-string v2, "VM-"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 478
+    .line 451
     const-string v2, "done request "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 479
+    .line 452
     iget v2, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 480
+    .line 453
     sget-object v2, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->CHAR_SLASH:[C
 
     aget-char v2, v2, v4
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 481
+    .line 454
     iget v2, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->reason:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 482
+    .line 455
     sget-object v2, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->CHAR_SLASH:[C
 
     aget-char v2, v2, v4
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 483
+    .line 456
     iget-object v2, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
@@ -369,14 +367,14 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 484
+    .line 457
     sget-object v2, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->CHAR_SLASH:[C
 
     aget-char v2, v2, v4
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 485
+    .line 458
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
@@ -385,36 +383,36 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 486
+    .line 459
     const-string v2, " -> "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 487
+    .line 460
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    .line 488
+    .line 461
     sget-object v2, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->CHAR_SLASH:[C
 
     aget-char v2, v2, v4
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 489
+    .line 462
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 490
+    .line 463
     sget-object v2, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->CHAR_SLASH:[C
 
     aget-char v2, v2, v4
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 491
+    .line 464
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->voicemailNumber:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
@@ -423,7 +421,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 492
+    .line 465
     const-string v2, "CDMA"
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -432,7 +430,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 494
+    .line 467
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
@@ -441,7 +439,7 @@
 
     if-lez v2, :cond_3
 
-    .line 495
+    .line 468
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
@@ -450,35 +448,35 @@
 
     check-cast v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
-    .line 496
+    .line 469
     .local v0, request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     if-eqz v0, :cond_0
 
-    .line 497
+    .line 470
     iget-object v2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->response:Landroid/os/Message;
 
     if-eqz v2, :cond_0
 
-    .line 498
+    .line 471
     iget-object v2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->response:Landroid/os/Message;
 
     invoke-static {v2, v5, v5}, Landroid/os/AsyncResult;->forMessage(Landroid/os/Message;Ljava/lang/Object;Ljava/lang/Throwable;)Landroid/os/AsyncResult;
 
-    .line 499
+    .line 472
     iget-object v2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->response:Landroid/os/Message;
 
     invoke-virtual {v2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 503
+    .line 476
     :cond_0
     const/4 v0, 0x0
 
-    .line 504
+    .line 477
     :cond_1
     :goto_0
     if-nez v0, :cond_2
 
-    .line 505
+    .line 478
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->size()I
@@ -487,7 +485,7 @@
 
     if-lez v2, :cond_3
 
-    .line 506
+    .line 479
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2, v4}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
@@ -497,22 +495,22 @@
     .end local v0           #request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     check-cast v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
-    .line 507
+    .line 480
     .restart local v0       #request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     if-nez v0, :cond_1
 
-    .line 508
+    .line 481
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v2}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
 
     goto :goto_0
 
-    .line 515
+    .line 488
     :cond_2
     if-eqz v0, :cond_3
 
-    .line 520
+    .line 493
     iget v2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v2, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -521,7 +519,7 @@
 
     invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->sendMessage(Landroid/os/Message;)Z
 
-    .line 523
+    .line 496
     .end local v0           #request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     :cond_3
     return-void
@@ -532,16 +530,16 @@
     .parameter "ar"
 
     .prologue
-    .line 574
+    .line 547
     const/4 v0, 0x0
 
-    .line 575
+    .line 548
     .local v0, cid:Ljava/lang/Integer;
     iget-object v2, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v2, :cond_0
 
-    .line 577
+    .line 550
     :try_start_0
     iget-object v2, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
@@ -549,7 +547,7 @@
 
     move-result-object v1
 
-    .line 578
+    .line 551
     .local v1, command:Ljava/lang/String;
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -591,13 +589,13 @@
 
     move-result-object v0
 
-    .line 581
+    .line 554
     .end local v1           #command:Ljava/lang/String;
     :cond_0
     :goto_0
     return-object v0
 
-    .line 579
+    .line 552
     :catch_0
     move-exception v2
 
@@ -608,10 +606,10 @@
     .locals 3
 
     .prologue
-    .line 285
+    .line 258
     const/4 v1, 0x0
 
-    .line 286
+    .line 259
     .local v1, iccr:Lcom/android/internal/telephony/IccRecords;
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
@@ -619,7 +617,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 287
+    .line 260
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCM:Lcom/android/internal/telephony/CommandsInterface;
@@ -628,24 +626,24 @@
 
     move-result-object v0
 
-    .line 288
+    .line 261
     .local v0, iccCdPxy:Lcom/android/internal/telephony/IccCardProxy;
     if-eqz v0, :cond_0
 
-    .line 289
+    .line 262
     sget-object v2, Lcom/android/internal/telephony/IccCardApplication$AppType;->APPTYPE_USIM:Lcom/android/internal/telephony/IccCardApplication$AppType;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/telephony/IccCardProxy;->getIccRecords(Lcom/android/internal/telephony/IccCardApplication$AppType;)Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v1
 
-    .line 295
+    .line 268
     .end local v0           #iccCdPxy:Lcom/android/internal/telephony/IccCardProxy;
     :cond_0
     :goto_0
     return-object v1
 
-    .line 293
+    .line 266
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
@@ -661,14 +659,14 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 723
+    .line 692
     if-nez p1, :cond_0
 
-    .line 742
+    .line 711
     :goto_0
     return-void
 
-    .line 726
+    .line 695
     :cond_0
     iget-object v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
 
@@ -682,27 +680,27 @@
 
     if-lez v0, :cond_2
 
-    .line 728
+    .line 697
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->needCarrierId()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 729
+    .line 698
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     if-nez v0, :cond_1
 
-    .line 730
+    .line 699
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
     if-ge v0, v1, :cond_1
 
-    .line 731
+    .line 700
     iput v1, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 732
+    .line 701
     const/4 v0, 0x1
 
     iget v1, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
@@ -719,7 +717,7 @@
 
     goto :goto_0
 
-    .line 738
+    .line 707
     :cond_1
     const/4 v1, 0x0
 
@@ -735,7 +733,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateNumber(Landroid/content/SharedPreferences;ZLjava/lang/String;Ljava/lang/Integer;I)V
 
-    .line 741
+    .line 710
     :cond_2
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->completeVmRequest(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;)V
 
@@ -753,18 +751,18 @@
 
     const/4 v5, 0x2
 
-    .line 637
+    .line 606
     if-nez p1, :cond_0
 
-    .line 720
+    .line 689
     :goto_0
     return-void
 
-    .line 640
+    .line 609
     :cond_0
     const/4 v2, 0x0
 
-    .line 642
+    .line 611
     .local v2, forceUpdate:Z
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
@@ -772,13 +770,13 @@
 
     move-result-object v3
 
-    .line 643
+    .line 612
     .local v3, currentMdn:Ljava/lang/String;
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->reason:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 705
+    .line 674
     :pswitch_0
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->needCarrierId()Z
 
@@ -786,20 +784,20 @@
 
     if-eqz v0, :cond_3
 
-    .line 706
+    .line 675
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     if-nez v0, :cond_3
 
-    .line 707
+    .line 676
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
     if-ge v0, v5, :cond_3
 
-    .line 708
+    .line 677
     iput v5, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 709
+    .line 678
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -814,7 +812,7 @@
 
     goto :goto_0
 
-    .line 646
+    .line 615
     :pswitch_1
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -828,19 +826,19 @@
 
     if-ne v0, v4, :cond_4
 
-    .line 649
+    .line 618
     :cond_1
     const/4 v2, 0x0
 
-    .line 684
+    .line 653
     :cond_2
     :goto_1
     if-eqz v2, :cond_3
 
-    .line 685
+    .line 654
     const/4 v3, 0x0
 
-    .line 717
+    .line 686
     :cond_3
     :goto_2
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
@@ -851,12 +849,12 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateNumber(Landroid/content/SharedPreferences;ZLjava/lang/String;Ljava/lang/Integer;I)V
 
-    .line 719
+    .line 688
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->completeVmRequest(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;)V
 
     goto :goto_0
 
-    .line 651
+    .line 620
     :cond_4
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->needCarrierId()Z
 
@@ -864,15 +862,15 @@
 
     if-eqz v0, :cond_6
 
-    .line 652
+    .line 621
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
     if-ge v0, v5, :cond_5
 
-    .line 653
+    .line 622
     iput v5, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 654
+    .line 623
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -887,16 +885,16 @@
 
     goto :goto_0
 
-    .line 658
+    .line 627
     :cond_5
     const/4 v2, 0x1
 
-    .line 659
+    .line 628
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     if-eqz v0, :cond_2
 
-    .line 660
+    .line 629
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -907,30 +905,30 @@
 
     goto :goto_1
 
-    .line 673
+    .line 642
     :sswitch_0
     const/4 v2, 0x0
 
-    .line 674
+    .line 643
     goto :goto_1
 
-    .line 682
+    .line 651
     :cond_6
     const/4 v2, 0x1
 
     goto :goto_1
 
-    .line 689
+    .line 658
     :pswitch_2
     iput-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
-    .line 690
+    .line 659
     const/4 v3, 0x0
 
-    .line 691
+    .line 660
     goto :goto_2
 
-    .line 693
+    .line 662
     :pswitch_3
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->needCarrierId()Z
 
@@ -938,20 +936,20 @@
 
     if-eqz v0, :cond_3
 
-    .line 694
+    .line 663
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     if-nez v0, :cond_3
 
-    .line 695
+    .line 664
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
     if-ge v0, v5, :cond_7
 
-    .line 696
+    .line 665
     iput v5, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 697
+    .line 666
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -966,13 +964,13 @@
 
     goto/16 :goto_0
 
-    .line 700
+    .line 669
     :cond_7
     const/4 v3, 0x0
 
     goto :goto_2
 
-    .line 643
+    .line 612
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_3
@@ -982,7 +980,7 @@
         :pswitch_1
     .end packed-switch
 
-    .line 660
+    .line 629
     :sswitch_data_0
     .sparse-switch
         0x19 -> :sswitch_0
@@ -998,83 +996,68 @@
 .end method
 
 .method private needCarrierId()Z
-    .locals 5
+    .locals 3
 
     .prologue
-    const/16 v4, 0x75
-
-    const/4 v3, 0x4
-
     const/4 v0, 0x0
 
-    .line 609
+    .line 582
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->cdmaAccountInNV()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    if-eq v1, v3, :cond_0
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    if-ne v1, v4, :cond_1
-
-    .line 613
-    :cond_0
+    .line 583
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0x94
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_0
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0xa8
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_0
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0x51
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_0
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0xd8
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_0
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v2, 0xa1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1
 
-    .line 633
-    :cond_1
+    .line 602
+    :cond_0
     :goto_0
     return v0
 
-    .line 624
-    :cond_2
+    .line 594
+    :cond_1
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    if-eq v1, v3, :cond_3
+    const/4 v2, 0x4
 
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    if-eq v1, v4, :cond_3
+    if-eq v1, v2, :cond_2
 
     sget-boolean v1, Lcom/android/internal/telephony/cdma/CDMAPhone;->mDetectVMbyCarrierIdFromNV:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    .line 628
-    :cond_3
+    .line 597
+    :cond_2
     const/4 v1, -0x1
 
     const/4 v2, 0x0
@@ -1083,9 +1066,9 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_0
 
-    .line 629
+    .line 598
     const/4 v0, 0x1
 
     goto :goto_0
@@ -1096,12 +1079,12 @@
     .parameter "msg"
 
     .prologue
-    .line 447
+    .line 420
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
-    .line 448
+    .line 421
     .local v0, request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     if-eqz v0, :cond_0
 
@@ -1109,7 +1092,7 @@
 
     if-nez v1, :cond_0
 
-    .line 449
+    .line 422
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v1}, Ljava/util/LinkedList;->size()I
@@ -1118,25 +1101,25 @@
 
     if-lez v1, :cond_1
 
-    .line 450
+    .line 423
     const/4 v1, 0x1
 
     iput v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 451
+    .line 424
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
     invoke-virtual {v1, v0}, Ljava/util/LinkedList;->offer(Ljava/lang/Object;)Z
 
-    .line 458
+    .line 431
     const/4 v0, 0x0
 
-    .line 464
+    .line 437
     :cond_0
     :goto_0
     return-object v0
 
-    .line 461
+    .line 434
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mVmRequestList:Ljava/util/LinkedList;
 
@@ -1154,40 +1137,40 @@
 
     const/4 v2, 0x1
 
-    .line 745
+    .line 714
     if-nez p1, :cond_0
 
-    .line 775
+    .line 744
     :goto_0
     return-void
 
-    .line 748
+    .line 717
     :cond_0
     iget-object v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
 
     if-eqz v0, :cond_2
 
-    .line 749
+    .line 718
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->needCarrierId()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 750
+    .line 719
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
     if-nez v0, :cond_1
 
-    .line 751
+    .line 720
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
     if-ge v0, v1, :cond_1
 
-    .line 752
+    .line 721
     iput v1, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestStatus:I
 
-    .line 753
+    .line 722
     iget v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -1202,7 +1185,7 @@
 
     goto :goto_0
 
-    .line 759
+    .line 728
     :cond_1
     const/4 v1, 0x0
 
@@ -1216,23 +1199,23 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateNumber(Landroid/content/SharedPreferences;ZLjava/lang/String;Ljava/lang/Integer;I)V
 
-    .line 761
+    .line 730
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->useGsmSIMtoStoreNumber()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 762
+    .line 731
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->getGsmIccRecords()Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v6
 
-    .line 763
+    .line 732
     .local v6, iccr:Lcom/android/internal/telephony/IccRecords;
     if-eqz v6, :cond_2
 
-    .line 764
+    .line 733
     const-string v0, "CDMA"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1297,7 +1280,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 767
+    .line 736
     iget-object v0, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->tag:Ljava/lang/String;
 
     iget-object v1, p1, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
@@ -1312,7 +1295,7 @@
 
     goto/16 :goto_0
 
-    .line 774
+    .line 743
     .end local v6           #iccr:Lcom/android/internal/telephony/IccRecords;
     :cond_2
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->completeVmRequest(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;)V
@@ -1326,26 +1309,26 @@
     .parameter "cid"
 
     .prologue
-    .line 585
+    .line 558
     if-eqz p2, :cond_0
 
-    .line 586
+    .line 559
     iput-object p2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCarrierId:Ljava/lang/Integer;
 
-    .line 588
+    .line 561
     :cond_0
     iget-object v0, p1, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/Message;
 
-    .line 589
+    .line 562
     .local v0, onComplete:Landroid/os/Message;
     if-eqz v0, :cond_1
 
-    .line 590
+    .line 563
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->sendMessage(Landroid/os/Message;)Z
 
-    .line 592
+    .line 565
     :cond_1
     return-void
 .end method
@@ -1355,12 +1338,12 @@
     .parameter "ar"
 
     .prologue
-    .line 804
+    .line 773
     iget-object v1, p1, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
     if-nez v1, :cond_1
 
-    .line 805
+    .line 774
     iget-object v1, p1, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, [I
@@ -1369,7 +1352,7 @@
 
     check-cast v0, [I
 
-    .line 806
+    .line 775
     .local v0, mwis:[I
     if-eqz v0, :cond_0
 
@@ -1377,7 +1360,7 @@
 
     if-lez v1, :cond_0
 
-    .line 807
+    .line 776
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v2, 0x0
@@ -1386,12 +1369,12 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/telephony/cdma/CDMAPhone;->updateMessageWaitingIndicator(I)V
 
-    .line 816
+    .line 785
     .end local v0           #mwis:[I
     :goto_0
     return-void
 
-    .line 810
+    .line 779
     .restart local v0       #mwis:[I
     :cond_0
     const-string v1, "CDMA"
@@ -1402,7 +1385,7 @@
 
     goto :goto_0
 
-    .line 814
+    .line 783
     .end local v0           #mwis:[I
     :cond_1
     const-string v1, "CDMA"
@@ -1433,7 +1416,7 @@
 .end method
 
 .method private updateNumber(Landroid/content/SharedPreferences;ZLjava/lang/String;Ljava/lang/Integer;I)V
-    .locals 10
+    .locals 7
     .parameter "sp"
     .parameter "forceUpdate"
     .parameter "currentMdn"
@@ -1441,275 +1424,174 @@
     .parameter "reason"
 
     .prologue
-    const/4 v9, 0x0
+    const/16 v6, 0x3a
 
-    const/16 v8, 0x3a
+    .line 200
+    move-object v0, p1
+
+    .line 201
+    .local v0, spf:Landroid/content/SharedPreferences;
+    if-nez v0, :cond_0
+
+    iget-object v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
+
+    if-eqz v4, :cond_0
 
     .line 202
-    move-object v3, p1
+    iget-object v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    .line 203
-    .local v3, spf:Landroid/content/SharedPreferences;
-    if-nez v3, :cond_0
+    invoke-virtual {v4}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
 
-    iget-object v7, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
+    move-result-object v4
 
-    if-eqz v7, :cond_0
-
-    .line 204
-    iget-object v7, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    invoke-virtual {v7}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
-
-    move-result-object v7
-
-    invoke-static {v7}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v3
-
-    .line 206
-    :cond_0
-    const/4 v6, 0x0
-
-    .line 207
-    .local v6, voiceMailNum:Ljava/lang/String;
-    const/4 v5, 0x0
-
-    .line 208
-    .local v5, updateSp:Z
-    if-eqz p2, :cond_5
-
-    .line 209
-    const/4 v5, 0x1
-
-    .line 210
-    move-object v6, p3
-
-    .line 231
-    :cond_1
-    :goto_0
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    .line 232
-    .local v4, strBuf:Ljava/lang/StringBuilder;
-    const-string v7, "VM-"
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 233
-    const-string v7, "Update "
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 234
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    .line 235
-    const-string v7, ", by "
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 236
-    invoke-virtual {v4, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    .line 237
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 238
-    invoke-virtual {v4, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 239
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 240
-    sget-short v7, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    .line 241
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 242
-    invoke-static {p3}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 243
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    .line 244
-    invoke-static {v6}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 245
-    const-string v7, "CDMA"
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 248
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isForceUpdateVoiceMailNumberAfterSimChangedSupported()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    .line 249
-    iget-object v7, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    invoke-virtual {v7}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getLine1Number()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 250
-    .local v1, line1Number:Ljava/lang/String;
-    const-string v7, "vm_prev_number_key_cdma"
-
-    invoke-interface {v3, v7, v9}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 251
-    .local v2, prevMdn:Ljava/lang/String;
-    if-eqz p4, :cond_2
-
-    .line 252
-    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v7
-
-    invoke-static {v7, v9}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->getVoiceMailNumberByCarrierId(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v7
-
-    if-nez v7, :cond_2
-
-    .line 253
-    if-eqz v2, :cond_2
-
-    if-eqz v1, :cond_2
-
-    .line 254
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_2
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v7
-
-    if-lez v7, :cond_2
-
-    .line 255
-    const-string v7, "CDMA"
-
-    const-string v8, "force update voice mail number after sim changed"
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 257
-    move-object v6, v1
-
-    .line 258
-    const/4 v5, 0x1
-
-    .line 263
-    :cond_2
-    if-eqz v3, :cond_3
-
-    if-eqz v1, :cond_3
-
-    .line 264
-    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-static {v4}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    .line 265
-    .local v0, editor:Landroid/content/SharedPreferences$Editor;
-    if-eqz v0, :cond_3
+    .line 204
+    :cond_0
+    const/4 v3, 0x0
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    .line 205
+    .local v3, voiceMailNum:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    move-result v7
+    .line 206
+    .local v2, updateSp:Z
+    if-eqz p2, :cond_3
 
-    if-lez v7, :cond_3
+    .line 207
+    const/4 v2, 0x1
 
-    .line 266
-    const-string v7, "vm_prev_number_key_cdma"
+    .line 208
+    move-object v3, p3
 
-    invoke-interface {v0, v7, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    .line 229
+    :cond_1
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 267
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 273
-    .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
-    .end local v1           #line1Number:Ljava/lang/String;
-    .end local v2           #prevMdn:Ljava/lang/String;
-    :cond_3
-    if-eqz v5, :cond_4
+    .line 230
+    .local v1, strBuf:Ljava/lang/StringBuilder;
+    const-string v4, "VM-"
 
-    .line 274
-    iput-object v6, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->voicemailNumber:Ljava/lang/String;
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 275
-    invoke-direct {p0, v3, v6, p4, p5}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateNumberToSharedPreferences(Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/Integer;I)V
+    .line 231
+    const-string v4, "Update "
 
-    .line 282
-    :cond_4
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 232
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    .line 233
+    const-string v4, ", by "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 234
+    invoke-virtual {v1, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 235
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 236
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    .line 237
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 238
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 239
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 240
+    invoke-static {p3}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 241
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 242
+    invoke-static {v3}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 243
+    const-string v4, "CDMA"
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 246
+    if-eqz v2, :cond_2
+
+    .line 247
+    iput-object v3, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->voicemailNumber:Ljava/lang/String;
+
+    .line 248
+    invoke-direct {p0, v0, v3, p4, p5}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateNumberToSharedPreferences(Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/Integer;I)V
+
+    .line 255
+    :cond_2
     return-void
 
-    .line 213
-    .end local v4           #strBuf:Ljava/lang/StringBuilder;
-    :cond_5
-    if-eqz v3, :cond_6
+    .line 211
+    .end local v1           #strBuf:Ljava/lang/StringBuilder;
+    :cond_3
+    if-eqz v0, :cond_4
+
+    .line 212
+    iget-object v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    invoke-interface {v0, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
 
     .line 214
-    iget-object v7, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
+    :cond_4
+    if-nez v3, :cond_1
 
-    invoke-interface {v3, v7, v9}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .line 215
+    if-eqz p4, :cond_5
 
-    move-result-object v6
+    const/4 v2, 0x1
 
     .line 216
-    :cond_6
-    if-nez v6, :cond_1
+    :goto_1
+    if-eqz v2, :cond_1
 
     .line 217
-    if-eqz p4, :cond_7
-
-    const/4 v5, 0x1
-
-    .line 218
-    :goto_1
-    if-eqz v5, :cond_1
-
-    .line 219
     invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
 
-    move-result v7
+    move-result v4
 
-    invoke-static {v7, p3}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->getVoiceMailNumberByCarrierId(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, p3}, Lcom/android/internal/telephony/cdma/HtcCdmaModifier;->getVoiceMailNumberByCarrierId(ILjava/lang/String;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v3
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 217
-    :cond_7
-    const/4 v5, 0x0
+    .line 215
+    :cond_5
+    const/4 v2, 0x0
 
     goto :goto_1
 .end method
@@ -1722,10 +1604,10 @@
     .parameter "reason"
 
     .prologue
-    .line 182
+    .line 180
     move-object v1, p1
 
-    .line 183
+    .line 181
     .local v1, spf:Landroid/content/SharedPreferences;
     if-nez v1, :cond_0
 
@@ -1733,7 +1615,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 184
+    .line 182
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
@@ -1744,31 +1626,31 @@
 
     move-result-object v1
 
-    .line 186
+    .line 184
     :cond_0
     if-eqz v1, :cond_1
 
-    .line 187
+    .line 185
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    .line 188
+    .line 186
     .local v0, editor:Landroid/content/SharedPreferences$Editor;
     if-eqz v0, :cond_1
 
-    .line 189
+    .line 187
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
 
     invoke-interface {v0, v2, p2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 190
+    .line 188
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    .line 193
+    .line 191
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->broadcastVMNumChanged()V
 
-    .line 198
+    .line 196
     .end local v0           #editor:Landroid/content/SharedPreferences$Editor;
     :cond_1
     return-void
@@ -1779,10 +1661,10 @@
     .parameter "request"
 
     .prologue
-    .line 783
+    .line 752
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->completeVmRequest(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;)V
 
-    .line 784
+    .line 753
     return-void
 .end method
 
@@ -1792,12 +1674,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 595
+    .line 568
     sget-object v2, Lcom/android/internal/telephony/HtcTelephonyCapability;->BUILT_ACCOUNT_CAPABILITIES:[I
 
     aget v0, v2, v1
 
-    .line 596
+    .line 569
     .local v0, cdmaAccount:I
     and-int/lit8 v2, v0, 0x4
 
@@ -1811,7 +1693,7 @@
 
     if-eqz v2, :cond_1
 
-    .line 599
+    .line 572
     :cond_0
     sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
@@ -1819,10 +1701,10 @@
 
     if-ne v2, v3, :cond_1
 
-    .line 602
+    .line 575
     const/4 v1, 0x1
 
-    .line 605
+    .line 578
     :cond_1
     return v1
 .end method
@@ -1877,7 +1759,7 @@
     .locals 1
 
     .prologue
-    .line 426
+    .line 399
     const/4 v0, 0x0
 
     return-object v0
@@ -1887,10 +1769,10 @@
     .locals 8
 
     .prologue
-    .line 332
+    .line 305
     const/4 v2, 0x0
 
-    .line 333
+    .line 306
     .local v2, number:Ljava/lang/String;
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->useGsmSIMtoStoreNumber()Z
 
@@ -1898,28 +1780,28 @@
 
     if-eqz v5, :cond_0
 
-    .line 334
+    .line 307
     invoke-direct {p0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->getGsmIccRecords()Lcom/android/internal/telephony/IccRecords;
 
     move-result-object v0
 
-    .line 335
+    .line 308
     .local v0, iccr:Lcom/android/internal/telephony/IccRecords;
     if-eqz v0, :cond_0
 
-    .line 336
+    .line 309
     invoke-virtual {v0}, Lcom/android/internal/telephony/IccRecords;->getVoiceMailNumber()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 337
+    .line 310
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_0
 
-    .line 339
+    .line 312
     const-string v5, "CDMA"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1974,14 +1856,14 @@
 
     move-object v3, v2
 
-    .line 381
+    .line 354
     .end local v0           #iccr:Lcom/android/internal/telephony/IccRecords;
     .end local v2           #number:Ljava/lang/String;
     .local v3, number:Ljava/lang/String;
     :goto_0
     return-object v3
 
-    .line 347
+    .line 320
     .end local v3           #number:Ljava/lang/String;
     .restart local v2       #number:Ljava/lang/String;
     :cond_0
@@ -1989,7 +1871,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 348
+    .line 321
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     invoke-virtual {v5}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
@@ -2000,11 +1882,11 @@
 
     move-result-object v4
 
-    .line 349
+    .line 322
     .local v4, sp:Landroid/content/SharedPreferences;
     if-eqz v4, :cond_1
 
-    .line 350
+    .line 323
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->spVoiceMail_number:Ljava/lang/String;
 
     const/4 v6, 0x0
@@ -2013,14 +1895,14 @@
 
     move-result-object v2
 
-    .line 351
+    .line 324
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_1
 
-    .line 353
+    .line 326
     const-string v5, "CDMA"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2087,17 +1969,17 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 357
+    .line 330
     iput-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->voicemailNumber:Ljava/lang/String;
 
     move-object v3, v2
 
-    .line 358
+    .line 331
     .end local v2           #number:Ljava/lang/String;
     .restart local v3       #number:Ljava/lang/String;
     goto :goto_0
 
-    .line 363
+    .line 336
     .end local v3           #number:Ljava/lang/String;
     .end local v4           #sp:Landroid/content/SharedPreferences;
     .restart local v2       #number:Ljava/lang/String;
@@ -2106,17 +1988,17 @@
 
     if-eqz v5, :cond_2
 
-    .line 364
+    .line 337
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->voicemailNumber:Ljava/lang/String;
 
-    .line 365
+    .line 338
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_2
 
-    .line 367
+    .line 340
     const-string v5, "CDMA"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2171,12 +2053,12 @@
 
     move-object v3, v2
 
-    .line 370
+    .line 343
     .end local v2           #number:Ljava/lang/String;
     .restart local v3       #number:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 374
+    .line 347
     .end local v3           #number:Ljava/lang/String;
     .restart local v2       #number:Ljava/lang/String;
     :cond_2
@@ -2190,7 +2072,7 @@
 
     move-result v1
 
-    .line 375
+    .line 348
     .local v1, id:I
     :goto_1
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
@@ -2203,7 +2085,7 @@
 
     move-result-object v2
 
-    .line 377
+    .line 350
     const-string v5, "CDMA"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -2278,12 +2160,12 @@
 
     move-object v3, v2
 
-    .line 381
+    .line 354
     .end local v2           #number:Ljava/lang/String;
     .restart local v3       #number:Ljava/lang/String;
     goto/16 :goto_0
 
-    .line 374
+    .line 347
     .end local v1           #id:I
     .end local v3           #number:Ljava/lang/String;
     .restart local v2       #number:Ljava/lang/String;
@@ -2297,7 +2179,7 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 162
     const/4 v0, 0x0
 
     return-object v0
@@ -2308,16 +2190,16 @@
     .parameter "msg"
 
     .prologue
-    .line 533
+    .line 506
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
-    .line 571
+    .line 544
     :goto_0
     return-void
 
-    .line 535
+    .line 508
     :sswitch_0
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->processVmRequestMessage(Landroid/os/Message;)Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
@@ -2327,7 +2209,7 @@
 
     goto :goto_0
 
-    .line 538
+    .line 511
     :sswitch_1
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->processVmRequestMessage(Landroid/os/Message;)Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
@@ -2337,7 +2219,7 @@
 
     goto :goto_0
 
-    .line 541
+    .line 514
     :sswitch_2
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->processVmRequestMessage(Landroid/os/Message;)Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
@@ -2347,7 +2229,7 @@
 
     goto :goto_0
 
-    .line 544
+    .line 517
     :sswitch_3
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
@@ -2367,23 +2249,23 @@
 
     goto :goto_0
 
-    .line 548
+    .line 521
     :sswitch_4
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 549
+    .line 522
     .local v0, ar:Landroid/os/AsyncResult;
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->decodeCarrierId(Landroid/os/AsyncResult;)Ljava/lang/Integer;
 
     move-result-object v1
 
-    .line 550
+    .line 523
     .local v1, cid:Ljava/lang/Integer;
     if-nez v1, :cond_0
 
-    .line 551
+    .line 524
     iget-object v2, p0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->mCdmaPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     iget-object v2, v2, Lcom/android/internal/telephony/cdma/CDMAPhone;->mCM:Lcom/android/internal/telephony/CommandsInterface;
@@ -2402,13 +2284,13 @@
 
     goto :goto_0
 
-    .line 555
+    .line 528
     :cond_0
     invoke-direct {p0, v0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->updateCarrierId(Landroid/os/AsyncResult;Ljava/lang/Integer;)V
 
     goto :goto_0
 
-    .line 559
+    .line 532
     .end local v0           #ar:Landroid/os/AsyncResult;
     .end local v1           #cid:Ljava/lang/Integer;
     :sswitch_5
@@ -2416,7 +2298,7 @@
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 560
+    .line 533
     .restart local v0       #ar:Landroid/os/AsyncResult;
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->decodeCarrierId(Landroid/os/AsyncResult;)Ljava/lang/Integer;
 
@@ -2426,7 +2308,7 @@
 
     goto :goto_0
 
-    .line 563
+    .line 536
     .end local v0           #ar:Landroid/os/AsyncResult;
     :sswitch_6
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -2437,7 +2319,7 @@
 
     goto :goto_0
 
-    .line 566
+    .line 539
     :sswitch_7
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -2447,7 +2329,7 @@
 
     goto :goto_0
 
-    .line 533
+    .line 506
     :sswitch_data_0
     .sparse-switch
         0x1 -> :sswitch_3
@@ -2466,7 +2348,7 @@
     .parameter "count"
 
     .prologue
-    .line 148
+    .line 146
     return-void
 .end method
 
@@ -2475,7 +2357,7 @@
     .parameter "reason"
 
     .prologue
-    .line 410
+    .line 383
     return-void
 .end method
 
@@ -2485,7 +2367,7 @@
     .parameter "reason"
 
     .prologue
-    .line 418
+    .line 391
     return-void
 .end method
 
@@ -2495,26 +2377,26 @@
     .parameter "reason"
 
     .prologue
-    .line 319
+    .line 292
     new-instance v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;-><init>(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$1;)V
 
-    .line 320
+    .line 293
     .local v0, request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     const/16 v1, 0xb
 
     iput v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
-    .line 321
+    .line 294
     iput p2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->reason:I
 
-    .line 322
+    .line 295
     iput-object p1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
 
-    .line 323
+    .line 296
     iget v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v1, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -2523,7 +2405,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->sendMessage(Landroid/os/Message;)Z
 
-    .line 324
+    .line 297
     return-void
 .end method
 
@@ -2532,23 +2414,23 @@
     .parameter "reason"
 
     .prologue
-    .line 304
+    .line 277
     new-instance v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;-><init>(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$1;)V
 
-    .line 305
+    .line 278
     .local v0, request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     const/16 v1, 0xa
 
     iput v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
-    .line 306
+    .line 279
     iput p1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->reason:I
 
-    .line 307
+    .line 280
     iget v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v1, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -2557,7 +2439,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->sendMessage(Landroid/os/Message;)Z
 
-    .line 308
+    .line 281
     return-void
 .end method
 
@@ -2569,32 +2451,32 @@
     .parameter "reason"
 
     .prologue
-    .line 391
+    .line 364
     new-instance v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
 
     const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;-><init>(Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$1;)V
 
-    .line 392
+    .line 365
     .local v0, request:Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;
     const/16 v1, 0xc
 
     iput v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
-    .line 393
+    .line 366
     iput p4, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->reason:I
 
-    .line 394
+    .line 367
     iput-object p1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->tag:Ljava/lang/String;
 
-    .line 395
+    .line 368
     iput-object p2, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->number:Ljava/lang/String;
 
-    .line 396
+    .line 369
     iput-object p3, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->response:Landroid/os/Message;
 
-    .line 397
+    .line 370
     iget v1, v0, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail$vmRequest;->requestType:I
 
     invoke-virtual {p0, v1, v0}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -2603,7 +2485,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaVoiceMail;->sendMessage(Landroid/os/Message;)Z
 
-    .line 398
+    .line 371
     return-void
 .end method
 
@@ -2612,6 +2494,6 @@
     .parameter "count"
 
     .prologue
-    .line 156
+    .line 154
     return-void
 .end method

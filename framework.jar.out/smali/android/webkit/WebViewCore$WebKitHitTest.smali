@@ -41,8 +41,6 @@
 
 .field mLinkUrl:Ljava/lang/String;
 
-.field mNodeRef:I
-
 .field mRichlyEditable:Z
 
 .field mTapHighlightColor:I
@@ -57,10 +55,10 @@
     .locals 1
 
     .prologue
-    .line 974
+    .line 949
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 983
+    .line 958
     sget v0, Landroid/webkit/WebViewClassic;->HIGHLIGHT_COLOR:I
 
     iput v0, p0, Landroid/webkit/WebViewCore$WebKitHitTest;->mTapHighlightColor:I

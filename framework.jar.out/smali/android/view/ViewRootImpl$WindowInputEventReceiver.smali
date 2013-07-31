@@ -26,13 +26,13 @@
     .parameter "looper"
 
     .prologue
-    .line 4689
+    .line 4646
     iput-object p1, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
 
-    .line 4690
+    .line 4647
     invoke-direct {p0, p2, p3}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    .line 4691
+    .line 4648
     return-void
 .end method
 
@@ -42,15 +42,15 @@
     .locals 1
 
     .prologue
-    .line 4714
+    .line 4671
     iget-object v0, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->unscheduleConsumeBatchedInput()V
 
-    .line 4715
+    .line 4672
     invoke-super {p0}, Landroid/view/InputEventReceiver;->dispose()V
 
-    .line 4716
+    .line 4673
     return-void
 .end method
 
@@ -58,12 +58,12 @@
     .locals 1
 
     .prologue
-    .line 4709
+    .line 4666
     iget-object v0, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-virtual {v0}, Landroid/view/ViewRootImpl;->scheduleConsumeBatchedInput()V
 
-    .line 4710
+    .line 4667
     return-void
 .end method
 
@@ -72,7 +72,7 @@
     .parameter "event"
 
     .prologue
-    .line 4695
+    .line 4652
     iget-object v0, p0, Landroid/view/ViewRootImpl$WindowInputEventReceiver;->this$0:Landroid/view/ViewRootImpl;
 
     const/4 v1, 0x0
@@ -81,23 +81,23 @@
 
     invoke-virtual {v0, p1, p0, v1, v2}, Landroid/view/ViewRootImpl;->enqueueInputEvent(Landroid/view/InputEvent;Landroid/view/InputEventReceiver;IZ)V
 
-    .line 4699
+    .line 4656
     sget-boolean v0, Lcom/htc/utils/PerformanceLogUtil;->Enabled:Z
 
     if-eqz v0, :cond_0
 
-    .line 4700
+    .line 4657
     instance-of v0, p1, Landroid/view/KeyEvent;
 
     if-eqz v0, :cond_0
 
-    .line 4701
+    .line 4658
     check-cast p1, Landroid/view/KeyEvent;
 
     .end local p1
     invoke-static {p1}, Lcom/htc/utils/PerformanceLogUtil;->logDispatchKeyEvent(Landroid/view/KeyEvent;)V
 
-    .line 4705
+    .line 4662
     :cond_0
     return-void
 .end method

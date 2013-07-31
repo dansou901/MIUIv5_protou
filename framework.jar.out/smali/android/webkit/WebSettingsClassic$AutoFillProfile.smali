@@ -54,43 +54,43 @@
     .parameter "phoneNumber"
 
     .prologue
-    .line 169
+    .line 163
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 170
+    .line 164
     iput p1, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mUniqueId:I
 
-    .line 171
+    .line 165
     iput-object p2, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mFullName:Ljava/lang/String;
 
-    .line 172
+    .line 166
     iput-object p3, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mEmailAddress:Ljava/lang/String;
 
-    .line 173
+    .line 167
     iput-object p4, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCompanyName:Ljava/lang/String;
 
-    .line 174
+    .line 168
     iput-object p5, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mAddressLine1:Ljava/lang/String;
 
-    .line 175
+    .line 169
     iput-object p6, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mAddressLine2:Ljava/lang/String;
 
-    .line 176
+    .line 170
     iput-object p7, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCity:Ljava/lang/String;
 
-    .line 177
+    .line 171
     iput-object p8, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mState:Ljava/lang/String;
 
-    .line 178
+    .line 172
     iput-object p9, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mZipCode:Ljava/lang/String;
 
-    .line 179
+    .line 173
     iput-object p10, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCountry:Ljava/lang/String;
 
-    .line 180
+    .line 174
     iput-object p11, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mPhoneNumber:Ljava/lang/String;
 
-    .line 181
+    .line 175
     return-void
 .end method
 
@@ -100,7 +100,7 @@
     .locals 1
 
     .prologue
-    .line 187
+    .line 181
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mAddressLine1:Ljava/lang/String;
 
     return-object v0
@@ -110,7 +110,7 @@
     .locals 1
 
     .prologue
-    .line 188
+    .line 182
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mAddressLine2:Ljava/lang/String;
 
     return-object v0
@@ -120,7 +120,7 @@
     .locals 1
 
     .prologue
-    .line 189
+    .line 183
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCity:Ljava/lang/String;
 
     return-object v0
@@ -130,7 +130,7 @@
     .locals 1
 
     .prologue
-    .line 186
+    .line 180
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCompanyName:Ljava/lang/String;
 
     return-object v0
@@ -140,7 +140,7 @@
     .locals 1
 
     .prologue
-    .line 192
+    .line 186
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mCountry:Ljava/lang/String;
 
     return-object v0
@@ -150,7 +150,7 @@
     .locals 1
 
     .prologue
-    .line 185
+    .line 179
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mEmailAddress:Ljava/lang/String;
 
     return-object v0
@@ -160,7 +160,7 @@
     .locals 1
 
     .prologue
-    .line 184
+    .line 178
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mFullName:Ljava/lang/String;
 
     return-object v0
@@ -170,7 +170,7 @@
     .locals 1
 
     .prologue
-    .line 193
+    .line 187
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mPhoneNumber:Ljava/lang/String;
 
     return-object v0
@@ -180,7 +180,7 @@
     .locals 1
 
     .prologue
-    .line 190
+    .line 184
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mState:Ljava/lang/String;
 
     return-object v0
@@ -190,7 +190,7 @@
     .locals 1
 
     .prologue
-    .line 183
+    .line 177
     iget v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mUniqueId:I
 
     return v0
@@ -200,7 +200,7 @@
     .locals 1
 
     .prologue
-    .line 191
+    .line 185
     iget-object v0, p0, Landroid/webkit/WebSettingsClassic$AutoFillProfile;->mZipCode:Ljava/lang/String;
 
     return-object v0

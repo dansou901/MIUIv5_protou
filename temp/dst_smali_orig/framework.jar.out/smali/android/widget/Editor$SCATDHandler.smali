@@ -124,7 +124,7 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    invoke-static {v2}, Landroid/widget/Editor;->access$6002(Z)Z
+    invoke-static {v2}, Landroid/widget/Editor;->access$7202(Z)Z
 
     iget-object v0, p0, Landroid/widget/Editor$SCATDHandler;->this$0:Landroid/widget/Editor;
 
@@ -140,7 +140,7 @@
     check-cast v0, Ljava/lang/String;
 
     #calls: Landroid/widget/Editor;->SCATDRescanWord(Ljava/lang/String;)V
-    invoke-static {v1, v0}, Landroid/widget/Editor;->access$6100(Landroid/widget/Editor;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Landroid/widget/Editor;->access$7300(Landroid/widget/Editor;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -168,7 +168,7 @@
     const/4 v1, 0x1
 
     #setter for: Landroid/widget/Editor;->mIsSCTimeoutclosed:Z
-    invoke-static {v0, v1}, Landroid/widget/Editor;->access$6202(Landroid/widget/Editor;Z)Z
+    invoke-static {v0, v1}, Landroid/widget/Editor;->access$7402(Landroid/widget/Editor;Z)Z
 
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 

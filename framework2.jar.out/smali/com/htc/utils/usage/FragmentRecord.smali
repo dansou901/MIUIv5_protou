@@ -230,7 +230,7 @@
     if-eqz v0, :cond_0
 
     .line 91
-    const-string v4, "system_server"
+    const-string/jumbo v4, "system_server"
 
     invoke-virtual {v3, v4}, Lcom/htc/utils/ulog/ReusableULogData;->setAppId(Ljava/lang/String;)Lcom/htc/utils/ulog/ULogDataWritable;
 

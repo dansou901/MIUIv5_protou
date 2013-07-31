@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2667
+    .line 2633
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$5;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -38,14 +38,14 @@
     .locals 6
 
     .prologue
-    .line 2672
+    .line 2638
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$5;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget-object v0, v3, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
 
-    .line 2673
+    .line 2639
     .local v0, bssid:Ljava/lang/String;
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$5;->this$0:Lcom/htc/server/WfdStateMachine;
 
@@ -63,11 +63,11 @@
 
     move-result v1
 
-    .line 2676
+    .line 2642
     .local v1, channel:I
     add-int/lit16 v1, v1, 0x100
 
-    .line 2677
+    .line 2643
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine$5;->this$0:Lcom/htc/server/WfdStateMachine;
 
     iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -76,7 +76,7 @@
 
     move-result v2
 
-    .line 2678
+    .line 2644
     .local v2, ret:Z
     const-string v3, "WfdStateMachine"
 
@@ -120,6 +120,6 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2679
+    .line 2645
     return-void
 .end method

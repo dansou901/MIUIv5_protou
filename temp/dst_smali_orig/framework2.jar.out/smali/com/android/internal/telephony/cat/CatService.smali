@@ -2245,6 +2245,8 @@
 
     goto :goto_1
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x4
         :pswitch_2

@@ -1829,7 +1829,7 @@
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 387
-    const-string v3, "timerId"
+    const-string/jumbo v3, "timerId"
 
     iget v4, p0, Lcom/android/internal/telephony/cdma/HtcRadio;->mFlightModeTimerId:I
 
@@ -1923,7 +1923,7 @@
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     .line 305
-    const-string v3, "timerId"
+    const-string/jumbo v3, "timerId"
 
     iget v4, p0, Lcom/android/internal/telephony/cdma/HtcRadio;->mWorkaroundTimerId:I
 

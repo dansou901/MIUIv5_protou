@@ -68,7 +68,7 @@
     .line 318
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/HtcCdmaEmergencyCallback$AlarmIntentReceiver;->this$0:Lcom/android/internal/telephony/cdma/HtcCdmaEmergencyCallback;
 
-    const-string v1, "tmr-out"
+    const-string/jumbo v1, "tmr-out"
 
     #calls: Lcom/android/internal/telephony/cdma/HtcCdmaEmergencyCallback;->dumpStatus(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cdma/HtcCdmaEmergencyCallback;->access$000(Lcom/android/internal/telephony/cdma/HtcCdmaEmergencyCallback;Ljava/lang/String;)V

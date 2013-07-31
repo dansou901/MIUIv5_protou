@@ -32,7 +32,7 @@
     .locals 0
 
     .prologue
-    .line 420
+    .line 410
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -43,7 +43,7 @@
     .parameter "x0"
 
     .prologue
-    .line 420
+    .line 410
     invoke-direct {p0}, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistoryComparator;-><init>()V
 
     return-void
@@ -57,7 +57,7 @@
     .parameter "wh2"
 
     .prologue
-    .line 422
+    .line 412
     iget-wide v0, p1, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mTempSum:J
 
     iget-wide v2, p2, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mTempSum:J
@@ -66,14 +66,14 @@
 
     if-lez v0, :cond_0
 
-    .line 423
+    .line 413
     const/4 v0, -0x1
 
-    .line 426
+    .line 416
     :goto_0
     return v0
 
-    .line 424
+    .line 414
     :cond_0
     iget-wide v0, p1, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mTempSum:J
 
@@ -83,12 +83,12 @@
 
     if-gez v0, :cond_1
 
-    .line 425
+    .line 415
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 426
+    .line 416
     :cond_1
     iget-object v0, p1, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;->mName:Ljava/lang/String;
 
@@ -107,7 +107,7 @@
     .parameter "x1"
 
     .prologue
-    .line 420
+    .line 410
     check-cast p1, Lcom/android/internal/os/BatteryStatsImpl$WakelockHistory;
 
     .end local p1

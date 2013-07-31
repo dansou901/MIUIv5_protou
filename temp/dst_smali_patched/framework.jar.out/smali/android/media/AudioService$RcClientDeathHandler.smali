@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method static synthetic access$12300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+.method static synthetic access$11300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
     .locals 1
     .parameter "x0"
 
@@ -77,7 +77,7 @@
     iget-object v0, p0, Landroid/media/AudioService$RcClientDeathHandler;->this$0:Landroid/media/AudioService;
 
     #calls: Landroid/media/AudioService;->postReevaluateRemote()V
-    invoke-static {v0}, Landroid/media/AudioService;->access$12100(Landroid/media/AudioService;)V
+    invoke-static {v0}, Landroid/media/AudioService;->access$11100(Landroid/media/AudioService;)V
 
     return-void
 .end method

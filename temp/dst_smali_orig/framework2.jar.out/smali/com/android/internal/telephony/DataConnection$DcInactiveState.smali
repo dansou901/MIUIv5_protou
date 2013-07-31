@@ -137,11 +137,11 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .locals 6
+    .locals 5
     .parameter "msg"
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v4, 0x0
 
     iget v2, p1, Landroid/os/Message;->what:I
 
@@ -243,7 +243,9 @@
 
     iget-object v2, p0, Lcom/android/internal/telephony/DataConnection$DcInactiveState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
-    iput v5, v2, Lcom/android/internal/telephony/DataConnection;->mRefCount:I
+    const/4 v3, 0x1
+
+    iput v3, v2, Lcom/android/internal/telephony/DataConnection;->mRefCount:I
 
     iget-object v2, p0, Lcom/android/internal/telephony/DataConnection$DcInactiveState;->this$0:Lcom/android/internal/telephony/DataConnection;
 
@@ -282,7 +284,7 @@
     check-cast v2, Lcom/android/internal/telephony/DataConnection$DisconnectParams;
 
     #calls: Lcom/android/internal/telephony/DataConnection;->notifyDisconnectCompleted(Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
-    invoke-static {v3, v2, v5}, Lcom/android/internal/telephony/DataConnection;->access$900(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
+    invoke-static {v3, v2, v4}, Lcom/android/internal/telephony/DataConnection;->access$900(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
 
     const/4 v1, 0x1
 
@@ -304,14 +306,12 @@
     check-cast v2, Lcom/android/internal/telephony/DataConnection$DisconnectParams;
 
     #calls: Lcom/android/internal/telephony/DataConnection;->notifyDisconnectCompleted(Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
-    invoke-static {v3, v2, v5}, Lcom/android/internal/telephony/DataConnection;->access$900(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
+    invoke-static {v3, v2, v4}, Lcom/android/internal/telephony/DataConnection;->access$900(Lcom/android/internal/telephony/DataConnection;Lcom/android/internal/telephony/DataConnection$DisconnectParams;Z)V
 
     const/4 v1, 0x1
 
     .restart local v1       #retVal:Z
     goto :goto_0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

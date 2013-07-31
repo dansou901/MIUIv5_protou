@@ -37,22 +37,22 @@
     .locals 1
 
     .prologue
-    .line 1062
+    .line 999
     const-string v0, "LastTimeOfClientStatLogOutput"
 
     sput-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_CLIENT_STAT_LOG_OUTPUT:Ljava/lang/String;
 
-    .line 1063
+    .line 1000
     const-string v0, "LastTimeOfUseTimeLogOutput"
 
     sput-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_USE_TIME_LOG_OUTPUT:Ljava/lang/String;
 
-    .line 1064
+    .line 1001
     const-string v0, "UIMode"
 
     sput-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UI_MODE:Ljava/lang/String;
 
-    .line 1065
+    .line 1002
     const-string v0, "UBSwitch"
 
     sput-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UB_SWITCH:Ljava/lang/String;
@@ -64,7 +64,7 @@
     .locals 0
 
     .prologue
-    .line 1054
+    .line 991
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -74,7 +74,7 @@
     .locals 2
 
     .prologue
-    .line 1056
+    .line 993
     const-class v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
 
     monitor-enter v1
@@ -84,14 +84,14 @@
 
     if-nez v0, :cond_0
 
-    .line 1057
+    .line 994
     new-instance v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
 
     invoke-direct {v0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;-><init>()V
 
     sput-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->sPreference:Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
 
-    .line 1058
+    .line 995
     :cond_0
     sget-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->sPreference:Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
     :try_end_0
@@ -101,7 +101,7 @@
 
     return-object v0
 
-    .line 1056
+    .line 993
     :catchall_0
     move-exception v0
 
@@ -115,17 +115,17 @@
     .parameter "value"
 
     .prologue
-    .line 1106
+    .line 1043
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 1107
+    .line 1044
     const/4 v1, 0x0
 
-    .line 1109
+    .line 1046
     .local v1, l:Ljava/lang/Long;
     :try_start_0
     invoke-static {p1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -138,32 +138,32 @@
 
     move-result-object v1
 
-    .line 1113
+    .line 1050
     :goto_0
     if-eqz v1, :cond_0
 
-    .line 1114
+    .line 1051
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
 
-    .line 1116
+    .line 1053
     .end local v1           #l:Ljava/lang/Long;
     :goto_1
     return-wide v2
 
-    .line 1110
+    .line 1047
     .restart local v1       #l:Ljava/lang/Long;
     :catch_0
     move-exception v0
 
-    .line 1111
+    .line 1048
     .local v0, e:Ljava/lang/NumberFormatException;
     invoke-virtual {v0}, Ljava/lang/NumberFormatException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1116
+    .line 1053
     .end local v0           #e:Ljava/lang/NumberFormatException;
     .end local v1           #l:Ljava/lang/Long;
     :cond_0
@@ -172,13 +172,12 @@
     goto :goto_1
 .end method
 
-.method private declared-synchronized getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+.method private declared-synchronized getProperty(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
     .parameter "key"
-    .parameter "defaultValue"
 
     .prologue
-    .line 1120
+    .line 1057
     monitor-enter p0
 
     :try_start_0
@@ -186,27 +185,27 @@
 
     if-nez v1, :cond_0
 
-    .line 1121
+    .line 1058
     invoke-direct {p0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->readProperty()Ljava/util/Properties;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
-    .line 1122
+    .line 1059
     :cond_0
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    .line 1123
+    .line 1060
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
     invoke-virtual {v1, p1}, Ljava/util/Properties;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1124
+    .line 1061
     .local v0, value:Ljava/lang/String;
     invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$000()Z
 
@@ -245,32 +244,32 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1062
+    :cond_1
+    if-nez v0, :cond_2
+
+    const-string v0, ""
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 1125
-    :cond_1
-    if-nez v0, :cond_3
-
-    .line 1127
+    .line 1064
     .end local v0           #value:Ljava/lang/String;
-    .end local p2
     :cond_2
     :goto_0
     monitor-exit p0
 
-    return-object p2
+    return-object v0
 
-    .restart local v0       #value:Ljava/lang/String;
-    .restart local p2
     :cond_3
-    move-object p2, v0
+    :try_start_1
+    const-string v0, ""
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1125
     goto :goto_0
 
-    .line 1120
-    .end local v0           #value:Ljava/lang/String;
+    .line 1057
     :catchall_0
     move-exception v1
 
@@ -283,14 +282,14 @@
     .locals 6
 
     .prologue
-    .line 1147
+    .line 1084
     new-instance v1, Ljava/io/File;
 
     const-string v5, "/data/system/deviceinfo_pref.xml"
 
     invoke-direct {v1, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 1148
+    .line 1085
     .local v1, file:Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -298,16 +297,16 @@
 
     if-eqz v5, :cond_3
 
-    .line 1149
+    .line 1086
     new-instance v4, Ljava/util/Properties;
 
     invoke-direct {v4}, Ljava/util/Properties;-><init>()V
 
-    .line 1150
+    .line 1087
     .local v4, p:Ljava/util/Properties;
     const/4 v2, 0x0
 
-    .line 1152
+    .line 1089
     .local v2, fis:Ljava/io/FileInputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileInputStream;
@@ -317,7 +316,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1153
+    .line 1090
     .end local v2           #fis:Ljava/io/FileInputStream;
     .local v3, fis:Ljava/io/FileInputStream;
     :try_start_1
@@ -326,10 +325,10 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 1158
+    .line 1095
     if-eqz v3, :cond_0
 
-    .line 1159
+    .line 1096
     :try_start_2
     invoke-virtual {v3}, Ljava/io/FileInputStream;->close()V
     :try_end_2
@@ -339,20 +338,20 @@
     :goto_0
     move-object v2, v3
 
-    .line 1166
+    .line 1103
     .end local v3           #fis:Ljava/io/FileInputStream;
     .end local v4           #p:Ljava/util/Properties;
     :cond_1
     :goto_1
     return-object v4
 
-    .line 1154
+    .line 1091
     .restart local v2       #fis:Ljava/io/FileInputStream;
     .restart local v4       #p:Ljava/util/Properties;
     :catch_0
     move-exception v0
 
-    .line 1155
+    .line 1092
     .local v0, e:Ljava/lang/Exception;
     :goto_2
     :try_start_3
@@ -360,10 +359,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1158
+    .line 1095
     if-eqz v2, :cond_1
 
-    .line 1159
+    .line 1096
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_4
@@ -371,37 +370,37 @@
 
     goto :goto_1
 
-    .line 1160
+    .line 1097
     :catch_1
     move-exception v0
 
-    .line 1161
+    .line 1098
     .local v0, e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 1157
+    .line 1094
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v5
 
-    .line 1158
+    .line 1095
     :goto_3
     if-eqz v2, :cond_2
 
-    .line 1159
+    .line 1096
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 1157
+    .line 1094
     :cond_2
     :goto_4
     throw v5
 
-    .line 1166
+    .line 1103
     .end local v2           #fis:Ljava/io/FileInputStream;
     .end local v4           #p:Ljava/util/Properties;
     :cond_3
@@ -409,32 +408,32 @@
 
     goto :goto_1
 
-    .line 1160
+    .line 1097
     .restart local v2       #fis:Ljava/io/FileInputStream;
     .restart local v4       #p:Ljava/util/Properties;
     :catch_2
     move-exception v0
 
-    .line 1161
+    .line 1098
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
-    .line 1160
+    .line 1097
     .end local v0           #e:Ljava/io/IOException;
     .end local v2           #fis:Ljava/io/FileInputStream;
     .restart local v3       #fis:Ljava/io/FileInputStream;
     :catch_3
     move-exception v0
 
-    .line 1161
+    .line 1098
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1157
+    .line 1094
     .end local v0           #e:Ljava/io/IOException;
     :catchall_1
     move-exception v5
@@ -445,7 +444,7 @@
     .restart local v2       #fis:Ljava/io/FileInputStream;
     goto :goto_3
 
-    .line 1154
+    .line 1091
     .end local v2           #fis:Ljava/io/FileInputStream;
     .restart local v3       #fis:Ljava/io/FileInputStream;
     :catch_4
@@ -464,7 +463,7 @@
     .parameter "value"
 
     .prologue
-    .line 1131
+    .line 1068
     monitor-enter p0
 
     :try_start_0
@@ -506,33 +505,33 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1132
+    .line 1069
     :cond_0
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
     if-nez v1, :cond_1
 
-    .line 1133
+    .line 1070
     invoke-direct {p0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->readProperty()Ljava/util/Properties;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
-    .line 1134
+    .line 1071
     :cond_1
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
     if-nez v1, :cond_2
 
-    .line 1135
+    .line 1072
     new-instance v1, Ljava/util/Properties;
 
     invoke-direct {v1}, Ljava/util/Properties;-><init>()V
 
     iput-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
-    .line 1136
+    .line 1073
     :cond_2
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
     :try_end_0
@@ -540,7 +539,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 1138
+    .line 1075
     :try_start_1
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
 
@@ -549,7 +548,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 1142
+    .line 1079
     :goto_0
     :try_start_2
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->mProperties:Ljava/util/Properties;
@@ -558,17 +557,17 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    .line 1144
+    .line 1081
     :cond_3
     monitor-exit p0
 
     return-void
 
-    .line 1139
+    .line 1076
     :catch_0
     move-exception v0
 
-    .line 1140
+    .line 1077
     .local v0, e:Ljava/lang/Exception;
     :try_start_3
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
@@ -577,7 +576,7 @@
 
     goto :goto_0
 
-    .line 1131
+    .line 1068
     .end local v0           #e:Ljava/lang/Exception;
     :catchall_0
     move-exception v1
@@ -592,19 +591,19 @@
     .parameter "prop"
 
     .prologue
-    .line 1170
+    .line 1107
     if-nez p0, :cond_1
 
-    .line 1187
+    .line 1124
     :cond_0
     :goto_0
     return-void
 
-    .line 1173
+    .line 1110
     :cond_1
     const/4 v1, 0x0
 
-    .line 1175
+    .line 1112
     .local v1, fos:Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v2, Ljava/io/FileOutputStream;
@@ -616,7 +615,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1176
+    .line 1113
     .end local v1           #fos:Ljava/io/FileOutputStream;
     .local v2, fos:Ljava/io/FileOutputStream;
     :try_start_1
@@ -627,10 +626,10 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
 
-    .line 1181
+    .line 1118
     if-eqz v2, :cond_2
 
-    .line 1182
+    .line 1119
     :try_start_2
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
@@ -640,16 +639,16 @@
     :goto_1
     move-object v1, v2
 
-    .line 1186
+    .line 1123
     .end local v2           #fos:Ljava/io/FileOutputStream;
     .restart local v1       #fos:Ljava/io/FileOutputStream;
     goto :goto_0
 
-    .line 1177
+    .line 1114
     :catch_0
     move-exception v0
 
-    .line 1178
+    .line 1115
     .local v0, e:Ljava/lang/Exception;
     :goto_2
     :try_start_3
@@ -657,10 +656,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 1181
+    .line 1118
     if-eqz v1, :cond_0
 
-    .line 1182
+    .line 1119
     :try_start_4
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_4
@@ -668,60 +667,60 @@
 
     goto :goto_0
 
-    .line 1183
+    .line 1120
     :catch_1
     move-exception v0
 
-    .line 1184
+    .line 1121
     .local v0, e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 1180
+    .line 1117
     .end local v0           #e:Ljava/io/IOException;
     :catchall_0
     move-exception v3
 
-    .line 1181
+    .line 1118
     :goto_3
     if-eqz v1, :cond_3
 
-    .line 1182
+    .line 1119
     :try_start_5
     invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 1180
+    .line 1117
     :cond_3
     :goto_4
     throw v3
 
-    .line 1183
+    .line 1120
     :catch_2
     move-exception v0
 
-    .line 1184
+    .line 1121
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_4
 
-    .line 1183
+    .line 1120
     .end local v0           #e:Ljava/io/IOException;
     .end local v1           #fos:Ljava/io/FileOutputStream;
     .restart local v2       #fos:Ljava/io/FileOutputStream;
     :catch_3
     move-exception v0
 
-    .line 1184
+    .line 1121
     .restart local v0       #e:Ljava/io/IOException;
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 1180
+    .line 1117
     .end local v0           #e:Ljava/io/IOException;
     :catchall_1
     move-exception v3
@@ -732,7 +731,7 @@
     .restart local v1       #fos:Ljava/io/FileOutputStream;
     goto :goto_3
 
-    .line 1177
+    .line 1114
     .end local v1           #fos:Ljava/io/FileOutputStream;
     .restart local v2       #fos:Ljava/io/FileOutputStream;
     :catch_4
@@ -751,16 +750,14 @@
     .locals 3
 
     .prologue
-    .line 1070
+    .line 1007
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_CLIENT_STAT_LOG_OUTPUT:Ljava/lang/String;
 
-    const-string v2, ""
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1071
+    .line 1008
     .local v0, value:Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getLong(Ljava/lang/String;)J
 
@@ -773,16 +770,14 @@
     .locals 3
 
     .prologue
-    .line 1079
+    .line 1016
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_USE_TIME_LOG_OUTPUT:Ljava/lang/String;
 
-    const-string v2, ""
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1080
+    .line 1017
     .local v0, value:Ljava/lang/String;
     invoke-direct {p0, v0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getLong(Ljava/lang/String;)J
 
@@ -792,37 +787,33 @@
 .end method
 
 .method public getUBSwitch()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 1097
+    .line 1034
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UB_SWITCH:Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1098
+    .line 1035
     .local v0, value:Ljava/lang/String;
     return-object v0
 .end method
 
 .method public getUIMode()Ljava/lang/String;
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 1088
+    .line 1025
     sget-object v1, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UI_MODE:Ljava/lang/String;
 
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v1, v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getProperty(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1089
+    .line 1026
     .local v0, value:Ljava/lang/String;
     return-object v0
 .end method
@@ -832,7 +823,7 @@
     .parameter "time"
 
     .prologue
-    .line 1075
+    .line 1012
     sget-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_CLIENT_STAT_LOG_OUTPUT:Ljava/lang/String;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -841,7 +832,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1076
+    .line 1013
     return-void
 .end method
 
@@ -850,7 +841,7 @@
     .parameter "time"
 
     .prologue
-    .line 1084
+    .line 1021
     sget-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_LAST_TIME_OF_USE_TIME_LOG_OUTPUT:Ljava/lang/String;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
@@ -859,7 +850,7 @@
 
     invoke-direct {p0, v0, v1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1085
+    .line 1022
     return-void
 .end method
 
@@ -868,12 +859,12 @@
     .parameter "ubswitch"
 
     .prologue
-    .line 1102
+    .line 1039
     sget-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UB_SWITCH:Ljava/lang/String;
 
     invoke-direct {p0, v0, p1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1103
+    .line 1040
     return-void
 .end method
 
@@ -882,11 +873,11 @@
     .parameter "uimode"
 
     .prologue
-    .line 1093
+    .line 1030
     sget-object v0, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->KEY_UI_MODE:Ljava/lang/String;
 
     invoke-direct {p0, v0, p1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1094
+    .line 1031
     return-void
 .end method

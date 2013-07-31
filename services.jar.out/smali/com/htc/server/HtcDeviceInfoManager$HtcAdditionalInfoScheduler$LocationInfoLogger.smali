@@ -30,18 +30,18 @@
     .parameter "infoOperators"
 
     .prologue
-    .line 1032
+    .line 969
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1033
+    .line 970
     iput-object p1, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcAdditionalInfoScheduler$LocationInfoLogger;->mInfoOperators:[Lcom/htc/server/HtcInfoOperator;
 
-    .line 1034
+    .line 971
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcAdditionalInfoScheduler$LocationInfoLogger;->mLastTimeOfLogging:J
 
-    .line 1035
+    .line 972
     return-void
 .end method
 
@@ -51,12 +51,12 @@
     .locals 10
 
     .prologue
-    .line 1037
+    .line 974
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
 
-    .line 1038
+    .line 975
     .local v1, currentElapsedTime:J
     invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager;->access$000()Z
 
@@ -98,7 +98,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1039
+    .line 976
     :cond_0
     iget-wide v6, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcAdditionalInfoScheduler$LocationInfoLogger;->mLastTimeOfLogging:J
 
@@ -110,7 +110,7 @@
 
     if-lez v6, :cond_1
 
-    .line 1040
+    .line 977
     iget-object v0, p0, Lcom/htc/server/HtcDeviceInfoManager$HtcAdditionalInfoScheduler$LocationInfoLogger;->mInfoOperators:[Lcom/htc/server/HtcInfoOperator;
 
     .local v0, arr$:[Lcom/htc/server/HtcInfoOperator;
@@ -125,28 +125,28 @@
 
     aget-object v5, v0, v3
 
-    .line 1041
+    .line 978
     .local v5, op:Lcom/htc/server/HtcInfoOperator;
     invoke-virtual {v5}, Lcom/htc/server/HtcInfoOperator;->logLocationInfo()V
 
-    .line 1042
+    .line 979
     invoke-virtual {v5}, Lcom/htc/server/HtcInfoOperator;->logInstalledApp()V
 
-    .line 1043
+    .line 980
     invoke-virtual {v5}, Lcom/htc/server/HtcInfoOperator;->logStatusbarInfo()V
 
-    .line 1044
+    .line 981
     invoke-virtual {v5}, Lcom/htc/server/HtcInfoOperator;->logWallpaperInfo()V
 
-    .line 1045
+    .line 982
     invoke-virtual {v5}, Lcom/htc/server/HtcInfoOperator;->logLockscreenShortcutInfo()V
 
-    .line 1040
+    .line 977
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    .line 1048
+    .line 985
     .end local v0           #arr$:[Lcom/htc/server/HtcInfoOperator;
     .end local v3           #i$:I
     .end local v4           #len$:I

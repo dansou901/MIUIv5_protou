@@ -54,11 +54,11 @@
     .parameter
 
     .prologue
-    .line 1819
+    .line 1615
     iput-object p1, p0, Landroid/mtp/MtpDatabase$MtpPropertyCache;->this$0:Landroid/mtp/MtpDatabase;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1820
+    .line 1616
     return-void
 .end method

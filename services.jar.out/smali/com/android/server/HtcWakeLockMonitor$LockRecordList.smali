@@ -1015,7 +1015,7 @@
 
     .line 957
     .local v6, SIZE:I
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 

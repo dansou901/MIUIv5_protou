@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 4695
+    .line 5456
     iput-object p1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     iget-object v0, p1, Landroid/widget/Editor$SelectionModifierCursorController;->this$0:Landroid/widget/Editor;
@@ -43,19 +43,19 @@
     .parameter "ev"
 
     .prologue
-    .line 4698
+    .line 5459
     invoke-super {p0, p1}, Landroid/widget/Editor$SelectionEndHandleView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 4699
+    .line 5460
     .local v0, b:Z
     if-nez v0, :cond_0
 
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mStartHandle:Landroid/widget/Editor$SelectionStartHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6300(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
 
     move-result-object v1
 
@@ -68,7 +68,7 @@
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mEndHandle:Landroid/widget/Editor$SelectionEndHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5500(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionEndHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionEndHandleView;
 
     move-result-object v1
 
@@ -78,17 +78,17 @@
 
     if-eqz v1, :cond_0
 
-    .line 4700
+    .line 5461
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mStartHandle:Landroid/widget/Editor$SelectionStartHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6300(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
 
     move-result-object v1
 
     invoke-virtual {v1, p1}, Landroid/widget/Editor$SelectionStartHandleView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
-    .line 4702
+    .line 5463
     :cond_0
     return v0
 .end method

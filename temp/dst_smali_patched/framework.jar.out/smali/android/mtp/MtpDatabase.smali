@@ -7,9 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/mtp/MtpDatabase$MtpPropertyCache;,
-        Landroid/mtp/MtpDatabase$MtpHandler;,
-        Landroid/mtp/MtpDatabase$MediaCache;,
-        Landroid/mtp/MtpDatabase$FileCache;
+        Landroid/mtp/MtpDatabase$MtpHandler;
     }
 .end annotation
 
@@ -63,25 +61,15 @@
 
 .field private static bPEF_KERNEL_SUPPORT:Z = false
 
-.field private static final cMEDIA_CACHE_SIZE:I = 0x5dc
-
-.field private static final cMEDIA_CACHE_SIZE_HIGH:I = 0x1770
-
-.field private static final cMEDIA_MEM_BUDGET_HIGH:I = 0xbb800
+.field private static final cCACHE_CRITERIA:I = 0x20
 
 .field private static final cMTP_MSG_SCAN:I = 0x1
-
-.field private static cMediaCacheLimit:I = 0x0
-
-.field private static final cTHUMB_SIZE_LIMIT:I = 0x8000
 
 .field private static iStorageID1:I = 0x0
 
 .field private static iStorageID2:I = 0x0
 
 .field private static final lPathLenLimit:I = 0xfff
-
-.field public static final mEnableDataCache:Z = true
 
 .field private static maVolumes:[Landroid/os/storage/StorageVolume; = null
 
@@ -93,11 +81,22 @@
 
 
 # instance fields
+.field public amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+.field public amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final bDelayScan:Z
 
 .field private final bEnableScan:Z
-
-.field private final bNewDelete:Z
 
 .field private final bNewScan:Z
 
@@ -106,8 +105,6 @@
 .field private mDatabaseModified:Z
 
 .field private mDeviceProperties:Landroid/content/SharedPreferences;
-
-.field public final mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
 
 .field private final mMediaProvider:Landroid/content/IContentProvider;
 
@@ -188,10 +185,6 @@
     const/4 v4, 0x1
 
     const/4 v3, 0x0
-
-    const/16 v0, 0x5dc
-
-    sput v0, Landroid/mtp/MtpDatabase;->cMediaCacheLimit:I
 
     new-array v0, v4, [Ljava/lang/String;
 
@@ -522,7 +515,7 @@
     .parameter "subDirectories"
 
     .prologue
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v10, Ljava/util/HashMap;
 
@@ -556,6 +549,14 @@
 
     const/4 v10, 0x0
 
+    iput-object v10, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    const/4 v10, 0x0
+
+    iput-object v10, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    const/4 v10, 0x1
+
     iput-boolean v10, p0, Landroid/mtp/MtpDatabase;->bDelayScan:Z
 
     const/4 v10, 0x0
@@ -565,14 +566,6 @@
     const/4 v10, 0x1
 
     iput-boolean v10, p0, Landroid/mtp/MtpDatabase;->bNewScan:Z
-
-    const/4 v10, 0x1
-
-    iput-boolean v10, p0, Landroid/mtp/MtpDatabase;->bNewDelete:Z
-
-    const/4 v10, 0x0
-
-    iput-object v10, p0, Landroid/mtp/MtpDatabase;->msMtpHandler:Landroid/mtp/MtpDatabase$MtpHandler;
 
     invoke-direct {p0}, Landroid/mtp/MtpDatabase;->native_setup()V
 
@@ -589,14 +582,6 @@
     move-result-object v10
 
     iput-object v10, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
-
-    new-instance v10, Landroid/mtp/MtpDatabase$MediaCache;
-
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
-
-    invoke-direct {v10, v11}, Landroid/mtp/MtpDatabase$MediaCache;-><init>(Landroid/content/IContentProvider;)V
-
-    iput-object v10, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
 
     iput-object p2, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
@@ -1145,35 +1130,7 @@
     return-void
 .end method
 
-.method static synthetic access$000()I
-    .locals 1
-
-    .prologue
-    sget v0, Landroid/mtp/MtpDatabase;->cMediaCacheLimit:I
-
-    return v0
-.end method
-
-.method static synthetic access$002(I)I
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    sput p0, Landroid/mtp/MtpDatabase;->cMediaCacheLimit:I
-
-    return p0
-.end method
-
-.method static synthetic access$100()[Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    sget-object v0, Landroid/mtp/MtpDatabase;->OBJECT_INFO_PROJECTION:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Landroid/mtp/MtpDatabase;)Z
+.method static synthetic access$000(Landroid/mtp/MtpDatabase;)Z
     .locals 1
     .parameter "x0"
 
@@ -1183,7 +1140,7 @@
     return v0
 .end method
 
-.method static synthetic access$300(Landroid/mtp/MtpDatabase;)Ljava/lang/String;
+.method static synthetic access$100(Landroid/mtp/MtpDatabase;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
@@ -1193,7 +1150,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Landroid/mtp/MtpDatabase;)Landroid/media/MediaScanner;
+.method static synthetic access$200(Landroid/mtp/MtpDatabase;)Landroid/media/MediaScanner;
     .locals 1
     .parameter "x0"
 
@@ -1462,32 +1419,10 @@
 .end method
 
 .method private createObjectQuery(III)Landroid/database/Cursor;
-    .locals 1
-    .parameter "storageID"
-    .parameter "format"
-    .parameter "parent"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    .prologue
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, p3, v0}, Landroid/mtp/MtpDatabase;->createObjectQueryEx(IIIZ)Landroid/database/Cursor;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private createObjectQueryEx(IIIZ)Landroid/database/Cursor;
     .locals 14
     .parameter "storageID"
     .parameter "format"
     .parameter "parent"
-    .parameter "bMoreInfo"
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1523,17 +1458,20 @@
 
     :cond_1
     :goto_1
-    if-eqz p4, :cond_13
-
-    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
     iget-object v2, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
 
-    invoke-virtual {v1, v2, v4, v5}, Landroid/mtp/MtpDatabase$MediaCache;->queryObjectInfoCache(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
+    sget-object v3, Landroid/mtp/MtpDatabase;->OBJECT_INFO_PROJECTION:[Ljava/lang/String;
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    invoke-interface/range {v1 .. v7}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
 
     move-result-object v1
 
-    :goto_2
     return-object v1
 
     .end local v4           #where:Ljava/lang/String;
@@ -1797,7 +1735,7 @@
     .end local v11           #ii:I
     .restart local v10       #ii:I
     :cond_b
-    :goto_3
+    :goto_2
     move-object v5, v13
 
     goto/16 :goto_0
@@ -1867,7 +1805,7 @@
 
     .end local v11           #ii:I
     .restart local v10       #ii:I
-    goto :goto_3
+    goto :goto_2
 
     .end local v4           #where:Ljava/lang/String;
     .end local v5           #whereArgs:[Ljava/lang/String;
@@ -1988,7 +1926,7 @@
     const/4 v8, 0x0
 
     .local v8, i:I
-    :goto_4
+    :goto_3
     array-length v1, v5
 
     if-ge v8, v1, :cond_11
@@ -1999,13 +1937,13 @@
 
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
     :cond_11
     const/4 v12, 0x0
 
     .local v12, j:I
-    :goto_5
+    :goto_4
     iget-object v1, p0, Landroid/mtp/MtpDatabase;->mSubDirectoriesWhereArgs:[Ljava/lang/String;
 
     array-length v1, v1
@@ -2022,22 +1960,58 @@
 
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_5
+    goto :goto_4
 
     :cond_12
     move-object v5, v13
 
     goto/16 :goto_1
+.end method
 
-    .end local v8           #i:I
-    .end local v12           #j:I
-    .end local v13           #newWhereArgs:[Ljava/lang/String;
-    :cond_13
-    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+.method private deleteFile(I)I
+    .locals 16
+    .parameter "handle"
 
-    iget-object v2, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+    .prologue
+    const/4 v1, 0x1
 
-    sget-object v3, Landroid/mtp/MtpDatabase;->ID_PROJECTION:[Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iput-boolean v1, v0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+
+    const/4 v14, 0x0
+
+    .local v14, path:Ljava/lang/String;
+    const/4 v10, 0x0
+
+    .local v10, format:I
+    const/4 v8, 0x0
+
+    .local v8, c:Landroid/database/Cursor;
+    :try_start_0
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+
+    sget-object v3, Landroid/mtp/MtpDatabase;->PATH_SIZE_FORMAT_PROJECTION:[Ljava/lang/String;
+
+    const-string v4, "_id=?"
+
+    const/4 v5, 0x1
+
+    new-array v5, v5, [Ljava/lang/String;
+
+    const/4 v6, 0x0
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    aput-object v7, v5, v6
 
     const/4 v6, 0x0
 
@@ -2045,362 +2019,370 @@
 
     invoke-interface/range {v1 .. v7}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
 
-    move-result-object v1
+    move-result-object v8
 
-    goto/16 :goto_2
-.end method
+    if-eqz v8, :cond_2
 
-.method private deleteFile(I)I
-    .locals 17
-    .parameter "handle"
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
 
-    .prologue
-    const/4 v12, 0x1
+    move-result v1
 
-    move-object/from16 v0, p0
+    if-eqz v1, :cond_2
 
-    iput-boolean v12, v0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+    const/4 v1, 0x1
 
-    const/4 v9, 0x0
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    .local v9, path:Ljava/lang/String;
-    const/4 v4, 0x0
+    move-result-object v14
 
-    .local v4, format:I
-    const/4 v2, 0x0
+    const/4 v1, 0x3
 
-    .local v2, c:Landroid/database/Cursor;
-    :try_start_0
-    move-object/from16 v0, p0
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getInt(I)I
 
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    move-result v10
 
-    move-object/from16 v0, p0
+    const/4 v1, 0x2
 
-    iget-object v13, v0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
-
-    move/from16 v0, p1
-
-    invoke-virtual {v12, v0, v13}, Landroid/mtp/MtpDatabase$MediaCache;->queryFileById(ILandroid/net/Uri;)Landroid/mtp/MtpDatabase$FileCache;
-
-    move-result-object v10
-
-    .local v10, sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    if-eqz v10, :cond_2
-
-    iget-object v9, v10, Landroid/mtp/MtpDatabase$FileCache;->mszFullPath:Ljava/lang/String;
-
-    iget v4, v10, Landroid/mtp/MtpDatabase$FileCache;->miFormat:I
-
-    iget-wide v6, v10, Landroid/mtp/MtpDatabase$FileCache;->miSize:J
-
-    .local v6, iFileSize:J
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
-
-    move/from16 v0, p1
-
-    invoke-virtual {v12, v0}, Landroid/mtp/MtpDatabase$MediaCache;->invalid(I)Z
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getLong(I)J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    if-eqz v9, :cond_0
+    move-result-wide v11
 
-    if-nez v4, :cond_3
+    .local v11, iFileSize:J
+    if-eqz v14, :cond_0
+
+    if-nez v10, :cond_3
 
     :cond_0
-    const/16 v12, 0x2002
+    const/16 v1, 0x2002
 
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
-    .end local v6           #iFileSize:J
-    .end local v10           #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
+    .end local v11           #iFileSize:J
     :goto_0
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_1
-    return v12
+    return v1
 
-    .restart local v10       #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
     :cond_2
-    const/16 v12, 0x2009
+    const/16 v1, 0x2009
 
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
     goto :goto_0
 
-    .restart local v6       #iFileSize:J
+    .restart local v11       #iFileSize:J
     :cond_3
     :try_start_1
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v9}, Landroid/mtp/MtpDatabase;->isStorageSubDirectory(Ljava/lang/String;)Z
+    invoke-direct {v0, v14}, Landroid/mtp/MtpDatabase;->isStorageSubDirectory(Ljava/lang/String;)Z
 
-    move-result v12
+    move-result v1
 
-    if-eqz v12, :cond_4
+    if-eqz v1, :cond_4
 
-    const/16 v12, 0x200d
+    const/16 v1, 0x200d
 
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
     goto :goto_0
 
     :cond_4
-    move-object/from16 v0, p0
+    const/16 v1, 0x3001
 
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
-
-    move/from16 v0, p1
-
-    int-to-long v13, v0
-
-    invoke-static {v12, v13, v14}, Landroid/provider/MediaStore$Files;->getMtpObjectsUri(Ljava/lang/String;J)Landroid/net/Uri;
-
-    move-result-object v11
-
-    .local v11, uri:Landroid/net/Uri;
-    invoke-virtual {v11}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
-
-    move-result-object v1
-
-    .local v1, builder:Landroid/net/Uri$Builder;
-    const-string v12, "recursive"
-
-    const-string v13, "true"
-
-    invoke-virtual {v1, v12, v13}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
-
-    move-result-object v11
+    if-ne v10, v1, :cond_5
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
 
-    const/4 v13, 0x0
+    invoke-static {v1}, Landroid/provider/MediaStore$Files;->getMtpObjectsUri(Ljava/lang/String;)Landroid/net/Uri;
 
-    const/4 v14, 0x0
+    move-result-object v15
 
-    invoke-interface {v12, v11, v13, v14}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+    .local v15, uri:Landroid/net/Uri;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    const-string v2, "_data LIKE ?1 AND lower(substr(_data,1,?2))=lower(?3)"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "/%"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v14}, Ljava/lang/String;->length()I
 
     move-result v5
 
-    .local v5, iCountDel:I
-    if-lez v5, :cond_7
+    add-int/lit8 v5, v5, 0x1
 
-    const/16 v12, 0x3001
+    invoke-static {v5}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    if-eq v4, v12, :cond_5
+    move-result-object v5
 
-    sget-object v12, Ljava/util/Locale;->US:Ljava/util/Locale;
+    aput-object v5, v3, v4
 
-    invoke-virtual {v9, v12}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    const/4 v4, 0x2
 
-    move-result-object v12
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    const-string v13, "/.nomedia"
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v12, v13}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v5, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, "/"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-interface {v1, v15, v2, v3}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    .end local v15           #uri:Landroid/net/Uri;
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
+
+    move/from16 v0, p1
+
+    int-to-long v2, v0
+
+    invoke-static {v1, v2, v3}, Landroid/provider/MediaStore$Files;->getMtpObjectsUri(Ljava/lang/String;J)Landroid/net/Uri;
+
+    move-result-object v15
+
+    .restart local v15       #uri:Landroid/net/Uri;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v15, v2, v3}, Landroid/content/IContentProvider;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    move-result v1
+
+    if-lez v1, :cond_8
+
+    const/16 v1, 0x3001
+
+    if-eq v10, v1, :cond_6
+
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v14, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "/.nomedia"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result v12
+    move-result v1
 
-    if-eqz v12, :cond_5
+    if-eqz v1, :cond_6
 
-    const/4 v12, 0x0
+    const/4 v1, 0x0
 
     :try_start_2
-    const-string v13, "/"
+    const-string v2, "/"
 
-    invoke-virtual {v9, v13}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+    invoke-virtual {v14, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
-    move-result v13
+    move-result v2
 
-    invoke-virtual {v9, v12, v13}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v14, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v13
 
-    .local v8, parentPath:Ljava/lang/String;
+    .local v13, parentPath:Ljava/lang/String;
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
-    const-string v13, "unhide"
+    const-string v2, "unhide"
 
-    const/4 v14, 0x0
+    const/4 v3, 0x0
 
-    invoke-interface {v12, v13, v8, v14}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    invoke-interface {v1, v2, v13, v3}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .end local v8           #parentPath:Ljava/lang/String;
-    :cond_5
+    .end local v13           #parentPath:Ljava/lang/String;
+    :cond_6
     :goto_1
-    const-wide/32 v12, 0x6400000
+    const-wide/32 v1, 0x6400000
 
-    cmp-long v12, v6, v12
+    cmp-long v1, v11, v1
 
-    if-lez v12, :cond_6
+    if-lez v1, :cond_7
 
     :try_start_3
-    const-string v12, "MtpDatabase"
+    const-string v1, "MtpDatabase"
 
-    const-string v13, "[USBF] deleteFile: sending ACTION_MEDIA_SCANNER_FINISHED"
+    const-string v2, "[USBF] deleteFile: sending ACTION_MEDIA_SCANNER_FINISHED"
 
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
 
-    new-instance v13, Landroid/content/Intent;
+    new-instance v2, Landroid/content/Intent;
 
-    const-string v14, "android.intent.action.MEDIA_SCANNER_FINISHED"
+    const-string v3, "android.intent.action.MEDIA_SCANNER_FINISHED"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "file://"
+    const-string v5, "file://"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v4
 
-    invoke-virtual {v15, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v4
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v4
 
-    invoke-static {v15}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v15
+    move-result-object v4
 
-    invoke-direct {v13, v14, v15}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {v12, v13}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    :cond_6
-    const/16 v12, 0x2001
+    :cond_7
+    const/16 v1, 0x2001
 
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v3
+    move-exception v9
 
-    .local v3, e:Landroid/os/RemoteException;
-    const-string v12, "MtpDatabase"
+    .local v9, e:Landroid/os/RemoteException;
+    const-string v1, "MtpDatabase"
 
-    new-instance v13, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v14, "failed to unhide/rescan for "
+    const-string v3, "failed to unhide/rescan for "
 
-    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v2
 
-    invoke-virtual {v13, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v13
+    move-result-object v2
 
-    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v2
 
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
 
     goto :goto_1
 
-    .end local v1           #builder:Landroid/net/Uri$Builder;
-    .end local v3           #e:Landroid/os/RemoteException;
-    .end local v5           #iCountDel:I
-    .end local v6           #iFileSize:J
-    .end local v10           #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    .end local v11           #uri:Landroid/net/Uri;
+    .end local v9           #e:Landroid/os/RemoteException;
+    .end local v11           #iFileSize:J
+    .end local v15           #uri:Landroid/net/Uri;
     :catch_1
-    move-exception v3
+    move-exception v9
 
-    .restart local v3       #e:Landroid/os/RemoteException;
+    .restart local v9       #e:Landroid/os/RemoteException;
     :try_start_4
-    const-string v12, "MtpDatabase"
+    const-string v1, "MtpDatabase"
 
-    const-string v13, "RemoteException in deleteFile"
+    const-string v2, "RemoteException in deleteFile"
 
-    invoke-static {v12, v13, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    const/16 v12, 0x2002
+    const/16 v1, 0x2002
 
-    if-eqz v2, :cond_1
-
-    goto/16 :goto_0
-
-    .end local v3           #e:Landroid/os/RemoteException;
-    .restart local v1       #builder:Landroid/net/Uri$Builder;
-    .restart local v5       #iCountDel:I
-    .restart local v6       #iFileSize:J
-    .restart local v10       #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    .restart local v11       #uri:Landroid/net/Uri;
-    :cond_7
-    const/4 v12, -0x1
-
-    if-ne v12, v5, :cond_8
-
-    :try_start_5
-    const-string v12, "MtpDatabase"
-
-    const-string v13, "[USBF] RESPONSE_PARTIAL_DELETION"
-
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_1
-
-    const/16 v12, 0x2012
-
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
     goto/16 :goto_0
 
+    .end local v9           #e:Landroid/os/RemoteException;
+    .restart local v11       #iFileSize:J
+    .restart local v15       #uri:Landroid/net/Uri;
     :cond_8
-    const/16 v12, 0x2009
+    const/16 v1, 0x2009
 
-    if-eqz v2, :cond_1
+    if-eqz v8, :cond_1
 
     goto/16 :goto_0
 
-    .end local v1           #builder:Landroid/net/Uri$Builder;
-    .end local v5           #iCountDel:I
-    .end local v6           #iFileSize:J
-    .end local v10           #sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    .end local v11           #uri:Landroid/net/Uri;
+    .end local v11           #iFileSize:J
+    .end local v15           #uri:Landroid/net/Uri;
     :catchall_0
-    move-exception v12
+    move-exception v1
 
-    if-eqz v2, :cond_9
+    if-eqz v8, :cond_9
 
-    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
     :cond_9
-    throw v12
+    throw v1
 .end method
 
 .method private endSendObject(Ljava/lang/String;IIZ)V
@@ -2562,11 +2544,9 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v4, p0, Landroid/mtp/MtpDatabase;->mMediaScanner:Landroid/media/MediaScanner;
+    iget-object v4, p0, Landroid/mtp/MtpDatabase;->msMtpHandler:Landroid/mtp/MtpDatabase$MtpHandler;
 
-    iget-object v5, p0, Landroid/mtp/MtpDatabase;->mVolumeName:Ljava/lang/String;
-
-    invoke-virtual {v4, p1, v5, p2, p3}, Landroid/media/MediaScanner;->scanMtpFile(Ljava/lang/String;Ljava/lang/String;II)V
+    invoke-virtual {v4, p1, p2, p3}, Landroid/mtp/MtpDatabase$MtpHandler;->sendMessageScan(Ljava/lang/String;II)V
 
     const-string v4, "MtpDatabase"
 
@@ -2773,10 +2753,8 @@
     const/4 v0, 0x0
 
     .local v0, c:Landroid/database/Cursor;
-    const/4 v2, 0x1
-
     :try_start_0
-    invoke-direct {p0, p1, p2, p3, v2}, Landroid/mtp/MtpDatabase;->createObjectQueryEx(IIIZ)Landroid/database/Cursor;
+    invoke-direct {p0, p1, p2, p3}, Landroid/mtp/MtpDatabase;->createObjectQuery(III)Landroid/database/Cursor;
 
     move-result-object v0
 
@@ -2838,179 +2816,510 @@
 .end method
 
 .method private getObjectFilePath(I[C[J)I
-    .locals 8
+    .locals 12
     .parameter "handle"
     .parameter "outFilePath"
     .parameter "outFileLengthFormat"
 
     .prologue
-    const/16 v3, 0x2001
+    const/16 v11, 0x2001
 
-    const/4 v7, 0x1
+    const/4 v3, 0x1
 
-    const/4 v6, 0x0
+    const/4 v2, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
-    iget-object v4, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
 
-    iget-object v5, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
 
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    invoke-virtual {v4, v6, v5, p2, v6}, Ljava/lang/String;->getChars(II[CI)V
-
-    iget-object v4, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
-
-    invoke-virtual {v4}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    aput-char v6, p2, v4
-
-    const-wide/16 v4, 0x0
-
-    aput-wide v4, p3, v6
-
-    const-wide/16 v4, 0x3001
-
-    aput-wide v4, p3, v7
-
-    :goto_0
-    return v3
-
-    :cond_0
-    iget-object v4, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
-
-    iget-object v5, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
-
-    invoke-virtual {v4, p1, v5}, Landroid/mtp/MtpDatabase$MediaCache;->queryFileById(ILandroid/net/Uri;)Landroid/mtp/MtpDatabase$FileCache;
-
-    move-result-object v2
-
-    .local v2, sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    if-eqz v2, :cond_2
-
-    iget-object v1, v2, Landroid/mtp/MtpDatabase$FileCache;->mszFullPath:Ljava/lang/String;
-
-    .local v1, path:Ljava/lang/String;
     invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    invoke-virtual {v0, v2, v1, p2, v2}, Ljava/lang/String;->getChars(II[CI)V
+
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaStoragePath:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    .local v0, lPathLen:I
-    const/16 v4, 0xfff
+    aput-char v2, p2, v0
 
-    if-le v0, v4, :cond_1
+    const-wide/16 v0, 0x0
 
-    const/16 v0, 0xfff
+    aput-wide v0, p3, v2
+
+    const-wide/16 v0, 0x3001
+
+    aput-wide v0, p3, v3
+
+    move v0, v11
+
+    :cond_0
+    :goto_0
+    return v0
 
     :cond_1
-    invoke-virtual {v1, v6, v0, p2, v6}, Ljava/lang/String;->getChars(II[CI)V
+    const/4 v7, 0x0
 
-    aput-char v6, p2, v0
+    .local v7, c:Landroid/database/Cursor;
+    :try_start_0
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
-    iget-wide v4, v2, Landroid/mtp/MtpDatabase$FileCache;->miSize:J
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
 
-    aput-wide v4, p3, v6
+    sget-object v2, Landroid/mtp/MtpDatabase;->PATH_SIZE_FORMAT_PROJECTION:[Ljava/lang/String;
 
-    iget v4, v2, Landroid/mtp/MtpDatabase$FileCache;->miFormat:I
+    const-string v3, "_id=?"
 
-    int-to-long v4, v4
+    const/4 v4, 0x1
 
-    aput-wide v4, p3, v7
+    new-array v4, v4, [Ljava/lang/String;
 
-    goto :goto_0
+    const/4 v5, 0x0
 
-    .end local v0           #lPathLen:I
-    .end local v1           #path:Ljava/lang/String;
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/4 v0, 0x1
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    .local v10, path:Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    .local v9, lPathLen:I
+    const/16 v0, 0xfff
+
+    if-le v9, v0, :cond_2
+
+    const/16 v9, 0xfff
+
     :cond_2
-    const/16 v3, 0x2002
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v10, v0, v9, p2, v1}, Ljava/lang/String;->getChars(II[CI)V
+
+    const/4 v0, 0x0
+
+    aput-char v0, p2, v9
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x2
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v1
+
+    aput-wide v1, p3, v0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x3
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v1
+
+    aput-wide v1, p3, v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz v7, :cond_3
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    move v0, v11
 
     goto :goto_0
+
+    .end local v9           #lPathLen:I
+    .end local v10           #path:Ljava/lang/String;
+    :cond_4
+    const/16 v0, 0x2009
+
+    if-eqz v7, :cond_0
+
+    :goto_1
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v8
+
+    .local v8, e:Landroid/os/RemoteException;
+    :try_start_1
+    const-string v0, "MtpDatabase"
+
+    const-string v1, "RemoteException in getObjectFilePath"
+
+    invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/16 v0, 0x2002
+
+    if-eqz v7, :cond_0
+
+    goto :goto_1
+
+    .end local v8           #e:Landroid/os/RemoteException;
+    :catchall_0
+    move-exception v0
+
+    if-eqz v7, :cond_5
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_5
+    throw v0
 .end method
 
 .method private getObjectInfo(I[I[C[J)Z
-    .locals 7
+    .locals 11
     .parameter "handle"
     .parameter "outStorageFormatParent"
     .parameter "outName"
     .parameter "outSizeModified"
 
     .prologue
-    const/4 v6, 0x1
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    const/4 v5, 0x0
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result v9
+
+    .local v9, ii:I
+    const/4 v0, -0x1
+
+    if-eq v9, v0, :cond_1
+
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "MtpDatabase"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "[USBF] getObjectInfo.HandleIdx="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
-    .local v0, path:Ljava/lang/String;
-    const/4 v1, 0x0
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    .local v1, ret:Z
-    iget-object v3, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    aget-object v1, v1, v9
 
-    iget-object v4, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+    iget v1, v1, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miStorageId:I
 
-    invoke-virtual {v3, p1, v4}, Landroid/mtp/MtpDatabase$MediaCache;->queryFileById(ILandroid/net/Uri;)Landroid/mtp/MtpDatabase$FileCache;
+    aput v1, p2, v0
 
-    move-result-object v2
+    const/4 v0, 0x1
 
-    .local v2, sFileCh:Landroid/mtp/MtpDatabase$FileCache;
-    if-eqz v2, :cond_0
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    iget v3, v2, Landroid/mtp/MtpDatabase$FileCache;->miStorageId:I
+    aget-object v1, v1, v9
 
-    aput v3, p2, v5
+    iget v1, v1, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miFormat:I
 
-    iget v3, v2, Landroid/mtp/MtpDatabase$FileCache;->miFormat:I
+    aput v1, p2, v0
 
-    aput v3, p2, v6
+    const/4 v0, 0x2
 
-    const/4 v3, 0x2
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    iget v4, v2, Landroid/mtp/MtpDatabase$FileCache;->miParent:I
+    aget-object v1, v1, v9
 
-    aput v4, p2, v3
+    iget v1, v1, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miParent:I
 
-    iget-object v0, v2, Landroid/mtp/MtpDatabase$FileCache;->mszFullPath:Ljava/lang/String;
+    aput v1, p2, v0
 
-    invoke-static {v0, p3}, Landroid/mtp/MtpDatabase;->nameFromPath(Ljava/lang/String;[C)V
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    iget-wide v3, v2, Landroid/mtp/MtpDatabase$FileCache;->miSize:J
+    aget-object v0, v0, v9
 
-    aput-wide v3, p4, v5
+    iget-object v10, v0, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszFullPath:Ljava/lang/String;
 
-    iget-wide v3, v2, Landroid/mtp/MtpDatabase$FileCache;->miModified:J
+    .local v10, path:Ljava/lang/String;
+    invoke-static {v10, p3}, Landroid/mtp/MtpDatabase;->nameFromPath(Ljava/lang/String;[C)V
 
-    aput-wide v3, p4, v6
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v1, v1, v9
+
+    iget-wide v1, v1, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miSize:J
+
+    aput-wide v1, p4, v0
+
+    const/4 v0, 0x1
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v1, v1, v9
+
+    iget-wide v1, v1, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miModified:J
+
+    aput-wide v1, p4, v0
+
+    const/4 v0, 0x1
+
+    .end local v9           #ii:I
+    .end local v10           #path:Ljava/lang/String;
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v7, 0x0
+
+    .local v7, c:Landroid/database/Cursor;
+    :try_start_0
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+
+    sget-object v2, Landroid/mtp/MtpDatabase;->OBJECT_INFO_PROJECTION:[Ljava/lang/String;
+
+    const-string v3, "_id=?"
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/String;
+
+    const/4 v5, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    :cond_0
-    return v1
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    aput v1, p2, v0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x2
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    aput v1, p2, v0
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x3
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v1
+
+    aput v1, p2, v0
+
+    const/4 v0, 0x4
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    .restart local v10       #path:Ljava/lang/String;
+    invoke-static {v10, p3}, Landroid/mtp/MtpDatabase;->nameFromPath(Ljava/lang/String;[C)V
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x5
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v1
+
+    aput-wide v1, p4, v0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x6
+
+    invoke-interface {v7, v1}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v1
+
+    aput-wide v1, p4, v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v0, 0x1
+
+    if-eqz v7, :cond_0
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    .end local v10           #path:Ljava/lang/String;
+    :catch_0
+    move-exception v8
+
+    .local v8, e:Landroid/os/RemoteException;
+    :try_start_1
+    const-string v0, "MtpDatabase"
+
+    const-string v1, "RemoteException in getObjectInfo"
+
+    invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v7, :cond_2
+
+    .end local v8           #e:Landroid/os/RemoteException;
+    :goto_1
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v7, :cond_3
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    throw v0
+
+    :cond_4
+    if-eqz v7, :cond_2
+
+    goto :goto_1
 .end method
 
 .method private getObjectList(III)[I
-    .locals 8
+    .locals 11
     .parameter "storageID"
     .parameter "format"
     .parameter "parent"
 
     .prologue
-    const/4 v5, 0x0
+    const/16 v10, 0x20
 
-    const/4 v7, -0x1
+    const/4 v9, -0x1
+
+    const/4 v5, 0x0
 
     const/4 v3, 0x0
 
     .local v3, sCur:Landroid/database/Cursor;
-    const/4 v6, 0x1
+    if-eqz p3, :cond_0
+
+    if-eq p3, v9, :cond_0
 
     :try_start_0
-    invoke-direct {p0, p1, p2, p3, v6}, Landroid/mtp/MtpDatabase;->createObjectQueryEx(IIIZ)Landroid/database/Cursor;
+    invoke-virtual {p0, p3, p1}, Landroid/mtp/MtpDatabase;->StartMediaScanner(II)V
+
+    :cond_0
+    invoke-direct {p0, p1, p2, p3}, Landroid/mtp/MtpDatabase;->createObjectQuery(III)Landroid/database/Cursor;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
@@ -3018,44 +3327,141 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
-    :cond_0
+    :cond_1
     move-object v2, v5
 
-    :cond_1
+    :cond_2
     :goto_0
     return-object v2
 
-    :cond_2
+    :cond_3
     :try_start_1
     invoke-interface {v3}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
 
     .local v0, iCount:I
-    if-lez v0, :cond_8
-
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_8
+    if-lez v0, :cond_c
 
     new-array v2, v0, [I
 
     .local v2, result:[I
     invoke-static {v0}, Landroid/mtp/MtpDatabase;->SetMtpCpuPerf(I)V
 
+    if-le v0, v10, :cond_6
+
+    const-string v6, "MtpDatabase"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "[USBF] getObjectList.Count.HandleIdx="
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    if-eqz v6, :cond_5
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v6, 0x0
+
+    iput-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
     const/4 v1, 0x0
 
     .local v1, ii:I
     :goto_1
-    if-ge v1, v0, :cond_4
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    array-length v6, v6
+
+    if-ge v1, v6, :cond_4
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    const/4 v7, 0x0
+
+    aput-object v7, v6, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v6, 0x0
+
+    iput-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    .end local v1           #ii:I
+    :cond_5
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    if-nez v6, :cond_6
+
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    new-array v6, v0, [Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    iput-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    const/4 v1, 0x0
+
+    .restart local v1       #ii:I
+    :goto_2
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    array-length v6, v6
+
+    if-ge v1, v6, :cond_6
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    new-instance v7, Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    invoke-direct {v7, p0}, Landroid/mtp/MtpDatabase$MtpPropertyCache;-><init>(Landroid/mtp/MtpDatabase;)V
+
+    aput-object v7, v6, v1
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    .end local v1           #ii:I
+    :cond_6
+    const/4 v1, 0x0
+
+    .restart local v1       #ii:I
+    :goto_3
+    if-ge v1, v0, :cond_b
+
+    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
 
     const/4 v6, 0x0
 
@@ -3065,38 +3471,219 @@
 
     aput v6, v2, v1
 
-    if-nez v1, :cond_3
+    if-le v0, v10, :cond_7
 
-    if-ne p3, v7, :cond_3
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    if-eqz v6, :cond_7
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    aget v7, v2, v1
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x1
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miStorageId:I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x2
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miFormat:I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x3
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miParent:I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x4
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszFullPath:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x5
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v7
+
+    iput-wide v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miSize:J
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x6
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v7
+
+    iput-wide v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miModified:J
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/4 v7, 0x7
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszTitle:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0x8
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v7
+
+    iput-wide v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miAdded:J
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0x9
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszAlbumArtist:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xa
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszComposer:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xb
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszDescription:Ljava/lang/String;
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xc
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v7
+
+    iput-wide v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miDuration:J
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xd
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miOriginalReleaseDate:I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xe
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v7
+
+    iput v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->miTrack:I
+
+    iget-object v6, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aget-object v6, v6, v1
+
+    const/16 v7, 0xf
+
+    invoke-interface {v3, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    iput-object v7, v6, Landroid/mtp/MtpDatabase$MtpPropertyCache;->mszDisplayName:Ljava/lang/String;
+
+    :cond_7
+    if-nez v1, :cond_8
+
+    if-ne p3, v9, :cond_8
 
     aget v6, v2, v1
 
     invoke-virtual {p0, v6, p1, p3}, Landroid/mtp/MtpDatabase;->StartMediaScanner(III)V
-
-    :cond_3
-    invoke-interface {v3}, Landroid/database/Cursor;->moveToNext()Z
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    if-eqz p3, :cond_5
-
-    if-eq p3, v7, :cond_5
-
-    invoke-virtual {p0, p3, p1}, Landroid/mtp/MtpDatabase;->StartMediaScanner(II)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_5
-    if-eqz v3, :cond_1
+    :cond_8
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-interface {v3}, Landroid/database/Cursor;->close()V
-
-    goto :goto_0
+    goto/16 :goto_3
 
     .end local v0           #iCount:I
     .end local v1           #ii:I
@@ -3114,16 +3701,16 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_9
 
     .end local v4           #sEx:Landroid/os/RemoteException;
-    :goto_2
+    :goto_4
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
-    :cond_6
+    :cond_9
     move-object v2, v5
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_1
     move-exception v4
@@ -3138,26 +3725,37 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_9
 
-    goto :goto_2
+    goto :goto_4
 
     .end local v4           #sEx:Ljava/lang/Exception;
     :catchall_0
     move-exception v5
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_a
 
     invoke-interface {v3}, Landroid/database/Cursor;->close()V
 
-    :cond_7
+    :cond_a
     throw v5
 
     .restart local v0       #iCount:I
-    :cond_8
-    if-eqz v3, :cond_6
+    .restart local v1       #ii:I
+    .restart local v2       #result:[I
+    :cond_b
+    if-eqz v3, :cond_2
 
-    goto :goto_2
+    invoke-interface {v3}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_0
+
+    .end local v1           #ii:I
+    .end local v2           #result:[I
+    :cond_c
+    if-eqz v3, :cond_9
+
+    goto :goto_4
 .end method
 
 .method private getObjectPropertyList(JIJII)Landroid/mtp/MtpPropertyList;
@@ -3762,404 +4360,6 @@
     .end array-data
 .end method
 
-.method private getThumbnail2(I)[B
-    .locals 10
-    .parameter "iHandle"
-
-    .prologue
-    const/4 v9, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/mtp/MtpDatabase;->GetFilenamefromHandle(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    .local v4, szPath:Ljava/lang/String;
-    const/4 v0, 0x0
-
-    .local v0, acBuffer:[B
-    const/16 v5, 0x1000
-
-    new-array v3, v5, [C
-
-    .local v3, outFilePath:[C
-    const/4 v5, 0x2
-
-    new-array v2, v5, [J
-
-    .local v2, outFileLengthFormat:[J
-    invoke-direct {p0, p1, v3, v2}, Landroid/mtp/MtpDatabase;->getObjectFilePath(I[C[J)I
-
-    move-result v5
-
-    const/16 v6, 0x2001
-
-    if-ne v5, v6, :cond_0
-
-    if-eqz v4, :cond_0
-
-    const-string v5, "MtpDatabase"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "[USBF] getThumbnail2: FORMAT="
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    aget-wide v7, v2, v9
-
-    invoke-static {v7, v8}, Ljava/lang/Long;->toHexString(J)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    aget-wide v5, v2, v9
-
-    long-to-int v5, v5
-
-    sparse-switch v5, :sswitch_data_0
-
-    const/4 v1, 0x0
-
-    .local v1, mIsVideo:Z
-    :goto_0
-    invoke-direct {p0, v4, v1}, Landroid/mtp/MtpDatabase;->getThumbnailUtil(Ljava/lang/String;Z)[B
-
-    move-result-object v0
-
-    .end local v1           #mIsVideo:Z
-    :cond_0
-    return-object v0
-
-    :sswitch_0
-    const/4 v1, 0x0
-
-    .restart local v1       #mIsVideo:Z
-    goto :goto_0
-
-    .end local v1           #mIsVideo:Z
-    :sswitch_1
-    const/4 v1, 0x1
-
-    .restart local v1       #mIsVideo:Z
-    goto :goto_0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x300a -> :sswitch_1
-        0x300b -> :sswitch_1
-        0x300c -> :sswitch_1
-        0x3801 -> :sswitch_0
-        0x3808 -> :sswitch_0
-        0x380b -> :sswitch_0
-        0xb901 -> :sswitch_1
-        0xb981 -> :sswitch_1
-        0xb982 -> :sswitch_1
-        0xb984 -> :sswitch_1
-    .end sparse-switch
-.end method
-
-.method private getThumbnailUtil(Ljava/lang/String;Z)[B
-    .locals 13
-    .parameter "szPath"
-    .parameter "mIsVideo"
-
-    .prologue
-    const v12, 0x8000
-
-    const/4 v11, 0x1
-
-    const/4 v6, 0x0
-
-    .local v6, pBitmap:Landroid/graphics/Bitmap;
-    const/4 v0, 0x0
-
-    .local v0, acBuffer:[B
-    const-string v8, "MtpDatabase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getThumbnailUtil: Path="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ",IsVideo: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz p2, :cond_1
-
-    invoke-static {p1, v11}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-
-    move-result-object v6
-
-    :goto_0
-    if-nez v6, :cond_2
-
-    const-string v8, "MtpDatabase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getThumbnailUtil: Can\'t create mini thumbnail for "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_1
-    if-eqz v0, :cond_0
-
-    const-string v8, "MtpDatabase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getThumbnailUtil: thumb file Width="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v6}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ",Height="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v6}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ",ByteCount="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v6}, Landroid/graphics/Bitmap;->getByteCount()I
-
-    move-result v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ",length="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    array-length v10, v0
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    return-object v0
-
-    :cond_1
-    invoke-static {p1, v11}, Landroid/media/ThumbnailUtils;->createImageThumbnail(Ljava/lang/String;I)Landroid/graphics/Bitmap;
-
-    move-result-object v6
-
-    goto :goto_0
-
-    :cond_2
-    new-instance v5, Ljava/io/ByteArrayOutputStream;
-
-    invoke-direct {v5}, Ljava/io/ByteArrayOutputStream;-><init>()V
-
-    .local v5, miniOutStream:Ljava/io/ByteArrayOutputStream;
-    const/16 v2, 0x4b
-
-    .local v2, iQuality:I
-    const/4 v4, 0x0
-
-    .local v4, ii:I
-    :goto_2
-    const/16 v8, 0x8
-
-    if-ge v4, v8, :cond_3
-
-    sget-object v8, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
-
-    invoke-virtual {v6, v8, v2, v5}, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat;ILjava/io/OutputStream;)Z
-
-    move-result v1
-
-    .local v1, bRet:Z
-    invoke-virtual {v5}, Ljava/io/ByteArrayOutputStream;->size()I
-
-    move-result v3
-
-    .local v3, iThumbSize:I
-    if-le v3, v12, :cond_3
-
-    div-int v8, v3, v12
-
-    add-int/lit8 v8, v8, 0x1
-
-    div-int/2addr v2, v8
-
-    const-string v8, "MtpDatabase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getThumbnailUtil: new Quality="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, ",size="
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v8, 0xa
-
-    if-ge v2, v8, :cond_4
-
-    .end local v1           #bRet:Z
-    .end local v3           #iThumbSize:I
-    :cond_3
-    invoke-virtual {v6}, Landroid/graphics/Bitmap;->recycle()V
-
-    :try_start_0
-    invoke-virtual {v5}, Ljava/io/ByteArrayOutputStream;->close()V
-
-    invoke-virtual {v5}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    goto/16 :goto_1
-
-    .restart local v1       #bRet:Z
-    .restart local v3       #iThumbSize:I
-    :cond_4
-    invoke-virtual {v5}, Ljava/io/ByteArrayOutputStream;->reset()V
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_2
-
-    .end local v1           #bRet:Z
-    .end local v3           #iThumbSize:I
-    :catch_0
-    move-exception v7
-
-    .local v7, sEx:Ljava/io/IOException;
-    const-string v8, "MtpDatabase"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getThumbnailUtil: got exception "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-.end method
-
 .method private inStorageSubDirectory(Ljava/lang/String;)Z
     .locals 7
     .parameter "path"
@@ -4538,493 +4738,616 @@
 .end method
 
 .method private renameFile(ILjava/lang/String;)I
-    .locals 15
+    .locals 18
     .parameter "handle"
     .parameter "newName"
 
     .prologue
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
-
-    iget-object v12, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
-
-    move/from16 v0, p1
-
-    invoke-virtual {v11, v0, v12}, Landroid/mtp/MtpDatabase$MediaCache;->queryFilepathById(ILandroid/net/Uri;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .local v6, path:Ljava/lang/String;
-    if-nez v6, :cond_0
-
-    const/16 v11, 0x2009
-
-    :goto_0
-    return v11
-
-    :cond_0
-    invoke-direct {p0, v6}, Landroid/mtp/MtpDatabase;->isStorageSubDirectory(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1
-
-    const/16 v11, 0x200d
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v5, Ljava/io/File;
-
-    invoke-direct {v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .local v5, oldFile:Ljava/io/File;
-    const/16 v11, 0x2f
-
-    invoke-virtual {v6, v11}, Ljava/lang/String;->lastIndexOf(I)I
-
-    move-result v2
-
-    .local v2, lastSlash:I
-    const/4 v11, 0x1
-
-    if-gt v2, v11, :cond_2
-
-    const/16 v11, 0x2002
-
-    goto :goto_0
-
-    :cond_2
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/4 v12, 0x0
-
-    add-int/lit8 v13, v2, 0x1
-
-    invoke-virtual {v6, v12, v13}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .local v4, newPath:Ljava/lang/String;
-    new-instance v3, Ljava/io/File;
-
-    invoke-direct {v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .local v3, newFile:Ljava/io/File;
-    invoke-virtual {v5, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-
-    move-result v7
-
-    .local v7, success:Z
-    if-nez v7, :cond_3
-
-    const-string v11, "MtpDatabase"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "renaming "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, " to "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, " failed"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/16 v11, 0x2002
-
-    goto :goto_0
-
-    :cond_3
-    new-instance v9, Landroid/content/ContentValues;
-
-    invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
-
-    .local v9, values:Landroid/content/ContentValues;
-    const-string v11, "_data"
-
-    invoke-virtual {v9, v11, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
     const/4 v8, 0x0
 
-    .local v8, updated:I
-    const/4 v11, 0x1
+    .local v8, c:Landroid/database/Cursor;
+    const/4 v14, 0x0
 
-    new-array v10, v11, [Ljava/lang/String;
+    .local v14, path:Ljava/lang/String;
+    const/4 v1, 0x1
 
-    const/4 v11, 0x0
+    new-array v5, v1, [Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v2
 
-    aput-object v12, v10, v11
+    aput-object v2, v5, v1
 
-    .local v10, whereArgs:[Ljava/lang/String;
+    .local v5, whereArgs:[Ljava/lang/String;
     :try_start_0
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+    move-object/from16 v0, p0
 
-    iget-object v12, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
-    const-string v13, "_id=?"
+    move-object/from16 v0, p0
 
-    invoke-interface {v11, v12, v9, v13, v10}, Landroid/content/IContentProvider;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    iget-object v2, v0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
 
-    move-result v8
+    sget-object v3, Landroid/mtp/MtpDatabase;->PATH_PROJECTION:[Ljava/lang/String;
 
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    const-string v4, "_id=?"
 
-    move/from16 v0, p1
+    const/4 v6, 0x0
 
-    invoke-virtual {v11, v0}, Landroid/mtp/MtpDatabase$MediaCache;->invalid(I)Z
+    const/4 v7, 0x0
+
+    invoke-interface/range {v1 .. v7}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_0
+
+    invoke-interface {v8}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    invoke-interface {v8, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
     :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :goto_1
-    if-nez v8, :cond_4
-
-    const-string v11, "MtpDatabase"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "Unable to update path for "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    const-string v13, " to "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v3, v5}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
-
-    const/16 v11, 0x2002
-
-    goto/16 :goto_0
-
-    :catch_0
-    move-exception v1
-
-    .local v1, e:Landroid/os/RemoteException;
-    const-string v11, "MtpDatabase"
-
-    const-string v12, "RemoteException in mMediaProvider.update"
-
-    invoke-static {v11, v12, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    .end local v1           #e:Landroid/os/RemoteException;
-    :cond_4
-    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
-
-    invoke-virtual {v11}, Landroid/mtp/MtpDatabase$MediaCache;->reset()V
-
-    :cond_5
-    invoke-virtual {v3}, Ljava/io/File;->isDirectory()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_7
-
-    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v11
-
-    const-string v12, "."
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_6
-
-    const-string v11, "."
-
-    invoke-virtual {v4, v11}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_6
-
-    :try_start_1
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
-
-    const-string v12, "unhide"
-
-    const/4 v13, 0x0
-
-    invoke-interface {v11, v12, v4, v13}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    :cond_6
-    :goto_2
-    const/16 v11, 0x2001
-
-    goto/16 :goto_0
-
-    :catch_1
-    move-exception v1
-
-    .restart local v1       #e:Landroid/os/RemoteException;
-    const-string v11, "MtpDatabase"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "failed to unhide/rescan for "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-
-    .end local v1           #e:Landroid/os/RemoteException;
-    :cond_7
-    invoke-virtual {v5}, Ljava/io/File;->getName()Ljava/lang/String;
-
-    move-result-object v11
-
-    sget-object v12, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v11
-
-    const-string v12, ".nomedia"
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-eqz v11, :cond_6
-
-    sget-object v11, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-virtual {v4, v11}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v11
-
-    const-string v12, ".nomedia"
-
-    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_6
-
-    :try_start_2
-    iget-object v11, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
-
-    const-string v12, "unhide"
-
-    invoke-virtual {v5}, Ljava/io/File;->getParent()Ljava/lang/String;
-
-    move-result-object v13
-
-    const/4 v14, 0x0
-
-    invoke-interface {v11, v12, v13, v14}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v1
-
-    .restart local v1       #e:Landroid/os/RemoteException;
-    const-string v11, "MtpDatabase"
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "failed to unhide/rescan for "
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_2
-.end method
-
-.method private sessionEnded()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    const-string v0, "MtpDatabase"
-
-    const-string v1, "sessionEnded"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.provider.action.MTP_SESSION_END"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    iput-boolean v3, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+    move-result-object v14
 
     :cond_0
-    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+    if-eqz v8, :cond_1
 
-    if-eqz v0, :cond_1
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
-    const-string v0, "MtpDatabase"
+    :cond_1
+    if-nez v14, :cond_4
 
+    const/16 v1, 0x2009
+
+    :cond_2
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v9
+
+    .local v9, e:Landroid/os/RemoteException;
+    :try_start_1
+    const-string v1, "MtpDatabase"
+
+    const-string v2, "RemoteException in getObjectFilePath"
+
+    invoke-static {v1, v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/16 v1, 0x2002
+
+    if-eqz v8, :cond_2
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    .end local v9           #e:Landroid/os/RemoteException;
+    :catchall_0
+    move-exception v1
+
+    if-eqz v8, :cond_3
+
+    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    throw v1
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v14}, Landroid/mtp/MtpDatabase;->isStorageSubDirectory(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    const/16 v1, 0x200d
+
+    goto :goto_0
+
+    :cond_5
+    new-instance v13, Ljava/io/File;
+
+    invoke-direct {v13, v14}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .local v13, oldFile:Ljava/io/File;
+    const/16 v1, 0x2f
+
+    invoke-virtual {v14, v1}, Ljava/lang/String;->lastIndexOf(I)I
+
+    move-result v10
+
+    .local v10, lastSlash:I
+    const/4 v1, 0x1
+
+    if-gt v10, v1, :cond_6
+
+    const/16 v1, 0x2002
+
+    goto :goto_0
+
+    :cond_6
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "[USBF] Scanned Stop "
+    const/4 v2, 0x0
+
+    add-int/lit8 v3, v10, 0x1
+
+    invoke-virtual {v14, v2, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    iget-object v2, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+    move-object/from16 v0, p2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
+    move-result-object v12
+
+    .local v12, newPath:Ljava/lang/String;
+    new-instance v11, Ljava/io/File;
+
+    invoke-direct {v11, v12}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .local v11, newFile:Ljava/io/File;
+    invoke-virtual {v13, v11}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+    move-result v15
+
+    .local v15, success:Z
+    if-nez v15, :cond_7
+
+    const-string v1, "MtpDatabase"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "renaming "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " failed"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v1, 0x2002
+
+    goto/16 :goto_0
+
+    :cond_7
+    new-instance v17, Landroid/content/ContentValues;
+
+    invoke-direct/range {v17 .. v17}, Landroid/content/ContentValues;-><init>()V
+
+    .local v17, values:Landroid/content/ContentValues;
+    const-string v1, "_data"
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v1, v12}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v16, 0x0
+
+    .local v16, updated:I
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+
+    const-string v3, "_id=?"
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v1, v2, v0, v3, v5}, Landroid/content/IContentProvider;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+
+    move-result v16
+
+    :goto_1
+    if-nez v16, :cond_8
+
+    const-string v1, "MtpDatabase"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Unable to update path for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " to "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v11, v13}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
+
+    const/16 v1, 0x2002
+
+    goto/16 :goto_0
+
+    :catch_1
+    move-exception v9
+
+    .restart local v9       #e:Landroid/os/RemoteException;
+    const-string v1, "MtpDatabase"
+
+    const-string v2, "RemoteException in mMediaProvider.update"
+
+    invoke-static {v1, v2, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
+    .end local v9           #e:Landroid/os/RemoteException;
+    :cond_8
+    invoke-virtual {v11}, Ljava/io/File;->isDirectory()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    invoke-virtual {v13}, Ljava/io/File;->getName()Ljava/lang/String;
+
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v2, "."
 
-    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    invoke-virtual {p0, v0, v3}, Landroid/mtp/MtpDatabase;->StartMediaScannerNew(Ljava/lang/String;I)V
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    const-string v1, "."
+
+    invoke-virtual {v12, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    const-string v2, "unhide"
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v12, v3}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
+
+    :cond_9
+    :goto_2
+    const/16 v1, 0x2001
+
+    goto/16 :goto_0
+
+    :catch_2
+    move-exception v9
+
+    .restart local v9       #e:Landroid/os/RemoteException;
+    const-string v1, "MtpDatabase"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "failed to unhide/rescan for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    .end local v9           #e:Landroid/os/RemoteException;
+    :cond_a
+    invoke-virtual {v13}, Ljava/io/File;->getName()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, ".nomedia"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v12, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, ".nomedia"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    :try_start_4
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
+
+    const-string v2, "unhide"
+
+    invoke-virtual {v13}, Ljava/io/File;->getParent()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v2, v3, v4}, Landroid/content/IContentProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_3
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v9
+
+    .restart local v9       #e:Landroid/os/RemoteException;
+    const-string v1, "MtpDatabase"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "failed to unhide/rescan for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+.end method
+
+.method private sessionEnded()V
+    .locals 6
+
+    .prologue
+    const/4 v5, 0x0
+
+    const/4 v4, 0x0
+
+    const-string v1, "MtpDatabase"
+
+    const-string v2, "sessionEnded"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v1, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mContext:Landroid/content/Context;
+
+    new-instance v2, Landroid/content/Intent;
+
+    const-string v3, "android.provider.action.MTP_SESSION_END"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    iput-boolean v5, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+
+    :cond_0
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    const-string v1, "MtpDatabase"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "[USBF] Scanned Stop "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+
+    invoke-virtual {p0, v1, v5}, Landroid/mtp/MtpDatabase;->StartMediaScannerNew(Ljava/lang/String;I)V
+
+    iput-object v4, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+
+    :cond_1
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+
+    iput-object v4, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCacheHandle:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Landroid/mtp/MtpDatabase;->mScanDirectory:Ljava/lang/String;
+    .local v0, ii:I
+    :goto_0
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
 
-    :cond_1
-    iput-boolean v3, p0, Landroid/mtp/MtpDatabase;->mSessionActive:Z
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    aput-object v4, v1, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iput-object v4, p0, Landroid/mtp/MtpDatabase;->amMtpPropertyCache:[Landroid/mtp/MtpDatabase$MtpPropertyCache;
+
+    .end local v0           #ii:I
+    :cond_3
+    iput-boolean v5, p0, Landroid/mtp/MtpDatabase;->mSessionActive:Z
 
     return-void
 .end method
 
 .method private sessionStarted()V
-    .locals 2
+    .locals 3
 
     .prologue
-    const-string v0, "MtpDatabase"
+    const-string v1, "MtpDatabase"
 
-    const-string v1, "sessionStarted"
+    const-string v2, "sessionStarted"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
+    iput-boolean v1, p0, Landroid/mtp/MtpDatabase;->mDatabaseModified:Z
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Landroid/mtp/MtpDatabase;->mSessionActive:Z
+    iput-boolean v1, p0, Landroid/mtp/MtpDatabase;->mSessionActive:Z
+
+    new-instance v0, Landroid/os/HandlerThread;
+
+    const-string v1, "MtpDatabase"
+
+    const/16 v2, 0xa
+
+    invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
+
+    .local v0, sHThread:Landroid/os/HandlerThread;
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+
+    new-instance v1, Landroid/mtp/MtpDatabase$MtpHandler;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v2
+
+    invoke-direct {v1, p0, v2}, Landroid/mtp/MtpDatabase$MtpHandler;-><init>(Landroid/mtp/MtpDatabase;Landroid/os/Looper;)V
+
+    iput-object v1, p0, Landroid/mtp/MtpDatabase;->msMtpHandler:Landroid/mtp/MtpDatabase$MtpHandler;
 
     return-void
 .end method
@@ -5199,52 +5522,131 @@
 
 # virtual methods
 .method public GetFilenamefromHandle(I)Ljava/lang/String;
-    .locals 4
+    .locals 10
     .parameter "iHandle"
 
     .prologue
-    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mMediaCache:Landroid/mtp/MtpDatabase$MediaCache;
+    const/4 v0, 0x1
 
-    iget-object v2, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
+    const/4 v7, 0x0
 
-    invoke-virtual {v1, p1, v2}, Landroid/mtp/MtpDatabase$MediaCache;->queryFilepathById(ILandroid/net/Uri;)Ljava/lang/String;
+    .local v7, sCur:Landroid/database/Cursor;
+    const/4 v9, 0x0
 
-    move-result-object v0
+    .local v9, szPath:Ljava/lang/String;
+    new-array v4, v0, [Ljava/lang/String;
 
-    .local v0, szPath:Ljava/lang/String;
-    const-string v1, "MtpDatabase"
+    const/4 v0, 0x0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string v3, "[USBF] GetFilenamefromHandle: Path="
+    aput-object v1, v4, v0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .local v4, whereArgs:[Ljava/lang/String;
+    :try_start_0
+    iget-object v0, p0, Landroid/mtp/MtpDatabase;->mMediaProvider:Landroid/content/IContentProvider;
 
-    move-result-object v2
+    iget-object v1, p0, Landroid/mtp/MtpDatabase;->mObjectsUri:Landroid/net/Uri;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sget-object v2, Landroid/mtp/MtpDatabase;->PATH_PROJECTION:[Ljava/lang/String;
 
-    move-result-object v2
+    const-string v3, "_id=?"
 
-    const-string v3, ", Handle="
+    const/4 v5, 0x0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v6, 0x0
 
-    move-result-object v2
+    invoke-interface/range {v0 .. v6}, Landroid/content/IContentProvider;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/ICancellationSignal;)Landroid/database/Cursor;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v7
 
-    move-result-object v2
+    if-eqz v7, :cond_0
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-interface {v7}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result-object v2
+    move-result v0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v0, :cond_0
 
-    return-object v0
+    const/4 v0, 0x1
+
+    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v9
+
+    :cond_0
+    if-eqz v7, :cond_1
+
+    :goto_0
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_1
+    const-string v0, "MtpDatabase"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "[USBF] GetFilenamefromHandle: Path="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ", Handle="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v9
+
+    :catch_0
+    move-exception v8
+
+    .local v8, sEx:Landroid/os/RemoteException;
+    :try_start_1
+    const-string v0, "MtpDatabase"
+
+    const-string v1, "RemoteException"
+
+    invoke-static {v0, v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-eqz v7, :cond_1
+
+    goto :goto_0
+
+    .end local v8           #sEx:Landroid/os/RemoteException;
+    :catchall_0
+    move-exception v0
+
+    if-eqz v7, :cond_2
+
+    invoke-interface {v7}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    throw v0
 .end method
 
 .method public StartMediaScanner(II)V

@@ -2526,7 +2526,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_8
 
     iget-object v3, p0, Landroid/server/BluetoothBondState;->mService:Landroid/server/BluetoothService;
 
@@ -2604,7 +2604,7 @@
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    if-ne p2, v6, :cond_a
+    if-ne p2, v6, :cond_9
 
     if-gtz p3, :cond_4
 
@@ -2651,7 +2651,7 @@
 
     .restart local v1       #oldState:I
     :cond_5
-    if-ne p2, v7, :cond_8
+    if-ne p2, v7, :cond_7
 
     :try_start_2
     iget-object v3, p0, Landroid/server/BluetoothBondState;->mA2dpProxy:Landroid/bluetooth/BluetoothA2dp;
@@ -2660,29 +2660,14 @@
 
     iget-object v3, p0, Landroid/server/BluetoothBondState;->mHeadsetProxy:Landroid/bluetooth/BluetoothHeadset;
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_3
 
     :cond_6
     invoke-direct {p0}, Landroid/server/BluetoothBondState;->getProfileProxy()V
 
-    :cond_7
-    iget-object v3, p0, Landroid/server/BluetoothBondState;->mPendingOutgoingBonding:Ljava/lang/String;
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, p0, Landroid/server/BluetoothBondState;->mService:Landroid/server/BluetoothService;
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, p1, v4}, Landroid/server/BluetoothService;->addProfileState(Ljava/lang/String;Z)Landroid/bluetooth/BluetoothDeviceProfileState;
-
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     if-ne p2, v6, :cond_3
 
     iget-object v3, p0, Landroid/server/BluetoothBondState;->mPairingRequestRcvd:Ljava/util/ArrayList;
@@ -2691,13 +2676,13 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_8
     const-string v3, "<Unknown>"
 
     goto/16 :goto_2
 
     .restart local v0       #intent:Landroid/content/Intent;
-    :cond_a
+    :cond_9
     iget-object v3, p0, Landroid/server/BluetoothBondState;->mState:Ljava/util/HashMap;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;

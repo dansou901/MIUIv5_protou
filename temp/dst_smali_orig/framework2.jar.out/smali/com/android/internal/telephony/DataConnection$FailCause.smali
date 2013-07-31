@@ -972,6 +972,10 @@
 
     if-eq p0, v2, :cond_a
 
+    sget-object v2, Lcom/android/internal/telephony/DataConnection$FailCause;->ACTIVATION_REJECT_GGSN:Lcom/android/internal/telephony/DataConnection$FailCause;
+
+    if-eq p0, v2, :cond_a
+
     sget-object v2, Lcom/android/internal/telephony/DataConnection$FailCause;->SERVICE_OPTION_NOT_SUPPORTED:Lcom/android/internal/telephony/DataConnection$FailCause;
 
     if-eq p0, v2, :cond_a

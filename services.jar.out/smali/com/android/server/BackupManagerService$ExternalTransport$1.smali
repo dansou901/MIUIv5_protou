@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 6208
+    .line 6068
     iput-object p1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
     iput-object p2, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->val$this$0:Lcom/android/server/BackupManagerService;
@@ -48,7 +48,7 @@
     .parameter "service"
 
     .prologue
-    .line 6210
+    .line 6070
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
     invoke-static {p2}, Lcom/android/internal/backup/IBackupTransport$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/backup/IBackupTransport;
@@ -57,7 +57,7 @@
 
     iput-object v2, v1, Lcom/android/server/BackupManagerService$ExternalTransport;->externaltransport:Lcom/android/internal/backup/IBackupTransport;
 
-    .line 6211
+    .line 6071
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v1, :cond_0
@@ -108,7 +108,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6213
+    .line 6073
     :cond_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
@@ -125,7 +125,7 @@
     #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v1, v2, v3}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 6215
+    .line 6075
     :try_start_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
@@ -145,15 +145,15 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 6219
+    .line 6079
     :goto_0
     return-void
 
-    .line 6216
+    .line 6076
     :catch_0
     move-exception v0
 
-    .line 6217
+    .line 6077
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "BackupManagerService"
 
@@ -171,7 +171,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 6222
+    .line 6082
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v1, :cond_0
@@ -212,7 +212,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6224
+    .line 6084
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
@@ -233,13 +233,13 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 6228
+    .line 6088
     :goto_0
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
     iput-object v4, v1, Lcom/android/server/BackupManagerService$ExternalTransport;->externaltransport:Lcom/android/internal/backup/IBackupTransport;
 
-    .line 6229
+    .line 6089
     iget-object v1, p0, Lcom/android/server/BackupManagerService$ExternalTransport$1;->this$1:Lcom/android/server/BackupManagerService$ExternalTransport;
 
     iget-object v1, v1, Lcom/android/server/BackupManagerService$ExternalTransport;->this$0:Lcom/android/server/BackupManagerService;
@@ -255,14 +255,14 @@
     #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v1, v2, v4}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 6230
+    .line 6090
     return-void
 
-    .line 6225
+    .line 6085
     :catch_0
     move-exception v0
 
-    .line 6226
+    .line 6086
     .local v0, e:Landroid/os/RemoteException;
     const-string v1, "BackupManagerService"
 

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1158
+    .line 924
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$H$1;->this$1:Lcom/htc/server/WirelessDisplayService$H;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -40,13 +40,13 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1161
+    .line 927
     iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$H$1;->this$1:Lcom/htc/server/WirelessDisplayService$H;
 
     iget-object v0, v0, Lcom/htc/server/WirelessDisplayService$H;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #getter for: Lcom/htc/server/WirelessDisplayService;->mWifiManager:Landroid/net/wifi/WifiManager;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$1700(Lcom/htc/server/WirelessDisplayService;)Landroid/net/wifi/WifiManager;
+    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$400(Lcom/htc/server/WirelessDisplayService;)Landroid/net/wifi/WifiManager;
 
     move-result-object v0
 
@@ -58,20 +58,20 @@
 
     if-nez v0, :cond_0
 
-    .line 1162
+    .line 928
     const-string v0, "WirelessDisplayService"
 
     const-string v1, "Disable AP fialed."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1163
+    .line 929
     iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$H$1;->this$1:Lcom/htc/server/WirelessDisplayService$H;
 
     iget-object v0, v0, Lcom/htc/server/WirelessDisplayService$H;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #getter for: Lcom/htc/server/WirelessDisplayService;->mTurnOffHotspotWakeLock:Ljava/util/concurrent/atomic/AtomicBoolean;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$3800(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$2400(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
@@ -81,19 +81,19 @@
 
     if-eqz v0, :cond_0
 
-    .line 1164
+    .line 930
     iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$H$1;->this$1:Lcom/htc/server/WirelessDisplayService$H;
 
     iget-object v0, v0, Lcom/htc/server/WirelessDisplayService$H;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #getter for: Lcom/htc/server/WirelessDisplayService;->mTurnOffHotspotWakeLock:Ljava/util/concurrent/atomic/AtomicBoolean;
-    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$3800(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    invoke-static {v0}, Lcom/htc/server/WirelessDisplayService;->access$2400(Lcom/htc/server/WirelessDisplayService;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 1165
+    .line 931
     iget-object v0, p0, Lcom/htc/server/WirelessDisplayService$H$1;->this$1:Lcom/htc/server/WirelessDisplayService$H;
 
     iget-object v0, v0, Lcom/htc/server/WirelessDisplayService$H;->this$0:Lcom/htc/server/WirelessDisplayService;
@@ -102,7 +102,7 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 1168
+    .line 934
     :cond_0
     return-void
 .end method

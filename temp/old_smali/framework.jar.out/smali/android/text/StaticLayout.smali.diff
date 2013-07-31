@@ -1,5 +1,5 @@
-*** ./smali/android/text/StaticLayout.smali	2013-07-12 21:43:30.991837281 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/text/StaticLayout.smali	2013-07-12 21:41:13.941825980 +0000
+*** ./smali/android/text/StaticLayout.smali	2013-07-31 22:22:37.174067708 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/text/StaticLayout.smali	2013-07-31 22:21:27.067395191 +0000
 ***************
 *** 1009,1014 ****
 --- 1009,1030 ----

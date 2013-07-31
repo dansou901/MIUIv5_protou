@@ -169,6 +169,8 @@
 
     goto :goto_0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x22 -> :sswitch_3

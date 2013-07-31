@@ -88,7 +88,7 @@
 
     mul-int/lit8 v16, v14, 0x2
 
-    const-string v17, "utf-16be"
+    const-string/jumbo v17, "utf-16be"
 
     move-object/from16 v0, p0
 
@@ -1761,7 +1761,7 @@
 
     add-int/lit8 v5, p2, -0x1
 
-    const-string v6, "utf-16"
+    const-string/jumbo v6, "utf-16"
 
     invoke-direct {v2, p0, v4, v5, v6}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
     :try_end_0
@@ -1790,6 +1790,8 @@
     goto :goto_1
 
     .line 424
+    nop
+
     nop
 
     :pswitch_data_0

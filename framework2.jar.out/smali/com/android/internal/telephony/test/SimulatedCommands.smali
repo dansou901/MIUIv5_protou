@@ -2025,7 +2025,7 @@
 
     if-nez v1, :cond_2
 
-    const-string v1, "unlocked"
+    const-string/jumbo v1, "unlocked"
 
     :goto_1
     invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2243,7 +2243,7 @@
     .parameter "result"
 
     .prologue
-    .line 1584
+    .line 1580
     return-void
 .end method
 
@@ -2295,7 +2295,7 @@
     .parameter "result"
 
     .prologue
-    .line 1585
+    .line 1581
     return-void
 .end method
 
@@ -3197,16 +3197,6 @@
     iput-boolean p1, p0, Lcom/android/internal/telephony/test/SimulatedCommands;->mSsnNotifyOn:Z
 
     .line 337
-    return-void
-.end method
-
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    .line 1580
     return-void
 .end method
 

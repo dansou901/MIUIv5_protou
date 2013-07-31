@@ -49,7 +49,7 @@
     iget-object v1, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mTouchHightlightPaint:Landroid/graphics/Paint;
-    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9400(Landroid/webkit/WebViewClassic;)Landroid/graphics/Paint;
+    invoke-static {v1}, Landroid/webkit/WebViewClassic;->access$9500(Landroid/webkit/WebViewClassic;)Landroid/graphics/Paint;
 
     move-result-object v1
 
@@ -323,7 +323,7 @@
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mFocusTransition:Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9500(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$9600(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
 
     move-result-object v0
 
@@ -342,7 +342,7 @@
     const/4 v1, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mFocusTransition:Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$9502(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewClassic$FocusTransitionDrawable;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$9602(Landroid/webkit/WebViewClassic;Landroid/webkit/WebViewClassic$FocusTransitionDrawable;)Landroid/webkit/WebViewClassic$FocusTransitionDrawable;
 
     :cond_0
     iget-object v0, p0, Landroid/webkit/WebViewClassic$FocusTransitionDrawable;->mWebView:Landroid/webkit/WebViewClassic;

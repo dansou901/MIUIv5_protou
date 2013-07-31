@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 6782
+    .line 6784
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ShowingShutdownAnimationReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 6782
+    .line 6784
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindowManager$ShowingShutdownAnimationReceiver;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
     return-void
@@ -54,19 +54,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 6786
+    .line 6788
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
 
-    .line 6787
+    .line 6789
     const-string v0, "WindowManager"
 
     const-string v1, "ShowingShutdownAnimationReceiver - OnReceive()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6788
+    .line 6790
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ShowingShutdownAnimationReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -74,16 +74,16 @@
 
     iput-boolean v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mShowingShutdownAnim:Z
 
-    .line 6790
+    .line 6792
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ShowingShutdownAnimationReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHtcMode:Z
 
-    .line 6791
+    .line 6793
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$ShowingShutdownAnimationReceiver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateRotation(Z)V
 
-    .line 6800
+    .line 6802
     return-void
 .end method

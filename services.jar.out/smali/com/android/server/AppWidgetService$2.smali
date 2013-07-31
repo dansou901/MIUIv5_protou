@@ -38,9 +38,6 @@
     .locals 4
     .parameter "context"
     .parameter "intent"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     .line 349
@@ -56,18 +53,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_0
 
     return-void
 
-    :cond_3
+    :cond_0
     const-string v3, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     .line 352
     iget-object v3, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
@@ -80,18 +77,18 @@
     invoke-virtual {v3}, Lcom/android/server/AppWidgetServiceImpl;->sendInitialBroadcasts()V
 
     .line 364
-    :cond_0
+    :cond_1
     return-void
 
     .line 353
-    :cond_1
+    :cond_2
     const-string v3, "android.intent.action.CONFIGURATION_CHANGED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     .line 354
     const/4 v1, 0x0
@@ -109,7 +106,7 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_1
 
     .line 355
     iget-object v3, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
@@ -137,7 +134,7 @@
     .line 359
     .end local v1           #i:I
     .end local v2           #service:Lcom/android/server/AppWidgetServiceImpl;
-    :cond_2
+    :cond_3
     const/4 v1, 0x0
 
     .restart local v1       #i:I
@@ -153,7 +150,7 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_0
+    if-ge v1, v3, :cond_1
 
     .line 360
     iget-object v3, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;

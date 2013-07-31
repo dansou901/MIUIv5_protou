@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/KeyguardViewManager.smali	2013-07-12 21:44:52.251843982 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardViewManager.smali	2013-07-12 21:42:29.171832183 +0000
+*** ./smali/com/android/internal/policy/impl/KeyguardViewManager.smali	2013-07-31 22:23:28.210738635 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardViewManager.smali	2013-07-31 22:21:57.547397734 +0000
 ***************
 *** 10,16 ****
   .annotation system Ldalvik/annotation/MemberClasses;

@@ -334,7 +334,7 @@
     .line 257
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "worong Email format"
+    const-string/jumbo v3, "worong Email format"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -421,7 +421,7 @@
     .line 278
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "update EF email record failed"
+    const-string/jumbo v3, "update EF email record failed"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

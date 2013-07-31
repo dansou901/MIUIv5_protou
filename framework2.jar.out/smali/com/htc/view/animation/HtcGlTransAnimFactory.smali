@@ -41,7 +41,7 @@
 
     if-nez v2, :cond_0
 
-    const-string v2, "use_htcgl_anim"
+    const-string/jumbo v2, "use_htcgl_anim"
 
     invoke-static {v2, v0}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -128,7 +128,7 @@
 
     const-string v3, "HtcGlAnimation"
 
-    const-string v4, "temporary skip htc trans anim set by XML"
+    const-string/jumbo v4, "temporary skip htc trans anim set by XML"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -706,7 +706,7 @@
 
     .line 56
     .local v0, glAnim:Lcom/htc/view/animation/HtcBaseGlTransAnim;
-    const-string v2, "zoom"
+    const-string/jumbo v2, "zoom"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -881,7 +881,7 @@
 
     .line 87
     :cond_7
-    const-string v2, "swipe_cubic"
+    const-string/jumbo v2, "swipe_cubic"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -998,7 +998,7 @@
 
     const-string v0, "HtcGlAnimation"
 
-    const-string v1, "temporary skip htc trans anim set by API"
+    const-string/jumbo v1, "temporary skip htc trans anim set by API"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1011,7 +1011,7 @@
     if-eqz v0, :cond_3
 
     .line 244
-    const-string v0, "window"
+    const-string/jumbo v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

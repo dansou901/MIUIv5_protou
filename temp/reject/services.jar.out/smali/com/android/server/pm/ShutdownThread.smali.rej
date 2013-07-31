@@ -1,68 +1,34 @@
-*** ShutdownThread.smali	2013-07-12 21:42:42.511833283 +0000
---- ShutdownThread.smali	2013-07-12 21:40:34.891822760 +0000
+*** ShutdownThread.smali	2013-07-31 22:21:08.167393613 +0000
+--- ShutdownThread.smali	2013-07-31 22:22:03.850731594 +0000
 ***************
-*** 155,161 ****
-      invoke-direct {v1, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
-  
-      .local v1, pd:Landroid/app/ProgressDialog;
-!     const v2, 0x104012a
-  
-      invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-  
---- 159,165 ----
-      invoke-direct {v1, p0}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;)V
-  
-      .local v1, pd:Landroid/app/ProgressDialog;
-!     const v2, 0x60c0026
-  
-      invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-  
-***************
-*** 163,169 ****
-  
-      invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
-  
-!     const v2, 0x104012e
-  
-      invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-  
---- 167,173 ----
-  
-      invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
-  
-!     const v2, 0x60c002c
-  
-      invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-  
-***************
-*** 510,521 ****
+*** 470,486 ****
       .locals 1
       .parameter "context"
       .parameter "confirm"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
       .prologue
       const/4 v0, 0x1
   
       sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
   
+-     const/4 v0, 0x0
+- 
       sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
   
       const/4 v0, 0x0
---- 550,566 ----
+--- 430,441 ----
       .locals 1
       .parameter "context"
       .parameter "confirm"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
   
       .prologue
       const/4 v0, 0x1
   
       sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mReboot:Z
   
-+     const/4 v0, 0x0
-+ 
       sput-boolean v0, Lcom/android/server/pm/ShutdownThread;->mRebootSafeMode:Z
   
       const/4 v0, 0x0

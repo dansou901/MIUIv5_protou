@@ -1922,7 +1922,7 @@
 
     .line 848
     .local v2, intent:Landroid/content/Intent;
-    const-string v3, "timerId"
+    const-string/jumbo v3, "timerId"
 
     iget v4, p0, Lcom/android/internal/telephony/cdma/HtcCdmaProfileSwitch;->mWaitingTimerId:I
 

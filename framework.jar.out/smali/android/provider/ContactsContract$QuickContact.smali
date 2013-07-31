@@ -38,7 +38,7 @@
     .locals 0
 
     .prologue
-    .line 7748
+    .line 7752
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,10 +53,10 @@
     .parameter "excludeMimes"
 
     .prologue
-    .line 7867
+    .line 7871
     move-object v0, p0
 
-    .line 7869
+    .line 7873
     .local v0, actualContext:Landroid/content/Context;
     :goto_0
     instance-of v4, v0, Landroid/content/ContextWrapper;
@@ -67,7 +67,7 @@
 
     if-nez v4, :cond_0
 
-    .line 7870
+    .line 7874
     check-cast v0, Landroid/content/ContextWrapper;
 
     .end local v0           #actualContext:Landroid/content/Context;
@@ -78,7 +78,7 @@
     .restart local v0       #actualContext:Landroid/content/Context;
     goto :goto_0
 
-    .line 7872
+    .line 7876
     :cond_0
     instance-of v4, v0, Landroid/app/Activity;
 
@@ -86,7 +86,7 @@
 
     const/high16 v3, 0x8
 
-    .line 7881
+    .line 7885
     .local v3, intentFlags:I
     :goto_1
     :try_start_0
@@ -100,46 +100,46 @@
 
     move-result-object v2
 
-    .line 7883
+    .line 7887
     .local v2, intent:Landroid/content/Intent;
     invoke-virtual {v2, p2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 7884
+    .line 7888
     invoke-virtual {v2, p1}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
-    .line 7885
+    .line 7889
     const-string/jumbo v4, "mode"
 
     invoke-virtual {v2, v4, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 7886
+    .line 7890
     const-string v4, "exclude_mimes"
 
     invoke-virtual {v2, v4, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 7887
+    .line 7891
     invoke-virtual {p0, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7893
+    .line 7897
     .end local v2           #intent:Landroid/content/Intent;
     :goto_2
     return-void
 
-    .line 7872
+    .line 7876
     .end local v3           #intentFlags:I
     :cond_1
     const v3, 0x10008000
 
     goto :goto_1
 
-    .line 7889
+    .line 7893
     .restart local v3       #intentFlags:I
     :catch_0
     move-exception v1
 
-    .line 7890
+    .line 7894
     .local v1, e:Ljava/lang/Exception;
     const-string v4, "ContactsContract.showQuickContact"
 
@@ -167,7 +167,7 @@
 
     const/high16 v5, 0x3f00
 
-    .line 7823
+    .line 7827
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -178,22 +178,22 @@
 
     iget v0, v3, Landroid/content/res/CompatibilityInfo;->applicationScale:F
 
-    .line 7824
+    .line 7828
     .local v0, appScale:F
     const/4 v3, 0x2
 
     new-array v1, v3, [I
 
-    .line 7825
+    .line 7829
     .local v1, pos:[I
     invoke-virtual {p1, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 7827
+    .line 7831
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    .line 7828
+    .line 7832
     .local v2, rect:Landroid/graphics/Rect;
     aget v3, v1, v4
 
@@ -207,7 +207,7 @@
 
     iput v3, v2, Landroid/graphics/Rect;->left:I
 
-    .line 7829
+    .line 7833
     aget v3, v1, v6
 
     int-to-float v3, v3
@@ -220,7 +220,7 @@
 
     iput v3, v2, Landroid/graphics/Rect;->top:I
 
-    .line 7830
+    .line 7834
     aget v3, v1, v4
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -239,7 +239,7 @@
 
     iput v3, v2, Landroid/graphics/Rect;->right:I
 
-    .line 7831
+    .line 7835
     aget v3, v1, v6
 
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
@@ -258,9 +258,9 @@
 
     iput v3, v2, Landroid/graphics/Rect;->bottom:I
 
-    .line 7834
+    .line 7838
     invoke-static {p0, v2, p2, p3, p4}, Landroid/provider/ContactsContract$QuickContact;->showQuickContact(Landroid/content/Context;Landroid/graphics/Rect;Landroid/net/Uri;I[Ljava/lang/String;)V
 
-    .line 7835
+    .line 7839
     return-void
 .end method

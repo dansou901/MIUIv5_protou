@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 1280
+    .line 1282
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-wide p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->val$eventDownTime:J
@@ -46,7 +46,7 @@
     .locals 3
 
     .prologue
-    .line 1282
+    .line 1284
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-wide v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$4;->val$eventDownTime:J
@@ -54,6 +54,6 @@
     #calls: Lcom/android/internal/policy/impl/PhoneWindowManager;->startHtcSpeak(J)V
     invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$300(Lcom/android/internal/policy/impl/PhoneWindowManager;J)V
 
-    .line 1283
+    .line 1285
     return-void
 .end method

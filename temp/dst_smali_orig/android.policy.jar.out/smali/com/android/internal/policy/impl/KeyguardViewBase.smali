@@ -549,9 +549,6 @@
 .method public abstract onScreenTurnedOn()V
 .end method
 
-.method public abstract recreateAllRunnable()V
-.end method
-
 .method public abstract recreateChildScreen()V
 .end method
 

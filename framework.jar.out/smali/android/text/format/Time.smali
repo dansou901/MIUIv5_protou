@@ -1131,7 +1131,7 @@
     sput-object v2, Landroid/text/format/Time;->sDateTimeFormat:Ljava/lang/String;
 
     .line 388
-    const v2, 0x407005c
+    const v2, 0x4070055
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1140,7 +1140,7 @@
     sput-object v2, Landroid/text/format/Time;->sAm:Ljava/lang/String;
 
     .line 389
-    const v2, 0x407005d
+    const v2, 0x4070056
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

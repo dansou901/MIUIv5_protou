@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/Installer.smali	2013-07-12 21:42:43.021833325 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/Installer.smali	2013-07-12 21:40:35.228489455 +0000
+*** ./smali/com/android/server/pm/Installer.smali	2013-07-31 22:22:04.207398290 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/Installer.smali	2013-07-31 22:21:08.360726962 +0000
 ***************
 *** 1,4 ****
 ! .class Lcom/android/server/pm/Installer;

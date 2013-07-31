@@ -151,42 +151,6 @@
     .end local v3           #peers:Landroid/net/wifi/p2p/WifiP2pDeviceList;
     .restart local v2       #listener:Ljava/lang/Object;
     :sswitch_4
-    const-string v6, "WifiP2pManager"
-
-    const-string v7, "Update WFD settings succeeded"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v2, :cond_0
-
-    check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
-
-    .end local v2           #listener:Ljava/lang/Object;
-    invoke-interface {v2}, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;->onSuccess()V
-
-    goto :goto_0
-
-    .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_5
-    const-string v6, "WifiP2pManager"
-
-    const-string v7, "Update WFD settings failed"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v2, :cond_0
-
-    check-cast v2, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;
-
-    .end local v2           #listener:Ljava/lang/Object;
-    const/4 v6, 0x0
-
-    invoke-interface {v2, v6}, Landroid/net/wifi/p2p/WifiP2pManager$ActionListener;->onFailure(I)V
-
-    goto :goto_0
-
-    .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_6
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Landroid/net/wifi/p2p/WifiP2pInfo;
@@ -203,7 +167,7 @@
 
     .end local v5           #wifiP2pInfo:Landroid/net/wifi/p2p/WifiP2pInfo;
     .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_7
+    :sswitch_5
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/net/wifi/p2p/WifiP2pGroup;
@@ -220,7 +184,7 @@
 
     .end local v1           #group:Landroid/net/wifi/p2p/WifiP2pGroup;
     .restart local v2       #listener:Ljava/lang/Object;
-    :sswitch_8
+    :sswitch_6
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
@@ -234,7 +198,7 @@
     goto :goto_0
 
     .end local v4           #resp:Landroid/net/wifi/p2p/nsd/WifiP2pServiceResponse;
-    :sswitch_9
+    :sswitch_7
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -274,10 +238,10 @@
 
     invoke-interface {v8, v6, v7}, Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;->onConnectionRequested(Landroid/net/wifi/p2p/WifiP2pDevice;Landroid/net/wifi/p2p/WifiP2pConfig;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .end local v0           #bundle:Landroid/os/Bundle;
-    :sswitch_a
+    :sswitch_8
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -310,7 +274,7 @@
     goto/16 :goto_0
 
     .end local v0           #bundle:Landroid/os/Bundle;
-    :sswitch_b
+    :sswitch_9
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -331,7 +295,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_c
+    :sswitch_a
     iget-object v6, p0, Landroid/net/wifi/p2p/WifiP2pManager$Channel$P2pHandler;->this$0:Landroid/net/wifi/p2p/WifiP2pManager$Channel;
 
     #getter for: Landroid/net/wifi/p2p/WifiP2pManager$Channel;->mDialogListener:Landroid/net/wifi/p2p/WifiP2pManager$DialogListener;
@@ -377,8 +341,8 @@
         0x22011 -> :sswitch_1
         0x22012 -> :sswitch_2
         0x22014 -> :sswitch_3
-        0x22016 -> :sswitch_6
-        0x22018 -> :sswitch_7
+        0x22016 -> :sswitch_4
+        0x22018 -> :sswitch_5
         0x2201d -> :sswitch_1
         0x2201e -> :sswitch_2
         0x22020 -> :sswitch_1
@@ -393,14 +357,12 @@
         0x2202d -> :sswitch_2
         0x2202f -> :sswitch_1
         0x22030 -> :sswitch_2
-        0x22032 -> :sswitch_8
+        0x22032 -> :sswitch_6
         0x22034 -> :sswitch_1
         0x22035 -> :sswitch_2
-        0x22037 -> :sswitch_c
-        0x22038 -> :sswitch_b
-        0x22039 -> :sswitch_9
-        0x2203a -> :sswitch_a
-        0x2203c -> :sswitch_4
-        0x2203d -> :sswitch_5
+        0x22037 -> :sswitch_a
+        0x22038 -> :sswitch_9
+        0x22039 -> :sswitch_7
+        0x2203a -> :sswitch_8
     .end sparse-switch
 .end method

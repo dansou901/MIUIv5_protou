@@ -1082,7 +1082,7 @@
     array-length v7, v0
 
     .local v7, SIZE:I
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v5
 
@@ -2314,7 +2314,7 @@
 
     aget-object v8, v8, v10
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v10
 
@@ -2493,7 +2493,7 @@
 
     aget-object v8, v8, v10
 
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v10
 
@@ -2909,7 +2909,7 @@
     invoke-direct {p0, v10}, Lcom/android/server/HtcWakeLockMonitor;->saveScreenTimeStamp(Z)V
 
     :cond_4
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
 

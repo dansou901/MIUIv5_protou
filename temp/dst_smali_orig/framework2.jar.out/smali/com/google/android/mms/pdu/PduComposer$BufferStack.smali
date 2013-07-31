@@ -34,7 +34,7 @@
 
     iput-object p1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stack:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
@@ -58,26 +58,6 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/google/android/mms/pdu/PduComposer$BufferStack;)Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stack:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/google/android/mms/pdu/PduComposer$BufferStack;)Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->toCopy:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
-
-    return-object v0
-.end method
-
 
 # virtual methods
 .method copy()V
@@ -88,9 +68,9 @@
 
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->toCopy:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
-    iget-object v1, v1, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iget-object v1, v1, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
-    invoke-virtual {v1}, Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;->toByteArray()[B
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object v1
 
@@ -127,12 +107,12 @@
     iget v1, v1, Lcom/google/android/mms/pdu/PduComposer;->mPosition:I
 
     #setter for: Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->c_pos:I
-    invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$602(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
+    invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$402(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
 
     iget v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stackSize:I
 
     #setter for: Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->currentStackSize:I
-    invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$702(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
+    invoke-static {v0, v1}, Lcom/google/android/mms/pdu/PduComposer$PositionMarker;->access$502(Lcom/google/android/mms/pdu/PduComposer$PositionMarker;I)I
 
     return-object v0
 .end method
@@ -163,9 +143,9 @@
     .local v0, temp:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
-    iget-object v1, v1, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iget-object v1, v1, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Ljava/io/ByteArrayOutputStream;
 
-    iput-object v1, v0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iput-object v1, v0, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
@@ -187,13 +167,11 @@
 
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
-    iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
+    new-instance v2, Ljava/io/ByteArrayOutputStream;
 
-    invoke-virtual {v2}, Lcom/google/android/mms/pdu/PduComposer;->createMemoryFile()Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    invoke-direct {v2}, Ljava/io/ByteArrayOutputStream;-><init>()V
 
-    move-result-object v2
-
-    iput-object v2, v1, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iput-object v2, v1, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Ljava/io/ByteArrayOutputStream;
 
     iget-object v1, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
@@ -210,9 +188,9 @@
     .prologue
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
-    iget-object v0, v2, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iget-object v0, v2, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Ljava/io/ByteArrayOutputStream;
 
-    .local v0, currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    .local v0, currentMessage:Ljava/io/ByteArrayOutputStream;
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
     iget v1, v2, Lcom/google/android/mms/pdu/PduComposer;->mPosition:I
@@ -222,9 +200,9 @@
 
     iget-object v3, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->stack:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
-    iget-object v3, v3, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iget-object v3, v3, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
-    iput-object v3, v2, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iput-object v3, v2, Lcom/google/android/mms/pdu/PduComposer;->mMessage:Ljava/io/ByteArrayOutputStream;
 
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->this$0:Lcom/google/android/mms/pdu/PduComposer;
 
@@ -252,7 +230,7 @@
 
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->toCopy:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 
-    iput-object v0, v2, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Lcom/google/android/mms/pdu/PduComposer$PduMemoryFile;
+    iput-object v0, v2, Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;->currentMessage:Ljava/io/ByteArrayOutputStream;
 
     iget-object v2, p0, Lcom/google/android/mms/pdu/PduComposer$BufferStack;->toCopy:Lcom/google/android/mms/pdu/PduComposer$LengthRecordNode;
 

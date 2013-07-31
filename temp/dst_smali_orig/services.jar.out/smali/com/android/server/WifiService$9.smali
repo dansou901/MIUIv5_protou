@@ -34,176 +34,149 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 4
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    const/4 v6, 0x0
+    const-string v2, "GanState"
 
-    const/4 v5, 0x2
+    invoke-virtual {p2, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v2, "WifiService"
+    move-result-object v1
 
-    const-string v3, "Quickboot - Intent received: ACTION_QUICKBOOT_POWEROFF"
+    .local v1, myString:Ljava/lang/String;
+    const-string v2, "DEREGISTERED"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
-
-    #setter for: Lcom/android/server/WifiService;->mEnablingWifiInterrupted:Z
-    invoke-static {v2, v6}, Lcom/android/server/WifiService;->access$4302(Lcom/android/server/WifiService;Z)Z
-
-    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
-
-    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->syncGetWifiState()I
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-ne v2, v5, :cond_1
+    if-eqz v2, :cond_1
 
     const-string v2, "WifiService"
 
-    const-string v3, "Quickboot - Wifi is still starting up"
+    const-string v3, "Ganlite intent received: DEREGISTERED"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v1, 0xf
+    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
 
-    .local v1, waitSecond:I
+    invoke-virtual {v2}, Lcom/android/server/WifiService;->NotifyWifiPhoneCallEnd()Z
+
+    move-result v0
+
+    .local v0, bRtn:Z
+    if-nez v0, :cond_0
+
+    const-string v2, "WifiService"
+
+    const-string v3, "Ganlite: Notify Wifi driver DEREGISTERED, failed"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .end local v0           #bRtn:Z
+    :cond_0
     :goto_0
-    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
+    return-void
 
-    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+    :cond_1
+    const-string v2, "REGISTERED"
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->syncGetWifiState()I
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-ne v2, v5, :cond_0
-
-    if-lez v1, :cond_0
+    if-eqz v2, :cond_2
 
     const-string v2, "WifiService"
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Quickboot - Wait for the end of wifi starting up: "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " sec"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
+    const-string v3, "Ganlite intent received: REGISTERED"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v2, 0x3e8
+    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
 
-    :try_start_0
-    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2}, Lcom/android/server/WifiService;->NotifyWifiPhoneCallEnd()Z
 
-    :goto_1
-    add-int/lit8 v1, v1, -0x1
+    move-result v0
+
+    .restart local v0       #bRtn:Z
+    if-nez v0, :cond_0
+
+    const-string v2, "WifiService"
+
+    const-string v3, "Ganlite: Notify Wifi driver REGISTERED, failed"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
+    .end local v0           #bRtn:Z
+    :cond_2
+    const-string v2, "GAN_CS_CALL"
 
-    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->syncGetWifiState()I
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-ne v2, v5, :cond_3
-
-    iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
-
-    const/4 v3, 0x1
-
-    #setter for: Lcom/android/server/WifiService;->mEnablingWifiInterrupted:Z
-    invoke-static {v2, v3}, Lcom/android/server/WifiService;->access$4302(Lcom/android/server/WifiService;Z)Z
+    if-eqz v2, :cond_3
 
     const-string v2, "WifiService"
 
-    const-string v3, "Quickboot - Power-off interrupt wifi starting up"
+    const-string v3, "Ganlite intent received: GAN_CS_CALL"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .end local v1           #waitSecond:I
-    :cond_1
-    :goto_2
     iget-object v2, p0, Lcom/android/server/WifiService$9;->this$0:Lcom/android/server/WifiService;
 
-    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
+    invoke-virtual {v2}, Lcom/android/server/WifiService;->NotifyWifiPhoneCallComeIn()Z
 
-    move-result-object v2
+    move-result v0
 
-    const-string v3, "wireless_display"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/htc/service/WirelessDisplayManager;
-
-    .local v0, mWDManager:Lcom/htc/service/WirelessDisplayManager;
-    if-eqz v0, :cond_2
+    .restart local v0       #bRtn:Z
+    if-nez v0, :cond_0
 
     const-string v2, "WifiService"
 
-    const-string v3, "setFingerGestureEnable to false"
+    const-string v3, "Ganlite: Notify Wifi driver GAN_CS_CALL, failed"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0, v6}, Lcom/htc/service/WirelessDisplayManager;->setFingerGestureEnable(Z)V
+    goto :goto_0
 
-    :cond_2
-    return-void
-
-    .end local v0           #mWDManager:Lcom/htc/service/WirelessDisplayManager;
-    .restart local v1       #waitSecond:I
+    .end local v0           #bRtn:Z
     :cond_3
+    const-string v2, "GAN_PS_CALL"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
     const-string v2, "WifiService"
 
-    const-string v3, "Quickboot - Wifi started"
+    const-string v3, "Ganlite intent received: GAN_PS_CALL"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_0
 
-    :catch_0
-    move-exception v2
+    :cond_4
+    const-string v2, "GAN_CS_PS_CALL"
 
-    goto :goto_1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "WifiService"
+
+    const-string v3, "Ganlite intent received: GAN_CS_PS_CALL"
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method

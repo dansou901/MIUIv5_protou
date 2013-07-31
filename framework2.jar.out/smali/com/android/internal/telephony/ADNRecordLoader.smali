@@ -400,7 +400,7 @@
     .line 179
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "worong ADN format"
+    const-string/jumbo v3, "worong ADN format"
 
     iget-object v5, v8, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -495,7 +495,7 @@
     .line 198
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "update EF ADN record failed"
+    const-string/jumbo v3, "update EF ADN record failed"
 
     iget-object v5, v8, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

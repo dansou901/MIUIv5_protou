@@ -1,5 +1,55 @@
-*** KeyguardViewMediator.smali	2013-07-12 21:44:53.281844066 +0000
---- KeyguardViewMediator.smali	2013-07-12 21:42:30.221832270 +0000
+*** KeyguardViewMediator.smali	2013-07-31 22:23:28.884072025 +0000
+--- KeyguardViewMediator.smali	2013-07-31 22:21:57.914064432 +0000
+***************
+*** 307,315 ****
+  
+      iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mCallback:Lcom/android/internal/policy/impl/PhoneWindowManager;
+  
+!     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+  
+!     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+  
+--- 310,318 ----
+  
+      iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mCallback:Lcom/android/internal/policy/impl/PhoneWindowManager;
+  
+!     new-instance v0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
+  
+!     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+  
+***************
+*** 331,343 ****
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+  
+!     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;
+  
+      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+  
+      iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+  
+!     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
+  
+--- 334,346 ----
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+  
+!     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;
+  
+      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+  
+      iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
+  
+!     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+  
+      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
+  
 ***************
 *** 1319,1324 ****
       return-void
@@ -20,14 +70,52 @@
   
       invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
 ***************
-*** 1862,1867 ****
+*** 1348,1358 ****
+      .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+  
+      :goto_1
+-     const/4 v0, 0x1
+- 
+      :try_start_2
+-     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+- 
+      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
+  
+      invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+--- 1360,1366 ----
+      .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+  
+      :goto_1
+      :try_start_2
+      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
+  
+      invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+***************
+*** 1633,1639 ****
+      throw v0
+  .end method
+  
+! .method private playSounds(Z)V
+      .locals 8
+      .parameter "locked"
+  
+--- 1641,1647 ----
+      throw v0
+  .end method
+  
+! .method protected playSounds(Z)V
+      .locals 8
+      .parameter "locked"
+  
+***************
+*** 1866,1871 ****
   
   
   # virtual methods
   .method public doKeyguardTimeout()V
       .locals 3
   
---- 1870,1887 ----
+--- 1874,1891 ----
   
   
   # virtual methods

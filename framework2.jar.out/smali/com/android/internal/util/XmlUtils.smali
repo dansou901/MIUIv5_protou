@@ -139,7 +139,7 @@
 
     if-nez v1, :cond_1
 
-    const-string v1, "true"
+    const-string/jumbo v1, "true"
 
     invoke-virtual {p0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -768,7 +768,7 @@
     const/4 v5, 0x0
 
     :try_start_1
-    const-string v6, "value"
+    const-string/jumbo v6, "value"
 
     invoke-interface {p0, v5, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1559,7 +1559,7 @@
 
     .line 782
     :cond_1
-    const-string v5, "string"
+    const-string/jumbo v5, "string"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1589,7 +1589,7 @@
 
     move-result-object v5
 
-    const-string v6, "string"
+    const-string/jumbo v6, "string"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1720,7 +1720,7 @@
     if-eqz v5, :cond_8
 
     .line 804
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1749,7 +1749,7 @@
     if-eqz v5, :cond_9
 
     .line 806
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1776,7 +1776,7 @@
     .line 808
     new-instance v1, Ljava/lang/Float;
 
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1801,7 +1801,7 @@
     .line 810
     new-instance v1, Ljava/lang/Double;
 
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1824,7 +1824,7 @@
     if-eqz v5, :cond_c
 
     .line 812
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-interface {p0, v6, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -2517,7 +2517,7 @@
     invoke-interface {p2, v4, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     .line 386
-    const-string v2, "value"
+    const-string/jumbo v2, "value"
 
     aget v3, p0, v1
 
@@ -2569,7 +2569,7 @@
 
     .line 205
     .local v0, serializer:Lorg/xmlpull/v1/XmlSerializer;
-    const-string v1, "utf-8"
+    const-string/jumbo v1, "utf-8"
 
     invoke-interface {v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
@@ -2700,7 +2700,7 @@
 
     .line 182
     .local v0, serializer:Lorg/xmlpull/v1/XmlSerializer;
-    const-string v1, "utf-8"
+    const-string/jumbo v1, "utf-8"
 
     invoke-interface {v0, p1, v1}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
@@ -2956,7 +2956,7 @@
     if-eqz v1, :cond_3
 
     .line 421
-    const-string v1, "string"
+    const-string/jumbo v1, "string"
 
     invoke-interface {p2, v3, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -2977,7 +2977,7 @@
     invoke-interface {p2, v1}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     .line 426
-    const-string v1, "string"
+    const-string/jumbo v1, "string"
 
     invoke-interface {p2, v3, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -3007,7 +3007,7 @@
 
     .line 472
     :cond_4
-    const-string v1, "value"
+    const-string/jumbo v1, "value"
 
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -3159,7 +3159,7 @@
     if-eqz v1, :cond_10
 
     .line 457
-    const-string v1, "string"
+    const-string/jumbo v1, "string"
 
     invoke-interface {p2, v3, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -3180,7 +3180,7 @@
     invoke-interface {p2, v1}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     .line 462
-    const-string v1, "string"
+    const-string/jumbo v1, "string"
 
     invoke-interface {p2, v3, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -3194,7 +3194,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "writeValueXml: unable to write value "
+    const-string/jumbo v3, "writeValueXml: unable to write value "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

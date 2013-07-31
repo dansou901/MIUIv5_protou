@@ -26,15 +26,15 @@
 
 .field private static final IIDA_HOME:Ljava/lang/String; = "com.kddi.android.iida.iidahome"
 
-.field private static final IIDA_HOME_PACKAGE:Ljava/lang/String; = " com.kddi.android.iida.iidahome/"
+.field private static final IIDA_HOME2:Ljava/lang/String; = "com.kddi.android.iida.iidahome/.Launcher"
 
 .field private static final IIDA_LISTHOME:Ljava/lang/String; = "com.kddi.android.iida.listhome.portal"
 
-.field private static final IIDA_LISTHOME_PACKAGE:Ljava/lang/String; = " com.kddi.android.iida.listhome.portal/"
+.field private static final IIDA_LISTHOME2:Ljava/lang/String; = "com.kddi.android.iida.listhome.portal/.IidaListHomePortal"
 
 .field private static final IIDA_WIDGETHOME:Ljava/lang/String; = "com.kddi.android.iida.widgethome"
 
-.field private static final IIDA_WIDGETHOME_PACKAGE:Ljava/lang/String; = " com.kddi.android.iida.widgethome/"
+.field private static final IIDA_WIDGETHOME2:Ljava/lang/String; = "com.kddi.android.iida.widgethome/.Launcher"
 
 .field private static final TAG:Ljava/lang/String; = "HtcKeyEventHandler"
 

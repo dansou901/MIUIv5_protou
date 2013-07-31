@@ -43,7 +43,7 @@
 
     if-ne p1, v0, :cond_1
 
-    invoke-static {}, Landroid/media/AudioService;->access$11700()Ljava/lang/Object;
+    invoke-static {}, Landroid/media/AudioService;->access$10700()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -55,7 +55,7 @@
     const/4 v2, 0x1
 
     #setter for: Landroid/media/AudioService;->mIsRinging:Z
-    invoke-static {v0, v2}, Landroid/media/AudioService;->access$11802(Landroid/media/AudioService;Z)Z
+    invoke-static {v0, v2}, Landroid/media/AudioService;->access$10802(Landroid/media/AudioService;Z)Z
 
     monitor-exit v1
 
@@ -80,7 +80,7 @@
     if-nez p1, :cond_0
 
     :cond_2
-    invoke-static {}, Landroid/media/AudioService;->access$11700()Ljava/lang/Object;
+    invoke-static {}, Landroid/media/AudioService;->access$10700()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -92,7 +92,7 @@
     const/4 v2, 0x0
 
     #setter for: Landroid/media/AudioService;->mIsRinging:Z
-    invoke-static {v0, v2}, Landroid/media/AudioService;->access$11802(Landroid/media/AudioService;Z)Z
+    invoke-static {v0, v2}, Landroid/media/AudioService;->access$10802(Landroid/media/AudioService;Z)Z
 
     monitor-exit v1
 

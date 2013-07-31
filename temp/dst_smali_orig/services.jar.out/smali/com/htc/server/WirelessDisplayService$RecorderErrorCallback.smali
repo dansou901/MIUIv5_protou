@@ -91,9 +91,9 @@
     iget-object v1, p0, Lcom/htc/server/WirelessDisplayService$RecorderErrorCallback;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     #calls: Lcom/htc/server/WirelessDisplayService;->stopDisplayRecorder()I
-    invoke-static {v1}, Lcom/htc/server/WirelessDisplayService;->access$7000(Lcom/htc/server/WirelessDisplayService;)I
+    invoke-static {v1}, Lcom/htc/server/WirelessDisplayService;->access$5500(Lcom/htc/server/WirelessDisplayService;)I
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v1
 
@@ -106,13 +106,13 @@
     move-result-object v0
 
     .local v0, msg:Landroid/os/Message;
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v1
 
     invoke-virtual {v1, v4}, Lcom/htc/server/WirelessDisplayService$H;->removeMessages(I)V
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v1
 

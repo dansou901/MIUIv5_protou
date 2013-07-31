@@ -88,7 +88,7 @@
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto :goto_0
 
@@ -302,7 +302,7 @@
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto/16 :goto_0
 
@@ -516,7 +516,7 @@
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$CwHandler;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->bindCWService()Z
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3200(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Z
 
     goto/16 :goto_0
 
@@ -703,6 +703,8 @@
     invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x3e9

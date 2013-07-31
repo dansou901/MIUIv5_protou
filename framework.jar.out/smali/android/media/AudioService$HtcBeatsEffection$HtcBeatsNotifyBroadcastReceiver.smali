@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 4077
+    .line 3996
     iput-object p1, p0, Landroid/media/AudioService$HtcBeatsEffection$HtcBeatsNotifyBroadcastReceiver;->this$1:Landroid/media/AudioService$HtcBeatsEffection;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 4082
+    .line 4001
     const-string v2, "com.htc.intent.action.BEATS_NOTIFICATION_ON"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -53,14 +53,14 @@
 
     if-eqz v2, :cond_2
 
-    .line 4083
+    .line 4002
     const-string v2, "AudioService"
 
     const-string v3, "INTENT_BEATS_NOTIFY_ON"
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4085
+    .line 4004
     const-string v2, "audio"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -69,29 +69,29 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 4086
+    .line 4005
     .local v0, am:Landroid/media/AudioManager;
     move-object v1, v0
 
-    .line 4087
+    .line 4006
     .local v1, ifam:Landroid/media/HtcIfAudioManager;
     if-eqz v1, :cond_1
 
-    .line 4089
+    .line 4008
     const/16 v2, 0x384
 
     const-string v3, "HtcBeatsNotify"
 
     invoke-interface {v1, v2, v3}, Landroid/media/HtcIfAudioManager;->setGlobalEffect(ILjava/lang/String;)V
 
-    .line 4112
+    .line 4031
     .end local v0           #am:Landroid/media/AudioManager;
     .end local v1           #ifam:Landroid/media/HtcIfAudioManager;
     :cond_0
     :goto_0
     return-void
 
-    .line 4093
+    .line 4012
     .restart local v0       #am:Landroid/media/AudioManager;
     .restart local v1       #ifam:Landroid/media/HtcIfAudioManager;
     :cond_1
@@ -103,7 +103,7 @@
 
     goto :goto_0
 
-    .line 4097
+    .line 4016
     .end local v0           #am:Landroid/media/AudioManager;
     .end local v1           #ifam:Landroid/media/HtcIfAudioManager;
     :cond_2
@@ -119,14 +119,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 4098
+    .line 4017
     const-string v2, "AudioService"
 
     const-string v3, "INTENT_BEATS_NOTIFY_OFF"
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4100
+    .line 4019
     const-string v2, "audio"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -135,15 +135,15 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 4101
+    .line 4020
     .restart local v0       #am:Landroid/media/AudioManager;
     move-object v1, v0
 
-    .line 4102
+    .line 4021
     .restart local v1       #ifam:Landroid/media/HtcIfAudioManager;
     if-eqz v1, :cond_3
 
-    .line 4104
+    .line 4023
     const/16 v2, 0x320
 
     const-string v3, "HtcBeatsNotify"
@@ -152,7 +152,7 @@
 
     goto :goto_0
 
-    .line 4108
+    .line 4027
     :cond_3
     const-string v2, "AudioService"
 

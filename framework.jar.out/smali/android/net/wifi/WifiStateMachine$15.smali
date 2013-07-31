@@ -1,14 +1,11 @@
 .class Landroid/net/wifi/WifiStateMachine$15;
-.super Ljava/lang/Object;
+.super Landroid/telephony/PhoneStateListener;
 .source "WifiStateMachine.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/net/wifi/WifiStateMachine;->startSoftApWithConfig(Landroid/net/wifi/WifiConfiguration;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/net/wifi/WifiStateMachine;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,263 +17,41 @@
 # instance fields
 .field final synthetic this$0:Landroid/net/wifi/WifiStateMachine;
 
-.field final synthetic val$config:Landroid/net/wifi/WifiConfiguration;
-
 
 # direct methods
-.method constructor <init>(Landroid/net/wifi/WifiStateMachine;Landroid/net/wifi/WifiConfiguration;)V
+.method constructor <init>(Landroid/net/wifi/WifiStateMachine;)V
     .locals 0
-    .parameter
     .parameter
 
     .prologue
-    .line 5012
+    .line 9396
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    iput-object p2, p0, Landroid/net/wifi/WifiStateMachine$15;->val$config:Landroid/net/wifi/WifiConfiguration;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 6
+.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
+    .locals 2
+    .parameter "signalStrength"
 
     .prologue
-    .line 5015
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
+    .line 9400
+    const-string v0, "WifiStateMachine"
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableImeiPassword:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2600(Landroid/net/wifi/WifiStateMachine;)Z
+    const-string v1, "get mPhoneStateListener"
 
-    move-result v2
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v2, :cond_0
+    .line 9401
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
+    #setter for: Landroid/net/wifi/WifiStateMachine;->mSignalStrength:Landroid/telephony/SignalStrength;
+    invoke-static {v0, p1}, Landroid/net/wifi/WifiStateMachine;->access$24802(Landroid/net/wifi/WifiStateMachine;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableMdnPassword:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2700(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    :cond_0
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->checkWifiApPassword()V
-
-    .line 5016
-    :cond_1
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableImeiSsid:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2800(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->checkWifiApSsid()V
-
-    .line 5019
-    :cond_2
-    :try_start_0
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mNwService:Landroid/os/INetworkManagementService;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Landroid/os/INetworkManagementService;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$15;->val$config:Landroid/net/wifi/WifiConfiguration;
-
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "wlan0"
-
-    invoke-interface {v2, v3, v4, v5}, Landroid/os/INetworkManagementService;->startAccessPoint(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 5035
-    :goto_0
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const-string v3, "Soft AP start successful"
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
-
-    .line 5036
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v3, 0x20016
-
-    invoke-virtual {v2, v3}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
-
-    .line 5037
-    :goto_1
+    .line 9402
     return-void
-
-    .line 5020
-    :catch_0
-    move-exception v0
-
-    .line 5021
-    .local v0, e:Ljava/lang/Exception;
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Exception in softap start "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$2300(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
-
-    .line 5023
-    :try_start_1
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mNwService:Landroid/os/INetworkManagementService;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Landroid/os/INetworkManagementService;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
-    invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Landroid/os/INetworkManagementService;->stopAccessPoint(Ljava/lang/String;)V
-
-    .line 5025
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableImeiPassword:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2600(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableMdnPassword:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2700(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    :cond_3
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->checkWifiApPassword()V
-
-    .line 5026
-    :cond_4
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableImeiSsid:Z
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$2800(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiStateMachine;->checkWifiApSsid()V
-
-    .line 5028
-    :cond_5
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mNwService:Landroid/os/INetworkManagementService;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$3000(Landroid/net/wifi/WifiStateMachine;)Landroid/os/INetworkManagementService;
-
-    move-result-object v2
-
-    iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$15;->val$config:Landroid/net/wifi/WifiConfiguration;
-
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mInterfaceName:Ljava/lang/String;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "wlan0"
-
-    invoke-interface {v2, v3, v4, v5}, Landroid/os/INetworkManagementService;->startAccessPoint(Landroid/net/wifi/WifiConfiguration;Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    goto :goto_0
-
-    .line 5029
-    :catch_1
-    move-exception v1
-
-    .line 5030
-    .local v1, e1:Ljava/lang/Exception;
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Exception in softap re-start "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiStateMachine;->access$2300(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
-
-    .line 5031
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$15;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v3, 0x20017
-
-    invoke-virtual {v2, v3}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
-
-    goto/16 :goto_1
 .end method

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1482
+    .line 1401
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$10;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 1485
+    .line 1404
     const-string/jumbo v1, "mirror_display_status"
 
     const/4 v2, 0x0
@@ -49,18 +49,18 @@
 
     move-result v0
 
-    .line 1486
+    .line 1405
     .local v0, mirrorStatus:Z
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$10;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;)Lcom/htc/service/WirelessDisplayManager;
+    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$2000(Landroid/net/wifi/WifiStateMachine;)Lcom/htc/service/WirelessDisplayManager;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 1487
+    .line 1406
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$10;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -70,7 +70,7 @@
 
     invoke-virtual {v1, v0}, Landroid/net/wifi/WifiNative;->setMirrorStatusCommand(Z)Z
 
-    .line 1489
+    .line 1408
     :cond_0
     return-void
 .end method

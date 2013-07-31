@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 911
+    .line 908
     iput-object p1, p0, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->this$0:Lcom/android/internal/telephony/sip/SipPhone;
 
     invoke-direct {p0}, Landroid/net/sip/SipAudioCall$Listener;-><init>()V
@@ -38,7 +38,7 @@
     .parameter "x1"
 
     .prologue
-    .line 911
+    .line 908
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;-><init>(Lcom/android/internal/telephony/sip/SipPhone;)V
 
     return-void
@@ -51,12 +51,12 @@
     .parameter "call"
 
     .prologue
-    .line 924
+    .line 921
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->BUSY:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    .line 925
+    .line 922
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .parameter "call"
 
     .prologue
-    .line 917
+    .line 914
     invoke-virtual {p1}, Landroid/net/sip/SipAudioCall;->isInCall()Z
 
     move-result v0
@@ -77,10 +77,10 @@
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onCallEnded(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    .line 920
+    .line 917
     return-void
 
-    .line 917
+    .line 914
     :cond_0
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INCOMING_MISSED:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -97,10 +97,10 @@
     .parameter "errorMessage"
 
     .prologue
-    .line 930
+    .line 927
     packed-switch p2, :pswitch_data_0
 
-    .line 959
+    .line 956
     :pswitch_0
     const-string v0, "SipPhone"
 
@@ -138,16 +138,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 961
+    .line 958
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->ERROR_UNSPECIFIED:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/sip/SipPhone$SipAudioCallAdapter;->onError(Lcom/android/internal/telephony/Connection$DisconnectCause;)V
 
-    .line 963
+    .line 960
     :goto_0
     return-void
 
-    .line 932
+    .line 929
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->SERVER_UNREACHABLE:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -155,7 +155,7 @@
 
     goto :goto_0
 
-    .line 935
+    .line 932
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->NUMBER_UNREACHABLE:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -163,7 +163,7 @@
 
     goto :goto_0
 
-    .line 938
+    .line 935
     :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INVALID_NUMBER:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -171,7 +171,7 @@
 
     goto :goto_0
 
-    .line 942
+    .line 939
     :pswitch_4
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->TIMED_OUT:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -179,7 +179,7 @@
 
     goto :goto_0
 
-    .line 945
+    .line 942
     :pswitch_5
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->LOST_SIGNAL:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -187,7 +187,7 @@
 
     goto :goto_0
 
-    .line 948
+    .line 945
     :pswitch_6
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->INVALID_CREDENTIALS:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -195,7 +195,7 @@
 
     goto :goto_0
 
-    .line 951
+    .line 948
     :pswitch_7
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->OUT_OF_NETWORK:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -203,7 +203,7 @@
 
     goto :goto_0
 
-    .line 954
+    .line 951
     :pswitch_8
     sget-object v0, Lcom/android/internal/telephony/Connection$DisconnectCause;->SERVER_ERROR:Lcom/android/internal/telephony/Connection$DisconnectCause;
 
@@ -211,7 +211,7 @@
 
     goto :goto_0
 
-    .line 930
+    .line 927
     nop
 
     :pswitch_data_0

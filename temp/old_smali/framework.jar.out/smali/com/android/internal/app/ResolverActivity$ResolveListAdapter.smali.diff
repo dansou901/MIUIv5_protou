@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali	2013-07-12 21:43:05.221835156 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali	2013-07-12 21:40:53.145157599 +0000
+*** ./smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali	2013-07-31 22:22:19.730732919 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ResolverActivity$ResolveListAdapter.smali	2013-07-31 22:21:17.680727740 +0000
 ***************
 *** 135,140 ****
 --- 135,143 ----

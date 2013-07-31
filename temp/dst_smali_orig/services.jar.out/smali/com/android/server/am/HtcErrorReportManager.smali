@@ -4357,8 +4357,6 @@
     .prologue
     const/4 v0, 0x0
 
-    const/4 v2, 0x1
-
     iget-object v1, p1, Lcom/android/server/am/ProcessRecord;->errorReportReceiver:Landroid/content/ComponentName;
 
     if-nez v1, :cond_1
@@ -4388,42 +4386,15 @@
 
     if-eqz v1, :cond_3
 
-    if-eqz p4, :cond_3
+    const/4 v1, 0x1
 
-    iput v2, v0, Landroid/app/ApplicationErrorReport;->type:I
+    iput v1, v0, Landroid/app/ApplicationErrorReport;->type:I
 
     iput-object p4, v0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
 
     goto :goto_0
 
     :cond_3
-    iget-boolean v1, p1, Lcom/android/server/am/ProcessRecord;->crashing:Z
-
-    if-eqz v1, :cond_4
-
-    if-nez p4, :cond_4
-
-    iget-boolean v1, p1, Lcom/android/server/am/ProcessRecord;->notResponding:Z
-
-    if-nez v1, :cond_4
-
-    iput v2, v0, Landroid/app/ApplicationErrorReport;->type:I
-
-    new-instance v1, Landroid/app/ApplicationErrorReport$CrashInfo;
-
-    invoke-direct {v1}, Landroid/app/ApplicationErrorReport$CrashInfo;-><init>()V
-
-    iput-object v1, v0, Landroid/app/ApplicationErrorReport;->crashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
-
-    const-string v1, "ActivityManager"
-
-    const-string v2, "Create Crash App Error Report without CrashInfo"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_4
     iget-boolean v1, p1, Lcom/android/server/am/ProcessRecord;->notResponding:Z
 
     if-eqz v1, :cond_0

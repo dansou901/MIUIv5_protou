@@ -202,7 +202,7 @@
     .locals 4
 
     .prologue
-    .line 132
+    .line 129
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v1, 0x51
@@ -221,10 +221,10 @@
 
     if-ltz v0, :cond_0
 
-    .line 134
+    .line 131
     const/4 v0, 0x1
 
-    .line 136
+    .line 133
     :goto_0
     return v0
 
@@ -328,12 +328,12 @@
     .locals 2
 
     .prologue
-    .line 115
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    .line 112
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v0
+    const/16 v1, 0x94
 
-    if-eqz v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -347,34 +347,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 117
+    .line 114
     const/4 v0, 0x1
 
-    .line 119
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public static isSupportTpMrInPreference()Z
-    .locals 1
-
-    .prologue
-    .line 168
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 169
-    const/4 v0, 0x1
-
-    .line 171
+    .line 116
     :goto_0
     return v0
 
@@ -388,17 +364,17 @@
     .locals 1
 
     .prologue
-    .line 154
+    .line 151
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 155
+    .line 152
     const/4 v0, 0x1
 
-    .line 157
+    .line 154
     :goto_0
     return v0
 
@@ -412,17 +388,17 @@
     .locals 2
 
     .prologue
-    .line 144
+    .line 141
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v1, 0x51
 
     if-ne v0, v1, :cond_0
 
-    .line 145
+    .line 142
     const/4 v0, 0x1
 
-    .line 147
+    .line 144
     :goto_0
     return v0
 

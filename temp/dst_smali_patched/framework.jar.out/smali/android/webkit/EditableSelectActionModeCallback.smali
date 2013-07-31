@@ -274,31 +274,31 @@
 
     iput v3, p0, Landroid/webkit/EditableSelectActionModeCallback;->Group_status:I
 
-    const v0, 0x4020023
+    const v0, 0x4020046
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_selectall:I
 
-    const v0, 0x402000c
+    const v0, 0x402002f
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_cut:I
 
-    const v0, 0x402000b
+    const v0, 0x402002e
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_copy:I
 
-    const v0, 0x4020015
+    const v0, 0x4020038
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_paste:I
 
-    const v0, 0x402000e
+    const v0, 0x4020031
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_highlight:I
 
-    const v0, 0x402000d
+    const v0, 0x4020030
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_fontstyle:I
 
-    const v0, 0x4020022
+    const v0, 0x4020045
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_imagestyle:I
 
@@ -322,31 +322,31 @@
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->str_highlight:I
 
-    const v0, 0x40700bc
+    const v0, 0x40700b5
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->str_fontstyle:I
 
-    const v0, 0x40700c3
+    const v0, 0x40700bc
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->str_imagestyle:I
 
-    const v0, 0x4020011
+    const v0, 0x4020034
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_green:I
 
-    const v0, 0x402000f
+    const v0, 0x4020032
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_blue:I
 
-    const v0, 0x4020013
+    const v0, 0x4020036
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_yellow:I
 
-    const v0, 0x4020012
+    const v0, 0x4020035
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_red:I
 
-    const v0, 0x4020010
+    const v0, 0x4020033
 
     iput v0, p0, Landroid/webkit/EditableSelectActionModeCallback;->icon_unhighlight:I
 
@@ -1381,13 +1381,13 @@
 
     invoke-direct {v1, p1}, Lcom/htc/dialog/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x40700c1
+    const v2, 0x40700ba
 
     invoke-virtual {v1, v2}, Lcom/htc/dialog/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/dialog/HtcAlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x408003c
+    const v2, 0x408003b
 
     const/4 v3, -0x1
 
@@ -1473,13 +1473,13 @@
 
     invoke-direct {v1, p1}, Lcom/htc/dialog/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x40700bd
+    const v2, 0x40700b6
 
     invoke-virtual {v1, v2}, Lcom/htc/dialog/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/dialog/HtcAlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x4080038
+    const v2, 0x4080037
 
     new-instance v3, Landroid/webkit/EditableSelectActionModeCallback$6;
 
@@ -1567,13 +1567,13 @@
 
     invoke-direct {v1, p1}, Lcom/htc/dialog/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x40700bf
+    const v2, 0x40700b8
 
     invoke-virtual {v1, v2}, Lcom/htc/dialog/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/dialog/HtcAlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x408003a
+    const v2, 0x4080039
 
     iget-object v3, p0, Landroid/webkit/EditableSelectActionModeCallback;->mEditableWebViewImpl:Landroid/webkit/EditableWebViewImpl;
 
@@ -1667,13 +1667,13 @@
 
     invoke-direct {v1, p1}, Lcom/htc/dialog/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x40700be
+    const v2, 0x40700b7
 
     invoke-virtual {v1, v2}, Lcom/htc/dialog/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/dialog/HtcAlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x4080039
+    const v2, 0x4080038
 
     iget-object v3, p0, Landroid/webkit/EditableSelectActionModeCallback;->mEditableWebViewImpl:Landroid/webkit/EditableWebViewImpl;
 
@@ -1829,13 +1829,13 @@
 
     invoke-direct {v2, p1}, Lcom/htc/dialog/HtcAlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x40700c0
+    const v3, 0x40700b9
 
     invoke-virtual {v2, v3}, Lcom/htc/dialog/HtcAlertDialog$Builder;->setTitle(I)Lcom/htc/dialog/HtcAlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x408003b
+    const v3, 0x408003a
 
     new-instance v5, Landroid/webkit/EditableSelectActionModeCallback$12;
 

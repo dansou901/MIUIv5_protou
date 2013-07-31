@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 3394
+    .line 3350
     iput-object p1, p0, Landroid/media/MediaPlayer$3;->this$0:Landroid/media/MediaPlayer;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
     .locals 2
 
     .prologue
-    .line 3397
+    .line 3353
     const-string v0, "MediaPlayer"
 
     const-string v1, "[DLNA]get application context from main thread"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3398
+    .line 3354
     iget-object v0, p0, Landroid/media/MediaPlayer$3;->this$0:Landroid/media/MediaPlayer;
 
     invoke-static {}, Landroid/app/ActivityThread;->currentApplication()Landroid/app/Application;
@@ -58,6 +58,6 @@
     #setter for: Landroid/media/MediaPlayer;->mContext:Landroid/content/Context;
     invoke-static {v0, v1}, Landroid/media/MediaPlayer;->access$2302(Landroid/media/MediaPlayer;Landroid/content/Context;)Landroid/content/Context;
 
-    .line 3399
+    .line 3355
     return-void
 .end method

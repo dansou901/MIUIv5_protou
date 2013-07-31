@@ -30,12 +30,12 @@
     .parameter "b"
 
     .prologue
-    .line 7766
+    .line 7602
     iput-object p1, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->this$0:Landroid/media/AudioService;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7767
+    .line 7603
     sget-boolean v0, Landroid/media/AudioService;->DEBUG_RC:Z
 
     if-eqz v0, :cond_0
@@ -62,11 +62,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7768
+    .line 7604
     :cond_0
     iput-object p2, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->mCb:Landroid/os/IBinder;
 
-    .line 7769
+    .line 7605
     return-void
 .end method
 
@@ -76,17 +76,17 @@
     .locals 3
 
     .prologue
-    .line 7772
+    .line 7608
     iget-object v0, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mRCStack:Ljava/util/Stack;
-    invoke-static {v0}, Landroid/media/AudioService;->access$12400(Landroid/media/AudioService;)Ljava/util/Stack;
+    invoke-static {v0}, Landroid/media/AudioService;->access$11400(Landroid/media/AudioService;)Ljava/util/Stack;
 
     move-result-object v1
 
     monitor-enter v1
 
-    .line 7773
+    .line 7609
     :try_start_0
     const-string v0, "AudioService"
 
@@ -94,21 +94,21 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7774
+    .line 7610
     iget-object v0, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->this$0:Landroid/media/AudioService;
 
     const/4 v2, 0x0
 
     #setter for: Landroid/media/AudioService;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
-    invoke-static {v0, v2}, Landroid/media/AudioService;->access$12502(Landroid/media/AudioService;Landroid/media/IRemoteControlDisplay;)Landroid/media/IRemoteControlDisplay;
+    invoke-static {v0, v2}, Landroid/media/AudioService;->access$11502(Landroid/media/AudioService;Landroid/media/IRemoteControlDisplay;)Landroid/media/IRemoteControlDisplay;
 
-    .line 7775
+    .line 7611
     monitor-exit v1
 
-    .line 7776
+    .line 7612
     return-void
 
-    .line 7775
+    .line 7611
     :catchall_0
     move-exception v0
 
@@ -123,7 +123,7 @@
     .locals 4
 
     .prologue
-    .line 7779
+    .line 7615
     sget-boolean v1, Landroid/media/AudioService;->DEBUG_RC:Z
 
     if-eqz v1, :cond_0
@@ -152,7 +152,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7781
+    .line 7617
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->mCb:Landroid/os/IBinder;
@@ -163,15 +163,15 @@
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7787
+    .line 7623
     :goto_0
     return-void
 
-    .line 7782
+    .line 7618
     :catch_0
     move-exception v0
 
-    .line 7784
+    .line 7620
     .local v0, e:Ljava/util/NoSuchElementException;
     const-string v1, "AudioService"
 
@@ -201,7 +201,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7785
+    .line 7621
     invoke-virtual {v0}, Ljava/util/NoSuchElementException;->printStackTrace()V
 
     goto :goto_0

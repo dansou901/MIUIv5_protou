@@ -77,7 +77,7 @@
 
     const/4 v1, 0x5
 
-    const-string v2, "status"
+    const-string/jumbo v2, "status"
 
     aput-object v2, v0, v1
 
@@ -509,7 +509,7 @@
     invoke-virtual {v1, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     .line 102
-    const-string v4, "status"
+    const-string/jumbo v4, "status"
 
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -880,7 +880,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "update emstable,  nAddr/nRef/nCount/nSeq/nStatus: "
+    const-string/jumbo v7, "update emstable,  nAddr/nRef/nCount/nSeq/nStatus: "
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1007,7 +1007,7 @@
 
     .line 133
     .local v2, values:Landroid/content/ContentValues;
-    const-string v5, "status"
+    const-string/jumbo v5, "status"
 
     invoke-static {p6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

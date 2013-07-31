@@ -4205,7 +4205,7 @@
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     .line 3011
-    const-string v2, "sid"
+    const-string/jumbo v2, "sid"
 
     invoke-virtual {v0, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -4302,13 +4302,6 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2524
-    iget-object v0, p0, Lcom/android/internal/telephony/HtcTelephonyInternal;->mCi:Lcom/android/internal/telephony/CommandsInterface;
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, p1, p2, v1}, Lcom/android/internal/telephony/CommandsInterface;->requestSetMultiRABTrafficThrottling(IILandroid/os/Message;)V
 
     .line 2526
     :cond_0

@@ -94,7 +94,7 @@
     .line 302
     const-string v1, "[MediaPluginDLNA]"
 
-    const-string v2, "mDLNAManager is null, can not start to play..."
+    const-string/jumbo v2, "mDLNAManager is null, can not start to play..."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -183,6 +183,8 @@
     goto :goto_0
 
     .line 298
+    nop
+
     nop
 
     :pswitch_data_0

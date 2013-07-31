@@ -24,13 +24,13 @@
     .parameter "handler"
 
     .prologue
-    .line 486
+    .line 476
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 487
+    .line 477
     iput-object p1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ErrorInfoReceiver;->mHandler:Landroid/os/Handler;
 
-    .line 488
+    .line 478
     return-void
 .end method
 
@@ -42,7 +42,7 @@
     .parameter "intent"
 
     .prologue
-    .line 490
+    .line 480
     iget-object v1, p0, Lcom/htc/server/HtcDeviceInfoManager$ReceiverHelper$ErrorInfoReceiver;->mHandler:Landroid/os/Handler;
 
     const/16 v2, 0x1a
@@ -51,10 +51,10 @@
 
     move-result-object v0
 
-    .line 491
+    .line 481
     .local v0, msg:Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 492
+    .line 482
     return-void
 .end method

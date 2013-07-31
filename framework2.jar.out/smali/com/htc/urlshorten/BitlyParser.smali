@@ -374,7 +374,7 @@
 
     .line 191
     :cond_4
-    const-string v1, "statusCode"
+    const-string/jumbo v1, "statusCode"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -553,7 +553,7 @@
 
     .line 175
     :cond_4
-    const-string v1, "statusCode"
+    const-string/jumbo v1, "statusCode"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

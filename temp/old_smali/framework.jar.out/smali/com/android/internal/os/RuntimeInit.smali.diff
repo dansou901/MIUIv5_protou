@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/os/RuntimeInit.smali	2013-07-12 21:42:52.105167408 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/os/RuntimeInit.smali	2013-07-12 21:40:41.411823298 +0000
+*** ./smali/com/android/internal/os/RuntimeInit.smali	2013-07-31 22:22:10.474065480 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/os/RuntimeInit.smali	2013-07-31 22:21:12.640727320 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

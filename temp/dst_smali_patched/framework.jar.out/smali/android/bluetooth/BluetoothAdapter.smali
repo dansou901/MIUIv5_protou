@@ -40,8 +40,6 @@
 
 .field public static final AFH_CLASS_OFF:B = -0x1t
 
-.field public static final BLUETOOTH_RESTRICTION:Ljava/lang/String; = "bluetooth_restriction"
-
 .field public static final BLUETOOTH_SERVICE:Ljava/lang/String; = "bluetooth"
 
 .field public static final BTLD_CMD_SEND:I = 0x1010000
@@ -1316,7 +1314,7 @@
     const-string v4, ""
 
     .local v4, profiles:Ljava/lang/String;
-    const/16 v5, 0x18
+    const/16 v5, 0x17
 
     new-array v0, v5, [Ljava/lang/String;
 
@@ -1451,12 +1449,6 @@
     const/16 v5, 0x16
 
     const-string v6, "Phonebook Access Profile (PBAP)"
-
-    aput-object v6, v0, v5
-
-    const/16 v5, 0x17
-
-    const-string v6, "Message Access Profile (MAP)"
 
     aput-object v6, v0, v5
 
@@ -1955,68 +1947,6 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 v1, 0x1
-
-    goto :goto_0
-.end method
-
-.method public isBluetoothRestriceted()Z
-    .locals 3
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
-
-    invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->isBluetoothRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "BluetoothAdapter"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isBluetoothTetheringRestricted()Z
-    .locals 3
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
-
-    invoke-interface {v1}, Landroid/bluetooth/IBluetooth;->isBluetoothTetheringRestricted()Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v1
-
-    :goto_0
-    return v1
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "BluetoothAdapter"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 v1, 0x0
 
     goto :goto_0
 .end method
@@ -2730,62 +2660,6 @@
     const-string v3, ""
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public setBluetoothRestricted(Z)V
-    .locals 3
-    .parameter "restricted"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
-
-    invoke-interface {v1, p1}, Landroid/bluetooth/IBluetooth;->setBluetoothRestricted(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "BluetoothAdapter"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-.end method
-
-.method public setBluetoothTetheringRestricted(Z)V
-    .locals 3
-    .parameter "restricted"
-
-    .prologue
-    :try_start_0
-    iget-object v1, p0, Landroid/bluetooth/BluetoothAdapter;->mService:Landroid/bluetooth/IBluetooth;
-
-    invoke-interface {v1, p1}, Landroid/bluetooth/IBluetooth;->setBluetoothTetheringRestricted(Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    .local v0, e:Landroid/os/RemoteException;
-    const-string v1, "BluetoothAdapter"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method

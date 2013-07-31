@@ -648,7 +648,7 @@
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "ussdResult = "
+    const-string/jumbo v16, "ussdResult = "
 
     invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2008,7 +2008,7 @@
 
     if-nez v3, :cond_1
 
-    const-string v3, "true"
+    const-string/jumbo v3, "true"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2289,7 +2289,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "temp CLIR: "
+    const-string/jumbo v8, "temp CLIR: "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3028,7 +3028,7 @@
     .local v3, ex:Lcom/android/internal/telephony/CallStateException;
     const-string v6, "GSM"
 
-    const-string v7, "unexpected error on hangup during dispose"
+    const-string/jumbo v7, "unexpected error on hangup during dispose"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3108,7 +3108,7 @@
     .restart local v3       #ex:Lcom/android/internal/telephony/CallStateException;
     const-string v6, "GSM"
 
-    const-string v7, "unexpected error on hangup during dispose"
+    const-string/jumbo v7, "unexpected error on hangup during dispose"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3583,7 +3583,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "switch to GSM audio path on exception "
+    const-string/jumbo v4, "switch to GSM audio path on exception "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3623,7 +3623,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "switch to GSM audio path off exception "
+    const-string/jumbo v4, "switch to GSM audio path off exception "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4582,7 +4582,7 @@
     :try_start_3
     const-string v19, "GSM"
 
-    const-string v20, "unexpected error on hangup"
+    const-string/jumbo v20, "unexpected error on hangup"
 
     invoke-static/range {v19 .. v20}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -4907,7 +4907,7 @@
 
     invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v21, "ussd"
+    const-string/jumbo v21, "ussd"
 
     invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6188,7 +6188,7 @@
     .line 534
     const-string v1, "phone"
 
-    const-string v2, "vtHangup: ringing..."
+    const-string/jumbo v2, "vtHangup: ringing..."
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -6735,7 +6735,7 @@
 
     .line 1577
     :cond_0
-    const-string v0, "vtHangup"
+    const-string/jumbo v0, "vtHangup"
 
     invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GsmCallTracker;->log(Ljava/lang/String;)V
 

@@ -53,37 +53,37 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 7128
+    .line 6964
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 7087
+    .line 6923
     iput v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRccId:I
 
-    .line 7129
+    .line 6965
     iput-object p1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mMediaIntent:Landroid/app/PendingIntent;
 
-    .line 7130
+    .line 6966
     iput-object p2, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mReceiverComponent:Landroid/content/ComponentName;
 
-    .line 7131
+    .line 6967
     iput v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mCallingUid:I
 
-    .line 7132
+    .line 6968
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClient:Landroid/media/IRemoteControlClient;
 
-    .line 7133
-    invoke-static {}, Landroid/media/AudioService;->access$12204()I
+    .line 6969
+    invoke-static {}, Landroid/media/AudioService;->access$11204()I
 
     move-result v0
 
     iput v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRccId:I
 
-    .line 7135
+    .line 6971
     invoke-virtual {p0}, Landroid/media/AudioService$RemoteControlStackEntry;->resetPlaybackInfo()V
 
-    .line 7136
+    .line 6972
     return-void
 .end method
 
@@ -98,13 +98,13 @@
     .end annotation
 
     .prologue
-    .line 7153
+    .line 6989
     invoke-virtual {p0}, Landroid/media/AudioService$RemoteControlStackEntry;->unlinkToRcClientDeath()V
 
-    .line 7154
+    .line 6990
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 7155
+    .line 6991
     return-void
 .end method
 
@@ -116,34 +116,34 @@
 
     const/4 v1, 0x1
 
-    .line 7118
+    .line 6954
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackType:I
 
-    .line 7119
+    .line 6955
     iput v2, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackVolume:I
 
-    .line 7120
+    .line 6956
     iput v2, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackVolumeMax:I
 
-    .line 7121
+    .line 6957
     iput v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackVolumeHandling:I
 
-    .line 7122
+    .line 6958
     const/4 v0, 0x3
 
     iput v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackStream:I
 
-    .line 7123
+    .line 6959
     iput v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mPlaybackState:I
 
-    .line 7124
+    .line 6960
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRemoteVolumeObs:Landroid/media/IRemoteVolumeObserver;
 
-    .line 7125
+    .line 6961
     return-void
 .end method
 
@@ -151,7 +151,7 @@
     .locals 4
 
     .prologue
-    .line 7139
+    .line 6975
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
     if-eqz v1, :cond_0
@@ -159,18 +159,18 @@
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
     #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
-    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$12300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$11300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 7141
+    .line 6977
     :try_start_0
     iget-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
 
     #getter for: Landroid/media/AudioService$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
-    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$12300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
+    invoke-static {v1}, Landroid/media/AudioService$RcClientDeathHandler;->access$11300(Landroid/media/AudioService$RcClientDeathHandler;)Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -180,23 +180,23 @@
 
     invoke-interface {v1, v2, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    .line 7142
+    .line 6978
     const/4 v1, 0x0
 
     iput-object v1, p0, Landroid/media/AudioService$RemoteControlStackEntry;->mRcClientDeathHandler:Landroid/media/AudioService$RcClientDeathHandler;
     :try_end_0
     .catch Ljava/util/NoSuchElementException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 7149
+    .line 6985
     :cond_0
     :goto_0
     return-void
 
-    .line 7143
+    .line 6979
     :catch_0
     move-exception v0
 
-    .line 7145
+    .line 6981
     .local v0, e:Ljava/util/NoSuchElementException;
     const-string v1, "AudioService"
 
@@ -226,7 +226,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 7146
+    .line 6982
     invoke-virtual {v0}, Ljava/util/NoSuchElementException;->printStackTrace()V
 
     goto :goto_0

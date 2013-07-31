@@ -33,15 +33,15 @@
     .parameter "featureId"
 
     .prologue
-    .line 3877
+    .line 4009
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 3878
+    .line 4010
     iput p2, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mFeatureId:I
 
-    .line 3879
+    .line 4011
     return-void
 .end method
 
@@ -53,28 +53,28 @@
     .parameter "allMenusAreClosing"
 
     .prologue
-    .line 3882
+    .line 4014
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getRootMenu()Lcom/android/internal/view/menu/MenuBuilder;
 
     move-result-object v1
 
     if-eq v1, p1, :cond_0
 
-    .line 3883
+    .line 4015
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->onCloseSubMenu(Lcom/android/internal/view/menu/MenuBuilder;)V
 
-    .line 3886
+    .line 4018
     :cond_0
     if-eqz p2, :cond_3
 
-    .line 3887
+    .line 4019
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 3888
+    .line 4020
     .local v0, callback:Landroid/view/Window$Callback;
     if-eqz v0, :cond_1
 
@@ -86,12 +86,12 @@
 
     if-nez v1, :cond_1
 
-    .line 3889
+    .line 4021
     iget v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mFeatureId:I
 
     invoke-interface {v0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    .line 3892
+    .line 4024
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
@@ -102,29 +102,29 @@
 
     if-ne p1, v1, :cond_2
 
-    .line 3893
+    .line 4025
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     #calls: Lcom/android/internal/policy/impl/PhoneWindow;->dismissContextMenu()V
     invoke-static {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->access$1900(Lcom/android/internal/policy/impl/PhoneWindow;)V
 
-    .line 3897
+    .line 4029
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
     if-eqz v1, :cond_3
 
-    .line 3898
+    .line 4030
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
     invoke-virtual {v1}, Lcom/android/internal/view/menu/MenuDialogHelper;->dismiss()V
 
-    .line 3899
+    .line 4031
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
-    .line 3902
+    .line 4034
     .end local v0           #callback:Landroid/view/Window$Callback;
     :cond_3
     return-void
@@ -135,14 +135,14 @@
     .parameter "menu"
 
     .prologue
-    .line 3905
+    .line 4037
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 3906
+    .line 4038
     .local v0, callback:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -154,7 +154,7 @@
 
     if-nez v1, :cond_0
 
-    .line 3907
+    .line 4039
     iget v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mFeatureId:I
 
     invoke-virtual {p1}, Lcom/android/internal/view/menu/MenuBuilder;->getRootMenu()Lcom/android/internal/view/menu/MenuBuilder;
@@ -163,7 +163,7 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    .line 3909
+    .line 4041
     :cond_0
     return-void
 .end method
@@ -174,14 +174,14 @@
     .parameter "item"
 
     .prologue
-    .line 3912
+    .line 4044
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->this$0:Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindow;->getCallback()Landroid/view/Window$Callback;
 
     move-result-object v0
 
-    .line 3913
+    .line 4045
     .local v0, callback:Landroid/view/Window$Callback;
     if-eqz v0, :cond_0
 
@@ -217,7 +217,7 @@
     .parameter "menu"
 
     .prologue
-    .line 3918
+    .line 4050
     return-void
 .end method
 
@@ -226,34 +226,34 @@
     .parameter "subMenu"
 
     .prologue
-    .line 3921
+    .line 4053
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
-    .line 3930
+    .line 4062
     :goto_0
     return v0
 
-    .line 3924
+    .line 4056
     :cond_0
     invoke-virtual {p1, p0}, Lcom/android/internal/view/menu/MenuBuilder;->setCallback(Lcom/android/internal/view/menu/MenuBuilder$Callback;)V
 
-    .line 3927
+    .line 4059
     new-instance v0, Lcom/android/internal/view/menu/MenuDialogHelper;
 
     invoke-direct {v0, p1}, Lcom/android/internal/view/menu/MenuDialogHelper;-><init>(Lcom/android/internal/view/menu/MenuBuilder;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
-    .line 3928
+    .line 4060
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$DialogMenuCallback;->mSubMenuHelper:Lcom/android/internal/view/menu/MenuDialogHelper;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/internal/view/menu/MenuDialogHelper;->show(Landroid/os/IBinder;)V
 
-    .line 3930
+    .line 4062
     const/4 v0, 0x1
 
     goto :goto_0

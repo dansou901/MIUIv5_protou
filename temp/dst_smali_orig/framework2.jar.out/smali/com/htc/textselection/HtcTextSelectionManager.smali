@@ -533,14 +533,14 @@
     .parameter "ctx"
 
     .prologue
-    const v6, 0x4020023
+    const v6, 0x4020046
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
     .local v3, res:Landroid/content/res/Resources;
-    const v5, 0x402000b
+    const v5, 0x402002e
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -548,7 +548,7 @@
 
     sput-object v5, Lcom/htc/textselection/HtcTextSelectionManager;->icon_copy:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x4020015
+    const v5, 0x4020038
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -556,7 +556,7 @@
 
     sput-object v5, Lcom/htc/textselection/HtcTextSelectionManager;->icon_paste:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x402000c
+    const v5, 0x402002f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -564,7 +564,7 @@
 
     sput-object v5, Lcom/htc/textselection/HtcTextSelectionManager;->icon_cut:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x402001e
+    const v5, 0x4020041
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -572,7 +572,7 @@
 
     sput-object v5, Lcom/htc/textselection/HtcTextSelectionManager;->icon_lookup:Landroid/graphics/drawable/Drawable;
 
-    const v5, 0x4020025
+    const v5, 0x4020048
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1025,7 +1025,7 @@
     .prologue
     const/4 v8, 0x0
 
-    const v7, 0x402005e
+    const v7, 0x4020086
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
@@ -1196,7 +1196,7 @@
     .prologue
     const/4 v8, 0x0
 
-    const v7, 0x402005f
+    const v7, 0x4020087
 
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 

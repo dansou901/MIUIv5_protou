@@ -1724,7 +1724,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "DeviceManager3LM"
 
-    const-string v2, "unlock: RemoteException"
+    const-string/jumbo v2, "unlock: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

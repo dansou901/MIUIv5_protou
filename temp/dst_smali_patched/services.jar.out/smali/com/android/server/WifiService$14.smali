@@ -66,7 +66,7 @@
 
     move-result-object v2
 
-    const-string v3, "  mAutoEnableWifiInDockMode="
+    const-string v3, "  mAutoEnableWifiApInDockMode="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -74,8 +74,8 @@
 
     iget-object v3, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
 
-    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
-    invoke-static {v3}, Lcom/android/server/WifiService;->access$4500(Lcom/android/server/WifiService;)Z
+    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiApInDockMode:Z
+    invoke-static {v3}, Lcom/android/server/WifiService;->access$4600(Lcom/android/server/WifiService;)Z
 
     move-result v3
 
@@ -94,21 +94,7 @@
     iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
 
     #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
-    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4602(Lcom/android/server/WifiService;Z)Z
-
-    iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
-
-    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$4500(Lcom/android/server/WifiService;)Z
-
-    move-result v1
-
-    if-ne v1, v4, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
-
-    #calls: Lcom/android/server/WifiService;->setWifiEnableInDockMode(Z)V
-    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4700(Lcom/android/server/WifiService;Z)V
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4402(Lcom/android/server/WifiService;Z)Z
 
     :cond_0
     :goto_0
@@ -120,12 +106,12 @@
     iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
 
     #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
-    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4602(Lcom/android/server/WifiService;Z)Z
+    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4402(Lcom/android/server/WifiService;Z)Z
 
     iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
 
-    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$4500(Lcom/android/server/WifiService;)Z
+    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiApInDockMode:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$4600(Lcom/android/server/WifiService;)Z
 
     move-result v1
 
@@ -133,7 +119,7 @@
 
     iget-object v1, p0, Lcom/android/server/WifiService$14;->this$0:Lcom/android/server/WifiService;
 
-    #calls: Lcom/android/server/WifiService;->setWifiEnableInDockMode(Z)V
+    #calls: Lcom/android/server/WifiService;->setWifiApEnableInDockMode(Z)V
     invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4700(Lcom/android/server/WifiService;Z)V
 
     goto :goto_0

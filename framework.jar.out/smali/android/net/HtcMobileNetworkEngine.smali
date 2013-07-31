@@ -215,7 +215,7 @@
 
     const/4 v4, 0x1
 
-    .line 431
+    .line 430
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 71
@@ -254,17 +254,17 @@
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    .line 434
+    .line 433
     iput-object p1, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
-    .line 435
+    .line 434
     new-instance v0, Landroid/net/HtcMobileNetworkEngine$ConnectivityReceiver;
 
     invoke-direct {v0, p0, v5}, Landroid/net/HtcMobileNetworkEngine$ConnectivityReceiver;-><init>(Landroid/net/HtcMobileNetworkEngine;Landroid/net/HtcMobileNetworkEngine$1;)V
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mReceiver:Landroid/net/HtcMobileNetworkEngine$ConnectivityReceiver;
 
-    .line 436
+    .line 435
     const-string v0, "connectivity"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -275,7 +275,7 @@
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 437
+    .line 436
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "phone"
@@ -288,7 +288,7 @@
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    .line 438
+    .line 437
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string v1, "htctelephony"
@@ -301,42 +301,42 @@
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mHtcTelephonyManager:Lcom/htc/service/HtcTelephonyManager;
 
-    .line 440
+    .line 439
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
     invoke-virtual {v0, v1, v4}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
-    .line 442
+    .line 441
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.intent.action.ANY_DATA_STATE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 443
+    .line 442
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "com.htc.intent.action.MOBILEDATA_MODE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 444
+    .line 443
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "android.intent.action.AIRPLANE_MODE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 445
+    .line 444
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mIntentFilter:Landroid/content/IntentFilter;
 
     const-string v1, "com.htc.intent.action.HTC_SIMCARD_STATUS_UPDATE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 447
+    .line 446
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mReceiver:Landroid/net/HtcMobileNetworkEngine$ConnectivityReceiver;
@@ -347,13 +347,13 @@
 
     invoke-virtual {v0, v1, v2, v5, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 448
+    .line 447
     iput-boolean v4, p0, Landroid/net/HtcMobileNetworkEngine;->hasRegisterredReciever:Z
 
-    .line 450
+    .line 449
     invoke-direct {p0}, Landroid/net/HtcMobileNetworkEngine;->checkMobileNetworkDisplayPolicy()V
 
-    .line 451
+    .line 450
     return-void
 .end method
 
@@ -942,7 +942,7 @@
     :cond_2
     const-string v1, "HtcMobileNetworkEngine"
 
-    const-string v2, "mConnectivityManager is null"
+    const-string/jumbo v2, "mConnectivityManager is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -965,13 +965,11 @@
 .end method
 
 .method private checkMobileNetworkSummaryPolicy(Landroid/net/NetworkInfo$State;Ljava/lang/String;)I
-    .locals 6
+    .locals 5
     .parameter "state"
     .parameter "reason"
 
     .prologue
-    const/4 v5, 0x1
-
     .line 261
     if-nez p2, :cond_0
 
@@ -1047,7 +1045,7 @@
     .local v2, summaryType:I
     iget-boolean v3, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
-    if-eqz v3, :cond_15
+    if-eqz v3, :cond_14
 
     .line 278
     sget-object v3, Landroid/net/HtcMobileNetworkEngine$2;->$SwitchMap$android$net$NetworkInfo$State:[I
@@ -1060,7 +1058,7 @@
 
     packed-switch v3, :pswitch_data_0
 
-    .line 347
+    .line 346
     :cond_3
     :goto_1
     if-eqz v0, :cond_4
@@ -1071,22 +1069,22 @@
 
     if-eqz v3, :cond_4
 
-    .line 348
+    .line 347
     add-int/lit8 v2, v2, 0x64
 
-    .line 352
+    .line 351
     :cond_4
     iget v3, p0, Landroid/net/HtcMobileNetworkEngine;->mSummaryType:I
 
     if-eq v3, v2, :cond_5
 
-    .line 353
+    .line 352
     iput v2, p0, Landroid/net/HtcMobileNetworkEngine;->mSummaryType:I
 
-    .line 354
+    .line 353
     invoke-virtual {p0, v2}, Landroid/net/HtcMobileNetworkEngine;->onSummaryChange(I)V
 
-    .line 356
+    .line 355
     :cond_5
     iget v3, p0, Landroid/net/HtcMobileNetworkEngine;->mSummaryType:I
 
@@ -1142,7 +1140,9 @@
 
     .line 314
     :goto_2
-    invoke-direct {p0, v5}, Landroid/net/HtcMobileNetworkEngine;->isNetworkActive(I)Z
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v3}, Landroid/net/HtcMobileNetworkEngine;->isNetworkActive(I)Z
 
     move-result v3
 
@@ -1151,19 +1151,19 @@
     .line 316
     const/16 v2, 0x8
 
-    .line 332
+    .line 331
     :cond_8
     :goto_3
     if-eqz v1, :cond_9
 
-    .line 334
+    .line 333
     const/4 v2, 0x6
 
-    .line 336
+    .line 335
     :cond_9
     if-eqz v0, :cond_3
 
-    .line 338
+    .line 337
     const/16 v2, 0x9
 
     goto :goto_1
@@ -1273,39 +1273,34 @@
 
     const/16 v4, 0x51
 
-    if-eq v3, v4, :cond_12
+    if-ne v3, v4, :cond_12
 
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    if-ne v3, v5, :cond_13
-
-    .line 321
-    :cond_12
+    .line 320
     const/16 v2, 0xd
 
     goto :goto_3
 
-    .line 322
-    :cond_13
+    .line 321
+    :cond_12
     sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v4, 0x50
 
-    if-ne v3, v4, :cond_14
+    if-ne v3, v4, :cond_13
 
-    .line 324
+    .line 323
     const/16 v2, 0xc
 
     goto :goto_3
 
-    .line 327
-    :cond_14
+    .line 326
+    :cond_13
     const/16 v2, 0xb
 
     goto :goto_3
 
-    .line 343
-    :cond_15
+    .line 342
+    :cond_14
     const/4 v2, 0x0
 
     goto/16 :goto_1
@@ -1328,18 +1323,18 @@
     .parameter "context"
 
     .prologue
-    .line 423
+    .line 422
     const-class v1, Landroid/net/HtcMobileNetworkEngine;
 
     monitor-enter v1
 
-    .line 424
+    .line 423
     :try_start_0
     sget-object v0, Landroid/net/HtcMobileNetworkEngine;->mEngine:Landroid/net/HtcMobileNetworkEngine;
 
     if-nez v0, :cond_0
 
-    .line 425
+    .line 424
     new-instance v0, Landroid/net/HtcMobileNetworkEngine;
 
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -1350,18 +1345,18 @@
 
     sput-object v0, Landroid/net/HtcMobileNetworkEngine;->mEngine:Landroid/net/HtcMobileNetworkEngine;
 
-    .line 427
+    .line 426
     :cond_0
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 428
+    .line 427
     sget-object v0, Landroid/net/HtcMobileNetworkEngine;->mEngine:Landroid/net/HtcMobileNetworkEngine;
 
     return-object v0
 
-    .line 427
+    .line 426
     :catchall_0
     move-exception v0
 
@@ -1456,7 +1451,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 405
+    .line 404
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -1481,19 +1476,19 @@
     .locals 2
 
     .prologue
-    .line 409
+    .line 408
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v0, :cond_0
 
-    .line 410
+    .line 409
     const-string v0, "HtcMobileNetworkEngine"
 
     const-string v1, "connectivity is null, rebind it."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 411
+    .line 410
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string v1, "connectivity"
@@ -1506,13 +1501,13 @@
 
     iput-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 413
+    .line 412
     :cond_0
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-eqz v0, :cond_1
 
-    .line 414
+    .line 413
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getMobileDataEnabled()Z
@@ -1521,22 +1516,22 @@
 
     iput-boolean v0, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
-    .line 415
+    .line 414
     iget-boolean v0, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
-    .line 418
+    .line 417
     :goto_0
     return v0
 
-    .line 417
+    .line 416
     :cond_1
     const-string v0, "HtcMobileNetworkEngine"
 
-    const-string v1, "mConnectivityManager is null"
+    const-string/jumbo v1, "mConnectivityManager is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 418
+    .line 417
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1547,12 +1542,12 @@
     .parameter "networkType"
 
     .prologue
-    .line 387
+    .line 386
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v1, :cond_0
 
-    .line 388
+    .line 387
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string v2, "connectivity"
@@ -1565,27 +1560,27 @@
 
     iput-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 391
+    .line 390
     :cond_0
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v1, :cond_2
 
-    .line 392
+    .line 391
     const-string v1, "HtcMobileNetworkEngine"
 
     const-string v2, "couldn\'t get connectivity manager"
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 401
+    .line 400
     :cond_1
     const/4 v1, 0x0
 
     :goto_0
     return v1
 
-    .line 394
+    .line 393
     :cond_2
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
@@ -1593,11 +1588,11 @@
 
     move-result-object v0
 
-    .line 395
+    .line 394
     .local v0, info:Landroid/net/NetworkInfo;
     if-eqz v0, :cond_1
 
-    .line 396
+    .line 395
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v1
@@ -1606,7 +1601,7 @@
 
     if-ne v1, v2, :cond_1
 
-    .line 397
+    .line 396
     const/4 v1, 0x1
 
     goto :goto_0
@@ -1618,7 +1613,7 @@
     .locals 1
 
     .prologue
-    .line 512
+    .line 511
     invoke-direct {p0}, Landroid/net/HtcMobileNetworkEngine;->getPersistedMobileDataEnabled()Z
 
     move-result v0
@@ -1634,7 +1629,7 @@
 
     const/4 v1, 0x0
 
-    .line 373
+    .line 372
     :try_start_0
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->VZW_GLOBAL_ROAMING_CONFIG()Z
 
@@ -1642,7 +1637,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 375
+    .line 374
     invoke-virtual {p0}, Landroid/net/HtcMobileNetworkEngine;->getGlobalDataRoamingOption()I
 
     move-result v3
@@ -1660,12 +1655,12 @@
     :cond_0
     move v1, v2
 
-    .line 381
+    .line 380
     :cond_1
     :goto_0
     return v1
 
-    .line 377
+    .line 376
     :cond_2
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
@@ -1693,11 +1688,11 @@
 
     goto :goto_1
 
-    .line 380
+    .line 379
     :catch_0
     move-exception v0
 
-    .line 381
+    .line 380
     .local v0, snfe:Landroid/provider/Settings$SettingNotFoundException;
     goto :goto_0
 .end method
@@ -1706,10 +1701,10 @@
     .locals 1
 
     .prologue
-    .line 504
+    .line 503
     invoke-direct {p0}, Landroid/net/HtcMobileNetworkEngine;->checkMobileNetworkDisplayPolicy()V
 
-    .line 505
+    .line 504
     iget-boolean v0, p0, Landroid/net/HtcMobileNetworkEngine;->mEnableState:Z
 
     return v0
@@ -1721,7 +1716,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 364
+    .line 363
     :try_start_0
     iget-object v2, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
@@ -1739,15 +1734,15 @@
 
     move-result v1
 
-    .line 367
+    .line 366
     :goto_0
     return v1
 
-    .line 366
+    .line 365
     :catch_0
     move-exception v0
 
-    .line 367
+    .line 366
     .local v0, e:Ljava/lang/Exception;
     goto :goto_0
 .end method
@@ -1756,10 +1751,10 @@
     .locals 1
 
     .prologue
-    .line 528
+    .line 527
     invoke-direct {p0}, Landroid/net/HtcMobileNetworkEngine;->checkMobileNetworkDisplayPolicy()V
 
-    .line 529
+    .line 528
     iget-boolean v0, p0, Landroid/net/HtcMobileNetworkEngine;->mSettingsEnableState:Z
 
     return v0
@@ -1769,10 +1764,10 @@
     .locals 1
 
     .prologue
-    .line 519
+    .line 518
     invoke-direct {p0}, Landroid/net/HtcMobileNetworkEngine;->checkMobileNetworkSummaryPolicy()I
 
-    .line 520
+    .line 519
     iget v0, p0, Landroid/net/HtcMobileNetworkEngine;->mSummaryType:I
 
     return v0
@@ -1783,7 +1778,7 @@
     .parameter "checked"
 
     .prologue
-    .line 536
+    .line 535
     return-void
 .end method
 
@@ -1792,7 +1787,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 542
+    .line 541
     return-void
 .end method
 
@@ -1801,7 +1796,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 567
+    .line 566
     return-void
 .end method
 
@@ -1810,7 +1805,7 @@
     .parameter "status"
 
     .prologue
-    .line 561
+    .line 560
     return-void
 .end method
 
@@ -1819,7 +1814,7 @@
     .parameter "enabled"
 
     .prologue
-    .line 454
+    .line 453
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string v2, "connectivity"
@@ -1832,35 +1827,35 @@
 
     invoke-virtual {v1, p1}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
 
-    .line 455
+    .line 454
     invoke-virtual {p0, p1}, Landroid/net/HtcMobileNetworkEngine;->onCheckStateChange(Z)V
 
-    .line 456
+    .line 455
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.intent.action.MOBILEDATA_MODE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 457
+    .line 456
     .local v0, intent:Landroid/content/Intent;
     const-string/jumbo v1, "state"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 458
+    .line 457
     const-string/jumbo v1, "sender"
 
     const-string v2, "HtcMobileNetworkEngine"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 459
+    .line 458
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 460
+    .line 459
     return-void
 .end method
 
@@ -1870,35 +1865,35 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 570
+    .line 569
     iget-boolean v0, p0, Landroid/net/HtcMobileNetworkEngine;->hasRegisterredReciever:Z
 
     if-eqz v0, :cond_0
 
-    .line 571
+    .line 570
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mReceiver:Landroid/net/HtcMobileNetworkEngine$ConnectivityReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 572
+    .line 571
     iput-boolean v2, p0, Landroid/net/HtcMobileNetworkEngine;->hasRegisterredReciever:Z
 
-    .line 574
+    .line 573
     :cond_0
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     if-eqz v0, :cond_1
 
-    .line 575
+    .line 574
     iget-object v0, p0, Landroid/net/HtcMobileNetworkEngine;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iget-object v1, p0, Landroid/net/HtcMobileNetworkEngine;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
     invoke-virtual {v0, v1, v2}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
-    .line 577
+    .line 576
     :cond_1
     return-void
 .end method
@@ -1908,7 +1903,7 @@
     .parameter "checked"
 
     .prologue
-    .line 463
+    .line 462
     sget-boolean v3, Landroid/net/HtcMobileNetworkEngine;->DBG:Z
 
     if-eqz v3, :cond_0
@@ -1935,20 +1930,20 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 464
+    .line 463
     :cond_0
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-nez v3, :cond_1
 
-    .line 465
+    .line 464
     const-string v3, "HtcMobileNetworkEngine"
 
     const-string v4, "connectivity is null, rebind it."
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 466
+    .line 465
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     const-string v4, "connectivity"
@@ -1961,13 +1956,13 @@
 
     iput-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
-    .line 468
+    .line 467
     :cond_1
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     if-eqz v3, :cond_2
 
-    .line 469
+    .line 468
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v3}, Landroid/net/ConnectivityManager;->getMobileDataEnabled()Z
@@ -1976,49 +1971,49 @@
 
     iput-boolean v3, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
-    .line 473
+    .line 472
     :goto_0
     iget-boolean v3, p0, Landroid/net/HtcMobileNetworkEngine;->mCheckState:Z
 
     if-ne p1, v3, :cond_3
 
-    .line 498
+    .line 497
     :goto_1
     return-void
 
-    .line 471
+    .line 470
     :cond_2
     const-string v3, "HtcMobileNetworkEngine"
 
-    const-string v4, "mConnectivityManager is null"
+    const-string/jumbo v4, "mConnectivityManager is null"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .line 476
+    .line 475
     :cond_3
     if-eqz p1, :cond_4
 
-    .line 477
+    .line 476
     invoke-virtual {p0, p1}, Landroid/net/HtcMobileNetworkEngine;->persistMobileDataSettingEnabled(Z)V
 
     goto :goto_1
 
-    .line 479
+    .line 478
     :cond_4
     sget-boolean v3, Landroid/net/HtcMobileNetworkEngine;->FEATURE_SUPPORT_MOBILE_DATA_TURN_OFF_ALERT:Z
 
     if-eqz v3, :cond_6
 
-    .line 480
+    .line 479
     new-instance v1, Landroid/content/Intent;
 
     const-string v3, "android.intent.action.MAIN"
 
     invoke-direct {v1, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 481
+    .line 480
     .local v1, intent:Landroid/content/Intent;
     const-string v3, "com.android.settings"
 
@@ -2026,19 +2021,19 @@
 
     invoke-virtual {v1, v3, v4}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 482
+    .line 481
     const/high16 v3, 0x1084
 
     invoke-virtual {v1, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 485
+    .line 484
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v2
 
-    .line 486
+    .line 485
     .local v2, pm:Landroid/content/pm/PackageManager;
     const/4 v3, 0x0
 
@@ -2046,7 +2041,7 @@
 
     move-result-object v0
 
-    .line 487
+    .line 486
     .local v0, activities:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -2054,14 +2049,14 @@
 
     if-eqz v3, :cond_5
 
-    .line 488
+    .line 487
     iget-object v3, p0, Landroid/net/HtcMobileNetworkEngine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
 
-    .line 490
+    .line 489
     :cond_5
     const-string v3, "HtcMobileNetworkEngine"
 
@@ -2069,12 +2064,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 491
+    .line 490
     invoke-virtual {p0, p1}, Landroid/net/HtcMobileNetworkEngine;->persistMobileDataSettingEnabled(Z)V
 
     goto :goto_1
 
-    .line 494
+    .line 493
     .end local v0           #activities:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
     .end local v1           #intent:Landroid/content/Intent;
     .end local v2           #pm:Landroid/content/pm/PackageManager;

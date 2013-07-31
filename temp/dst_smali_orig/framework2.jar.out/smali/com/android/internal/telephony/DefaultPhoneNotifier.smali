@@ -1864,7 +1864,7 @@
 .end method
 
 .method public notifyDataConnectionLTE(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Lcom/android/internal/telephony/Phone$IPVersion;Ljava/lang/String;)V
-    .locals 32
+    .locals 25
     .parameter "sender"
     .parameter "apnType"
     .parameter "ipv"
@@ -1882,9 +1882,9 @@
     :cond_0
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
-    move-result-object v31
+    move-result-object v24
 
-    .local v31, telephony:Landroid/telephony/TelephonyManager;
+    .local v24, telephony:Landroid/telephony/TelephonyManager;
     invoke-interface/range {p1 .. p2}, Lcom/android/internal/telephony/Phone;->getDataConnectionState(Ljava/lang/String;)Lcom/android/internal/telephony/Phone$DataState;
 
     move-result-object v2
@@ -1905,12 +1905,12 @@
 
     invoke-static {v2, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    move-result v30
+    move-result v23
 
-    .local v30, getRadioDataTechnology:I
+    .local v23, getRadioDataTechnology:I
     move-object/from16 v0, p0
 
-    move/from16 v1, v30
+    move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/DefaultPhoneNotifier;->dataRadioTechMapToDataIcon(I)I
 
@@ -1923,11 +1923,6 @@
     const/4 v10, 0x0
 
     .local v10, linkProperties:Landroid/net/LinkProperties;
-    invoke-interface/range {p1 .. p1}, Lcom/android/internal/telephony/Phone;->getEntitleErrorCause()I
-
-    move-result v16
-
-    .local v16, errorCause:I
     const/4 v2, 0x2
 
     if-ne v14, v2, :cond_1
@@ -1964,12 +1959,12 @@
     :goto_0
     invoke-interface/range {p1 .. p1}, Lcom/android/internal/telephony/Phone;->getDataServiceState()Landroid/telephony/ServiceState;
 
-    move-result-object v28
+    move-result-object v21
 
-    .local v28, dss:Landroid/telephony/ServiceState;
-    if-eqz v28, :cond_2
+    .local v21, dss:Landroid/telephony/ServiceState;
+    if-eqz v21, :cond_2
 
-    invoke-virtual/range {v28 .. v28}, Landroid/telephony/ServiceState;->getRoaming()Z
+    invoke-virtual/range {v21 .. v21}, Landroid/telephony/ServiceState;->getRoaming()Z
 
     move-result v9
 
@@ -2073,18 +2068,6 @@
 
     move-result-object v2
 
-    const-string v4, " errorCause="
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    move/from16 v0, v16
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     const-string v4, " roaming="
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2121,6 +2104,8 @@
 
     const/4 v15, -0x1
 
+    const/16 v16, -0x1
+
     move-object/from16 v2, p0
 
     move-object/from16 v3, p1
@@ -2140,7 +2125,7 @@
     :goto_2
     return-void
 
-    .end local v28           #dss:Landroid/telephony/ServiceState;
+    .end local v21           #dss:Landroid/telephony/ServiceState;
     :cond_3
     const-string v2, "DATA"
 
@@ -2160,7 +2145,7 @@
 
     goto/16 :goto_0
 
-    .restart local v28       #dss:Landroid/telephony/ServiceState;
+    .restart local v21       #dss:Landroid/telephony/ServiceState;
     :cond_4
     const-string v2, "null"
 
@@ -2170,44 +2155,38 @@
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
-
-    move-object/from16 v17, v0
+    iget-object v11, v0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/internal/telephony/Phone$IPVersion;->toString()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v13
 
     invoke-interface/range {p1 .. p3}, Lcom/android/internal/telephony/Phone;->getActiveApn(Ljava/lang/String;Lcom/android/internal/telephony/Phone$IPVersion;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v15
 
-    move-object/from16 v18, p2
+    move-object/from16 v12, p2
 
-    move/from16 v20, v14
+    move-object/from16 v16, v10
 
-    move-object/from16 v22, v10
+    move/from16 v17, v7
 
-    move/from16 v23, v7
+    move/from16 v18, v8
 
-    move/from16 v24, v8
+    move/from16 v19, v9
 
-    move/from16 v25, v9
+    move-object/from16 v20, p4
 
-    move/from16 v26, v16
-
-    move-object/from16 v27, p4
-
-    invoke-interface/range {v17 .. v27}, Lcom/android/internal/telephony/ITelephonyRegistry;->notifyDataConnectionLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZIZILjava/lang/String;)V
+    invoke-interface/range {v11 .. v20}, Lcom/android/internal/telephony/ITelephonyRegistry;->notifyDataConnectionLTE(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Landroid/net/LinkProperties;ZIZLjava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_2
 
     :catch_0
-    move-exception v29
+    move-exception v22
 
-    .local v29, ex:Landroid/os/RemoteException;
+    .local v22, ex:Landroid/os/RemoteException;
     const-string v2, "DATA"
 
     const-string v3, "notifyDataConnectionLTE Exception"

@@ -223,8 +223,6 @@
 
 .field public mPdpSupportNum:I
 
-.field protected mPhoneSlot:I
-
 .field protected final mPreciseCallStateRegistrants:Landroid/os/RegistrantList;
 
 .field protected final mRadioOnRegistrants:Landroid/os/RegistrantList;
@@ -438,10 +436,6 @@
 
     iput v1, p0, Lcom/android/internal/telephony/PhoneBase;->mPdpSupportNum:I
 
-    const/16 v0, 0xa
-
-    iput v0, p0, Lcom/android/internal/telephony/PhoneBase;->mPhoneSlot:I
-
     new-instance v0, Landroid/os/RegistrantList;
 
     invoke-direct {v0}, Landroid/os/RegistrantList;-><init>()V
@@ -606,10 +600,6 @@
     iput v2, p0, Lcom/android/internal/telephony/PhoneBase;->MAX_DATA_POOL_SIZE:I
 
     iput v4, p0, Lcom/android/internal/telephony/PhoneBase;->mPdpSupportNum:I
-
-    const/16 v2, 0xa
-
-    iput v2, p0, Lcom/android/internal/telephony/PhoneBase;->mPhoneSlot:I
 
     new-instance v2, Landroid/os/RegistrantList;
 
@@ -1649,20 +1639,6 @@
     return-void
 .end method
 
-.method public addPreferredOperatorList(Ljava/lang/String;ILandroid/os/Message;)V
-    .locals 1
-    .parameter "operatorNumeric"
-    .parameter "act"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telephony/CommandsInterface;->addPreferredOperatorList(Ljava/lang/String;ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public canConferenceExt(I)Z
     .locals 1
     .parameter "phoneType"
@@ -1681,43 +1657,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public cleanUpAllConnections(Ljava/lang/String;)V
-    .locals 2
-    .parameter "cause"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
-
-    invoke-virtual {v0, p1}, Lcom/android/internal/telephony/DataConnectionTracker;->cleanUpAllConnections(Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const-string v0, "PHONE"
-
-    const-string v1, "mDataConnectionTracker is null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method public cleanUpAllConnectionsExt(Ljava/lang/String;I)V
-    .locals 0
-    .parameter "cause"
-    .parameter "phoneType"
-
-    .prologue
-    invoke-direct {p0}, Lcom/android/internal/telephony/PhoneBase;->logCallError()V
-
-    return-void
 .end method
 
 .method public clearDisconnectedExt(I)V
@@ -3852,18 +3791,6 @@
     return-object v0
 .end method
 
-.method public getDpdtSwitchValue(Landroid/os/Message;)V
-    .locals 1
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    invoke-interface {v0, p1}, Lcom/android/internal/telephony/CommandsInterface;->getDpdtSwitchValue(Landroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public getEnabledApnTypes()[Ljava/lang/String;
     .locals 2
 
@@ -4634,15 +4561,6 @@
     return-object v0
 .end method
 
-.method public getPhoneSlot()I
-    .locals 1
-
-    .prologue
-    iget v0, p0, Lcom/android/internal/telephony/PhoneBase;->mPhoneSlot:I
-
-    return v0
-.end method
-
 .method public getPhoneSubInfoExt(I)Lcom/android/internal/telephony/PhoneSubInfo;
     .locals 1
     .parameter "phoneType"
@@ -4684,18 +4602,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public getPreferredOperatorList(Landroid/os/Message;)V
-    .locals 1
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    invoke-interface {v0, p1}, Lcom/android/internal/telephony/CommandsInterface;->getPreferredOperatorList(Landroid/os/Message;)V
-
-    return-void
 .end method
 
 .method public getRadioState()Lcom/android/internal/telephony/CommandsInterface$RadioState;
@@ -5433,6 +5339,8 @@
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -7427,19 +7335,6 @@
     return-void
 .end method
 
-.method public removePreferredOperatorList(ILandroid/os/Message;)V
-    .locals 1
-    .parameter "index"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/CommandsInterface;->removePreferredOperatorList(ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public removeReferences()V
     .locals 2
 
@@ -7702,11 +7597,7 @@
 
     move-result-object v1
 
-    invoke-static {p1}, Lcom/android/internal/telephony/HtcBuildUtils;->displayPhoneNumber2BackMask(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -8352,6 +8243,37 @@
     return-void
 .end method
 
+.method protected sendDeviceIdReadyBroadcast()V
+    .locals 3
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.DEVICE_ID_READY"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .local v0, intent:Landroid/content/Intent;
+    const-string v1, "device_id"
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/PhoneBase;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/internal/telephony/PhoneBase;->mContext:Landroid/content/Context;
+
+    const-string v2, "android.permission.READ_PHONE_STATE"
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public sendDtmfExt(CI)V
     .locals 0
     .parameter "c"
@@ -8678,16 +8600,29 @@
     return-void
 .end method
 
-.method public setDpdtSwitchValue(ILandroid/os/Message;)V
-    .locals 1
-    .parameter "dpdt"
-    .parameter "response"
+.method protected setDeviceIdSystemProperty()V
+    .locals 2
 
     .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
+    invoke-virtual {p0}, Lcom/android/internal/telephony/PhoneBase;->getDeviceId()Ljava/lang/String;
 
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/telephony/CommandsInterface;->setDpdtSwitchValue(ILandroid/os/Message;)V
+    move-result-object v0
 
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "ro.ril.miui.imei"
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/PhoneBase;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PhoneBase;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -8840,16 +8775,6 @@
     .parameter "num"
 
     .prologue
-    return-void
-.end method
-
-.method public setPhoneSlot(I)V
-    .locals 0
-    .parameter "phoneSlot"
-
-    .prologue
-    iput p1, p0, Lcom/android/internal/telephony/PhoneBase;->mPhoneSlot:I
-
     return-void
 .end method
 
@@ -9016,20 +8941,6 @@
     return-void
 .end method
 
-.method public setPreferredOperatorList([Ljava/lang/String;[ILandroid/os/Message;)V
-    .locals 1
-    .parameter "operatorNumeric"
-    .parameter "act"
-    .parameter "response"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/PhoneBase;->mCM:Lcom/android/internal/telephony/CommandsInterface;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/telephony/CommandsInterface;->setPreferredOperatorList([Ljava/lang/String;[ILandroid/os/Message;)V
-
-    return-void
-.end method
-
 .method public setRSSI_Logging(Ljava/lang/Boolean;Landroid/os/Message;)V
     .locals 1
     .parameter "isEnabled"
@@ -9131,29 +9042,6 @@
     invoke-static {p1, p2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
-.end method
-
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    invoke-direct {p0}, Lcom/android/internal/telephony/PhoneBase;->logCallError()V
-
-    return-void
-.end method
-
-.method public setTDLabModeExt(ILandroid/os/Message;I)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-    .parameter "phoneType"
-
-    .prologue
-    invoke-direct {p0}, Lcom/android/internal/telephony/PhoneBase;->logCallError()V
-
-    return-void
 .end method
 
 .method public setTTYMode(ILandroid/os/Message;)V

@@ -468,19 +468,6 @@
     return-object v0
 .end method
 
-.method public getNextMessageIdInPreference()I
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/telephony/IccSmsInterfaceManagerProxy;->mIccSmsInterfaceManager:Lcom/android/internal/telephony/IccSmsInterfaceManager;
-
-    invoke-virtual {v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->getNextMessageIdInPreference()I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getSMSC()Ljava/lang/String;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;

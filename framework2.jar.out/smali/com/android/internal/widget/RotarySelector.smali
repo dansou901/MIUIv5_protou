@@ -861,7 +861,7 @@
 
     move-result-object v0
 
-    const-string v1, "vibrator"
+    const-string/jumbo v1, "vibrator"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

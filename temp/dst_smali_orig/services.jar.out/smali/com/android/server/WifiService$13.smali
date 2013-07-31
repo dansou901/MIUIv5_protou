@@ -41,89 +41,100 @@
     .prologue
     const/4 v5, 0x0
 
+    const/4 v4, 0x1
+
+    const-string v1, "android.intent.extra.DOCK_STATE"
+
+    invoke-virtual {p2, v1, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    .local v0, dockState:I
+    const-string v1, "WifiService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "DockWifi - dockState "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "  mAutoEnableWifiInDockMode="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
     iget-object v3, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
+    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
+    invoke-static {v3}, Lcom/android/server/WifiService;->access$4300(Lcom/android/server/WifiService;)Z
 
-    move-result-object v3
+    move-result v3
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string v4, "hotspot_password"
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v3, v4}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .local v0, key:Ljava/lang/String;
-    iget-object v3, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
+    if-nez v0, :cond_1
 
-    #getter for: Lcom/android/server/WifiService;->mContext:Landroid/content/Context;
-    invoke-static {v3}, Lcom/android/server/WifiService;->access$200(Lcom/android/server/WifiService;)Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    move-result-object v3
+    #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4402(Lcom/android/server/WifiService;Z)Z
 
-    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    move-result-object v3
+    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$4300(Lcom/android/server/WifiService;)Z
 
-    const-string v4, "hotspot_ssid"
+    move-result v1
 
-    invoke-static {v3, v4}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    if-ne v1, v4, :cond_0
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    .local v1, ssid:Ljava/lang/String;
-    if-eqz v0, :cond_0
-
-    if-nez v1, :cond_2
+    #calls: Lcom/android/server/WifiService;->setWifiEnableInDockMode(Z)V
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4500(Lcom/android/server/WifiService;Z)V
 
     :cond_0
-    const-string v3, "state"
-
-    const/4 v4, -0x1
-
-    invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v2
-
-    .local v2, state:I
-    if-eqz v2, :cond_1
-
-    const/4 v3, 0x1
-
-    if-eq v2, v3, :cond_1
-
-    const/4 v3, 0x2
-
-    if-ne v2, v3, :cond_2
+    :goto_0
+    return-void
 
     :cond_1
-    const-string v3, "WifiService"
+    if-ne v0, v4, :cond_0
 
-    const-string v4, "Got TelephonyIntents.ACTION_SERVICE_STATE_CHANGED: state not power off"
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    #setter for: Lcom/android/server/WifiService;->mInDockMode:Z
+    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4402(Lcom/android/server/WifiService;Z)Z
 
-    iget-object v3, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    #getter for: Lcom/android/server/WifiService;->mAsyncServiceHandler:Lcom/android/server/WifiService$AsyncServiceHandler;
-    invoke-static {v3}, Lcom/android/server/WifiService;->access$4100(Lcom/android/server/WifiService;)Lcom/android/server/WifiService$AsyncServiceHandler;
+    #getter for: Lcom/android/server/WifiService;->mAutoEnableWifiInDockMode:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$4300(Lcom/android/server/WifiService;)Z
 
-    move-result-object v3
+    move-result v1
 
-    const/16 v4, 0x29
+    if-ne v1, v4, :cond_0
 
-    invoke-static {v3, v4, v5, v5}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
+    iget-object v1, p0, Lcom/android/server/WifiService$13;->this$0:Lcom/android/server/WifiService;
 
-    move-result-object v3
+    #calls: Lcom/android/server/WifiService;->setWifiEnableInDockMode(Z)V
+    invoke-static {v1, v4}, Lcom/android/server/WifiService;->access$4500(Lcom/android/server/WifiService;Z)V
 
-    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
-
-    .end local v2           #state:I
-    :cond_2
-    return-void
+    goto :goto_0
 .end method

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 972
+    .line 900
     iput-object p1, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState$1;->this$2:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,12 +43,12 @@
     .parameter "which"
 
     .prologue
-    .line 975
+    .line 903
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 976
+    .line 904
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState$1;->this$2:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState;
 
     iget-object v0, v0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
@@ -64,7 +64,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/util/AsyncChannel;->sendMessage(I)V
 
-    .line 977
+    .line 905
     iget-object v0, p0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState$1;->this$2:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState;
 
     iget-object v0, v0, Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine$InactiveState;->this$1:Landroid/net/wifi/p2p/WifiP2pService$P2pStateMachine;
@@ -76,7 +76,7 @@
     #setter for: Landroid/net/wifi/p2p/WifiP2pService;->P2pConnWaitWifiDisconn:Z
     invoke-static {v0, v1}, Landroid/net/wifi/p2p/WifiP2pService;->access$202(Landroid/net/wifi/p2p/WifiP2pService;Z)Z
 
-    .line 979
+    .line 907
     :cond_0
     return-void
 .end method

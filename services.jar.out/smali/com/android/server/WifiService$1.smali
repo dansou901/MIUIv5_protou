@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 761
+    .line 753
     iput-object p1, p0, Lcom/android/server/WifiService$1;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,14 +40,14 @@
     .parameter "intent"
 
     .prologue
-    .line 764
+    .line 756
     const-string v1, "ss"
 
     invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 765
+    .line 757
     .local v0, stateExtra:Ljava/lang/String;
     const-string v1, "ABSENT"
 
@@ -57,14 +57,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 767
+    .line 759
     const-string v1, "WifiService"
 
     const-string v2, "AKA: SIM is removed"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 768
+    .line 760
     iget-object v1, p0, Lcom/android/server/WifiService$1;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -76,12 +76,12 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiStateMachine;->setWiFiSIMAuthenticationEnabled(Z)V
 
-    .line 774
+    .line 766
     :cond_0
     :goto_0
     return-void
 
-    .line 769
+    .line 761
     :cond_1
     const-string v1, "READY"
 
@@ -91,14 +91,14 @@
 
     if-eqz v1, :cond_0
 
-    .line 771
+    .line 763
     const-string v1, "WifiService"
 
     const-string v2, "AKA: SIM is ready"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 772
+    .line 764
     iget-object v1, p0, Lcom/android/server/WifiService$1;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;

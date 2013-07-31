@@ -860,7 +860,7 @@
 
     move-result-object v0
 
-    const-string v1, "vibrator"
+    const-string/jumbo v1, "vibrator"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1141,7 +1141,7 @@
 
     const-wide/16 v6, 0x0
 
-    const-string v8, "x"
+    const-string/jumbo v8, "x"
 
     move-object/from16 v0, p0
 
@@ -1160,7 +1160,7 @@
 
     const-wide/16 v6, 0x0
 
-    const-string v8, "y"
+    const-string/jumbo v8, "y"
 
     move-object/from16 v0, p0
 
@@ -1226,7 +1226,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "x"
+    const-string/jumbo v5, "x"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1235,7 +1235,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "y"
+    const-string/jumbo v5, "y"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1371,7 +1371,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "x"
+    const-string/jumbo v5, "x"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1380,7 +1380,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockHalo:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "y"
+    const-string/jumbo v5, "y"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1469,7 +1469,7 @@
 
     const-wide/16 v6, 0x64
 
-    const-string v8, "x"
+    const-string/jumbo v8, "x"
 
     move-object/from16 v0, p0
 
@@ -1488,7 +1488,7 @@
 
     const-wide/16 v6, 0x64
 
-    const-string v8, "y"
+    const-string/jumbo v8, "y"
 
     move-object/from16 v0, p0
 
@@ -1585,7 +1585,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "x"
+    const-string/jumbo v5, "x"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1594,7 +1594,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "y"
+    const-string/jumbo v5, "y"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -1820,7 +1820,7 @@
 
     const-wide/16 v6, 0x0
 
-    const-string v8, "x"
+    const-string/jumbo v8, "x"
 
     const/4 v10, 0x1
 
@@ -1835,7 +1835,7 @@
 
     const-wide/16 v13, 0x0
 
-    const-string v15, "y"
+    const-string/jumbo v15, "y"
 
     const/16 v17, 0x1
 
@@ -1957,7 +1957,7 @@
 
     const-wide/16 v20, 0x0
 
-    const-string v22, "x"
+    const-string/jumbo v22, "x"
 
     const/16 v24, 0x1
 
@@ -1976,7 +1976,7 @@
 
     const-wide/16 v20, 0x0
 
-    const-string v22, "y"
+    const-string/jumbo v22, "y"
 
     const/16 v24, 0x1
 
@@ -2107,7 +2107,7 @@
     .local v6, delay:J
     const-wide/16 v4, 0xc8
 
-    const-string v8, "x"
+    const-string/jumbo v8, "x"
 
     const/4 v10, 0x1
 
@@ -2116,7 +2116,7 @@
     .line 325
     const-wide/16 v11, 0xc8
 
-    const-string v15, "y"
+    const-string/jumbo v15, "y"
 
     const/16 v17, 0x1
 
@@ -2230,7 +2230,7 @@
 
     const-wide/16 v20, 0x0
 
-    const-string v22, "x"
+    const-string/jumbo v22, "x"
 
     const/16 v24, 0x0
 
@@ -2247,7 +2247,7 @@
 
     const-wide/16 v13, 0x0
 
-    const-string v15, "y"
+    const-string/jumbo v15, "y"
 
     const/16 v17, 0x0
 
@@ -2334,7 +2334,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "x"
+    const-string/jumbo v5, "x"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -2343,7 +2343,7 @@
 
     iget-object v4, v0, Lcom/android/internal/widget/WaveView;->mUnlockDefault:Lcom/android/internal/widget/DrawableHolder;
 
-    const-string v5, "y"
+    const-string/jumbo v5, "y"
 
     invoke-virtual {v4, v5}, Lcom/android/internal/widget/DrawableHolder;->removeAnimationFor(Ljava/lang/String;)V
 
@@ -2428,7 +2428,7 @@
 
     const-wide/16 v20, 0x0
 
-    const-string v22, "x"
+    const-string/jumbo v22, "x"
 
     const/16 v24, 0x1
 
@@ -2445,7 +2445,7 @@
 
     const-wide/16 v13, 0x0
 
-    const-string v15, "y"
+    const-string/jumbo v15, "y"
 
     const/16 v17, 0x1
 
@@ -2576,7 +2576,7 @@
 
     const-wide/16 v20, 0x0
 
-    const-string v22, "x"
+    const-string/jumbo v22, "x"
 
     const/16 v24, 0x0
 
@@ -2593,7 +2593,7 @@
 
     const-wide/16 v13, 0x0
 
-    const-string v15, "y"
+    const-string/jumbo v15, "y"
 
     const/16 v17, 0x0
 

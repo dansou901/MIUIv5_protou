@@ -310,7 +310,7 @@
     sput-object v0, Lcom/android/internal/telephony/BaseCommands;->sProductTypePattern:Ljava/util/regex/Pattern;
 
     .line 1553
-    const-string v0, "telephony.lteOnCdmaProductType"
+    const-string/jumbo v0, "telephony.lteOnCdmaProductType"
 
     const-string v1, ""
 
@@ -1046,7 +1046,7 @@
 
     .line 1569
     .local v2, productType:Ljava/lang/String;
-    const-string v4, "telephony.lteOnCdmaDevice"
+    const-string/jumbo v4, "telephony.lteOnCdmaDevice"
 
     invoke-static {v4, v5}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
@@ -1390,7 +1390,7 @@
     .parameter "response"
 
     .prologue
-    .line 3191
+    .line 3169
     return-void
 .end method
 
@@ -1400,7 +1400,7 @@
     .parameter "response"
 
     .prologue
-    .line 3186
+    .line 3164
     return-void
 .end method
 
@@ -1470,7 +1470,7 @@
     .parameter "response"
 
     .prologue
-    .line 3066
+    .line 3050
     return-void
 .end method
 
@@ -1546,7 +1546,7 @@
     .parameter "response"
 
     .prologue
-    .line 3206
+    .line 3184
     return-void
 .end method
 
@@ -1619,7 +1619,7 @@
     .parameter "response"
 
     .prologue
-    .line 2946
+    .line 2930
     return-void
 .end method
 
@@ -1629,7 +1629,7 @@
     .parameter "response"
 
     .prologue
-    .line 2951
+    .line 2935
     return-void
 .end method
 
@@ -1639,7 +1639,7 @@
     .parameter "result"
 
     .prologue
-    .line 2941
+    .line 2925
     return-void
 .end method
 
@@ -1685,7 +1685,7 @@
     .parameter "response"
 
     .prologue
-    .line 2988
+    .line 2972
     return-void
 .end method
 
@@ -1778,7 +1778,7 @@
     .parameter "response"
 
     .prologue
-    .line 3201
+    .line 3179
     return-void
 .end method
 
@@ -1787,7 +1787,7 @@
     .parameter "response"
 
     .prologue
-    .line 3196
+    .line 3174
     return-void
 .end method
 
@@ -1836,21 +1836,12 @@
     return-void
 .end method
 
-.method public getDpdtSwitchValue(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    .line 3277
-    return-void
-.end method
-
 .method public getDrxInfo(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
 
     .prologue
-    .line 2956
+    .line 2940
     return-void
 .end method
 
@@ -1869,14 +1860,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 3015
+    .line 2999
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 3016
+    .line 3000
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->htcIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
 
     if-nez v1, :cond_0
@@ -1887,18 +1878,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 3017
+    .line 3001
     const-string v0, "RILB"
 
     const-string v1, "IccCardProxy not ready"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3019
+    .line 3003
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->htcIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
 
-    .line 3022
+    .line 3006
     :cond_1
     return-object v0
 .end method
@@ -1908,7 +1899,7 @@
     .parameter "result"
 
     .prologue
-    .line 2931
+    .line 2915
     return-void
 .end method
 
@@ -1963,7 +1954,7 @@
     .parameter "result"
 
     .prologue
-    .line 3241
+    .line 3219
     return-void
 .end method
 
@@ -2113,7 +2104,7 @@
     .parameter "response"
 
     .prologue
-    .line 3072
+    .line 3056
     return-void
 .end method
 
@@ -2224,7 +2215,7 @@
     .locals 1
 
     .prologue
-    .line 3046
+    .line 3030
     iget-boolean v0, p0, Lcom/android/internal/telephony/BaseCommands;->mSimulatedVT:Z
 
     return v0
@@ -2283,13 +2274,13 @@
     .parameter "obj"
 
     .prologue
-    .line 3030
+    .line 3014
     if-eqz p1, :cond_0
 
-    .line 3031
+    .line 3015
     iput-object p2, p0, Lcom/android/internal/telephony/BaseCommands;->htcSequentialRadioObj:Ljava/lang/Object;
 
-    .line 3033
+    .line 3017
     :cond_0
     iget-object v0, p0, Lcom/android/internal/telephony/BaseCommands;->htcSequentialRadioObj:Ljava/lang/Object;
 
@@ -2404,15 +2395,6 @@
     return-void
 .end method
 
-.method public queryAvoidNetwork(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    .line 2873
-    return-void
-.end method
-
 .method public queryCAVE(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
@@ -2519,7 +2501,7 @@
     .parameter "response"
 
     .prologue
-    .line 2884
+    .line 2868
     return-void
 .end method
 
@@ -4967,7 +4949,7 @@
     .parameter "response"
 
     .prologue
-    .line 3060
+    .line 3044
     return-void
 .end method
 
@@ -5009,21 +4991,12 @@
     return-void
 .end method
 
-.method public requestClearAvoidNetwork(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    .line 2878
-    return-void
-.end method
-
 .method public requestClearLocProcessDB(Landroid/os/Message;)V
     .locals 0
     .parameter "response"
 
     .prologue
-    .line 3146
+    .line 3124
     return-void
 .end method
 
@@ -5036,7 +5009,7 @@
     .parameter "response"
 
     .prologue
-    .line 3161
+    .line 3139
     return-void
 .end method
 
@@ -5045,7 +5018,7 @@
     .parameter "response"
 
     .prologue
-    .line 2907
+    .line 2891
     return-void
 .end method
 
@@ -5091,7 +5064,7 @@
     .parameter "response"
 
     .prologue
-    .line 3156
+    .line 3134
     return-void
 .end method
 
@@ -5119,7 +5092,7 @@
     .parameter "result"
 
     .prologue
-    .line 3234
+    .line 3212
     return-void
 .end method
 
@@ -5128,7 +5101,7 @@
     .parameter "response"
 
     .prologue
-    .line 2925
+    .line 2909
     return-void
 .end method
 
@@ -5137,7 +5110,7 @@
     .parameter "response"
 
     .prologue
-    .line 2919
+    .line 2903
     return-void
 .end method
 
@@ -5165,7 +5138,7 @@
     .parameter "result"
 
     .prologue
-    .line 3224
+    .line 3202
     return-void
 .end method
 
@@ -5174,7 +5147,7 @@
     .parameter "result"
 
     .prologue
-    .line 2972
+    .line 2956
     return-void
 .end method
 
@@ -5183,7 +5156,7 @@
     .parameter "result"
 
     .prologue
-    .line 2977
+    .line 2961
     return-void
 .end method
 
@@ -5247,7 +5220,7 @@
     .parameter "response"
 
     .prologue
-    .line 3171
+    .line 3149
     return-void
 .end method
 
@@ -5320,7 +5293,7 @@
     .parameter "response"
 
     .prologue
-    .line 3136
+    .line 3114
     return-void
 .end method
 
@@ -5395,7 +5368,7 @@
     .parameter "response"
 
     .prologue
-    .line 2895
+    .line 2879
     return-void
 .end method
 
@@ -5406,7 +5379,7 @@
     .parameter "response"
 
     .prologue
-    .line 2901
+    .line 2885
     return-void
 .end method
 
@@ -5470,15 +5443,6 @@
     return-void
 .end method
 
-.method public requestSelectNextNetwork(Landroid/os/Message;)V
-    .locals 0
-    .parameter "response"
-
-    .prologue
-    .line 2868
-    return-void
-.end method
-
 .method public requestSendECallUSSD(Ljava/lang/String;Landroid/os/Message;)V
     .locals 0
     .parameter "ussdString"
@@ -5496,7 +5460,7 @@
     .parameter "response"
 
     .prologue
-    .line 2966
+    .line 2950
     return-void
 .end method
 
@@ -5526,7 +5490,7 @@
     .parameter "result"
 
     .prologue
-    .line 3229
+    .line 3207
     return-void
 .end method
 
@@ -5536,7 +5500,7 @@
     .parameter "response"
 
     .prologue
-    .line 2913
+    .line 2897
     return-void
 .end method
 
@@ -5556,7 +5520,7 @@
     .parameter "response"
 
     .prologue
-    .line 2983
+    .line 2967
     return-void
 .end method
 
@@ -5588,7 +5552,7 @@
     .parameter "response"
 
     .prologue
-    .line 2961
+    .line 2945
     return-void
 .end method
 
@@ -5628,7 +5592,7 @@
     .parameter "result"
 
     .prologue
-    .line 3219
+    .line 3197
     return-void
 .end method
 
@@ -5644,7 +5608,7 @@
     .parameter "response"
 
     .prologue
-    .line 3151
+    .line 3129
     return-void
 .end method
 
@@ -5716,7 +5680,7 @@
     .parameter "response"
 
     .prologue
-    .line 3131
+    .line 3109
     return-void
 .end method
 
@@ -5764,7 +5728,7 @@
     .parameter "response"
 
     .prologue
-    .line 3141
+    .line 3119
     return-void
 .end method
 
@@ -5816,7 +5780,7 @@
     .parameter "response"
 
     .prologue
-    .line 3176
+    .line 3154
     return-void
 .end method
 
@@ -5846,7 +5810,7 @@
     .parameter "response"
 
     .prologue
-    .line 3166
+    .line 3144
     return-void
 .end method
 
@@ -5856,7 +5820,7 @@
     .parameter "response"
 
     .prologue
-    .line 3263
+    .line 3241
     return-void
 .end method
 
@@ -5867,7 +5831,7 @@
     .parameter "response"
 
     .prologue
-    .line 3253
+    .line 3231
     return-void
 .end method
 
@@ -5891,7 +5855,7 @@
     .parameter "bLastOfAll"
 
     .prologue
-    .line 3212
+    .line 3190
     return-void
 .end method
 
@@ -5923,7 +5887,7 @@
     .parameter "response"
 
     .prologue
-    .line 3121
+    .line 3099
     return-void
 .end method
 
@@ -5952,7 +5916,7 @@
     .parameter "response"
 
     .prologue
-    .line 3181
+    .line 3159
     return-void
 .end method
 
@@ -6132,16 +6096,6 @@
     return-void
 .end method
 
-.method public setDpdtSwitchValue(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "dpdt"
-    .parameter "response"
-
-    .prologue
-    .line 3284
-    return-void
-.end method
-
 .method public setEmergencyCallbackMode(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 1
     .parameter "h"
@@ -6212,17 +6166,17 @@
     .parameter "iccCardpxy"
 
     .prologue
-    .line 3008
+    .line 2992
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 3009
+    .line 2993
     iput-object p1, p0, Lcom/android/internal/telephony/BaseCommands;->htcIccCardProxy:Lcom/android/internal/telephony/IccCardProxy;
 
-    .line 3011
+    .line 2995
     :cond_0
     return-void
 .end method
@@ -6284,7 +6238,7 @@
     .parameter "response"
 
     .prologue
-    .line 3054
+    .line 3038
     return-void
 .end method
 
@@ -6732,7 +6686,7 @@
     .parameter "response"
 
     .prologue
-    .line 3090
+    .line 3068
     return-void
 .end method
 
@@ -6761,7 +6715,7 @@
     .parameter "result"
 
     .prologue
-    .line 2936
+    .line 2920
     return-void
 .end method
 
@@ -6772,7 +6726,7 @@
     .parameter "response"
 
     .prologue
-    .line 3078
+    .line 3062
     return-void
 .end method
 
@@ -7047,16 +7001,6 @@
     return-void
 .end method
 
-.method public setTDLabMode(ILandroid/os/Message;)V
-    .locals 0
-    .parameter "mode"
-    .parameter "response"
-
-    .prologue
-    .line 3084
-    return-void
-.end method
-
 .method public setTTYMode(ILandroid/os/Message;)V
     .locals 0
     .parameter "ttyMode"
@@ -7074,7 +7018,7 @@
     .parameter "response"
 
     .prologue
-    .line 2889
+    .line 2873
     return-void
 .end method
 
@@ -7084,7 +7028,7 @@
     .parameter "response"
 
     .prologue
-    .line 3270
+    .line 3248
     return-void
 .end method
 
@@ -7094,7 +7038,7 @@
     .parameter "response"
 
     .prologue
-    .line 3126
+    .line 3104
     return-void
 .end method
 
@@ -7103,10 +7047,10 @@
     .parameter "enable"
 
     .prologue
-    .line 3041
+    .line 3025
     iput-boolean p1, p0, Lcom/android/internal/telephony/BaseCommands;->mSimulatedVT:Z
 
-    .line 3042
+    .line 3026
     return-void
 .end method
 
@@ -9142,20 +9086,20 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2996
+    .line 2980
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->isIccCardProxyEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 2997
+    .line 2981
     if-eqz p1, :cond_0
 
-    .line 2998
+    .line 2982
     iput-object p1, p0, Lcom/android/internal/telephony/BaseCommands;->htcIccCardProxyInUse:Ljava/lang/Boolean;
 
-    .line 3000
+    .line 2984
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/BaseCommands;->htcIccCardProxyInUse:Ljava/lang/Boolean;
 
@@ -9165,7 +9109,7 @@
 
     const/4 v0, 0x1
 
-    .line 3002
+    .line 2986
     :cond_1
     return v0
 .end method
@@ -9175,7 +9119,7 @@
     .parameter "result"
 
     .prologue
-    .line 3114
+    .line 3092
     return-void
 .end method
 
@@ -9185,7 +9129,7 @@
     .parameter "result"
 
     .prologue
-    .line 3102
+    .line 3080
     return-void
 .end method
 
@@ -9196,7 +9140,7 @@
     .parameter "result"
 
     .prologue
-    .line 3096
+    .line 3074
     return-void
 .end method
 
@@ -9205,7 +9149,7 @@
     .parameter "result"
 
     .prologue
-    .line 3108
+    .line 3086
     return-void
 .end method
 

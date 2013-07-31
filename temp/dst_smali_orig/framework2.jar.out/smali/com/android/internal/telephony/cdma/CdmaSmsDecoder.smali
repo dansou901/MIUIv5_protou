@@ -7499,7 +7499,7 @@
 
 # virtual methods
 .method public absoluteValidatyPeriodInMilliSeconds()J
-    .locals 9
+    .locals 8
 
     .prologue
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -7510,15 +7510,6 @@
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeZone()Ljava/util/TimeZone;
-
-    move-result-object v7
-
-    .local v7, timeZone:Ljava/util/TimeZone;
-    invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
-
-    invoke-virtual {v0, v7}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSmsDecoder;->TeleserviceParam_absoluteValidity:[S
 
@@ -7554,9 +7545,9 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaSmsDecoder;->TeleserviceParam_absoluteValidity:[S
 
-    const/4 v8, 0x5
+    const/4 v7, 0x5
 
-    aget-short v6, v6, v8
+    aget-short v6, v6, v7
 
     invoke-virtual/range {v0 .. v6}, Ljava/util/Calendar;->set(IIIIII)V
 
@@ -8089,7 +8080,7 @@
 .end method
 
 .method public messageCenterTimeInMilliSeconds()J
-    .locals 9
+    .locals 8
 
     .prologue
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -8100,15 +8091,6 @@
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeZone()Ljava/util/TimeZone;
-
-    move-result-object v7
-
-    .local v7, timeZone:Ljava/util/TimeZone;
-    invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
-
-    invoke-virtual {v0, v7}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaSmsDecoder;->TeleserviceParam_messageCenterTimeStamp:[S
 
@@ -8144,9 +8126,9 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cdma/CdmaSmsDecoder;->TeleserviceParam_messageCenterTimeStamp:[S
 
-    const/4 v8, 0x5
+    const/4 v7, 0x5
 
-    aget-short v6, v6, v8
+    aget-short v6, v6, v7
 
     invoke-virtual/range {v0 .. v6}, Ljava/util/Calendar;->set(IIIIII)V
 

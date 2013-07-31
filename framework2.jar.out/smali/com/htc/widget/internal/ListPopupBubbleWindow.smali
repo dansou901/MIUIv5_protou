@@ -353,7 +353,7 @@
     .local v1, rect:Landroid/graphics/Rect;
     iget-object v5, p0, Lcom/htc/widget/internal/ListPopupBubbleWindow;->mContext:Landroid/content/Context;
 
-    const-string v6, "window"
+    const-string/jumbo v6, "window"
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2532,7 +2532,7 @@
     .line 302
     const-string v0, "ListPopupBubbleWindow"
 
-    const-string v1, "unregister list data set observer"
+    const-string/jumbo v1, "unregister list data set observer"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2556,7 +2556,7 @@
     .line 289
     const-string v0, "ListPopupBubbleWindow"
 
-    const-string v1, "unregister data set observer"
+    const-string/jumbo v1, "unregister data set observer"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

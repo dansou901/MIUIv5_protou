@@ -1,0 +1,61 @@
+*** PhoneWindow$DecorView.smali	2013-07-31 22:23:27.400738567 +0000
+--- PhoneWindow$DecorView.smali	2013-07-31 22:21:57.117397699 +0000
+***************
+*** 4,18 ****
+  
+  # interfaces
+  .implements Lcom/android/internal/view/RootViewSurfaceTaker;
+  
+  
+  # annotations
+  .annotation system Ldalvik/annotation/EnclosingClass;
+      value = Lcom/android/internal/policy/impl/PhoneWindow;
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x12
+      name = "DecorView"
+  .end annotation
+  
+--- 4,23 ----
+  
+  # interfaces
+  .implements Lcom/android/internal/view/RootViewSurfaceTaker;
++ .implements Lcom/miui/internal/v5/widget/ActionBarView$ActionBarViewHolder;
+  
+  
+  # annotations
++ .annotation build Landroid/annotation/MiuiHook;
++     value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++ .end annotation
++ 
+  .annotation system Ldalvik/annotation/EnclosingClass;
+      value = Lcom/android/internal/policy/impl/PhoneWindow;
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x10
+      name = "DecorView"
+  .end annotation
+  
+***************
+*** 2227,2235 ****
+      invoke-virtual {v5}, Landroid/view/ActionMode;->finish()V
+  
+      :cond_0
+!     new-instance v4, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+  
+!     invoke-direct {v4, p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;-><init>(Lcom/android/internal/policy/impl/PhoneWindow$DecorView;Landroid/view/ActionMode$Callback;)V
+  
+      .local v4, wrappedCallback:Landroid/view/ActionMode$Callback;
+      const/4 v2, 0x0
+--- 2305,2313 ----
+      invoke-virtual {v5}, Landroid/view/ActionMode;->finish()V
+  
+      :cond_0
+!     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->miuiCreateActionModeCallbackWrapper(Landroid/view/ActionMode$Callback;)Lcom/android/internal/policy/impl/PhoneWindow$DecorView$ActionModeCallbackWrapper;
+  
+!     move-result-object v4
+  
+      .local v4, wrappedCallback:Landroid/view/ActionMode$Callback;
+      const/4 v2, 0x0

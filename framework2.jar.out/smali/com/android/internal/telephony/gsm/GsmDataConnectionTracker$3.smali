@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2875
+    .line 2869
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 4
 
     .prologue
-    .line 2878
+    .line 2872
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
     #calls: Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->updateDataActivity()V
     invoke-static {v0}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->access$400(Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;)V
 
-    .line 2880
+    .line 2874
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
     #getter for: Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->mIsScreenOn:Z
@@ -57,7 +57,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 2881
+    .line 2875
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
@@ -78,7 +78,7 @@
     #setter for: Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->mNetStatPollPeriod:I
     invoke-static {v0, v1}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->access$602(Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;I)I
 
-    .line 2889
+    .line 2883
     :goto_0
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
@@ -89,7 +89,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2890
+    .line 2884
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 
     #getter for: Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->mDataConnectionTracker:Landroid/os/Handler;
@@ -108,11 +108,11 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 2892
+    .line 2886
     :cond_0
     return-void
 
-    .line 2884
+    .line 2878
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker$3;->this$0:Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;
 

@@ -1,5 +1,5 @@
-*** ./smali/android/app/ApplicationPackageManager$ResourceName.smali	2013-07-12 21:44:42.951843214 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ApplicationPackageManager$ResourceName.smali	2013-07-12 21:42:19.681831401 +0000
+*** ./smali/android/app/ApplicationPackageManager$ResourceName.smali	2013-07-31 22:23:21.577404748 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ApplicationPackageManager$ResourceName.smali	2013-07-31 22:21:54.047397442 +0000
 ***************
 *** 4,15 ****
   

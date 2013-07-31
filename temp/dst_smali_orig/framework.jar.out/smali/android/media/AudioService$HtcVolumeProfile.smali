@@ -34,14 +34,12 @@
 
 # direct methods
 .method public constructor <init>(Landroid/media/AudioService;Ljava/lang/String;)V
-    .locals 8
+    .locals 7
     .parameter
     .parameter "name"
 
     .prologue
-    const/4 v7, 0x2
-
-    const/4 v6, 0x1
+    const/4 v6, 0x2
 
     const/4 v5, -0x1
 
@@ -104,7 +102,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_0
 
     iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
 
@@ -254,80 +252,6 @@
 
     iput v2, v1, Landroid/media/AudioService$HtcVolumeStream;->mLastAudibleIndex:I
 
-    #getter for: Landroid/media/AudioService;->mEnableListenNotify:Z
-    invoke-static {p1}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Landroid/media/AudioService;->access$3600()[Ljava/lang/String;
-
-    move-result-object v1
-
-    aget-object v1, v1, v6
-
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v2, v1, v0
-
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v1, v1, v0
-
-    iget v1, v1, Landroid/media/AudioService$HtcVolumeStream;->mIndex:I
-
-    #getter for: Landroid/media/AudioService;->mListenNotifyThreshold:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3700(Landroid/media/AudioService;)I
-
-    move-result v3
-
-    if-lt v1, v3, :cond_1
-
-    #getter for: Landroid/media/AudioService;->mListenNotifyThreshold:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3700(Landroid/media/AudioService;)I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0xa
-
-    :goto_1
-    iput v1, v2, Landroid/media/AudioService$HtcVolumeStream;->mIndex:I
-
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v2, v1, v0
-
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v1, v1, v0
-
-    iget v1, v1, Landroid/media/AudioService$HtcVolumeStream;->mLastAudibleIndex:I
-
-    #getter for: Landroid/media/AudioService;->mListenNotifyThreshold:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3700(Landroid/media/AudioService;)I
-
-    move-result v3
-
-    if-lt v1, v3, :cond_2
-
-    #getter for: Landroid/media/AudioService;->mListenNotifyThreshold:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3700(Landroid/media/AudioService;)I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0xa
-
-    :goto_2
-    iput v1, v2, Landroid/media/AudioService$HtcVolumeStream;->mLastAudibleIndex:I
-
-    :cond_0
     const-string v1, "AudioService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -347,7 +271,7 @@
     move-result-object v2
 
     #getter for: Landroid/media/AudioService;->STREAM_NAMES:[Ljava/lang/String;
-    invoke-static {p1}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;)[Ljava/lang/String;
+    invoke-static {p1}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)[Ljava/lang/String;
 
     move-result-object v3
 
@@ -399,74 +323,58 @@
 
     goto/16 :goto_0
 
-    :cond_1
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v1, v1, v0
-
-    iget v1, v1, Landroid/media/AudioService$HtcVolumeStream;->mIndex:I
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
-
-    aget-object v1, v1, v0
-
-    iget v1, v1, Landroid/media/AudioService$HtcVolumeStream;->mLastAudibleIndex:I
-
-    goto :goto_2
-
-    :cond_3
+    :cond_0
     iget v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfileRingerMode:I
 
-    if-ne v1, v5, :cond_5
+    if-ne v1, v5, :cond_2
 
     iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfile:[Landroid/media/AudioService$HtcVolumeStream;
 
-    aget-object v1, v1, v7
+    aget-object v1, v1, v6
 
     iget v1, v1, Landroid/media/AudioService$HtcVolumeStream;->mIndex:I
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_4
 
     #getter for: Landroid/media/AudioService;->mRingerMode:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3900(Landroid/media/AudioService;)I
+    invoke-static {p1}, Landroid/media/AudioService;->access$3600(Landroid/media/AudioService;)I
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_1
 
     #getter for: Landroid/media/AudioService;->mRingerMode:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3900(Landroid/media/AudioService;)I
+    invoke-static {p1}, Landroid/media/AudioService;->access$3600(Landroid/media/AudioService;)I
 
     move-result v1
 
-    if-ne v1, v6, :cond_6
+    const/4 v2, 0x1
 
-    :cond_4
+    if-ne v1, v2, :cond_3
+
+    :cond_1
     #getter for: Landroid/media/AudioService;->mRingerMode:I
-    invoke-static {p1}, Landroid/media/AudioService;->access$3900(Landroid/media/AudioService;)I
+    invoke-static {p1}, Landroid/media/AudioService;->access$3600(Landroid/media/AudioService;)I
 
     move-result v1
 
     iput v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfileRingerMode:I
 
-    :cond_5
-    :goto_3
+    :cond_2
+    :goto_1
     return-void
 
-    :cond_6
+    :cond_3
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfileRingerMode:I
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_7
-    iput v7, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfileRingerMode:I
+    :cond_4
+    iput v6, p0, Landroid/media/AudioService$HtcVolumeProfile;->mProfileRingerMode:I
 
-    goto :goto_3
+    goto :goto_1
 .end method
 
 .method private getValidStreamIndex(II)I
@@ -480,7 +388,7 @@
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->MAX_STREAM_VOLUME:[I
-    invoke-static {v0}, Landroid/media/AudioService;->access$4300(Landroid/media/AudioService;)[I
+    invoke-static {v0}, Landroid/media/AudioService;->access$4000(Landroid/media/AudioService;)[I
 
     move-result-object v0
 
@@ -499,7 +407,7 @@
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->MAX_STREAM_VOLUME:[I
-    invoke-static {v0}, Landroid/media/AudioService;->access$4300(Landroid/media/AudioService;)[I
+    invoke-static {v0}, Landroid/media/AudioService;->access$4000(Landroid/media/AudioService;)[I
 
     move-result-object v0
 
@@ -519,7 +427,7 @@
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #setter for: Landroid/media/AudioService;->mProfileNowUsing:Landroid/media/AudioService$HtcVolumeProfile;
-    invoke-static {v0, p0}, Landroid/media/AudioService;->access$4002(Landroid/media/AudioService;Landroid/media/AudioService$HtcVolumeProfile;)Landroid/media/AudioService$HtcVolumeProfile;
+    invoke-static {v0, p0}, Landroid/media/AudioService;->access$3702(Landroid/media/AudioService;Landroid/media/AudioService$HtcVolumeProfile;)Landroid/media/AudioService$HtcVolumeProfile;
 
     const/high16 v3, 0x8
 
@@ -567,7 +475,7 @@
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #calls: Landroid/media/AudioService;->getDeviceForStream(I)I
-    invoke-static {v0, v1}, Landroid/media/AudioService;->access$4100(Landroid/media/AudioService;I)I
+    invoke-static {v0, v1}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;I)I
 
     move-result v3
 
@@ -584,7 +492,7 @@
     const/4 v5, 0x0
 
     #calls: Landroid/media/AudioService;->setStreamVolumeInt(IIIZZ)V
-    invoke-static/range {v0 .. v5}, Landroid/media/AudioService;->access$4200(Landroid/media/AudioService;IIIZZ)V
+    invoke-static/range {v0 .. v5}, Landroid/media/AudioService;->access$3900(Landroid/media/AudioService;IIIZZ)V
 
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
@@ -808,7 +716,7 @@
     iget-object v2, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->STREAM_NAMES:[Ljava/lang/String;
-    invoke-static {v2}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -903,7 +811,7 @@
     iget-object v2, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->STREAM_NAMES:[Ljava/lang/String;
-    invoke-static {v2}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -999,7 +907,7 @@
     iget-object v2, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->STREAM_NAMES:[Ljava/lang/String;
-    invoke-static {v2}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -1095,7 +1003,7 @@
     iget-object v2, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->STREAM_NAMES:[Ljava/lang/String;
-    invoke-static {v2}, Landroid/media/AudioService;->access$3800(Landroid/media/AudioService;)[Ljava/lang/String;
+    invoke-static {v2}, Landroid/media/AudioService;->access$3500(Landroid/media/AudioService;)[Ljava/lang/String;
 
     move-result-object v2
 
@@ -1130,7 +1038,7 @@
     iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->MAX_STREAM_VOLUME:[I
-    invoke-static {v1}, Landroid/media/AudioService;->access$4300(Landroid/media/AudioService;)[I
+    invoke-static {v1}, Landroid/media/AudioService;->access$4000(Landroid/media/AudioService;)[I
 
     move-result-object v1
 
@@ -1145,7 +1053,7 @@
     iget-object v0, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->MAX_STREAM_VOLUME:[I
-    invoke-static {v0}, Landroid/media/AudioService;->access$4300(Landroid/media/AudioService;)[I
+    invoke-static {v0}, Landroid/media/AudioService;->access$4000(Landroid/media/AudioService;)[I
 
     move-result-object v0
 
@@ -1177,7 +1085,7 @@
     iget-object v1, p0, Landroid/media/AudioService$HtcVolumeProfile;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->MAX_STREAM_VOLUME:[I
-    invoke-static {v1}, Landroid/media/AudioService;->access$4300(Landroid/media/AudioService;)[I
+    invoke-static {v1}, Landroid/media/AudioService;->access$4000(Landroid/media/AudioService;)[I
 
     move-result-object v1
 

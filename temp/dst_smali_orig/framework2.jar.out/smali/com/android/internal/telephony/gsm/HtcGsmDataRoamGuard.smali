@@ -462,12 +462,13 @@
     goto :goto_1
 .end method
 
-.method private handleMobileAllowStatusChange(Z)V
-    .locals 4
+.method private handleMobileAllowStatusChange(IZ)V
+    .locals 3
+    .parameter "id"
     .parameter "allowMobileData"
 
     .prologue
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->SPRINT_ROAMING_ENHANCE_CONFIG()Z
 
@@ -492,9 +493,9 @@
     :cond_1
     iget v1, p0, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->mMode:I
 
-    const/high16 v2, 0x100
+    invoke-direct {p0, v1, p1, p2}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->setMobileAllowed(IIZ)I
 
-    or-int v0, v1, v2
+    move-result v0
 
     .local v0, newMode:I
     iget v1, p0, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->mMode:I
@@ -503,7 +504,7 @@
 
     move-result v1
 
-    if-ne v1, p1, :cond_2
+    if-ne v1, p2, :cond_2
 
     const-string v1, "handleMobileAllowStatusChange(), mobile allow setting is not changed"
 
@@ -518,7 +519,7 @@
 
     if-eqz v1, :cond_4
 
-    invoke-direct {p0, v0, v3}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->setDisplayDialog(IZ)I
+    invoke-direct {p0, v0, v2}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->setDisplayDialog(IZ)I
 
     move-result v0
 
@@ -534,7 +535,7 @@
     :cond_3
     const/4 v1, 0x0
 
-    invoke-direct {p0, v0, v1, v3}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->updateDataConnection(ILjava/lang/Boolean;Z)V
+    invoke-direct {p0, v0, v1, v2}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->updateDataConnection(ILjava/lang/Boolean;Z)V
 
     iput v0, p0, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->mMode:I
 
@@ -1341,40 +1342,6 @@
     if-eqz v1, :cond_1
 
     :cond_3
-    sget-boolean v1, Lcom/android/internal/telephony/HtcBuildUtils;->QCT_MM_CONFIG:Z
-
-    if-eqz v1, :cond_5
-
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->SPRINT_ROAMING_ENHANCE_CONFIG()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    iget-object v1, p0, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
-
-    iget-object v1, v1, Lcom/android/internal/telephony/PhoneBase;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
-
-    check-cast v1, Lcom/android/internal/telephony/MMDataConnectionTracker;
-
-    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2, p3}, Lcom/android/internal/telephony/MMDataConnectionTracker;->controlDataFromRoamGuard(ZZ)V
-
-    goto :goto_0
-
-    .end local v0           #requestConnect:Z
-    :cond_4
-    invoke-virtual {p2}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_1
-
-    .restart local v0       #requestConnect:Z
-    :cond_5
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     iget-object v1, v1, Lcom/android/internal/telephony/PhoneBase;->mDataConnectionTracker:Lcom/android/internal/telephony/DataConnectionTracker;
@@ -1388,6 +1355,14 @@
     invoke-virtual {v1, v2, p3}, Lcom/android/internal/telephony/gsm/GsmDataConnectionTracker;->controlDataFromRoamGuard(ZZ)V
 
     goto :goto_0
+
+    .end local v0           #requestConnect:Z
+    :cond_4
+    invoke-virtual {p2}, Ljava/lang/Boolean;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_1
 .end method
 
 .method private updateUI(I)V
@@ -1822,20 +1797,34 @@
 
     move-result-object v0
 
+    const-string v3, ", arg2="
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v3, p1, Landroid/os/Message;->arg2:I
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->log(Ljava/lang/String;)V
 
-    iget v0, p1, Landroid/os/Message;->arg1:I
+    iget v3, p1, Landroid/os/Message;->arg1:I
+
+    iget v0, p1, Landroid/os/Message;->arg2:I
 
     if-eqz v0, :cond_0
 
     move v0, v1
 
     :goto_1
-    invoke-direct {p0, v0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->handleMobileAllowStatusChange(Z)V
+    invoke-direct {p0, v3, v0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->handleMobileAllowStatusChange(IZ)V
 
     goto :goto_0
 
@@ -1911,7 +1900,7 @@
     :goto_3
     invoke-direct {p0, v1}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->handleDataRoamGuardSettingsChange(Z)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
     move v1, v2
@@ -1959,6 +1948,8 @@
     invoke-direct {p0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->handleReEnableGuardDialog()V
 
     goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2085,86 +2076,20 @@
     goto :goto_1
 .end method
 
-.method public haveDataNetworkState(Lcom/android/internal/telephony/DataConnectionTracker$State;)V
-    .locals 3
-    .parameter "dataState"
-
-    .prologue
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->SPRINT_ROAMING_ENHANCE_CONFIG()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->GENERIC_WPHONE_CONFIG()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    const-string v1, "haveDataNetworkState() is only supported in Sprint world phone"
-
-    invoke-direct {p0, v1}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->log(Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    .local v0, mode:I
-    sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTED:Lcom/android/internal/telephony/DataConnectionTracker$State;
-
-    if-ne p1, v1, :cond_2
-
-    const/high16 v0, 0x10
-
-    :goto_1
-    const/4 v1, 0x5
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v1, v0, v2}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->obtainMessage(III)Landroid/os/Message;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->sendMessage(Landroid/os/Message;)Z
-
-    goto :goto_0
-
-    :cond_2
-    sget-object v1, Lcom/android/internal/telephony/DataConnectionTracker$State;->CONNECTING:Lcom/android/internal/telephony/DataConnectionTracker$State;
-
-    if-ne p1, v1, :cond_3
-
-    const/high16 v0, 0x20
-
-    goto :goto_1
-
-    :cond_3
-    const/high16 v0, 0x30
-
-    goto :goto_1
-.end method
-
-.method public haveMobileAllowStatusChange(Z)V
+.method public haveMobileAllowStatusChange(IZ)V
     .locals 2
+    .parameter "id"
     .parameter "allowMobileData"
 
     .prologue
     const/4 v1, 0x2
 
-    if-eqz p1, :cond_0
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x1
 
     :goto_0
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/internal/telephony/gsm/HtcGsmDataRoamGuard;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v0
 

@@ -208,12 +208,12 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 398
-    const-string v1, "sourceid"
+    const-string/jumbo v1, "sourceid"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 399
-    const-string v1, "version"
+    const-string/jumbo v1, "version"
 
     const/4 v2, 0x1
 
@@ -253,22 +253,22 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 404
-    const-string v1, "sync1"
+    const-string/jumbo v1, "sync1"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 405
-    const-string v1, "sync2"
+    const-string/jumbo v1, "sync2"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 406
-    const-string v1, "sync3"
+    const-string/jumbo v1, "sync3"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
     .line 407
-    const-string v1, "sync4"
+    const-string/jumbo v1, "sync4"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
@@ -508,11 +508,11 @@
 
     new-array v2, v4, [Ljava/lang/String;
 
-    const-string v0, "sourceid"
+    const-string/jumbo v0, "sourceid"
 
     aput-object v0, v2, v5
 
-    const-string v3, "title=?"
+    const-string/jumbo v3, "title=?"
 
     new-array v4, v4, [Ljava/lang/String;
 
@@ -602,7 +602,7 @@
     :goto_0
     const-string v1, "mimetype"
 
-    const-string v2, "vnd.android.cursor.item/email_v2"
+    const-string/jumbo v2, "vnd.android.cursor.item/email_v2"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
@@ -665,7 +665,7 @@
     :goto_0
     const-string v1, "mimetype"
 
-    const-string v2, "vnd.android.cursor.item/group_membership"
+    const-string/jumbo v2, "vnd.android.cursor.item/group_membership"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
@@ -730,7 +730,7 @@
     :goto_0
     const-string v1, "mimetype"
 
-    const-string v2, "vnd.android.cursor.item/name"
+    const-string/jumbo v2, "vnd.android.cursor.item/name"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
@@ -798,7 +798,7 @@
     :goto_0
     const-string v1, "mimetype"
 
-    const-string v2, "vnd.android.cursor.item/phone_v2"
+    const-string/jumbo v2, "vnd.android.cursor.item/phone_v2"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 

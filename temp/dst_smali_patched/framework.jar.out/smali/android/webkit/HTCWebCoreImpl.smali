@@ -31,8 +31,6 @@
 
 .field private ignorePictureAfterFirstLayout:Z
 
-.field private imageHTML:Ljava/lang/String;
-
 .field private mAnchorSpanCallback:Landroid/os/Message;
 
 .field private mClipboard:Landroid/content/ClipboardManager;
@@ -641,20 +639,7 @@
     return v0
 .end method
 
-.method static synthetic access$4700(Landroid/webkit/HTCWebCoreImpl;III)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSetSeletionTypeAndFlag(III)V
-
-    return-void
-.end method
-
-.method static synthetic access$4800(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
+.method static synthetic access$4700(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
     .locals 1
     .parameter "x0"
 
@@ -664,7 +649,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$4900(Landroid/webkit/HTCWebCoreImpl;)I
+.method static synthetic access$4800(Landroid/webkit/HTCWebCoreImpl;)I
     .locals 1
     .parameter "x0"
 
@@ -674,7 +659,7 @@
     return v0
 .end method
 
-.method static synthetic access$4902(Landroid/webkit/HTCWebCoreImpl;I)I
+.method static synthetic access$4802(Landroid/webkit/HTCWebCoreImpl;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -697,67 +682,6 @@
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/webkit/HTCWebCoreImpl;->nativeDoSelection(IIIZ)V
 
     return-void
-.end method
-
-.method static synthetic access$5000(Landroid/webkit/HTCWebCoreImpl;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$5002(Landroid/webkit/HTCWebCoreImpl;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-object p1, p0, Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$5100(Landroid/webkit/HTCWebCoreImpl;)I
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mNativeClass:I
-
-    return v0
-.end method
-
-.method static synthetic access$5200(Landroid/webkit/HTCWebCoreImpl;III)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSelectImageHTMLAt(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$5300(Landroid/webkit/HTCWebCoreImpl;IILjava/lang/String;)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-    .parameter "x2"
-    .parameter "x3"
-
-    .prologue
-    invoke-direct {p0, p1, p2, p3}, Landroid/webkit/HTCWebCoreImpl;->nativeSaveHitTestImage(IILjava/lang/String;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$600(Landroid/webkit/HTCWebCoreImpl;I)V
@@ -1120,16 +1044,10 @@
 .method private native nativeResumeFPDoPlay()V
 .end method
 
-.method private native nativeSaveHitTestImage(IILjava/lang/String;)Z
-.end method
-
 .method private native nativeSaveImage(IIILjava/lang/String;Z)Ljava/lang/String;
 .end method
 
 .method private native nativeSelectAll(I)V
-.end method
-
-.method private native nativeSelectImageHTMLAt(III)Ljava/lang/String;
 .end method
 
 .method private native nativeSelectParagraphText(IIILandroid/graphics/Rect;)Ljava/lang/String;
@@ -1150,9 +1068,6 @@
 .method private native nativeSetImageAttr(ILjava/lang/String;Ljava/lang/String;I)V
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
-.end method
-
-.method private native nativeSetSeletionTypeAndFlag(III)V
 .end method
 
 .method private native nativeSetSkiaFontCacheSize(IJ)V
@@ -1180,11 +1095,6 @@
 .end method
 
 .method private native nativeUpdateTextSelection(IZ)I
-.end method
-
-.method private native nativehtcClearUndoRedoOperations(I)V
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
 .end method
 
 .method private native nativeisImageNode(II)Z
@@ -2159,17 +2069,6 @@
     return v0
 .end method
 
-.method public htcClearUndoRedoOperations()V
-    .locals 1
-
-    .prologue
-    iget v0, p0, Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-
-    invoke-direct {p0, v0}, Landroid/webkit/HTCWebCoreImpl;->nativehtcClearUndoRedoOperations(I)V
-
-    return-void
-.end method
-
 .method public insetText(ILjava/lang/String;)V
     .locals 2
     .parameter "pnode"
@@ -2399,94 +2298,22 @@
 .method native nativeGetBoldState(I)I
 .end method
 
-.method native nativeGetEmbedNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetFontSize(I)I
 .end method
 
 .method native nativeGetForeColor(I)Ljava/lang/String;
 .end method
 
-.method native nativeGetHiddenEmbedNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetHtml(IIIII)Ljava/lang/String;
-.end method
-
-.method native nativeGetIFrameNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
 .end method
 
 .method native nativeGetItalicState(I)I
 .end method
 
-.method native nativeGetObjectNodes(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetStrikethroughState(I)I
 .end method
 
-.method native nativeGetTitleDescription(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
-.end method
-
 .method native nativeGetUnderlineState(I)I
-.end method
-
-.method native nativeGetVideoID(ILjava/util/ArrayList;I)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;I)Z"
-        }
-    .end annotation
 .end method
 
 .method native nativegetImageNodeRect(II)Landroid/graphics/Rect;

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 6638
+    .line 6640
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$27;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v2, 0x1
 
-    .line 6640
+    .line 6642
     const-string v1, "com.htc.AutoMotive.Service.ModeChange"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -57,14 +57,14 @@
 
     if-eqz v1, :cond_1
 
-    .line 6641
+    .line 6643
     const-string v1, "AutoMotive_Current_Mode"
 
     invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 6643
+    .line 6645
     .local v0, nMode:I
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$27;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -80,7 +80,7 @@
     :goto_0
     if-eq v4, v1, :cond_0
 
-    .line 6644
+    .line 6646
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$27;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const-string v4, "mAutoMotiveEnabled != nMode"
@@ -88,17 +88,17 @@
     #calls: Lcom/android/internal/policy/impl/PhoneWindowManager;->cancelRecentAppsAction(Ljava/lang/String;)V
     invoke-static {v1, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$700(Lcom/android/internal/policy/impl/PhoneWindowManager;Ljava/lang/String;)V
 
-    .line 6648
+    .line 6650
     :cond_0
     if-nez v0, :cond_3
 
-    .line 6649
+    .line 6651
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$27;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     #setter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mAutoMotiveEnabled:Z
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$502(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)Z
 
-    .line 6653
+    .line 6655
     :goto_1
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
@@ -133,7 +133,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6655
+    .line 6657
     .end local v0           #nMode:I
     :cond_1
     return-void
@@ -142,10 +142,10 @@
     :cond_2
     move v1, v3
 
-    .line 6643
+    .line 6645
     goto :goto_0
 
-    .line 6651
+    .line 6653
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$27;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 

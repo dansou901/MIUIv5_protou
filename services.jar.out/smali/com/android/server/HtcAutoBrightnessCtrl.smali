@@ -4,8 +4,6 @@
 
 
 # instance fields
-.field private final ACTION_AUDIO_STREAMING_MODE_CHANGE:Ljava/lang/String;
-
 .field private final ACTION_BRIGHTER_ONLY_OFF:Ljava/lang/String;
 
 .field private final ACTION_BRIGHTER_ONLY_ON:Ljava/lang/String;
@@ -13,8 +11,6 @@
 .field private final ACTION_CAR_MODE_CHANGE:Ljava/lang/String;
 
 .field private final ACTION_PREFIX:Ljava/lang/String;
-
-.field private final AUDIO_STREAMING_TIMEOUT:I
 
 .field private final AUTOMOTIVE_CARMODE_DISABLE:I
 
@@ -38,10 +34,6 @@
 
 .field private final DEFAULT_TRANSITION_DELAY:I
 
-.field private final KEY_AUDIO_STREAMING_MODE:Ljava/lang/String;
-
-.field private final KEY_AUDIO_STREAMING_UID:Ljava/lang/String;
-
 .field private final KEY_BACKLIGHT_DELAY:Ljava/lang/String;
 
 .field private final KEY_CAR_MODE:Ljava/lang/String;
@@ -55,14 +47,6 @@
 .field private final VALID_MAX_TRANSITION_DELAY:I
 
 .field private final VALID_MIN_TRANSITION_DELAY:I
-
-.field private mAudioStreamingMode:Z
-
-.field private final mAudioStreamingModeReceiver:Landroid/content/BroadcastReceiver;
-
-.field private final mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-.field private mAudioStreamingUid:I
 
 .field private mBatteryLevel:I
 
@@ -103,330 +87,266 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;Lcom/android/server/PowerManagerService$PMSInternalAPI;)V
-    .locals 8
+    .locals 7
     .parameter "context"
     .parameter "pmsInternalAPI"
 
     .prologue
-    const/16 v7, 0x14
+    const/16 v6, 0x7f
 
-    const/16 v6, 0x10
+    const/16 v5, 0x14
 
-    const/4 v5, 0x1
+    const/16 v4, 0x10
 
-    const/4 v4, -0x1
+    const/4 v3, 0x1
 
-    const/4 v3, 0x0
-
-    .line 109
-    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
-
-    .line 31
-    const-string v2, "HtcAutoBrightnessCtrl"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->TAG:Ljava/lang/String;
-
-    .line 32
-    sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    .line 35
-    iput-boolean v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->MASTER_ENABLE:Z
-
-    .line 38
-    const-string v2, "com.android.server.HtcAutoBrightnessCtrl.action."
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_PREFIX:Ljava/lang/String;
-
-    .line 40
-    const-string v2, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_ON"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_BRIGHTER_ONLY_ON:Ljava/lang/String;
-
-    .line 42
-    const-string v2, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_OFF"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_BRIGHTER_ONLY_OFF:Ljava/lang/String;
-
-    .line 46
-    const-string v2, "entering.screen.brightness"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_ENTERING_SCREEN_BRIGHTNESS:Ljava/lang/String;
-
-    .line 48
-    const-string v2, "backlight.delay"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_BACKLIGHT_DELAY:Ljava/lang/String;
-
-    .line 51
-    const v2, 0xea60
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->BRIGHTER_ONLY_TIMEOUT:I
-
-    .line 53
-    const/16 v2, 0x7f
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->BRIGHTER_ONLY_INITIAL_BRIGHTNESS:I
-
-    .line 55
-    iput v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_TRANSITION_DELAY:I
-
-    .line 57
-    iput v7, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_APP_ENTERING_TRANSITION_DELAY:I
-
-    .line 58
-    const/16 v2, 0x28
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_APP_LEAVING_TRANSITION_DELAY:I
-
-    .line 60
-    const/16 v2, 0xfa
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->VALID_MAX_TRANSITION_DELAY:I
-
-    .line 61
-    iput v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->VALID_MIN_TRANSITION_DELAY:I
-
-    .line 64
-    const-string v2, "com.htc.AutoMotive.Service.ModeChange"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_CAR_MODE_CHANGE:Ljava/lang/String;
-
-    .line 65
-    const-string v2, "AutoMotive_Current_Mode"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_CAR_MODE:Ljava/lang/String;
-
-    .line 66
-    iput v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->AUTOMOTIVE_CARMODE_ENABLE:I
-
-    .line 67
-    iput v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->AUTOMOTIVE_CARMODE_DISABLE:I
-
-    .line 68
-    const/16 v2, 0x1e
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_INITIAL_BRIGHTNESS:I
-
-    .line 69
-    iput v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_CHANGE_MIN_SENSOR_LEVEL:I
-
-    .line 70
-    const/4 v2, 0x2
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_CHANGE_MAX_SENSOR_LEVEL:I
-
-    .line 74
-    const-string v2, "com.htc.Audio.Streaming.ModeChange"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_AUDIO_STREAMING_MODE_CHANGE:Ljava/lang/String;
-
-    .line 75
-    const-string v2, "audio_streaming_status"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_AUDIO_STREAMING_MODE:Ljava/lang/String;
-
-    .line 76
-    const-string v2, "uid"
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_AUDIO_STREAMING_UID:Ljava/lang/String;
-
-    .line 86
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
-
-    .line 88
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    .line 89
-    const/16 v2, 0x7f
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
-
-    .line 91
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
-
-    .line 92
-    iput v7, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mMaxBacklightValue:I
+    const/4 v2, 0x0
 
     .line 94
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
+
+    .line 28
+    const-string v1, "HtcAutoBrightnessCtrl"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->TAG:Ljava/lang/String;
+
+    .line 29
+    sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
+
+    iput-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
+
+    .line 32
+    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->MASTER_ENABLE:Z
+
+    .line 35
+    const-string v1, "com.android.server.HtcAutoBrightnessCtrl.action."
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_PREFIX:Ljava/lang/String;
+
+    .line 37
+    const-string v1, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_ON"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_BRIGHTER_ONLY_ON:Ljava/lang/String;
+
+    .line 39
+    const-string v1, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_OFF"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_BRIGHTER_ONLY_OFF:Ljava/lang/String;
+
+    .line 43
+    const-string v1, "entering.screen.brightness"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_ENTERING_SCREEN_BRIGHTNESS:Ljava/lang/String;
+
+    .line 45
+    const-string v1, "backlight.delay"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_BACKLIGHT_DELAY:Ljava/lang/String;
+
+    .line 48
+    const v1, 0xea60
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->BRIGHTER_ONLY_TIMEOUT:I
+
+    .line 50
+    iput v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->BRIGHTER_ONLY_INITIAL_BRIGHTNESS:I
+
+    .line 52
+    iput v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_TRANSITION_DELAY:I
+
+    .line 54
+    iput v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_APP_ENTERING_TRANSITION_DELAY:I
+
+    .line 55
+    const/16 v1, 0x28
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEFAULT_APP_LEAVING_TRANSITION_DELAY:I
+
+    .line 57
+    const/16 v1, 0xfa
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->VALID_MAX_TRANSITION_DELAY:I
+
+    .line 58
+    iput v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->VALID_MIN_TRANSITION_DELAY:I
+
+    .line 61
+    const-string v1, "com.htc.AutoMotive.Service.ModeChange"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->ACTION_CAR_MODE_CHANGE:Ljava/lang/String;
+
+    .line 62
+    const-string v1, "AutoMotive_Current_Mode"
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->KEY_CAR_MODE:Ljava/lang/String;
+
+    .line 63
+    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->AUTOMOTIVE_CARMODE_ENABLE:I
+
+    .line 64
+    iput v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->AUTOMOTIVE_CARMODE_DISABLE:I
+
+    .line 65
+    const/16 v1, 0x1e
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_INITIAL_BRIGHTNESS:I
+
+    .line 66
+    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_CHANGE_MIN_SENSOR_LEVEL:I
+
+    .line 67
+    const/4 v1, 0x2
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->CAR_MODE_CHANGE_MAX_SENSOR_LEVEL:I
+
+    .line 77
+    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
+
+    .line 79
+    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
+
+    .line 80
+    iput v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
+
+    .line 82
+    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
+
+    .line 83
+    iput v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mMaxBacklightValue:I
+
+    .line 85
+    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
+
+    .line 86
+    sget-object v1, Landroid/telephony/TelephonyManager;->EXTRA_STATE_IDLE:Ljava/lang/String;
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPhoneState:Ljava/lang/String;
+
+    .line 87
+    const/16 v1, 0x64
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBatteryLevel:I
+
+    .line 90
+    iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
+
+    .line 91
+    const/4 v1, -0x1
+
+    iput v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mLightSensorLevel:I
+
+    .line 516
+    new-instance v1, Lcom/android/server/HtcAutoBrightnessCtrl$1;
+
+    invoke-direct {v1, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$1;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mCarModeReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 535
+    new-instance v1, Lcom/android/server/HtcAutoBrightnessCtrl$2;
+
+    invoke-direct {v1, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$2;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyReceiver:Landroid/content/BroadcastReceiver;
+
+    .line 771
+    new-instance v1, Lcom/android/server/HtcAutoBrightnessCtrl$3;
+
+    invoke-direct {v1, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$3;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
+
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyTimeoutTask:Ljava/lang/Runnable;
 
     .line 95
-    sget-object v2, Landroid/telephony/TelephonyManager;->EXTRA_STATE_IDLE:Ljava/lang/String;
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPhoneState:Ljava/lang/String;
-
-    .line 96
-    const/16 v2, 0x64
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBatteryLevel:I
-
-    .line 99
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
-
-    .line 100
-    iput v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mLightSensorLevel:I
-
-    .line 104
-    const v2, 0xea60
-
-    iput v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->AUDIO_STREAMING_TIMEOUT:I
-
-    .line 105
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    .line 106
-    iput v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    .line 553
-    new-instance v2, Lcom/android/server/HtcAutoBrightnessCtrl$1;
-
-    invoke-direct {v2, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$1;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mCarModeReceiver:Landroid/content/BroadcastReceiver;
-
-    .line 624
-    new-instance v2, Lcom/android/server/HtcAutoBrightnessCtrl$2;
-
-    invoke-direct {v2, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$2;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingModeReceiver:Landroid/content/BroadcastReceiver;
-
-    .line 643
-    new-instance v2, Lcom/android/server/HtcAutoBrightnessCtrl$3;
-
-    invoke-direct {v2, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$3;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyReceiver:Landroid/content/BroadcastReceiver;
-
-    .line 1073
-    new-instance v2, Lcom/android/server/HtcAutoBrightnessCtrl$4;
-
-    invoke-direct {v2, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$4;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    .line 1085
-    new-instance v2, Lcom/android/server/HtcAutoBrightnessCtrl$5;
-
-    invoke-direct {v2, p0}, Lcom/android/server/HtcAutoBrightnessCtrl$5;-><init>(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyTimeoutTask:Ljava/lang/Runnable;
-
-    .line 110
     iput-object p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
 
-    .line 112
-    iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
+    .line 97
+    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    .line 113
-    const-string v2, "HtcAutoBrightnessCtrl"
+    .line 98
+    const-string v1, "HtcAutoBrightnessCtrl"
 
-    const-string v3, "Constructor: MASTER_ENABLE=true"
+    const-string v2, "Constructor: MASTER_ENABLE=true"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 118
+    .line 103
     :cond_0
-    new-instance v2, Landroid/os/Handler;
+    new-instance v1, Landroid/os/Handler;
 
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
 
-    .line 120
-    iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
+    .line 105
+    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContentResolver:Landroid/content/ContentResolver;
+    iput-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContentResolver:Landroid/content/ContentResolver;
 
-    .line 121
+    .line 106
     iput-object p2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
-    .line 123
+    .line 108
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 124
+    .line 109
     .local v0, filter:Landroid/content/IntentFilter;
-    const-string v2, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_ON"
+    const-string v1, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_ON"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 125
-    const-string v2, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_OFF"
+    .line 110
+    const-string v1, "com.android.server.HtcAutoBrightnessCtrl.action.BRIGHTER_ONLY_OFF"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 126
-    const-string v2, "com.android.server.htcpowersaver.action.ON"
+    .line 111
+    const-string v1, "com.android.server.htcpowersaver.action.ON"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 127
-    const-string v2, "com.android.server.htcpowersaver.action.OFF"
+    .line 112
+    const-string v1, "com.android.server.htcpowersaver.action.OFF"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 130
-    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+    .line 115
+    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v3, 0x4a
+    const/16 v2, 0x4a
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    .line 131
-    const-string v2, "android.intent.action.PHONE_STATE"
+    .line 116
+    const-string v1, "android.intent.action.PHONE_STATE"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 132
-    const-string v2, "android.intent.action.BATTERY_CHANGED"
+    .line 117
+    const-string v1, "android.intent.action.BATTERY_CHANGED"
 
-    invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 135
+    .line 120
     :cond_1
-    iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyReceiver:Landroid/content/BroadcastReceiver;
 
-    const-string v4, "android.permission.DEVICE_POWER"
+    const-string v3, "android.permission.DEVICE_POWER"
 
-    iget-object v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
+    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v2, v3, v0, v4, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual {v1, v2, v0, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 144
-    new-instance v1, Landroid/content/IntentFilter;
-
-    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
-
-    .line 145
-    .local v1, filterAudio:Landroid/content/IntentFilter;
-    const-string v2, "com.htc.Audio.Streaming.ModeChange"
-
-    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    .line 146
-    iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
-
-    iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingModeReceiver:Landroid/content/BroadcastReceiver;
-
-    const/4 v4, 0x0
-
-    iget-object v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    invoke-virtual {v2, v3, v1, v4, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    .line 150
+    .line 128
     return-void
 .end method
 
@@ -436,57 +356,42 @@
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->checkCarMode(Landroid/content/Intent;)V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/HtcAutoBrightnessCtrl;Landroid/content/Intent;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 30
-    invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->checkAudioStreamingMode(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
+.method static synthetic access$100(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
     .locals 1
     .parameter "x0"
-    .parameter "x1"
 
     .prologue
-    .line 30
-    invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getBrighterOnlyLcdValue(I)I
-
-    move-result v0
+    .line 27
+    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/HtcAutoBrightnessCtrl;II)V
+.method static synthetic access$1000(Lcom/android/server/HtcAutoBrightnessCtrl;II)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
     .parameter "x2"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0, p1, p2}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
+.method static synthetic access$1100(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v0
@@ -494,12 +399,12 @@
     return v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
+.method static synthetic access$1200(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->isKeyguardLocked()Z
 
     move-result v0
@@ -507,74 +412,63 @@
     return v0
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/HtcAutoBrightnessCtrl;I)V
+.method static synthetic access$1300(Lcom/android/server/HtcAutoBrightnessCtrl;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->reset(I)V
 
     return-void
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/HtcAutoBrightnessCtrl;Z)V
+.method static synthetic access$1400(Lcom/android/server/HtcAutoBrightnessCtrl;Z)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->setPowerSaverMode(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$1602(Lcom/android/server/HtcAutoBrightnessCtrl;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$1502(Lcom/android/server/HtcAutoBrightnessCtrl;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     iput-object p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPhoneState:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/HtcAutoBrightnessCtrl;)V
+.method static synthetic access$1600(Lcom/android/server/HtcAutoBrightnessCtrl;)V
     .locals 0
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->checkOffHookMode()V
 
     return-void
 .end method
 
-.method static synthetic access$1802(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
+.method static synthetic access$1702(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     iput p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBatteryLevel:I
 
     return p1
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/HtcAutoBrightnessCtrl;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->resetAudioStreamingMode()V
-
-    return-void
 .end method
 
 .method static synthetic access$200(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
@@ -582,8 +476,8 @@
     .parameter "x0"
 
     .prologue
-    .line 30
-    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
+    .line 27
+    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     return v0
 .end method
@@ -593,8 +487,8 @@
     .parameter "x0"
 
     .prologue
-    .line 30
-    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
+    .line 27
+    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     return v0
 .end method
@@ -604,417 +498,92 @@
     .parameter "x0"
 
     .prologue
-    .line 30
-    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/HtcAutoBrightnessCtrl;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 30
+    .line 27
     iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     return v0
 .end method
 
-.method static synthetic access$502(Lcom/android/server/HtcAutoBrightnessCtrl;Z)Z
+.method static synthetic access$402(Lcom/android/server/HtcAutoBrightnessCtrl;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     iput-boolean p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     return p1
 .end method
 
-.method static synthetic access$600(Lcom/android/server/HtcAutoBrightnessCtrl;)Ljava/lang/Runnable;
+.method static synthetic access$500(Lcom/android/server/HtcAutoBrightnessCtrl;)Ljava/lang/Runnable;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mBrighterOnlyTimeoutTask:Ljava/lang/Runnable;
 
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/HtcAutoBrightnessCtrl;)Landroid/os/Handler;
+.method static synthetic access$600(Lcom/android/server/HtcAutoBrightnessCtrl;)Landroid/os/Handler;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/HtcAutoBrightnessCtrl;)I
+.method static synthetic access$700(Lcom/android/server/HtcAutoBrightnessCtrl;)I
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     iget v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
 
     return v0
 .end method
 
-.method static synthetic access$802(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
+.method static synthetic access$702(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 27
     iput p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
 
     return p1
 .end method
 
-.method static synthetic access$900(Lcom/android/server/HtcAutoBrightnessCtrl;)Lcom/android/server/PowerManagerService$PMSInternalAPI;
+.method static synthetic access$800(Lcom/android/server/HtcAutoBrightnessCtrl;)Lcom/android/server/PowerManagerService$PMSInternalAPI;
     .locals 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 27
     iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     return-object v0
 .end method
 
-.method private checkAudioStreamingMode(Landroid/content/Intent;)V
-    .locals 10
-    .parameter "intent"
+.method static synthetic access$900(Lcom/android/server/HtcAutoBrightnessCtrl;I)I
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
 
     .prologue
-    const/4 v9, 0x1
-
-    const/4 v8, 0x0
-
-    const/4 v7, -0x1
-
-    .line 858
-    const-string v4, "audio_streaming_status"
-
-    invoke-virtual {p1, v4, v8}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    .line 27
+    invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getBrighterOnlyLcdValue(I)I
 
     move-result v0
 
-    .line 859
-    .local v0, audioStreamingValue:Z
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    invoke-virtual {v4}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->getCurrentBrightness()I
-
-    move-result v1
-
-    .line 860
-    .local v1, curLcdValue:I
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    invoke-virtual {v4}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->getEndBrightness()I
-
-    move-result v2
-
-    .line 861
-    .local v2, endLcdValue:I
-    const/4 v3, -0x1
-
-    .line 863
-    .local v3, newLcdValue:I
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v4, :cond_0
-
-    .line 864
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "checkAudioStreamingMode : , audioStreamingValue="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", AudioStreaming mode="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", Car mode="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", Camera mode="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", OffHook mode="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", Screen State="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-boolean v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", curLcdValue="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", endLcdValue="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 875
-    :cond_0
-    if-ne v0, v9, :cond_4
-
-    .line 877
-    const-string v4, "uid"
-
-    invoke-virtual {p1, v4, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v4
-
-    iput v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    .line 879
-    iget v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    if-gez v4, :cond_2
-
-    .line 881
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v4, :cond_1
-
-    .line 882
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    const-string v5, "uid < 0"
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 945
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 888
-    :cond_2
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    .line 889
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    const-wide/32 v6, 0xea60
-
-    invoke-virtual {v4, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 891
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-nez v4, :cond_1
-
-    .line 895
-    iput-boolean v9, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    .line 897
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
-
-    if-eqz v4, :cond_1
-
-    .line 902
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
-
-    if-nez v4, :cond_1
-
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    if-nez v4, :cond_1
-
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
-
-    if-nez v4, :cond_1
-
-    .line 906
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    invoke-virtual {v4}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->getCurrentBrightness()I
-
-    move-result v4
-
-    invoke-direct {p0, v4}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValue(I)I
-
-    move-result v3
-
-    .line 940
-    :cond_3
-    :goto_1
-    if-lez v3, :cond_1
-
-    .line 942
-    invoke-direct {p0, v3, v8}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
-
-    goto :goto_0
-
-    .line 910
-    :cond_4
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    invoke-virtual {v4, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    .line 911
-    iput v7, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    .line 913
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v4, :cond_1
-
-    .line 917
-    iput-boolean v8, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    .line 919
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
-
-    if-eqz v4, :cond_1
-
-    .line 924
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
-
-    if-nez v4, :cond_1
-
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    if-nez v4, :cond_1
-
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
-
-    if-nez v4, :cond_1
-
-    .line 928
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 929
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    if-eqz v4, :cond_3
-
-    .line 930
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    invoke-virtual {v4, v7}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->forceLightSensorUpdate(I)V
-
-    goto :goto_1
-
-    .line 932
-    :cond_5
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
-
-    if-eqz v4, :cond_6
-
-    .line 933
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
-
-    move-result v4
-
-    invoke-direct {p0, v4}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValueInManual(I)I
-
-    move-result v3
-
-    goto :goto_1
-
-    .line 935
-    :cond_6
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
-
-    move-result v3
-
-    goto :goto_1
+    return v0
 .end method
 
 .method private checkCarMode(Landroid/content/Intent;)V
@@ -1022,20 +591,20 @@
     .parameter "intent"
 
     .prologue
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
-    const/4 v8, 0x0
+    const/4 v8, 0x1
 
     const/16 v7, 0x10
 
-    .line 765
+    .line 656
     const-string v4, "AutoMotive_Current_Mode"
 
-    invoke-virtual {p1, v4, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v4, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 766
+    .line 657
     .local v0, carModeValue:I
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
@@ -1043,7 +612,7 @@
 
     move-result v1
 
-    .line 767
+    .line 658
     .local v1, curLcdValue:I
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
@@ -1051,13 +620,13 @@
 
     move-result v2
 
-    .line 769
+    .line 660
     .local v2, endLcdValue:I
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v4, :cond_0
 
-    .line 770
+    .line 661
     const-string v4, "HtcAutoBrightnessCtrl"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1160,30 +729,30 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 781
+    .line 672
     :cond_0
     if-nez v0, :cond_5
 
-    .line 783
+    .line 674
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v4, :cond_2
 
-    .line 853
+    .line 735
     :cond_1
     :goto_0
     return-void
 
-    .line 787
+    .line 678
     :cond_2
-    iput-boolean v9, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
+    iput-boolean v8, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
-    .line 789
+    .line 680
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
     if-eqz v4, :cond_1
 
-    .line 794
+    .line 685
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-nez v4, :cond_1
@@ -1192,41 +761,41 @@
 
     if-nez v4, :cond_1
 
-    .line 798
+    .line 689
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v4
 
     if-eqz v4, :cond_4
 
-    .line 799
+    .line 690
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->inCarModeLightSensorRange()Z
 
     move-result v4
 
     if-eqz v4, :cond_3
 
-    .line 800
+    .line 691
     const/16 v4, 0x1e
 
     invoke-direct {p0, v4, v7}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
     goto :goto_0
 
-    .line 802
+    .line 693
     :cond_3
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     if-eqz v4, :cond_1
 
-    .line 803
+    .line 694
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v4, v7}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->forceLightSensorUpdate(I)V
 
     goto :goto_0
 
-    .line 807
+    .line 698
     :cond_4
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
 
@@ -1236,24 +805,24 @@
 
     goto :goto_0
 
-    .line 810
+    .line 701
     :cond_5
-    if-ne v0, v9, :cond_1
+    if-ne v0, v8, :cond_1
 
-    .line 812
+    .line 703
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v4, :cond_1
 
-    .line 816
-    iput-boolean v8, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
+    .line 707
+    iput-boolean v9, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
-    .line 818
+    .line 709
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
     if-eqz v4, :cond_1
 
-    .line 823
+    .line 714
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-nez v4, :cond_1
@@ -1262,64 +831,36 @@
 
     if-nez v4, :cond_1
 
-    .line 827
+    .line 718
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
-    .line 828
+    .line 719
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     if-eqz v4, :cond_1
 
-    .line 829
+    .line 720
     iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v4, v7}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->forceLightSensorUpdate(I)V
 
     goto :goto_0
 
-    .line 831
+    .line 722
     :cond_6
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v4, :cond_7
-
-    .line 832
-    const/4 v3, -0x1
-
-    .line 833
-    .local v3, newLcdValue:I
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
-
-    move-result v4
-
-    invoke-direct {p0, v4}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValueInManual(I)I
-
-    move-result v3
-
-    .line 835
-    if-lez v3, :cond_1
-
-    .line 837
-    invoke-direct {p0, v3, v8}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
-
-    goto :goto_0
-
-    .line 840
-    .end local v3           #newLcdValue:I
-    :cond_7
     iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v4, :cond_1
 
-    .line 841
+    .line 723
     const/4 v3, -0x1
 
-    .line 842
-    .restart local v3       #newLcdValue:I
+    .line 724
+    .local v3, newLcdValue:I
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
 
     move-result v4
@@ -1328,11 +869,11 @@
 
     move-result v3
 
-    .line 844
+    .line 726
     if-lez v3, :cond_1
 
-    .line 846
-    invoke-direct {p0, v3, v8}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
+    .line 728
+    invoke-direct {p0, v3, v9}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
     goto :goto_0
 .end method
@@ -1349,7 +890,7 @@
 
     const/4 v5, 0x0
 
-    .line 1040
+    .line 739
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPhoneState:Ljava/lang/String;
 
     sget-object v3, Landroid/telephony/TelephonyManager;->EXTRA_STATE_OFFHOOK:Ljava/lang/String;
@@ -1358,7 +899,7 @@
 
     move-result v1
 
-    .line 1041
+    .line 740
     .local v1, IS_OFF_HOOK:Z
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
@@ -1366,13 +907,13 @@
 
     move-result v0
 
-    .line 1043
+    .line 742
     .local v0, CURRENT_LCD_VALUE:I
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_0
 
-    .line 1044
+    .line 743
     const-string v2, "HtcAutoBrightnessCtrl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1443,7 +984,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1052
+    .line 751
     :cond_0
     if-eqz v1, :cond_3
 
@@ -1451,49 +992,49 @@
 
     if-gt v2, v6, :cond_3
 
-    .line 1053
+    .line 752
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-eqz v2, :cond_1
 
-    .line 1054
+    .line 753
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v2}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->cancelAnimation()V
 
-    .line 1055
+    .line 754
     iput-boolean v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
-    .line 1056
+    .line 755
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_1
 
-    .line 1057
+    .line 756
     const-string v2, "HtcAutoBrightnessCtrl"
 
     const-string v3, "checkOffHookMode: Disable mEnableBrighterOnly mode."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1061
+    .line 760
     :cond_1
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
-    .line 1063
+    .line 762
     if-le v0, v8, :cond_2
 
-    .line 1064
+    .line 763
     invoke-direct {p0, v8, v7}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
-    .line 1070
+    .line 769
     :cond_2
     :goto_0
     return-void
 
-    .line 1066
+    .line 765
     :cond_3
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
@@ -1505,520 +1046,14 @@
 
     if-le v2, v6, :cond_2
 
-    .line 1067
+    .line 766
     :cond_4
     iput-boolean v5, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
-    .line 1068
+    .line 767
     invoke-direct {p0, v7}, Lcom/android/server/HtcAutoBrightnessCtrl;->reset(I)V
 
     goto :goto_0
-.end method
-
-.method private checkPlayAudioStreamingUid()Z
-    .locals 8
-
-    .prologue
-    const/4 v5, 0x0
-
-    .line 948
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v4, :cond_0
-
-    .line 949
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    const-string v6, "checkPlayAudioStreamingUid"
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 953
-    :cond_0
-    :try_start_0
-    iget-object v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
-
-    const-string v6, "activity"
-
-    invoke-virtual {v4, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/ActivityManager;
-
-    .line 954
-    .local v0, am:Landroid/app/ActivityManager;
-    invoke-virtual {v0}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
-
-    move-result-object v2
-
-    .line 956
-    .local v2, infoList:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    if-nez v2, :cond_1
-
-    move v4, v5
-
-    .line 980
-    .end local v0           #am:Landroid/app/ActivityManager;
-    .end local v2           #infoList:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    :goto_0
-    return v4
-
-    .line 960
-    .restart local v0       #am:Landroid/app/ActivityManager;
-    .restart local v2       #infoList:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    :cond_1
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    .line 962
-    .local v3, size:I
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v4, :cond_2
-
-    .line 963
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "size = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 964
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "mAudioStreamingUid = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 967
-    :cond_2
-    const/4 v1, 0x0
-
-    .local v1, i:I
-    :goto_1
-    if-ge v1, v3, :cond_5
-
-    .line 968
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/app/ActivityManager$RunningAppProcessInfo;
-
-    iget v4, v4, Landroid/app/ActivityManager$RunningAppProcessInfo;->uid:I
-
-    iget v6, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingUid:I
-
-    if-ne v4, v6, :cond_4
-
-    .line 969
-    iget-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v4, :cond_3
-
-    .line 970
-    const-string v4, "HtcAutoBrightnessCtrl"
-
-    const-string v6, "This Uid is running"
-
-    invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 972
-    :cond_3
-    const/4 v4, 0x1
-
-    goto :goto_0
-
-    .line 967
-    :cond_4
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    .line 976
-    .end local v0           #am:Landroid/app/ActivityManager;
-    .end local v1           #i:I
-    .end local v2           #infoList:Ljava/util/List;,"Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
-    .end local v3           #size:I
-    :catch_0
-    move-exception v4
-
-    :cond_5
-    move v4, v5
-
-    .line 980
-    goto :goto_0
-.end method
-
-.method private closeAudioStreamingMode()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 985
-    const/4 v0, -0x1
-
-    .line 987
-    .local v0, newLcdValue:I
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v1, :cond_0
-
-    .line 988
-    const-string v1, "HtcAutoBrightnessCtrl"
-
-    const-string v2, "closeAudioStreamingMode"
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 991
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-nez v1, :cond_2
-
-    .line 1021
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 995
-    :cond_2
-    iput-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    .line 997
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
-
-    if-eqz v1, :cond_1
-
-    .line 1002
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
-
-    if-nez v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    if-nez v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
-
-    if-nez v1, :cond_1
-
-    .line 1006
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    .line 1007
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    if-eqz v1, :cond_3
-
-    .line 1008
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
-
-    const/4 v2, -0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->forceLightSensorUpdate(I)V
-
-    .line 1016
-    :cond_3
-    :goto_1
-    if-lez v0, :cond_1
-
-    .line 1018
-    invoke-direct {p0, v0, v3}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
-
-    goto :goto_0
-
-    .line 1010
-    :cond_4
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
-
-    if-eqz v1, :cond_5
-
-    .line 1011
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
-
-    move-result v1
-
-    invoke-direct {p0, v1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValueInManual(I)I
-
-    move-result v0
-
-    goto :goto_1
-
-    .line 1013
-    :cond_5
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
-
-    move-result v0
-
-    goto :goto_1
-.end method
-
-.method private getAudioStreamingModeLcdValue(I)I
-    .locals 2
-    .parameter "lcdValue"
-
-    .prologue
-    .line 574
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
-
-    move-result v0
-
-    .line 576
-    .local v0, AUTO_BRIGHTNESS_MODE:Z
-    if-eqz v0, :cond_0
-
-    .line 577
-    invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValueInAuto(I)I
-
-    move-result v1
-
-    .line 579
-    :goto_0
-    return v1
-
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValueInManual(I)I
-
-    move-result v1
-
-    goto :goto_0
-.end method
-
-.method private getAudioStreamingModeLcdValueInAuto(I)I
-    .locals 4
-    .parameter "lcdValue"
-
-    .prologue
-    .line 605
-    move v0, p1
-
-    .line 607
-    .local v0, newLcdValue:I
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
-
-    if-nez v1, :cond_1
-
-    .line 608
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
-
-    move-result v1
-
-    if-le v0, v1, :cond_0
-
-    .line 609
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
-
-    move-result v0
-
-    .line 612
-    :cond_0
-    mul-int/lit8 v0, v0, 0x1
-
-    .line 614
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v1, :cond_1
-
-    .line 615
-    const-string v1, "HtcAutoBrightnessCtrl"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getAudioStreaming: lcdValue("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ")="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "->"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 621
-    :cond_1
-    return v0
-.end method
-
-.method private getAudioStreamingModeLcdValueInManual(I)I
-    .locals 5
-    .parameter "lcdValue"
-
-    .prologue
-    .line 585
-    move v0, p1
-
-    .line 587
-    .local v0, newLcdValue:I
-    iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v2, :cond_0
-
-    .line 588
-    int-to-float v2, v0
-
-    const/high16 v3, 0x437f
-
-    div-float v1, v2, v3
-
-    .line 589
-    .local v1, ratio:F
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    mul-float/2addr v2, v1
-
-    float-to-int v0, v2
-
-    .line 591
-    iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v2, :cond_0
-
-    .line 592
-    const-string v2, "HtcAutoBrightnessCtrl"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "getAudioStreaming: ratio="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ", lcdValue("
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ")="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, "->"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 600
-    .end local v1           #ratio:F
-    :cond_0
-    return v0
 .end method
 
 .method private getAutoBrightnessEnabled()Z
@@ -2027,10 +1062,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1172
+    .line 856
     const/4 v0, 0x0
 
-    .line 1174
+    .line 858
     .local v0, autoBrightnessMode:I
     :try_start_0
     iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContentResolver:Landroid/content/ContentResolver;
@@ -2043,18 +1078,18 @@
 
     move-result v0
 
-    .line 1178
+    .line 862
     :goto_0
     if-ne v0, v2, :cond_0
 
     :goto_1
     return v2
 
-    .line 1175
+    .line 859
     :catch_0
     move-exception v1
 
-    .line 1176
+    .line 860
     .local v1, snfe:Landroid/provider/Settings$SettingNotFoundException;
     const-string v3, "HtcAutoBrightnessCtrl"
 
@@ -2080,7 +1115,7 @@
 
     goto :goto_0
 
-    .line 1178
+    .line 862
     .end local v1           #snfe:Landroid/provider/Settings$SettingNotFoundException;
     :cond_0
     const/4 v2, 0x0
@@ -2093,29 +1128,29 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 463
+    .line 426
     move v0, p1
 
-    .line 465
+    .line 428
     .local v0, newLcdValue:I
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-eqz v1, :cond_1
 
-    .line 467
+    .line 430
     iget v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
 
     if-ge v0, v1, :cond_0
 
     iget v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnteringLcdValue:I
 
-    .line 469
+    .line 432
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_1
 
-    .line 470
+    .line 433
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2160,7 +1195,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 477
+    .line 440
     :cond_1
     return v0
 .end method
@@ -2170,16 +1205,16 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 531
+    .line 494
     move v0, p1
 
-    .line 533
+    .line 496
     .local v0, newLcdValue:I
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v1, :cond_1
 
-    .line 535
+    .line 498
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->inCarModeLightSensorRange()Z
 
     move-result v1
@@ -2192,16 +1227,16 @@
 
     if-eqz v1, :cond_0
 
-    .line 537
+    .line 500
     const/16 v0, 0x1e
 
-    .line 540
+    .line 503
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_1
 
-    .line 541
+    .line 504
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2246,7 +1281,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 548
+    .line 511
     :cond_1
     return v0
 .end method
@@ -2255,12 +1290,12 @@
     .locals 2
 
     .prologue
-    .line 1234
+    .line 918
     iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mIWindowManager:Landroid/view/IWindowManager;
 
     if-nez v0, :cond_0
 
-    .line 1235
+    .line 919
     const-string v0, "window"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -2273,22 +1308,22 @@
 
     iput-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mIWindowManager:Landroid/view/IWindowManager;
 
-    .line 1236
+    .line 920
     iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mIWindowManager:Landroid/view/IWindowManager;
 
     if-nez v0, :cond_0
 
-    .line 1237
+    .line 921
     const-string v0, "HtcAutoBrightnessCtrl"
 
     const-string v1, "getIWindowManager: Could not get IWindowManager."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1238
+    .line 922
     const/4 v0, 0x0
 
-    .line 1241
+    .line 925
     :goto_0
     return-object v0
 
@@ -2302,10 +1337,10 @@
     .locals 5
 
     .prologue
-    .line 1182
+    .line 866
     const/16 v0, 0x7f
 
-    .line 1184
+    .line 868
     .local v0, currentLcdValue:I
     :try_start_0
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContentResolver:Landroid/content/ContentResolver;
@@ -2318,15 +1353,15 @@
 
     move-result v0
 
-    .line 1188
+    .line 872
     :goto_0
     return v0
 
-    .line 1185
+    .line 869
     :catch_0
     move-exception v1
 
-    .line 1186
+    .line 870
     .local v1, snfe:Landroid/provider/Settings$SettingNotFoundException;
     const-string v2, "HtcAutoBrightnessCtrl"
 
@@ -2357,7 +1392,7 @@
     .locals 5
 
     .prologue
-    .line 1205
+    .line 889
     :try_start_0
     iget v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mMaxBacklightValue:I
 
@@ -2365,14 +1400,14 @@
 
     if-le v3, v4, :cond_0
 
-    .line 1206
+    .line 890
     iget v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mMaxBacklightValue:I
 
-    .line 1216
+    .line 900
     :goto_0
     return v3
 
-    .line 1209
+    .line 893
     :cond_0
     iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mContext:Landroid/content/Context;
 
@@ -2380,7 +1415,7 @@
 
     move-result-object v2
 
-    .line 1210
+    .line 894
     .local v2, resources:Landroid/content/res/Resources;
     const v3, 0x1070028
 
@@ -2388,7 +1423,7 @@
 
     move-result-object v1
 
-    .line 1211
+    .line 895
     .local v1, mLcdBacklightValues:[I
     const/4 v3, 0x4
 
@@ -2398,7 +1433,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1216
+    .line 900
     .end local v1           #mLcdBacklightValues:[I
     .end local v2           #resources:Landroid/content/res/Resources;
     :goto_1
@@ -2406,11 +1441,11 @@
 
     goto :goto_0
 
-    .line 1212
+    .line 896
     :catch_0
     move-exception v0
 
-    .line 1213
+    .line 897
     .local v0, e:Ljava/lang/Exception;
     const-string v3, "HtcAutoBrightnessCtrl"
 
@@ -2418,7 +1453,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1214
+    .line 898
     const/16 v3, 0x78
 
     iput v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mMaxBacklightValue:I
@@ -2431,21 +1466,21 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 481
+    .line 444
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v0
 
-    .line 483
+    .line 446
     .local v0, AUTO_BRIGHTNESS_MODE:Z
     if-eqz v0, :cond_0
 
-    .line 484
+    .line 447
     invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getOffHookLcdValueInAuto(I)I
 
     move-result v1
 
-    .line 486
+    .line 449
     :goto_0
     return v1
 
@@ -2464,31 +1499,31 @@
     .prologue
     const/16 v2, 0x7f
 
-    .line 512
+    .line 475
     const/16 v0, 0x7f
 
-    .line 513
+    .line 476
     .local v0, HALF_BRIGHTNESS:I
     move v1, p1
 
-    .line 515
+    .line 478
     .local v1, newLcdValue:I
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-eqz v3, :cond_1
 
-    .line 516
+    .line 479
     if-le v1, v2, :cond_0
 
     move v1, v2
 
-    .line 518
+    .line 481
     :cond_0
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_1
 
-    .line 519
+    .line 482
     const-string v2, "HtcAutoBrightnessCtrl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2521,7 +1556,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 525
+    .line 488
     :cond_1
     return v1
 .end method
@@ -2531,16 +1566,16 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 493
+    .line 456
     move v0, p1
 
-    .line 495
+    .line 458
     .local v0, newLcdValue:I
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-eqz v1, :cond_0
 
-    .line 496
+    .line 459
     int-to-double v1, v0
 
     const-wide/high16 v3, 0x3fe0
@@ -2549,12 +1584,12 @@
 
     double-to-int v0, v1
 
-    .line 498
+    .line 461
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_0
 
-    .line 499
+    .line 462
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2587,7 +1622,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 506
+    .line 469
     :cond_0
     return v0
 .end method
@@ -2597,21 +1632,21 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 410
+    .line 373
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v0
 
-    .line 412
+    .line 375
     .local v0, AUTO_BRIGHTNESS_MODE:Z
     if-eqz v0, :cond_0
 
-    .line 413
+    .line 376
     invoke-direct {p0, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValueInAuto(I)I
 
     move-result v1
 
-    .line 415
+    .line 378
     :goto_0
     return v1
 
@@ -2628,10 +1663,10 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 442
+    .line 405
     move v0, p1
 
-    .line 444
+    .line 407
     .local v0, newLcdValue:I
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
@@ -2641,28 +1676,28 @@
 
     if-nez v1, :cond_1
 
-    .line 445
+    .line 408
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
 
     move-result v1
 
     if-le v0, v1, :cond_0
 
-    .line 446
+    .line 409
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
 
     move-result v0
 
-    .line 449
+    .line 412
     :cond_0
     mul-int/lit8 v0, v0, 0x1
 
-    .line 451
+    .line 414
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_1
 
-    .line 452
+    .line 415
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2709,7 +1744,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 458
+    .line 421
     :cond_1
     return v0
 .end method
@@ -2719,10 +1754,10 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 422
+    .line 385
     move v0, p1
 
-    .line 424
+    .line 387
     .local v0, newLcdValue:I
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
@@ -2732,14 +1767,14 @@
 
     if-nez v2, :cond_0
 
-    .line 425
+    .line 388
     int-to-float v2, v0
 
     const/high16 v3, 0x437f
 
     div-float v1, v2, v3
 
-    .line 426
+    .line 389
     .local v1, ratio:F
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getMaxBacklightValue()I
 
@@ -2751,12 +1786,12 @@
 
     float-to-int v0, v2
 
-    .line 428
+    .line 391
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_0
 
-    .line 429
+    .line 392
     const-string v2, "HtcAutoBrightnessCtrl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2813,7 +1848,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 436
+    .line 399
     .end local v1           #ratio:F
     :cond_0
     return v0
@@ -2828,18 +1863,18 @@
 
     const/16 v1, 0x10
 
-    .line 1198
+    .line 882
     if-ge p1, v1, :cond_0
 
     move p1, v1
 
-    .line 1199
+    .line 883
     :cond_0
     if-le p1, v0, :cond_1
 
     move p1, v0
 
-    .line 1200
+    .line 884
     :cond_1
     return p1
 .end method
@@ -2853,18 +1888,18 @@
 
     const/16 v0, 0x14
 
-    .line 1192
+    .line 876
     if-le p1, v1, :cond_0
 
     move p1, v1
 
-    .line 1193
+    .line 877
     :cond_0
     if-ge p1, v0, :cond_1
 
     move p1, v0
 
-    .line 1194
+    .line 878
     :cond_1
     return p1
 .end method
@@ -2873,7 +1908,7 @@
     .locals 2
 
     .prologue
-    .line 757
+    .line 648
     iget v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mLightSensorLevel:I
 
     const/4 v1, 0x2
@@ -2884,10 +1919,10 @@
 
     if-ltz v0, :cond_0
 
-    .line 759
+    .line 650
     const/4 v0, 0x1
 
-    .line 761
+    .line 652
     :goto_0
     return v0
 
@@ -2901,10 +1936,10 @@
     .locals 3
 
     .prologue
-    .line 1220
+    .line 904
     const/4 v0, 0x1
 
-    .line 1222
+    .line 906
     .local v0, keyguardLocked:Z
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getIWindowManager()Landroid/view/IWindowManager;
@@ -2917,27 +1952,27 @@
 
     move-result v0
 
-    .line 1226
+    .line 910
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 1227
+    .line 911
     const-string v1, "HtcAutoBrightnessCtrl"
 
     const-string v2, "isKeyguardLocked: Keyguard is locked, skip request."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1228
+    .line 912
     iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v1}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->cancelAnimation()V
 
-    .line 1230
+    .line 914
     :cond_0
     return v0
 
-    .line 1223
+    .line 907
     :catch_0
     move-exception v1
 
@@ -2951,12 +1986,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 1098
+    .line 784
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v0
 
-    .line 1099
+    .line 785
     .local v0, AUTO_BRIGHTNESS_MODE:Z
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
 
@@ -2964,50 +1999,50 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 1101
+    .line 787
     if-nez v0, :cond_0
 
-    .line 1103
+    .line 789
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v2, v4}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->setScreenBrightnessMode(I)V
 
-    .line 1107
+    .line 793
     :cond_0
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-nez v2, :cond_2
 
-    .line 1137
+    .line 821
     :cond_1
     :goto_0
     return-void
 
-    .line 1111
+    .line 797
     :cond_2
     iput-boolean v4, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
-    .line 1113
+    .line 799
     const/4 v1, 0x0
 
-    .line 1114
+    .line 800
     .local v1, manualBrightness:I
     if-eqz v0, :cond_3
 
-    .line 1115
+    .line 801
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     mul-int/lit8 v3, p1, 0x28
 
     invoke-virtual {v2, v3}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->forceLightSensorUpdate(I)V
 
-    .line 1131
+    .line 815
     :goto_1
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_1
 
-    .line 1132
+    .line 816
     const-string v2, "HtcAutoBrightnessCtrl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3058,105 +2093,41 @@
 
     goto :goto_0
 
-    .line 1117
+    .line 803
     :cond_3
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
 
     move-result v1
 
-    .line 1120
+    .line 806
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v2, :cond_5
 
-    .line 1121
+    .line 807
     invoke-direct {p0, v1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getCarModeLcdValue(I)I
 
     move-result v1
 
-    .line 1128
+    .line 812
     :cond_4
     :goto_2
     invoke-direct {p0, v1, p1}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
     goto :goto_1
 
-    .line 1122
+    .line 808
     :cond_5
-    iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v2, :cond_6
-
-    .line 1123
-    invoke-direct {p0, v1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValueInManual(I)I
-
-    move-result v1
-
-    goto :goto_2
-
-    .line 1124
-    :cond_6
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v2, :cond_4
 
-    .line 1125
+    .line 809
     invoke-direct {p0, v1}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValueInManual(I)I
 
     move-result v1
 
     goto :goto_2
-.end method
-
-.method private resetAudioStreamingMode()V
-    .locals 4
-
-    .prologue
-    .line 1023
-    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
-
-    if-eqz v0, :cond_0
-
-    .line 1024
-    const-string v0, "HtcAutoBrightnessCtrl"
-
-    const-string v1, "resetAudioStreamingMode"
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1027
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    .line 1030
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->checkPlayAudioStreamingUid()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1031
-    iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    const-wide/32 v2, 0xea60
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 1036
-    :goto_0
-    return-void
-
-    .line 1033
-    :cond_1
-    invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->closeAudioStreamingMode()V
-
-    goto :goto_0
 .end method
 
 .method private setBacklight(II)V
@@ -3167,26 +2138,26 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1140
+    .line 824
     const/16 v2, 0x10
 
     if-ge p2, v2, :cond_1
 
     const/4 v0, 0x1
 
-    .line 1142
+    .line 826
     .local v0, noTransition:Z
     :goto_0
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
     if-nez v2, :cond_2
 
-    .line 1143
+    .line 827
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_0
 
-    .line 1144
+    .line 828
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3229,7 +2200,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1169
+    .line 853
     :cond_0
     :goto_1
     return-void
@@ -3238,17 +2209,17 @@
     :cond_1
     move v0, v1
 
-    .line 1140
+    .line 824
     goto :goto_0
 
-    .line 1152
+    .line 836
     .restart local v0       #noTransition:Z
     :cond_2
     iget-boolean v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v2, :cond_3
 
-    .line 1153
+    .line 837
     const-string v2, "HtcAutoBrightnessCtrl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3291,27 +2262,27 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1159
+    .line 843
     :cond_3
     if-lez p1, :cond_0
 
-    .line 1163
+    .line 847
     if-eqz v0, :cond_4
 
-    .line 1164
+    .line 848
     iget-object v2, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v2, p1, v1}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->setSmoothBacklight(II)V
 
     goto :goto_1
 
-    .line 1166
+    .line 850
     :cond_4
     invoke-direct {p0, p2}, Lcom/android/server/HtcAutoBrightnessCtrl;->getValidDelay(I)I
 
     move-result p2
 
-    .line 1167
+    .line 851
     iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     mul-int/lit8 v2, p2, 0x28
@@ -3326,34 +2297,34 @@
     .parameter "enable"
 
     .prologue
-    .line 364
+    .line 327
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
-    .line 365
+    .line 328
     .local v1, PREV_POWER_MODE:Z
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAutoBrightnessEnabled()Z
 
     move-result v0
 
-    .line 366
+    .line 329
     .local v0, AUTO_BRIGHTNESS_MODE:Z
     const/4 v2, -0x1
 
-    .line 368
+    .line 331
     .local v2, newLcdValue:I
     iput-boolean p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
-    .line 371
+    .line 334
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
     if-nez v3, :cond_1
 
-    .line 407
+    .line 370
     :cond_0
     :goto_0
     return-void
 
-    .line 376
+    .line 339
     :cond_1
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
@@ -3367,18 +2338,14 @@
 
     if-nez v3, :cond_0
 
-    iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-nez v3, :cond_0
-
-    .line 381
+    .line 344
     if-nez v1, :cond_4
 
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v3, :cond_4
 
-    .line 382
+    .line 345
     iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     invoke-virtual {v3}, Lcom/android/server/PowerManagerService$PMSInternalAPI;->getCurrentBrightness()I
@@ -3389,19 +2356,19 @@
 
     move-result v2
 
-    .line 391
+    .line 354
     :cond_2
     :goto_1
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eq v3, v1, :cond_0
 
-    .line 392
+    .line 355
     iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v3, :cond_3
 
-    .line 393
+    .line 356
     const-string v3, "HtcAutoBrightnessCtrl"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3454,21 +2421,21 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 399
+    .line 362
     :cond_3
     iput-boolean p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
-    .line 402
+    .line 365
     if-lez v2, :cond_0
 
-    .line 404
+    .line 367
     const/4 v3, 0x0
 
     invoke-direct {p0, v2, v3}, Lcom/android/server/HtcAutoBrightnessCtrl;->setBacklight(II)V
 
     goto :goto_0
 
-    .line 383
+    .line 346
     :cond_4
     if-eqz v1, :cond_2
 
@@ -3476,10 +2443,10 @@
 
     if-nez v3, :cond_2
 
-    .line 384
+    .line 347
     if-eqz v0, :cond_5
 
-    .line 385
+    .line 348
     iget-object v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPMSInternalAPI:Lcom/android/server/PowerManagerService$PMSInternalAPI;
 
     const/4 v4, -0x1
@@ -3488,7 +2455,7 @@
 
     goto :goto_1
 
-    .line 387
+    .line 350
     :cond_5
     invoke-direct {p0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getManualBrightness()I
 
@@ -3504,37 +2471,37 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 154
+    .line 132
     move v0, p1
 
-    .line 156
+    .line 134
     .local v0, newLcdValue:I
     const/16 v1, 0xff
 
     if-le v0, v1, :cond_0
 
-    .line 157
+    .line 135
     const/16 v0, 0xff
 
-    .line 160
+    .line 138
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-eqz v1, :cond_3
 
-    .line 161
+    .line 139
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getOffHookLcdValue(I)I
 
     move-result v0
 
-    .line 173
+    .line 149
     :cond_1
     :goto_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_2
 
-    .line 174
+    .line 150
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3567,18 +2534,6 @@
 
     move-result-object v2
 
-    const-string v3, ", mAudioStreamingMode="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     const-string v3, ", mEnableCarMode="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3641,7 +2596,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 184
+    .line 159
     :cond_2
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getValidLcdValue(I)I
 
@@ -3649,52 +2604,39 @@
 
     return v1
 
-    .line 162
+    .line 140
     :cond_3
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-eqz v1, :cond_4
 
-    .line 164
+    .line 142
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getBrighterOnlyLcdValue(I)I
 
     move-result v0
 
     goto :goto_0
 
-    .line 165
+    .line 143
     :cond_4
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v1, :cond_5
 
-    .line 166
+    .line 144
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getCarModeLcdValue(I)I
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 167
+    .line 145
     :cond_5
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v1, :cond_6
-
-    .line 168
-    invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValue(I)I
-
-    move-result v0
-
-    goto/16 :goto_0
-
-    .line 169
-    :cond_6
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v1, :cond_1
 
-    .line 170
+    .line 146
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValue(I)I
 
     move-result v0
@@ -3707,42 +2649,42 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 224
+    .line 196
     move v0, p1
 
-    .line 226
+    .line 198
     .local v0, newLcdValue:I
     const/16 v1, 0xff
 
     if-le v0, v1, :cond_0
 
-    .line 227
+    .line 199
     const/16 v0, 0xff
 
-    .line 231
+    .line 203
     :cond_0
     const/16 v1, 0x14
 
     if-le v0, v1, :cond_2
 
-    .line 232
+    .line 204
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-eqz v1, :cond_3
 
-    .line 233
+    .line 205
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getOffHookLcdValue(I)I
 
     move-result v0
 
-    .line 245
+    .line 215
     :cond_1
     :goto_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_2
 
-    .line 246
+    .line 216
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3775,18 +2717,6 @@
 
     move-result-object v2
 
-    const-string v3, ", mAudioStreamingMode="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     const-string v3, ", mEnableCarMode="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -3849,61 +2779,48 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 258
+    .line 227
     :cond_2
     return v0
 
-    .line 234
+    .line 206
     :cond_3
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-eqz v1, :cond_4
 
-    .line 236
+    .line 208
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getBrighterOnlyLcdValue(I)I
 
     move-result v0
 
     goto :goto_0
 
-    .line 237
+    .line 209
     :cond_4
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v1, :cond_5
 
-    .line 238
+    .line 210
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getCarModeLcdValue(I)I
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 239
+    .line 211
     :cond_5
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v1, :cond_6
-
-    .line 240
-    invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValue(I)I
-
-    move-result v0
-
-    goto/16 :goto_0
-
-    .line 241
-    :cond_6
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v1, :cond_1
 
-    .line 242
+    .line 212
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValue(I)I
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 .method protected getCtrlSetBacklightBrightness(I)I
@@ -3911,37 +2828,37 @@
     .parameter "lcdValue"
 
     .prologue
-    .line 188
+    .line 163
     move v0, p1
 
-    .line 190
+    .line 165
     .local v0, newLcdValue:I
     const/16 v1, 0xff
 
     if-le v0, v1, :cond_0
 
-    .line 191
+    .line 166
     const/16 v0, 0xff
 
-    .line 195
+    .line 170
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableOffHookMode:Z
 
     if-eqz v1, :cond_3
 
-    .line 196
+    .line 171
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getOffHookLcdValue(I)I
 
     move-result v0
 
-    .line 208
+    .line 181
     :cond_1
     :goto_0
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->DEBUG_ON:Z
 
     if-eqz v1, :cond_2
 
-    .line 209
+    .line 182
     const-string v1, "HtcAutoBrightnessCtrl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -3974,18 +2891,6 @@
 
     move-result-object v2
 
-    const-string v3, ", mAudioStreamingMode="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
     const-string v3, ", mEnableCarMode="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -4048,7 +2953,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 219
+    .line 191
     :cond_2
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getValidLcdValue(I)I
 
@@ -4056,52 +2961,39 @@
 
     return v1
 
-    .line 197
+    .line 172
     :cond_3
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
     if-eqz v1, :cond_4
 
-    .line 199
+    .line 174
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getBrighterOnlyLcdValue(I)I
 
     move-result v0
 
     goto :goto_0
 
-    .line 200
+    .line 175
     :cond_4
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableCarMode:Z
 
     if-eqz v1, :cond_5
 
-    .line 201
+    .line 176
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getCarModeLcdValue(I)I
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    .line 202
+    .line 177
     :cond_5
-    iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v1, :cond_6
-
-    .line 203
-    invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getAudioStreamingModeLcdValue(I)I
-
-    move-result v0
-
-    goto/16 :goto_0
-
-    .line 204
-    :cond_6
     iget-boolean v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mPowerSaverMode:Z
 
     if-eqz v1, :cond_1
 
-    .line 205
+    .line 178
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->getPowerSaverLcdValue(I)I
 
     move-result v0
@@ -4110,46 +3002,26 @@
 .end method
 
 .method protected screenState(Z)V
-    .locals 2
+    .locals 1
     .parameter "on"
 
     .prologue
     const/4 v0, 0x0
 
-    .line 342
+    .line 311
     iput-boolean p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mScreenState:Z
 
-    .line 344
+    .line 313
     if-nez p1, :cond_0
 
-    .line 346
+    .line 315
     iput-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mEnableBrighterOnly:Z
 
-    .line 347
+    .line 316
     invoke-direct {p0, v0}, Lcom/android/server/HtcAutoBrightnessCtrl;->reset(I)V
 
-    .line 350
+    .line 318
     :cond_0
-    iget-boolean v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingMode:Z
-
-    if-eqz v0, :cond_1
-
-    .line 351
-    iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    .line 352
-    iget-object v0, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mAudioStreamingTimeoutTask:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 355
-    :cond_1
     return-void
 .end method
 
@@ -4158,9 +3030,9 @@
     .parameter "level"
 
     .prologue
-    .line 359
+    .line 322
     iput p1, p0, Lcom/android/server/HtcAutoBrightnessCtrl;->mLightSensorLevel:I
 
-    .line 360
+    .line 323
     return-void
 .end method

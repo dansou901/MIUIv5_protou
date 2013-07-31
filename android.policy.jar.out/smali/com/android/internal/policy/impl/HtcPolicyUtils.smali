@@ -32,7 +32,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     or-int/lit8 v0, v0, 0x0
@@ -46,17 +46,17 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 25
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
+    .line 31
     new-instance v0, Lcom/android/internal/policy/impl/HtcPolicyUtils$PhoneUtil;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/HtcPolicyUtils$PhoneUtil;-><init>(Lcom/android/internal/policy/impl/HtcPolicyUtils;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/HtcPolicyUtils;->phone:Lcom/android/internal/policy/impl/HtcPolicyUtils$PhoneUtil;
 
-    .line 200
+    .line 199
     return-void
 .end method
 
@@ -64,102 +64,20 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 25
     sget-boolean v0, Lcom/android/internal/policy/impl/HtcPolicyUtils;->DEBUG_PHONE:Z
 
     return v0
-.end method
-
-.method public static getDefaultLauncher(Landroid/content/Context;)Ljava/lang/String;
-    .locals 6
-    .parameter "context"
-
-    .prologue
-    .line 221
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v3, "android.intent.action.MAIN"
-
-    invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 222
-    .local v0, intent:Landroid/content/Intent;
-    const-string v3, "android.intent.category.HOME"
-
-    invoke-virtual {v0, v3}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 223
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v0, v4}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
-
-    move-result-object v2
-
-    .line 224
-    .local v2, resInfo:Landroid/content/pm/ResolveInfo;
-    iget-object v3, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    if-nez v3, :cond_0
-
-    .line 225
-    const-string v3, "HtcPolicyUtils"
-
-    const-string v4, "there is no home app?"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 226
-    const-string v1, ""
-
-    .line 232
-    :goto_0
-    return-object v1
-
-    .line 229
-    :cond_0
-    iget-object v3, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v1, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    .line 230
-    .local v1, name:Ljava/lang/String;
-    const-string v3, "HtcPolicyUtils"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "default launcher = "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
 .end method
 
 .method public static final getForegroundAppName()Ljava/lang/String;
     .locals 5
 
     .prologue
-    .line 175
+    .line 174
     const-string v0, ""
 
-    .line 177
+    .line 176
     .local v0, appName:Ljava/lang/String;
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
@@ -172,11 +90,11 @@
 
     move-result-object v0
 
-    .line 182
+    .line 181
     :goto_0
     if-eqz v0, :cond_0
 
-    .line 183
+    .line 182
     const/16 v2, 0x20
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(I)I
@@ -195,7 +113,7 @@
 
     move-result-object v0
 
-    .line 184
+    .line 183
     sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v2, :cond_0
@@ -206,7 +124,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "current foreground appName = "
+    const-string v4, "Screen capture: appName="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -222,15 +140,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 187
+    .line 186
     :cond_0
     return-object v0
 
-    .line 178
+    .line 177
     :catch_0
     move-exception v1
 
-    .line 179
+    .line 178
     .local v1, e:Landroid/os/RemoteException;
     const-string v2, "HtcPolicyUtils"
 
@@ -264,56 +182,56 @@
     .parameter "code"
 
     .prologue
-    .line 151
+    .line 150
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getDownTime()J
 
     move-result-wide v2
 
-    .line 152
+    .line 151
     .local v2, downTime:J
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getEventTime()J
 
     move-result-wide v4
 
-    .line 153
+    .line 152
     .local v4, eventTime:J
     move/from16 v6, p1
 
-    .line 154
+    .line 153
     .local v6, action:I
     const/4 v8, 0x0
 
-    .line 155
+    .line 154
     .local v8, repeatCount:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getMetaState()I
 
     move-result v9
 
-    .line 156
+    .line 155
     .local v9, metaState:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getDeviceId()I
 
     move-result v10
 
-    .line 157
+    .line 156
     .local v10, deviceId:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getScanCode()I
 
     move-result v11
 
-    .line 158
+    .line 157
     .local v11, scancode:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getSource()I
 
     move-result v13
 
-    .line 159
+    .line 158
     .local v13, source:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getFlags()I
 
     move-result v14
 
-    .line 165
+    .line 164
     .local v14, flags:I
     invoke-virtual {p0}, Landroid/view/KeyEvent;->getKeyCode()I
 
@@ -323,7 +241,7 @@
 
     if-eq v0, v7, :cond_0
 
-    .line 166
+    .line 165
     new-instance v1, Landroid/view/KeyEvent;
 
     or-int/lit8 v12, v14, 0x8
@@ -332,7 +250,7 @@
 
     invoke-direct/range {v1 .. v13}, Landroid/view/KeyEvent;-><init>(JJIIIIIIII)V
 
-    .line 170
+    .line 169
     .local v1, translatedEvent:Landroid/view/KeyEvent;
     invoke-static {}, Landroid/hardware/input/InputManager;->getInstance()Landroid/hardware/input/InputManager;
 
@@ -342,7 +260,7 @@
 
     invoke-virtual {v7, v1, v12}, Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z
 
-    .line 172
+    .line 171
     .end local v1           #translatedEvent:Landroid/view/KeyEvent;
     :cond_0
     return-void
@@ -354,27 +272,27 @@
     .parameter "intent"
 
     .prologue
-    .line 191
+    .line 190
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$PWMUtil;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 
-    .line 192
+    .line 191
     .local v0, handler:Landroid/os/Handler;
     if-nez v0, :cond_0
 
-    .line 193
+    .line 192
     const-string v1, "HtcPolicyUtils"
 
     const-string v2, "handler is null, return"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 198
+    .line 197
     :goto_0
     return-void
 
-    .line 197
+    .line 196
     :cond_0
     new-instance v1, Lcom/android/internal/policy/impl/HtcPolicyUtils$LaunchActivityRunnable;
 

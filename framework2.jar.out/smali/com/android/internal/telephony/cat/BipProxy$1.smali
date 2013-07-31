@@ -27,7 +27,7 @@
     .locals 3
 
     .prologue
-    .line 416
+    .line 409
     invoke-static {}, Landroid/net/NetworkInfo$State;->values()[Landroid/net/NetworkInfo$State;
 
     move-result-object v0
@@ -353,7 +353,7 @@
 
     goto :goto_5
 
-    .line 416
+    .line 409
     :catch_a
     move-exception v0
 

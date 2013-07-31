@@ -4373,40 +4373,6 @@
     goto :goto_0
 .end method
 
-.method public static isFollowSprintSpec()Z
-    .locals 2
-
-    .prologue
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x94
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xaf
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xc
-
-    if-ne v0, v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static isKddiEmergencyAlert(I)Z
     .locals 2
     .parameter "id"
@@ -4709,55 +4675,15 @@
     goto :goto_0
 .end method
 
-.method public static isSupportReplySmsAckBeforeDispatch()Z
-    .locals 2
-
-    .prologue
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x9b
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x94
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xa8
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0x71
-
-    if-ne v0, v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static isSupportSegmentIndicator()Z
     .locals 2
 
     .prologue
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v0
+    const/16 v1, 0x94
 
-    if-eqz v0, :cond_0
+    if-ne v0, v1, :cond_0
 
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
@@ -4786,37 +4712,50 @@
     .locals 2
 
     .prologue
-    invoke-static {}, Lcom/android/internal/telephony/HtcMessageHelper;->isFollowSprintSpec()Z
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    move-result v0
+    const/16 v1, 0x94
 
-    if-eqz v0, :cond_1
+    if-eq v0, v1, :cond_0
 
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v1, 0xc
+
+    if-eq v0, v1, :cond_0
+
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v1, 0xaf
+
+    if-ne v0, v1, :cond_2
+
+    :cond_0
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0x95
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0x50
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v1, 0xe2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_0

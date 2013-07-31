@@ -111,7 +111,7 @@
     .locals 13
 
     .prologue
-    const v12, 0x4020038
+    const v12, 0x4020060
 
     const v9, 0x2040249
 
@@ -227,7 +227,7 @@
     :cond_0
     iget-object v6, v2, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    const v7, 0x4020028
+    const v7, 0x4020050
 
     invoke-virtual {v6, v11, v7}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -329,7 +329,7 @@
     .locals 13
 
     .prologue
-    const v12, 0x4020039
+    const v12, 0x4020061
 
     const v9, 0x2040249
 
@@ -445,7 +445,7 @@
     :cond_0
     iget-object v6, v2, Landroid/app/Notification;->contentView:Landroid/widget/RemoteViews;
 
-    const v7, 0x4020029
+    const v7, 0x4020051
 
     invoke-virtual {v6, v11, v7}, Landroid/widget/RemoteViews;->setImageViewResource(II)V
 
@@ -547,7 +547,7 @@
     .locals 10
 
     .prologue
-    const v9, 0x4020039
+    const v9, 0x4020061
 
     const v6, 0x2040249
 

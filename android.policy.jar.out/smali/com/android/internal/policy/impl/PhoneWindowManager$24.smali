@@ -33,7 +33,7 @@
     .parameter
 
     .prologue
-    .line 6145
+    .line 6147
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->val$visibility:I
@@ -53,7 +53,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 6148
+    .line 6150
     :try_start_0
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -61,41 +61,41 @@
 
     move-result-object v2
 
-    .line 6149
+    .line 6151
     .local v2, statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     if-eqz v2, :cond_0
 
-    .line 6153
+    .line 6155
     iget v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->val$visibility:I
 
     const/4 v6, -0x1
 
     invoke-interface {v2, v5, v6}, Lcom/android/internal/statusbar/IStatusBarService;->setSystemUiVisibility(II)V
 
-    .line 6158
+    .line 6160
     sget-boolean v5, Lcom/android/internal/policy/impl/PhoneWindowManager;->ALWAYS_SHOW_NAV_BAR:Z
 
     if-eqz v5, :cond_1
 
-    .line 6159
+    .line 6161
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->val$needsMenu:Z
 
     invoke-interface {v2, v4}, Lcom/android/internal/statusbar/IStatusBarService;->topAppWindowChanged(Z)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 6196
+    .line 6198
     .end local v2           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     :cond_0
     :goto_0
     return-void
 
-    .line 6161
+    .line 6163
     .restart local v2       #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     :cond_1
     const/4 v3, 0x0
 
-    .line 6164
+    .line 6166
     .local v3, type:I
     :try_start_1
     iget-object v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -111,7 +111,7 @@
     .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 6173
+    .line 6175
     :cond_2
     :goto_1
     :try_start_2
@@ -121,12 +121,12 @@
 
     if-eqz v5, :cond_5
 
-    .line 6175
+    .line 6177
     const/16 v5, 0x7e1
 
     if-ne v5, v3, :cond_3
 
-    .line 6176
+    .line 6178
     const/4 v4, 0x0
 
     invoke-interface {v2, v4}, Lcom/android/internal/statusbar/IStatusBarService;->topAppWindowChanged(Z)V
@@ -135,13 +135,13 @@
 
     goto :goto_0
 
-    .line 6192
+    .line 6194
     .end local v2           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     .end local v3           #type:I
     :catch_0
     move-exception v0
 
-    .line 6194
+    .line 6196
     .local v0, e:Landroid/os/RemoteException;
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -151,21 +151,21 @@
 
     goto :goto_0
 
-    .line 6165
+    .line 6167
     .end local v0           #e:Landroid/os/RemoteException;
     .restart local v2       #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     .restart local v3       #type:I
     :catch_1
     move-exception v1
 
-    .line 6168
+    .line 6170
     .local v1, ex:Ljava/lang/NullPointerException;
     :try_start_3
     sget-boolean v5, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v5, :cond_2
 
-    .line 6169
+    .line 6171
     const-string v5, "WindowManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -194,7 +194,7 @@
 
     goto :goto_1
 
-    .line 6180
+    .line 6182
     .end local v1           #ex:Ljava/lang/NullPointerException;
     :cond_3
     iget v5, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->val$visibility:I
@@ -210,7 +210,7 @@
 
     goto :goto_0
 
-    .line 6184
+    .line 6186
     :cond_5
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$24;->val$needsMenu:Z
 

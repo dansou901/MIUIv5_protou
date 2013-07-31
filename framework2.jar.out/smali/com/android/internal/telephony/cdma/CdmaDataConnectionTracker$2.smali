@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 2142
+    .line 2123
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .locals 4
 
     .prologue
-    .line 2145
+    .line 2126
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     #calls: Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->updateDataActivity()V
     invoke-static {v0}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$300(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)V
 
-    .line 2147
+    .line 2128
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     #getter for: Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mIsScreenOn:Z
@@ -57,7 +57,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 2148
+    .line 2129
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
@@ -78,7 +78,7 @@
     #setter for: Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mNetStatPollPeriod:I
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$502(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;I)I
 
-    .line 2156
+    .line 2137
     :goto_0
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
@@ -89,7 +89,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 2157
+    .line 2138
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     #getter for: Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataConnectionTracker:Landroid/os/Handler;
@@ -108,11 +108,11 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 2159
+    .line 2140
     :cond_0
     return-void
 
-    .line 2151
+    .line 2132
     :cond_1
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$2;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 

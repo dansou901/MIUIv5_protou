@@ -38,12 +38,12 @@
     iget-object v0, p1, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v1
 
     #getter for: Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
-    invoke-static {p1}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9600(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
+    invoke-static {p1}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9700(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
 
     move-result v0
 
@@ -53,7 +53,7 @@
 
     :goto_0
     #getter for: Landroid/webkit/WebViewClassic$InvokeListBox;->mContainers:[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
-    invoke-static {p1}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9700(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
+    invoke-static {p1}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9800(Landroid/webkit/WebViewClassic$InvokeListBox;)[Landroid/webkit/WebViewClassic$InvokeListBox$Container;
 
     move-result-object v2
 
@@ -167,7 +167,7 @@
     iget-object v4, v4, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -185,7 +185,7 @@
     iget-object v4, v4, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -207,7 +207,7 @@
     iget-object v4, p0, Landroid/webkit/WebViewClassic$InvokeListBox$MyArrayListAdapter;->this$1:Landroid/webkit/WebViewClassic$InvokeListBox;
 
     #getter for: Landroid/webkit/WebViewClassic$InvokeListBox;->mMultiple:Z
-    invoke-static {v4}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9600(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
+    invoke-static {v4}, Landroid/webkit/WebViewClassic$InvokeListBox;->access$9700(Landroid/webkit/WebViewClassic$InvokeListBox;)Z
 
     move-result v4
 
@@ -242,7 +242,7 @@
     iget-object v4, v4, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mContext:Landroid/content/Context;
-    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1400(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
+    invoke-static {v4}, Landroid/webkit/WebViewClassic;->access$1000(Landroid/webkit/WebViewClassic;)Landroid/content/Context;
 
     move-result-object v4
 

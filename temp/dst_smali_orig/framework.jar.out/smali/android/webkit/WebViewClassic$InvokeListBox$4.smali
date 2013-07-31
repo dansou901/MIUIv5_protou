@@ -46,7 +46,7 @@
     iget-object v0, v0, Landroid/webkit/WebViewClassic$InvokeListBox;->this$0:Landroid/webkit/WebViewClassic;
 
     #getter for: Landroid/webkit/WebViewClassic;->mWebViewCore:Landroid/webkit/WebViewCore;
-    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$2300(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
+    invoke-static {v0}, Landroid/webkit/WebViewClassic;->access$1900(Landroid/webkit/WebViewClassic;)Landroid/webkit/WebViewCore;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
     const/4 v1, 0x0
 
     #setter for: Landroid/webkit/WebViewClassic;->mListBoxDialog:Landroid/app/AlertDialog;
-    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$9902(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Landroid/webkit/WebViewClassic;->access$10002(Landroid/webkit/WebViewClassic;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     return-void
 .end method

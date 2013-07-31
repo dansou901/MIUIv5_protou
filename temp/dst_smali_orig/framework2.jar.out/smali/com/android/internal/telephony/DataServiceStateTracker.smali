@@ -653,6 +653,8 @@
 
     goto :goto_0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -1501,6 +1503,8 @@
 
     goto :goto_0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1
@@ -1641,6 +1645,8 @@
     .parameter "r"
 
     .prologue
+    const/16 v2, 0x1e
+
     const/4 v0, 0x1
 
     .local v0, bsupport:Z
@@ -1648,11 +1654,9 @@
 
     if-ne p1, v1, :cond_1
 
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
+    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    move-result v1
-
-    if-eqz v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x0
 
@@ -1692,45 +1696,13 @@
     return v0
 
     :cond_1
-    invoke-static {}, Lcom/android/internal/telephony/HtcBuildUtils;->KDDI_LTE_CONFIG()Z
+    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    move-result v1
-
-    if-nez v1, :cond_2
+    if-eq v1, v2, :cond_2
 
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     const/16 v2, 0x1d
-
-    if-eq v1, v2, :cond_2
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x132
-
-    if-eq v1, v2, :cond_2
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x1fd
-
-    if-eq v1, v2, :cond_2
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x1fe
-
-    if-eq v1, v2, :cond_2
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x55
-
-    if-eq v1, v2, :cond_2
-
-    sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v2, 0x54
 
     if-ne v1, v2, :cond_0
 
@@ -1993,6 +1965,8 @@
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/DataServiceStateTracker;->onRestrictedStateChanged(Landroid/os/AsyncResult;)V
 
     goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -3085,6 +3059,8 @@
     move-result-object v9
 
     goto/16 :goto_4
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x3

@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 398
+    .line 385
     iput-object p1, p0, Lcom/android/server/BatteryService$4;->this$0:Lcom/android/server/BatteryService;
 
     invoke-direct {p0}, Landroid/app/IProcessObserver$Stub;-><init>()V
@@ -49,7 +49,7 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 403
+    .line 390
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
@@ -74,15 +74,15 @@
 
     move-result-object v3
 
-    .line 404
+    .line 391
     .local v3, procCmdline:Ljava/lang/String;
     const/4 v4, 0x0
 
-    .line 407
+    .line 394
     .local v4, procName:Ljava/lang/String;
     const/4 v0, 0x0
 
-    .line 409
+    .line 396
     .local v0, br:Ljava/io/BufferedReader;
     :try_start_0
     new-instance v1, Ljava/io/BufferedReader;
@@ -96,7 +96,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 410
+    .line 397
     .end local v0           #br:Ljava/io/BufferedReader;
     .local v1, br:Ljava/io/BufferedReader;
     :try_start_1
@@ -107,19 +107,19 @@
 
     move-result-object v4
 
-    .line 414
+    .line 401
     if-eqz v1, :cond_5
 
-    .line 416
+    .line 403
     :try_start_2
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 417
+    .line 404
     const/4 v0, 0x0
 
-    .line 426
+    .line 413
     .end local v1           #br:Ljava/io/BufferedReader;
     .restart local v0       #br:Ljava/io/BufferedReader;
     :cond_0
@@ -134,7 +134,7 @@
 
     move-result-object v4
 
-    .line 429
+    .line 416
     :goto_1
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -142,7 +142,7 @@
 
     invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .line 430
+    .line 417
     .local v5, sb:Ljava/lang/StringBuilder;
     if-eqz p3, :cond_3
 
@@ -151,31 +151,31 @@
     :goto_2
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 431
+    .line 418
     invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 432
+    .line 419
     const-string v6, ":"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 433
+    .line 420
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 434
+    .line 421
     const-string v6, "/"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 435
+    .line 422
     invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    .line 436
+    .line 423
     const-string v6, ", "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 437
+    .line 424
     iget-object v6, p0, Lcom/android/server/BatteryService$4;->this$0:Lcom/android/server/BatteryService;
 
     #getter for: Lcom/android/server/BatteryService;->mPowerMeterInLevel:Z
@@ -185,12 +185,12 @@
 
     if-eqz v6, :cond_4
 
-    .line 438
+    .line 425
     const-string v6, "RefL = "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 442
+    .line 429
     :goto_3
     iget-object v6, p0, Lcom/android/server/BatteryService$4;->this$0:Lcom/android/server/BatteryService;
 
@@ -201,7 +201,7 @@
 
     invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    .line 444
+    .line 431
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
     move-result-object v6
@@ -212,10 +212,10 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 445
+    .line 432
     return-void
 
-    .line 418
+    .line 405
     .end local v0           #br:Ljava/io/BufferedReader;
     .end local v5           #sb:Ljava/lang/StringBuilder;
     .restart local v1       #br:Ljava/io/BufferedReader;
@@ -224,16 +224,16 @@
 
     move-object v0, v1
 
-    .line 420
+    .line 407
     .end local v1           #br:Ljava/io/BufferedReader;
     .restart local v0       #br:Ljava/io/BufferedReader;
     goto :goto_0
 
-    .line 411
+    .line 398
     :catch_1
     move-exception v2
 
-    .line 412
+    .line 399
     .local v2, e:Ljava/lang/Exception;
     :goto_4
     :try_start_3
@@ -241,21 +241,21 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 414
+    .line 401
     if-eqz v0, :cond_0
 
-    .line 416
+    .line 403
     :try_start_4
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
-    .line 417
+    .line 404
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 414
+    .line 401
     .end local v2           #e:Ljava/lang/Exception;
     :catchall_0
     move-exception v6
@@ -263,34 +263,34 @@
     :goto_5
     if-eqz v0, :cond_1
 
-    .line 416
+    .line 403
     :try_start_5
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_3
 
-    .line 417
+    .line 404
     const/4 v0, 0x0
 
-    .line 420
+    .line 407
     :cond_1
     :goto_6
     throw v6
 
-    .line 426
+    .line 413
     :cond_2
     const-string v4, "unknown"
 
     goto :goto_1
 
-    .line 430
+    .line 417
     .restart local v5       #sb:Ljava/lang/StringBuilder;
     :cond_3
     const-string v6, "[<<<] "
 
     goto :goto_2
 
-    .line 440
+    .line 427
     :cond_4
     const-string v6, "RefC = "
 
@@ -298,7 +298,7 @@
 
     goto :goto_3
 
-    .line 418
+    .line 405
     .end local v5           #sb:Ljava/lang/StringBuilder;
     .restart local v2       #e:Ljava/lang/Exception;
     :catch_2
@@ -312,7 +312,7 @@
 
     goto :goto_6
 
-    .line 414
+    .line 401
     .end local v0           #br:Ljava/io/BufferedReader;
     .restart local v1       #br:Ljava/io/BufferedReader;
     :catchall_1
@@ -324,7 +324,7 @@
     .restart local v0       #br:Ljava/io/BufferedReader;
     goto :goto_5
 
-    .line 411
+    .line 398
     .end local v0           #br:Ljava/io/BufferedReader;
     .restart local v1       #br:Ljava/io/BufferedReader;
     :catch_4
@@ -353,7 +353,7 @@
     .parameter "importance"
 
     .prologue
-    .line 449
+    .line 436
     return-void
 .end method
 
@@ -363,6 +363,6 @@
     .parameter "uid"
 
     .prologue
-    .line 453
+    .line 440
     return-void
 .end method

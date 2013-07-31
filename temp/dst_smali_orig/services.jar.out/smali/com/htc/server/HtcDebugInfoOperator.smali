@@ -3037,131 +3037,96 @@
 .end method
 
 .method setUIMode(Ljava/lang/String;)V
-    .locals 5
+    .locals 4
     .parameter "uiMode"
 
     .prologue
-    const-string v2, "HtcDeviceInfoManager"
+    const-string v1, "HtcDeviceInfoManager"
 
-    const-string v3, "setUIMode"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez p1, :cond_0
+    const-string v3, "setUIMode, ui_mode = "
 
-    const-string p1, ""
-
-    :cond_0
-    invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getInstance()Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getUIMode()Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    .local v1, uiMode_old:Ljava/lang/String;
-    if-nez v1, :cond_2
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v2, "HtcDeviceInfoManager"
+    move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "setUIMode, ui_mode = "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string v0, ""
 
     .local v0, UBSwitch:Ljava/lang/String;
-    const-string v2, "background"
+    const-string v1, "background"
 
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_0
 
     const-string v0, "0"
 
     :goto_0
     invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getInstance()Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setUIMode(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setUIMode(Ljava/lang/String;)V
 
     invoke-static {}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->getInstance()Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;
 
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setUBSwitch(Ljava/lang/String;)V
+
+    const-string v1, "HtcDeviceInfoManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setUIMode, ui_mode = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     move-result-object v2
 
-    invoke-virtual {v2, v0}, Lcom/htc/server/HtcDeviceInfoManager$HtcDeviceInfoPreference;->setUBSwitch(Ljava/lang/String;)V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "HtcDeviceInfoManager"
+    move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string v3, ", UBSwitch = "
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "setUIMode, ui_mode = "
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    const-string v4, ", UBSwitch = "
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .end local v0           #UBSwitch:Ljava/lang/String;
-    :goto_1
     return-void
 
-    .restart local v0       #UBSwitch:Ljava/lang/String;
-    :cond_1
+    :cond_0
     const-string v0, "1"
 
     goto :goto_0
-
-    .end local v0           #UBSwitch:Ljava/lang/String;
-    :cond_2
-    const-string v2, "HtcDeviceInfoManager"
-
-    const-string v3, "Don\'t setUIMode because of uiMode is already set."
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
 .end method
 
 .method startProc(IILjava/lang/String;)V
@@ -3346,6 +3311,12 @@
     .locals 8
 
     .prologue
+    invoke-static {}, Lcom/htc/utils/report/ReportConfig;->isShippingRom()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
     const-string v5, "HtcDeviceInfoManager"
 
     const-string v6, "updatePolicy"
@@ -3468,6 +3439,7 @@
     .end local v0           #UBSwitch:Ljava/lang/String;
     .end local v1           #error_report:Ljava/lang/String;
     .end local v2           #policy:Lcom/htc/utils/ulog/UPolicy;
+    .end local v3           #uiMode:Ljava/lang/String;
     .end local v4           #usage_report:Ljava/lang/String;
     :cond_1
     return-void
@@ -3475,6 +3447,7 @@
     .restart local v0       #UBSwitch:Ljava/lang/String;
     .restart local v1       #error_report:Ljava/lang/String;
     .restart local v2       #policy:Lcom/htc/utils/ulog/UPolicy;
+    .restart local v3       #uiMode:Ljava/lang/String;
     .restart local v4       #usage_report:Ljava/lang/String;
     :cond_2
     const-string v0, "0"

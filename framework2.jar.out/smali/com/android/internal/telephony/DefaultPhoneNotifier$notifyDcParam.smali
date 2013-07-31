@@ -56,51 +56,51 @@
 
     const/4 v0, 0x0
 
-    .line 1008
+    .line 1002
     iput-object p1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1009
+    .line 1003
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_state:Lcom/android/internal/telephony/Phone$DataState;
 
-    .line 1010
+    .line 1004
     iput-boolean v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_possible:Z
 
-    .line 1011
+    .line 1005
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_reason:Ljava/lang/String;
 
-    .line 1012
+    .line 1006
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_apn:Ljava/lang/String;
 
-    .line 1013
+    .line 1007
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
-    .line 1014
+    .line 1008
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkCapabilities:Landroid/net/LinkCapabilities;
 
-    .line 1015
+    .line 1009
     iput v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_tech:I
 
-    .line 1016
+    .line 1010
     iput-boolean v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_roaming:Z
 
-    .line 1017
+    .line 1011
     iput v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_errorCause:I
 
-    .line 1019
+    .line 1013
     iput v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_any_DCState:I
 
-    .line 1020
+    .line 1014
     iput v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_each_DCState:I
 
-    .line 1021
+    .line 1015
     iput v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_ipv_DCState:I
 
-    .line 1022
+    .line 1016
     iput-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_ipv:Lcom/android/internal/telephony/Phone$IPVersion;
 
-    .line 1023
+    .line 1017
     return-void
 .end method
 
@@ -110,7 +110,7 @@
     .parameter "x1"
 
     .prologue
-    .line 992
+    .line 986
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;-><init>(Lcom/android/internal/telephony/DefaultPhoneNotifier;)V
 
     return-void
@@ -130,7 +130,7 @@
     .parameter "errorCause"
 
     .prologue
-    .line 1078
+    .line 1072
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_state:Lcom/android/internal/telephony/Phone$DataState;
 
     if-ne v0, p4, :cond_4
@@ -213,10 +213,10 @@
 
     if-eqz v0, :cond_4
 
-    .line 1089
+    .line 1083
     const/4 v0, 0x1
 
-    .line 1091
+    .line 1085
     :goto_0
     return v0
 
@@ -236,7 +236,7 @@
     .parameter "linkProperties"
 
     .prologue
-    .line 1097
+    .line 1091
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_ipv:Lcom/android/internal/telephony/Phone$IPVersion;
 
     if-eqz v0, :cond_0
@@ -281,10 +281,10 @@
 
     if-eqz v0, :cond_2
 
-    .line 1105
+    .line 1099
     const/4 v0, 0x1
 
-    .line 1107
+    .line 1101
     :goto_0
     return v0
 
@@ -305,7 +305,7 @@
     .parameter "x6"
 
     .prologue
-    .line 992
+    .line 986
     invoke-direct/range {p0 .. p6}, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->HtcDupNotifyDcParam(ZIZLcom/android/internal/telephony/Phone$IPVersion;ILandroid/net/LinkProperties;)Z
 
     move-result v0
@@ -324,7 +324,7 @@
     .parameter "x6"
 
     .prologue
-    .line 992
+    .line 986
     invoke-direct/range {p0 .. p6}, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->configNotifyDcParam(ZZILcom/android/internal/telephony/Phone$IPVersion;ILandroid/net/LinkProperties;)V
 
     return-void
@@ -345,7 +345,7 @@
     .parameter "x10"
 
     .prologue
-    .line 992
+    .line 986
     invoke-direct/range {p0 .. p10}, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->HtcDupNotifyDcParam(Lcom/android/internal/telephony/Phone;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/Phone$DataState;ZIZLandroid/net/LinkProperties;Landroid/net/LinkCapabilities;I)Z
 
     move-result v0
@@ -367,7 +367,7 @@
     .parameter "x9"
 
     .prologue
-    .line 992
+    .line 986
     invoke-direct/range {p0 .. p9}, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->configNotifyDcParam(Lcom/android/internal/telephony/Phone$DataState;Landroid/net/LinkProperties;Landroid/net/LinkCapabilities;ZZIILjava/lang/String;Ljava/lang/String;)V
 
     return-void
@@ -382,14 +382,14 @@
 
     const/4 v0, 0x0
 
-    .line 1049
+    .line 1043
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     if-eqz v2, :cond_2
 
     if-eqz p1, :cond_2
 
-    .line 1050
+    .line 1044
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalAddresses(Landroid/net/LinkProperties;)Z
@@ -398,12 +398,12 @@
 
     if-nez v2, :cond_1
 
-    .line 1072
+    .line 1066
     :cond_0
     :goto_0
     return v0
 
-    .line 1052
+    .line 1046
     :cond_1
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
@@ -413,7 +413,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1054
+    .line 1048
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalHttpProxy(Landroid/net/LinkProperties;)Z
@@ -422,7 +422,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1056
+    .line 1050
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalHttpProxyV6(Landroid/net/LinkProperties;)Z
@@ -431,7 +431,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1058
+    .line 1052
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalInterfaceName(Landroid/net/LinkProperties;)Z
@@ -440,7 +440,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1060
+    .line 1054
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalInterfaceNameV6(Landroid/net/LinkProperties;)Z
@@ -449,7 +449,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1062
+    .line 1056
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
     invoke-virtual {v2, p1}, Landroid/net/LinkProperties;->isIdenticalRoutes(Landroid/net/LinkProperties;)Z
@@ -458,7 +458,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 1065
+    .line 1059
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
     const-string v2, "compareLinkProperty rat = true"
@@ -468,10 +468,10 @@
 
     move v0, v1
 
-    .line 1066
+    .line 1060
     goto :goto_0
 
-    .line 1067
+    .line 1061
     :cond_2
     iget-object v2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
@@ -479,7 +479,7 @@
 
     if-nez p1, :cond_3
 
-    .line 1068
+    .line 1062
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
     const-string v2, "compareLinkProperty linkProperties = null ,rat = true"
@@ -489,10 +489,10 @@
 
     move v0, v1
 
-    .line 1069
+    .line 1063
     goto :goto_0
 
-    .line 1071
+    .line 1065
     :cond_3
     iget-object v1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
@@ -517,34 +517,34 @@
     .parameter "reason"
 
     .prologue
-    .line 1026
+    .line 1020
     iput-object p1, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_state:Lcom/android/internal/telephony/Phone$DataState;
 
-    .line 1027
+    .line 1021
     iput-boolean p4, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_possible:Z
 
-    .line 1028
+    .line 1022
     iput-object p9, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_reason:Ljava/lang/String;
 
-    .line 1029
+    .line 1023
     iput-object p8, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_apn:Ljava/lang/String;
 
-    .line 1030
+    .line 1024
     iput-object p2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
-    .line 1031
+    .line 1025
     iput-object p3, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkCapabilities:Landroid/net/LinkCapabilities;
 
-    .line 1032
+    .line 1026
     iput p6, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_tech:I
 
-    .line 1033
+    .line 1027
     iput-boolean p5, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_roaming:Z
 
-    .line 1034
+    .line 1028
     iput p7, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_errorCause:I
 
-    .line 1035
+    .line 1029
     return-void
 .end method
 
@@ -558,30 +558,30 @@
     .parameter "linkProperties"
 
     .prologue
-    .line 1040
+    .line 1034
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
     #setter for: Lcom/android/internal/telephony/DefaultPhoneNotifier;->latest_isDCPossible:Z
     invoke-static {v0, p1}, Lcom/android/internal/telephony/DefaultPhoneNotifier;->access$502(Lcom/android/internal/telephony/DefaultPhoneNotifier;Z)Z
 
-    .line 1041
+    .line 1035
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->this$0:Lcom/android/internal/telephony/DefaultPhoneNotifier;
 
     #setter for: Lcom/android/internal/telephony/DefaultPhoneNotifier;->latest_techIcon:I
     invoke-static {v0, p3}, Lcom/android/internal/telephony/DefaultPhoneNotifier;->access$602(Lcom/android/internal/telephony/DefaultPhoneNotifier;I)I
 
-    .line 1042
+    .line 1036
     iput-object p4, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_ipv:Lcom/android/internal/telephony/Phone$IPVersion;
 
-    .line 1043
+    .line 1037
     iput-boolean p2, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_roaming:Z
 
-    .line 1044
+    .line 1038
     iput p5, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_each_DCState:I
 
-    .line 1045
+    .line 1039
     iput-object p6, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier$notifyDcParam;->latest_linkProperties:Landroid/net/LinkProperties;
 
-    .line 1046
+    .line 1040
     return-void
 .end method

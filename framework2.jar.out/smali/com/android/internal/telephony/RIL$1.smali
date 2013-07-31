@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 349
+    .line 345
     iput-object p1, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 352
+    .line 348
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
@@ -53,7 +53,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 353
+    .line 349
     iget-object v4, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
     const/4 v5, 0x1
@@ -61,11 +61,11 @@
     #calls: Lcom/android/internal/telephony/RIL;->sendScreenState(Z)V
     invoke-static {v4, v5}, Lcom/android/internal/telephony/RIL;->access$000(Lcom/android/internal/telephony/RIL;Z)V
 
-    .line 390
+    .line 386
     :goto_0
     return-void
 
-    .line 354
+    .line 350
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -79,7 +79,7 @@
 
     if-eqz v4, :cond_1
 
-    .line 355
+    .line 351
     iget-object v4, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
     const/4 v5, 0x0
@@ -89,7 +89,7 @@
 
     goto :goto_0
 
-    .line 357
+    .line 353
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -103,7 +103,7 @@
 
     if-eqz v4, :cond_5
 
-    .line 358
+    .line 354
     const-string v4, "android.bluetooth.device.extra.DEVICE"
 
     invoke-virtual {p2, v4}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -112,7 +112,7 @@
 
     check-cast v3, Landroid/bluetooth/BluetoothDevice;
 
-    .line 359
+    .line 355
     .local v3, device:Landroid/bluetooth/BluetoothDevice;
     const-string v4, "android.bluetooth.device.extra.BOND_STATE"
 
@@ -122,7 +122,7 @@
 
     move-result v1
 
-    .line 361
+    .line 357
     .local v1, bondState:I
     const-string v4, "RILJ"
 
@@ -146,28 +146,28 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 363
+    .line 359
     const/4 v0, 0x0
 
-    .line 364
+    .line 360
     .local v0, bCheckFlag:Z
     if-eqz v3, :cond_4
 
-    .line 366
+    .line 362
     const/16 v4, 0xc
 
     if-ne v1, v4, :cond_2
 
-    .line 368
+    .line 364
     invoke-virtual {v3}, Landroid/bluetooth/BluetoothDevice;->getBluetoothClass()Landroid/bluetooth/BluetoothClass;
 
     move-result-object v2
 
-    .line 369
+    .line 365
     .local v2, btClass:Landroid/bluetooth/BluetoothClass;
     if-eqz v2, :cond_3
 
-    .line 371
+    .line 367
     const/16 v4, 0xb
 
     invoke-virtual {v2, v4}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
@@ -176,10 +176,10 @@
 
     if-eqz v4, :cond_2
 
-    .line 372
+    .line 368
     const/4 v0, 0x1
 
-    .line 384
+    .line 380
     .end local v2           #btClass:Landroid/bluetooth/BluetoothClass;
     :cond_2
     :goto_1
@@ -205,7 +205,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 385
+    .line 381
     iget-object v4, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
     #calls: Lcom/android/internal/telephony/RIL;->sendCarkitState(Z)V
@@ -213,7 +213,7 @@
 
     goto :goto_0
 
-    .line 376
+    .line 372
     .restart local v2       #btClass:Landroid/bluetooth/BluetoothClass;
     :cond_3
     const-string v4, "RILJ"
@@ -224,7 +224,7 @@
 
     goto :goto_1
 
-    .line 381
+    .line 377
     .end local v2           #btClass:Landroid/bluetooth/BluetoothClass;
     :cond_4
     const-string v4, "RILJ"
@@ -235,7 +235,7 @@
 
     goto :goto_1
 
-    .line 388
+    .line 384
     .end local v0           #bCheckFlag:Z
     .end local v1           #bondState:I
     .end local v3           #device:Landroid/bluetooth/BluetoothDevice;

@@ -382,7 +382,7 @@
     .parameter "sipAudioCall"
 
     .prologue
-    .line 895
+    .line 892
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->isOnHold()Z
 
     move-result v1
@@ -391,21 +391,21 @@
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->HOLDING:Lcom/android/internal/telephony/Call$State;
 
-    .line 907
+    .line 904
     :goto_0
     return-object v1
 
-    .line 896
+    .line 893
     :cond_0
     invoke-virtual {p0}, Landroid/net/sip/SipAudioCall;->getState()I
 
     move-result v0
 
-    .line 897
+    .line 894
     .local v0, sessionState:I
     packed-switch v0, :pswitch_data_0
 
-    .line 906
+    .line 903
     :pswitch_0
     const-string v1, "SipPhone"
 
@@ -429,48 +429,48 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 907
+    .line 904
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 898
+    .line 895
     :pswitch_1
     sget-object v1, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 900
+    .line 897
     :pswitch_2
     sget-object v1, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 901
+    .line 898
     :pswitch_3
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DIALING:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 902
+    .line 899
     :pswitch_4
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ALERTING:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 903
+    .line 900
     :pswitch_5
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 904
+    .line 901
     :pswitch_6
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ACTIVE:Lcom/android/internal/telephony/Call$State;
 
     goto :goto_0
 
-    .line 897
+    .line 894
     nop
 
     :pswitch_data_0
@@ -925,7 +925,7 @@
     .parameter "result"
 
     .prologue
-    .line 1050
+    .line 1047
     return-void
 .end method
 
@@ -945,7 +945,7 @@
     .locals 1
 
     .prologue
-    .line 1086
+    .line 1083
     const/4 v0, 0x0
 
     return v0
@@ -1003,7 +1003,7 @@
     .locals 0
 
     .prologue
-    .line 1111
+    .line 1108
     return-void
 .end method
 
@@ -1051,7 +1051,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "wrong state to merge calls: fg="
+    const-string/jumbo v3, "wrong state to merge calls: fg="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1216,7 +1216,7 @@
     .locals 0
 
     .prologue
-    .line 1381
+    .line 1378
     return-void
 .end method
 
@@ -1285,7 +1285,7 @@
     .end annotation
 
     .prologue
-    .line 1010
+    .line 1007
     const/4 v0, 0x0
 
     return-object v0
@@ -1340,7 +1340,7 @@
     .parameter "enable"
 
     .prologue
-    .line 1315
+    .line 1312
     return-void
 .end method
 
@@ -1433,7 +1433,7 @@
     .locals 1
 
     .prologue
-    .line 1320
+    .line 1317
     const/4 v0, 0x0
 
     return-object v0
@@ -1464,7 +1464,7 @@
     .locals 1
 
     .prologue
-    .line 1140
+    .line 1137
     const/4 v0, 0x0
 
     return v0
@@ -1474,7 +1474,7 @@
     .locals 1
 
     .prologue
-    .line 1302
+    .line 1299
     const/4 v0, 0x0
 
     return-object v0
@@ -1486,7 +1486,7 @@
     .parameter "onComplete"
 
     .prologue
-    .line 1036
+    .line 1033
     return-void
 .end method
 
@@ -1518,7 +1518,7 @@
     .locals 1
 
     .prologue
-    .line 998
+    .line 995
     const/4 v0, 0x0
 
     return-object v0
@@ -1592,7 +1592,7 @@
     .locals 1
 
     .prologue
-    .line 1022
+    .line 1019
     const/4 v0, 0x0
 
     return v0
@@ -1650,7 +1650,7 @@
     .locals 1
 
     .prologue
-    .line 1061
+    .line 1058
     const/4 v0, 0x0
 
     return-object v0
@@ -1661,7 +1661,7 @@
     .parameter "phoneType"
 
     .prologue
-    .line 1066
+    .line 1063
     invoke-virtual {p0}, Lcom/android/internal/telephony/sip/SipPhone;->getDetailIccStatus()[I
 
     move-result-object v0
@@ -1719,7 +1719,7 @@
     .locals 1
 
     .prologue
-    .line 1116
+    .line 1113
     const/4 v0, 0x0
 
     return v0
@@ -1754,7 +1754,7 @@
     .parameter "appType"
 
     .prologue
-    .line 1374
+    .line 1371
     const/4 v0, 0x0
 
     return-object v0
@@ -1944,7 +1944,7 @@
     .locals 1
 
     .prologue
-    .line 1098
+    .line 1095
     const/4 v0, 0x0
 
     return-object v0
@@ -1971,7 +1971,7 @@
     .locals 1
 
     .prologue
-    .line 1004
+    .line 1001
     const/4 v0, 0x0
 
     return-object v0
@@ -2050,7 +2050,7 @@
     .parameter "response"
 
     .prologue
-    .line 1105
+    .line 1102
     return-void
 .end method
 
@@ -2132,7 +2132,7 @@
     .parameter "response"
 
     .prologue
-    .line 1147
+    .line 1144
     return-void
 .end method
 
@@ -2140,7 +2140,7 @@
     .locals 1
 
     .prologue
-    .line 1016
+    .line 1013
     const/4 v0, 0x0
 
     return v0
@@ -2205,7 +2205,7 @@
     .locals 0
 
     .prologue
-    .line 1261
+    .line 1258
     return-void
 .end method
 
@@ -2213,7 +2213,7 @@
     .locals 1
 
     .prologue
-    .line 1266
+    .line 1263
     const/4 v0, 0x0
 
     return v0
@@ -2224,7 +2224,7 @@
     .parameter "dis"
 
     .prologue
-    .line 1296
+    .line 1293
     const/4 v0, 0x0
 
     return v0
@@ -2234,7 +2234,7 @@
     .locals 0
 
     .prologue
-    .line 1159
+    .line 1156
     return-void
 .end method
 
@@ -2264,7 +2264,7 @@
     .locals 1
 
     .prologue
-    .line 1362
+    .line 1359
     const/4 v0, 0x0
 
     return v0
@@ -2274,7 +2274,7 @@
     .locals 1
 
     .prologue
-    .line 1092
+    .line 1089
     const/4 v0, 0x0
 
     return v0
@@ -2309,7 +2309,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1273
+    .line 1270
     return-void
 .end method
 
@@ -2320,7 +2320,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1213
+    .line 1210
     return-void
 .end method
 
@@ -2331,7 +2331,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1189
+    .line 1186
     return-void
 .end method
 
@@ -2342,7 +2342,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1243
+    .line 1240
     return-void
 .end method
 
@@ -2353,7 +2353,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1177
+    .line 1174
     return-void
 .end method
 
@@ -2364,7 +2364,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1285
+    .line 1282
     return-void
 .end method
 
@@ -2375,7 +2375,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1351
+    .line 1348
     return-void
 .end method
 
@@ -2399,7 +2399,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1201
+    .line 1198
     return-void
 .end method
 
@@ -2423,7 +2423,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1225
+    .line 1222
     return-void
 .end method
 
@@ -2434,7 +2434,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1339
+    .line 1336
     return-void
 .end method
 
@@ -2445,7 +2445,7 @@
     .parameter "obj"
 
     .prologue
-    .line 1327
+    .line 1324
     return-void
 .end method
 
@@ -2521,7 +2521,7 @@
     .parameter "response"
 
     .prologue
-    .line 1237
+    .line 1234
     return-void
 .end method
 
@@ -2531,7 +2531,7 @@
     .parameter "response"
 
     .prologue
-    .line 1129
+    .line 1126
     return-void
 .end method
 
@@ -2540,7 +2540,7 @@
     .parameter "response"
 
     .prologue
-    .line 1171
+    .line 1168
     return-void
 .end method
 
@@ -2550,7 +2550,7 @@
     .parameter "response"
 
     .prologue
-    .line 1165
+    .line 1162
     return-void
 .end method
 
@@ -2559,7 +2559,7 @@
     .parameter "response"
 
     .prologue
-    .line 1255
+    .line 1252
     return-void
 .end method
 
@@ -2568,7 +2568,7 @@
     .parameter "msg"
 
     .prologue
-    .line 975
+    .line 972
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->ringingCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
@@ -2586,12 +2586,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 976
+    .line 973
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->ringingCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->hangup()V
 
-    .line 979
+    .line 976
     :cond_0
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->foregroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
@@ -2609,12 +2609,12 @@
 
     if-eqz v1, :cond_1
 
-    .line 980
+    .line 977
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->foregroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->hangup()V
 
-    .line 983
+    .line 980
     :cond_1
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->backgroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
@@ -2632,23 +2632,23 @@
 
     if-eqz v1, :cond_2
 
-    .line 984
+    .line 981
     iget-object v1, p0, Lcom/android/internal/telephony/sip/SipPhone;->backgroundCall:Lcom/android/internal/telephony/sip/SipPhone$SipCall;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/sip/SipPhone$SipCall;->hangup()V
     :try_end_0
     .catch Lcom/android/internal/telephony/CallStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 991
+    .line 988
     :cond_2
     :goto_0
     return-void
 
-    .line 986
+    .line 983
     :catch_0
     move-exception v0
 
-    .line 988
+    .line 985
     .local v0, e:Lcom/android/internal/telephony/CallStateException;
     invoke-virtual {v0}, Lcom/android/internal/telephony/CallStateException;->printStackTrace()V
 
@@ -2662,7 +2662,7 @@
     .parameter "response"
 
     .prologue
-    .line 1135
+    .line 1132
     return-void
 .end method
 
@@ -2808,7 +2808,7 @@
     .parameter "onComplete"
 
     .prologue
-    .line 1075
+    .line 1072
     return-void
 .end method
 
@@ -2818,7 +2818,7 @@
     .parameter "dialNumber"
 
     .prologue
-    .line 1308
+    .line 1305
     const/4 v0, 0x0
 
     return v0
@@ -2832,7 +2832,7 @@
     .parameter "onComplete"
 
     .prologue
-    .line 1043
+    .line 1040
     return-void
 .end method
 
@@ -2889,7 +2889,7 @@
     .parameter "onComplete"
 
     .prologue
-    .line 1030
+    .line 1027
     return-void
 .end method
 
@@ -2898,7 +2898,7 @@
     .parameter "mode"
 
     .prologue
-    .line 1056
+    .line 1053
     return-void
 .end method
 
@@ -3050,7 +3050,7 @@
     .parameter "power"
 
     .prologue
-    .line 1369
+    .line 1366
     return-void
 .end method
 
@@ -3061,7 +3061,7 @@
     .parameter "response"
 
     .prologue
-    .line 1153
+    .line 1150
     return-void
 .end method
 
@@ -3071,7 +3071,7 @@
     .parameter "ef_ad"
 
     .prologue
-    .line 1081
+    .line 1078
     return-void
 .end method
 
@@ -3107,7 +3107,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "startDtmf called with invalid character \'"
+    const-string/jumbo v2, "startDtmf called with invalid character \'"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3234,7 +3234,7 @@
     .locals 0
 
     .prologue
-    .line 1123
+    .line 1120
     return-void
 .end method
 
@@ -3243,7 +3243,7 @@
     .parameter "h"
 
     .prologue
-    .line 1279
+    .line 1276
     return-void
 .end method
 
@@ -3252,7 +3252,7 @@
     .parameter "h"
 
     .prologue
-    .line 1219
+    .line 1216
     return-void
 .end method
 
@@ -3261,7 +3261,7 @@
     .parameter "h"
 
     .prologue
-    .line 1195
+    .line 1192
     return-void
 .end method
 
@@ -3270,7 +3270,7 @@
     .parameter "h"
 
     .prologue
-    .line 1249
+    .line 1246
     return-void
 .end method
 
@@ -3279,7 +3279,7 @@
     .parameter "h"
 
     .prologue
-    .line 1183
+    .line 1180
     return-void
 .end method
 
@@ -3288,7 +3288,7 @@
     .parameter "h"
 
     .prologue
-    .line 1291
+    .line 1288
     return-void
 .end method
 
@@ -3297,7 +3297,7 @@
     .parameter "h"
 
     .prologue
-    .line 1357
+    .line 1354
     return-void
 .end method
 
@@ -3317,7 +3317,7 @@
     .parameter "h"
 
     .prologue
-    .line 1207
+    .line 1204
     return-void
 .end method
 
@@ -3337,7 +3337,7 @@
     .parameter "h"
 
     .prologue
-    .line 1231
+    .line 1228
     return-void
 .end method
 
@@ -3346,7 +3346,7 @@
     .parameter "h"
 
     .prologue
-    .line 1345
+    .line 1342
     return-void
 .end method
 
@@ -3355,7 +3355,7 @@
     .parameter "h"
 
     .prologue
-    .line 1333
+    .line 1330
     return-void
 .end method
 

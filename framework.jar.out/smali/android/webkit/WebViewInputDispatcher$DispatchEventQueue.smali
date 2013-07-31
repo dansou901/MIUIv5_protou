@@ -25,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 1259
+    .line 1317
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,7 +36,7 @@
     .parameter "x0"
 
     .prologue
-    .line 1259
+    .line 1317
     invoke-direct {p0}, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;-><init>()V
 
     return-void
@@ -50,38 +50,38 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1278
+    .line 1336
     iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1279
+    .line 1337
     .local v0, d:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
     if-eqz v0, :cond_0
 
-    .line 1280
+    .line 1338
     iget-object v1, v0, Landroid/webkit/WebViewInputDispatcher$DispatchEvent;->mNext:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1281
+    .line 1339
     .local v1, next:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
     if-nez v1, :cond_1
 
-    .line 1282
+    .line 1340
     iput-object v2, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1283
+    .line 1341
     iput-object v2, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mTail:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1289
+    .line 1347
     .end local v1           #next:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
     :cond_0
     :goto_0
     return-object v0
 
-    .line 1285
+    .line 1343
     .restart local v1       #next:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
     :cond_1
     iput-object v1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1286
+    .line 1344
     iput-object v2, v0, Landroid/webkit/WebViewInputDispatcher$DispatchEvent;->mNext:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
     goto :goto_0
@@ -93,20 +93,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 1293
+    .line 1351
     iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1294
+    .line 1352
     .local v0, d:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
     if-eqz v0, :cond_0
 
-    .line 1295
+    .line 1353
     iput-object v1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1296
+    .line 1354
     iput-object v1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mTail:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1298
+    .line 1356
     :cond_0
     return-object v0
 .end method
@@ -116,28 +116,28 @@
     .parameter "d"
 
     .prologue
-    .line 1268
+    .line 1326
     iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
     if-nez v0, :cond_0
 
-    .line 1269
+    .line 1327
     iput-object p1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1270
+    .line 1328
     iput-object p1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mTail:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1275
+    .line 1333
     :goto_0
     return-void
 
-    .line 1272
+    .line 1330
     :cond_0
     iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mTail:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
     iput-object p1, v0, Landroid/webkit/WebViewInputDispatcher$DispatchEvent;->mNext:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
-    .line 1273
+    .line 1331
     iput-object p1, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mTail:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
     goto :goto_0
@@ -147,7 +147,7 @@
     .locals 1
 
     .prologue
-    .line 1264
+    .line 1322
     iget-object v0, p0, Landroid/webkit/WebViewInputDispatcher$DispatchEventQueue;->mHead:Landroid/webkit/WebViewInputDispatcher$DispatchEvent;
 
     if-eqz v0, :cond_0

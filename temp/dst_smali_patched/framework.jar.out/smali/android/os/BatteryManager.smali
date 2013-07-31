@@ -52,13 +52,9 @@
 
 .field public static final EXTRA_STATUS:Ljava/lang/String; = "status"
 
-.field public static final EXTRA_SUPPORT_EXTENSION:Ljava/lang/String; = "support_extension"
-
 .field public static final EXTRA_TECHNOLOGY:Ljava/lang/String; = "technology"
 
 .field public static final EXTRA_TEMPERATURE:Ljava/lang/String; = "temperature"
-
-.field public static final EXTRA_UNSUPPORT_CHARGER:Ljava/lang/String; = "unsupport_charger"
 
 .field public static final EXTRA_VOLTAGE:Ljava/lang/String; = "voltage"
 

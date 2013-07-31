@@ -58,8 +58,6 @@
 
 .field private static final SEEK:I = 0x65
 
-.field private static final SET_VISIBILITY:I = 0x72
-
 .field private static final SET_VOLUME:I = 0x6d
 
 .field private static final SIZE_CHANGED:I = 0xcd
@@ -348,9 +346,6 @@
     return-object v0
 .end method
 
-.method private native nativeGetMediaResourceUrl(I)Ljava/lang/String;
-.end method
-
 .method private native nativeOnEnded(I)V
 .end method
 
@@ -600,30 +595,6 @@
     return-object v0
 .end method
 
-.method public getHTML5VideoResource()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    iget v1, p0, Landroid/webkit/HTML5VideoViewProxy;->mNativePointer:I
-
-    invoke-direct {p0, v1}, Landroid/webkit/HTML5VideoViewProxy;->nativeGetMediaResourceUrl(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .local v0, mediaUrl:Ljava/lang/String;
-    invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x0
-
-    .end local v0           #mediaUrl:Ljava/lang/String;
-    :cond_0
-    return-object v0
-.end method
-
 .method public getVideoLayerId()I
     .locals 1
 
@@ -643,7 +614,7 @@
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 13
+    .locals 12
     .parameter "msg"
 
     .prologue
@@ -870,16 +841,16 @@
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    move-result v12
+    move-result v11
 
-    .local v12, vol:F
+    .local v11, vol:F
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy;->mVideoPlayer:Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;
 
-    invoke-virtual {v0, v12}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->setVolume(F)V
+    invoke-virtual {v0, v11}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->setVolume(F)V
 
     goto/16 :goto_0
 
-    .end local v12           #vol:F
+    .end local v11           #vol:F
     :sswitch_e
     iget-object v7, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -941,25 +912,6 @@
 
     goto/16 :goto_0
 
-    .end local v7           #info:Landroid/webkit/HTML5VideoViewProxy$InlineVideoInfo;
-    :sswitch_10
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/Boolean;
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v11
-
-    .local v11, visible:Z
-    iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy;->mVideoPlayer:Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;
-
-    invoke-virtual {v0, v11}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->setMediaIsVisible(Z)V
-
-    goto/16 :goto_0
-
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_0
@@ -976,7 +928,6 @@
         0x6f -> :sswitch_1
         0x70 -> :sswitch_e
         0x71 -> :sswitch_f
-        0x72 -> :sswitch_10
         0xc9 -> :sswitch_5
         0x12c -> :sswitch_8
     .end sparse-switch
@@ -987,19 +938,6 @@
 
     .prologue
     iget-boolean v0, p0, Landroid/webkit/HTML5VideoViewProxy;->mIsFullscreen:Z
-
-    return v0
-.end method
-
-.method public isMediaVisible()Z
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy;->mVideoPlayer:Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;
-
-    invoke-virtual {v0}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->isMediaVisible()Z
-
-    move-result v0
 
     return v0
 .end method
@@ -1500,29 +1438,6 @@
     iget-object v0, p0, Landroid/webkit/HTML5VideoViewProxy;->mVideoPlayer:Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;
 
     invoke-virtual {v0, p1}, Landroid/webkit/HTML5VideoViewProxy$VideoPlayer;->setBaseLayer(I)V
-
-    return-void
-.end method
-
-.method public setVisibility(Z)V
-    .locals 2
-    .parameter "visible"
-
-    .prologue
-    const/16 v1, 0x72
-
-    invoke-virtual {p0, v1}, Landroid/webkit/HTML5VideoViewProxy;->obtainMessage(I)Landroid/os/Message;
-
-    move-result-object v0
-
-    .local v0, message:Landroid/os/Message;
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {p0, v0}, Landroid/webkit/HTML5VideoViewProxy;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

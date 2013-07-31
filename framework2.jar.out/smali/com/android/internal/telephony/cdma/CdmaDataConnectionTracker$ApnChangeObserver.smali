@@ -24,10 +24,10 @@
     .parameter
 
     .prologue
-    .line 200
+    .line 194
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$ApnChangeObserver;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
-    .line 201
+    .line 195
     #getter for: Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->mDataConnectionTracker:Landroid/os/Handler;
     invoke-static {p1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->access$000(Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;)Landroid/os/Handler;
 
@@ -35,7 +35,7 @@
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 202
+    .line 196
     return-void
 .end method
 
@@ -46,7 +46,7 @@
     .parameter "selfChange"
 
     .prologue
-    .line 206
+    .line 200
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$ApnChangeObserver;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
 
     iget-object v1, p0, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker$ApnChangeObserver;->this$0:Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/cdma/CdmaDataConnectionTracker;->sendMessage(Landroid/os/Message;)Z
 
-    .line 207
+    .line 201
     return-void
 .end method

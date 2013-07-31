@@ -4,8 +4,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/WifiService;-><init>(Landroid/content/Context;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/server/WifiService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1293
+    .line 2671
     iput-object p1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,20 +35,75 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 8
     .parameter "context"
     .parameter "intent"
 
     .prologue
-    .line 1297
-    const-string v0, "WifiService"
+    const/4 v7, 0x0
 
-    const-string v1, ">>>>>>>>sky: start checkHtcCustomization<<<<<<<<"
+    const/4 v6, 0x1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v5, 0x0
 
-    .line 1298
-    iget-object v0, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+    .line 2674
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 2675
+    .local v0, action:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mProcessingMHS:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$4900(Lcom/android/server/WifiService;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string v1, "android.net.conn.HTC_PERMITTED_TETHER_CHANGE"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 2676
+    const-string v1, "WifiService"
+
+    const-string v2, "GOT ConnectivityManager.HTC_PERMITTED_TETHER_ACTION"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2677
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mEnableMhsFeature:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$1000(Lcom/android/server/WifiService;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mProcessingMHS:Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$4900(Lcom/android/server/WifiService;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 2697
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 2679
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
 
     iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
 
@@ -57,16 +112,128 @@
 
     move-result-object v1
 
-    #calls: Lcom/android/server/WifiService;->checkHtcCustomization(Landroid/content/Context;)V
-    invoke-static {v0, v1}, Lcom/android/server/WifiService;->access$5000(Lcom/android/server/WifiService;Landroid/content/Context;)V
+    const-string v3, "connectivity"
 
-    .line 1299
-    const-string v0, "WifiService"
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string v1, ">>>>>>>>sky: end checkHtcCustomization<<<<<<<<"
+    move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    check-cast v1, Landroid/net/ConnectivityManager;
 
-    .line 1300
-    return-void
+    iput-object v1, v2, Lcom/android/server/WifiService;->mCm:Landroid/net/ConnectivityManager;
+
+    .line 2680
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    iget-object v2, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    iget-object v2, v2, Lcom/android/server/WifiService;->mCm:Landroid/net/ConnectivityManager;
+
+    const/16 v3, -0x23
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v2, v3, v4, v7}, Landroid/net/ConnectivityManager;->htcRequestPermittedTether(IILjava/lang/String;)I
+
+    move-result v2
+
+    #setter for: Lcom/android/server/WifiService;->mMhsStatus:I
+    invoke-static {v1, v2}, Lcom/android/server/WifiService;->access$5002(Lcom/android/server/WifiService;I)I
+
+    .line 2681
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mMhsStatus:I
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$5000(Lcom/android/server/WifiService;)I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 2682
+    const-string v1, "WifiService"
+
+    const-string v2, "MHS HTC_PERMITTED_TETHER_ALLOW"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2683
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #setter for: Lcom/android/server/WifiService;->mWifiApMhsPermission:Z
+    invoke-static {v1, v6}, Lcom/android/server/WifiService;->access$1102(Lcom/android/server/WifiService;Z)Z
+
+    .line 2684
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #setter for: Lcom/android/server/WifiService;->mProcessingMHS:Z
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4902(Lcom/android/server/WifiService;Z)Z
+
+    .line 2685
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #calls: Lcom/android/server/WifiService;->checkWifiApRemindDialog()Z
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$5100(Lcom/android/server/WifiService;)Z
+
+    goto :goto_0
+
+    .line 2686
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mMhsStatus:I
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$5000(Lcom/android/server/WifiService;)I
+
+    move-result v1
+
+    if-ne v1, v6, :cond_0
+
+    .line 2687
+    const-string v1, "WifiService"
+
+    const-string v2, "MHS HTC_PERMITTED_TETHER_DENY"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2688
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #setter for: Lcom/android/server/WifiService;->mWifiApMhsPermission:Z
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$1102(Lcom/android/server/WifiService;Z)Z
+
+    .line 2689
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #setter for: Lcom/android/server/WifiService;->mProcessingMHS:Z
+    invoke-static {v1, v5}, Lcom/android/server/WifiService;->access$4902(Lcom/android/server/WifiService;Z)Z
+
+    .line 2690
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    #getter for: Lcom/android/server/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$800(Lcom/android/server/WifiService;)Landroid/net/wifi/WifiStateMachine;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiStateMachine;->syncGetWifiApState()I
+
+    move-result v1
+
+    const/16 v2, 0xd
+
+    if-ne v1, v2, :cond_0
+
+    .line 2691
+    const-string v1, "WifiService"
+
+    const-string v2, "disable wifi ap by HTC_PERMITTED_TETHER_DENY"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2692
+    iget-object v1, p0, Lcom/android/server/WifiService$16;->this$0:Lcom/android/server/WifiService;
+
+    invoke-virtual {v1, v7, v5}, Lcom/android/server/WifiService;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)V
+
+    goto :goto_0
 .end method

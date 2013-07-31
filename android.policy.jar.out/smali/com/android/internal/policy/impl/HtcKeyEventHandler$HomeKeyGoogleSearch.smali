@@ -183,17 +183,18 @@
 .end method
 
 .method protected longPressBeforeDispatch(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/KeyEvent;I)I
-    .locals 4
+    .locals 3
     .parameter "win"
     .parameter "event"
     .parameter "policyFlags"
 
     .prologue
-    const/16 v3, 0xdb
+    const/16 v2, 0xdb
 
-    const/4 v2, 0x1
+    const/4 v0, -0x1
 
-    .line 424
+    return v0
+
     invoke-static {}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$000()Z
 
     move-result v0
@@ -206,15 +207,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 425
     :cond_0
-    invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
-
-    move-result v0
-
-    if-ne v0, v2, :cond_1
-
-    .line 426
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$HomeKeyGoogleSearch;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
@@ -222,21 +215,19 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p2, v0, v3}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+    invoke-static {p2, v0, v2}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
 
-    .line 427
     iget-object v0, p0, Lcom/android/internal/policy/impl/HtcKeyEventHandler$HomeKeyGoogleSearch;->this$0:Lcom/android/internal/policy/impl/HtcKeyEventHandler;
 
     #getter for: Lcom/android/internal/policy/impl/HtcKeyEventHandler;->mUtils:Lcom/android/internal/policy/impl/HtcPolicyUtils;
     invoke-static {v0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler;->access$100(Lcom/android/internal/policy/impl/HtcKeyEventHandler;)Lcom/android/internal/policy/impl/HtcPolicyUtils;
 
-    invoke-static {p2, v2, v3}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+    const/4 v0, 0x1
 
-    .line 429
-    :cond_1
+    invoke-static {p2, v0, v2}, Lcom/android/internal/policy/impl/HtcPolicyUtils;->injectTranslatedKeyEvent(Landroid/view/KeyEvent;II)V
+
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/HtcKeyEventHandler$HomeKeyGoogleSearch;->breakAction()V
 
-    .line 430
     const/4 v0, -0x1
 
     return v0

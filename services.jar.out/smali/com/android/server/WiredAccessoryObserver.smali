@@ -21,8 +21,6 @@
 
 .field private static final BIT_HEADSET_NO_MIC:I = 0x2
 
-.field private static final BIT_LISTEN_NOTIFICATION:I = 0x1
-
 .field private static final BIT_USB_ACCESSORY:I = 0x40
 
 .field private static final BIT_USB_DEVICE:I = 0x20
@@ -81,7 +79,7 @@
 
     sput-object v0, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
-    .line 162
+    .line 152
     invoke-static {}, Lcom/android/server/WiredAccessoryObserver;->makeObservedUEventList()Ljava/util/List;
 
     move-result-object v0
@@ -98,20 +96,20 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 173
+    .line 163
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
 
-    .line 369
+    .line 347
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$1;
 
     invoke-direct {v1, p0}, Lcom/android/server/WiredAccessoryObserver$1;-><init>(Lcom/android/server/WiredAccessoryObserver;)V
 
     iput-object v1, p0, Lcom/android/server/WiredAccessoryObserver;->mHandler:Landroid/os/Handler;
 
-    .line 174
+    .line 164
     iput-object p1, p0, Lcom/android/server/WiredAccessoryObserver;->mContext:Landroid/content/Context;
 
-    .line 175
+    .line 165
     const-string v1, "power"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -120,7 +118,7 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    .line 176
+    .line 166
     .local v0, pm:Landroid/os/PowerManager;
     const/4 v1, 0x1
 
@@ -132,14 +130,14 @@
 
     iput-object v1, p0, Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    .line 177
+    .line 167
     iget-object v1, p0, Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/os/PowerManager$WakeLock;->setReferenceCounted(Z)V
 
-    .line 178
+    .line 168
     const-string v1, "audio"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -150,7 +148,7 @@
 
     iput-object v1, p0, Lcom/android/server/WiredAccessoryObserver;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 180
+    .line 170
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;
 
     invoke-direct {v1, p0, v4}, Lcom/android/server/WiredAccessoryObserver$BootCompletedReceiver;-><init>(Lcom/android/server/WiredAccessoryObserver;Lcom/android/server/WiredAccessoryObserver$1;)V
@@ -163,7 +161,7 @@
 
     invoke-virtual {p1, v1, v2, v4, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 182
+    .line 172
     return-void
 .end method
 
@@ -217,7 +215,7 @@
     .locals 10
 
     .prologue
-    .line 249
+    .line 227
     monitor-enter p0
 
     const/16 v7, 0x400
@@ -225,20 +223,20 @@
     :try_start_0
     new-array v0, v7, [C
 
-    .line 250
+    .line 228
     .local v0, buffer:[C
     iget v7, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
     iput v7, p0, Lcom/android/server/WiredAccessoryObserver;->mPrevHeadsetState:I
 
-    .line 252
+    .line 230
     sget-object v7, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
     const-string v8, "init()"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 254
+    .line 232
     const/4 v4, 0x0
 
     .local v4, i:I
@@ -251,7 +249,7 @@
 
     if-ge v4, v7, :cond_1
 
-    .line 255
+    .line 233
     sget-object v7, Lcom/android/server/WiredAccessoryObserver;->uEventInfo:Ljava/util/List;
 
     invoke-interface {v7, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -262,7 +260,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 258
+    .line 236
     .local v6, uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :try_start_1
     new-instance v3, Ljava/io/FileReader;
@@ -273,7 +271,7 @@
 
     invoke-direct {v3, v7}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
 
-    .line 259
+    .line 237
     .local v3, file:Ljava/io/FileReader;
     const/4 v7, 0x0
 
@@ -283,11 +281,11 @@
 
     move-result v5
 
-    .line 260
+    .line 238
     .local v5, len:I
     invoke-virtual {v3}, Ljava/io/FileReader;->close()V
 
-    .line 261
+    .line 239
     new-instance v7, Ljava/lang/String;
 
     const/4 v8, 0x0
@@ -306,11 +304,11 @@
 
     move-result v1
 
-    .line 263
+    .line 241
     .local v1, curState:I
     if-lez v1, :cond_0
 
-    .line 264
+    .line 242
     invoke-virtual {v6}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->getDevPath()Ljava/lang/String;
 
     move-result-object v7
@@ -325,7 +323,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 254
+    .line 232
     .end local v1           #curState:I
     .end local v3           #file:Ljava/io/FileReader;
     .end local v5           #len:I
@@ -335,11 +333,11 @@
 
     goto :goto_0
 
-    .line 267
+    .line 245
     :catch_0
     move-exception v2
 
-    .line 268
+    .line 246
     .local v2, e:Ljava/io/FileNotFoundException;
     :try_start_2
     sget-object v7, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
@@ -372,7 +370,7 @@
 
     goto :goto_1
 
-    .line 249
+    .line 227
     .end local v0           #buffer:[C
     .end local v2           #e:Ljava/io/FileNotFoundException;
     .end local v4           #i:I
@@ -384,14 +382,14 @@
 
     throw v7
 
-    .line 270
+    .line 248
     .restart local v0       #buffer:[C
     .restart local v4       #i:I
     .restart local v6       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :catch_1
     move-exception v2
 
-    .line 271
+    .line 249
     .local v2, e:Ljava/lang/Exception;
     :try_start_3
     sget-object v7, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
@@ -404,7 +402,7 @@
 
     goto :goto_1
 
-    .line 274
+    .line 252
     .end local v2           #e:Ljava/lang/Exception;
     .end local v6           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :cond_1
@@ -432,12 +430,12 @@
 
     const/4 v5, 0x0
 
-    .line 96
+    .line 94
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 100
+    .line 98
     .local v0, retVal:Ljava/util/List;,"Ljava/util/List<Lcom/android/server/WiredAccessoryObserver$UEventInfo;>;"
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
@@ -447,7 +445,7 @@
 
     invoke-direct {v1, v2, v6, v3}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 101
+    .line 99
     .local v1, uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
@@ -455,10 +453,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 102
+    .line 100
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 108
+    .line 106
     :goto_0
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
@@ -471,7 +469,7 @@
 
     invoke-direct {v1, v2, v3, v4}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 109
+    .line 107
     .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
@@ -479,10 +477,10 @@
 
     if-eqz v2, :cond_1
 
-    .line 110
+    .line 108
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 116
+    .line 114
     :goto_1
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
@@ -495,7 +493,7 @@
 
     invoke-direct {v1, v2, v3, v4}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 117
+    .line 115
     .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
@@ -503,10 +501,10 @@
 
     if-eqz v2, :cond_2
 
-    .line 118
+    .line 116
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 124
+    .line 122
     :goto_2
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
@@ -515,7 +513,7 @@
 
     invoke-direct {v1, v2, v6, v5}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 125
+    .line 123
     .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
@@ -523,31 +521,11 @@
 
     if-eqz v2, :cond_3
 
-    .line 126
+    .line 124
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 132
+    .line 137
     :goto_3
-    new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-
-    .end local v1           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-    const-string v2, "Listen_notification"
-
-    invoke-direct {v1, v2, v6, v5}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
-
-    .line 133
-    .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-    invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    .line 134
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 147
-    :goto_4
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
     .end local v1           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
@@ -555,22 +533,22 @@
 
     invoke-direct {v1, v2, v7, v5}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 148
+    .line 138
     .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
-    .line 149
+    .line 139
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 159
-    :goto_5
+    .line 149
+    :goto_4
     return-object v0
 
-    .line 104
+    .line 102
     :cond_0
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -580,7 +558,7 @@
 
     goto :goto_0
 
-    .line 112
+    .line 110
     :cond_1
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -590,7 +568,7 @@
 
     goto :goto_1
 
-    .line 120
+    .line 118
     :cond_2
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -600,7 +578,7 @@
 
     goto :goto_2
 
-    .line 128
+    .line 126
     :cond_3
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -610,18 +588,8 @@
 
     goto :goto_3
 
-    .line 136
+    .line 141
     :cond_4
-    sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
-
-    const-string v3, "This kernel does not have Listen notification support"
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_4
-
-    .line 151
-    :cond_5
     new-instance v1, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
 
     .end local v1           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
@@ -629,28 +597,28 @@
 
     invoke-direct {v1, v2, v7, v5}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;-><init>(Ljava/lang/String;II)V
 
-    .line 152
+    .line 142
     .restart local v1       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     invoke-virtual {v1}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->checkSwitchExists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
-    .line 153
+    .line 143
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5
+    goto :goto_4
 
-    .line 155
-    :cond_6
+    .line 145
+    :cond_5
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
     const-string v3, "This kernel does not have HDMI audio support"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_4
 .end method
 
 .method private final setDeviceState(IIILjava/lang/String;)V
@@ -663,30 +631,30 @@
     .prologue
     const/4 v5, 0x1
 
-    .line 333
+    .line 311
     and-int v2, p2, p1
 
     and-int v3, p3, p1
 
     if-eq v2, v3, :cond_0
 
-    .line 337
+    .line 315
     and-int v2, p2, p1
 
     if-eqz v2, :cond_1
 
-    .line 338
+    .line 316
     const/4 v1, 0x1
 
-    .line 343
+    .line 321
     .local v1, state:I
     :goto_0
     if-ne p1, v5, :cond_2
 
-    .line 344
+    .line 322
     const/4 v0, 0x4
 
-    .line 363
+    .line 341
     .local v0, device:I
     :goto_1
     sget-object v3, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
@@ -720,103 +688,103 @@
 
     invoke-static {v3, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 365
+    .line 343
     iget-object v2, p0, Lcom/android/server/WiredAccessoryObserver;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v2, v0, v1, p4}, Landroid/media/AudioManager;->setWiredDeviceConnectionState(IILjava/lang/String;)V
 
-    .line 367
+    .line 345
     .end local v0           #device:I
     .end local v1           #state:I
     :cond_0
     :goto_3
     return-void
 
-    .line 340
+    .line 318
     :cond_1
     const/4 v1, 0x0
 
     .restart local v1       #state:I
     goto :goto_0
 
-    .line 345
+    .line 323
     :cond_2
     const/4 v2, 0x2
 
     if-ne p1, v2, :cond_3
 
-    .line 346
+    .line 324
     const/16 v0, 0x8
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 347
+    .line 325
     .end local v0           #device:I
     :cond_3
     const/4 v2, 0x4
 
     if-ne p1, v2, :cond_4
 
-    .line 348
+    .line 326
     const/16 v0, 0x800
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 349
+    .line 327
     .end local v0           #device:I
     :cond_4
     const/16 v2, 0x8
 
     if-ne p1, v2, :cond_5
 
-    .line 350
+    .line 328
     const/16 v0, 0x1000
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 351
+    .line 329
     .end local v0           #device:I
     :cond_5
     const/16 v2, 0x10
 
     if-ne p1, v2, :cond_6
 
-    .line 352
+    .line 330
     const/16 v0, 0x400
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 353
+    .line 331
     .end local v0           #device:I
     :cond_6
     const/16 v2, 0x20
 
     if-ne p1, v2, :cond_7
 
-    .line 354
+    .line 332
     const/16 v0, 0x4000
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 355
+    .line 333
     .end local v0           #device:I
     :cond_7
     const/16 v2, 0x40
 
     if-ne p1, v2, :cond_8
 
-    .line 356
+    .line 334
     const/16 v0, 0x2000
 
     .restart local v0       #device:I
     goto :goto_1
 
-    .line 358
+    .line 336
     .end local v0           #device:I
     :cond_8
     sget-object v2, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
@@ -843,7 +811,7 @@
 
     goto :goto_3
 
-    .line 363
+    .line 341
     .restart local v0       #device:I
     :cond_9
     const-string v2, " disconnected"
@@ -858,12 +826,12 @@
     .parameter "headsetName"
 
     .prologue
-    .line 320
+    .line 298
     monitor-enter p0
 
     const/16 v0, 0x7f
 
-    .line 321
+    .line 299
     .local v0, allHeadsets:I
     const/4 v1, 0x1
 
@@ -871,35 +839,35 @@
     :goto_0
     if-eqz v0, :cond_1
 
-    .line 322
+    .line 300
     and-int v2, v1, v0
 
     if-eqz v2, :cond_0
 
-    .line 323
+    .line 301
     :try_start_0
     invoke-direct {p0, v1, p1, p2, p3}, Lcom/android/server/WiredAccessoryObserver;->setDeviceState(IIILjava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 324
+    .line 302
     xor-int/lit8 v2, v1, -0x1
 
     and-int/2addr v0, v2
 
-    .line 321
+    .line 299
     :cond_0
     shl-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 327
+    .line 305
     :cond_1
     monitor-exit p0
 
     return-void
 
-    .line 320
+    .line 298
     :catchall_0
     move-exception v2
 
@@ -914,43 +882,43 @@
     .parameter "newState"
 
     .prologue
-    .line 278
+    .line 256
     monitor-enter p0
 
     and-int/lit8 v4, p2, 0x7f
 
-    .line 279
+    .line 257
     .local v4, headsetState:I
     :try_start_0
     iget v9, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
     or-int v5, v4, v9
 
-    .line 280
+    .line 258
     .local v5, newOrOld:I
     const/4 v1, 0x0
 
-    .line 281
+    .line 259
     .local v1, delay:I
     and-int/lit8 v7, v4, 0x4
 
-    .line 282
+    .line 260
     .local v7, usb_headset_anlg:I
     and-int/lit8 v8, v4, 0x8
 
-    .line 283
+    .line 261
     .local v8, usb_headset_dgtl:I
     and-int/lit8 v3, v4, 0x3
 
-    .line 284
+    .line 262
     .local v3, h2w_headset:I
     const/4 v2, 0x1
 
-    .line 285
+    .line 263
     .local v2, h2wStateChange:Z
     const/4 v6, 0x1
 
-    .line 289
+    .line 267
     .local v6, usbStateChange:Z
     sget-object v9, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -1004,7 +972,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 291
+    .line 269
     iget v9, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
     if-eq v9, v4, :cond_0
@@ -1015,7 +983,7 @@
 
     if-eqz v9, :cond_1
 
-    .line 292
+    .line 270
     :cond_0
     sget-object v9, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
@@ -1023,10 +991,10 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 293
+    .line 271
     const/4 v2, 0x0
 
-    .line 297
+    .line 275
     :cond_1
     shr-int/lit8 v9, v7, 0x2
 
@@ -1040,23 +1008,23 @@
 
     if-ne v9, v10, :cond_2
 
-    .line 298
+    .line 276
     sget-object v9, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
     const-string v10, "unsetting usb flag"
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 299
+    .line 277
     const/4 v6, 0x0
 
-    .line 301
+    .line 279
     :cond_2
     if-nez v2, :cond_3
 
     if-nez v6, :cond_3
 
-    .line 302
+    .line 280
     sget-object v9, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
     const-string v10, "invalid transition, returning ..."
@@ -1065,33 +1033,33 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 315
+    .line 293
     :goto_0
     monitor-exit p0
 
     return-void
 
-    .line 306
+    .line 284
     :cond_3
     :try_start_1
     move-object/from16 v0, p1
 
     iput-object v0, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetName:Ljava/lang/String;
 
-    .line 307
+    .line 285
     iget v9, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
     iput v9, p0, Lcom/android/server/WiredAccessoryObserver;->mPrevHeadsetState:I
 
-    .line 308
+    .line 286
     iput v4, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
-    .line 310
+    .line 288
     iget-object v9, p0, Lcom/android/server/WiredAccessoryObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v9}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 311
+    .line 289
     iget-object v9, p0, Lcom/android/server/WiredAccessoryObserver;->mHandler:Landroid/os/Handler;
 
     iget-object v10, p0, Lcom/android/server/WiredAccessoryObserver;->mHandler:Landroid/os/Handler;
@@ -1114,7 +1082,7 @@
 
     goto :goto_0
 
-    .line 278
+    .line 256
     .end local v1           #delay:I
     .end local v2           #h2wStateChange:Z
     .end local v3           #h2w_headset:I
@@ -1131,15 +1099,13 @@
 .end method
 
 .method private final declared-synchronized updateState(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 9
+    .locals 7
     .parameter "devPath"
     .parameter "name"
     .parameter "state"
 
     .prologue
-    const/4 v8, 0x1
-
-    .line 214
+    .line 204
     monitor-enter p0
 
     const/4 v1, 0x0
@@ -1147,264 +1113,168 @@
     .local v1, i:I
     :goto_0
     :try_start_0
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->uEventInfo:Ljava/util/List;
+    sget-object v4, Lcom/android/server/WiredAccessoryObserver;->uEventInfo:Ljava/util/List;
 
-    invoke-interface {v5}, Ljava/util/List;->size()I
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-ge v1, v5, :cond_1
+    if-ge v1, v4, :cond_1
 
-    .line 215
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->uEventInfo:Ljava/util/List;
+    .line 205
+    sget-object v4, Lcom/android/server/WiredAccessoryObserver;->uEventInfo:Ljava/util/List;
 
-    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+
+    .line 206
+    .local v3, uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    invoke-virtual {v3}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->getDevPath()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 216
-    .local v4, uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-    invoke-virtual {v4}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->getDevPath()Ljava/lang/String;
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    .line 207
+    const-string v4, "Beats"
+
+    invoke-virtual {p2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    .line 208
+    sget-object v4, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Beats UEVENT: STATE:"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {p1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result v5
+    move-result-object v5
 
-    if-eqz v5, :cond_5
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    .line 217
-    const-string v5, "Beats"
+    move-result-object v5
 
-    invoke-virtual {p2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    .line 218
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Beats UEVENT: STATE:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 219
+    .line 209
     const/4 v0, 0x0
 
-    .line 221
+    .line 211
     .local v0, bests_status:Z
     new-instance v2, Landroid/content/Intent;
 
-    const-string v5, "BEATS_NATIVE_NOTIFICATION"
+    const-string v4, "BEATS_NATIVE_NOTIFICATION"
 
-    invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 222
+    .line 212
     .local v2, intent:Landroid/content/Intent;
-    const/high16 v5, 0x4000
+    const/high16 v4, 0x4000
 
-    invoke-virtual {v2, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    invoke-virtual {v2, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 223
-    if-ne p3, v8, :cond_0
+    .line 213
+    const/4 v4, 0x1
 
-    .line 224
+    if-ne p3, v4, :cond_0
+
+    .line 214
     const/4 v0, 0x1
 
-    .line 226
+    .line 216
     :cond_0
-    const-string v5, "NotificationOn"
+    const-string v4, "NotificationOn"
 
-    invoke-virtual {v2, v5, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v2, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 227
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
+    .line 217
+    sget-object v4, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Beats UEVENT: bests_status:"
+    const-string v6, "Beats UEVENT: bests_status:"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 228
-    const/4 v5, 0x0
+    .line 218
+    const/4 v4, 0x0
 
-    invoke-static {v2, v5}, Landroid/app/ActivityManagerNative;->broadcastStickyIntent(Landroid/content/Intent;Ljava/lang/String;)V
+    invoke-static {v2, v4}, Landroid/app/ActivityManagerNative;->broadcastStickyIntent(Landroid/content/Intent;Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 246
+    .line 224
     .end local v0           #bests_status:Z
     .end local v2           #intent:Landroid/content/Intent;
-    .end local v4           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    .end local v3           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :cond_1
     :goto_1
     monitor-exit p0
 
     return-void
 
-    .line 229
-    .restart local v4       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    .line 220
+    .restart local v3       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :cond_2
     :try_start_1
-    const-string v5, "Listen_notification"
+    iget v4, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
 
-    invoke-virtual {p2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4, p3}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->computeNewHeadsetState(II)I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_4
-
-    .line 230
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Listen UEVENT: STATE:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 231
-    const/4 v3, 0x0
-
-    .line 233
-    .local v3, listen_status:Z
-    new-instance v2, Landroid/content/Intent;
-
-    const-string v5, "LISTEN_NATIVE_NOTIFICATION"
-
-    invoke-direct {v2, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 234
-    .restart local v2       #intent:Landroid/content/Intent;
-    const/high16 v5, 0x4000
-
-    invoke-virtual {v2, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    .line 235
-    if-ne p3, v8, :cond_3
-
-    .line 236
-    const/4 v3, 0x1
-
-    .line 238
-    :cond_3
-    const-string v5, "NotificationOn"
-
-    invoke-virtual {v2, v5, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    .line 239
-    sget-object v5, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Listen UEVENT: listen_status:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 240
-    const/4 v5, 0x0
-
-    invoke-static {v2, v5}, Landroid/app/ActivityManagerNative;->broadcastStickyIntent(Landroid/content/Intent;Ljava/lang/String;)V
+    invoke-direct {p0, p2, v4}, Lcom/android/server/WiredAccessoryObserver;->update(Ljava/lang/String;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_1
 
-    .line 214
-    .end local v2           #intent:Landroid/content/Intent;
-    .end local v3           #listen_status:Z
-    .end local v4           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    .line 204
+    .end local v3           #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
     :catchall_0
-    move-exception v5
+    move-exception v4
 
     monitor-exit p0
 
-    throw v5
+    throw v4
 
-    .line 242
-    .restart local v4       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
-    :cond_4
-    :try_start_2
-    iget v5, p0, Lcom/android/server/WiredAccessoryObserver;->mHeadsetState:I
-
-    invoke-virtual {v4, v5, p3}, Lcom/android/server/WiredAccessoryObserver$UEventInfo;->computeNewHeadsetState(II)I
-
-    move-result v5
-
-    invoke-direct {p0, p2, v5}, Lcom/android/server/WiredAccessoryObserver;->update(Ljava/lang/String;I)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_1
-
-    .line 214
-    :cond_5
+    .restart local v3       #uei:Lcom/android/server/WiredAccessoryObserver$UEventInfo;
+    :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 
@@ -1414,7 +1284,7 @@
     .parameter "event"
 
     .prologue
-    .line 200
+    .line 190
     sget-object v4, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1441,7 +1311,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 203
+    .line 193
     :try_start_0
     const-string v4, "DEVPATH"
 
@@ -1449,7 +1319,7 @@
 
     move-result-object v0
 
-    .line 204
+    .line 194
     .local v0, devPath:Ljava/lang/String;
     const-string v4, "SWITCH_NAME"
 
@@ -1457,7 +1327,7 @@
 
     move-result-object v2
 
-    .line 205
+    .line 195
     .local v2, name:Ljava/lang/String;
     const-string v4, "SWITCH_STATE"
 
@@ -1469,24 +1339,24 @@
 
     move-result v3
 
-    .line 206
+    .line 196
     .local v3, state:I
     invoke-direct {p0, v0, v2, v3}, Lcom/android/server/WiredAccessoryObserver;->updateState(Ljava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 210
+    .line 200
     .end local v0           #devPath:Ljava/lang/String;
     .end local v2           #name:Ljava/lang/String;
     .end local v3           #state:I
     :goto_0
     return-void
 
-    .line 207
+    .line 197
     :catch_0
     move-exception v1
 
-    .line 208
+    .line 198
     .local v1, e:Ljava/lang/NumberFormatException;
     sget-object v4, Lcom/android/server/WiredAccessoryObserver;->TAG:Ljava/lang/String;
 

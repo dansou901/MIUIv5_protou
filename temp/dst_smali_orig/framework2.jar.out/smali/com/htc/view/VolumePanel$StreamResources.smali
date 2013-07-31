@@ -80,9 +80,9 @@
 
     const v4, 0x10403fe
 
-    const v5, 0x4020009
+    const v5, 0x402002c
 
-    const v6, 0x402000a
+    const v6, 0x402002d
 
     const/4 v7, 0x0
 
@@ -100,13 +100,13 @@
 
     const v4, 0x10403ff
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
-    const v7, 0x402001c
+    const v7, 0x402003f
 
-    const v8, 0x4020027
+    const v8, 0x402004a
 
     const/4 v9, 0x0
 
@@ -122,11 +122,11 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x40700ef
+    const v4, 0x40700e8
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 
@@ -144,9 +144,9 @@
 
     const v4, 0x10403fb
 
-    const v5, 0x4020007
+    const v5, 0x402002a
 
-    const v6, 0x4020008
+    const v6, 0x402002b
 
     const/4 v7, 0x0
 
@@ -164,9 +164,9 @@
 
     const v4, 0x1040401
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x1
 
@@ -184,9 +184,9 @@
 
     const v4, 0x1040402
 
-    const v5, 0x402001f
+    const v5, 0x4020042
 
-    const v6, 0x4020020
+    const v6, 0x4020043
 
     const/4 v7, 0x1
 
@@ -204,9 +204,9 @@
 
     const v4, 0x1040401
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 
@@ -224,9 +224,9 @@
 
     const v4, 0x1040401
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 
@@ -242,11 +242,11 @@
 
     const/4 v3, 0x1
 
-    const v4, 0x40700f0
+    const v4, 0x40700e9
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 
@@ -262,11 +262,11 @@
 
     const/16 v3, 0x8
 
-    const v4, 0x40700f0
+    const v4, 0x40700e9
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 
@@ -282,11 +282,11 @@
 
     const/4 v3, -0x2
 
-    const v4, 0x40700f0
+    const v4, 0x40700e9
 
-    const v5, 0x4020026
+    const v5, 0x4020049
 
-    const v6, 0x402001d
+    const v6, 0x4020040
 
     const/4 v7, 0x0
 

@@ -335,8 +335,8 @@
 
     :array_8
     .array-data 0x4
-        0x5ct 0x0t 0x7t 0x4t
-        0x5dt 0x0t 0x7t 0x4t
+        0x55t 0x0t 0x7t 0x4t
+        0x56t 0x0t 0x7t 0x4t
     .end array-data
 
     :array_9
@@ -1849,12 +1849,6 @@
 
     .local v32, monthFormat:Ljava/lang/String;
     :goto_24
-    move/from16 v0, v49
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_4a
-
     move-object/from16 v0, v44
 
     move-object/from16 v1, v32
@@ -1904,6 +1898,12 @@
 
     .local v26, endYearString:Ljava/lang/String;
     :goto_27
+    move/from16 v0, v49
+
+    move/from16 v1, v19
+
+    if-eq v0, v1, :cond_4a
+
     const/16 v30, 0x0
 
     .local v30, index:I
@@ -2050,7 +2050,7 @@
 
     move-result-object v18
 
-    goto :goto_26
+    goto/16 :goto_26
 
     .restart local v18       #endMonthDayString:Ljava/lang/String;
     :cond_49
@@ -2064,67 +2064,14 @@
 
     goto/16 :goto_27
 
-    .end local v18           #endMonthDayString:Ljava/lang/String;
-    .end local v20           #endMonthString:Ljava/lang/String;
-    .end local v48           #startMonthDayString:Ljava/lang/String;
-    .end local v50           #startMonthString:Ljava/lang/String;
-    .end local v56           #startYearString:Ljava/lang/String;
+    .restart local v26       #endYearString:Ljava/lang/String;
     :cond_4a
     move/from16 v0, v46
 
     move/from16 v1, v16
 
-    if-eq v0, v1, :cond_52
+    if-eq v0, v1, :cond_4f
 
-    move-object/from16 v0, v44
-
-    move-object/from16 v1, v32
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v50
-
-    .restart local v50       #startMonthString:Ljava/lang/String;
-    const-string v62, "%-d"
-
-    move-object/from16 v0, v44
-
-    move-object/from16 v1, v62
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v48
-
-    .restart local v48       #startMonthDayString:Ljava/lang/String;
-    const-string v62, "%Y"
-
-    move-object/from16 v0, v44
-
-    move-object/from16 v1, v62
-
-    invoke-virtual {v0, v1}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v56
-
-    .restart local v56       #startYearString:Ljava/lang/String;
-    if-eqz v31, :cond_4f
-
-    const/16 v20, 0x0
-
-    .restart local v20       #endMonthString:Ljava/lang/String;
-    :goto_28
-    if-eqz v31, :cond_50
-
-    const/16 v18, 0x0
-
-    .restart local v18       #endMonthDayString:Ljava/lang/String;
-    :goto_29
-    if-eqz v31, :cond_51
-
-    const/16 v26, 0x0
-
-    .restart local v26       #endYearString:Ljava/lang/String;
-    :goto_2a
     const/16 v30, 0x0
 
     .restart local v30       #index:I
@@ -2217,84 +2164,43 @@
 
     goto/16 :goto_16
 
-    .end local v18           #endMonthDayString:Ljava/lang/String;
-    .end local v20           #endMonthString:Ljava/lang/String;
-    .end local v26           #endYearString:Ljava/lang/String;
     .end local v30           #index:I
     .end local v39           #resId:I
     :cond_4f
-    move-object/from16 v0, v32
-
-    invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v20
-
-    goto :goto_28
-
-    .restart local v20       #endMonthString:Ljava/lang/String;
-    :cond_50
-    const-string v62, "%-d"
-
-    move-object/from16 v0, v62
-
-    invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v18
-
-    goto :goto_29
-
-    .restart local v18       #endMonthDayString:Ljava/lang/String;
-    :cond_51
-    const-string v62, "%Y"
-
-    move-object/from16 v0, v62
-
-    invoke-virtual {v14, v0}, Landroid/text/format/Time;->format(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v26
-
-    goto :goto_2a
-
-    .end local v18           #endMonthDayString:Ljava/lang/String;
-    .end local v20           #endMonthString:Ljava/lang/String;
-    .end local v48           #startMonthDayString:Ljava/lang/String;
-    .end local v50           #startMonthString:Ljava/lang/String;
-    .end local v56           #startYearString:Ljava/lang/String;
-    :cond_52
     and-int/lit8 v62, p6, 0x10
 
-    if-eqz v62, :cond_56
+    if-eqz v62, :cond_53
 
     const/16 v40, 0x1
 
     .local v40, showDate:Z
-    :goto_2b
-    if-nez v41, :cond_53
+    :goto_28
+    if-nez v41, :cond_50
 
-    if-nez v40, :cond_53
+    if-nez v40, :cond_50
 
-    if-nez v42, :cond_53
+    if-nez v42, :cond_50
 
     const/16 v40, 0x1
 
-    :cond_53
+    :cond_50
     const-string v58, ""
 
     .local v58, timeString:Ljava/lang/String;
-    if-eqz v41, :cond_54
+    if-eqz v41, :cond_51
 
-    if-eqz v31, :cond_57
+    if-eqz v31, :cond_54
 
     move-object/from16 v58, v53
 
-    :cond_54
-    :goto_2c
+    :cond_51
+    :goto_29
     const-string v29, ""
 
     const-string v11, ""
 
     .local v11, dateString:Ljava/lang/String;
-    if-eqz v40, :cond_5b
+    if-eqz v40, :cond_58
 
     move-object/from16 v0, v44
 
@@ -2302,9 +2208,9 @@
 
     move-result-object v11
 
-    if-eqz v42, :cond_59
+    if-eqz v42, :cond_56
 
-    if-eqz v41, :cond_58
+    if-eqz v41, :cond_55
 
     const v62, 0x10400a2
 
@@ -2316,8 +2222,8 @@
 
     move-result-object v29
 
-    :cond_55
-    :goto_2d
+    :cond_52
+    :goto_2a
     const/16 v62, 0x3
 
     move/from16 v0, v62
@@ -2353,14 +2259,14 @@
     .end local v11           #dateString:Ljava/lang/String;
     .end local v40           #showDate:Z
     .end local v58           #timeString:Ljava/lang/String;
-    :cond_56
+    :cond_53
     const/16 v40, 0x0
 
-    goto :goto_2b
+    goto :goto_28
 
     .restart local v40       #showDate:Z
     .restart local v58       #timeString:Ljava/lang/String;
-    :cond_57
+    :cond_54
     const v62, 0x1040095
 
     move-object/from16 v0, v38
@@ -2396,11 +2302,11 @@
 
     move-result-object v58
 
-    goto :goto_2c
+    goto :goto_29
 
     .end local v57           #timeFormat:Ljava/lang/String;
     .restart local v11       #dateString:Ljava/lang/String;
-    :cond_58
+    :cond_55
     const v62, 0x10400a3
 
     move-object/from16 v0, v38
@@ -2411,10 +2317,10 @@
 
     move-result-object v29
 
-    goto :goto_2d
+    goto :goto_2a
 
-    :cond_59
-    if-eqz v41, :cond_5a
+    :cond_56
+    if-eqz v41, :cond_57
 
     const v62, 0x104008d
 
@@ -2426,9 +2332,9 @@
 
     move-result-object v29
 
-    goto :goto_2d
+    goto :goto_2a
 
-    :cond_5a
+    :cond_57
     const-string v62, "%s"
 
     const/16 v63, 0x1
@@ -2455,10 +2361,10 @@
 
     goto/16 :goto_16
 
-    :cond_5b
-    if-eqz v42, :cond_5d
+    :cond_58
+    if-eqz v42, :cond_5a
 
-    if-eqz v41, :cond_5c
+    if-eqz v41, :cond_59
 
     const v62, 0x10400a4
 
@@ -2470,9 +2376,9 @@
 
     move-result-object v29
 
-    goto/16 :goto_2d
+    goto/16 :goto_2a
 
-    :cond_5c
+    :cond_59
     const-string v62, "%s"
 
     const/16 v63, 0x1
@@ -2499,8 +2405,8 @@
 
     goto/16 :goto_16
 
-    :cond_5d
-    if-eqz v41, :cond_55
+    :cond_5a
+    if-eqz v41, :cond_52
 
     const-string v62, "%s"
 

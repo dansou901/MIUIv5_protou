@@ -3283,7 +3283,7 @@
 .end method
 
 .method private static getSubmitPduHead(Ljava/lang/String;Ljava/lang/String;BZLcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;)Ljava/io/ByteArrayOutputStream;
-    .locals 10
+    .locals 7
     .parameter "scAddress"
     .parameter "destinationAddress"
     .parameter "mtiByte"
@@ -3291,172 +3291,116 @@
     .parameter "ret"
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v3, 0x1
 
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
     new-instance v0, Ljava/io/ByteArrayOutputStream;
 
-    const/16 v5, 0xb4
+    const/16 v2, 0xb4
 
-    invoke-direct {v0, v5}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
+    invoke-direct {v0, v2}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .local v0, bo:Ljava/io/ByteArrayOutputStream;
     if-nez p0, :cond_1
 
-    const/4 v5, 0x0
+    const/4 v2, 0x0
 
-    iput-object v5, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
+    iput-object v2, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
 
     :goto_0
     if-eqz p3, :cond_0
 
-    or-int/lit8 v5, p2, 0x20
+    or-int/lit8 v2, p2, 0x20
 
-    int-to-byte p2, v5
+    int-to-byte p2, v2
 
-    const-string v5, "GSM"
+    const-string v2, "GSM"
 
-    const-string v8, "SMS status report requested"
+    const-string v5, "SMS status report requested"
 
-    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-virtual {v0, p2}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    invoke-static {}, Lcom/android/internal/telephony/HtcMsgConfig;->isSupportTpMrInPreference()Z
-
-    move-result v5
-
-    if-ne v5, v6, :cond_3
-
-    const-string v5, "isms"
-
-    invoke-static {v5}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/internal/telephony/ISms$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/telephony/ISms;
-
-    move-result-object v3
-
-    .local v3, iccISms:Lcom/android/internal/telephony/ISms;
-    const/4 v4, 0x1
-
-    .local v4, messageId:I
-    if-eqz v3, :cond_2
-
-    :try_start_0
-    invoke-interface {v3}, Lcom/android/internal/telephony/ISms;->getNextMessageIdInPreference()I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v4
-
-    :goto_1
     invoke-virtual {v0, v4}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    .end local v3           #iccISms:Lcom/android/internal/telephony/ISms;
-    .end local v4           #messageId:I
-    :goto_2
     invoke-static {p1}, Landroid/telephony/PhoneNumberUtils;->networkPortionToCalledPartyBCD(Ljava/lang/String;)[B
 
     move-result-object v1
 
     .local v1, daBytes:[B
-    array-length v5, v1
+    array-length v2, v1
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    mul-int/lit8 v8, v5, 0x2
+    mul-int/lit8 v5, v2, 0x2
 
-    array-length v5, v1
+    array-length v2, v1
 
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    aget-byte v5, v1, v5
+    aget-byte v2, v1, v2
 
-    and-int/lit16 v5, v5, 0xf0
+    and-int/lit16 v2, v2, 0xf0
 
-    const/16 v9, 0xf0
+    const/16 v6, 0xf0
 
-    if-ne v5, v9, :cond_4
+    if-ne v2, v6, :cond_2
 
-    move v5, v6
+    move v2, v3
 
-    :goto_3
-    sub-int v5, v8, v5
+    :goto_1
+    sub-int v2, v5, v2
 
-    invoke-virtual {v0, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v0, v2}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    array-length v5, v1
+    array-length v2, v1
 
-    invoke-virtual {v0, v1, v7, v5}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v0, v1, v4, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    sget-short v5, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+    sget-short v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
-    const/16 v8, 0x50
+    const/16 v5, 0x50
 
-    if-ne v5, v8, :cond_5
+    if-ne v2, v5, :cond_3
 
-    const-string v5, "0000001005"
+    const-string v2, "0000001005"
 
-    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v2
 
-    if-ne v5, v6, :cond_5
+    if-ne v2, v3, :cond_3
 
-    const/16 v5, 0x7f
+    const/16 v2, 0x7f
 
-    invoke-virtual {v0, v5}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v0, v2}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
-    :goto_4
+    :goto_2
     return-object v0
 
     .end local v1           #daBytes:[B
     :cond_1
     invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->networkPortionToCalledPartyBCDWithLength(Ljava/lang/String;)[B
 
-    move-result-object v5
+    move-result-object v2
 
-    iput-object v5, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
+    iput-object v2, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
 
     goto :goto_0
 
-    .restart local v3       #iccISms:Lcom/android/internal/telephony/ISms;
-    .restart local v4       #messageId:I
+    .restart local v1       #daBytes:[B
     :cond_2
-    const/4 v4, 0x1
+    move v2, v4
 
     goto :goto_1
 
-    :catch_0
-    move-exception v2
-
-    .local v2, ex:Landroid/os/RemoteException;
-    const/4 v4, 0x1
-
-    goto :goto_1
-
-    .end local v2           #ex:Landroid/os/RemoteException;
-    .end local v3           #iccISms:Lcom/android/internal/telephony/ISms;
-    .end local v4           #messageId:I
     :cond_3
-    invoke-virtual {v0, v7}, Ljava/io/ByteArrayOutputStream;->write(I)V
+    invoke-virtual {v0, v4}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     goto :goto_2
-
-    .restart local v1       #daBytes:[B
-    :cond_4
-    move v5, v7
-
-    goto :goto_3
-
-    :cond_5
-    invoke-virtual {v0, v7}, Ljava/io/ByteArrayOutputStream;->write(I)V
-
-    goto :goto_4
 .end method
 
 .method public static getTPLayerLengthForPDU(Ljava/lang/String;)I
@@ -5436,6 +5380,38 @@
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->mRawSmsc:[B
 
     return-object v0
+.end method
+
+.method public getRecipientAddress()Ljava/lang/String;
+    .locals 2
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->recipientAddress:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/internal/telephony/gsm/SmsMessage;->recipientAddress:Lcom/android/internal/telephony/gsm/GsmSmsAddress;
+
+    invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->getAddressString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string v0, "GSM"
+
+    const-string v1, "SMS recipient address is null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public getStatus()I

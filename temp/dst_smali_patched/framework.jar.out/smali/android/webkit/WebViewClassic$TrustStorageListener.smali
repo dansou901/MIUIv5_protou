@@ -55,7 +55,7 @@
     if-eqz v0, :cond_0
 
     #calls: Landroid/webkit/WebViewClassic;->handleCertTrustChanged()V
-    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1700()V
+    invoke-static {}, Landroid/webkit/WebViewClassic;->access$1300()V
 
     :cond_0
     return-void

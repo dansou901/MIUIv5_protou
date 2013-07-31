@@ -169,6 +169,8 @@
 
     nop
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1000
         :pswitch_0

@@ -1,5 +1,5 @@
-*** ./smali/android/widget/SuggestionsAdapter.smali	2013-07-12 21:43:22.701836597 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/SuggestionsAdapter.smali	2013-07-12 21:41:06.441825362 +0000
+*** ./smali/android/widget/SuggestionsAdapter.smali	2013-07-31 22:22:31.714067253 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/SuggestionsAdapter.smali	2013-07-31 22:21:23.997394934 +0000
 ***************
 *** 9,15 ****
   # annotations

@@ -3,6 +3,14 @@
 .source "StaticLayout.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/text/StaticLayout$Injector;
+    }
+.end annotation
+
+
 # static fields
 .field private static final CHAR_COLON:C = ':'
 
@@ -1009,6 +1017,22 @@
     goto/16 :goto_3
 .end method
 
+.method static callIsIdeographic(CZ)Z
+    .locals 1
+    .parameter "c"
+    .parameter "includeNonStarters"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-static {p0, p1}, Landroid/text/StaticLayout;->isIdeographic(CZ)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private static final isIdeographic(CZ)Z
     .locals 3
     .parameter "c"
@@ -1139,9 +1163,13 @@
     if-le p0, v2, :cond_0
 
     :cond_a
-    move v0, v1
+    invoke-static {p0, p1}, Landroid/text/StaticLayout$Injector;->isIdeographic(CZ)Z
+
+    move-result v0
 
     goto :goto_0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -2352,6 +2380,20 @@
     move/from16 v47, v106
 
     :cond_d
+    move/from16 v0, v99
+
+    move-object/from16 v1, v32
+
+    move/from16 v2, v111
+
+    move/from16 v3, v124
+
+    move/from16 v5, v34
+
+    invoke-static {v0, v1, v2, v3, v5}, Landroid/text/StaticLayout$Injector;->validateCJKCharAsSpace(C[CIII)C
+
+    move-result v99
+
     const/16 v5, 0x20
 
     move/from16 v0, v99

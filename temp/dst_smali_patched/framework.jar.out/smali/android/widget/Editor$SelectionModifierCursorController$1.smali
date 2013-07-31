@@ -52,7 +52,7 @@
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mStartHandle:Landroid/widget/Editor$SelectionStartHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6300(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
 
     move-result-object v1
 
@@ -65,7 +65,7 @@
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mEndHandle:Landroid/widget/Editor$SelectionEndHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5500(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionEndHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionEndHandleView;
 
     move-result-object v1
 
@@ -78,7 +78,7 @@
     iget-object v1, p0, Landroid/widget/Editor$SelectionModifierCursorController$1;->this$1:Landroid/widget/Editor$SelectionModifierCursorController;
 
     #getter for: Landroid/widget/Editor$SelectionModifierCursorController;->mStartHandle:Landroid/widget/Editor$SelectionStartHandleView;
-    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$5400(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
+    invoke-static {v1}, Landroid/widget/Editor$SelectionModifierCursorController;->access$6300(Landroid/widget/Editor$SelectionModifierCursorController;)Landroid/widget/Editor$SelectionStartHandleView;
 
     move-result-object v1
 

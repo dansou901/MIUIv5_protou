@@ -25,13 +25,13 @@
     .parameter "context"
 
     .prologue
-    .line 872
+    .line 877
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListener;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
-    .line 873
+    .line 878
     invoke-direct {p0, p2}, Landroid/view/WindowOrientationListener;-><init>(Landroid/content/Context;)V
 
-    .line 874
+    .line 879
     return-void
 .end method
 
@@ -42,12 +42,12 @@
     .parameter "rotation"
 
     .prologue
-    .line 881
+    .line 886
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_0
 
-    .line 882
+    .line 887
     const-string v0, "WindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -70,7 +70,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 886
+    .line 891
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListener;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -78,24 +78,24 @@
 
     if-eqz v0, :cond_2
 
-    .line 887
+    .line 892
     sget-boolean v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v0, :cond_1
 
-    .line 888
+    .line 893
     const-string v0, "WindowManager"
 
     const-string v1, "skip orientation because shutting down now"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 894
+    .line 899
     :cond_1
     :goto_0
     return-void
 
-    .line 893
+    .line 898
     :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$MyOrientationListener;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 

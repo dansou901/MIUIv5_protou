@@ -286,7 +286,7 @@
     if-nez v1, :cond_0
 
     .line 23
-    const-string v1, "userbehavior"
+    const-string/jumbo v1, "userbehavior"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

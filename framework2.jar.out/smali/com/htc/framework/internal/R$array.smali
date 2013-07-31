@@ -27,25 +27,25 @@
 
 .field public static final htc_SolarHolidays_date:I = 0x4080027
 
-.field public static final htc_config_data_usage_network_types:I = 0x4080030
+.field public static final htc_config_data_usage_network_types:I = 0x408002f
 
-.field public static final htc_config_mobile_hotspot_provision_app:I = 0x4080035
+.field public static final htc_config_mobile_hotspot_provision_app:I = 0x4080034
 
-.field public static final htc_config_protectedNetworks:I = 0x408002e
+.field public static final htc_config_protectedNetworks:I = 0x408002d
 
-.field public static final htc_config_tether_bluetooth_regexs:I = 0x4080033
+.field public static final htc_config_tether_bluetooth_regexs:I = 0x4080032
 
-.field public static final htc_config_tether_dhcp_range:I = 0x4080034
+.field public static final htc_config_tether_dhcp_range:I = 0x4080033
 
-.field public static final htc_config_tether_upstream_types:I = 0x4080036
+.field public static final htc_config_tether_upstream_types:I = 0x4080035
 
-.field public static final htc_config_tether_usb_regexs:I = 0x4080031
+.field public static final htc_config_tether_usb_regexs:I = 0x4080030
 
-.field public static final htc_config_tether_wifi_regexs:I = 0x4080032
+.field public static final htc_config_tether_wifi_regexs:I = 0x4080031
 
-.field public static final htc_config_threeFingersSwipeVibePattern:I = 0x408003e
+.field public static final htc_config_threeFingersSwipeVibePattern:I = 0x408003d
 
-.field public static final htc_config_virtualKeyVibePattern:I = 0x408003f
+.field public static final htc_config_virtualKeyVibePattern:I = 0x408003e
 
 .field public static final htc_mCnDays:I = 0x4080020
 
@@ -63,25 +63,23 @@
 
 .field public static final htc_networkAttributes:I = 0x408002c
 
-.field public static final htc_radioAttributes:I = 0x408002f
+.field public static final htc_radioAttributes:I = 0x408002e
 
-.field public static final icon_volume_panel:I = 0x408003d
+.field public static final icon_volume_panel:I = 0x408003c
 
-.field public static final localized_opertator_name:I = 0x4080037
-
-.field public static final networkMaps:I = 0x408002d
+.field public static final localized_opertator_name:I = 0x4080036
 
 .field public static final noEncryption:I = 0x4080000
 
-.field public static final select_font_alignment_items:I = 0x408003c
+.field public static final select_font_alignment_items:I = 0x408003b
 
-.field public static final select_font_color_items:I = 0x408003a
+.field public static final select_font_color_items:I = 0x4080039
 
-.field public static final select_font_settings_items:I = 0x408003b
+.field public static final select_font_settings_items:I = 0x408003a
 
-.field public static final select_font_size_items:I = 0x4080039
+.field public static final select_font_size_items:I = 0x4080038
 
-.field public static final select_text_editing_items:I = 0x4080038
+.field public static final select_text_editing_items:I = 0x4080037
 
 .field public static final telephony_provider_3lm:I = 0x4080001
 

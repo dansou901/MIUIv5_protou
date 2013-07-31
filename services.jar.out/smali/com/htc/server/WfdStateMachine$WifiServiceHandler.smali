@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1988
+    .line 1981
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine$WifiServiceHandler;->this$0:Lcom/htc/server/WfdStateMachine;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,6 +39,6 @@
     .parameter "msg"
 
     .prologue
-    .line 2005
+    .line 1998
     return-void
 .end method

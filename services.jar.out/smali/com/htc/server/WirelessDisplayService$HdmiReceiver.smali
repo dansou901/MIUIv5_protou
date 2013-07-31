@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2581
+    .line 2238
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$HdmiReceiver;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,12 +44,12 @@
 
     const/4 v8, 0x1
 
-    .line 2584
+    .line 2241
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2585
+    .line 2242
     .local v0, action:Ljava/lang/String;
     const-string v5, "WirelessDisplayService"
 
@@ -73,7 +73,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2586
+    .line 2243
     const-string v5, "android.intent.action.HDMI_AUDIO_PLUG"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -82,14 +82,14 @@
 
     if-eqz v5, :cond_0
 
-    .line 2587
+    .line 2244
     const-string v5, "state"
 
     invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v4
 
-    .line 2588
+    .line 2245
     .local v4, plug:I
     iget-object v5, p0, Lcom/htc/server/WirelessDisplayService$HdmiReceiver;->this$0:Lcom/htc/server/WirelessDisplayService;
 
@@ -102,13 +102,13 @@
 
     move-result v1
 
-    .line 2589
+    .line 2246
     .local v1, curMirrState:I
     const/4 v5, 0x2
 
     new-array v2, v5, [Ljava/lang/Object;
 
-    .line 2590
+    .line 2247
     .local v2, debug:[Ljava/lang/Object;
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -130,7 +130,7 @@
 
     aput-object v5, v2, v9
 
-    .line 2591
+    .line 2248
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -151,43 +151,43 @@
 
     aput-object v5, v2, v8
 
-    .line 2592
+    .line 2249
     iget-object v5, p0, Lcom/htc/server/WirelessDisplayService$HdmiReceiver;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     const-string v6, "HdmiReceiver"
 
     #calls: Lcom/htc/server/WirelessDisplayService;->addToHtcWDSrvHistory(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-static {v5, v6, v2}, Lcom/htc/server/WirelessDisplayService;->access$4300(Lcom/htc/server/WirelessDisplayService;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v5, v6, v2}, Lcom/htc/server/WirelessDisplayService;->access$2900(Lcom/htc/server/WirelessDisplayService;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 2593
+    .line 2250
     if-ne v4, v8, :cond_1
 
-    .line 2594
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9500()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2251
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7800()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
     invoke-virtual {v5, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 2597
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9600()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2254
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
     invoke-virtual {v5, v9}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 2598
+    .line 2255
     if-eq v1, v8, :cond_0
 
-    .line 2599
+    .line 2256
     const-string v5, "WirelessDisplayService"
 
     const-string v6, "HdmiReceiver: HDMI is plugged STOP Everything"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2600
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    .line 2257
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v5
 
@@ -197,15 +197,15 @@
 
     move-result-object v3
 
-    .line 2601
+    .line 2258
     .local v3, msgHdmi:Landroid/os/Message;
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v5
 
     invoke-virtual {v5, v3}, Lcom/htc/server/WirelessDisplayService$H;->sendMessage(Landroid/os/Message;)Z
 
-    .line 2613
+    .line 2270
     .end local v1           #curMirrState:I
     .end local v2           #debug:[Ljava/lang/Object;
     .end local v3           #msgHdmi:Landroid/os/Message;
@@ -214,29 +214,29 @@
     :goto_0
     return-void
 
-    .line 2603
+    .line 2260
     .restart local v1       #curMirrState:I
     .restart local v2       #debug:[Ljava/lang/Object;
     .restart local v4       #plug:I
     :cond_1
     if-nez v4, :cond_2
 
-    .line 2604
+    .line 2261
     const-string v5, "WirelessDisplayService"
 
     const-string v6, "HdmiReceiver: HDMI is un-plugged"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2605
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9600()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2262
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7900()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
     invoke-virtual {v5, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 2606
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$9500()Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 2263
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$7800()Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v5
 
@@ -244,7 +244,7 @@
 
     goto :goto_0
 
-    .line 2610
+    .line 2267
     :cond_2
     const-string v5, "WirelessDisplayService"
 

@@ -204,7 +204,7 @@
     if-eqz v7, :cond_3
 
     :try_start_1
-    const-string v11, "value"
+    const-string/jumbo v11, "value"
 
     invoke-virtual {v3, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -267,7 +267,7 @@
 
     if-nez v11, :cond_5
 
-    const-string v11, "value"
+    const-string/jumbo v11, "value"
 
     invoke-virtual {v3, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

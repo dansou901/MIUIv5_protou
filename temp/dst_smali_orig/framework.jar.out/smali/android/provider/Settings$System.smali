@@ -360,8 +360,6 @@
 
 .field public static final WALLPAPER_ACTIVITY:Ljava/lang/String; = "wallpaper_activity"
 
-.field public static final WIFI_ASSOCIATE_MODE:Ljava/lang/String; = "wifi_associate_manual"
-
 .field public static final WIFI_MAX_DHCP_RETRY_COUNT:Ljava/lang/String; = "wifi_max_dhcp_retry_count"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

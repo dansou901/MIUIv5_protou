@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 6620
+    .line 6622
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -44,7 +44,7 @@
 
     const/4 v4, 0x1
 
-    .line 6622
+    .line 6624
     const-string v1, "com.htc.autobot.PROJECTOR_STATE"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -57,30 +57,30 @@
 
     if-eqz v1, :cond_1
 
-    .line 6623
+    .line 6625
     const-string v1, "EXTRA_STATE"
 
     invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 6624
+    .line 6626
     .local v0, htcstatus:I
     if-ne v0, v4, :cond_2
 
-    .line 6625
+    .line 6627
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean v4, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHtcMode:Z
 
-    .line 6628
+    .line 6630
     :cond_0
     :goto_0
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
 
     if-eqz v1, :cond_1
 
-    .line 6629
+    .line 6631
     const-string v1, "WindowManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -117,27 +117,27 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 6631
+    .line 6633
     .end local v0           #htcstatus:I
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v1, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateRotation(Z)V
 
-    .line 6632
+    .line 6634
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateOrientationListenerLp()V
 
-    .line 6633
+    .line 6635
     return-void
 
-    .line 6626
+    .line 6628
     .restart local v0       #htcstatus:I
     :cond_2
     if-nez v0, :cond_0
 
-    .line 6627
+    .line 6629
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$26;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean v3, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHtcMode:Z

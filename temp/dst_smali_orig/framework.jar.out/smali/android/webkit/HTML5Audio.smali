@@ -786,18 +786,18 @@
 .end method
 
 .method private teardown()V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
-
     invoke-direct {p0}, Landroid/webkit/HTML5Audio;->abandonAudioFocus()V
 
     iget-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     invoke-virtual {v0}, Landroid/media/MediaPlayer;->release()V
 
-    iput-object v1, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/webkit/HTML5Audio;->mMediaPlayer:Landroid/media/MediaPlayer;
 
     sget v0, Landroid/webkit/HTML5Audio;->ERROR:I
 
@@ -807,21 +807,6 @@
 
     iput v0, p0, Landroid/webkit/HTML5Audio;->mNativePointer:I
 
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    invoke-virtual {v0}, Ljava/util/Timer;->purge()I
-
-    iget-object v0, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    invoke-virtual {v0}, Ljava/util/Timer;->cancel()V
-
-    iput-object v1, p0, Landroid/webkit/HTML5Audio;->mTimer:Ljava/util/Timer;
-
-    :cond_0
     return-void
 .end method
 

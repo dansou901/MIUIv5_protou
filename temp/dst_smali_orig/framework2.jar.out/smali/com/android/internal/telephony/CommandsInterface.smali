@@ -277,9 +277,6 @@
 .method public abstract getDeviceMemoryFull(Landroid/os/Message;)V
 .end method
 
-.method public abstract getDpdtSwitchValue(Landroid/os/Message;)V
-.end method
-
 .method public abstract getDrxInfo(Landroid/os/Message;)V
 .end method
 
@@ -444,9 +441,6 @@
 .end method
 
 .method public abstract queryAvailableBandMode(Landroid/os/Message;)V
-.end method
-
-.method public abstract queryAvoidNetwork(Landroid/os/Message;)V
 .end method
 
 .method public abstract queryBCSMS(IILandroid/os/Message;)V
@@ -761,9 +755,6 @@
 .method public abstract requestCheckFDNStatus(Landroid/os/Message;)V
 .end method
 
-.method public abstract requestClearAvoidNetwork(Landroid/os/Message;)V
-.end method
-
 .method public abstract requestClearLocProcessDB(Landroid/os/Message;)V
 .end method
 
@@ -915,9 +906,6 @@
 .end method
 
 .method public abstract requestSSDUpdateConfirm(Ljava/lang/String;Landroid/os/Message;)V
-.end method
-
-.method public abstract requestSelectNextNetwork(Landroid/os/Message;)V
 .end method
 
 .method public abstract requestSendECallUSSD(Ljava/lang/String;Landroid/os/Message;)V
@@ -1124,9 +1112,6 @@
 .method public abstract setDeviceMemoryFull(ZLandroid/os/Message;)V
 .end method
 
-.method public abstract setDpdtSwitchValue(ILandroid/os/Message;)V
-.end method
-
 .method public abstract setEmergencyCallbackMode(Landroid/os/Handler;ILjava/lang/Object;)V
 .end method
 
@@ -1266,9 +1251,6 @@
 .end method
 
 .method public abstract setSuppServiceNotifications(ZLandroid/os/Message;)V
-.end method
-
-.method public abstract setTDLabMode(ILandroid/os/Message;)V
 .end method
 
 .method public abstract setTTYMode(ILandroid/os/Message;)V

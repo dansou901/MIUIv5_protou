@@ -28,12 +28,12 @@
     .parameter
 
     .prologue
-    .line 1547
+    .line 1470
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDeleteObserver$Stub;-><init>()V
 
-    .line 1549
+    .line 1472
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;->doneFlag:Z
@@ -47,7 +47,7 @@
     .locals 1
 
     .prologue
-    .line 1560
+    .line 1483
     iget-boolean v0, p0, Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;->doneFlag:Z
 
     return v0
@@ -66,37 +66,37 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1552
+    .line 1475
     monitor-enter p0
 
-    .line 1553
+    .line 1476
     if-ne p2, v0, :cond_0
 
     :goto_0
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;->succeeded:Z
 
-    .line 1554
+    .line 1477
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;->doneFlag:Z
 
-    .line 1555
+    .line 1478
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
-    .line 1556
+    .line 1479
     monitor-exit p0
 
-    .line 1557
+    .line 1480
     return-void
 
-    .line 1553
+    .line 1476
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 1556
+    .line 1479
     :catchall_0
     move-exception v0
 

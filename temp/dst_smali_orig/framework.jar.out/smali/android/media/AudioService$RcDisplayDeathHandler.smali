@@ -75,7 +75,7 @@
     iget-object v0, p0, Landroid/media/AudioService$RcDisplayDeathHandler;->this$0:Landroid/media/AudioService;
 
     #getter for: Landroid/media/AudioService;->mRCStack:Ljava/util/Stack;
-    invoke-static {v0}, Landroid/media/AudioService;->access$12400(Landroid/media/AudioService;)Ljava/util/Stack;
+    invoke-static {v0}, Landroid/media/AudioService;->access$11400(Landroid/media/AudioService;)Ljava/util/Stack;
 
     move-result-object v1
 
@@ -93,7 +93,7 @@
     const/4 v2, 0x0
 
     #setter for: Landroid/media/AudioService;->mRcDisplay:Landroid/media/IRemoteControlDisplay;
-    invoke-static {v0, v2}, Landroid/media/AudioService;->access$12502(Landroid/media/AudioService;Landroid/media/IRemoteControlDisplay;)Landroid/media/IRemoteControlDisplay;
+    invoke-static {v0, v2}, Landroid/media/AudioService;->access$11502(Landroid/media/AudioService;Landroid/media/IRemoteControlDisplay;)Landroid/media/IRemoteControlDisplay;
 
     monitor-exit v1
 

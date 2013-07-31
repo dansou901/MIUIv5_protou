@@ -8846,72 +8846,6 @@
     throw v1
 .end method
 
-.method public startTraceroute(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 6
-    .parameter "target_name"
-    .parameter "maxTTL"
-
-    .prologue
-    .line 2122
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.CONNECTIVITY_INTERNAL"
-
-    const-string v4, "NetworkManagementService"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2125
-    :try_start_0
-    new-instance v0, Lcom/android/server/NativeDaemonConnector$Command;
-
-    const-string v2, "netagent"
-
-    const/4 v3, 0x3
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    const-string v5, "startTraceroute"
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x1
-
-    aput-object p1, v3, v4
-
-    const/4 v4, 0x2
-
-    aput-object p2, v3, v4
-
-    invoke-direct {v0, v2, v3}, Lcom/android/server/NativeDaemonConnector$Command;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 2126
-    .local v0, cmd:Lcom/android/server/NativeDaemonConnector$Command;
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-
-    invoke-virtual {v2, v0}, Lcom/android/server/NativeDaemonConnector;->execute(Lcom/android/server/NativeDaemonConnector$Command;)Lcom/android/server/NativeDaemonEvent;
-    :try_end_0
-    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 2130
-    return-void
-
-    .line 2127
-    .end local v0           #cmd:Lcom/android/server/NativeDaemonConnector$Command;
-    :catch_0
-    move-exception v1
-
-    .line 2128
-    .local v1, e:Lcom/android/server/NativeDaemonConnectorException;
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
-.end method
-
 .method public startWpsRegistrar(Landroid/net/wifi/WpsInfo;)V
     .locals 7
     .parameter "config"
@@ -9448,62 +9382,6 @@
     monitor-exit p0
 
     throw v1
-.end method
-
-.method public stopTraceroute()V
-    .locals 6
-
-    .prologue
-    .line 2133
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService;->mContext:Landroid/content/Context;
-
-    const-string v3, "android.permission.CONNECTIVITY_INTERNAL"
-
-    const-string v4, "NetworkManagementService"
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2136
-    :try_start_0
-    new-instance v0, Lcom/android/server/NativeDaemonConnector$Command;
-
-    const-string v2, "netagent"
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    const-string v5, "stopTraceroute"
-
-    aput-object v5, v3, v4
-
-    invoke-direct {v0, v2, v3}, Lcom/android/server/NativeDaemonConnector$Command;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 2137
-    .local v0, cmd:Lcom/android/server/NativeDaemonConnector$Command;
-    iget-object v2, p0, Lcom/android/server/NetworkManagementService;->mConnector:Lcom/android/server/NativeDaemonConnector;
-
-    invoke-virtual {v2, v0}, Lcom/android/server/NativeDaemonConnector;->execute(Lcom/android/server/NativeDaemonConnector$Command;)Lcom/android/server/NativeDaemonEvent;
-    :try_end_0
-    .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 2141
-    return-void
-
-    .line 2138
-    .end local v0           #cmd:Lcom/android/server/NativeDaemonConnector$Command;
-    :catch_0
-    move-exception v1
-
-    .line 2139
-    .local v1, e:Lcom/android/server/NativeDaemonConnectorException;
-    new-instance v2, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v2, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
 .end method
 
 .method public stopWpsRegistrar()V

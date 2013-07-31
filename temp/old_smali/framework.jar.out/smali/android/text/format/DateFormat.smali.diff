@@ -1,5 +1,5 @@
-*** ./smali/android/text/format/DateFormat.smali	2013-07-12 21:43:30.901837274 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/text/format/DateFormat.smali	2013-07-12 21:41:13.868492641 +0000
+*** ./smali/android/text/format/DateFormat.smali	2013-07-31 22:22:37.130734371 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/text/format/DateFormat.smali	2013-07-31 22:21:27.034061854 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

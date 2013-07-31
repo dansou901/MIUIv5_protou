@@ -111,7 +111,7 @@
 
     move-result-object v6
 
-    const-string v7, "us"
+    const-string/jumbo v7, "us"
 
     const/16 v1, 0x136
 
@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    const-string v7, "us"
+    const-string/jumbo v7, "us"
 
     const/16 v1, 0x136
 
@@ -435,7 +435,7 @@
 
     move-result-object v6
 
-    const-string v7, "vc"
+    const-string/jumbo v7, "vc"
 
     const/16 v1, 0x168
 
@@ -699,7 +699,7 @@
 
     move-result-object v6
 
-    const-string v7, "vg"
+    const-string/jumbo v7, "vg"
 
     const/16 v1, 0x15c
 
@@ -882,7 +882,7 @@
 
     move-result-object v6
 
-    const-string v7, "th"
+    const-string/jumbo v7, "th"
 
     const/16 v1, 0x208
 
@@ -1094,7 +1094,7 @@
 
     move-result-object v6
 
-    const-string v7, "tn"
+    const-string/jumbo v7, "tn"
 
     const/16 v1, 0x25d
 
@@ -1242,7 +1242,7 @@
 
     move-result-object v6
 
-    const-string v7, "sn"
+    const-string/jumbo v7, "sn"
 
     const/16 v1, 0x260
 
@@ -1476,7 +1476,7 @@
 
     move-result-object v6
 
-    const-string v7, "st"
+    const-string/jumbo v7, "st"
 
     const/16 v1, 0x272
 
@@ -1797,7 +1797,7 @@
 
     move-result-object v6
 
-    const-string v7, "tg"
+    const-string/jumbo v7, "tg"
 
     const/16 v1, 0x267
 
@@ -1949,7 +1949,7 @@
 
     move-result-object v6
 
-    const-string v7, "sl"
+    const-string/jumbo v7, "sl"
 
     const/16 v1, 0x26b
 
@@ -2062,7 +2062,7 @@
 
     move-result-object v6
 
-    const-string v7, "td"
+    const-string/jumbo v7, "td"
 
     const/16 v1, 0x26e
 
@@ -2470,7 +2470,7 @@
 
     move-result-object v6
 
-    const-string v7, "sz"
+    const-string/jumbo v7, "sz"
 
     const/16 v1, 0x28d
 
@@ -2754,7 +2754,7 @@
 
     move-result-object v6
 
-    const-string v7, "so"
+    const-string/jumbo v7, "so"
 
     const/16 v1, 0x27d
 
@@ -2789,7 +2789,7 @@
 
     move-result-object v6
 
-    const-string v7, "tt"
+    const-string/jumbo v7, "tt"
 
     const/16 v1, 0x176
 
@@ -2859,7 +2859,7 @@
 
     move-result-object v6
 
-    const-string v7, "tz"
+    const-string/jumbo v7, "tz"
 
     const/16 v1, 0x280
 
@@ -2894,7 +2894,7 @@
 
     move-result-object v6
 
-    const-string v7, "ug"
+    const-string/jumbo v7, "ug"
 
     const/16 v1, 0x281
 
@@ -2999,7 +2999,7 @@
 
     move-result-object v6
 
-    const-string v7, "zm"
+    const-string/jumbo v7, "zm"
 
     const/16 v1, 0x285
 
@@ -3069,7 +3069,7 @@
 
     move-result-object v6
 
-    const-string v7, "zw"
+    const-string/jumbo v7, "zw"
 
     const/16 v1, 0x288
 
@@ -3244,7 +3244,7 @@
 
     move-result-object v6
 
-    const-string v7, "za"
+    const-string/jumbo v7, "za"
 
     const/16 v1, 0x28f
 
@@ -3501,7 +3501,7 @@
 
     move-result-object v6
 
-    const-string v7, "sm"
+    const-string/jumbo v7, "sm"
 
     const/16 v1, 0x124
 
@@ -3596,7 +3596,7 @@
 
     move-result-object v6
 
-    const-string v7, "tc"
+    const-string/jumbo v7, "tc"
 
     const/16 v1, 0x178
 
@@ -3672,7 +3672,7 @@
 
     move-result-object v6
 
-    const-string v7, "uz"
+    const-string/jumbo v7, "uz"
 
     const/16 v1, 0x1b2
 
@@ -3711,7 +3711,7 @@
 
     move-result-object v6
 
-    const-string v7, "tj"
+    const-string/jumbo v7, "tj"
 
     const/16 v1, 0x1b4
 
@@ -3863,7 +3863,7 @@
 
     move-result-object v6
 
-    const-string v7, "to"
+    const-string/jumbo v7, "to"
 
     const/16 v1, 0x21b
 
@@ -3941,7 +3941,7 @@
 
     move-result-object v6
 
-    const-string v7, "vu"
+    const-string/jumbo v7, "vu"
 
     const/16 v1, 0x21d
 
@@ -4058,7 +4058,7 @@
 
     move-result-object v6
 
-    const-string v7, "wf"
+    const-string/jumbo v7, "wf"
 
     const/16 v1, 0x21f
 
@@ -4449,7 +4449,7 @@
 
     move-result-object v6
 
-    const-string v7, "tv"
+    const-string/jumbo v7, "tv"
 
     move-object v8, v3
 
@@ -4653,7 +4653,7 @@
 
     move-result-object v6
 
-    const-string v7, "ye"
+    const-string/jumbo v7, "ye"
 
     const/16 v1, 0x1a5
 
@@ -4727,7 +4727,7 @@
 
     move-result-object v6
 
-    const-string v7, "ye"
+    const-string/jumbo v7, "ye"
 
     const/16 v1, 0x1a5
 
@@ -4836,7 +4836,7 @@
 
     move-result-object v6
 
-    const-string v7, "uz"
+    const-string/jumbo v7, "uz"
 
     const/16 v1, 0x1b2
 
@@ -4906,7 +4906,7 @@
 
     move-result-object v6
 
-    const-string v7, "uz"
+    const-string/jumbo v7, "uz"
 
     const/16 v1, 0x1b2
 
@@ -5019,7 +5019,7 @@
 
     move-result-object v6
 
-    const-string v7, "vn"
+    const-string/jumbo v7, "vn"
 
     const/16 v1, 0x1c4
 
@@ -5136,7 +5136,7 @@
 
     move-result-object v6
 
-    const-string v7, "tw"
+    const-string/jumbo v7, "tw"
 
     const/16 v1, 0x1d2
 
@@ -5253,7 +5253,7 @@
 
     move-result-object v6
 
-    const-string v7, "tr"
+    const-string/jumbo v7, "tr"
 
     const/16 v1, 0x11e
 
@@ -5557,7 +5557,7 @@
 
     move-result-object v6
 
-    const-string v7, "sy"
+    const-string/jumbo v7, "sy"
 
     const/16 v1, 0x1a1
 
@@ -5891,7 +5891,7 @@
 
     move-result-object v6
 
-    const-string v7, "ua"
+    const-string/jumbo v7, "ua"
 
     const/16 v1, 0xff
 
@@ -6067,7 +6067,7 @@
 
     move-result-object v6
 
-    const-string v7, "tm"
+    const-string/jumbo v7, "tm"
 
     move-object v8, v3
 
@@ -6352,7 +6352,7 @@
 
     move-result-object v6
 
-    const-string v7, "us"
+    const-string/jumbo v7, "us"
 
     const/16 v1, 0x136
 
@@ -6517,7 +6517,7 @@
 
     move-result-object v6
 
-    const-string v7, "us"
+    const-string/jumbo v7, "us"
 
     move-object v8, v3
 
@@ -7406,7 +7406,7 @@
 
     move-result-object v6
 
-    const-string v7, "sr"
+    const-string/jumbo v7, "sr"
 
     const/16 v1, 0x2ea
 
@@ -7445,7 +7445,7 @@
 
     move-result-object v6
 
-    const-string v7, "uy"
+    const-string/jumbo v7, "uy"
 
     const/16 v1, 0x2ec
 
@@ -7966,7 +7966,7 @@
 
     move-result-object v6
 
-    const-string v7, "ve"
+    const-string/jumbo v7, "ve"
 
     const/16 v1, 0x2de
 
@@ -8631,7 +8631,7 @@
 
     move-result-object v6
 
-    const-string v7, "sv"
+    const-string/jumbo v7, "sv"
 
     const/16 v1, 0x2c2
 

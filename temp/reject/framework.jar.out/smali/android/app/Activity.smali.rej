@@ -1,0 +1,37 @@
+*** Activity.smali	2013-07-31 22:21:54.460730810 +0000
+--- Activity.smali	2013-07-31 22:23:22.367404814 +0000
+***************
+*** 4832,4840 ****
+  
+  .method protected onResume()V
+      .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      invoke-virtual {p0}, Landroid/app/Activity;->getApplication()Landroid/app/Application;
+--- 4786,4791 ----
+  
+  .method protected onResume()V
+      .locals 1
+  
+      .prologue
+      invoke-virtual {p0}, Landroid/app/Activity;->getApplication()Landroid/app/Application;
+***************
+*** 5707,5714 ****
+      throw v0
+  
+      :cond_1
+-     invoke-static {p0}, Landroid/app/Activity$Injector;->onWindowShow(Landroid/app/Activity;)V
+- 
+      return-void
+  .end method
+  
+--- 5654,5659 ----
+      throw v0
+  
+      :cond_1
+      return-void
+  .end method
+  

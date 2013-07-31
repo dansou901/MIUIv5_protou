@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 7941
+    .line 7592
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -38,7 +38,7 @@
     .locals 5
 
     .prologue
-    .line 7944
+    .line 7595
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -64,9 +64,9 @@
     move-result-object v1
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 7945
+    .line 7596
     const v0, 0xc365
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->getName()Ljava/lang/String;
@@ -75,22 +75,22 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(ILjava/lang/String;)I
 
-    .line 7946
+    .line 7597
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$18408(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$18008(Landroid/net/wifi/WifiStateMachine;)I
 
-    .line 7947
+    .line 7598
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableRssiPolling:Z
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$3700(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$3500(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 7948
+    .line 7599
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -100,7 +100,7 @@
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mRssiPollToken:I
-    invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$18400(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$18000(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v3
 
@@ -112,7 +112,7 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->sendMessage(Landroid/os/Message;)V
 
-    .line 7950
+    .line 7601
     :cond_0
     return-void
 .end method
@@ -123,41 +123,34 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 8198
+    .line 7802
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mScanResultIsPending:Z
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$11400(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$11000(Landroid/net/wifi/WifiStateMachine;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 7805
+    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
+
+    const/16 v1, 0xda
+
+    if-ne v0, v1, :cond_2
+
+    .line 7806
+    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mAssociateManual:Z
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$13300(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 8201
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/16 v1, 0xda
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_3
-
-    .line 8202
-    :cond_0
-    iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mAssociateManual:Z
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$13700(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 8203
+    .line 7807
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -169,13 +162,13 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
 
-    .line 8212
-    :cond_1
+    .line 7816
+    :cond_0
     :goto_0
     return-void
 
-    .line 8205
-    :cond_2
+    .line 7809
+    :cond_1
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -187,8 +180,8 @@
 
     goto :goto_0
 
-    .line 8208
-    :cond_3
+    .line 7812
+    :cond_2
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -202,218 +195,237 @@
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
-    .locals 9
+    .locals 12
     .parameter "message"
 
     .prologue
-    .line 7954
+    const v11, 0x20053
+
+    const/4 v10, -0x1
+
+    const/4 v9, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    .line 7605
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0}, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->getName()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
     invoke-virtual {p1}, Landroid/os/Message;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    const-string v6, "\n"
+    const-string v8, "\n"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 7955
+    .line 7606
     iget v4, p1, Landroid/os/Message;->what:I
 
     sparse-switch v4, :sswitch_data_0
 
-    .line 8187
-    const/4 v4, 0x0
-
-    .line 8190
+    .line 7794
+    :cond_0
     :goto_0
-    return v4
+    return v6
 
-    .line 7957
+    .line 7608
     :sswitch_0
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->handlePreDhcpSetup()V
 
-    .line 7959
+    .line 7610
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDhcpStateMachine:Landroid/net/DhcpStateMachine;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$11800(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18100(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 7961
+    .line 7612
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDhcpStateMachine:Landroid/net/DhcpStateMachine;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$11800(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18100(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
 
     move-result-object v4
 
-    const v5, 0x30006
+    const v6, 0x30006
 
-    invoke-virtual {v4, v5}, Landroid/net/DhcpStateMachine;->sendMessage(I)V
+    invoke-virtual {v4, v6}, Landroid/net/DhcpStateMachine;->sendMessage(I)V
 
-    .line 8190
-    :cond_0
+    :cond_1
     :goto_1
-    const/4 v4, 0x1
+    move v6, v5
 
+    .line 7794
     goto :goto_0
 
-    .line 7964
+    .line 7615
     :sswitch_1
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiStateMachine;->handlePostDhcpSetup()V
 
-    .line 7965
+    .line 7616
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    const/4 v5, 0x1
+    if-ne v4, v5, :cond_3
 
-    if-ne v4, v5, :cond_1
-
-    .line 7966
+    .line 7617
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "DHCP successful"
+    const-string v6, "DHCP successful"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 7967
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    .line 7618
+    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Landroid/net/DhcpInfoInternal;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->handleSuccessfulIpConfiguration(Landroid/net/DhcpInfoInternal;)V
-    invoke-static {v5, v4}, Landroid/net/wifi/WifiStateMachine;->access$18500(Landroid/net/wifi/WifiStateMachine;Landroid/net/DhcpInfoInternal;)V
+    invoke-static {v6, v4}, Landroid/net/wifi/WifiStateMachine;->access$18200(Landroid/net/wifi/WifiStateMachine;Landroid/net/DhcpInfoInternal;)V
 
-    .line 7968
+    .line 7619
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x1
 
     #setter for: Landroid/net/wifi/WifiStateMachine;->mHaveIpAddress:Z
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$12002(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$11502(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 7971
+    .line 7621
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionFeature:Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10000(Landroid/net/wifi/WifiStateMachine;)Z
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mVerifyingLinkState:Lcom/android/internal/util/State;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$18600(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    move-result v4
 
-    move-result-object v5
+    if-eqz v4, :cond_2
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$18700(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
-
-    goto :goto_1
-
-    .line 7972
-    :cond_1
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    const/4 v5, 0x2
-
-    if-ne v4, v5, :cond_0
-
-    .line 7973
+    .line 7622
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "DHCP failed"
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    move-result-wide v6
 
-    .line 7977
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    #setter for: Landroid/net/wifi/WifiStateMachine;->mHaveIpAddressTime:J
+    invoke-static {v4, v6, v7}, Landroid/net/wifi/WifiStateMachine;->access$18302(Landroid/net/wifi/WifiStateMachine;J)J
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->getCurrentState()Lcom/android/internal/util/IState;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18800(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/IState;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mConnectedState:Lcom/android/internal/util/State;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$18900(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
-
-    move-result-object v5
-
-    if-ne v4, v5, :cond_2
-
-    .line 7978
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const-string v5, "DHCP failed when connected"
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
-
-    .line 7979
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x0
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->handleFailedIpConfiguration(Z)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$19000(Landroid/net/wifi/WifiStateMachine;Z)V
-
-    goto :goto_1
-
-    .line 7981
+    .line 7626
     :cond_2
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "DHCP failed when disconnected"
+    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mVerifyingLinkState:Lcom/android/internal/util/State;
+    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$18400(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
-    .line 7982
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    move-result-object v6
 
-    const/4 v5, 0x1
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->handleFailedIpConfiguration(Z)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$19000(Landroid/net/wifi/WifiStateMachine;Z)V
+    #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v4, v6}, Landroid/net/wifi/WifiStateMachine;->access$18500(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
-    .line 7989
+    .line 7627
+    :cond_3
+    iget v4, p1, Landroid/os/Message;->arg1:I
+
+    if-ne v4, v9, :cond_1
+
+    .line 7628
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const-string v7, "DHCP failed"
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+
+    .line 7632
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->getCurrentState()Lcom/android/internal/util/IState;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18600(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/IState;
+
+    move-result-object v4
+
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mConnectedState:Lcom/android/internal/util/State;
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$18700(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+
+    move-result-object v7
+
+    if-ne v4, v7, :cond_4
+
+    .line 7633
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const-string v7, "DHCP failed when connected"
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+
+    .line 7634
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->handleFailedIpConfiguration(Z)V
+    invoke-static {v4, v6}, Landroid/net/wifi/WifiStateMachine;->access$18800(Landroid/net/wifi/WifiStateMachine;Z)V
+
+    goto :goto_1
+
+    .line 7636
+    :cond_4
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const-string v6, "DHCP failed when disconnected"
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
+    invoke-static {v4, v6}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+
+    .line 7637
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->handleFailedIpConfiguration(Z)V
+    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$18800(Landroid/net/wifi/WifiStateMachine;Z)V
+
+    goto :goto_1
+
+    .line 7644
     :sswitch_2
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -424,70 +436,61 @@
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiNative;->disconnect()Z
 
-    .line 7990
+    .line 7645
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDisconnectingState:Lcom/android/internal/util/State;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$16900(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$16500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
-    move-result-object v5
+    move-result-object v6
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$19100(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
-
-    goto :goto_1
-
-    .line 7993
-    :sswitch_3
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    const/4 v5, 0x2
-
-    if-ne v4, v5, :cond_0
-
-    .line 7994
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v5, 0x2004a
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
-
-    .line 7995
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v4, p1}, Landroid/net/wifi/WifiStateMachine;->access$19200(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+    invoke-static {v4, v6}, Landroid/net/wifi/WifiStateMachine;->access$18900(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
     goto/16 :goto_1
 
-    .line 8006
+    .line 7648
+    :sswitch_3
+    iget v4, p1, Landroid/os/Message;->arg1:I
+
+    if-ne v4, v9, :cond_1
+
+    .line 7649
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const v6, 0x2004a
+
+    invoke-virtual {v4, v6}, Landroid/net/wifi/WifiStateMachine;->sendMessage(I)V
+
+    .line 7650
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
+    invoke-static {v4, p1}, Landroid/net/wifi/WifiStateMachine;->access$19000(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+
+    goto/16 :goto_1
+
+    .line 7661
     :sswitch_4
     sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
 
     const/16 v5, 0xda
 
-    if-eq v4, v5, :cond_3
+    if-ne v4, v5, :cond_6
 
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_PROJECT_flag:S
-
-    const/4 v5, 0x2
-
-    if-ne v4, v5, :cond_5
-
-    .line 8007
-    :cond_3
+    .line 7662
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mAssociateManual:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$13700(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$13300(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
-    .line 8008
+    .line 7663
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
@@ -499,28 +502,9 @@
 
     invoke-virtual {v4, v5}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
 
-    .line 8018
-    :goto_2
-    const/4 v4, 0x0
-
     goto/16 :goto_0
 
-    .line 8010
-    :cond_4
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$1400(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
-
-    move-result-object v4
-
-    const/4 v5, 0x2
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
-
-    goto :goto_2
-
-    .line 8013
+    .line 7665
     :cond_5
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -529,81 +513,62 @@
 
     move-result-object v4
 
-    const/4 v5, 0x2
+    invoke-virtual {v4, v9}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
 
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
+    goto/16 :goto_0
 
-    goto :goto_2
-
-    .line 8021
-    :sswitch_5
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x24
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x14a
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0xe1
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x2b
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0xe0
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x2d8
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x49
-
-    if-eq v4, v5, :cond_6
-
-    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v5, 0x4a
-
-    if-ne v4, v5, :cond_0
-
-    .line 8029
+    .line 7668
     :cond_6
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$1400(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v9}, Landroid/net/wifi/WifiNative;->setScanResultHandling(I)Z
+
+    goto/16 :goto_0
+
+    .line 7676
+    :sswitch_5
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+
+    const/16 v6, 0x24
+
+    if-eq v4, v6, :cond_7
+
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+
+    const/16 v6, 0xe1
+
+    if-eq v4, v6, :cond_7
+
+    sget-short v4, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
+
+    const/16 v6, 0x49
+
+    if-ne v4, v6, :cond_1
+
+    .line 7679
+    :cond_7
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
     #calls: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v4, p1}, Landroid/net/wifi/WifiStateMachine;->access$19300(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+    invoke-static {v4, p1}, Landroid/net/wifi/WifiStateMachine;->access$19100(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     goto/16 :goto_1
 
-    .line 8033
+    .line 7683
     :sswitch_6
     iget v2, p1, Landroid/os/Message;->arg1:I
 
-    .line 8034
+    .line 7684
     .local v2, netId:I
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
 
     move-result-object v4
 
@@ -611,21 +576,18 @@
 
     move-result v4
 
-    if-eq v4, v2, :cond_0
+    if-ne v4, v2, :cond_0
 
-    .line 8037
-    const/4 v4, 0x0
+    goto/16 :goto_1
 
-    goto/16 :goto_0
-
-    .line 8039
+    .line 7689
     .end local v2           #netId:I
     :sswitch_7
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    .line 8040
+    .line 7690
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -638,12 +600,12 @@
 
     move-result-object v3
 
-    .line 8041
+    .line 7691
     .local v3, result:Landroid/net/wifi/NetworkUpdateResult;
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
 
     move-result-object v4
 
@@ -653,48 +615,48 @@
 
     invoke-virtual {v3}, Landroid/net/wifi/NetworkUpdateResult;->getNetworkId()I
 
-    move-result v5
+    move-result v7
 
-    if-ne v4, v5, :cond_8
+    if-ne v4, v7, :cond_9
 
-    .line 8042
+    .line 7692
     invoke-virtual {v3}, Landroid/net/wifi/NetworkUpdateResult;->hasIpChanged()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
-    .line 8043
+    .line 7693
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "Reconfiguring IP on connection"
+    const-string v7, "Reconfiguring IP on connection"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8045
+    .line 7695
     new-instance v1, Landroid/content/Intent;
 
     const-string v4, "android.net.wifi.LINK_CONFIGURATION_CHANGED"
 
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 8046
+    .line 7696
     .local v1, intent:Landroid/content/Intent;
     const/high16 v4, 0x800
 
     invoke-virtual {v1, v4}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 8047
+    .line 7697
     const-string v4, "linkProperties"
 
-    new-instance v5, Landroid/net/LinkProperties;
+    new-instance v7, Landroid/net/LinkProperties;
 
-    invoke-direct {v5}, Landroid/net/LinkProperties;-><init>()V
+    invoke-direct {v7}, Landroid/net/LinkProperties;-><init>()V
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v1, v4, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 8048
+    .line 7698
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mContext:Landroid/content/Context;
@@ -704,839 +666,494 @@
 
     invoke-virtual {v4, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 8050
+    .line 7700
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mObtainingIpState:Lcom/android/internal/util/State;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$17900(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$17500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
-    move-result-object v5
+    move-result-object v7
 
     #calls: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$19400(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$19200(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
 
-    .line 8052
+    .line 7702
     .end local v1           #intent:Landroid/content/Intent;
-    :cond_7
+    :cond_8
     invoke-virtual {v3}, Landroid/net/wifi/NetworkUpdateResult;->hasProxyChanged()Z
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
-    .line 8053
+    .line 7703
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "Reconfiguring proxy on connection"
+    const-string v7, "Reconfiguring proxy on connection"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$3100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8054
+    .line 7704
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->configureLinkProperties()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19500(Landroid/net/wifi/WifiStateMachine;)V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19300(Landroid/net/wifi/WifiStateMachine;)V
 
-    .line 8055
+    .line 7705
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->sendLinkConfigurationChangedBroadcast()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19600(Landroid/net/wifi/WifiStateMachine;)V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19400(Landroid/net/wifi/WifiStateMachine;)V
 
-    .line 8059
-    :cond_8
+    .line 7709
+    :cond_9
     invoke-virtual {v3}, Landroid/net/wifi/NetworkUpdateResult;->getNetworkId()I
 
     move-result v4
 
-    const/4 v5, -0x1
+    if-eq v4, v10, :cond_a
 
-    if-eq v4, v5, :cond_9
-
-    .line 8060
+    .line 7710
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const v5, 0x25009
+    const v6, 0x25009
 
     #calls: Landroid/net/wifi/WifiStateMachine;->replyToMessage(Landroid/os/Message;I)V
-    invoke-static {v4, p1, v5}, Landroid/net/wifi/WifiStateMachine;->access$4400(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;I)V
+    invoke-static {v4, p1, v6}, Landroid/net/wifi/WifiStateMachine;->access$4100(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;I)V
 
     goto/16 :goto_1
 
-    .line 8062
-    :cond_9
+    .line 7712
+    :cond_a
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const-string v5, "Failed to save network"
+    const-string v7, "Failed to save network"
 
     #calls: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$2300(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v4, v7}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8063
+    .line 7713
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const v5, 0x25008
-
-    const/4 v6, 0x0
+    const v7, 0x25008
 
     #calls: Landroid/net/wifi/WifiStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v4, p1, v5, v6}, Landroid/net/wifi/WifiStateMachine;->access$3500(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;II)V
+    invoke-static {v4, p1, v7, v6}, Landroid/net/wifi/WifiStateMachine;->access$3300(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 8070
+    .line 7720
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v3           #result:Landroid/net/wifi/NetworkUpdateResult;
     :sswitch_8
     const-string v4, "WifiStateMachine"
 
-    const-string v5, "ConnectedState WifiMonitor.NETWORK_CONNECTION_EVENT, start DHCP renew"
+    const-string v6, "ConnectedState WifiMonitor.NETWORK_CONNECTION_EVENT, start DHCP renew"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8071
+    .line 7721
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDhcpStateMachine:Landroid/net/DhcpStateMachine;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$11800(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18100(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
 
     move-result-object v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
-    .line 8072
+    .line 7722
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mDhcpStateMachine:Landroid/net/DhcpStateMachine;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$11800(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18100(Landroid/net/wifi/WifiStateMachine;)Landroid/net/DhcpStateMachine;
 
     move-result-object v4
 
-    const v5, 0x30003
+    const v6, 0x30003
 
-    invoke-virtual {v4, v5}, Landroid/net/DhcpStateMachine;->sendMessage(I)V
+    invoke-virtual {v4, v6}, Landroid/net/DhcpStateMachine;->sendMessage(I)V
 
-    .line 8075
-    :cond_a
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    iget v5, p1, Landroid/os/Message;->arg1:I
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mLastNetworkId:I
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$8602(Landroid/net/wifi/WifiStateMachine;I)I
-
-    .line 8076
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v4, Ljava/lang/String;
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mLastBssid:Ljava/lang/String;
-    invoke-static {v5, v4}, Landroid/net/wifi/WifiStateMachine;->access$8502(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)Ljava/lang/String;
-
-    .line 8077
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mLastBssid:Ljava/lang/String;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$8500(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiInfo;->setBSSID(Ljava/lang/String;)V
-
-    .line 8078
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mLastNetworkId:I
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiInfo;->setNetworkId(I)V
-
-    .line 8079
+    .line 7725
+    :cond_b
     const-string v4, "WifiStateMachine"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v6, "update mWifiInfo\'s Frequency "
+    const-string/jumbo v7, "update mWifiInfo\'s Frequency "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
+
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #calls: Landroid/net/wifi/WifiStateMachine;->fetchFrequency()I
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$17100(Landroid/net/wifi/WifiStateMachine;)I
+
+    move-result v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 7726
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
+
+    move-result-object v4
 
     iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->fetchFrequency()I
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$17500(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$17100(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Landroid/net/wifi/WifiInfo;->setFrequency(I)V
 
-    move-result-object v5
-
-    const-string/jumbo v6, "mWifiInfo.getSSID(): "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, "mWifiInfo.getBSSID(): "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8080
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
-
-    move-result-object v4
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->fetchFrequency()I
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$17500(Landroid/net/wifi/WifiStateMachine;)I
-
-    move-result v5
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiInfo;->setFrequency(I)V
-
-    .line 8085
+    .line 7731
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionFeature:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10400(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10000(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 8086
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    .line 7732
+    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Ljava/lang/String;
 
     #setter for: Landroid/net/wifi/WifiStateMachine;->mLastBssid:Ljava/lang/String;
-    invoke-static {v5, v4}, Landroid/net/wifi/WifiStateMachine;->access$8502(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v4}, Landroid/net/wifi/WifiStateMachine;->access$8202(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)Ljava/lang/String;
 
-    .line 8087
+    .line 7733
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
 
     move-result-object v4
 
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mLastBssid:Ljava/lang/String;
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$8500(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
+    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$8200(Landroid/net/wifi/WifiStateMachine;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiInfo;->setBSSID(Ljava/lang/String;)V
+    invoke-virtual {v4, v6}, Landroid/net/wifi/WifiInfo;->setBSSID(Ljava/lang/String;)V
 
-    .line 8088
+    .line 7734
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableAPDatabase:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17700(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17300(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 8090
+    .line 7736
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->addNewDBRecord()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17800(Landroid/net/wifi/WifiStateMachine;)V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17400(Landroid/net/wifi/WifiStateMachine;)V
 
     goto/16 :goto_1
 
-    .line 8096
+    .line 7742
     :sswitch_9
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mRssiPollToken:I
-    invoke-static {v5}, Landroid/net/wifi/WifiStateMachine;->access$18400(Landroid/net/wifi/WifiStateMachine;)I
-
-    move-result v5
-
-    if-ne v4, v5, :cond_0
-
-    .line 8098
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->fetchRssiAndLinkSpeedNative()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17400(Landroid/net/wifi/WifiStateMachine;)V
-
-    .line 8099
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v6, 0x20053
-
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mRssiPollToken:I
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$18400(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$18000(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v7
 
-    const/4 v8, 0x0
+    if-ne v4, v7, :cond_1
 
-    invoke-virtual {v5, v6, v7, v8}, Landroid/net/wifi/WifiStateMachine;->obtainMessage(III)Landroid/os/Message;
+    .line 7744
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    move-result-object v5
+    #calls: Landroid/net/wifi/WifiStateMachine;->fetchRssiAndLinkSpeedNative()V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17000(Landroid/net/wifi/WifiStateMachine;)V
 
-    const-wide/16 v6, 0xbb8
+    .line 7745
+    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    iget-object v8, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mRssiPollToken:I
+    invoke-static {v8}, Landroid/net/wifi/WifiStateMachine;->access$18000(Landroid/net/wifi/WifiStateMachine;)I
+
+    move-result v8
+
+    invoke-virtual {v7, v11, v8, v6}, Landroid/net/wifi/WifiStateMachine;->obtainMessage(III)Landroid/os/Message;
+
+    move-result-object v6
+
+    const-wide/16 v7, 0xbb8
+
+    invoke-virtual {v4, v6, v7, v8}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
     goto/16 :goto_1
 
-    .line 8106
+    .line 7752
     :sswitch_a
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    const/4 v6, 0x1
+    if-ne v4, v5, :cond_c
 
-    if-ne v4, v6, :cond_b
+    move v4, v5
 
-    const/4 v4, 0x1
-
-    :goto_3
+    :goto_2
     #setter for: Landroid/net/wifi/WifiStateMachine;->mEnableRssiPolling:Z
-    invoke-static {v5, v4}, Landroid/net/wifi/WifiStateMachine;->access$3702(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-static {v7, v4}, Landroid/net/wifi/WifiStateMachine;->access$3502(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 8107
+    .line 7753
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18408(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18008(Landroid/net/wifi/WifiStateMachine;)I
 
-    .line 8108
+    .line 7754
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mEnableRssiPolling:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$3700(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$3500(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 8111
+    .line 7757
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const/4 v5, -0x1
-
     #setter for: Landroid/net/wifi/WifiStateMachine;->mLastSignalLevel:I
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$8702(Landroid/net/wifi/WifiStateMachine;I)I
+    invoke-static {v4, v10}, Landroid/net/wifi/WifiStateMachine;->access$8402(Landroid/net/wifi/WifiStateMachine;I)I
 
-    .line 8113
+    .line 7759
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->fetchRssiAndLinkSpeedNative()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17400(Landroid/net/wifi/WifiStateMachine;)V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17000(Landroid/net/wifi/WifiStateMachine;)V
 
-    .line 8114
+    .line 7760
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const v6, 0x20053
 
     iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
+    iget-object v8, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
     #getter for: Landroid/net/wifi/WifiStateMachine;->mRssiPollToken:I
-    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$18400(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v8}, Landroid/net/wifi/WifiStateMachine;->access$18000(Landroid/net/wifi/WifiStateMachine;)I
 
-    move-result v7
+    move-result v8
 
-    const/4 v8, 0x0
+    invoke-virtual {v7, v11, v8, v6}, Landroid/net/wifi/WifiStateMachine;->obtainMessage(III)Landroid/os/Message;
 
-    invoke-virtual {v5, v6, v7, v8}, Landroid/net/wifi/WifiStateMachine;->obtainMessage(III)Landroid/os/Message;
+    move-result-object v6
 
-    move-result-object v5
+    const-wide/16 v7, 0xbb8
 
-    const-wide/16 v6, 0xbb8
-
-    invoke-virtual {v4, v5, v6, v7}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
+    invoke-virtual {v4, v6, v7, v8}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
     goto/16 :goto_1
 
-    .line 8106
-    :cond_b
-    const/4 v4, 0x0
+    :cond_c
+    move v4, v6
 
-    goto :goto_3
+    .line 7752
+    goto :goto_2
 
-    .line 8119
+    .line 7765
     :sswitch_b
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #calls: Landroid/net/wifi/WifiStateMachine;->fetchRssiAndLinkSpeedNative()V
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17400(Landroid/net/wifi/WifiStateMachine;)V
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$17000(Landroid/net/wifi/WifiStateMachine;)V
 
-    .line 8120
+    .line 7766
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const v5, 0x21018
+    const v6, 0x21018
 
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$8900(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$8600(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiInfo;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getRssi()I
+    invoke-virtual {v7}, Landroid/net/wifi/WifiInfo;->getRssi()I
 
-    move-result v6
+    move-result v7
 
     #calls: Landroid/net/wifi/WifiStateMachine;->replyToMessage(Landroid/os/Message;II)V
-    invoke-static {v4, p1, v5, v6}, Landroid/net/wifi/WifiStateMachine;->access$3500(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;II)V
+    invoke-static {v4, p1, v6, v7}, Landroid/net/wifi/WifiStateMachine;->access$3300(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;II)V
 
     goto/16 :goto_1
 
-    .line 8126
+    .line 7772
     :sswitch_c
-    iget-object v5, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    const/4 v6, 0x1
+    if-ne v4, v5, :cond_e
 
-    if-ne v4, v6, :cond_c
+    move v4, v5
 
-    const/4 v4, 0x1
-
-    :goto_4
+    :goto_3
     #setter for: Landroid/net/wifi/WifiStateMachine;->mRoadmingDisabled:Z
-    invoke-static {v5, v4}, Landroid/net/wifi/WifiStateMachine;->access$4102(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-static {v7, v4}, Landroid/net/wifi/WifiStateMachine;->access$3902(Landroid/net/wifi/WifiStateMachine;Z)Z
 
-    .line 8127
+    .line 7773
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
     invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$1400(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    iget-object v7, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mRoadmingDisabled:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$4100(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v7}, Landroid/net/wifi/WifiStateMachine;->access$3900(Landroid/net/wifi/WifiStateMachine;)Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_d
+    if-eqz v7, :cond_d
 
-    const/4 v4, 0x1
+    move v6, v5
 
-    :goto_5
-    invoke-virtual {v5, v4}, Landroid/net/wifi/WifiNative;->setRoamingDisabled(I)V
+    :cond_d
+    invoke-virtual {v4, v6}, Landroid/net/wifi/WifiNative;->setRoamingDisabled(I)V
 
     goto/16 :goto_1
 
-    .line 8126
-    :cond_c
-    const/4 v4, 0x0
+    :cond_e
+    move v4, v6
 
-    goto :goto_4
+    .line 7772
+    goto :goto_3
 
-    .line 8127
-    :cond_d
-    const/4 v4, 0x0
-
-    goto :goto_5
-
-    .line 8132
+    .line 7778
     :sswitch_d
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionFeature:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10400(Landroid/net/wifi/WifiStateMachine;)Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10000(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
-    .line 8133
+    .line 7779
     const-string v4, "WifiStateMachine"
 
-    const-string v5, "NETWORK_HIGH_TXPER_EVENT"
+    const-string v6, "NETWORK_HIGH_TXPER_EVENT"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 8134
+    .line 7780
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mHaveIpAddressTime:J
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$19700(Landroid/net/wifi/WifiStateMachine;)J
 
     move-result-wide v6
 
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x2710
-
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x0
-
-    cmp-long v4, v4, v6
-
-    if-gez v4, :cond_e
-
-    .line 8135
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "Just got IP address, don\'t do network switch..."
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 8136
-    :cond_e
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mLastLinkspeed:I
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19800(Landroid/net/wifi/WifiStateMachine;)I
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mHaveIpAddressTime:J
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$18300(Landroid/net/wifi/WifiStateMachine;)J
 
-    move-result v4
+    move-result-wide v8
 
-    const/16 v5, 0x18
+    sub-long/2addr v6, v8
 
-    if-lt v4, v5, :cond_f
+    const-wide/16 v8, 0x2710
 
-    .line 8137
+    sub-long/2addr v6, v8
+
+    const-wide/16 v8, 0x0
+
+    cmp-long v4, v6, v8
+
+    if-gez v4, :cond_f
+
+    .line 7781
     const-string v4, "WifiStateMachine"
 
-    const-string v5, "Data rate is still high, don\'t do network switch..."
+    const-string v6, "Just got IP address, don\'t do network switch..."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
-    .line 8138
+    .line 7782
     :cond_f
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionRoamToOtherSsid:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19900(Landroid/net/wifi/WifiStateMachine;)Z
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mLastLinkspeed:I
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19500(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v4
 
-    if-eqz v4, :cond_10
+    const/16 v6, 0x18
 
-    .line 8139
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
+    if-lt v4, v6, :cond_10
 
-    const/4 v5, 0x1
+    .line 7783
+    const-string v4, "WifiStateMachine"
 
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->roamToTopScoreAP(Z)Z
+    const-string v6, "Data rate is still high, don\'t do network switch..."
+
+    invoke-static {v4, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_1
 
-    .line 8141
+    .line 7784
     :cond_10
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const/4 v5, 0x0
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->roamToTopScoreAP(Z)Z
-
-    goto/16 :goto_1
-
-    .line 8148
-    :sswitch_e
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionFeature:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10400(Landroid/net/wifi/WifiStateMachine;)Z
+    #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionRoamToOtherSsid:Z
+    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$19600(Landroid/net/wifi/WifiStateMachine;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_1
 
-    .line 8149
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mStartOffloadTime:J
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$20000(Landroid/net/wifi/WifiStateMachine;)J
-
-    move-result-wide v6
-
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x2710
-
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x0
-
-    cmp-long v4, v4, v6
-
-    if-lez v4, :cond_11
-
-    .line 8151
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "WiFioffload, got OFFLOAD_NOTIFICATION_EVENT, do network selection first"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8152
+    .line 7785
     iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
-    const/4 v5, 0x1
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mStartOffloadNotification:Z
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$20102(Landroid/net/wifi/WifiStateMachine;Z)Z
-
-    .line 8153
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v5
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mStartOffloadTime:J
-    invoke-static {v4, v5, v6}, Landroid/net/wifi/WifiStateMachine;->access$20002(Landroid/net/wifi/WifiStateMachine;J)J
-
-    .line 8154
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$1400(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/net/wifi/WifiNative;->scan()Z
-
-    .line 8155
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x1
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mScanResultIsPending:Z
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$11402(Landroid/net/wifi/WifiStateMachine;Z)Z
+    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->roamToTopScoreAP(Z)V
 
     goto/16 :goto_1
 
-    .line 8158
-    :cond_11
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "WiFioffload, just trigger network selection check, ignore OFFLOAD_TRIGGER_EVENT"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 8162
-    :cond_12
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "Network selection is diable, send OFFLOAD_NOTIFICATION_EVENT directly"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8163
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/16 v5, 0xb
-
-    #calls: Landroid/net/wifi/WifiStateMachine;->sendErrorBroadcast(I)V
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$20200(Landroid/net/wifi/WifiStateMachine;I)V
-
-    goto/16 :goto_1
-
-    .line 8167
-    :sswitch_f
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mHtcNetworkSelectionFeature:Z
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$10400(Landroid/net/wifi/WifiStateMachine;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_14
-
-    .line 8168
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-object v6, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mStartOffloadTime:J
-    invoke-static {v6}, Landroid/net/wifi/WifiStateMachine;->access$20000(Landroid/net/wifi/WifiStateMachine;)J
-
-    move-result-wide v6
-
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x2710
-
-    sub-long/2addr v4, v6
-
-    const-wide/16 v6, 0x0
-
-    cmp-long v4, v4, v6
-
-    if-lez v4, :cond_13
-
-    .line 8170
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "WiFioffload, got OFFLOAD_TRIGGER_EVENT, do network selection first"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8171
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x1
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mStartOffload:Z
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$20302(Landroid/net/wifi/WifiStateMachine;Z)Z
-
-    .line 8172
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v5
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mStartOffloadTime:J
-    invoke-static {v4, v5, v6}, Landroid/net/wifi/WifiStateMachine;->access$20002(Landroid/net/wifi/WifiStateMachine;J)J
-
-    .line 8173
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    #getter for: Landroid/net/wifi/WifiStateMachine;->mWifiNative:Landroid/net/wifi/WifiNative;
-    invoke-static {v4}, Landroid/net/wifi/WifiStateMachine;->access$1400(Landroid/net/wifi/WifiStateMachine;)Landroid/net/wifi/WifiNative;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/net/wifi/WifiNative;->scan()Z
-
-    .line 8174
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x1
-
-    #setter for: Landroid/net/wifi/WifiStateMachine;->mScanResultIsPending:Z
-    invoke-static {v4, v5}, Landroid/net/wifi/WifiStateMachine;->access$11402(Landroid/net/wifi/WifiStateMachine;Z)Z
-
-    goto/16 :goto_1
-
-    .line 8177
-    :cond_13
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "WiFioffload, just trigger network selection check, ignore OFFLOAD_TRIGGER_EVENT"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_1
-
-    .line 8181
-    :cond_14
-    const-string v4, "WifiStateMachine"
-
-    const-string v5, "Network selection is diable, trigger WiFioffload directly"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 8182
-    iget-object v4, p0, Landroid/net/wifi/WifiStateMachine$L2ConnectedState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v4, v5}, Landroid/net/wifi/WifiStateMachine;->startWifiOffload(Z)Z
-
-    goto/16 :goto_1
-
-    .line 7955
+    .line 7606
     :sswitch_data_0
     .sparse-switch
         0x20047 -> :sswitch_4
@@ -1549,8 +1166,6 @@
         0x21017 -> :sswitch_b
         0x24003 -> :sswitch_8
         0x240c7 -> :sswitch_d
-        0x240c8 -> :sswitch_e
-        0x240c9 -> :sswitch_f
         0x25001 -> :sswitch_6
         0x25007 -> :sswitch_7
         0x30004 -> :sswitch_0

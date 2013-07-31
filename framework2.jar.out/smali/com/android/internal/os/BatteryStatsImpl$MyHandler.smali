@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 157
+    .line 156
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -41,7 +41,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 160
+    .line 159
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     #getter for: Lcom/android/internal/os/BatteryStatsImpl;->mCallback:Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;
@@ -49,7 +49,7 @@
 
     move-result-object v0
 
-    .line 162
+    .line 161
     .local v0, cb:Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;
     invoke-static {}, Lcom/android/internal/os/BatteryStatsImpl;->access$100()Z
 
@@ -57,12 +57,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 163
+    .line 162
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-static {v2}, Lcom/android/internal/os/BatteryStatsImpl;->access$208(Lcom/android/internal/os/BatteryStatsImpl;)I
 
-    .line 165
+    .line 164
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     #getter for: Lcom/android/internal/os/BatteryStatsImpl;->mCallbackCount:I
@@ -74,13 +74,13 @@
 
     if-le v2, v3, :cond_0
 
-    .line 166
+    .line 165
     iget-object v2, p0, Lcom/android/internal/os/BatteryStatsImpl$MyHandler;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     #setter for: Lcom/android/internal/os/BatteryStatsImpl;->mCallbackCount:I
     invoke-static {v2, v1}, Lcom/android/internal/os/BatteryStatsImpl;->access$202(Lcom/android/internal/os/BatteryStatsImpl;I)I
 
-    .line 167
+    .line 166
     const-string v2, "BatteryStatsImpl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -105,41 +105,41 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 168
+    .line 167
     if-nez v0, :cond_0
 
-    .line 169
+    .line 168
     const-string v2, "BatteryStatsImpl"
 
     const-string v3, "callback is null"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 174
+    .line 173
     :cond_0
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 186
+    .line 185
     :cond_1
     :goto_0
     return-void
 
-    .line 176
+    .line 175
     :pswitch_0
     if-eqz v0, :cond_1
 
-    .line 177
+    .line 176
     invoke-interface {v0}, Lcom/android/internal/os/BatteryStatsImpl$BatteryCallback;->batteryNeedsCpuUpdate()V
 
     goto :goto_0
 
-    .line 181
+    .line 180
     :pswitch_1
     if-eqz v0, :cond_1
 
-    .line 182
+    .line 181
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     if-eqz v2, :cond_2
@@ -151,7 +151,7 @@
 
     goto :goto_0
 
-    .line 174
+    .line 173
     nop
 
     :pswitch_data_0

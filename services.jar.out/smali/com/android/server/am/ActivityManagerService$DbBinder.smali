@@ -24,13 +24,13 @@
     .parameter "activityManagerService"
 
     .prologue
-    .line 1717
+    .line 1720
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
-    .line 1718
+    .line 1721
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$DbBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-    .line 1719
+    .line 1722
     return-void
 .end method
 
@@ -43,7 +43,7 @@
     .parameter "args"
 
     .prologue
-    .line 1723
+    .line 1726
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$DbBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     const-string v1, "android.permission.DUMP"
@@ -54,7 +54,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 1725
+    .line 1728
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -105,11 +105,11 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    .line 1732
+    .line 1735
     :goto_0
     return-void
 
-    .line 1731
+    .line 1734
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$DbBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 

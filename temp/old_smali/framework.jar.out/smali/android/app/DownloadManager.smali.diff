@@ -1,5 +1,5 @@
-*** ./smali/android/app/DownloadManager.smali	2013-07-12 21:44:43.471843257 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/DownloadManager.smali	2013-07-12 21:42:20.308498119 +0000
+*** ./smali/android/app/DownloadManager.smali	2013-07-31 22:23:21.957404780 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/DownloadManager.smali	2013-07-31 22:21:54.250730793 +0000
 ***************
 *** 8,14 ****
       value = {

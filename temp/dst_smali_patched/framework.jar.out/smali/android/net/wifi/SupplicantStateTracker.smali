@@ -22,8 +22,6 @@
 # static fields
 .field private static final DBG:Z = false
 
-.field private static final MAX_AUTHENTICATION_FAILURES_NOTIFICATION_COUNT:I = 0xf
-
 .field private static final MAX_RETRIES_ON_AUTHENTICATION_FAILURE:I = 0x5
 
 .field private static final MAX_RETRIES_ON_NETWORK_PROBLEM:I = 0x5
@@ -32,13 +30,9 @@
 
 
 # instance fields
-.field private bAuthenticationFailuresFlag:Z
-
 .field private mAuthFailureInSupplicantBroadcast:Z
 
 .field private mAuthenticationFailuresCount:I
-
-.field private mAuthenticationFailuresNotificationCount:I
 
 .field private mCompletedState:Lcom/android/internal/util/State;
 
@@ -89,10 +83,6 @@
     invoke-direct {p0, v0, v1}, Lcom/android/internal/util/StateMachine;-><init>(Ljava/lang/String;Landroid/os/Looper;)V
 
     iput v2, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
-
-    iput-boolean v2, p0, Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-
-    iput v2, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
 
     iput-boolean v2, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
 
@@ -211,28 +201,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/net/wifi/SupplicantStateTracker;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-
-    return v0
-.end method
-
-.method static synthetic access$002(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Landroid/net/wifi/SupplicantStateTracker;)I
+.method static synthetic access$000(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 1
     .parameter "x0"
 
@@ -242,28 +211,7 @@
     return v0
 .end method
 
-.method static synthetic access$1000(Landroid/net/wifi/SupplicantStateTracker;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
-
-    return v0
-.end method
-
-.method static synthetic access$1002(Landroid/net/wifi/SupplicantStateTracker;Z)Z
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput-boolean p1, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
-
-    return p1
-.end method
-
-.method static synthetic access$102(Landroid/net/wifi/SupplicantStateTracker;I)I
+.method static synthetic access$002(Landroid/net/wifi/SupplicantStateTracker;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -274,7 +222,7 @@
     return p1
 .end method
 
-.method static synthetic access$108(Landroid/net/wifi/SupplicantStateTracker;)I
+.method static synthetic access$008(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 2
     .parameter "x0"
 
@@ -288,19 +236,17 @@
     return v0
 .end method
 
-.method static synthetic access$1100(Landroid/net/wifi/SupplicantStateTracker;)Landroid/os/Message;
+.method static synthetic access$100(Landroid/net/wifi/SupplicantStateTracker;)Z
     .locals 1
     .parameter "x0"
 
     .prologue
-    invoke-virtual {p0}, Landroid/net/wifi/SupplicantStateTracker;->getCurrentMessage()Landroid/os/Message;
+    iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
 
-    move-result-object v0
-
-    return-object v0
+    return v0
 .end method
 
-.method static synthetic access$1200(Landroid/net/wifi/SupplicantStateTracker;I)V
+.method static synthetic access$1000(Landroid/net/wifi/SupplicantStateTracker;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -311,63 +257,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Landroid/net/wifi/SupplicantStateTracker;)Landroid/net/wifi/WifiConfigStore;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1400(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-virtual {p0, p1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
-
-    return-void
-.end method
-
-.method static synthetic access$202(Landroid/net/wifi/SupplicantStateTracker;I)I
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    iput p1, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    return p1
-.end method
-
-.method static synthetic access$208(Landroid/net/wifi/SupplicantStateTracker;)I
-    .locals 2
-    .parameter "x0"
-
-    .prologue
-    iget v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    add-int/lit8 v1, v0, 0x1
-
-    iput v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    return v0
-.end method
-
-.method static synthetic access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthFailureInSupplicantBroadcast:Z
-
-    return v0
-.end method
-
-.method static synthetic access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+.method static synthetic access$102(Landroid/net/wifi/SupplicantStateTracker;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -378,7 +268,28 @@
     return p1
 .end method
 
-.method static synthetic access$400(Landroid/net/wifi/SupplicantStateTracker;)I
+.method static synthetic access$1100(Landroid/net/wifi/SupplicantStateTracker;)Landroid/net/wifi/WifiConfigStore;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiConfigStore:Landroid/net/wifi/WifiConfigStore;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1200(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    invoke-virtual {p0, p1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$200(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 1
     .parameter "x0"
 
@@ -388,7 +299,7 @@
     return v0
 .end method
 
-.method static synthetic access$402(Landroid/net/wifi/SupplicantStateTracker;I)I
+.method static synthetic access$202(Landroid/net/wifi/SupplicantStateTracker;I)I
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -399,7 +310,7 @@
     return p1
 .end method
 
-.method static synthetic access$408(Landroid/net/wifi/SupplicantStateTracker;)I
+.method static synthetic access$208(Landroid/net/wifi/SupplicantStateTracker;)I
     .locals 2
     .parameter "x0"
 
@@ -413,7 +324,7 @@
     return v0
 .end method
 
-.method static synthetic access$500(Landroid/net/wifi/SupplicantStateTracker;)Z
+.method static synthetic access$300(Landroid/net/wifi/SupplicantStateTracker;)Z
     .locals 1
     .parameter "x0"
 
@@ -423,7 +334,7 @@
     return v0
 .end method
 
-.method static synthetic access$502(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+.method static synthetic access$302(Landroid/net/wifi/SupplicantStateTracker;Z)Z
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -434,7 +345,7 @@
     return p1
 .end method
 
-.method static synthetic access$600(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
+.method static synthetic access$400(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/SupplicantState;ZZI)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -448,7 +359,7 @@
     return-void
 .end method
 
-.method static synthetic access$700(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
+.method static synthetic access$500(Landroid/net/wifi/SupplicantStateTracker;Landroid/net/wifi/StateChangeResult;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -459,7 +370,7 @@
     return-void
 .end method
 
-.method static synthetic access$800(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
+.method static synthetic access$600(Landroid/net/wifi/SupplicantStateTracker;)Lcom/android/internal/util/State;
     .locals 1
     .parameter "x0"
 
@@ -469,7 +380,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
+.method static synthetic access$700(Landroid/net/wifi/SupplicantStateTracker;Lcom/android/internal/util/IState;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -478,6 +389,39 @@
     invoke-virtual {p0, p1}, Landroid/net/wifi/SupplicantStateTracker;->transitionTo(Lcom/android/internal/util/IState;)V
 
     return-void
+.end method
+
+.method static synthetic access$800(Landroid/net/wifi/SupplicantStateTracker;)Z
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-boolean v0, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
+
+    return v0
+.end method
+
+.method static synthetic access$802(Landroid/net/wifi/SupplicantStateTracker;Z)Z
+    .locals 0
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    iput-boolean p1, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworksDisabledDuringConnect:Z
+
+    return p1
+.end method
+
+.method static synthetic access$900(Landroid/net/wifi/SupplicantStateTracker;)Landroid/os/Message;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/net/wifi/SupplicantStateTracker;->getCurrentMessage()Landroid/os/Message;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private handleNetworkConnectionFailure(I)V
@@ -508,16 +452,14 @@
 .end method
 
 .method private sendSupplicantStateChangedBroadcast(Landroid/net/wifi/SupplicantState;ZZI)V
-    .locals 7
+    .locals 6
     .parameter "state"
     .parameter "failedAuth"
     .parameter "networkProblem"
     .parameter "netId"
 
     .prologue
-    const/4 v6, 0x3
-
-    const/4 v5, 0x1
+    const/4 v5, 0x3
 
     const/4 v4, 0x0
 
@@ -536,85 +478,26 @@
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    if-eqz p2, :cond_1
-
-    const-string v1, "SupplicantStateTracker"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to authenticate, count= "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v1, "SupplicantStateTracker"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to authenticate notification, count= "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz p2, :cond_0
 
     iget v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
 
-    if-lt v1, v6, :cond_0
+    if-lt v1, v5, :cond_0
 
     iput v4, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresCount:I
 
     const-string v1, "supplicantError"
 
-    invoke-virtual {v0, v1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     if-ltz p4, :cond_0
 
     invoke-direct {p0, p4}, Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(I)V
 
     :cond_0
-    iget v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    const/16 v2, 0xf
-
-    if-lt v1, v2, :cond_1
-
-    iput v4, p0, Landroid/net/wifi/SupplicantStateTracker;->mAuthenticationFailuresNotificationCount:I
-
-    iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v1, v5}, Landroid/net/wifi/WifiStateMachine;->setAuthErrorNotificationVisible(Z)V
-
-    :cond_1
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1
 
     const-string v1, "SupplicantStateTracker"
 
@@ -642,31 +525,15 @@
 
     iget v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemCount:I
 
-    if-lt v1, v6, :cond_2
+    if-lt v1, v5, :cond_1
 
     iput v4, p0, Landroid/net/wifi/SupplicantStateTracker;->mNetworkProblemCount:I
 
-    if-ltz p4, :cond_2
+    if-ltz p4, :cond_1
 
     invoke-direct {p0, p4}, Landroid/net/wifi/SupplicantStateTracker;->handleNetworkConnectionFailure(I)V
 
-    :cond_2
-    sget-object v1, Landroid/net/wifi/SupplicantState;->DISCONNECTED:Landroid/net/wifi/SupplicantState;
-
-    if-ne p1, v1, :cond_3
-
-    iput-boolean v4, p0, Landroid/net/wifi/SupplicantStateTracker;->bAuthenticationFailuresFlag:Z
-
-    :cond_3
-    sget-object v1, Landroid/net/wifi/SupplicantState;->COMPLETED:Landroid/net/wifi/SupplicantState;
-
-    if-ne p1, v1, :cond_4
-
-    iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiStateMachine;->clearAuthErrorNotification()V
-
-    :cond_4
+    :cond_1
     iget-object v1, p0, Landroid/net/wifi/SupplicantStateTracker;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendStickyBroadcast(Landroid/content/Intent;)V

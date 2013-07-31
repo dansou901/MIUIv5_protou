@@ -21,6 +21,8 @@
 
 .field public static final HTC_QUICKACTION_TYPE:I = 0x2
 
+.field public static final KIKIN_ACTIONMODE_TYPE:I = 0x1
+
 
 # direct methods
 .method public constructor <init>()V

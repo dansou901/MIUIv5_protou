@@ -1,5 +1,5 @@
-*** ./smali/android/provider/CallLog.smali	2013-07-12 21:43:07.858502040 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/provider/CallLog.smali	2013-07-12 21:40:55.448491122 +0000
+*** ./smali/android/provider/CallLog.smali	2013-07-31 22:22:21.530733069 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/provider/CallLog.smali	2013-07-31 22:21:18.614061151 +0000
 ***************
 *** 6,12 ****
   # annotations

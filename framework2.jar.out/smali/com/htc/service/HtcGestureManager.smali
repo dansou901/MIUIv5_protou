@@ -229,7 +229,7 @@
     .local v0, ex:Landroid/os/RemoteException;
     const-string v1, "HtcGestureManager"
 
-    const-string v2, "unregisterHtcGestureFilterOutList: RemoteException"
+    const-string/jumbo v2, "unregisterHtcGestureFilterOutList: RemoteException"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

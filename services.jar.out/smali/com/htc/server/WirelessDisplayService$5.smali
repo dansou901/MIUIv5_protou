@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2718
+    .line 2373
     iput-object p1, p0, Lcom/htc/server/WirelessDisplayService$5;->this$0:Lcom/htc/server/WirelessDisplayService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,34 +40,75 @@
     .parameter "intent"
 
     .prologue
-    .line 2721
-    const-string v0, "WirelessDisplayService"
+    .line 2376
+    const-string v1, "ENABLED"
 
-    const-string v1, "Receive dongle scan results available intent."
+    const/4 v2, 0x1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    .line 2722
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    move-result v0
 
-    move-result-object v0
+    .line 2377
+    .local v0, configToolConcurrentModeState:Z
+    const-string v1, "WirelessDisplayService"
 
-    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$2200()Lcom/htc/server/WirelessDisplayService$H;
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Receive Configuration Tool notify CONCURRENT_MODE_ENABLED, configToolConcurrentModeState: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2378
+    if-eqz v0, :cond_0
+
+    .line 2379
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
     move-result-object v1
 
-    const/16 v2, 0x9
+    invoke-static {}, Lcom/htc/server/WirelessDisplayService;->access$900()Lcom/htc/server/WirelessDisplayService$H;
 
-    const/4 v3, 0x1
+    move-result-object v2
+
+    const/16 v3, 0xf
 
     const/4 v4, 0x0
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/htc/server/WirelessDisplayService$H;->obtainMessage(III)Landroid/os/Message;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v0, v1}, Lcom/htc/server/WirelessDisplayService$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v2, v3, v4}, Lcom/htc/server/WirelessDisplayService$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    .line 2723
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/htc/server/WirelessDisplayService$H;->sendMessage(Landroid/os/Message;)Z
+
+    .line 2383
+    :goto_0
     return-void
+
+    .line 2382
+    :cond_0
+    iget-object v1, p0, Lcom/htc/server/WirelessDisplayService$5;->this$0:Lcom/htc/server/WirelessDisplayService;
+
+    #calls: Lcom/htc/server/WirelessDisplayService;->cancelTurnOffConcurrentHotspot()V
+    invoke-static {v1}, Lcom/htc/server/WirelessDisplayService;->access$7200(Lcom/htc/server/WirelessDisplayService;)V
+
+    goto :goto_0
 .end method

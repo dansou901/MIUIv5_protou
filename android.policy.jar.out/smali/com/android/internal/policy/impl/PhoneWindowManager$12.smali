@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 4226
+    .line 4230
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .locals 2
 
     .prologue
-    .line 4228
+    .line 4232
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
@@ -50,6 +50,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->showKeyguard(Z)V
 
-    .line 4229
+    .line 4233
     return-void
 .end method

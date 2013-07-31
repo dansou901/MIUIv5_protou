@@ -1,5 +1,5 @@
-*** ./smali/android/app/ProgressDialog.smali	2013-07-12 21:44:41.881843126 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ProgressDialog.smali	2013-07-12 21:42:18.631831314 +0000
+*** ./smali/android/app/ProgressDialog.smali	2013-07-31 22:23:20.860738022 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ProgressDialog.smali	2013-07-31 22:21:53.667397411 +0000
 ***************
 *** 641,646 ****
 --- 641,652 ----

@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 1308
+    .line 1302
     iput-object p1, p0, Landroid/media/MediaPlayer$1;->this$0:Landroid/media/MediaPlayer;
 
     iput p3, p0, Landroid/media/MediaPlayer$1;->val$act:I
@@ -45,37 +45,37 @@
     .parameter "msg"
 
     .prologue
-    .line 1310
+    .line 1304
     invoke-static {}, Landroid/app/ActivityThread;->currentActivityThread()Landroid/app/ActivityThread;
 
     move-result-object v0
 
-    .line 1312
+    .line 1306
     .local v0, actThread:Landroid/app/ActivityThread;
     if-nez v0, :cond_0
 
-    .line 1313
+    .line 1307
     const-string v2, "HtcDeviceInfoManager"
 
     const-string v3, "MediaPlayer.start_stop_notify, no activity thread!"
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1322
+    .line 1316
     :goto_0
     return-void
 
-    .line 1316
+    .line 1310
     :cond_0
     invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemContext()Landroid/app/ContextImpl;
 
     move-result-object v1
 
-    .line 1317
+    .line 1311
     .local v1, context:Landroid/content/Context;
     if-nez v1, :cond_1
 
-    .line 1318
+    .line 1312
     const-string v2, "HtcDeviceInfoManager"
 
     const-string v3, "MediaPlayer.start_stop_notify, no context!"
@@ -84,7 +84,7 @@
 
     goto :goto_0
 
-    .line 1321
+    .line 1315
     :cond_1
     iget v2, p0, Landroid/media/MediaPlayer$1;->val$act:I
 

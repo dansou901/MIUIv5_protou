@@ -68,8 +68,6 @@
 
 .field static final TRANSACTION_getMessageFromIccEfWithType:I = 0x3
 
-.field static final TRANSACTION_getNextMessageIdInPreference:I = 0x3a
-
 .field static final TRANSACTION_getSMSC:I = 0x14
 
 .field static final TRANSACTION_getSMSCExt:I = 0x35
@@ -232,7 +230,7 @@
     .line 52
     sparse-switch p1, :sswitch_data_0
 
-    .line 933
+    .line 925
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -3832,36 +3830,6 @@
 
     goto :goto_32
 
-    .line 926
-    .end local v26           #_result:Z
-    :sswitch_3a
-    const-string v2, "com.android.internal.telephony.ISms"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    .line 927
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/ISms$Stub;->getNextMessageIdInPreference()I
-
-    move-result v26
-
-    .line 928
-    .local v26, _result:I
-    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
-
-    .line 929
-    move-object/from16 v0, p3
-
-    move/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 930
-    const/4 v2, 0x1
-
-    goto/16 :goto_0
-
     .line 52
     nop
 
@@ -3924,7 +3892,6 @@
         0x37 -> :sswitch_37
         0x38 -> :sswitch_38
         0x39 -> :sswitch_39
-        0x3a -> :sswitch_3a
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

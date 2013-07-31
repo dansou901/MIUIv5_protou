@@ -10,8 +10,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewHost;,
-        Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;,
-        Lcom/android/internal/policy/impl/KeyguardViewManager$Injector;
+        Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;
     }
 .end annotation
 
@@ -69,9 +68,6 @@
     .parameter "callback"
     .parameter "keyguardViewProperties"
     .parameter "updateMonitor"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v0, 0x0
@@ -82,13 +78,7 @@
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
-    new-instance v0, Landroid/view/ContextThemeWrapper;
-
-    const v1, 0x103006b
-
-    invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
@@ -213,36 +203,6 @@
 
     sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
-    const/16 v1, 0x243
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x244
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x245
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x246
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
-    const/16 v1, 0x208
-
-    if-eq v0, v1, :cond_0
-
-    sget-short v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
-
     const/16 v1, 0x66
 
     if-ne v0, v1, :cond_1
@@ -315,8 +275,44 @@
     goto :goto_0
 .end method
 
+.method getKeyguardView()Lcom/android/internal/policy/impl/KeyguardViewBase;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
+
+    return-object v0
+.end method
+
+.method getKeyguardViewProperties()Lcom/android/internal/policy/impl/KeyguardViewProperties;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
+
+    return-object v0
+.end method
+
+.method getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
+
+    return-object v0
+.end method
+
 .method public declared-synchronized hide()V
-    .locals 2
+    .locals 4
 
     .prologue
     monitor-enter p0
@@ -332,9 +328,15 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->cleanUp()V
+    new-instance v1, Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewCleanUpRunnable;
+
+    invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewCleanUpRunnable;-><init>(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
+
+    const-wide/16 v2, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -599,22 +601,6 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
-.end method
-
-.method public recreateAllRunnable()V
-    .locals 1
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
-
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->recreateAllRunnable()V
-
-    :cond_0
-    return-void
 .end method
 
 .method public declared-synchronized reset()V
@@ -1051,14 +1037,14 @@
     const/4 v8, -0x1
 
     .local v8, stretch:I
-    const v4, 0x4100900
+    const v4, 0x4100800
 
     .local v4, flags:I
     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->isHtcLockScreenLiteDevice()Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
     or-int/lit16 v4, v4, 0x100
 
@@ -1167,9 +1153,7 @@
     :cond_8
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->HtcTabletDevice:Z
 
-    if-eqz v1, :cond_d
-
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
@@ -1196,6 +1180,24 @@
     .end local v4           #flags:I
     .end local v8           #stretch:I
     :cond_9
+    if-eqz v6, :cond_a
+
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v2, 0x2
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
+    goto :goto_2
+
+    :cond_a
+    iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
+
+    const/4 v2, 0x1
+
+    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+
+    :goto_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
@@ -1210,7 +1212,7 @@
 
     sget-boolean v1, Lcom/android/internal/policy/impl/KeyguardViewManager;->DEBUG_VIEW:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardViewManager;->TAG:Ljava/lang/String;
 
@@ -1218,7 +1220,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_a
+    :cond_b
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
@@ -1256,15 +1258,15 @@
 
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_c
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->show()V
 
     .end local v0           #lp:Landroid/view/ViewGroup$LayoutParams;
-    :cond_b
-    :goto_2
+    :cond_c
+    :goto_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     const/4 v2, 0x1
@@ -1312,8 +1314,6 @@
 
     invoke-virtual {v1, v9}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
 
-    invoke-static {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$Injector;->updateDisplayDesktopFlag(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
-
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
@@ -1341,7 +1341,7 @@
     .end local v9           #visFlags:I
     .restart local v4       #flags:I
     .restart local v8       #stretch:I
-    :cond_c
+    :cond_d
     :try_start_1
     sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->HtcLiveWallpaperFlag:Z
 
@@ -1352,7 +1352,6 @@
     goto/16 :goto_0
 
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
-    :cond_d
     sget-short v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEVICE_flag:S
 
     if-ne v1, v11, :cond_e
@@ -1398,7 +1397,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_c
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
@@ -1406,7 +1405,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method public showIdleScreen()V

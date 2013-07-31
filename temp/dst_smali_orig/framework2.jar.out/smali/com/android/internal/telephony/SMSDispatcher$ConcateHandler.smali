@@ -171,8 +171,6 @@
 
     const/4 v7, 0x2
 
-    invoke-virtual/range {v1 .. v7}, Lcom/android/internal/telephony/ConcatedUtil;->updateRawTable(ILjava/lang/String;IIII)I
-
     sget-object v1, Lcom/android/internal/telephony/SMSDispatcher;->mConcatedutil:Lcom/android/internal/telephony/ConcatedUtil;
 
     move-object/from16 v0, p0
@@ -271,8 +269,6 @@
 
     const/4 v7, 0x2
 
-    invoke-virtual/range {v1 .. v7}, Lcom/android/internal/telephony/ConcatedUtil;->deleteentry(ILjava/lang/String;IIII)Z
-
     move-object/from16 v0, v22
 
     iget-object v1, v0, Lcom/android/internal/telephony/SMSDispatcher$ConcateHandlerMessageObject;->tTracker:Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
@@ -307,7 +303,7 @@
     int-to-long v5, v0
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->sendDatamanageIntent(Ljava/lang/String;JJ)V
-    invoke-static/range {v1 .. v6}, Lcom/android/internal/telephony/SMSDispatcher;->access$900(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/String;JJ)V
+    invoke-static/range {v1 .. v6}, Lcom/android/internal/telephony/SMSDispatcher;->access$500(Lcom/android/internal/telephony/SMSDispatcher;Ljava/lang/String;JJ)V
 
     .end local v2           #str:Ljava/lang/String;
     .end local v3           #time:J
@@ -328,7 +324,7 @@
     iget-object v1, v0, Lcom/android/internal/telephony/SMSDispatcher$ConcateHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->handleAllPendingSmsTracker()Z
-    invoke-static {v1}, Lcom/android/internal/telephony/SMSDispatcher;->access$1000(Lcom/android/internal/telephony/SMSDispatcher;)Z
+    invoke-static {v1}, Lcom/android/internal/telephony/SMSDispatcher;->access$600(Lcom/android/internal/telephony/SMSDispatcher;)Z
 
     move-result v19
 
@@ -455,8 +451,6 @@
     iget v10, v0, Lcom/android/internal/telephony/SMSDispatcher$ConcateHandler;->nSequence:I
 
     const/4 v11, 0x6
-
-    invoke-virtual/range {v5 .. v11}, Lcom/android/internal/telephony/ConcatedUtil;->updateRawTable(ILjava/lang/String;IIII)I
 
     sget-object v5, Lcom/android/internal/telephony/SMSDispatcher;->mConcatedutil:Lcom/android/internal/telephony/ConcatedUtil;
 
@@ -651,8 +645,6 @@
 
     const/4 v11, 0x5
 
-    invoke-virtual/range {v5 .. v11}, Lcom/android/internal/telephony/ConcatedUtil;->updateRawTable(ILjava/lang/String;IIII)I
-
     sget-object v5, Lcom/android/internal/telephony/SMSDispatcher;->mConcatedutil:Lcom/android/internal/telephony/ConcatedUtil;
 
     move-object/from16 v0, p0
@@ -728,7 +720,7 @@
     iget-object v1, v0, Lcom/android/internal/telephony/SMSDispatcher$ConcateHandler;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     #calls: Lcom/android/internal/telephony/SMSDispatcher;->handleAllPendingSmsTracker()Z
-    invoke-static {v1}, Lcom/android/internal/telephony/SMSDispatcher;->access$1000(Lcom/android/internal/telephony/SMSDispatcher;)Z
+    invoke-static {v1}, Lcom/android/internal/telephony/SMSDispatcher;->access$600(Lcom/android/internal/telephony/SMSDispatcher;)Z
 
     move-result v19
 
@@ -780,8 +772,6 @@
     iget v10, v0, Lcom/android/internal/telephony/SMSDispatcher$ConcateHandler;->nSequence:I
 
     const/4 v11, 0x5
-
-    invoke-virtual/range {v5 .. v11}, Lcom/android/internal/telephony/ConcatedUtil;->deleteentry(ILjava/lang/String;IIII)Z
 
     const-string v1, "retry_count"
 
@@ -836,6 +826,8 @@
     invoke-virtual {v15, v1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     goto :goto_3
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

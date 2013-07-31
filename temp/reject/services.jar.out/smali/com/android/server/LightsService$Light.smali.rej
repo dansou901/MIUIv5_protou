@@ -1,0 +1,87 @@
+*** LightsService$Light.smali	2013-07-31 22:21:08.670726988 +0000
+--- LightsService$Light.smali	2013-07-31 22:22:04.767398337 +0000
+***************
+*** 147,153 ****
+  
+      move-object v0, p0
+  
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+--- 128,134 ----
+  
+      move-object v0, p0
+  
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+***************
+*** 207,213 ****
+  
+      move v3, p2
+  
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
+  
+--- 188,194 ----
+  
+      move v3, p2
+  
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
+  
+***************
+*** 330,336 ****
+      move v1, p1
+  
+      :try_start_0
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+--- 311,317 ----
+      move v1, p1
+  
+      :try_start_0
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+***************
+*** 369,375 ****
+      move v4, p4
+  
+      :try_start_0
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+--- 350,356 ----
+      move v4, p4
+  
+      :try_start_0
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+***************
+*** 404,410 ****
+      move-object v0, p0
+  
+      :try_start_0
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+--- 385,391 ----
+      move-object v0, p0
+  
+      :try_start_0
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  

@@ -194,7 +194,7 @@
 
     iget-object v4, p2, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->ri:Landroid/content/pm/ResolveInfo;
 
-    invoke-virtual {v3, v4}, Lcom/android/internal/app/ResolverActivity;->loadIconForResolveInfo(Landroid/content/pm/ResolveInfo;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v3, v4}, Lcom/android/internal/app/ResolverActivity$Injector;->loadIconForResolveInfo(Lcom/android/internal/app/ResolverActivity;Landroid/content/pm/ResolveInfo;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
@@ -204,6 +204,16 @@
     iget-object v3, p2, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->displayIcon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v3, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->this$0:Lcom/android/internal/app/ResolverActivity;
+
+    iget-object v4, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mList:Ljava/util/List;
+
+    invoke-interface {v4, p2}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+
+    move-result v4
+
+    invoke-static {v0, v3, p0, v4}, Lcom/android/internal/app/ResolverActivity$Injector;->addListener(Landroid/view/View;Lcom/android/internal/app/ResolverActivity;Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;I)V
 
     return-void
 
@@ -1096,7 +1106,7 @@
     .prologue
     const/4 v4, 0x0
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_4
 
     iget-object v5, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
@@ -1123,6 +1133,15 @@
     move-result-object v2
 
     .local v2, lp:Landroid/view/ViewGroup$LayoutParams;
+    iget v5, v2, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    if-eqz v5, :cond_0
+
+    iget v5, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    if-nez v5, :cond_1
+
+    :cond_0
     iget-object v5, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     #getter for: Lcom/android/internal/app/ResolverActivity;->mIconSize:I
@@ -1136,6 +1155,7 @@
 
     .end local v1           #icon:Landroid/widget/ImageView;
     .end local v2           #lp:Landroid/view/ViewGroup$LayoutParams;
+    :cond_1
     :goto_0
     const v5, 0x4110028
 
@@ -1146,7 +1166,7 @@
     check-cast v0, Landroid/widget/CheckedTextView;
 
     .local v0, cbUnSelect:Landroid/widget/CheckedTextView;
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-object v5, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->this$0:Lcom/android/internal/app/ResolverActivity;
 
@@ -1155,14 +1175,14 @@
 
     move-result v5
 
-    if-ne v5, p1, :cond_0
+    if-ne v5, p1, :cond_2
 
     const/4 v4, 0x1
 
-    :cond_0
+    :cond_2
     invoke-virtual {v0, v4}, Landroid/widget/CheckedTextView;->setChecked(Z)V
 
-    :cond_1
+    :cond_3
     iget-object v4, p0, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->mList:Ljava/util/List;
 
     invoke-interface {v4, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -1177,7 +1197,7 @@
 
     .end local v0           #cbUnSelect:Landroid/widget/CheckedTextView;
     .end local v3           #view:Landroid/view/View;
-    :cond_2
+    :cond_4
     move-object v3, p2
 
     .restart local v3       #view:Landroid/view/View;

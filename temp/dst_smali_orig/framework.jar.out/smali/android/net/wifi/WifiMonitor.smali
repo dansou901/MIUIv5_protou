@@ -88,14 +88,6 @@
 
 .field private static final NETWORK_MAY_HAVE_PROBLEM_STR:Ljava/lang/String; = "network may have problem"
 
-.field private static final OFFLOAD_NOTIFICATION:Ljava/lang/String; = "OFFLOAD_NOTIFICATION"
-
-.field public static final OFFLOAD_NOTIFICATION_EVENT:I = 0x240c8
-
-.field private static final OFFLOAD_TRIGGER:Ljava/lang/String; = "OFFLOAD_TRIGGER"
-
-.field public static final OFFLOAD_TRIGGER_EVENT:I = 0x240c9
-
 .field public static final P2P_DEVICE_FOUND_EVENT:I = 0x24015
 
 .field private static final P2P_DEVICE_FOUND_STR:Ljava/lang/String; = "P2P-DEVICE-FOUND"

@@ -1,5 +1,5 @@
-*** ./smali/android/webkit/WebViewClassic.smali	2013-07-12 21:44:38.201842823 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/webkit/WebViewClassic.smali	2013-07-12 21:42:14.831831001 +0000
+*** ./smali/android/webkit/WebViewClassic.smali	2013-07-31 22:23:18.240737803 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/webkit/WebViewClassic.smali	2013-07-31 22:21:52.290730629 +0000
 ***************
 *** 15811,15816 ****
 --- 15811,15825 ----

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 293
+    .line 292
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 295
+    .line 294
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #getter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
@@ -51,11 +51,11 @@
 
     move-result-object v1
 
-    .line 299
+    .line 298
     .local v1, mode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
     const/4 v0, 0x0
 
-    .line 300
+    .line 299
     .local v0, dismissAfterCreation:Z
     sget-object v2, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->UnlockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
@@ -72,13 +72,13 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 302
+    .line 301
     sget-object v1, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->LockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
-    .line 303
+    .line 302
     const/4 v0, 0x1
 
-    .line 306
+    .line 305
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
@@ -89,13 +89,13 @@
 
     if-eqz v2, :cond_1
 
-    .line 307
+    .line 306
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #setter for: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mbNeedReInitialMode:Z
     invoke-static {v2, v4}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$302(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Z)Z
 
-    .line 308
+    .line 307
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getInitialMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
@@ -103,30 +103,30 @@
 
     move-result-object v1
 
-    .line 310
+    .line 309
     :cond_1
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->updateScreen(Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
     invoke-static {v2, v1, v4}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$500(Lcom/android/internal/policy/impl/LockPatternKeyguardView;Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
 
-    .line 312
+    .line 311
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     #calls: Lcom/android/internal/policy/impl/LockPatternKeyguardView;->restoreWidgetState()V
     invoke-static {v2}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->access$600(Lcom/android/internal/policy/impl/LockPatternKeyguardView;)V
 
-    .line 313
+    .line 312
     if-eqz v0, :cond_2
 
-    .line 314
+    .line 313
     iget-object v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2, v4}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 316
+    .line 315
     :cond_2
     return-void
 .end method

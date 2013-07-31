@@ -12,7 +12,7 @@
 
 
 # static fields
-.field public static final DBG:Z = false
+.field public static final DBG:Z = true
 
 .field public static final LOG_TAG:Ljava/lang/String; = "GSM"
 
@@ -806,9 +806,32 @@
 .end method
 
 .method public getRetryCount()I
-    .locals 1
+    .locals 2
 
     .prologue
+    .line 290
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "getRetryCount: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
     .line 291
     iget v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
 
@@ -863,9 +886,30 @@
 
     add-int v1, v2, v3
 
-    .line 283
+    .line 282
     .local v1, retVal:I
     :goto_1
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "getRetryTimer: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
+    .line 283
     return v1
 
     .line 272
@@ -914,15 +958,61 @@
 
     iput v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
 
-    .line 303
+    .line 302
     :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "increaseRetryCount: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
+    .line 303
     return-void
 .end method
 
 .method public isRetryForever()Z
-    .locals 1
+    .locals 2
 
     .prologue
+    .line 352
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "isRetryForever: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
     .line 353
     iget-boolean v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
 
@@ -947,9 +1037,30 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 261
+    .line 260
     .local v0, retVal:Z
     :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "isRetryNeeded: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
+    .line 261
     return v0
 
     .line 259
@@ -961,7 +1072,7 @@
 .end method
 
 .method public resetRetryCount()V
-    .locals 1
+    .locals 2
 
     .prologue
     .line 335
@@ -969,12 +1080,35 @@
 
     iput v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
 
+    .line 336
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "resetRetryCount: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
     .line 337
     return-void
 .end method
 
 .method public retryForeverUsingLastTimeout()V
-    .locals 1
+    .locals 2
 
     .prologue
     .line 343
@@ -986,6 +1120,41 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
+
+    .line 345
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "retryForeverUsingLastTimeout: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
 
     .line 346
     return-void
@@ -1022,18 +1191,64 @@
 
     iput v0, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
 
-    .line 320
+    .line 319
     :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setRetryCount: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryCount:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
+
+    .line 320
     return-void
 .end method
 
 .method public setRetryForever(Z)V
-    .locals 0
+    .locals 2
     .parameter "retryForever"
 
     .prologue
     .line 326
     iput-boolean p1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
+
+    .line 327
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setRetryForever: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/internal/telephony/RetryManager;->mRetryForever:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/internal/telephony/RetryManager;->log(Ljava/lang/String;)V
 
     .line 328
     return-void

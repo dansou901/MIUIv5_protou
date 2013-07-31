@@ -475,7 +475,7 @@
 
     .line 354
     :try_start_3
-    const-string v1, "spn"
+    const-string/jumbo v1, "spn"
 
     invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 

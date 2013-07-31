@@ -316,7 +316,7 @@
     .line 171
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "worong UID format"
+    const-string/jumbo v3, "worong UID format"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 
@@ -403,7 +403,7 @@
     .line 191
     new-instance v2, Ljava/lang/RuntimeException;
 
-    const-string v3, "update EF UID record failed"
+    const-string/jumbo v3, "update EF UID record failed"
 
     iget-object v5, v7, Landroid/os/AsyncResult;->exception:Ljava/lang/Throwable;
 

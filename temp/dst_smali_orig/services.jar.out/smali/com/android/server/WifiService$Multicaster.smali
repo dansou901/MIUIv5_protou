@@ -62,7 +62,7 @@
     iget-object v1, p0, Lcom/android/server/WifiService$Multicaster;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mMulticasters:Ljava/util/List;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$6500(Lcom/android/server/WifiService;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$6300(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v2
 
@@ -72,7 +72,7 @@
     iget-object v1, p0, Lcom/android/server/WifiService$Multicaster;->this$0:Lcom/android/server/WifiService;
 
     #getter for: Lcom/android/server/WifiService;->mMulticasters:Ljava/util/List;
-    invoke-static {v1}, Lcom/android/server/WifiService;->access$6500(Lcom/android/server/WifiService;)Ljava/util/List;
+    invoke-static {v1}, Lcom/android/server/WifiService;->access$6300(Lcom/android/server/WifiService;)Ljava/util/List;
 
     move-result-object v1
 
@@ -90,7 +90,7 @@
     iget v3, p0, Lcom/android/server/WifiService$DeathRecipient;->mMode:I
 
     #calls: Lcom/android/server/WifiService;->removeMulticasterLocked(II)V
-    invoke-static {v1, v0, v3}, Lcom/android/server/WifiService;->access$7900(Lcom/android/server/WifiService;II)V
+    invoke-static {v1, v0, v3}, Lcom/android/server/WifiService;->access$7700(Lcom/android/server/WifiService;II)V
 
     :cond_0
     monitor-exit v2

@@ -96,7 +96,7 @@
 
     const-string v2, "label_off_m"
 
-    const-string v3, "style"
+    const-string/jumbo v3, "style"
 
     const-string v4, "com.htc"
 
@@ -184,7 +184,7 @@
 
     .line 79
     :cond_1
-    const-string v1, "viewScale"
+    const-string/jumbo v1, "viewScale"
 
     new-array v2, v3, [F
 
@@ -220,7 +220,7 @@
     invoke-virtual {v1, v2}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 106
-    const-string v1, "viewScale"
+    const-string/jumbo v1, "viewScale"
 
     new-array v2, v3, [F
 

@@ -3643,12 +3643,10 @@
 
 # virtual methods
 .method public dispose()V
-    .locals 1
+    .locals 2
 
     .prologue
-    const-string v0, "dispose()"
-
-    invoke-static {p0, v0}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v1, 0x0
 
     iget-object v0, p0, Lcom/android/internal/telephony/cat/CommandParamsFactory;->mIconLoader:Lcom/android/internal/telephony/cat/IconLoader;
 
@@ -3659,9 +3657,9 @@
     invoke-virtual {v0}, Lcom/android/internal/telephony/cat/IconLoader;->dispose()V
 
     :cond_0
-    const/4 v0, 0x0
+    sput-object v1, Lcom/android/internal/telephony/cat/CommandParamsFactory;->sInstance:Lcom/android/internal/telephony/cat/CommandParamsFactory;
 
-    sput-object v0, Lcom/android/internal/telephony/cat/CommandParamsFactory;->sInstance:Lcom/android/internal/telephony/cat/CommandParamsFactory;
+    iput-object v1, p0, Lcom/android/internal/telephony/cat/CommandParamsFactory;->mCaller:Lcom/android/internal/telephony/cat/RilMessageDecoder;
 
     return-void
 .end method

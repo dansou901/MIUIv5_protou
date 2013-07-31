@@ -34,25 +34,25 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 7
+    .locals 4
     .parameter "msg"
 
     .prologue
-    iget v5, p1, Landroid/os/Message;->arg1:I
+    iget v2, p1, Landroid/os/Message;->arg1:I
 
-    .local v5, state:I
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    .local v2, state:I
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
+    invoke-virtual {v3}, Landroid/os/RemoteCallbackList;->beginBroadcast()I
 
-    move-result v2
+    move-result v1
 
-    .local v2, n:I
-    iget v6, p1, Landroid/os/Message;->what:I
+    .local v1, n:I
+    iget v3, p1, Landroid/os/Message;->what:I
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v3, :pswitch_data_0
 
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
@@ -60,203 +60,129 @@
     return-void
 
     :pswitch_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .local v1, i:I
+    .local v0, i:I
     :goto_1
-    if-ge v1, v2, :cond_0
+    if-ge v0, v1, :cond_0
 
     :try_start_0
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+    invoke-virtual {v3, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
 
-    move-result-object v6
+    move-result-object v3
 
-    check-cast v6, Lcom/htc/wfdservice/IWfdServiceCallback;
+    check-cast v3, Lcom/htc/wfdservice/IWfdServiceCallback;
 
-    invoke-interface {v6, v5}, Lcom/htc/wfdservice/IWfdServiceCallback;->onServiceStateChanged(I)V
+    invoke-interface {v3, v2}, Lcom/htc/wfdservice/IWfdServiceCallback;->onServiceStateChanged(I)V
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
 
     :goto_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    :catch_0
-    move-exception v4
-
-    .local v4, re:Landroid/os/RemoteException;
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_2
-
-    .end local v4           #re:Landroid/os/RemoteException;
-    :catch_1
-    move-exception v3
-
-    .local v3, ne:Ljava/lang/NullPointerException;
-    invoke-virtual {v3}, Ljava/lang/NullPointerException;->printStackTrace()V
-
-    goto :goto_2
-
-    .end local v3           #ne:Ljava/lang/NullPointerException;
-    :catch_2
-    move-exception v0
-
-    .local v0, ex:Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_2
-
-    .end local v0           #ex:Ljava/lang/Exception;
     :cond_0
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {v3}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     goto :goto_0
 
-    .end local v1           #i:I
+    .end local v0           #i:I
     :pswitch_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .restart local v1       #i:I
+    .restart local v0       #i:I
     :goto_3
-    if-ge v1, v2, :cond_1
+    if-ge v0, v1, :cond_1
 
     :try_start_1
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+    invoke-virtual {v3, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
 
-    move-result-object v6
+    move-result-object v3
 
-    check-cast v6, Lcom/htc/wfdservice/IWfdServiceCallback;
+    check-cast v3, Lcom/htc/wfdservice/IWfdServiceCallback;
 
-    invoke-interface {v6, v5}, Lcom/htc/wfdservice/IWfdServiceCallback;->onMirrorDisplayStateChanged(I)V
+    invoke-interface {v3, v2}, Lcom/htc/wfdservice/IWfdServiceCallback;->onMirrorDisplayStateChanged(I)V
     :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_4
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_5
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_4
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    :catch_3
-    move-exception v4
-
-    .restart local v4       #re:Landroid/os/RemoteException;
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_4
-
-    .end local v4           #re:Landroid/os/RemoteException;
-    :catch_4
-    move-exception v3
-
-    .restart local v3       #ne:Ljava/lang/NullPointerException;
-    invoke-virtual {v3}, Ljava/lang/NullPointerException;->printStackTrace()V
-
-    goto :goto_4
-
-    .end local v3           #ne:Ljava/lang/NullPointerException;
-    :catch_5
-    move-exception v0
-
-    .restart local v0       #ex:Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_4
-
-    .end local v0           #ex:Ljava/lang/Exception;
     :cond_1
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {v3}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     goto :goto_0
 
-    .end local v1           #i:I
+    .end local v0           #i:I
     :pswitch_2
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .restart local v1       #i:I
+    .restart local v0       #i:I
     :goto_5
-    if-ge v1, v2, :cond_2
+    if-ge v0, v1, :cond_2
 
     :try_start_2
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6, v1}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
+    invoke-virtual {v3, v0}, Landroid/os/RemoteCallbackList;->getBroadcastItem(I)Landroid/os/IInterface;
 
-    move-result-object v6
+    move-result-object v3
 
-    check-cast v6, Lcom/htc/wfdservice/IWfdServiceCallback;
+    check-cast v3, Lcom/htc/wfdservice/IWfdServiceCallback;
 
-    invoke-interface {v6, v5}, Lcom/htc/wfdservice/IWfdServiceCallback;->onConfiguringProgressChanged(I)V
+    invoke-interface {v3, v2}, Lcom/htc/wfdservice/IWfdServiceCallback;->onConfiguringProgressChanged(I)V
     :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_6
-    .catch Ljava/lang/NullPointerException; {:try_start_2 .. :try_end_2} :catch_7
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_8
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     :goto_6
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_5
 
-    :catch_6
-    move-exception v4
-
-    .restart local v4       #re:Landroid/os/RemoteException;
-    invoke-virtual {v4}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_6
-
-    .end local v4           #re:Landroid/os/RemoteException;
-    :catch_7
-    move-exception v3
-
-    .restart local v3       #ne:Ljava/lang/NullPointerException;
-    invoke-virtual {v3}, Ljava/lang/NullPointerException;->printStackTrace()V
-
-    goto :goto_6
-
-    .end local v3           #ne:Ljava/lang/NullPointerException;
-    :catch_8
-    move-exception v0
-
-    .restart local v0       #ex:Ljava/lang/Exception;
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-
-    goto :goto_6
-
-    .end local v0           #ex:Ljava/lang/Exception;
     :cond_2
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine$1;->this$0:Lcom/htc/server/WfdStateMachine;
 
-    iget-object v6, v6, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
+    iget-object v3, v3, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    invoke-virtual {v6}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
+    invoke-virtual {v3}, Landroid/os/RemoteCallbackList;->finishBroadcast()V
 
     goto :goto_0
 
-    nop
+    :catch_0
+    move-exception v3
+
+    goto :goto_6
+
+    :catch_1
+    move-exception v3
+
+    goto :goto_4
+
+    :catch_2
+    move-exception v3
+
+    goto :goto_2
 
     :pswitch_data_0
     .packed-switch 0x0

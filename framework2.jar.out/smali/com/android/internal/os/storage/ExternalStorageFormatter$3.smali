@@ -163,7 +163,7 @@
     .line 526
     const-string v2, "ExternalStorageFormatter"
 
-    const-string v3, "updateProgressState - need to format next storage......"
+    const-string/jumbo v3, "updateProgressState - need to format next storage......"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -244,7 +244,7 @@
     .line 546
     const-string v2, "ExternalStorageFormatter"
 
-    const-string v3, "updateProgressState - finish 2 cards formatting..."
+    const-string/jumbo v3, "updateProgressState - finish 2 cards formatting..."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -290,7 +290,7 @@
     .line 555
     const-string v2, "ExternalStorageFormatter"
 
-    const-string v3, "updateProgressState - finish 2 cards formatting with phone storage..."
+    const-string/jumbo v3, "updateProgressState - finish 2 cards formatting with phone storage..."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -340,7 +340,7 @@
     .line 564
     const-string v2, "ExternalStorageFormatter"
 
-    const-string v3, "updateProgressState - finish internal card formatting..."
+    const-string/jumbo v3, "updateProgressState - finish internal card formatting..."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -383,7 +383,7 @@
     .line 573
     const-string v2, "ExternalStorageFormatter"
 
-    const-string v3, "updateProgressState - finish external card formatting..."
+    const-string/jumbo v3, "updateProgressState - finish external card formatting..."
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 

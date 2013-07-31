@@ -1,11 +1,11 @@
 .class Landroid/webkit/BrowserFrame$1;
-.super Landroid/os/Handler;
+.super Landroid/webkit/HttpAuthHandler;
 .source "BrowserFrame.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/webkit/BrowserFrame;-><init>(Landroid/content/Context;Landroid/webkit/WebViewCore;Landroid/webkit/CallbackProxy;Landroid/webkit/WebSettingsClassic;Ljava/util/Map;)V
+    value = Landroid/webkit/BrowserFrame;->didReceiveAuthenticationChallenge(ILjava/lang/String;Ljava/lang/String;ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,215 +17,88 @@
 # instance fields
 .field final synthetic this$0:Landroid/webkit/BrowserFrame;
 
+.field final synthetic val$handle:I
+
+.field final synthetic val$suppressDialog:Z
+
+.field final synthetic val$useCachedCredentials:Z
+
 
 # direct methods
-.method constructor <init>(Landroid/webkit/BrowserFrame;)V
+.method constructor <init>(Landroid/webkit/BrowserFrame;ZIZ)V
     .locals 0
+    .parameter
+    .parameter
+    .parameter
     .parameter
 
     .prologue
-    .line 287
+    .line 1084
     iput-object p1, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    iput-boolean p2, p0, Landroid/webkit/BrowserFrame$1;->val$useCachedCredentials:Z
+
+    iput p3, p0, Landroid/webkit/BrowserFrame$1;->val$handle:I
+
+    iput-boolean p4, p0, Landroid/webkit/BrowserFrame$1;->val$suppressDialog:Z
+
+    invoke-direct {p0}, Landroid/webkit/HttpAuthHandler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 5
-    .parameter "msg"
+.method public cancel()V
+    .locals 2
 
     .prologue
-    const/4 v4, 0x1
+    .line 1098
+    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
 
-    const/4 v3, 0x0
+    iget v1, p0, Landroid/webkit/BrowserFrame$1;->val$handle:I
 
-    .line 291
-    iget v0, p1, Landroid/os/Message;->what:I
+    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationCancel(I)V
+    invoke-static {v0, v1}, Landroid/webkit/BrowserFrame;->access$100(Landroid/webkit/BrowserFrame;I)V
 
-    packed-switch v0, :pswitch_data_0
-
-    .line 319
-    :cond_0
-    :goto_0
-    invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
-
-    .line 320
+    .line 1099
     return-void
+.end method
 
-    .line 293
-    :pswitch_0
+.method public proceed(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+    .parameter "username"
+    .parameter "password"
+
+    .prologue
+    .line 1093
     iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
 
-    iget v0, v0, Landroid/webkit/BrowserFrame;->prevProgress:I
+    iget v1, p0, Landroid/webkit/BrowserFrame$1;->val$handle:I
 
-    iget-object v1, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
+    #calls: Landroid/webkit/BrowserFrame;->nativeAuthenticationProceed(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1, p1, p2}, Landroid/webkit/BrowserFrame;->access$000(Landroid/webkit/BrowserFrame;ILjava/lang/String;Ljava/lang/String;)V
 
-    iget v1, v1, Landroid/webkit/BrowserFrame;->currProgress:I
+    .line 1094
+    return-void
+.end method
 
-    if-ne v0, v1, :cond_1
+.method public suppressDialog()Z
+    .locals 1
 
-    .line 294
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
+    .prologue
+    .line 1103
+    iget-boolean v0, p0, Landroid/webkit/BrowserFrame$1;->val$suppressDialog:Z
 
-    iget v1, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
+    return v0
+.end method
 
-    add-int/lit8 v1, v1, 0x1
+.method public useHttpAuthUsernamePassword()Z
+    .locals 1
 
-    iput v1, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
+    .prologue
+    .line 1088
+    iget-boolean v0, p0, Landroid/webkit/BrowserFrame$1;->val$useCachedCredentials:Z
 
-    .line 295
-    const-string/jumbo v0, "webkit"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "BrowserFrame toastHandler MSG_START prev:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget v2, v2, Landroid/webkit/BrowserFrame;->prevProgress:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", curr:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget v2, v2, Landroid/webkit/BrowserFrame;->currProgress:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", count:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget v2, v2, Landroid/webkit/BrowserFrame;->countNetworkStall:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 300
-    :goto_1
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget v0, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
-
-    invoke-static {}, Landroid/webkit/BrowserFrame;->access$000()I
-
-    move-result v1
-
-    if-le v0, v1, :cond_2
-
-    .line 301
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    #getter for: Landroid/webkit/BrowserFrame;->mContext:Landroid/content/Context;
-    invoke-static {v0}, Landroid/webkit/BrowserFrame;->access$100(Landroid/webkit/BrowserFrame;)Landroid/content/Context;
-
-    move-result-object v0
-
-    const v1, 0x4070106
-
-    invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
-
-    .line 302
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iput v3, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
-
-    goto :goto_0
-
-    .line 298
-    :cond_1
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iput v3, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
-
-    goto :goto_1
-
-    .line 305
-    :cond_2
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget-object v1, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget v1, v1, Landroid/webkit/BrowserFrame;->currProgress:I
-
-    iput v1, v0, Landroid/webkit/BrowserFrame;->prevProgress:I
-
-    .line 306
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iget-boolean v0, v0, Landroid/webkit/BrowserFrame;->enableToast:Z
-
-    if-eqz v0, :cond_0
-
-    .line 307
-    const-wide/16 v0, 0x3e8
-
-    invoke-virtual {p0, v4, v0, v1}, Landroid/webkit/BrowserFrame$1;->sendEmptyMessageDelayed(IJ)Z
-
-    goto/16 :goto_0
-
-    .line 312
-    :pswitch_1
-    invoke-virtual {p0, v4}, Landroid/webkit/BrowserFrame$1;->removeMessages(I)V
-
-    .line 313
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iput v3, v0, Landroid/webkit/BrowserFrame;->countNetworkStall:I
-
-    .line 314
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    iput v3, v0, Landroid/webkit/BrowserFrame;->prevProgress:I
-
-    .line 315
-    iget-object v0, p0, Landroid/webkit/BrowserFrame$1;->this$0:Landroid/webkit/BrowserFrame;
-
-    const/16 v1, 0xa
-
-    iput v1, v0, Landroid/webkit/BrowserFrame;->currProgress:I
-
-    goto/16 :goto_0
-
-    .line 291
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    return v0
 .end method

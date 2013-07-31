@@ -29,11 +29,11 @@
     .end annotation
 
     .prologue
-    .line 589
+    .line 558
     .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p1}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;)V
 
-    .line 590
+    .line 559
     return-void
 .end method
 
@@ -54,11 +54,11 @@
     .end annotation
 
     .prologue
-    .line 585
+    .line 554
     .local p1, unpluggables:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lcom/android/internal/os/BatteryStatsImpl$Unpluggable;>;"
     invoke-direct {p0, p1, p2}, Lcom/android/internal/os/BatteryStatsImpl$Counter;-><init>(Ljava/util/ArrayList;Landroid/os/Parcel;)V
 
-    .line 586
+    .line 555
     return-void
 .end method
 
@@ -69,13 +69,13 @@
     .parameter "count"
 
     .prologue
-    .line 593
+    .line 562
     iget-object v0, p0, Lcom/android/internal/os/BatteryStatsImpl$Counter;->mCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     long-to-int v1, p1
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
 
-    .line 594
+    .line 563
     return-void
 .end method

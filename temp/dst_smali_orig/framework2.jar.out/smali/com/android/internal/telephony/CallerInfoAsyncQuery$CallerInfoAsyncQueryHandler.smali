@@ -122,6 +122,9 @@
     .parameter "token"
     .parameter "cookie"
     .parameter "cursor"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v7, 0x3

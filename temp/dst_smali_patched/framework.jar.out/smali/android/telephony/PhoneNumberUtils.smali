@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/telephony/PhoneNumberUtils$CountryCallingCodeAndNewIndex;,
-        Landroid/telephony/PhoneNumberUtils$Injector;
+        Landroid/telephony/PhoneNumberUtils$CountryCallingCodeAndNewIndex;
     }
 .end annotation
 
@@ -1153,21 +1152,6 @@
     .end packed-switch
 .end method
 
-.method static callIndexOfLastNetworkChar(Ljava/lang/String;)I
-    .locals 1
-    .parameter "a"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    invoke-static {p0}, Landroid/telephony/PhoneNumberUtils;->indexOfLastNetworkChar(Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static calledPartyBCDFragmentToString([BII)Ljava/lang/String;
     .locals 2
     .parameter "bytes"
@@ -2003,9 +1987,6 @@
     .locals 11
     .parameter "a"
     .parameter "b"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v7, 0x0
@@ -2128,14 +2109,14 @@
 
     if-ge v6, v10, :cond_b
 
-    invoke-static {p0}, Landroid/telephony/PhoneNumberUtils$Injector;->getEffectiveLength(Ljava/lang/String;)I
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v10
 
     sub-int v2, v10, v7
 
     .local v2, effectiveALen:I
-    invoke-static {p1}, Landroid/telephony/PhoneNumberUtils$Injector;->getEffectiveLength(Ljava/lang/String;)I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v10
 
@@ -2582,7 +2563,7 @@
     :cond_14
     move-object/from16 v0, p1
 
-    invoke-static {v0, v11, v4}, Landroid/telephony/PhoneNumberUtils;->checkPrefixIsIgnorable(Ljava/lang/String;II)Z
+    invoke-static {v0, v10, v4}, Landroid/telephony/PhoneNumberUtils;->checkPrefixIsIgnorable(Ljava/lang/String;II)Z
 
     move-result v18
 
@@ -3958,15 +3939,8 @@
     .parameter "phoneNumber"
     .parameter "phoneNumberE164"
     .parameter "defaultCountryIso"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
-    invoke-static {p0}, Lmiui/telephony/PhoneNumberUtils;->removeDashesAndBlanks(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -5857,9 +5831,6 @@
     .parameter "number"
     .parameter "defaultCountryIso"
     .parameter "useExactMatch"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v7, 0x1
@@ -5891,13 +5862,13 @@
 
     move-result v8
 
-    if-eqz v8, :cond_ff
+    if-eqz v8, :cond_2
 
     move v6, v7
 
     goto :goto_0
 
-    :cond_ff
+    :cond_2
     const-string v8, "ril.ecclist"
 
     invoke-static {v8}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -5909,7 +5880,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_3
 
     const-string v8, "ro.ril.ecclist"
 
@@ -5917,12 +5888,12 @@
 
     move-result-object v4
 
-    :cond_2
+    :cond_3
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_7
 
     const-string v8, ","
 
@@ -5943,7 +5914,7 @@
     aget-object v1, v0, v2
 
     .local v1, emergencyNum:Ljava/lang/String;
-    if-nez p2, :cond_3
+    if-nez p2, :cond_4
 
     const-string v8, "BR"
 
@@ -5951,31 +5922,31 @@
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v8
 
-    if-eqz v8, :cond_5
-
-    move v6, v7
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     move v6, v7
 
     goto :goto_0
 
     :cond_5
+    invoke-virtual {p0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_6
+
+    move v6, v7
+
+    goto :goto_0
+
+    :cond_6
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
@@ -5984,21 +5955,21 @@
     .end local v1           #emergencyNum:Ljava/lang/String;
     .end local v2           #i$:I
     .end local v3           #len$:I
-    :cond_6
+    :cond_7
     const-string v8, "PhoneNumberUtils"
 
     const-string v9, "System property doesn\'t provide any emergency numbers. Use embedded logic for determining ones."
 
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     new-instance v5, Lcom/android/i18n/phonenumbers/ShortNumberUtil;
 
     invoke-direct {v5}, Lcom/android/i18n/phonenumbers/ShortNumberUtil;-><init>()V
 
     .local v5, util:Lcom/android/i18n/phonenumbers/ShortNumberUtil;
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_8
 
     invoke-virtual {v5, p0, p1}, Lcom/android/i18n/phonenumbers/ShortNumberUtil;->isEmergencyNumber(Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -6006,7 +5977,7 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     invoke-virtual {v5, p0, p1}, Lcom/android/i18n/phonenumbers/ShortNumberUtil;->connectsToEmergencyNumber(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v6
@@ -6014,8 +5985,8 @@
     goto :goto_0
 
     .end local v5           #util:Lcom/android/i18n/phonenumbers/ShortNumberUtil;
-    :cond_8
-    if-eqz p2, :cond_a
+    :cond_9
+    if-eqz p2, :cond_b
 
     const-string v8, "112"
 
@@ -6023,7 +5994,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_9
+    if-nez v8, :cond_a
 
     const-string v8, "911"
 
@@ -6032,20 +6003,20 @@
     move-result v8
 
     if-eqz v8, :cond_0
-
-    :cond_9
-    move v6, v7
-
-    goto :goto_0
 
     :cond_a
+    move v6, v7
+
+    goto/16 :goto_0
+
+    :cond_b
     const-string v8, "112"
 
     invoke-virtual {p0, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v8
 
-    if-nez v8, :cond_b
+    if-nez v8, :cond_c
 
     const-string v8, "911"
 
@@ -6055,7 +6026,7 @@
 
     if-eqz v8, :cond_0
 
-    :cond_b
+    :cond_c
     move v6, v7
 
     goto/16 :goto_0
@@ -7348,9 +7319,6 @@
 .method public static normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
     .parameter "phoneNumber"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     new-instance v4, Ljava/lang/StringBuilder;
@@ -7374,8 +7342,6 @@
     move-result v0
 
     .local v0, c:C
-    invoke-static {v4, v0, v2}, Landroid/telephony/PhoneNumberUtils$Injector;->appendNonSeparator(Ljava/lang/StringBuilder;CI)V
-
     const/16 v5, 0xa
 
     invoke-static {v0, v5}, Ljava/lang/Character;->digit(CI)I

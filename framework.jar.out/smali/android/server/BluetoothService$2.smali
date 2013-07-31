@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 2297
+    .line 2290
     iput-object p1, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,21 +40,21 @@
     .parameter "intent"
 
     .prologue
-    .line 2300
+    .line 2293
     if-nez p2, :cond_1
 
-    .line 2423
+    .line 2398
     :cond_0
     :goto_0
     return-void
 
-    .line 2302
+    .line 2295
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2303
+    .line 2296
     .local v0, action:Ljava/lang/String;
     const-string v9, "android.intent.action.BOOT_COMPLETED"
 
@@ -72,7 +72,7 @@
 
     if-eqz v9, :cond_3
 
-    .line 2306
+    .line 2299
     :cond_2
     const-string v9, "BluetoothService"
 
@@ -80,7 +80,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2307
+    .line 2300
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
@@ -107,7 +107,7 @@
 
     goto :goto_0
 
-    .line 2308
+    .line 2301
     :cond_3
     const-string v9, "android.intent.action.AIRPLANE_MODE"
 
@@ -117,12 +117,12 @@
 
     if-eqz v9, :cond_5
 
-    .line 2309
+    .line 2302
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
-    .line 2312
+    .line 2305
     .local v7, resolver:Landroid/content/ContentResolver;
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -132,7 +132,7 @@
 
     if-eqz v9, :cond_4
 
-    .line 2313
+    .line 2306
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
@@ -146,7 +146,7 @@
 
     goto :goto_0
 
-    .line 2315
+    .line 2308
     :cond_4
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -161,19 +161,19 @@
 
     goto :goto_0
 
-    .line 2317
+    .line 2310
     .end local v7           #resolver:Landroid/content/ContentResolver;
     :cond_5
-    const-string v9, "com.htc.admin.ALLOW_BT_CHANGE"
+    const-string v9, "android.app.admin.intent.ALLOW_BT_CHANGE"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_7
 
-    .line 2318
-    const-string v9, "com.htc.admin.extra.ALLOW_STATUS"
+    .line 2311
+    const-string v9, "android.app.admin.extra.ALLOW_STATUS"
 
     const/4 v10, 0x1
 
@@ -181,39 +181,16 @@
 
     move-result v4
 
-    .line 2319
+    .line 2312
     .local v4, estate:I
-    const-string v9, "BluetoothService"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Received INTENT_ALLOW_BT_CHANGE, estate = "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2320
     if-nez v4, :cond_6
 
-    .line 2321
+    .line 2313
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
-    .line 2323
+    .line 2315
     .restart local v7       #resolver:Landroid/content/ContentResolver;
     const-string v9, "bluetooth_on"
 
@@ -225,7 +202,7 @@
 
     if-lez v9, :cond_0
 
-    .line 2326
+    .line 2318
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v10, 0x0
@@ -234,70 +211,27 @@
 
     goto/16 :goto_0
 
-    .line 2328
+    .line 2320
     .end local v7           #resolver:Landroid/content/ContentResolver;
     :cond_6
-    const/4 v9, 0x1
-
-    if-ne v4, v9, :cond_7
-
-    .line 2329
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v7
-
-    .line 2331
-    .restart local v7       #resolver:Landroid/content/ContentResolver;
-    const-string v9, "bluetooth_on"
-
-    const/4 v10, 0x0
-
-    invoke-static {v7, v9, v10}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v9
-
-    if-lez v9, :cond_0
-
-    iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
-
-    invoke-virtual {v9}, Landroid/server/BluetoothService;->isAirplaneModeOn()Z
-
-    move-result v9
-
-    if-nez v9, :cond_0
-
-    .line 2335
-    iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
-
-    const/4 v10, 0x1
-
-    const/4 v11, 0x1
-
-    invoke-virtual {v9, v10, v11}, Landroid/server/BluetoothService;->enable(ZZ)Z
-
-    goto/16 :goto_0
-
-    .line 2337
-    .end local v7           #resolver:Landroid/content/ContentResolver;
-    :cond_7
     const/4 v9, 0x2
 
     if-ne v4, v9, :cond_0
 
     goto/16 :goto_0
 
-    .line 2340
+    .line 2323
     .end local v4           #estate:I
-    :cond_8
+    :cond_7
     const-string v9, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_a
+    if-eqz v9, :cond_9
 
-    .line 2341
+    .line 2324
     const-string v9, "android.intent.extra.DOCK_STATE"
 
     const/4 v10, 0x0
@@ -306,7 +240,7 @@
 
     move-result v8
 
-    .line 2343
+    .line 2326
     .local v8, state:I
     const-string v9, "BluetoothService"
 
@@ -330,15 +264,15 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2344
-    if-nez v8, :cond_9
+    .line 2327
+    if-nez v8, :cond_8
 
-    .line 2345
+    .line 2328
     const/4 v9, 0x0
 
     invoke-static {v9}, Landroid/server/BluetoothService;->access$902(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 2346
+    .line 2329
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v10, 0x0
@@ -348,8 +282,8 @@
 
     goto/16 :goto_0
 
-    .line 2348
-    :cond_9
+    .line 2331
+    :cond_8
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mContext:Landroid/content/Context;
@@ -374,7 +308,7 @@
 
     move-result-object v3
 
-    .line 2351
+    .line 2334
     .local v3, editor:Landroid/content/SharedPreferences$Editor;
     new-instance v9, Ljava/lang/StringBuilder;
 
@@ -402,31 +336,31 @@
 
     invoke-interface {v3, v9, v10}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    .line 2352
+    .line 2335
     invoke-interface {v3}, Landroid/content/SharedPreferences$Editor;->apply()V
 
     goto/16 :goto_0
 
-    .line 2354
+    .line 2337
     .end local v3           #editor:Landroid/content/SharedPreferences$Editor;
     .end local v8           #state:I
-    :cond_a
+    :cond_9
     const-string v9, "android.bluetooth.device.action.CONNECTION_ACCESS_REPLY"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_f
 
-    .line 2355
+    .line 2338
     const-string v9, "BluetoothService"
 
     const-string v10, "Received ACTION_CONNECTION_ACCESS_REPLY"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2356
+    .line 2339
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mPbapConnectionAccessReplyReceived:Z
@@ -434,9 +368,9 @@
 
     move-result v9
 
-    if-nez v9, :cond_d
+    if-nez v9, :cond_c
 
-    .line 2357
+    .line 2340
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v10, 0x1
@@ -444,7 +378,7 @@
     #setter for: Landroid/server/BluetoothService;->mPbapConnectionAccessReplyReceived:Z
     invoke-static {v9, v10}, Landroid/server/BluetoothService;->access$402(Landroid/server/BluetoothService;Z)Z
 
-    .line 2358
+    .line 2341
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
@@ -456,7 +390,7 @@
 
     invoke-virtual {v9, v10}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 2359
+    .line 2342
     const-string v9, "android.bluetooth.device.extra.CONNECTION_ACCESS_RESULT"
 
     const/4 v10, 0x2
@@ -465,7 +399,7 @@
 
     move-result v1
 
-    .line 2360
+    .line 2343
     .local v1, allow:I
     const-string v9, "android.bluetooth.device.extra.DEVICE"
 
@@ -475,7 +409,7 @@
 
     check-cast v2, Landroid/bluetooth/BluetoothDevice;
 
-    .line 2361
+    .line 2344
     .local v2, device:Landroid/bluetooth/BluetoothDevice;
     const-string v9, "android.bluetooth.device.extra.ALWAYS_ALLOWED"
 
@@ -485,20 +419,20 @@
 
     move-result v9
 
-    if-eqz v9, :cond_b
+    if-eqz v9, :cond_a
 
-    .line 2362
+    .line 2345
     const/4 v9, 0x1
 
     invoke-virtual {v2, v9}, Landroid/bluetooth/BluetoothDevice;->setTrust(Z)Z
 
-    .line 2364
-    :cond_b
+    .line 2347
+    :cond_a
     iget-object v10, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v9, 0x1
 
-    if-ne v1, v9, :cond_c
+    if-ne v1, v9, :cond_b
 
     const/4 v9, 0x1
 
@@ -507,15 +441,15 @@
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_b
     const/4 v9, 0x0
 
     goto :goto_1
 
-    .line 2365
+    .line 2348
     .end local v1           #allow:I
     .end local v2           #device:Landroid/bluetooth/BluetoothDevice;
-    :cond_d
+    :cond_c
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mProfileConnectionAccessReplyReceived:Z
@@ -525,7 +459,7 @@
 
     if-nez v9, :cond_0
 
-    .line 2366
+    .line 2349
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v10, 0x1
@@ -533,7 +467,7 @@
     #setter for: Landroid/server/BluetoothService;->mProfileConnectionAccessReplyReceived:Z
     invoke-static {v9, v10}, Landroid/server/BluetoothService;->access$502(Landroid/server/BluetoothService;Z)Z
 
-    .line 2367
+    .line 2350
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mHandler:Landroid/os/Handler;
@@ -545,7 +479,7 @@
 
     invoke-virtual {v9, v10}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 2368
+    .line 2351
     const-string v9, "android.bluetooth.device.extra.CONNECTION_ACCESS_RESULT"
 
     const/4 v10, 0x2
@@ -554,7 +488,7 @@
 
     move-result v1
 
-    .line 2369
+    .line 2352
     .restart local v1       #allow:I
     const-string v9, "android.bluetooth.device.extra.DEVICE"
 
@@ -564,24 +498,24 @@
 
     check-cast v2, Landroid/bluetooth/BluetoothDevice;
 
-    .line 2371
+    .line 2354
     .restart local v2       #device:Landroid/bluetooth/BluetoothDevice;
     const/4 v9, 0x1
 
-    if-ne v1, v9, :cond_e
+    if-ne v1, v9, :cond_d
 
-    .line 2372
+    .line 2355
     const/4 v9, 0x1
 
     invoke-virtual {v2, v9}, Landroid/bluetooth/BluetoothDevice;->setTrust(Z)Z
 
-    .line 2374
-    :cond_e
+    .line 2357
+    :cond_d
     iget-object v10, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/4 v9, 0x1
 
-    if-ne v1, v9, :cond_f
+    if-ne v1, v9, :cond_e
 
     const/4 v9, 0x1
 
@@ -590,24 +524,24 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_e
     const/4 v9, 0x0
 
     goto :goto_2
 
-    .line 2376
+    .line 2359
     .end local v1           #allow:I
     .end local v2           #device:Landroid/bluetooth/BluetoothDevice;
-    :cond_10
+    :cond_f
     const-string v9, "android.bluetooth.device.action.PROFILE_DISCONNECTED"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_10
 
-    .line 2377
+    .line 2360
     const-string v9, "android.bluetooth.device.extra.PROFILE"
 
     const/4 v10, 0x0
@@ -616,7 +550,7 @@
 
     move-result v6
 
-    .line 2378
+    .line 2361
     .local v6, profile:I
     const-string v9, "BluetoothService"
 
@@ -640,10 +574,10 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2380
+    .line 2363
     packed-switch v6, :pswitch_data_0
 
-    .line 2395
+    .line 2378
     :goto_3
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -681,7 +615,7 @@
 
     if-nez v9, :cond_0
 
-    .line 2399
+    .line 2382
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     #getter for: Landroid/server/BluetoothService;->mBluetoothState:Landroid/server/BluetoothAdapterStateMachine;
@@ -701,7 +635,7 @@
 
     goto/16 :goto_0
 
-    .line 2382
+    .line 2365
     :pswitch_0
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -712,7 +646,7 @@
 
     goto :goto_3
 
-    .line 2385
+    .line 2368
     :pswitch_1
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -723,7 +657,7 @@
 
     goto :goto_3
 
-    .line 2388
+    .line 2371
     :pswitch_2
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -734,7 +668,7 @@
 
     goto :goto_3
 
-    .line 2391
+    .line 2374
     :pswitch_3
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
@@ -745,25 +679,25 @@
 
     goto :goto_3
 
-    .line 2401
+    .line 2384
     .end local v6           #profile:I
-    :cond_11
+    :cond_10
     const-string v9, "android.intent.action.DISCOVERABLE_TIMEOUT"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_11
 
-    .line 2403
+    .line 2386
     const-string v9, "BluetoothService"
 
     const-string v10, "Received ACTION_ALARM_DISCOVERABLE_TIMEOUT"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2404
+    .line 2387
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     const/16 v10, 0x15
@@ -774,17 +708,17 @@
 
     goto/16 :goto_0
 
-    .line 2406
-    :cond_12
+    .line 2389
+    :cond_11
     const-string v9, "com.htc.MIRROR_DISPLAY_STATE_CHANGED"
 
     invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_13
+    if-eqz v9, :cond_0
 
-    .line 2409
+    .line 2392
     const-string/jumbo v9, "mirror_display_status"
 
     const/4 v10, 0x0
@@ -793,7 +727,7 @@
 
     move-result v5
 
-    .line 2410
+    .line 2393
     .local v5, mirrorState:Z
     const/4 v9, 0x1
 
@@ -809,71 +743,23 @@
 
     if-ne v9, v10, :cond_0
 
-    .line 2411
+    .line 2394
     const-string v9, "BluetoothService"
 
     const-string v10, "Wireless display activated, stop any progressing scan"
 
     invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2412
+    .line 2395
     iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
 
     invoke-virtual {v9}, Landroid/server/BluetoothService;->cancelDiscovery()Z
 
     goto/16 :goto_0
 
-    .line 2414
-    .end local v5           #mirrorState:Z
-    :cond_13
-    const-string v9, "htc.intent.action.ACTION_WFD_SESSION"
+    .line 2363
+    nop
 
-    invoke-virtual {v0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_0
-
-    .line 2417
-    const-string/jumbo v9, "state"
-
-    const/4 v10, 0x0
-
-    invoke-virtual {p2, v9, v10}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v8
-
-    .line 2418
-    .restart local v8       #state:I
-    const/4 v9, 0x1
-
-    if-ne v8, v9, :cond_0
-
-    iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
-
-    invoke-virtual {v9}, Landroid/server/BluetoothService;->isDiscovering()Z
-
-    move-result v9
-
-    const/4 v10, 0x1
-
-    if-ne v9, v10, :cond_0
-
-    .line 2419
-    const-string v9, "BluetoothService"
-
-    const-string v10, "Miracast activated, stop any progressing scan"
-
-    invoke-static {v9, v10}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2420
-    iget-object v9, p0, Landroid/server/BluetoothService$2;->this$0:Landroid/server/BluetoothService;
-
-    invoke-virtual {v9}, Landroid/server/BluetoothService;->cancelDiscovery()Z
-
-    goto/16 :goto_0
-
-    .line 2380
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

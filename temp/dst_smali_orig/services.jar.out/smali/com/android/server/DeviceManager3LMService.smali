@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/DeviceManager3LMService$H;,
         Lcom/android/server/DeviceManager3LMService$ClearUserDataObserver;,
         Lcom/android/server/DeviceManager3LMService$PublicKey3LM;,
         Lcom/android/server/DeviceManager3LMService$PackageDeleteObserver;,
@@ -33,7 +32,7 @@
 
 .field private static final PROPERTY_WIFI_LOCKOUT:Ljava/lang/String; = "persist.security.wifi.lockout"
 
-.field private static final SD_NOTIFICATION_ID:I = 0x407005e
+.field private static final SD_NOTIFICATION_ID:I = 0x4070057
 
 .field private static final TAG:Ljava/lang/String; = "DeviceManager3LM"
 
@@ -91,10 +90,6 @@
 
 .field private mKeyStore:Landroid/security/KeyStore;
 
-.field private mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
-
-.field private mMessageThread:Landroid/os/HandlerThread;
-
 .field private mNetworkManager:Landroid/os/INetworkManagementService;
 
 .field private mNotificationManager:Landroid/app/NotificationManager;
@@ -138,10 +133,6 @@
 .field private mSecureClipboardRules:Lcom/android/server/DeviceManager3LMService$RulesEngine;
 
 .field private mSecurePrimaryClip:Z
-
-.field mStorageListener:Landroid/os/storage/StorageEventListener;
-
-.field private mStorageManager:Landroid/os/storage/StorageManager;
 
 .field private mUid:I
 
@@ -234,12 +225,6 @@
 
     iput-boolean v2, p0, Lcom/android/server/DeviceManager3LMService;->mSdRequired:Z
 
-    new-instance v0, Lcom/android/server/DeviceManager3LMService$3;
-
-    invoke-direct {v0, p0}, Lcom/android/server/DeviceManager3LMService$3;-><init>(Lcom/android/server/DeviceManager3LMService;)V
-
-    iput-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mStorageListener:Landroid/os/storage/StorageEventListener;
-
     const/16 v0, 0x3e8
 
     iput v0, p0, Lcom/android/server/DeviceManager3LMService;->SCAN_3LM_RESULT_ALLOW:I
@@ -248,9 +233,9 @@
 
     iput v0, p0, Lcom/android/server/DeviceManager3LMService;->SCAN_3LM_RESULT_DENY:I
 
-    new-instance v0, Lcom/android/server/DeviceManager3LMService$4;
+    new-instance v0, Lcom/android/server/DeviceManager3LMService$3;
 
-    invoke-direct {v0, p0}, Lcom/android/server/DeviceManager3LMService$4;-><init>(Lcom/android/server/DeviceManager3LMService;)V
+    invoke-direct {v0, p0}, Lcom/android/server/DeviceManager3LMService$3;-><init>(Lcom/android/server/DeviceManager3LMService;)V
 
     iput-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mProfileServiceListener:Landroid/bluetooth/BluetoothProfile$ServiceListener;
 
@@ -333,17 +318,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/server/DeviceManager3LMService;)Landroid/os/storage/StorageManager;
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$702(Lcom/android/server/DeviceManager3LMService;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
+.method static synthetic access$602(Lcom/android/server/DeviceManager3LMService;Landroid/bluetooth/BluetoothPan;)Landroid/bluetooth/BluetoothPan;
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -352,17 +327,6 @@
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService;->mBluetoothPan:Landroid/bluetooth/BluetoothPan;
 
     return-object p1
-.end method
-
-.method static synthetic access$800(Lcom/android/server/DeviceManager3LMService;Z)V
-    .locals 0
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    invoke-direct {p0, p1}, Lcom/android/server/DeviceManager3LMService;->setUSBEnabled(Z)V
-
-    return-void
 .end method
 
 .method private broadcastIntent(Ljava/lang/String;I)V
@@ -385,103 +349,6 @@
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     return-void
-.end method
-
-.method private static findPackage(Landroid/content/Context;)Z
-    .locals 9
-    .parameter "context"
-
-    .prologue
-    const/4 v7, 0x0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v5
-
-    .local v5, resources:Landroid/content/res/Resources;
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    .local v4, packageManager:Landroid/content/pm/PackageManager;
-    const/4 v6, 0x0
-
-    .local v6, strPkgName:Ljava/lang/String;
-    if-eqz v5, :cond_0
-
-    if-nez v4, :cond_1
-
-    :cond_0
-    :goto_0
-    return v7
-
-    :cond_1
-    const v8, 0x104001f
-
-    invoke-virtual {v5, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_0
-
-    new-instance v3, Landroid/content/Intent;
-
-    const-string v8, "com.android.location.service.NetworkLocationProvider"
-
-    invoke-direct {v3, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .local v3, intent:Landroid/content/Intent;
-    const/16 v8, 0x80
-
-    invoke-virtual {v4, v3, v8}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
-
-    move-result-object v2
-
-    .local v2, infos:Ljava/util/List;,"Ljava/util/List<Landroid/content/pm/ResolveInfo;>;"
-    if-eqz v2, :cond_0
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    .local v0, i$:Ljava/util/Iterator;
-    :cond_2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/content/pm/ResolveInfo;
-
-    .local v1, info:Landroid/content/pm/ResolveInfo;
-    iget-object v8, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    if-eqz v8, :cond_2
-
-    iget-object v8, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    iget-object v8, v8, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
-
-    if-eqz v8, :cond_2
-
-    iget-object v8, v1, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    iget-object v8, v8, Landroid/content/pm/ComponentInfo;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v4, v8, v6}, Landroid/content/pm/PackageManager;->checkSignatures(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    const/4 v7, 0x1
-
-    goto :goto_0
 .end method
 
 .method private getApplicationLabel(Ljava/lang/String;)Ljava/lang/String;
@@ -1253,69 +1120,6 @@
     goto :goto_1
 .end method
 
-.method static updateLocation(Landroid/content/Context;)V
-    .locals 5
-    .parameter "context"
-
-    .prologue
-    sget-short v3, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_LANGUAGE_flag:S
-
-    const/4 v4, 0x2
-
-    if-ne v3, v4, :cond_0
-
-    if-nez p0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    const-string v0, "customized_location_provider"
-
-    .local v0, LOCATION_UPDATE:Ljava/lang/String;
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    .local v1, resolver:Landroid/content/ContentResolver;
-    const/4 v2, 0x0
-
-    .local v2, strLocation:Ljava/lang/String;
-    if-eqz v1, :cond_2
-
-    const-string v3, "customized_location_provider"
-
-    invoke-static {v1, v3}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    :cond_2
-    if-eqz v2, :cond_0
-
-    const-string v3, ".google."
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-static {p0}, Lcom/android/server/DeviceManager3LMService;->findPackage(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    const-string v3, "customized_location_provider"
-
-    const/4 v4, 0x0
-
-    invoke-static {v1, v3, v4}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
-
-    goto :goto_0
-.end method
-
 .method private updateNetworkRules(Lcom/android/server/DeviceManager3LMService$RulesEngine;)V
     .locals 9
     .parameter "re"
@@ -1574,78 +1378,80 @@
 .end method
 
 .method public blockAdb(Z)V
-    .locals 6
+    .locals 5
     .parameter "block"
 
     .prologue
-    const/16 v5, 0x1f4
+    const/4 v1, 0x1
 
     const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/android/server/DeviceManager3LMService;->isAccessPermitted()Z
 
-    move-result v1
+    move-result v0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_1
 
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
 
     const-string v4, "adb_blocked"
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4
 
-    const/4 v1, 0x1
+    move v0, v1
 
     :goto_1
-    invoke-static {v3, v4, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v3, "adb_enabled"
-
-    invoke-static {v1, v3, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
-
-    invoke-virtual {v1, v5}, Lcom/android/server/DeviceManager3LMService$H;->removeMessages(I)V
-
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
-
-    invoke-virtual {v1, v5}, Lcom/android/server/DeviceManager3LMService$H;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .local v0, msg:Landroid/os/Message;
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
+    const-string v3, "adb_enabled"
 
-    const-wide/16 v2, 0x1f4
+    invoke-static {v0, v3, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/DeviceManager3LMService$H;->sendMessageDelayed(Landroid/os/Message;J)Z
+    :cond_2
+    if-nez p1, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/server/DeviceManager3LMService;->isUsbBlocked()Z
+
+    move-result v0
+
+    if-eq v1, v0, :cond_0
+
+    :cond_3
+    if-nez p1, :cond_5
+
+    :goto_2
+    invoke-direct {p0, v1}, Lcom/android/server/DeviceManager3LMService;->setUSBEnabled(Z)V
 
     goto :goto_0
 
-    .end local v0           #msg:Landroid/os/Message;
-    :cond_2
-    move v1, v2
+    :cond_4
+    move v0, v2
 
     goto :goto_1
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_2
 .end method
 
 .method public blockScreenshot(Z)V
@@ -1776,59 +1582,63 @@
     .parameter "block"
 
     .prologue
-    const/16 v4, 0x1f4
-
-    invoke-direct {p0}, Lcom/android/server/DeviceManager3LMService;->isAccessPermitted()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v3, "usb_blocked"
-
-    if-eqz p1, :cond_1
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
+    invoke-direct {p0}, Lcom/android/server/DeviceManager3LMService;->isAccessPermitted()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string v4, "usb_blocked"
+
+    if-eqz p1, :cond_3
+
+    move v0, v1
+
     :goto_1
-    invoke-static {v2, v3, v1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
+    if-nez p1, :cond_2
 
-    invoke-virtual {v1, v4}, Lcom/android/server/DeviceManager3LMService$H;->removeMessages(I)V
+    invoke-virtual {p0}, Lcom/android/server/DeviceManager3LMService;->isAdbBlocked()Z
 
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
+    move-result v0
 
-    invoke-virtual {v1, v4}, Lcom/android/server/DeviceManager3LMService$H;->obtainMessage(I)Landroid/os/Message;
+    if-eq v1, v0, :cond_0
 
-    move-result-object v0
+    :cond_2
+    if-nez p1, :cond_4
 
-    .local v0, msg:Landroid/os/Message;
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
-
-    const-wide/16 v2, 0x1f4
-
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/DeviceManager3LMService$H;->sendMessageDelayed(Landroid/os/Message;J)Z
+    :goto_2
+    invoke-direct {p0, v1}, Lcom/android/server/DeviceManager3LMService;->setUSBEnabled(Z)V
 
     goto :goto_0
 
-    .end local v0           #msg:Landroid/os/Message;
-    :cond_1
-    const/4 v1, 0x0
+    :cond_3
+    move v0, v2
 
     goto :goto_1
+
+    :cond_4
+    move v1, v2
+
+    goto :goto_2
 .end method
 
 .method public checkAppInstallPolicies(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Z
@@ -1883,7 +1693,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v1, 0x407006d
+    const v1, 0x4070066
 
     invoke-virtual {v13, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1912,7 +1722,7 @@
     move-result-object v2
 
     .local v2, title:Ljava/lang/String;
-    const v0, 0x407006a
+    const v0, 0x4070063
 
     invoke-virtual {v13, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1975,7 +1785,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x407006d
+    const v3, 0x4070066
 
     invoke-virtual {v13, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2122,7 +1932,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x407006d
+    const v3, 0x4070066
 
     invoke-virtual {v13, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2238,7 +2048,7 @@
     .prologue
     const/4 v5, 0x0
 
-    const v3, 0x407006e
+    const v3, 0x4070067
 
     const/4 v12, 0x0
 
@@ -2296,7 +2106,7 @@
     move-result-object v2
 
     .local v2, title:Ljava/lang/String;
-    const v0, 0x407006a
+    const v0, 0x4070063
 
     invoke-virtual {v11, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2359,7 +2169,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x407006e
+    const v3, 0x4070067
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2495,7 +2305,7 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const v0, 0x407006c
+    const v0, 0x4070065
 
     invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2585,7 +2395,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v1, 0x4070062
+    const v1, 0x407005b
 
     invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4193,7 +4003,7 @@
     move-result-object v1
 
     .local v1, res:Landroid/content/res/Resources;
-    const v2, 0x4070063
+    const v2, 0x407005c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4217,42 +4027,6 @@
     invoke-virtual {v0, v2, v3, v5}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
-
-    const-string v3, "storage"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/os/storage/StorageManager;
-
-    iput-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    new-instance v2, Landroid/os/HandlerThread;
-
-    const-string v3, "DeviceManager3LM"
-
-    invoke-direct {v2, v3}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
-
-    iput-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mMessageThread:Landroid/os/HandlerThread;
-
-    iget-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mMessageThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v2}, Landroid/os/HandlerThread;->start()V
-
-    new-instance v2, Lcom/android/server/DeviceManager3LMService$H;
-
-    iget-object v3, p0, Lcom/android/server/DeviceManager3LMService;->mMessageThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v3}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v3
-
-    invoke-direct {v2, p0, v3}, Lcom/android/server/DeviceManager3LMService$H;-><init>(Lcom/android/server/DeviceManager3LMService;Landroid/os/Looper;)V
-
-    iput-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mMessageHandler:Lcom/android/server/DeviceManager3LMService$H;
-
     invoke-virtual {p0}, Lcom/android/server/DeviceManager3LMService;->isUsbBlocked()Z
 
     move-result v2
@@ -4726,7 +4500,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v1, 0x4070068
+    const v1, 0x4070061
 
     invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4767,7 +4541,7 @@
 
     move-result-object v0
 
-    const v1, 0x4070069
+    const v1, 0x4070062
 
     invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4782,7 +4556,7 @@
     move-result-object v3
 
     .local v3, title:Ljava/lang/String;
-    const v0, 0x407006a
+    const v0, 0x4070063
 
     invoke-virtual {v7, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4931,7 +4705,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_0
 
     iget-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
 
@@ -4945,41 +4719,12 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_1
+    if-ne v2, v0, :cond_0
 
-    .local v0, isEncrypted:Z
     :goto_0
-    sget-boolean v1, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "DeviceManager3LM"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "isSdEncrypted:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     return v0
 
-    .end local v0           #isEncrypted:Z
-    :cond_1
+    :cond_0
     move v0, v1
 
     goto :goto_0
@@ -6322,125 +6067,75 @@
 .end method
 
 .method public setNfcState(I)V
-    .locals 5
+    .locals 3
     .parameter "state"
 
     .prologue
     invoke-direct {p0}, Lcom/android/server/DeviceManager3LMService;->isAccessPermitted()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string v3, "android.hardware.nfc"
+    const-string v2, "android.hardware.nfc"
 
-    invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_1
+    if-nez v1, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string v2, "persist.security.nfc.lockout"
-
-    const/4 v3, -0x1
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    .local v0, currState:I
-    sget-boolean v2, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v2, :cond_2
-
-    const-string v2, "DeviceManager3LM"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "[setNfcState] current:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, " new:"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    const-string v2, "persist.security.nfc.lockout"
+    const-string v1, "persist.security.nfc.lockout"
 
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v2, "nfc"
-
-    invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
-
     move-result-object v2
 
-    invoke-static {v2}, Landroid/nfc/INfcAdapter$Stub;->asInterface(Landroid/os/IBinder;)Landroid/nfc/INfcAdapter;
+    invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v1, "nfc"
+
+    invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v1
 
-    .local v1, nfcService:Landroid/nfc/INfcAdapter;
-    if-eqz v1, :cond_3
+    invoke-static {v1}, Landroid/nfc/INfcAdapter$Stub;->asInterface(Landroid/os/IBinder;)Landroid/nfc/INfcAdapter;
 
-    if-nez p1, :cond_3
+    move-result-object v0
 
-    const/4 v2, 0x1
+    .local v0, nfcService:Landroid/nfc/INfcAdapter;
+    if-eqz v0, :cond_2
+
+    if-nez p1, :cond_2
+
+    const/4 v1, 0x1
 
     :try_start_0
-    invoke-interface {v1, v2}, Landroid/nfc/INfcAdapter;->disable(Z)Z
+    invoke-interface {v0, v1}, Landroid/nfc/INfcAdapter;->disable(Z)Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_3
+    :cond_2
     :goto_1
-    if-eq v0, p1, :cond_0
+    const-string v1, "com.htc.3lm.intent.NFC_POLICY_STATUS_CHANGE"
 
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    const-string v2, "com.htc.3lm.intent.NFC_POLICY_STATUS_CHANGE"
-
-    invoke-direct {p0, v2, p1}, Lcom/android/server/DeviceManager3LMService;->broadcastIntent(Ljava/lang/String;I)V
+    invoke-direct {p0, v1, p1}, Lcom/android/server/DeviceManager3LMService;->broadcastIntent(Ljava/lang/String;I)V
 
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v1
 
     goto :goto_1
 .end method
@@ -6478,7 +6173,7 @@
     move-result-object v0
 
     .local v0, res:Landroid/content/res/Resources;
-    const v1, 0x4070063
+    const v1, 0x407005c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6749,7 +6444,7 @@
 .end method
 
 .method public setSdEncryptionRequired(Z)V
-    .locals 11
+    .locals 9
     .parameter "required"
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -6758,11 +6453,15 @@
     .end annotation
 
     .prologue
-    const/4 v9, 0x1
-
     const/4 v0, 0x0
 
-    const v1, 0x407005e
+    const v1, 0x4070057
+
+    const/4 v7, 0x1
+
+    iput-boolean p1, p0, Lcom/android/server/DeviceManager3LMService;->mSdRequired:Z
+
+    if-ne v7, p1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/DeviceManager3LMService;->mContext:Landroid/content/Context;
 
@@ -6776,41 +6475,12 @@
 
     move-result v2
 
-    if-ne v2, v9, :cond_1
+    if-ne v2, v7, :cond_1
 
-    .local v9, isSDEncrypted:Z
+    .local v7, isSDEncrypted:Z
     :goto_0
-    iput-boolean p1, p0, Lcom/android/server/DeviceManager3LMService;->mSdRequired:Z
+    if-nez v7, :cond_0
 
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v7
-
-    .local v7, identityToken:J
-    if-eqz p1, :cond_0
-
-    if-eqz v9, :cond_2
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mNotificationManager:Landroid/app/NotificationManager;
-
-    invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
-
-    invoke-static {v7, v8}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    :goto_1
-    return-void
-
-    .end local v7           #identityToken:J
-    .end local v9           #isSDEncrypted:Z
-    :cond_1
-    move v9, v0
-
-    goto :goto_0
-
-    .restart local v7       #identityToken:J
-    .restart local v9       #isSDEncrypted:Z
-    :cond_2
     new-instance v5, Landroid/content/Intent;
 
     const-string v0, "com.htc.settings.action.START_ENCRYPTION"
@@ -6834,44 +6504,39 @@
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v10
+    move-result-object v8
 
-    .local v10, res:Landroid/content/res/Resources;
-    invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    .local v8, res:Landroid/content/res/Resources;
+    invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v10, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v8, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x407005f
+    const v0, 0x4070058
 
-    invoke-virtual {v10, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const/16 v6, 0x20
+    const/16 v6, 0x30
 
     move-object v0, p0
 
     invoke-direct/range {v0 .. v6}, Lcom/android/server/DeviceManager3LMService;->notify(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)V
 
-    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mStorageManager:Landroid/os/storage/StorageManager;
+    .end local v5           #intent:Landroid/content/Intent;
+    .end local v7           #isSDEncrypted:Z
+    .end local v8           #res:Landroid/content/res/Resources;
+    :cond_0
+    return-void
 
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mStorageListener:Landroid/os/storage/StorageEventListener;
+    :cond_1
+    move v7, v0
 
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->unregisterListener(Landroid/os/storage/StorageEventListener;)V
-
-    iget-object v0, p0, Lcom/android/server/DeviceManager3LMService;->mStorageManager:Landroid/os/storage/StorageManager;
-
-    iget-object v1, p0, Lcom/android/server/DeviceManager3LMService;->mStorageListener:Landroid/os/storage/StorageEventListener;
-
-    invoke-virtual {v0, v1}, Landroid/os/storage/StorageManager;->registerListener(Landroid/os/storage/StorageEventListener;)V
-
-    invoke-static {v7, v8}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public setSecureClipboard(Ljava/util/List;)V

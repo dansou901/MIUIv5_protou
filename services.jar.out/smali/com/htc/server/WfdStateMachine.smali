@@ -229,8 +229,6 @@
 
 .field mFixedModeProperty:Ljava/lang/String;
 
-.field mIfDfsAvailable:Ljava/lang/String;
-
 .field mIsAphConnectable:Z
 
 .field mIsAphConnectableBefore:Z
@@ -319,8 +317,6 @@
 
 .field mScanDongleState:Lcom/htc/server/State;
 
-.field mSenseVersion:Ljava/lang/String;
-
 .field private final mSoftapInterface:Ljava/lang/String;
 
 .field private final mStaInterface:Ljava/lang/String;
@@ -356,7 +352,7 @@
 
     const/4 v3, 0x0
 
-    .line 280
+    .line 276
     const-string v0, "WfdStateMachine"
 
     invoke-direct {p0, v0}, Lcom/htc/server/StateMachine;-><init>(Ljava/lang/String;)V
@@ -533,48 +529,38 @@
     .line 253
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsFixedCT1:Z
 
-    .line 256
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    .line 259
+    .line 257
     const-string v0, ""
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
-    .line 260
+    .line 258
     const-string v0, ""
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApKey:Ljava/lang/String;
 
-    .line 262
+    .line 260
     const-string v0, ""
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mDfsSsid:Ljava/lang/String;
 
-    .line 267
+    .line 265
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
-    .line 268
+    .line 266
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
-    .line 269
+    .line 267
     iput v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    .line 275
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
-
-    .line 277
+    .line 273
     new-instance v0, Landroid/os/RemoteCallbackList;
 
     invoke-direct {v0}, Landroid/os/RemoteCallbackList;-><init>()V
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
-    .line 2219
+    .line 2212
     const/16 v0, 0x64
 
     new-array v0, v0, [Ljava/lang/String;
@@ -1175,24 +1161,24 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mStaticAPKey:[Ljava/lang/String;
 
-    .line 2452
+    .line 2433
     new-instance v0, Lcom/htc/server/WfdStateMachine$1;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$1;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
-    .line 281
+    .line 277
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
-    .line 283
+    .line 279
     new-instance v0, Lcom/htc/service/DongleInfo;
 
     invoke-direct {v0}, Lcom/htc/service/DongleInfo;-><init>()V
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 285
+    .line 281
     const-string v0, "connectivity"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1203,7 +1189,7 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mConnManager:Landroid/net/ConnectivityManager;
 
-    .line 286
+    .line 282
     const-string v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1214,7 +1200,7 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    .line 287
+    .line 283
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
@@ -1225,7 +1211,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->asyncConnect(Landroid/net/wifi/WifiManager;Landroid/content/Context;Landroid/os/Handler;)V
 
-    .line 288
+    .line 284
     const-string v0, "notification"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1236,13 +1222,13 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mNotificationManager:Landroid/app/NotificationManager;
 
-    .line 289
+    .line 285
     iput v3, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
-    .line 290
+    .line 286
     iput v3, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    .line 291
+    .line 287
     const-string v0, "wireless_display"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1253,12 +1239,7 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    .line 292
-    sget-object v0, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_Sense_Version:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mSenseVersion:Ljava/lang/String;
-
-    .line 294
+    .line 289
     const-string v0, "wifi.interface"
 
     const-string v1, "wlan0"
@@ -1269,7 +1250,7 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mStaInterface:Ljava/lang/String;
 
-    .line 295
+    .line 290
     const-string v0, "wifi.softapconcurrent.interface"
 
     const-string v1, "wlan1"
@@ -1280,14 +1261,14 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mSoftapInterface:Ljava/lang/String;
 
-    .line 296
+    .line 291
     const-string v0, "WfdStateMachine"
 
     const-string v1, ">>>> 20120816_P2P_FW_001<<<<< "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 297
+    .line 292
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1324,109 +1305,109 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 299
+    .line 294
     new-instance v0, Ljava/util/BitSet;
 
     invoke-direct {v0}, Ljava/util/BitSet;-><init>()V
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mResetBit:Ljava/util/BitSet;
 
-    .line 311
+    .line 306
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mDefaultState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;)V
 
-    .line 313
+    .line 308
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mDefaultState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 314
+    .line 309
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mScanDongleState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 315
+    .line 310
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mControlWifiState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 316
+    .line 311
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mControlApState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 317
+    .line 312
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mControlWpsState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 319
+    .line 314
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mLinkOnState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mDefaultState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 321
+    .line 316
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mLinkDiscoverState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mDefaultState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 322
+    .line 317
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mDiscoverWivuState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mLinkDiscoverState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 324
+    .line 319
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mLinkResetState:Lcom/htc/server/State;
 
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mDefaultState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->addState(Lcom/htc/server/State;Lcom/htc/server/State;)V
 
-    .line 326
+    .line 321
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mLinkInitState:Lcom/htc/server/State;
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->setInitialState(Lcom/htc/server/State;)V
 
-    .line 327
+    .line 322
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     if-eqz v0, :cond_0
 
-    .line 328
+    .line 323
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->start()V
 
-    .line 329
+    .line 324
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Adding and initialize state machine finished."
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 333
+    .line 328
     :goto_0
     invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 335
+    .line 330
     return-void
 
-    .line 331
+    .line 326
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -1460,20 +1441,7 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/htc/server/WfdStateMachine;)Z
-    .locals 1
-    .parameter "x0"
-
-    .prologue
-    .line 73
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1100(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1000(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1484,7 +1452,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1100(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1495,7 +1463,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1200(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1506,7 +1474,7 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
+.method static synthetic access$1300(Lcom/htc/server/WfdStateMachine;)Ljava/lang/String;
     .locals 1
     .parameter "x0"
 
@@ -1517,7 +1485,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1400(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1528,7 +1496,7 @@
     return-void
 .end method
 
-.method static synthetic access$1600(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1500(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1539,7 +1507,7 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1600(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1550,7 +1518,7 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1700(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1561,7 +1529,7 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$1800(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1570,6 +1538,20 @@
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->setL2peApInfo()V
 
     return-void
+.end method
+
+.method static synthetic access$1900(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 73
+    invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApSsid(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method static synthetic access$200(Lcom/htc/server/WfdStateMachine;)V
@@ -1590,20 +1572,6 @@
 
     .prologue
     .line 73
-    invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApSsid(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2100(Lcom/htc/server/WfdStateMachine;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 73
     invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->getNoWpsApKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -1611,7 +1579,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/htc/server/WfdStateMachine;I)V
+.method static synthetic access$2100(Lcom/htc/server/WfdStateMachine;I)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1623,7 +1591,7 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Lcom/htc/server/WfdStateMachine;IZ)V
+.method static synthetic access$2200(Lcom/htc/server/WfdStateMachine;IZ)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1636,18 +1604,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Lcom/htc/server/WfdStateMachine;)V
-    .locals 0
-    .parameter "x0"
-
-    .prologue
-    .line 73
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->forceUpdateDongles()V
-
-    return-void
-.end method
-
-.method static synthetic access$2500(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
+.method static synthetic access$2300(Lcom/htc/server/WfdStateMachine;Lcom/htc/service/DongleInfo;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1659,7 +1616,7 @@
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/htc/server/WfdStateMachine;)V
+.method static synthetic access$2400(Lcom/htc/server/WfdStateMachine;)V
     .locals 0
     .parameter "x0"
 
@@ -1670,7 +1627,7 @@
     return-void
 .end method
 
-.method static synthetic access$2700(Lcom/htc/server/WfdStateMachine;ZLcom/htc/service/DongleInfo;)V
+.method static synthetic access$2500(Lcom/htc/server/WfdStateMachine;ZLcom/htc/service/DongleInfo;)V
     .locals 0
     .parameter "x0"
     .parameter "x1"
@@ -1775,92 +1732,18 @@
     return v0
 .end method
 
-.method private checkIfDfsAvailable()Z
-    .locals 4
-
-    .prologue
-    .line 2409
-    const/4 v0, 0x0
-
-    .line 2410
-    .local v0, result:Z
-    const-string v1, "WfdStateMachine"
-
-    const-string v2, "[WFD]===>checkIfDfsAvailable()"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2411
-    const-string v1, "persist.sys.wfd.dfsavailable"
-
-    const-string v2, ""
-
-    invoke-static {v1, v2}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    .line 2412
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mIfDfsAvailable:Ljava/lang/String;
-
-    const-string v2, "1"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 2413
-    const/4 v0, 0x1
-
-    .line 2416
-    :goto_0
-    const-string v1, "WfdStateMachine"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "[WFD]===> persist.sys.wfd.dfsavailable = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2417
-    return v0
-
-    .line 2415
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method private clearLimitedApInfo()V
     .locals 5
 
     .prologue
-    .line 2046
+    .line 2039
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v1
 
-    .line 2047
+    .line 2040
     .local v1, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v1, :cond_0
 
@@ -1870,12 +1753,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 2048
+    .line 2041
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->getCurrentNetwork()Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
-    .line 2049
+    .line 2042
     .local v0, network:Landroid/net/wifi/WifiConfiguration;
     if-eqz v0, :cond_0
 
@@ -1887,22 +1770,22 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 2050
+    .line 2043
     const/4 v2, 0x0
 
     invoke-static {v0, v2}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiConfiguration;->setLimited(Landroid/net/wifi/WifiConfiguration;I)V
 
-    .line 2051
+    .line 2044
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2, v0}, Landroid/net/wifi/WifiManager;->updateNetwork(Landroid/net/wifi/WifiConfiguration;)I
 
-    .line 2052
+    .line 2045
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->saveConfiguration()Z
 
-    .line 2053
+    .line 2046
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1927,7 +1810,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2056
+    .line 2049
     .end local v0           #network:Landroid/net/wifi/WifiConfiguration;
     :cond_0
     return-void
@@ -1937,34 +1820,34 @@
     .locals 2
 
     .prologue
-    .line 2572
+    .line 2538
     const-string v0, "WfdStateMachine"
 
     const-string v1, "finish()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2573
+    .line 2539
     const/16 v0, 0x1e
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 2574
+    .line 2540
     const/16 v0, 0x19
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 2575
+    .line 2541
     const/16 v0, 0x1a
 
     invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 2576
+    .line 2542
     const/16 v0, 0x32
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2577
+    .line 2543
     return-void
 .end method
 
@@ -1972,21 +1855,21 @@
     .locals 2
 
     .prologue
-    .line 2599
+    .line 2565
     const-string v0, "WfdStateMachine"
 
     const-string v1, "forceDisableAp()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2600
+    .line 2566
     new-instance v0, Lcom/htc/server/WfdStateMachine$3;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$3;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$3;->start()V
 
-    .line 2617
+    .line 2583
     return-void
 .end method
 
@@ -1994,21 +1877,21 @@
     .locals 2
 
     .prologue
-    .line 2587
+    .line 2553
     const-string v0, "WfdStateMachine"
 
     const-string v1, "forceUpdateDongles()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2588
+    .line 2554
     new-instance v0, Lcom/htc/server/WfdStateMachine$2;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$2;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$2;->start()V
 
-    .line 2596
+    .line 2562
     return-void
 .end method
 
@@ -2017,10 +1900,10 @@
     .parameter "freq"
 
     .prologue
-    .line 2352
+    .line 2345
     const/4 v0, 0x0
 
-    .line 2353
+    .line 2346
     .local v0, outchannel:I
     const/16 v1, 0x96c
 
@@ -2030,16 +1913,16 @@
 
     if-gt p1, v1, :cond_0
 
-    .line 2354
+    .line 2347
     add-int/lit16 v1, p1, -0x967
 
     div-int/lit8 v0, v1, 0x5
 
-    .line 2362
+    .line 2355
     :goto_0
     return v0
 
-    .line 2355
+    .line 2348
     :cond_0
     const/16 v1, 0x1432
 
@@ -2049,25 +1932,25 @@
 
     if-gt p1, v1, :cond_1
 
-    .line 2356
+    .line 2349
     add-int/lit16 v1, p1, -0x1388
 
     div-int/lit8 v0, v1, 0x5
 
     goto :goto_0
 
-    .line 2357
+    .line 2350
     :cond_1
     const/16 v1, 0x9b4
 
     if-ne p1, v1, :cond_2
 
-    .line 2358
+    .line 2351
     const/16 v0, 0xe
 
     goto :goto_0
 
-    .line 2360
+    .line 2353
     :cond_2
     const/4 v0, 0x0
 
@@ -2078,18 +1961,18 @@
     .locals 9
 
     .prologue
-    .line 2059
+    .line 2052
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v6}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v5
 
-    .line 2060
+    .line 2053
     .local v5, wifiInfo:Landroid/net/wifi/WifiInfo;
     const/4 v1, 0x0
 
-    .line 2061
+    .line 2054
     .local v1, currentNetwork:Landroid/net/wifi/WifiConfiguration;
     if-eqz v5, :cond_1
 
@@ -2099,12 +1982,12 @@
 
     if-eqz v6, :cond_1
 
-    .line 2062
+    .line 2055
     invoke-virtual {v5}, Landroid/net/wifi/WifiInfo;->getNetworkId()I
 
     move-result v3
 
-    .line 2063
+    .line 2056
     .local v3, netid:I
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2112,11 +1995,11 @@
 
     move-result-object v4
 
-    .line 2064
+    .line 2057
     .local v4, networks:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     if-eqz v4, :cond_1
 
-    .line 2065
+    .line 2058
     invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -2136,16 +2019,16 @@
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    .line 2066
+    .line 2059
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
     iget v6, v0, Landroid/net/wifi/WifiConfiguration;->networkId:I
 
     if-ne v6, v3, :cond_0
 
-    .line 2067
+    .line 2060
     move-object v1, v0
 
-    .line 2068
+    .line 2061
     const-string v6, "WfdStateMachine"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -2198,7 +2081,7 @@
 
     goto :goto_0
 
-    .line 2074
+    .line 2067
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #netid:I
@@ -2211,10 +2094,10 @@
     .locals 3
 
     .prologue
-    .line 2126
+    .line 2119
     const-string v0, ""
 
-    .line 2127
+    .line 2120
     .local v0, text:Ljava/lang/String;
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2222,7 +2105,7 @@
 
     move-result-object v1
 
-    .line 2128
+    .line 2121
     .local v1, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v1, :cond_0
 
@@ -2232,12 +2115,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 2129
+    .line 2122
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2131
+    .line 2124
     :cond_0
     return-object v0
 .end method
@@ -2251,21 +2134,21 @@
 
     const/16 v5, 0x10
 
-    .line 2260
+    .line 2253
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===>getNoWpsApSsid()"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2261
+    .line 2254
     const-string v0, ""
 
-    .line 2262
+    .line 2255
     .local v0, SoftapKey:Ljava/lang/String;
     const-string v1, ""
 
-    .line 2264
+    .line 2257
     .local v1, WiFiMacAddr:Ljava/lang/String;
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApKey:Ljava/lang/String;
 
@@ -2273,24 +2156,24 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 2265
+    .line 2258
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->readWiFiMacAddr()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2266
+    .line 2259
     const-string v3, ""
 
     if-eq v1, v3, :cond_1
 
-    .line 2267
+    .line 2260
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     if-ne v3, v6, :cond_0
 
-    .line 2268
+    .line 2261
     const/16 v3, 0xc
 
     const/16 v4, 0xe
@@ -2325,7 +2208,7 @@
 
     rem-int/lit8 v2, v3, 0x64
 
-    .line 2271
+    .line 2264
     .local v2, keyIndex:I
     const-string v3, "WfdStateMachine"
 
@@ -2349,17 +2232,17 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2272
+    .line 2265
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mStaticAPKey:[Ljava/lang/String;
 
     aget-object v3, v3, v2
 
     iput-object v3, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApKey:Ljava/lang/String;
 
-    .line 2273
+    .line 2266
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApKey:Ljava/lang/String;
 
-    .line 2282
+    .line 2275
     .end local v2           #keyIndex:I
     :cond_0
     :goto_0
@@ -2385,14 +2268,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2283
+    .line 2276
     return-object v0
 
-    .line 2276
+    .line 2269
     :cond_1
     move-object v0, p1
 
-    .line 2277
+    .line 2270
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===>getNoWpsApKey: WiFiMacAddr is empty! SoftapKey: user profile!"
@@ -2401,7 +2284,7 @@
 
     goto :goto_0
 
-    .line 2280
+    .line 2273
     :cond_2
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApKey:Ljava/lang/String;
 
@@ -2415,25 +2298,25 @@
     .prologue
     const/16 v6, 0x11
 
-    .line 2233
+    .line 2226
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===>getNoWpsApSsid()"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2234
+    .line 2227
     const-string v2, "MLHD_APM_"
 
-    .line 2235
+    .line 2228
     .local v2, mStaticAPSSID:Ljava/lang/String;
     const-string v0, ""
 
-    .line 2236
+    .line 2229
     .local v0, SoftapSsid:Ljava/lang/String;
     const-string v1, ""
 
-    .line 2238
+    .line 2231
     .local v1, WiFiMacAddr:Ljava/lang/String;
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
@@ -2441,17 +2324,17 @@
 
     if-ne v3, v4, :cond_2
 
-    .line 2239
+    .line 2232
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->readWiFiMacAddr()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2240
+    .line 2233
     const-string v3, ""
 
     if-eq v1, v3, :cond_1
 
-    .line 2241
+    .line 2234
     const-string v3, "WfdStateMachine"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -2474,14 +2357,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2242
+    .line 2235
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v3
 
     if-ne v3, v6, :cond_0
 
-    .line 2243
+    .line 2236
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2526,10 +2409,10 @@
 
     iput-object v3, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
-    .line 2246
+    .line 2239
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
-    .line 2255
+    .line 2248
     :cond_0
     :goto_0
     const-string v3, "WfdStateMachine"
@@ -2554,14 +2437,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2256
+    .line 2249
     return-object v0
 
-    .line 2249
+    .line 2242
     :cond_1
     move-object v0, p1
 
-    .line 2250
+    .line 2243
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===>getNoWpsApSsid: WiFiMacAddr is empty! SoftapSsid: user profile!"
@@ -2570,7 +2453,7 @@
 
     goto :goto_0
 
-    .line 2253
+    .line 2246
     :cond_2
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCommonProfileApSsid:Ljava/lang/String;
 
@@ -2582,7 +2465,7 @@
     .parameter "state"
 
     .prologue
-    .line 2580
+    .line 2546
     const/16 v0, 0xb
 
     if-eq p1, v0, :cond_0
@@ -2620,14 +2503,14 @@
 
     const/4 v4, 0x1
 
-    .line 2311
+    .line 2304
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v1
 
-    .line 2312
+    .line 2305
     .local v1, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v1, :cond_2
 
@@ -2637,12 +2520,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 2314
+    .line 2307
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->getCurrentNetwork()Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
-    .line 2315
+    .line 2308
     .local v0, current:Landroid/net/wifi/WifiConfiguration;
     if-eqz v0, :cond_1
 
@@ -2656,11 +2539,11 @@
 
     if-eq v2, v4, :cond_1
 
-    .line 2317
+    .line 2310
     :cond_0
     iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
-    .line 2318
+    .line 2311
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2701,7 +2584,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2331
+    .line 2324
     .end local v0           #current:Landroid/net/wifi/WifiConfiguration;
     :goto_0
     const-string v2, "WfdStateMachine"
@@ -2728,12 +2611,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2332
+    .line 2325
     iget-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
     return v2
 
-    .line 2321
+    .line 2314
     .restart local v0       #current:Landroid/net/wifi/WifiConfiguration;
     :cond_1
     const-string v2, "WfdStateMachine"
@@ -2762,12 +2645,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2322
+    .line 2315
     iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
     goto :goto_0
 
-    .line 2324
+    .line 2317
     .end local v0           #current:Landroid/net/wifi/WifiConfiguration;
     :cond_2
     sget-boolean v2, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
@@ -2778,19 +2661,19 @@
 
     if-eqz v2, :cond_3
 
-    .line 2325
+    .line 2318
     const-string v2, "WfdStateMachine"
 
     const-string v3, "Concurrent isn\'t support, assume AP_H is connectable."
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2326
+    .line 2319
     iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
     goto :goto_0
 
-    .line 2328
+    .line 2321
     :cond_3
     iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectable:Z
 
@@ -2803,26 +2686,26 @@
     .prologue
     const/16 v5, -0x4b
 
-    .line 2336
+    .line 2329
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v3
 
-    .line 2337
+    .line 2330
     .local v3, wifiInfo:Landroid/net/wifi/WifiInfo;
     const/4 v1, -0x1
 
-    .line 2338
+    .line 2331
     .local v1, handsetRssi:I
     const/4 v0, -0x1
 
-    .line 2339
+    .line 2332
     .local v0, dongleRssi:I
     const/4 v2, 0x0
 
-    .line 2340
+    .line 2333
     .local v2, isPoor:Z
     if-eqz v3, :cond_0
 
@@ -2832,25 +2715,25 @@
 
     if-eqz v4, :cond_0
 
-    .line 2341
+    .line 2334
     invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getRssi()I
 
     move-result v1
 
-    .line 2344
+    .line 2337
     :cond_0
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v4, :cond_1
 
-    .line 2345
+    .line 2338
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget v4, v4, Lcom/htc/service/DongleInfo;->rssi:I
 
     neg-int v0, v4
 
-    .line 2346
+    .line 2339
     :cond_1
     if-lt v1, v5, :cond_2
 
@@ -2859,7 +2742,7 @@
     :cond_2
     const/4 v2, 0x1
 
-    .line 2347
+    .line 2340
     :goto_0
     const-string v4, "WfdStateMachine"
 
@@ -2903,10 +2786,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2348
+    .line 2341
     return v2
 
-    .line 2346
+    .line 2339
     :cond_3
     const/4 v2, 0x0
 
@@ -2917,17 +2800,17 @@
     .locals 5
 
     .prologue
-    .line 2287
+    .line 2280
     const-string v2, "WfdStateMachine"
 
     const-string v3, "[WFD]===>isCommonProfileAPEnabled()"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2289
+    .line 2282
     const/4 v0, 0x0
 
-    .line 2291
+    .line 2284
     .local v0, ret:Z
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2935,14 +2818,14 @@
 
     move-result-object v1
 
-    .line 2293
+    .line 2286
     .local v1, wifiApConfig:Landroid/net/wifi/WifiConfiguration;
     if-eqz v1, :cond_0
 
-    .line 2304
+    .line 2297
     const/4 v0, 0x1
 
-    .line 2306
+    .line 2299
     :cond_0
     const-string v2, "WfdStateMachine"
 
@@ -2966,7 +2849,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2307
+    .line 2300
     return v0
 .end method
 
@@ -2974,10 +2857,10 @@
     .locals 10
 
     .prologue
-    .line 2421
+    .line 2402
     const/4 v5, 0x0
 
-    .line 2422
+    .line 2403
     .local v5, result:Z
     iget-object v7, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -2985,7 +2868,7 @@
 
     move-result-object v6
 
-    .line 2423
+    .line 2404
     .local v6, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v6, :cond_0
 
@@ -2995,12 +2878,12 @@
 
     if-eqz v7, :cond_0
 
-    .line 2424
+    .line 2405
     invoke-virtual {p0, v6}, Lcom/htc/server/WfdStateMachine;->getAphFrequency(Landroid/net/wifi/WifiInfo;)I
 
     move-result v2
 
-    .line 2425
+    .line 2406
     .local v2, freq:I
     const-string v7, "WfdStateMachine"
 
@@ -3024,7 +2907,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2426
+    .line 2407
     sget-object v0, Lcom/htc/server/WfdUtils;->DFS_CHANNELS:[I
 
     .local v0, arr$:[I
@@ -3039,21 +2922,21 @@
 
     aget v1, v0, v3
 
-    .line 2427
+    .line 2408
     .local v1, channel:I
     if-ne v2, v1, :cond_1
 
-    .line 2428
+    .line 2409
     invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v7
 
     iput-object v7, p0, Lcom/htc/server/WfdStateMachine;->mDfsSsid:Ljava/lang/String;
 
-    .line 2429
+    .line 2410
     const/4 v5, 0x1
 
-    .line 2434
+    .line 2415
     .end local v0           #arr$:[I
     .end local v1           #channel:I
     .end local v2           #freq:I
@@ -3062,7 +2945,7 @@
     :cond_0
     return v5
 
-    .line 2426
+    .line 2407
     .restart local v0       #arr$:[I
     .restart local v1       #channel:I
     .restart local v2       #freq:I
@@ -3079,10 +2962,10 @@
     .parameter "checkAph"
 
     .prologue
-    .line 2136
+    .line 2129
     const/4 v4, 0x0
 
-    .line 2137
+    .line 2130
     .local v4, result:Z
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
@@ -3090,15 +2973,15 @@
 
     move-result-object v3
 
-    .line 2138
+    .line 2131
     .local v3, iface:Ljava/lang/String;
     const/4 v0, 0x1
 
-    .line 2139
+    .line 2132
     .local v0, currentIsSta:Z
     if-eqz v3, :cond_0
 
-    .line 2140
+    .line 2133
     const-string v6, "WfdStateMachine"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3121,7 +3004,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2141
+    .line 2134
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mStaInterface:Ljava/lang/String;
 
     invoke-virtual {v3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3132,14 +3015,14 @@
 
     const/4 v0, 0x1
 
-    .line 2143
+    .line 2136
     :cond_0
     :goto_0
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v6, :cond_3
 
-    .line 2144
+    .line 2137
     const-string v6, "WfdStateMachine"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -3168,7 +3051,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2145
+    .line 2138
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget-object v6, v6, Lcom/htc/service/DongleInfo;->pairedApm:Ljava/lang/String;
@@ -3200,18 +3083,18 @@
 
     if-eqz v6, :cond_5
 
-    .line 2147
+    .line 2140
     :cond_2
     const/4 v4, 0x1
 
-    .line 2148
+    .line 2141
     const-string v6, "WfdStateMachine"
 
     const-string v7, "Dongle is unconfigured, do not check aph"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2164
+    .line 2157
     :cond_3
     :goto_1
     const-string v6, "WfdStateMachine"
@@ -3236,16 +3119,16 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2165
+    .line 2158
     return v4
 
-    .line 2141
+    .line 2134
     :cond_4
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 2149
+    .line 2142
     :cond_5
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
@@ -3253,12 +3136,12 @@
 
     if-nez v6, :cond_6
 
-    .line 2150
+    .line 2143
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget-object v1, v6, Lcom/htc/service/DongleInfo;->currentAph:Ljava/lang/String;
 
-    .line 2151
+    .line 2144
     .local v1, dongleAph:Ljava/lang/String;
     iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -3266,7 +3149,7 @@
 
     move-result-object v5
 
-    .line 2152
+    .line 2145
     .local v5, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v5, :cond_3
 
@@ -3278,12 +3161,12 @@
 
     if-eqz v1, :cond_3
 
-    .line 2153
+    .line 2146
     invoke-virtual {v5}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 2154
+    .line 2147
     .local v2, handsetAph:Ljava/lang/String;
     const-string v6, "WfdStateMachine"
 
@@ -3317,12 +3200,12 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2155
+    .line 2148
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    .line 2156
+    .line 2149
     if-nez v4, :cond_3
 
     if-eqz p1, :cond_3
@@ -3333,12 +3216,12 @@
 
     if-eqz v6, :cond_3
 
-    .line 2157
+    .line 2150
     const/4 v4, 0x1
 
     goto :goto_1
 
-    .line 2160
+    .line 2153
     .end local v1           #dongleAph:Ljava/lang/String;
     .end local v2           #handsetAph:Ljava/lang/String;
     .end local v5           #wifiInfo:Landroid/net/wifi/WifiInfo;
@@ -3351,7 +3234,7 @@
 
     if-eqz v0, :cond_3
 
-    .line 2161
+    .line 2154
     const/4 v4, 0x1
 
     goto :goto_1
@@ -3361,25 +3244,25 @@
     .locals 7
 
     .prologue
-    .line 2438
+    .line 2419
     const/4 v4, 0x1
 
-    .line 2439
+    .line 2420
     .local v4, result:Z
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 2440
+    .line 2421
     .local v0, dongle:Lcom/htc/service/DongleInfo;
     if-eqz v0, :cond_1
 
-    .line 2441
+    .line 2422
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getDiscoveryDongleList()Ljava/util/List;
 
     move-result-object v1
 
-    .line 2442
+    .line 2423
     .local v1, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3400,7 +3283,7 @@
 
     check-cast v3, Lcom/htc/service/DongleInfo;
 
-    .line 2443
+    .line 2424
     .local v3, info:Lcom/htc/service/DongleInfo;
     iget-object v5, v3, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
 
@@ -3408,15 +3291,15 @@
 
     if-ne v5, v6, :cond_0
 
-    .line 2444
+    .line 2425
     const/4 v4, 0x0
 
-    .line 2445
+    .line 2426
     iput-object v3, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     goto :goto_0
 
-    .line 2449
+    .line 2430
     .end local v1           #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #info:Lcom/htc/service/DongleInfo;
@@ -3429,7 +3312,7 @@
     .parameter "aphMac"
 
     .prologue
-    .line 2078
+    .line 2071
     const-string v11, "WfdStateMachine"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -3452,7 +3335,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2079
+    .line 2072
     const-string v11, "00:00:00:00:00:00"
 
     invoke-virtual {p1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3461,14 +3344,14 @@
 
     if-eqz v11, :cond_0
 
-    .line 2080
+    .line 2073
     const/4 v11, 0x0
 
-    .line 2122
+    .line 2115
     :goto_0
     return v11
 
-    .line 2082
+    .line 2075
     :cond_0
     :try_start_0
     iget-object v11, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
@@ -3477,7 +3360,7 @@
 
     move-result-object v6
 
-    .line 2083
+    .line 2076
     .local v6, networks:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     iget-object v11, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -3485,15 +3368,15 @@
 
     move-result-object v9
 
-    .line 2085
+    .line 2078
     .local v9, results:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     const-string v1, ""
 
-    .line 2086
+    .line 2079
     .local v1, currentSsid:Ljava/lang/String;
     const/4 v7, 0x1
 
-    .line 2087
+    .line 2080
     .local v7, noMoreNetwork:Z
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3512,11 +3395,11 @@
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    .line 2088
+    .line 2081
     .local v0, config:Landroid/net/wifi/WifiConfiguration;
     iget v5, v0, Landroid/net/wifi/WifiConfiguration;->networkId:I
 
-    .line 2089
+    .line 2082
     .local v5, netId:I
     const-string v11, "WfdStateMachine"
 
@@ -3568,7 +3451,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2092
+    .line 2085
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -3597,7 +3480,7 @@
 
     move-result-object v1
 
-    .line 2093
+    .line 2086
     iget-object v11, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
     invoke-virtual {v1, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -3606,10 +3489,10 @@
 
     if-nez v11, :cond_1
 
-    .line 2095
+    .line 2088
     const/4 v7, 0x0
 
-    .line 2096
+    .line 2089
     invoke-interface {v9}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -3628,7 +3511,7 @@
 
     check-cast v8, Landroid/net/wifi/ScanResult;
 
-    .line 2098
+    .line 2091
     .local v8, result:Landroid/net/wifi/ScanResult;
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -3656,7 +3539,7 @@
 
     move-result-object v10
 
-    .line 2099
+    .line 2092
     .local v10, ssid:Ljava/lang/String;
     iget-object v11, v0, Landroid/net/wifi/WifiConfiguration;->SSID:Ljava/lang/String;
 
@@ -3682,7 +3565,7 @@
 
     if-eq v11, v12, :cond_2
 
-    .line 2100
+    .line 2093
     const-string v11, "WfdStateMachine"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -3719,25 +3602,25 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2101
+    .line 2094
     invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->connectNetwork(I)V
 
-    .line 2102
+    .line 2095
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
-    .line 2103
+    .line 2096
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingAph:Z
 
-    .line 2104
+    .line 2097
     const/4 v11, 0x1
 
     goto/16 :goto_0
 
-    .line 2109
+    .line 2102
     .end local v0           #config:Landroid/net/wifi/WifiConfiguration;
     .end local v4           #i$:Ljava/util/Iterator;
     .end local v5           #netId:I
@@ -3758,44 +3641,44 @@
 
     if-eqz v11, :cond_4
 
-    .line 2110
+    .line 2103
     const-string v11, "WfdStateMachine"
 
     const-string v12, "[WFD]===>Trigger scanning...Defer discovery..."
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2111
+    .line 2104
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
-    .line 2113
+    .line 2106
     const/16 v11, 0x37
 
     const-wide/16 v12, 0x2710
 
     invoke-virtual {p0, v11, v12, v13}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
-    .line 2114
+    .line 2107
     const/4 v11, 0x1
 
     goto/16 :goto_0
 
-    .line 2117
+    .line 2110
     :cond_4
     iget-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
     if-eqz v11, :cond_5
 
-    .line 2118
+    .line 2111
     const/4 v11, 0x0
 
     iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2122
+    .line 2115
     .end local v1           #currentSsid:Ljava/lang/String;
     .end local v6           #networks:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/WifiConfiguration;>;"
     .end local v7           #noMoreNetwork:Z
@@ -3806,11 +3689,11 @@
 
     goto/16 :goto_0
 
-    .line 2119
+    .line 2112
     :catch_0
     move-exception v2
 
-    .line 2120
+    .line 2113
     .local v2, e:Ljava/lang/Exception;
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -3821,10 +3704,10 @@
     .locals 13
 
     .prologue
-    .line 2366
+    .line 2359
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 2367
+    .line 2360
     .local v2, dongle:Lcom/htc/service/DongleInfo;
     iget-object v10, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -3832,23 +3715,23 @@
 
     move-result-object v9
 
-    .line 2368
+    .line 2361
     .local v9, wifiInfo:Landroid/net/wifi/WifiInfo;
     const/4 v4, 0x0
 
-    .line 2369
+    .line 2362
     .local v4, handsetRssi:I
     const/4 v1, 0x0
 
-    .line 2370
+    .line 2363
     .local v1, curfreq:I
     const-string v0, ""
 
-    .line 2371
+    .line 2364
     .local v0, curSsid:Ljava/lang/String;
     const/4 v6, 0x0
 
-    .line 2372
+    .line 2365
     .local v6, isNoise:Z
     const-string v10, "WfdStateMachine"
 
@@ -3856,7 +3739,7 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2374
+    .line 2367
     if-eqz v9, :cond_1
 
     invoke-virtual {v9}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
@@ -3865,22 +3748,22 @@
 
     if-eqz v10, :cond_1
 
-    .line 2375
+    .line 2368
     invoke-virtual {v9}, Landroid/net/wifi/WifiInfo;->getRssi()I
 
     move-result v4
 
-    .line 2376
+    .line 2369
     invoke-virtual {v9}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2377
+    .line 2370
     invoke-virtual {p0, v9}, Lcom/htc/server/WfdStateMachine;->getAphFrequency(Landroid/net/wifi/WifiInfo;)I
 
     move-result v1
 
-    .line 2379
+    .line 2372
     const-string v10, "WfdStateMachine"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -3923,14 +3806,14 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2382
+    .line 2375
     iget-object v10, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v10}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
 
     move-result-object v8
 
-    .line 2384
+    .line 2377
     .local v8, results:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     :try_start_0
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -3951,7 +3834,7 @@
 
     check-cast v7, Landroid/net/wifi/ScanResult;
 
-    .line 2385
+    .line 2378
     .local v7, result:Landroid/net/wifi/ScanResult;
     iget-object v10, v7, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
@@ -3977,7 +3860,7 @@
 
     if-nez v10, :cond_0
 
-    .line 2387
+    .line 2380
     iget v10, v7, Landroid/net/wifi/ScanResult;->frequency:I
 
     invoke-direct {p0, v10}, Lcom/htc/server/WfdStateMachine;->freqToChannel(I)I
@@ -4004,7 +3887,7 @@
 
     if-le v10, v11, :cond_0
 
-    .line 2388
+    .line 2381
     const-string v10, "WfdStateMachine"
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -4071,10 +3954,10 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2390
+    .line 2383
     const/4 v6, 0x1
 
-    .line 2399
+    .line 2392
     .end local v5           #i$:Ljava/util/Iterator;
     .end local v7           #result:Landroid/net/wifi/ScanResult;
     .end local v8           #results:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
@@ -4084,10 +3967,10 @@
 
     if-eqz v10, :cond_2
 
-    .line 2400
+    .line 2393
     const/4 v6, 0x0
 
-    .line 2404
+    .line 2397
     :goto_1
     const-string v10, "WfdStateMachine"
 
@@ -4111,21 +3994,21 @@
 
     invoke-static {v10, v11}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2405
+    .line 2398
     return v6
 
-    .line 2394
+    .line 2387
     .restart local v8       #results:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     :catch_0
     move-exception v3
 
-    .line 2395
+    .line 2388
     .local v3, ex:Ljava/lang/Exception;
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 2402
+    .line 2395
     .end local v3           #ex:Ljava/lang/Exception;
     .end local v8           #results:Ljava/util/List;,"Ljava/util/List<Landroid/net/wifi/ScanResult;>;"
     :cond_2
@@ -4139,41 +4022,41 @@
     .parameter "enable"
 
     .prologue
-    .line 2638
+    .line 2604
     const-string v1, "WfdStateMachine"
 
     const-string v2, "notifyConcurrentEnabled()"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2639
+    .line 2605
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.wifidisplay.NOTIFY_CONCURRENT_MODE_ENABLED"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2640
+    .line 2606
     .local v0, intent:Landroid/content/Intent;
     if-eqz p1, :cond_0
 
-    .line 2641
+    .line 2607
     const-string v1, "ENABLED"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 2644
+    .line 2610
     :goto_0
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2645
+    .line 2611
     return-void
 
-    .line 2643
+    .line 2609
     :cond_0
     const-string v1, "ENABLED"
 
@@ -4188,27 +4071,27 @@
     .locals 3
 
     .prologue
-    .line 2632
+    .line 2598
     const-string v1, "WfdStateMachine"
 
     const-string v2, "notifyDfsReconnect()"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2633
+    .line 2599
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.wifidisplay.NOTIFY_RECONNECT_DFS_WIFI"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2634
+    .line 2600
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2635
+    .line 2601
     return-void
 .end method
 
@@ -4216,19 +4099,19 @@
     .locals 1
 
     .prologue
-    .line 2824
+    .line 2783
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     if-eqz v0, :cond_0
 
-    .line 2825
+    .line 2784
     new-instance v0, Lcom/htc/server/WfdStateMachine$8;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$8;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$8;->start()V
 
-    .line 2832
+    .line 2791
     :cond_0
     return-void
 .end method
@@ -4238,7 +4121,7 @@
     .parameter "filePath"
 
     .prologue
-    .line 2169
+    .line 2162
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -4261,24 +4144,24 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2170
+    .line 2163
     new-instance v6, Ljava/lang/StringBuffer;
 
     invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
-    .line 2171
+    .line 2164
     .local v6, result:Ljava/lang/StringBuffer;
     const/4 v1, 0x0
 
-    .line 2172
+    .line 2165
     .local v1, in:Ljava/io/FileInputStream;
     const/4 v4, 0x0
 
-    .line 2173
+    .line 2166
     .local v4, reader:Ljava/io/BufferedReader;
     const/4 v3, 0x0
 
-    .line 2176
+    .line 2169
     .local v3, line:Ljava/lang/String;
     :try_start_0
     new-instance v2, Ljava/io/FileInputStream;
@@ -4289,7 +4172,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_b
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    .line 2177
+    .line 2170
     .end local v1           #in:Ljava/io/FileInputStream;
     .local v2, in:Ljava/io/FileInputStream;
     :try_start_1
@@ -4305,7 +4188,7 @@
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_c
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_9
 
-    .line 2178
+    .line 2171
     .end local v4           #reader:Ljava/io/BufferedReader;
     .local v5, reader:Ljava/io/BufferedReader;
     :goto_0
@@ -4316,15 +4199,15 @@
 
     if-eqz v3, :cond_2
 
-    .line 2179
+    .line 2172
     invoke-virtual {v6, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 2180
+    .line 2173
     const-string v7, "\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    .line 2181
+    .line 2174
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -4353,7 +4236,7 @@
 
     goto :goto_0
 
-    .line 2183
+    .line 2176
     :catch_0
     move-exception v0
 
@@ -4363,7 +4246,7 @@
     .restart local v4       #reader:Ljava/io/BufferedReader;
     move-object v1, v2
 
-    .line 2184
+    .line 2177
     .end local v2           #in:Ljava/io/FileInputStream;
     .local v0, e:Ljava/io/FileNotFoundException;
     .restart local v1       #in:Ljava/io/FileInputStream;
@@ -4397,27 +4280,27 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 2188
+    .line 2181
     if-eqz v1, :cond_0
 
-    .line 2190
+    .line 2183
     :try_start_4
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_5
 
-    .line 2194
+    .line 2187
     :cond_0
     :goto_2
     if-eqz v4, :cond_1
 
-    .line 2196
+    .line 2189
     :try_start_5
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
-    .line 2201
+    .line 2194
     .end local v0           #e:Ljava/io/FileNotFoundException;
     :cond_1
     :goto_3
@@ -4431,7 +4314,7 @@
 
     return-object v7
 
-    .line 2188
+    .line 2181
     .end local v1           #in:Ljava/io/FileInputStream;
     .end local v4           #reader:Ljava/io/BufferedReader;
     .restart local v2       #in:Ljava/io/FileInputStream;
@@ -4439,18 +4322,18 @@
     :cond_2
     if-eqz v2, :cond_3
 
-    .line 2190
+    .line 2183
     :try_start_6
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_7
 
-    .line 2194
+    .line 2187
     :cond_3
     :goto_4
     if-eqz v5, :cond_4
 
-    .line 2196
+    .line 2189
     :try_start_7
     invoke-virtual {v5}, Ljava/io/BufferedReader;->close()V
     :try_end_7
@@ -4464,16 +4347,16 @@
     .restart local v4       #reader:Ljava/io/BufferedReader;
     move-object v1, v2
 
-    .line 2200
+    .line 2193
     .end local v2           #in:Ljava/io/FileInputStream;
     .restart local v1       #in:Ljava/io/FileInputStream;
     goto :goto_3
 
-    .line 2185
+    .line 2178
     :catch_1
     move-exception v0
 
-    .line 2186
+    .line 2179
     .local v0, e:Ljava/io/IOException;
     :goto_6
     :try_start_8
@@ -4505,21 +4388,21 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
-    .line 2188
+    .line 2181
     if-eqz v1, :cond_5
 
-    .line 2190
+    .line 2183
     :try_start_9
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
-    .line 2194
+    .line 2187
     :cond_5
     :goto_7
     if-eqz v4, :cond_1
 
-    .line 2196
+    .line 2189
     :try_start_a
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
     :try_end_a
@@ -4527,55 +4410,55 @@
 
     goto :goto_3
 
-    .line 2197
+    .line 2190
     .end local v0           #e:Ljava/io/IOException;
     :catch_2
     move-exception v7
 
     goto :goto_3
 
-    .line 2188
+    .line 2181
     :catchall_0
     move-exception v7
 
     :goto_8
     if-eqz v1, :cond_6
 
-    .line 2190
+    .line 2183
     :try_start_b
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_b
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_3
 
-    .line 2194
+    .line 2187
     :cond_6
     :goto_9
     if-eqz v4, :cond_7
 
-    .line 2196
+    .line 2189
     :try_start_c
     invoke-virtual {v4}, Ljava/io/BufferedReader;->close()V
     :try_end_c
     .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_4
 
-    .line 2188
+    .line 2181
     :cond_7
     :goto_a
     throw v7
 
-    .line 2191
+    .line 2184
     :catch_3
     move-exception v8
 
     goto :goto_9
 
-    .line 2197
+    .line 2190
     :catch_4
     move-exception v8
 
     goto :goto_a
 
-    .line 2191
+    .line 2184
     .local v0, e:Ljava/io/FileNotFoundException;
     :catch_5
     move-exception v7
@@ -4598,13 +4481,13 @@
 
     goto :goto_4
 
-    .line 2197
+    .line 2190
     :catch_8
     move-exception v7
 
     goto :goto_5
 
-    .line 2188
+    .line 2181
     .end local v5           #reader:Ljava/io/BufferedReader;
     .restart local v4       #reader:Ljava/io/BufferedReader;
     :catchall_1
@@ -4633,7 +4516,7 @@
     .restart local v1       #in:Ljava/io/FileInputStream;
     goto :goto_8
 
-    .line 2185
+    .line 2178
     .end local v1           #in:Ljava/io/FileInputStream;
     .restart local v2       #in:Ljava/io/FileInputStream;
     :catch_9
@@ -4662,7 +4545,7 @@
     .restart local v1       #in:Ljava/io/FileInputStream;
     goto :goto_6
 
-    .line 2183
+    .line 2176
     :catch_b
     move-exception v0
 
@@ -4684,14 +4567,14 @@
     .locals 6
 
     .prologue
-    .line 2205
+    .line 2198
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===>readWiFiMacAddr()"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2206
+    .line 2199
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -4718,11 +4601,11 @@
 
     move-result-object v1
 
-    .line 2207
+    .line 2200
     .local v1, WiFiMacAddr_FilePath:Ljava/lang/String;
     const-string v0, ""
 
-    .line 2210
+    .line 2203
     .local v0, WiFiMacAddr:Ljava/lang/String;
     :try_start_0
     invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->readConfigFile(Ljava/lang/String;)Ljava/lang/String;
@@ -4731,7 +4614,7 @@
 
     move-result-object v0
 
-    .line 2214
+    .line 2207
     :goto_0
     const-string v3, "WfdStateMachine"
 
@@ -4755,14 +4638,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2215
+    .line 2208
     return-object v0
 
-    .line 2211
+    .line 2204
     :catch_0
     move-exception v2
 
-    .line 2212
+    .line 2205
     .local v2, ex:Ljava/lang/Exception;
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -4770,262 +4653,240 @@
 .end method
 
 .method private reportErrorCode(IZ)V
-    .locals 8
+    .locals 7
     .parameter "error"
     .parameter "updateUI"
 
     .prologue
-    const/16 v7, 0x27
+    const/16 v6, 0x27
 
-    const/4 v6, 0x3
+    const/4 v5, 0x3
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .line 2736
-    const-string v1, "WfdStateMachine"
+    .line 2702
+    const-string v0, "WfdStateMachine"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "[WFD]===>reportErrorCode() error = "
+    const-string v2, "[WFD]===>reportErrorCode() error = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2741
-    new-instance v0, Landroid/content/Intent;
+    .line 2704
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
-    const-string v1, "com.htc.intent.action.INTENT_NOTIFY_DONGLE_CONNECTION_FAIL"
+    .line 2705
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    .line 2706
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
 
-    .line 2742
-    .local v0, notify_connection_fail:Landroid/content/Intent;
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
+    .line 2707
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsShowScanning:Z
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    .line 2708
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
-    .line 2744
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
+    .line 2709
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
-    .line 2745
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
+    .line 2710
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
-    .line 2746
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
+    .line 2711
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    .line 2747
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsShowScanning:Z
+    .line 2712
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
+
+    .line 2713
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
+
+    .line 2715
+    const-string v0, "WfdStateMachine"
+
+    const-string v1, "Enable scan....@reportError"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 2716
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-static {v0, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
+
+    .line 2718
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
+
+    if-eq p1, v5, :cond_0
+
+    const/4 v0, 0x4
+
+    if-ne p1, v0, :cond_0
+
+    .line 2722
+    :cond_0
+    if-nez p2, :cond_1
 
     .line 2748
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
-
-    .line 2749
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
-
-    .line 2750
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
-
-    .line 2751
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
-
-    .line 2752
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
-
-    .line 2753
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
-
-    .line 2755
-    const-string v1, "WfdStateMachine"
-
-    const-string v2, "Enable scan....@reportError"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2756
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-static {v1, v4}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
-
-    .line 2757
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v1, v4}, Lcom/htc/service/WirelessDisplayManager;->setWifiNetworkLimit(Z)V
-
-    .line 2759
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_0
-
-    if-eq p1, v6, :cond_0
-
-    const/4 v1, 0x4
-
-    if-ne p1, v1, :cond_1
-
-    .line 2761
-    :cond_0
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->forceUpdateDongles()V
-
-    .line 2763
-    :cond_1
-    if-nez p2, :cond_2
-
-    .line 2789
     :goto_0
     return-void
 
-    .line 2766
+    .line 2725
+    :cond_1
+    iget-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+
+    if-nez v0, :cond_5
+
+    .line 2726
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-nez v0, :cond_2
+
+    .line 2727
+    const/16 v0, 0x26
+
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+
+    goto :goto_0
+
+    .line 2728
     :cond_2
-    iget-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v1, :cond_6
+    if-ne v0, v4, :cond_3
 
-    .line 2767
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v1, :cond_3
-
-    .line 2768
-    const/16 v1, 0x26
-
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    .line 2729
+    invoke-direct {p0, v6}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 
-    .line 2769
+    .line 2730
     :cond_3
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v1, v5, :cond_4
+    if-ne v0, v5, :cond_4
 
-    .line 2770
-    invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    .line 2731
+    invoke-direct {p0, v6}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+
+    .line 2732
+    iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v3, v0}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
 
     goto :goto_0
 
-    .line 2771
+    .line 2734
     :cond_4
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    const/16 v0, 0x28
 
-    if-ne v1, v6, :cond_5
-
-    .line 2772
-    invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
-
-    .line 2773
-    iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v4, v1}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 
-    .line 2775
+    .line 2736
     :cond_5
-    const/16 v1, 0x28
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    iput v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    .line 2777
-    :cond_6
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    .line 2737
+    const-string v0, "WfdStateMachine"
 
-    add-int/lit8 v1, v1, 0x1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iput v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 2778
-    const-string v1, "WfdStateMachine"
+    const-string v2, "[WFD]===>reportErrorCode() mAutoTestContinouslyErrorCount = "
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string v3, "[WFD]===>reportErrorCode() mAutoTestContinouslyErrorCount = "
+    iget v2, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 2739
+    iget v0, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    move-result-object v2
+    const/16 v1, 0xa
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    if-lt v0, v1, :cond_6
 
-    .line 2780
-    iget v1, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
-
-    const/16 v2, 0xa
-
-    if-lt v1, v2, :cond_7
-
-    .line 2781
+    .line 2740
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->retryConfigure()V
 
-    .line 2782
-    iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
+    .line 2741
+    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
-    .line 2783
-    const-string v1, "WfdStateMachine"
+    .line 2742
+    const-string v0, "WfdStateMachine"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, " mAutoTestContinouslyErrorCount >= 10, mIsHardReset = "
+    const-string v2, " mAutoTestContinouslyErrorCount >= 10, mIsHardReset = "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
+    iget-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2784
-    iput v4, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
+    .line 2743
+    iput v3, p0, Lcom/htc/server/WfdStateMachine;->mAutoTestContinouslyErrorCount:I
 
-    .line 2786
-    :cond_7
-    const/16 v1, 0x36
+    .line 2745
+    :cond_6
+    const/16 v0, 0x36
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 2787
-    const/16 v1, 0xb
+    .line 2746
+    const/16 v0, 0xb
 
-    invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_0
 .end method
@@ -5034,7 +4895,7 @@
     .locals 2
 
     .prologue
-    .line 2666
+    .line 2632
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v0, :cond_0
@@ -5045,18 +4906,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 2667
+    .line 2633
     new-instance v0, Lcom/htc/server/WfdStateMachine$5;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$5;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$5;->start()V
 
-    .line 2683
+    .line 2649
     :goto_0
     return-void
 
-    .line 2681
+    .line 2647
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -5071,14 +4932,14 @@
     .locals 2
 
     .prologue
-    .line 2686
+    .line 2652
     const-string v0, "WfdStateMachine"
 
     const-string v1, "[WFD]===>requestResetOnDemand()+"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2687
+    .line 2653
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v0, :cond_0
@@ -5089,18 +4950,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 2688
+    .line 2654
     new-instance v0, Lcom/htc/server/WfdStateMachine$6;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$6;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$6;->start()V
 
-    .line 2712
+    .line 2678
     :goto_0
     return-void
 
-    .line 2710
+    .line 2676
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -5115,7 +4976,7 @@
     .locals 2
 
     .prologue
-    .line 2715
+    .line 2681
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mUnlockDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v0, :cond_0
@@ -5126,18 +4987,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 2716
+    .line 2682
     new-instance v0, Lcom/htc/server/WfdStateMachine$7;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$7;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$7;->start()V
 
-    .line 2733
+    .line 2699
     :goto_0
     return-void
 
-    .line 2731
+    .line 2697
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -5152,7 +5013,7 @@
     .locals 2
 
     .prologue
-    .line 2648
+    .line 2614
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v0, :cond_0
@@ -5163,18 +5024,18 @@
 
     if-eqz v0, :cond_0
 
-    .line 2649
+    .line 2615
     new-instance v0, Lcom/htc/server/WfdStateMachine$4;
 
     invoke-direct {v0, p0}, Lcom/htc/server/WfdStateMachine$4;-><init>(Lcom/htc/server/WfdStateMachine;)V
 
     invoke-virtual {v0}, Lcom/htc/server/WfdStateMachine$4;->start()V
 
-    .line 2663
+    .line 2629
     :goto_0
     return-void
 
-    .line 2661
+    .line 2627
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -5189,21 +5050,21 @@
     .locals 2
 
     .prologue
-    .line 2508
+    .line 2474
     const-string v0, "WfdStateMachine"
 
     const-string v1, "resetConfigurationFile()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2509
+    .line 2475
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     const-string v1, "/data/misc/wifidisplay.conf"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
 
-    .line 2510
+    .line 2476
     return-void
 .end method
 
@@ -5213,14 +5074,14 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 2033
+    .line 2026
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v1
 
-    .line 2034
+    .line 2027
     .local v1, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v1, :cond_0
 
@@ -5230,12 +5091,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 2035
+    .line 2028
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->getCurrentNetwork()Landroid/net/wifi/WifiConfiguration;
 
     move-result-object v0
 
-    .line 2036
+    .line 2029
     .local v0, network:Landroid/net/wifi/WifiConfiguration;
     if-eqz v0, :cond_0
 
@@ -5245,20 +5106,20 @@
 
     if-eq v2, v3, :cond_0
 
-    .line 2037
+    .line 2030
     invoke-static {v0, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiConfiguration;->setLimited(Landroid/net/wifi/WifiConfiguration;I)V
 
-    .line 2038
+    .line 2031
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2, v0}, Landroid/net/wifi/WifiManager;->updateNetwork(Landroid/net/wifi/WifiConfiguration;)I
 
-    .line 2039
+    .line 2032
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->saveConfiguration()Z
 
-    .line 2040
+    .line 2033
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5283,7 +5144,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2043
+    .line 2036
     .end local v0           #network:Landroid/net/wifi/WifiConfiguration;
     :cond_0
     return-void
@@ -5294,7 +5155,7 @@
     .parameter "status"
 
     .prologue
-    .line 2815
+    .line 2774
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5317,28 +5178,28 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2816
+    .line 2775
     if-lez p1, :cond_0
 
-    .line 2817
+    .line 2776
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.wifidisplay.CONFIGURE_STATE_CHANGED_ACTION"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2818
+    .line 2777
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "config_state"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 2819
+    .line 2778
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2821
+    .line 2780
     .end local v0           #intent:Landroid/content/Intent;
     :cond_0
     return-void
@@ -5349,7 +5210,7 @@
     .parameter "progress"
 
     .prologue
-    .line 2513
+    .line 2479
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5372,10 +5233,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2514
+    .line 2480
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mConfigProgress:I
 
-    .line 2515
+    .line 2481
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
     const/4 v2, 0x2
@@ -5384,16 +5245,16 @@
 
     move-result-object v0
 
-    .line 2516
+    .line 2482
     .local v0, msg:Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 2517
+    .line 2483
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 2518
+    .line 2484
     return-void
 .end method
 
@@ -5404,7 +5265,7 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 2521
+    .line 2487
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5427,22 +5288,22 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2522
+    .line 2488
     invoke-direct {p0, p1}, Lcom/htc/server/WfdStateMachine;->isAllowToGoBack(I)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 2523
+    .line 2489
     iget v2, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
     iput v2, p0, Lcom/htc/server/WfdStateMachine;->mPreviousPage:I
 
-    .line 2524
+    .line 2490
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    .line 2525
+    .line 2491
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -5479,7 +5340,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2527
+    .line 2493
     :cond_0
     iget v2, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
@@ -5489,7 +5350,7 @@
 
     if-ne p1, v2, :cond_5
 
-    .line 2528
+    .line 2494
     :cond_1
     const/16 v2, 0x2e
 
@@ -5527,92 +5388,92 @@
 
     if-ne p1, v2, :cond_3
 
-    .line 2537
+    .line 2503
     :cond_2
     iput v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    .line 2539
+    .line 2505
     :cond_3
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
-    .line 2540
+    .line 2506
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    .line 2541
+    .line 2507
     .local v0, msg:Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 2542
+    .line 2508
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
     invoke-virtual {v2, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 2544
+    .line 2510
     iget v2, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
     const/4 v3, 0x3
 
     if-ne v2, v3, :cond_4
 
-    .line 2545
+    .line 2511
     const/4 v1, -0x1
 
-    .line 2546
+    .line 2512
     .local v1, status:I
     sparse-switch p1, :sswitch_data_0
 
-    .line 2564
+    .line 2530
     :goto_0
     invoke-direct {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendConfigureStateChanged(I)V
 
-    .line 2569
+    .line 2535
     .end local v0           #msg:Landroid/os/Message;
     .end local v1           #status:I
     :cond_4
     :goto_1
     return-void
 
-    .line 2548
+    .line 2514
     .restart local v0       #msg:Landroid/os/Message;
     .restart local v1       #status:I
     :sswitch_0
     const/4 v1, 0x1
 
-    .line 2549
+    .line 2515
     goto :goto_0
 
-    .line 2551
+    .line 2517
     :sswitch_1
     const/4 v1, 0x2
 
-    .line 2552
+    .line 2518
     goto :goto_0
 
-    .line 2555
+    .line 2521
     :sswitch_2
     const/4 v1, 0x3
 
-    .line 2556
+    .line 2522
     goto :goto_0
 
-    .line 2558
+    .line 2524
     :sswitch_3
     const/4 v1, 0x4
 
-    .line 2559
+    .line 2525
     goto :goto_0
 
-    .line 2561
+    .line 2527
     :sswitch_4
     const/4 v1, 0x5
 
     goto :goto_0
 
-    .line 2567
+    .line 2533
     .end local v0           #msg:Landroid/os/Message;
     .end local v1           #status:I
     :cond_5
@@ -5624,7 +5485,7 @@
 
     goto :goto_1
 
-    .line 2546
+    .line 2512
     nop
 
     :sswitch_data_0
@@ -5642,14 +5503,14 @@
     .locals 6
 
     .prologue
-    .line 2009
+    .line 2002
     const-string v1, ""
 
-    .line 2010
+    .line 2003
     .local v1, currentSsid:Ljava/lang/String;
     const-string v0, ""
 
-    .line 2011
+    .line 2004
     .local v0, apmSsid:Ljava/lang/String;
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
@@ -5663,7 +5524,7 @@
 
     move-result-object v0
 
-    .line 2013
+    .line 2006
     const/4 v3, 0x1
 
     invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
@@ -5684,14 +5545,14 @@
 
     if-nez v3, :cond_2
 
-    .line 2014
+    .line 2007
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v2
 
-    .line 2015
+    .line 2008
     .local v2, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v2, :cond_0
 
@@ -5701,12 +5562,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 2016
+    .line 2009
     invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2019
+    .line 2012
     :cond_0
     sget-boolean v3, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
@@ -5716,15 +5577,15 @@
 
     if-eqz v3, :cond_1
 
-    .line 2020
+    .line 2013
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
 
     if-eqz v3, :cond_1
 
-    .line 2021
+    .line 2014
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
 
-    .line 2028
+    .line 2021
     .end local v2           #wifiInfo:Landroid/net/wifi/WifiInfo;
     :cond_1
     :goto_0
@@ -5750,19 +5611,19 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2029
+    .line 2022
     iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v3, v1}, Lcom/htc/service/WirelessDisplayManager;->setL2peApInfo(Ljava/lang/String;)V
 
-    .line 2030
+    .line 2023
     return-void
 
-    .line 2024
+    .line 2017
     :cond_2
     if-eqz v0, :cond_1
 
-    .line 2025
+    .line 2018
     move-object v1, v0
 
     goto :goto_0
@@ -5774,7 +5635,7 @@
     .parameter "info"
 
     .prologue
-    .line 2792
+    .line 2751
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5797,14 +5658,14 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2793
+    .line 2752
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.intent.action.WIRELESS_DISPLAY_CONNECTING_DIALOG"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2794
+    .line 2753
     .local v0, intent:Landroid/content/Intent;
     if-eqz p2, :cond_0
 
@@ -5812,25 +5673,25 @@
 
     if-eqz v1, :cond_0
 
-    .line 2795
+    .line 2754
     const-string v1, "device"
 
     iget-object v2, p2, Lcom/htc/service/DongleInfo;->ssid:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2796
+    .line 2755
     :cond_0
     const-string v1, "visible"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 2797
+    .line 2756
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2798
+    .line 2757
     return-void
 .end method
 
@@ -5839,14 +5700,14 @@
     .parameter "ary"
 
     .prologue
-    .line 3641
+    .line 3582
     const-string v0, "0123456789ABCDEF"
 
-    .line 3642
+    .line 3583
     .local v0, hex:Ljava/lang/String;
     const-string v2, ""
 
-    .line 3643
+    .line 3584
     .local v2, ret:Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -5856,7 +5717,7 @@
 
     if-ge v1, v3, :cond_0
 
-    .line 3644
+    .line 3585
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -5885,7 +5746,7 @@
 
     move-result-object v2
 
-    .line 3645
+    .line 3586
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -5912,12 +5773,12 @@
 
     move-result-object v2
 
-    .line 3643
+    .line 3584
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 3647
+    .line 3588
     :cond_0
     return-object v2
 .end method
@@ -5927,7 +5788,7 @@
     .parameter "info"
 
     .prologue
-    .line 2802
+    .line 2761
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -5952,14 +5813,14 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2803
+    .line 2762
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.htc.intent.action.NOTIFY_UPDATE_DONGLE_STATE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2804
+    .line 2763
     .local v0, intent:Landroid/content/Intent;
     const-string v1, "dongleStaBssid"
 
@@ -5967,12 +5828,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2805
+    .line 2764
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2806
+    .line 2765
     return-void
 .end method
 
@@ -5980,7 +5841,7 @@
     .locals 5
 
     .prologue
-    .line 2620
+    .line 2586
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v2, :cond_0
@@ -5991,12 +5852,12 @@
 
     if-eqz v2, :cond_0
 
-    .line 2621
+    .line 2587
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     iget-object v0, v2, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
 
-    .line 2622
+    .line 2588
     .local v0, config:Ljava/lang/String;
     const-string v2, "WfdStateMachine"
 
@@ -6020,31 +5881,31 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2623
+    .line 2589
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.htc.wifidisplay.CONFIG_FILE_CHANGED_ACTION"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2624
+    .line 2590
     .local v1, intent:Landroid/content/Intent;
     const-string v2, "dongle_mac"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2625
+    .line 2591
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 2629
+    .line 2595
     .end local v0           #config:Ljava/lang/String;
     .end local v1           #intent:Landroid/content/Intent;
     :goto_0
     return-void
 
-    .line 2627
+    .line 2593
     :cond_0
     const-string v2, "WfdStateMachine"
 
@@ -6062,871 +5923,826 @@
     .parameter "cb"
 
     .prologue
-    .line 3050
+    .line 3009
     const-string v0, "WfdStateMachine"
 
     const-string v1, "addCallback()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3051
+    .line 3010
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
 
-    .line 3052
+    .line 3011
     :cond_0
     return-void
 .end method
 
 .method attemptToConfigure(Lcom/htc/service/DongleInfo;)V
-    .locals 13
+    .locals 12
     .parameter "info"
 
     .prologue
-    const/16 v5, 0x2e
+    const/16 v4, 0x2e
 
-    const/16 v4, 0x2d
+    const/16 v3, 0x2d
 
-    const/4 v12, 0x3
+    const/4 v11, 0x3
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    .line 3220
-    const-string v6, "WfdStateMachine"
+    .line 3179
+    const-string v5, "WfdStateMachine"
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "[WFD]===>attemptToConfigure()...mode = "
+    const-string v7, "[WFD]===>attemptToConfigure()...mode = "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    sget-object v8, Lcom/htc/server/WfdUtils;->modeNames:[Ljava/lang/String;
+    sget-object v7, Lcom/htc/server/WfdUtils;->modeNames:[Ljava/lang/String;
 
-    iget v9, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v8, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    aget-object v8, v8, v9
+    aget-object v7, v7, v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3222
-    :try_start_0
-    const-string v6, "WfdStateMachine"
+    .line 3180
+    const/16 v5, 0x38
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    .line 3182
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    const-string v8, "[WFD]===>Dongle status = "
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->extendTurnOffHotspotTimer()V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 3184
+    invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->checkIfFixedMode()V
 
-    move-result-object v7
+    .line 3186
+    invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->isCaviumDongle(Lcom/htc/service/DongleInfo;)Z
 
-    sget-object v8, Lcom/htc/service/DongleInfo;->getStateName:[Ljava/lang/String;
+    move-result v5
 
-    iget v9, p1, Lcom/htc/service/DongleInfo;->status:I
+    iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    aget-object v8, v8, v9
+    .line 3187
+    const-string v5, "WfdStateMachine"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, ", isDiscoveredByWivu = "
+    const-string v7, "[WFD]===>attemptToConfigure()...mIsOldCaviumDongle = "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    iget-boolean v8, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v6
 
-    const-string v8, ", isConnectable = "
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v7
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v8, p1, Lcom/htc/service/DongleInfo;->isConnectable:Z
+    .line 3188
+    const-string v5, "WfdStateMachine"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v6, "Disable scan....@attemptToConfigure"
 
-    move-result-object v7
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v8, "\n[WFD]===>, apm = "
+    .line 3189
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v9}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    move-result-object v7
+    .line 3191
+    if-nez p1, :cond_1
 
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->pairedApm:Ljava/lang/String;
+    .line 3192
+    const/4 v3, 0x5
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, v3, v10}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    move-result-object v7
-
-    const-string v8, ", aph = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->currentAph:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, "\n[WFD]===>, bssid = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-object v8, p1, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, ", lockType = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget v8, p1, Lcom/htc/service/DongleInfo;->lockType:I
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 3231
-    :goto_0
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isConnectable:Z
-
-    if-eqz v6, :cond_1
-
-    .line 3232
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v4, "com.htc.intent.action.WIRELESS_DISPLAY_SHOW_DONGLE_CONNECTED"
-
-    invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 3233
-    .local v1, dongleConnectedIntent:Landroid/content/Intent;
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    .line 3404
-    .end local v1           #dongleConnectedIntent:Landroid/content/Intent;
+    .line 3345
     :cond_0
-    :goto_1
+    :goto_0
     return-void
 
-    .line 3226
-    :catch_0
-    move-exception v2
+    .line 3200
+    :cond_1
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    .line 3227
-    .local v2, e:Ljava/lang/Exception;
-    const/4 v6, 0x5
+    const/16 v6, 0x38
 
-    invoke-direct {p0, v6, v11}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
+    if-ne v5, v6, :cond_2
 
-    .line 3228
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
+
+    const/16 v6, 0x26
+
+    if-ne v5, v6, :cond_2
+
+    .line 3201
+    const-string v3, "WfdStateMachine"
+
+    const-string v4, "PBC failed case, retry to configure."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 3202
+    invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
     goto :goto_0
 
-    .line 3236
-    .end local v2           #e:Ljava/lang/Exception;
-    :cond_1
-    const/16 v6, 0x38
-
-    invoke-virtual {p0, v6}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
-
-    .line 3238
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->extendTurnOffHotspotTimer()V
-
-    .line 3239
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
-
-    invoke-virtual {v6, v10}, Lcom/htc/service/WirelessDisplayManager;->setWifiNetworkLimit(Z)V
-
-    .line 3240
-    invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->checkIfFixedMode()V
-
-    .line 3242
-    invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->isCaviumDongle(Lcom/htc/service/DongleInfo;)Z
-
-    move-result v6
-
-    iput-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    .line 3243
-    const-string v6, "WfdStateMachine"
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "[WFD]===>attemptToConfigure()...mIsOldCaviumDongle = "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    iget-boolean v8, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 3244
-    const-string v6, "WfdStateMachine"
-
-    const-string v7, "Disable scan....@attemptToConfigure"
-
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 3245
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-static {v6, v10}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
-
-    .line 3247
-    if-nez p1, :cond_2
-
-    .line 3248
-    const/4 v4, 0x5
-
-    invoke-direct {p0, v4, v11}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
-
-    goto :goto_1
-
-    .line 3256
+    .line 3207
     :cond_2
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
+    :try_start_0
+    const-string v5, "WfdStateMachine"
 
-    const/16 v7, 0x38
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-ne v6, v7, :cond_3
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
+    const-string v7, "[WFD]===>Dongle status = "
 
-    const/16 v7, 0x26
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-ne v6, v7, :cond_3
+    move-result-object v6
 
-    .line 3257
-    const-string v4, "WfdStateMachine"
+    sget-object v7, Lcom/htc/service/DongleInfo;->getStateName:[Ljava/lang/String;
 
-    const-string v5, "PBC failed case, retry to configure."
+    iget v8, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    aget-object v7, v7, v8
 
-    .line 3258
-    invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v6
 
-    .line 3277
+    const-string v7, ", isDiscoveredByWivu = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-boolean v7, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n[WFD]===>, apm = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->pairedApm:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ", aph = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->currentAph:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "\n[WFD]===>, bssid = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget-object v7, p1, Lcom/htc/service/DongleInfo;->bssid:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, ", lockType = "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    iget v7, p1, Lcom/htc/service/DongleInfo;->lockType:I
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 3218
+    :goto_1
+    const-string v5, "sys.wfd.targetdongle"
+
+    const-string v6, ""
+
+    invoke-static {v5, v6}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    .line 3220
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    if-eqz v5, :cond_3
+
+    .line 3221
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
+
+    invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->selectedTargetTestDongle(Ljava/lang/String;)Lcom/htc/service/DongleInfo;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    .line 3222
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+
+    .line 3225
     :cond_3
-    const-string v6, "sys.wfd.targetdongle"
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    const-string v7, ""
+    if-nez v5, :cond_4
 
-    invoke-static {v6, v7}, Lcom/htc/wrap/android/os/HtcWrapSystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    .line 3279
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    if-eqz v6, :cond_4
-
-    .line 3280
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mTargetAutoTestDongleSSID:Ljava/lang/String;
-
-    invoke-virtual {p0, v6}, Lcom/htc/server/WfdStateMachine;->selectedTargetTestDongle(Ljava/lang/String;)Lcom/htc/service/DongleInfo;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    .line 3281
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
-
-    .line 3284
-    :cond_4
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    if-nez v6, :cond_5
-
-    .line 3285
+    .line 3226
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3286
-    iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
+    .line 3227
+    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
-    .line 3292
+    .line 3233
     :goto_2
-    iput-boolean v11, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
+    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
-    .line 3293
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    .line 3234
+    iget-boolean v5, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    if-eqz v6, :cond_c
+    if-eqz v5, :cond_b
 
-    .line 3294
+    .line 3235
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_8
 
-    .line 3297
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    .line 3238
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
 
     move-result-object v0
 
-    .line 3298
+    .line 3239
     .local v0, currentDongle:Lcom/htc/service/DongleInfo;
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
-    iget-object v6, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v5, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    iget-object v7, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v6, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_7
+    if-nez v5, :cond_6
 
-    .line 3299
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    .line 3240
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v6, :cond_6
+    if-nez v5, :cond_5
 
     :goto_3
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3301
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
+    .line 3242
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    .line 3302
-    const/16 v4, 0x39
+    .line 3243
+    const/16 v3, 0x39
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3303
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    .line 3244
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v4, v11}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
+    invoke-virtual {v3, v10}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
 
-    .line 3304
-    const-string v4, "WfdStateMachine"
+    .line 3245
+    const-string v3, "WfdStateMachine"
 
-    const-string v5, "Select a new dongle while mirroring, stop mirror mode first."
+    const-string v4, "Select a new dongle while mirroring, stop mirror mode first."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    .line 3288
+    .line 3211
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_5
+    :catch_0
+    move-exception v1
+
+    .line 3212
+    .local v1, e:Ljava/lang/Exception;
+    const/4 v5, 0x5
+
+    invoke-direct {p0, v5, v10}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
+
+    .line 3213
+    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_1
+
+    .line 3229
+    .end local v1           #e:Ljava/lang/Exception;
+    :cond_4
     iget-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     goto :goto_2
 
     .restart local v0       #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_6
-    move v4, v5
+    :cond_5
+    move v3, v4
 
-    .line 3299
+    .line 3240
     goto :goto_3
 
-    .line 3306
-    :cond_7
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    .line 3247
+    :cond_6
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v4, :cond_8
+    if-nez v3, :cond_7
 
-    const/16 v4, 0x1f
+    const/16 v3, 0x1f
 
     :goto_4
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_8
-    const/16 v4, 0x20
+    :cond_7
+    const/16 v3, 0x20
 
     goto :goto_4
 
-    .line 3310
+    .line 3251
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
+    :cond_8
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v5, v11, :cond_9
+
+    .line 3252
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v9, v5}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
+
+    .line 3253
     :cond_9
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v6, v12, :cond_a
-
-    .line 3311
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v10, v6}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
-
-    .line 3312
-    :cond_a
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v6, :cond_b
+    if-nez v5, :cond_a
 
     :goto_5
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3314
-    const/4 v4, 0x2
+    .line 3255
+    const/4 v3, 0x2
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_b
-    move v4, v5
+    :cond_a
+    move v3, v4
 
-    .line 3312
+    .line 3253
     goto :goto_5
 
-    .line 3316
+    .line 3257
+    :cond_b
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
+
+    if-eq v5, v9, :cond_c
+
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
+
+    const/4 v6, 0x4
+
+    if-ne v5, v6, :cond_17
+
+    .line 3258
     :cond_c
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsMultipleWpsDongles:Z
 
-    if-eq v6, v10, :cond_d
+    if-eqz v3, :cond_d
 
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
+    .line 3259
+    const-string v3, "WfdStateMachine"
 
-    const/4 v7, 0x4
+    const-string v4, "Multiple WPS dongles detected."
 
-    if-ne v6, v7, :cond_18
+    invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3317
+    .line 3261
     :cond_d
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsMultipleWpsDongles:Z
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
-    if-eqz v4, :cond_e
+    if-nez v3, :cond_e
 
-    .line 3318
-    const-string v4, "WfdStateMachine"
+    .line 3262
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    const-string v5, "Multiple WPS dongles detected."
+    if-nez v3, :cond_f
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .line 3263
+    const/16 v3, 0x30
 
-    .line 3320
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+
+    .line 3269
     :cond_e
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
-
-    if-nez v4, :cond_f
-
-    .line 3321
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v4, :cond_10
-
-    .line 3322
-    const/16 v4, 0x30
-
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
-
-    .line 3328
-    :cond_f
     :goto_6
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->isConnectToDfsChannels()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_13
+    if-eqz v3, :cond_12
 
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
+    .line 3270
+    const/16 v3, 0x33
 
-    move-result v4
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    if-nez v4, :cond_13
-
-    .line 3329
-    const/16 v4, 0x33
-
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
-
-    .line 3353
+    .line 3294
     :goto_7
-    const-string v4, "WfdStateMachine"
+    const-string v3, "WfdStateMachine"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Check if need to defer configure = "
+    const-string v5, "Check if need to defer configure = "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    iget-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+    iget-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3354
+    .line 3295
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->clearLimitedApInfo()V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    .line 3323
+    .line 3264
+    :cond_f
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-eq v3, v9, :cond_10
+
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v3, v11, :cond_11
+
+    .line 3265
     :cond_10
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    const/16 v3, 0x31
 
-    if-eq v4, v10, :cond_11
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    goto :goto_6
 
-    if-ne v4, v12, :cond_12
-
-    .line 3324
+    .line 3267
     :cond_11
-    const/16 v4, 0x31
+    const/16 v3, 0x32
 
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_6
 
-    .line 3326
+    .line 3271
     :cond_12
-    const/16 v4, 0x32
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    if-nez v3, :cond_13
 
-    goto :goto_6
-
-    .line 3330
-    :cond_13
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
-
-    if-nez v4, :cond_14
-
-    .line 3331
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
+    .line 3272
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
     goto :goto_7
 
-    .line 3333
-    :cond_14
-    const/16 v4, 0x19
+    .line 3274
+    :cond_13
+    const/16 v3, 0x19
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3334
+    .line 3275
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->requestWpsOnDemand()V
 
-    .line 3335
-    sget-boolean v4, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
+    .line 3276
+    sget-boolean v3, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
-    if-eqz v4, :cond_15
+    if-eqz v3, :cond_14
 
-    .line 3336
-    const-wide/16 v4, 0x3e8
+    .line 3277
+    const-wide/16 v3, 0x3e8
 
-    invoke-virtual {p0, v10, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    invoke-virtual {p0, v9, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_7
 
-    .line 3338
-    :cond_15
-    invoke-direct {p0, v10}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
+    .line 3279
+    :cond_14
+    invoke-direct {p0, v9}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
 
-    move-result v4
+    move-result v3
 
-    iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
+    iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    .line 3340
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
+    .line 3281
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    if-eqz v4, :cond_16
+    if-eqz v3, :cond_15
 
-    .line 3341
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
+    .line 3282
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+    invoke-virtual {v3}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v2
+
+    .line 3283
+    .local v2, wifiInfo:Landroid/net/wifi/WifiInfo;
+    if-eqz v2, :cond_15
+
+    invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 3342
-    .local v3, wifiInfo:Landroid/net/wifi/WifiInfo;
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_15
 
-    invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    .line 3284
+    invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    if-eqz v4, :cond_16
+    iput-object v3, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
 
-    .line 3343
-    invoke-virtual {v3}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+    .line 3288
+    .end local v2           #wifiInfo:Landroid/net/wifi/WifiInfo;
+    :cond_15
+    iget v3, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    move-result-object v4
+    if-ne v3, v9, :cond_16
 
-    iput-object v4, p0, Lcom/htc/server/WfdStateMachine;->mConnectableAphBeforeSsid:Ljava/lang/String;
+    .line 3289
+    const-wide/16 v3, 0x3e8
 
-    .line 3347
-    .end local v3           #wifiInfo:Landroid/net/wifi/WifiInfo;
+    invoke-virtual {p0, v9, v3, v4}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+
+    goto :goto_7
+
+    .line 3291
     :cond_16
-    iget v4, p1, Lcom/htc/service/DongleInfo;->status:I
+    const/16 v3, 0x11
 
-    if-ne v4, v10, :cond_17
+    const-wide/16 v4, 0xbb8
 
-    .line 3348
-    const-wide/16 v4, 0x3e8
-
-    invoke-virtual {p0, v10, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    invoke-virtual {p0, v3, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_7
 
-    .line 3350
+    .line 3296
     :cond_17
-    const/16 v4, 0x11
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    const-wide/16 v5, 0xbb8
+    if-eq v5, v11, :cond_18
 
-    invoke-virtual {p0, v4, v5, v6}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
+    iget v5, p1, Lcom/htc/service/DongleInfo;->status:I
 
-    goto :goto_7
+    const/4 v6, 0x2
 
-    .line 3355
+    if-ne v5, v6, :cond_21
+
+    iget-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
+
+    if-nez v5, :cond_21
+
+    .line 3300
     :cond_18
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
-
-    if-eq v6, v12, :cond_19
-
-    iget v6, p1, Lcom/htc/service/DongleInfo;->status:I
-
-    const/4 v7, 0x2
-
-    if-ne v6, v7, :cond_22
-
-    iget-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    if-nez v6, :cond_22
-
-    .line 3359
-    :cond_19
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1d
+    if-eqz v5, :cond_1c
 
-    .line 3362
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    .line 3303
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v6}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
+    invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getCurrentDongle()Lcom/htc/service/DongleInfo;
 
     move-result-object v0
 
-    .line 3363
+    .line 3304
     .restart local v0       #currentDongle:Lcom/htc/service/DongleInfo;
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1a
 
-    iget-object v6, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v5, v0, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    iget-object v7, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
+    iget-object v6, p1, Lcom/htc/service/DongleInfo;->staBssid:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_1b
+    if-nez v5, :cond_1a
 
-    .line 3364
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    .line 3305
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v6, :cond_1a
+    if-nez v5, :cond_19
 
     :goto_8
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3366
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
+    .line 3307
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsSwitchingDongles:Z
 
-    .line 3367
-    const/16 v4, 0x39
+    .line 3308
+    const/16 v3, 0x39
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3368
-    iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
+    .line 3309
+    iget-object v3, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
-    invoke-virtual {v4, v11}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
+    invoke-virtual {v3, v10}, Lcom/htc/service/WirelessDisplayManager;->mirrorModeStartStop(Z)Z
 
-    .line 3369
-    const-string v4, "WfdStateMachine"
+    .line 3310
+    const-string v3, "WfdStateMachine"
 
-    const-string v5, "Select a new paired dongle while mirroring, stop mirror mode first."
+    const-string v4, "Select a new paired dongle while mirroring, stop mirror mode first."
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_1a
-    move v4, v5
+    :cond_19
+    move v3, v4
 
-    .line 3364
+    .line 3305
     goto :goto_8
 
-    .line 3371
-    :cond_1b
-    iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    .line 3312
+    :cond_1a
+    iget v3, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-nez v4, :cond_1c
+    if-nez v3, :cond_1b
 
-    const/16 v4, 0x1f
+    const/16 v3, 0x1f
 
     :goto_9
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_1c
-    const/16 v4, 0x20
+    :cond_1b
+    const/16 v3, 0x20
 
     goto :goto_9
 
-    .line 3376
+    .line 3317
     .end local v0           #currentDongle:Lcom/htc/service/DongleInfo;
-    :cond_1d
-    sget-boolean v6, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
+    :cond_1c
+    sget-boolean v5, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
-    if-nez v6, :cond_1e
+    if-nez v5, :cond_1d
 
-    iget-boolean v6, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    iget-boolean v5, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    if-nez v6, :cond_1e
+    if-nez v5, :cond_1d
 
-    .line 3377
+    .line 3318
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    .line 3380
+    .line 3321
+    :cond_1d
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+
+    if-ne v5, v11, :cond_1e
+
+    .line 3322
+    iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
+
+    invoke-direct {p0, v9, v5}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
+
+    .line 3323
     :cond_1e
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
+    iget v5, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    if-ne v6, v12, :cond_1f
-
-    .line 3381
-    iget-object v6, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
-
-    invoke-direct {p0, v10, v6}, Lcom/htc/server/WfdStateMachine;->showConnectingDialog(ZLcom/htc/service/DongleInfo;)V
-
-    .line 3382
-    :cond_1f
-    iget v6, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
-
-    if-nez v6, :cond_20
+    if-nez v5, :cond_1f
 
     :goto_a
-    invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
+    invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3384
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
+    .line 3325
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
-    if-nez v4, :cond_21
+    if-nez v3, :cond_20
 
-    .line 3385
-    iput-boolean v10, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
+    .line 3326
+    iput-boolean v9, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_20
-    move v4, v5
+    :cond_1f
+    move v3, v4
 
-    .line 3382
+    .line 3323
     goto :goto_a
 
-    .line 3387
+    .line 3328
+    :cond_20
+    const/4 v3, 0x2
+
+    invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+
+    goto/16 :goto_0
+
+    .line 3332
     :cond_21
-    const/4 v4, 0x2
+    iget-boolean v3, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
-    invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
+    if-nez v3, :cond_0
 
-    goto/16 :goto_1
+    iget-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    .line 3391
-    :cond_22
-    iget-boolean v4, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
+    if-eqz v3, :cond_0
 
-    if-nez v4, :cond_0
-
-    iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
-
-    if-eqz v4, :cond_0
-
-    .line 3401
+    .line 3342
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 .end method
 
 .method attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
@@ -6942,7 +6758,7 @@
 
     const/4 v3, 0x1
 
-    .line 3407
+    .line 3348
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -6971,19 +6787,19 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3408
+    .line 3349
     const/16 v4, 0x38
 
     invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3410
+    .line 3351
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->isCaviumDongle(Lcom/htc/service/DongleInfo;)Z
 
     move-result v4
 
     iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    .line 3411
+    .line 3352
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -7008,30 +6824,30 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3412
+    .line 3353
     const-string v4, "WfdStateMachine"
 
     const-string v5, "Disable scan....@attemptToReConfigure"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3413
+    .line 3354
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-static {v4, v3}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    .line 3415
+    .line 3356
     if-nez p1, :cond_1
 
-    .line 3416
+    .line 3357
     invoke-direct {p0, v9, v1}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    .line 3479
+    .line 3420
     :cond_0
     :goto_0
     return-void
 
-    .line 3421
+    .line 3362
     :cond_1
     :try_start_0
     const-string v4, "WfdStateMachine"
@@ -7112,51 +6928,51 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3430
+    .line 3371
     :goto_1
     iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
     if-nez v4, :cond_2
 
-    .line 3431
+    .line 3372
     const-string v3, "WfdStateMachine"
 
     const-string v4, "[WFD]===> Check Dongle version. Not start with \'1\' or Not start with \'M\'"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3432
+    .line 3373
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->retryConfigure()V
 
     goto :goto_0
 
-    .line 3425
+    .line 3366
     :catch_0
     move-exception v0
 
-    .line 3426
+    .line 3367
     .local v0, e:Ljava/lang/Exception;
     invoke-direct {p0, v9, v1}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    .line 3427
+    .line 3368
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
-    .line 3434
+    .line 3375
     .end local v0           #e:Ljava/lang/Exception;
     :cond_2
     iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
     if-nez v4, :cond_0
 
-    .line 3435
+    .line 3376
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->clearLimitedApInfo()V
 
-    .line 3436
+    .line 3377
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3438
+    .line 3379
     iget v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
     const/16 v5, 0xb
@@ -7165,51 +6981,45 @@
 
     move v1, v3
 
-    .line 3439
+    .line 3380
     .local v1, isEnterFromList:Z
     :cond_3
     iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
     if-nez v4, :cond_4
 
-    .line 3440
+    .line 3381
     const/16 v4, 0x29
 
     invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3446
+    .line 3387
     :goto_2
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->requestWpsOnDemand()V
 
-    .line 3447
+    .line 3388
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
-    .line 3450
+    .line 3391
     sget-boolean v4, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-eqz v4, :cond_8
 
-    .line 3451
+    .line 3392
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->isConnectToDfsChannels()Z
 
     move-result v4
 
     if-eqz v4, :cond_7
 
-    invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->checkIfDfsAvailable()Z
-
-    move-result v4
-
-    if-nez v4, :cond_7
-
-    .line 3452
+    .line 3393
     const/16 v3, 0x33
 
     invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 3441
+    .line 3382
     :cond_4
     iget v4, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
@@ -7219,7 +7029,7 @@
 
     if-ne v4, v8, :cond_6
 
-    .line 3442
+    .line 3383
     :cond_5
     const/16 v4, 0x2a
 
@@ -7227,7 +7037,7 @@
 
     goto :goto_2
 
-    .line 3444
+    .line 3385
     :cond_6
     const/16 v4, 0x2b
 
@@ -7235,19 +7045,19 @@
 
     goto :goto_2
 
-    .line 3454
+    .line 3395
     :cond_7
     invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 3457
+    .line 3398
     :cond_8
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v4}, Lcom/htc/service/WirelessDisplayManager;->stopWivuDiscovery()V
 
-    .line 3459
+    .line 3400
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
@@ -7256,24 +7066,24 @@
 
     if-nez v4, :cond_a
 
-    .line 3460
+    .line 3401
     invoke-virtual {p0, v8}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3472
+    .line 3413
     :cond_9
     :goto_3
     iget v4, p1, Lcom/htc/service/DongleInfo;->status:I
 
     if-ne v4, v3, :cond_b
 
-    .line 3473
+    .line 3414
     const-wide/16 v4, 0x3e8
 
     invoke-virtual {p0, v3, v4, v5}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto/16 :goto_0
 
-    .line 3462
+    .line 3403
     :cond_a
     invoke-direct {p0, v3}, Lcom/htc/server/WfdStateMachine;->isAphConnectable(Z)Z
 
@@ -7281,19 +7091,19 @@
 
     iput-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
-    .line 3464
+    .line 3405
     iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsAphConnectableBefore:Z
 
     if-eqz v4, :cond_9
 
-    .line 3465
+    .line 3406
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v4}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
 
     move-result-object v2
 
-    .line 3466
+    .line 3407
     .local v2, wifiInfo:Landroid/net/wifi/WifiInfo;
     if-eqz v2, :cond_9
 
@@ -7303,7 +7113,7 @@
 
     if-eqz v4, :cond_9
 
-    .line 3467
+    .line 3408
     invoke-virtual {v2}, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
 
     move-result-object v4
@@ -7312,7 +7122,7 @@
 
     goto :goto_3
 
-    .line 3475
+    .line 3416
     .end local v2           #wifiInfo:Landroid/net/wifi/WifiInfo;
     :cond_b
     const/16 v3, 0x11
@@ -7335,21 +7145,21 @@
 
     const/4 v5, 0x0
 
-    .line 3153
+    .line 3112
     const-string v1, "WfdStateMachine"
 
     const-string v2, "[WFD]===>attemptToRequestDongleToAPM()"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3155
+    .line 3114
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->isCaviumDongle(Lcom/htc/service/DongleInfo;)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsOldCaviumDongle:Z
 
-    .line 3156
+    .line 3115
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -7374,18 +7184,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3158
+    .line 3117
     if-nez p1, :cond_1
 
-    .line 3159
+    .line 3118
     invoke-direct {p0, v7, v5}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    .line 3194
+    .line 3153
     :cond_0
     :goto_0
     return-void
 
-    .line 3164
+    .line 3123
     :cond_1
     :try_start_0
     const-string v1, "WfdStateMachine"
@@ -7466,19 +7276,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3172
+    .line 3131
     :goto_1
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3173
+    .line 3132
     iput-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
-    .line 3174
+    .line 3133
     iget-boolean v1, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
     if-eqz v1, :cond_2
 
-    .line 3175
+    .line 3134
     const-string v1, "WfdStateMachine"
 
     const-string v2, "info.isDiscoveredByWivu is true. Dongle should have IP address."
@@ -7487,20 +7297,20 @@
 
     goto :goto_0
 
-    .line 3168
+    .line 3127
     :catch_0
     move-exception v0
 
-    .line 3169
+    .line 3128
     .local v0, e:Ljava/lang/Exception;
     invoke-direct {p0, v7, v5}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    .line 3170
+    .line 3129
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
-    .line 3177
+    .line 3136
     .end local v0           #e:Ljava/lang/Exception;
     :cond_2
     iget v1, p1, Lcom/htc/service/DongleInfo;->status:I
@@ -7509,14 +7319,14 @@
 
     if-ne v1, v2, :cond_5
 
-    .line 3178
+    .line 3137
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    .line 3179
+    .line 3138
     const-string v1, "WfdStateMachine"
 
     const-string v2, "isMirrorModeEnable() is true."
@@ -7525,21 +7335,21 @@
 
     goto :goto_0
 
-    .line 3183
+    .line 3142
     :cond_3
     iput-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsConnectionRequest:Z
 
-    .line 3185
+    .line 3144
     iget-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsScanComplete:Z
 
     if-nez v1, :cond_4
 
-    .line 3186
+    .line 3145
     iput-boolean v6, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferDiscovery:Z
 
     goto/16 :goto_0
 
-    .line 3188
+    .line 3147
     :cond_4
     const/4 v1, 0x2
 
@@ -7547,13 +7357,13 @@
 
     goto/16 :goto_0
 
-    .line 3191
+    .line 3150
     :cond_5
     iget-boolean v1, p1, Lcom/htc/service/DongleInfo;->isDiscoveredByWivu:Z
 
     if-nez v1, :cond_0
 
-    .line 3192
+    .line 3151
     invoke-virtual {p0, p1}, Lcom/htc/server/WfdStateMachine;->attemptToReConfigure(Lcom/htc/service/DongleInfo;)V
 
     goto/16 :goto_0
@@ -7567,19 +7377,19 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 3580
+    .line 3521
     if-nez p1, :cond_0
 
-    .line 3581
+    .line 3522
     const/4 v0, 0x5
 
     invoke-direct {p0, v0, v1}, Lcom/htc/server/WfdStateMachine;->reportErrorCode(IZ)V
 
-    .line 3599
+    .line 3540
     :goto_0
     return-void
 
-    .line 3585
+    .line 3526
     :cond_0
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
@@ -7590,10 +7400,10 @@
     :goto_1
     invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3588
+    .line 3529
     iput-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockSucceed:Z
 
-    .line 3589
+    .line 3530
     invoke-static {}, Ljava/lang/Math;->random()D
 
     move-result-wide v0
@@ -7610,21 +7420,21 @@
 
     iput v0, p0, Lcom/htc/server/WfdStateMachine;->mUnlockTransactionID:I
 
-    .line 3590
+    .line 3531
     iput-object p2, p0, Lcom/htc/server/WfdStateMachine;->mUnlockPattern:[B
 
-    .line 3591
+    .line 3532
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3592
+    .line 3533
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mUnlockDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3593
+    .line 3534
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
 
-    .line 3594
+    .line 3535
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7687,12 +7497,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3597
+    .line 3538
     const/16 v0, 0x40
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3598
+    .line 3539
     const/16 v0, 0x43
 
     const-wide/16 v1, 0x7530
@@ -7701,7 +7511,7 @@
 
     goto :goto_0
 
-    .line 3585
+    .line 3526
     :cond_1
     const/16 v0, 0x2e
 
@@ -7712,7 +7522,7 @@
     .locals 3
 
     .prologue
-    .line 3482
+    .line 3423
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -7749,21 +7559,21 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3484
+    .line 3425
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 3485
+    .line 3426
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->finish()V
 
-    .line 3488
+    .line 3429
     :goto_0
     return-void
 
-    .line 3487
+    .line 3428
     :cond_0
     const/16 v0, 0x28
 
@@ -7776,19 +7586,19 @@
     .locals 2
 
     .prologue
-    .line 3602
+    .line 3543
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Cancel connecting dialog."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3603
+    .line 3544
     const/16 v0, 0x27
 
     invoke-direct {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3604
+    .line 3545
     return-void
 .end method
 
@@ -7800,14 +7610,14 @@
 
     const/4 v2, 0x0
 
-    .line 3133
+    .line 3092
     const-string v0, "WfdStateMachine"
 
     const-string v1, "[WFD]===>checkIfFixedMode()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3134
+    .line 3093
     const-string v0, "persist.sys.wfd.targetmode"
 
     const-string v1, ""
@@ -7818,7 +7628,7 @@
 
     iput-object v0, p0, Lcom/htc/server/WfdStateMachine;->mFixedModeProperty:Ljava/lang/String;
 
-    .line 3136
+    .line 3095
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mFixedModeProperty:Ljava/lang/String;
 
     const-string v1, "ap"
@@ -7839,14 +7649,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 3137
+    .line 3096
     :cond_0
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsFixedCT1:Z
 
-    .line 3138
+    .line 3097
     iput-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsP2pSet:Z
 
-    .line 3146
+    .line 3105
     :goto_0
     const-string v0, "WfdStateMachine"
 
@@ -7896,10 +7706,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3149
+    .line 3108
     return-void
 
-    .line 3139
+    .line 3098
     :cond_1
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mFixedModeProperty:Ljava/lang/String;
 
@@ -7921,20 +7731,20 @@
 
     if-eqz v0, :cond_3
 
-    .line 3140
+    .line 3099
     :cond_2
     iput-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsFixedCT1:Z
 
-    .line 3141
+    .line 3100
     iput-boolean v3, p0, Lcom/htc/server/WfdStateMachine;->mIsP2pSet:Z
 
     goto :goto_0
 
-    .line 3143
+    .line 3102
     :cond_3
     iput-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsFixedCT1:Z
 
-    .line 3144
+    .line 3103
     iput-boolean v2, p0, Lcom/htc/server/WfdStateMachine;->mIsP2pSet:Z
 
     goto :goto_0
@@ -7945,7 +7755,7 @@
     .parameter "netId"
 
     .prologue
-    .line 3626
+    .line 3567
     :try_start_0
     const-class v2, Landroid/net/wifi/WifiManager;
 
@@ -7965,7 +7775,7 @@
 
     move-result-object v1
 
-    .line 3627
+    .line 3568
     .local v1, mthd:Ljava/lang/reflect/Method;
     iget-object v2, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -7983,7 +7793,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 3628
+    .line 3569
     const-string v2, "WfdStateMachine"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -8011,49 +7821,49 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
 
-    .line 3638
+    .line 3579
     .end local v1           #mthd:Ljava/lang/reflect/Method;
     :goto_0
     return-void
 
-    .line 3629
+    .line 3570
     :catch_0
     move-exception v0
 
-    .line 3630
+    .line 3571
     .local v0, e:Ljava/lang/NoSuchMethodException;
     invoke-virtual {v0}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3631
+    .line 3572
     .end local v0           #e:Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v0
 
-    .line 3632
+    .line 3573
     .local v0, e:Ljava/lang/IllegalArgumentException;
     invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3633
+    .line 3574
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
     :catch_2
     move-exception v0
 
-    .line 3634
+    .line 3575
     .local v0, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3635
+    .line 3576
     .end local v0           #e:Ljava/lang/IllegalAccessException;
     :catch_3
     move-exception v0
 
-    .line 3636
+    .line 3577
     .local v0, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
@@ -8064,7 +7874,7 @@
     .locals 3
 
     .prologue
-    .line 3496
+    .line 3437
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8089,7 +7899,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3497
+    .line 3438
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
     const/16 v1, 0x1f
@@ -8108,15 +7918,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 3500
+    .line 3441
     :cond_0
     invoke-direct {p0}, Lcom/htc/server/WfdStateMachine;->finish()V
 
-    .line 3504
+    .line 3445
     :goto_0
     return-void
 
-    .line 3502
+    .line 3443
     :cond_1
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->resetStateMachine()V
 
@@ -8128,14 +7938,14 @@
     .parameter "wifiInfo"
 
     .prologue
-    .line 3607
+    .line 3548
     const/4 v4, -0x1
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    .line 3609
+    .line 3550
     .local v3, output:Ljava/lang/Integer;
     :try_start_0
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -8152,7 +7962,7 @@
 
     move-result-object v2
 
-    .line 3610
+    .line 3551
     .local v2, mthd:Ljava/lang/reflect/Method;
     const/4 v4, 0x0
 
@@ -8168,7 +7978,7 @@
 
     move-object v3, v0
 
-    .line 3611
+    .line 3552
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -8204,7 +8014,7 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_2
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_3
 
-    .line 3621
+    .line 3562
     .end local v2           #mthd:Ljava/lang/reflect/Method;
     :goto_0
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
@@ -8213,44 +8023,44 @@
 
     return v4
 
-    .line 3612
+    .line 3553
     :catch_0
     move-exception v1
 
-    .line 3613
+    .line 3554
     .local v1, e:Ljava/lang/NoSuchMethodException;
     invoke-virtual {v1}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3614
+    .line 3555
     .end local v1           #e:Ljava/lang/NoSuchMethodException;
     :catch_1
     move-exception v1
 
-    .line 3615
+    .line 3556
     .local v1, e:Ljava/lang/IllegalArgumentException;
     invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3616
+    .line 3557
     .end local v1           #e:Ljava/lang/IllegalArgumentException;
     :catch_2
     move-exception v1
 
-    .line 3617
+    .line 3558
     .local v1, e:Ljava/lang/IllegalAccessException;
     invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3618
+    .line 3559
     .end local v1           #e:Ljava/lang/IllegalAccessException;
     :catch_3
     move-exception v1
 
-    .line 3619
+    .line 3560
     .local v1, e:Ljava/lang/reflect/InvocationTargetException;
     invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
@@ -8261,7 +8071,7 @@
     .locals 1
 
     .prologue
-    .line 3060
+    .line 3019
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mNotificationState:I
 
     return v0
@@ -8272,14 +8082,14 @@
     .parameter "info"
 
     .prologue
-    .line 3123
+    .line 3082
     const-string v0, "WfdStateMachine"
 
     const-string v1, "[WFD]===>isCaviumDongle()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3124
+    .line 3083
     iget-object v0, p1, Lcom/htc/service/DongleInfo;->version:Ljava/lang/String;
 
     if-eqz v0, :cond_1
@@ -8304,7 +8114,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 3125
+    .line 3084
     :cond_0
     const-string v0, "WfdStateMachine"
 
@@ -8312,7 +8122,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3126
+    .line 3085
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -8337,10 +8147,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3127
+    .line 3086
     const/4 v0, 0x1
 
-    .line 3129
+    .line 3088
     :goto_0
     return v0
 
@@ -8356,12 +8166,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 3551
+    .line 3492
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     if-eqz v1, :cond_1
 
-    .line 3552
+    .line 3493
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v1}, Lcom/htc/service/WirelessDisplayManager;->getMirrorModeState()I
@@ -8385,7 +8195,7 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 3555
+    .line 3496
     :cond_1
     return v0
 .end method
@@ -8394,14 +8204,14 @@
     .locals 4
 
     .prologue
-    .line 2863
+    .line 2822
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-static {v1}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->getClientInfo(Landroid/net/wifi/WifiManager;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2864
+    .line 2823
     .local v0, ipInfo:Ljava/lang/String;
     if-eqz v0, :cond_0
 
@@ -8413,7 +8223,7 @@
 
     if-nez v1, :cond_0
 
-    .line 2865
+    .line 2824
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -8436,7 +8246,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2867
+    .line 2826
     :cond_0
     return-void
 .end method
@@ -8445,38 +8255,38 @@
     .locals 11
 
     .prologue
-    .line 2909
+    .line 2868
     const-string v7, "WfdStateMachine"
 
     const-string v8, "notifyDongleScanResultsAvailable()"
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2910
+    .line 2869
     const/4 v6, 0x0
 
     .local v6, size:I
     const/4 v0, 0x0
 
-    .line 2912
+    .line 2871
     .local v0, count:I
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mNeedSwitchingAph:Z
 
     if-eqz v7, :cond_0
 
-    .line 2913
+    .line 2872
     const-string v7, "WfdStateMachine"
 
     const-string v8, "[WFD]===>Defer discovery is done."
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2914
+    .line 2873
     const/4 v7, 0x2
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2916
+    .line 2875
     :cond_0
     iget-object v7, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
@@ -8484,13 +8294,13 @@
 
     move-result-object v1
 
-    .line 2917
+    .line 2876
     .local v1, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v6
 
-    .line 2918
+    .line 2877
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -8513,7 +8323,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2919
+    .line 2878
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -8533,7 +8343,7 @@
 
     check-cast v4, Lcom/htc/service/DongleInfo;
 
-    .line 2921
+    .line 2880
     .local v4, info:Lcom/htc/service/DongleInfo;
     :try_start_0
     const-string v7, "WfdStateMachine"
@@ -8650,7 +8460,7 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2928
+    .line 2887
     :goto_1
     iget v7, v4, Lcom/htc/service/DongleInfo;->status:I
 
@@ -8658,10 +8468,10 @@
 
     if-ne v7, v8, :cond_2
 
-    .line 2929
+    .line 2888
     add-int/lit8 v0, v0, 0x1
 
-    .line 2933
+    .line 2892
     :cond_2
     iget-object v7, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
@@ -8689,19 +8499,19 @@
 
     if-eqz v7, :cond_4
 
-    .line 2936
+    .line 2895
     invoke-virtual {p0}, Lcom/htc/server/WfdStateMachine;->isMirrorModeEnable()Z
 
     move-result v7
 
     if-nez v7, :cond_1
 
-    .line 2937
+    .line 2896
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsReConfiguring:Z
 
     if-eqz v7, :cond_3
 
-    .line 2939
+    .line 2898
     iget v7, v4, Lcom/htc/service/DongleInfo;->status:I
 
     const/4 v8, 0x2
@@ -8714,7 +8524,7 @@
 
     if-eq v7, v8, :cond_1
 
-    .line 2940
+    .line 2899
     const/16 v7, 0x3a
 
     const-wide/16 v8, 0x1770
@@ -8723,17 +8533,17 @@
 
     goto/16 :goto_0
 
-    .line 2925
+    .line 2884
     :catch_0
     move-exception v2
 
-    .line 2926
+    .line 2885
     .local v2, ex:Ljava/lang/Exception;
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
 
-    .line 2942
+    .line 2901
     .end local v2           #ex:Ljava/lang/Exception;
     :cond_3
     iget v7, v4, Lcom/htc/service/DongleInfo;->status:I
@@ -8742,7 +8552,7 @@
 
     if-ne v7, v8, :cond_1
 
-    .line 2943
+    .line 2902
     const/16 v7, 0x3a
 
     const-wide/16 v8, 0x1770
@@ -8751,7 +8561,7 @@
 
     goto/16 :goto_0
 
-    .line 2946
+    .line 2905
     :cond_4
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
 
@@ -8773,7 +8583,7 @@
 
     if-eqz v7, :cond_8
 
-    .line 2947
+    .line 2906
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -8814,7 +8624,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2948
+    .line 2907
     iget v7, v4, Lcom/htc/service/DongleInfo;->status:I
 
     const/4 v8, 0x4
@@ -8827,23 +8637,23 @@
 
     if-ne v7, v8, :cond_1
 
-    .line 2949
+    .line 2908
     :cond_5
     iput-object v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 2950
+    .line 2909
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsAutoTestConfiguring:Z
 
     if-nez v7, :cond_6
 
-    .line 2951
+    .line 2910
     const/16 v7, 0x3f
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 2953
+    .line 2912
     :cond_6
     const-string v7, "WfdStateMachine"
 
@@ -8893,29 +8703,29 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2956
+    .line 2915
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsHardReset:Z
 
     if-eqz v7, :cond_7
 
-    .line 2957
+    .line 2916
     iget v7, p0, Lcom/htc/server/WfdStateMachine;->mResetDongleCount:I
 
     if-gtz v7, :cond_1
 
-    .line 2958
+    .line 2917
     const/16 v7, 0x19
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 2959
+    .line 2918
     const/16 v7, 0x3f
 
     const-wide/16 v8, 0x4e20
 
     invoke-virtual {p0, v7, v8, v9}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
-    .line 2960
+    .line 2919
     const/16 v7, 0x47
 
     const-wide/32 v8, 0x29810
@@ -8924,7 +8734,7 @@
 
     goto/16 :goto_0
 
-    .line 2963
+    .line 2922
     :cond_7
     const/16 v7, 0x3f
 
@@ -8932,7 +8742,7 @@
 
     goto/16 :goto_0
 
-    .line 2967
+    .line 2926
     :cond_8
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsResettingDongle:Z
 
@@ -8962,7 +8772,7 @@
 
     if-eqz v7, :cond_9
 
-    .line 2968
+    .line 2927
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -9003,14 +8813,14 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2969
+    .line 2928
     iget v7, v4, Lcom/htc/service/DongleInfo;->status:I
 
     const/4 v8, 0x3
 
     if-ne v7, v8, :cond_1
 
-    .line 2970
+    .line 2929
     const-string v7, "WfdStateMachine"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -9047,19 +8857,19 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2971
+    .line 2930
     const/4 v7, 0x5
 
     iput v7, p0, Lcom/htc/server/WfdStateMachine;->mResetDongleCount:I
 
-    .line 2972
+    .line 2931
     const/16 v7, 0x3d
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 2974
+    .line 2933
     :cond_9
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsUnlockDongle:Z
 
@@ -9081,7 +8891,7 @@
 
     if-eqz v7, :cond_1
 
-    .line 2975
+    .line 2934
     iget-object v7, v4, Lcom/htc/service/DongleInfo;->lockStatus:Ljava/lang/String;
 
     const/4 v8, 0x0
@@ -9100,7 +8910,7 @@
 
     move-result v5
 
-    .line 2976
+    .line 2935
     .local v5, rspId:I
     const-string v7, "WfdStateMachine"
 
@@ -9148,12 +8958,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2978
+    .line 2937
     iget v7, p0, Lcom/htc/server/WfdStateMachine;->mUnlockTransactionID:I
 
     if-ne v5, v7, :cond_1
 
-    .line 2979
+    .line 2938
     iget-object v7, v4, Lcom/htc/service/DongleInfo;->lockStatus:Ljava/lang/String;
 
     const-string v8, "Y"
@@ -9176,7 +8986,7 @@
 
     goto :goto_2
 
-    .line 2984
+    .line 2943
     .end local v4           #info:Lcom/htc/service/DongleInfo;
     .end local v5           #rspId:I
     :cond_b
@@ -9189,7 +8999,7 @@
     :goto_3
     iput-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsMultipleWpsDongles:Z
 
-    .line 2986
+    .line 2945
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsDeferConfigure:Z
 
     if-nez v7, :cond_c
@@ -9198,13 +9008,13 @@
 
     if-eqz v7, :cond_d
 
-    .line 2987
+    .line 2946
     :cond_c
     const/16 v7, 0x25
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2989
+    .line 2948
     :cond_d
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
@@ -9228,18 +9038,18 @@
 
     if-ne v7, v8, :cond_10
 
-    .line 3006
+    .line 2965
     :cond_e
     :goto_4
     return-void
 
-    .line 2984
+    .line 2943
     :cond_f
     const/4 v7, 0x0
 
     goto :goto_3
 
-    .line 2993
+    .line 2952
     :cond_10
     const-string v7, "WfdStateMachine"
 
@@ -9263,29 +9073,29 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2994
+    .line 2953
     if-lez v6, :cond_13
 
-    .line 2995
+    .line 2954
     iget v7, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
     const/16 v8, 0xb
 
     if-ne v7, v8, :cond_12
 
-    .line 2996
+    .line 2955
     const/16 v7, 0xa
 
     invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 2997
+    .line 2956
     const-string v7, "WfdStateMachine"
 
     const-string v8, "Notify refreshing the dongle list(Wifi)."
 
     invoke-static {v7, v8}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3005
+    .line 2964
     :cond_11
     :goto_5
     const/16 v7, 0x25
@@ -9294,7 +9104,7 @@
 
     goto :goto_4
 
-    .line 2999
+    .line 2958
     :cond_12
     const/16 v7, 0xb
 
@@ -9302,18 +9112,18 @@
 
     goto :goto_5
 
-    .line 3001
+    .line 2960
     :cond_13
     iget-boolean v7, p0, Lcom/htc/server/WfdStateMachine;->mIsQuickScanning:Z
 
     if-nez v7, :cond_11
 
-    .line 3002
+    .line 2961
     const/16 v7, 0x26
 
     invoke-virtual {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3003
+    .line 2962
     const/16 v7, 0x8
 
     invoke-direct {p0, v7}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
@@ -9326,19 +9136,19 @@
     .parameter "succeed"
 
     .prologue
-    .line 3009
+    .line 2968
     if-eqz p1, :cond_0
 
-    .line 3010
+    .line 2969
     const/16 v0, 0x23
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3014
+    .line 2973
     :goto_0
     return-void
 
-    .line 3012
+    .line 2971
     :cond_0
     const/16 v0, 0x24
 
@@ -9356,7 +9166,7 @@
 
     const/4 v4, 0x1
 
-    .line 2889
+    .line 2848
     const-string v1, "WfdStateMachine"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -9379,17 +9189,17 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2890
+    .line 2849
     const/4 v1, 0x3
 
     if-ne p1, v1, :cond_1
 
-    .line 2891
+    .line 2850
     const/16 v1, 0x20
 
     invoke-virtual {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2903
+    .line 2862
     :cond_0
     :goto_0
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
@@ -9398,36 +9208,36 @@
 
     move-result-object v0
 
-    .line 2904
+    .line 2863
     .local v0, msg:Landroid/os/Message;
     iput p1, v0, Landroid/os/Message;->arg1:I
 
-    .line 2905
+    .line 2864
     iget-object v1, p0, Lcom/htc/server/WfdStateMachine;->mNotificationHandler:Landroid/os/Handler;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 2906
+    .line 2865
     return-void
 
-    .line 2892
+    .line 2851
     .end local v0           #msg:Landroid/os/Message;
     :cond_1
     if-ne p1, v4, :cond_3
 
-    .line 2893
+    .line 2852
     iget-boolean v1, p0, Lcom/htc/server/WfdStateMachine;->mIsResetting:Z
 
     if-eqz v1, :cond_2
 
-    .line 2894
+    .line 2853
     const/16 v1, 0x64
 
     invoke-virtual {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 2896
+    .line 2855
     :cond_2
     const/16 v1, 0x21
 
@@ -9435,7 +9245,7 @@
 
     goto :goto_0
 
-    .line 2897
+    .line 2856
     :cond_3
     if-ne p1, v5, :cond_4
 
@@ -9443,14 +9253,14 @@
 
     if-ne v1, v5, :cond_4
 
-    .line 2899
+    .line 2858
     const/16 v1, 0x22
 
     invoke-virtual {p0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 2900
+    .line 2859
     :cond_4
     const/4 v1, 0x5
 
@@ -9464,25 +9274,25 @@
     .parameter "info"
 
     .prologue
-    .line 2870
+    .line 2829
     if-nez p1, :cond_0
 
-    .line 2876
+    .line 2835
     :goto_0
     return-void
 
-    .line 2872
+    .line 2831
     :cond_0
     iput-object p1, p0, Lcom/htc/server/WfdStateMachine;->mNetworkInfo:Landroid/net/NetworkInfo;
 
-    .line 2873
+    .line 2832
     invoke-virtual {p1}, Landroid/net/NetworkInfo;->getType()I
 
     move-result v0
 
     iput v0, p0, Lcom/htc/server/WfdStateMachine;->mNetworkType:I
 
-    .line 2874
+    .line 2833
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -9523,7 +9333,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2875
+    .line 2834
     const/16 v0, 0x1f
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
@@ -9536,27 +9346,27 @@
     .parameter "state"
 
     .prologue
-    .line 2854
+    .line 2813
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mWifiApState:I
 
-    .line 2855
+    .line 2814
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiApState:I
 
     const/16 v1, 0xd
 
     if-ne v0, v1, :cond_1
 
-    .line 2856
+    .line 2815
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2860
+    .line 2819
     :cond_0
     :goto_0
     return-void
 
-    .line 2857
+    .line 2816
     :cond_1
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiApState:I
 
@@ -9564,7 +9374,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 2858
+    .line 2817
     const/16 v0, 0xa
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
@@ -9577,27 +9387,27 @@
     .parameter "state"
 
     .prologue
-    .line 2845
+    .line 2804
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mWifiState:I
 
-    .line 2846
+    .line 2805
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiState:I
 
     const/4 v1, 0x3
 
     if-ne v0, v1, :cond_1
 
-    .line 2847
+    .line 2806
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2851
+    .line 2810
     :cond_0
     :goto_0
     return-void
 
-    .line 2848
+    .line 2807
     :cond_1
     iget v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiState:I
 
@@ -9605,7 +9415,7 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 2849
+    .line 2808
     const/4 v0, 0x6
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
@@ -9617,63 +9427,63 @@
     .locals 9
 
     .prologue
-    .line 3017
+    .line 2976
     const-string v5, "WfdStateMachine"
 
     const-string v6, "notifyWivuListChanged()"
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3018
+    .line 2977
     iget v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
     const/16 v6, 0xb
 
     if-ne v5, v6, :cond_0
 
-    .line 3019
+    .line 2978
     const/16 v5, 0xa
 
     invoke-direct {p0, v5}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3020
+    .line 2979
     const-string v5, "WfdStateMachine"
 
     const-string v6, "Notify refreshing the dongle list(Wivu)."
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3023
+    .line 2982
     :cond_0
     const/4 v4, 0x0
 
-    .line 3024
+    .line 2983
     .local v4, size:I
     iget-boolean v5, p0, Lcom/htc/server/WfdStateMachine;->mIsConnectionRequest:Z
 
     if-eqz v5, :cond_2
 
-    .line 3025
+    .line 2984
     const-string v5, "WfdStateMachine"
 
     const-string v6, "[WFD]===>mIsConnectionRequest is true."
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3027
+    .line 2986
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getDiscoveryDongleList()Ljava/util/List;
 
     move-result-object v0
 
-    .line 3028
+    .line 2987
     .local v0, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v4
 
-    .line 3029
+    .line 2988
     const-string v5, "WfdStateMachine"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -9696,7 +9506,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3031
+    .line 2990
     :try_start_0
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -9717,7 +9527,7 @@
 
     check-cast v3, Lcom/htc/service/DongleInfo;
 
-    .line 3032
+    .line 2991
     .local v3, info:Lcom/htc/service/DongleInfo;
     const-string v5, "WfdStateMachine"
 
@@ -9807,7 +9617,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3036
+    .line 2995
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v5, :cond_1
@@ -9834,7 +9644,7 @@
 
     if-eqz v5, :cond_1
 
-    .line 3038
+    .line 2997
     const/16 v5, 0x3c
 
     invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
@@ -9843,17 +9653,17 @@
 
     goto/16 :goto_0
 
-    .line 3041
+    .line 3000
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #info:Lcom/htc/service/DongleInfo;
     :catch_0
     move-exception v1
 
-    .line 3042
+    .line 3001
     .local v1, ex:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 3046
+    .line 3005
     .end local v0           #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_2
@@ -9865,39 +9675,39 @@
     .parameter "event"
 
     .prologue
-    .line 2879
+    .line 2838
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_1
 
-    .line 2880
+    .line 2839
     const/16 v0, 0xe
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2886
+    .line 2845
     :cond_0
     :goto_0
     return-void
 
-    .line 2881
+    .line 2840
     :cond_1
     if-nez p1, :cond_2
 
-    .line 2882
+    .line 2841
     const/16 v0, 0x10
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto :goto_0
 
-    .line 2883
+    .line 2842
     :cond_2
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_0
 
-    .line 2884
+    .line 2843
     const/16 v0, 0xf
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
@@ -9910,21 +9720,21 @@
     .parameter "cb"
 
     .prologue
-    .line 3055
+    .line 3014
     const-string v0, "WfdStateMachine"
 
     const-string v1, "removeCallback()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3056
+    .line 3015
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mCallbacks:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v0, p1}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
 
-    .line 3057
+    .line 3016
     :cond_0
     return-void
 .end method
@@ -9933,30 +9743,30 @@
     .locals 2
 
     .prologue
-    .line 2835
+    .line 2794
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Reset state machine."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2836
+    .line 2795
     iget-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsResetting:Z
 
     if-nez v0, :cond_0
 
-    .line 2837
+    .line 2796
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsResetting:Z
 
-    .line 2838
+    .line 2797
     :cond_0
     const/16 v0, 0x64
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 2839
+    .line 2798
     return-void
 .end method
 
@@ -9964,33 +9774,33 @@
     .locals 2
 
     .prologue
-    .line 3573
+    .line 3514
     const-string v0, "WfdStateMachine"
 
     const-string v1, "[WFD]===>retryConfigure()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3574
+    .line 3515
     const-string v0, "WfdStateMachine"
 
     const-string v1, "Disable scan....@retryConfigure"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3575
+    .line 3516
     iget-object v0, p0, Lcom/htc/server/WfdStateMachine;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     const/4 v1, 0x1
 
     invoke-static {v0, v1}, Lcom/htc/wrap/android/net/wifi/HtcWrapWifiManager;->setWifiDisplayUnscan(Landroid/net/wifi/WifiManager;Z)Z
 
-    .line 3576
+    .line 3517
     const/16 v0, 0x3d
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3577
+    .line 3518
     return-void
 .end method
 
@@ -9999,7 +9809,7 @@
     .parameter "mTargetAutoTestDongleSSID"
 
     .prologue
-    .line 3198
+    .line 3157
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10022,10 +9832,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3199
+    .line 3158
     const/4 v3, 0x0
 
-    .line 3201
+    .line 3160
     .local v3, size:I
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
@@ -10033,13 +9843,13 @@
 
     move-result-object v0
 
-    .line 3202
+    .line 3161
     .local v0, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    .line 3203
+    .line 3162
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10062,7 +9872,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3204
+    .line 3163
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -10081,7 +9891,7 @@
 
     check-cast v2, Lcom/htc/service/DongleInfo;
 
-    .line 3205
+    .line 3164
     .local v2, info:Lcom/htc/service/DongleInfo;
     const-string v4, "WfdStateMachine"
 
@@ -10171,7 +9981,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3209
+    .line 3168
     iget-object v4, v2, Lcom/htc/service/DongleInfo;->ssid:Ljava/lang/String;
 
     invoke-virtual {v4, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -10180,7 +9990,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 3210
+    .line 3169
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10269,7 +10079,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3216
+    .line 3175
     .end local v2           #info:Lcom/htc/service/DongleInfo;
     :goto_0
     return-object v2
@@ -10285,7 +10095,7 @@
     .parameter "mode"
 
     .prologue
-    .line 3064
+    .line 3023
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10330,10 +10140,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3065
+    .line 3024
     iput p1, p0, Lcom/htc/server/WfdStateMachine;->mEntryMode:I
 
-    .line 3066
+    .line 3025
     return-void
 .end method
 
@@ -10344,7 +10154,7 @@
     .prologue
     const/16 v3, 0x38
 
-    .line 3559
+    .line 3500
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10391,43 +10201,43 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3561
+    .line 3502
     if-eqz p1, :cond_0
 
-    .line 3562
+    .line 3503
     invoke-virtual {p0, v3}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3570
+    .line 3511
     :goto_0
     return-void
 
-    .line 3563
+    .line 3504
     :cond_0
     iget-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsConfiguring:Z
 
     if-eqz v0, :cond_1
 
-    .line 3564
+    .line 3505
     const-wide/32 v0, 0x493e0
 
     invoke-virtual {p0, v3, v0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_0
 
-    .line 3565
+    .line 3506
     :cond_1
     iget-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsDiscovering:Z
 
     if-eqz v0, :cond_2
 
-    .line 3566
+    .line 3507
     const-wide/32 v0, 0x249f0
 
     invoke-virtual {p0, v3, v0, v1}, Lcom/htc/server/WfdStateMachine;->sendMessageDelayed(IJ)V
 
     goto :goto_0
 
-    .line 3568
+    .line 3509
     :cond_2
     const-wide/16 v0, 0x7530
 
@@ -10445,7 +10255,7 @@
 
     const/4 v8, 0x1
 
-    .line 3069
+    .line 3028
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10470,24 +10280,24 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3071
+    .line 3030
     sget-boolean v4, Lcom/htc/server/WfdUtils;->isConcurrentSupport:Z
 
     if-nez v4, :cond_1
 
-    .line 3072
+    .line 3031
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v4, :cond_1
 
-    .line 3073
+    .line 3032
     iget-object v4, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v4}, Lcom/htc/service/WirelessDisplayManager;->getDiscoveryDongleList()Ljava/util/List;
 
     move-result-object v0
 
-    .line 3075
+    .line 3034
     .local v0, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     :try_start_0
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -10509,7 +10319,7 @@
 
     check-cast v3, Lcom/htc/service/DongleInfo;
 
-    .line 3076
+    .line 3035
     .local v3, info:Lcom/htc/service/DongleInfo;
     sget-object v4, Lcom/htc/service/DongleInfo;->getStateName:[Ljava/lang/String;
 
@@ -10523,7 +10333,7 @@
 
     if-eqz v4, :cond_0
 
-    .line 3077
+    .line 3036
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10552,7 +10362,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3078
+    .line 3037
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10577,7 +10387,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3079
+    .line 3038
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10602,7 +10412,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3080
+    .line 3039
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10627,7 +10437,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3081
+    .line 3040
     const-string v4, "WfdStateMachine"
 
     const-string v5, "[WFD_DBG]===> --- "
@@ -10638,28 +10448,28 @@
 
     goto/16 :goto_0
 
-    .line 3084
+    .line 3043
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #info:Lcom/htc/service/DongleInfo;
     :catch_0
     move-exception v1
 
-    .line 3085
+    .line 3044
     .local v1, ex:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 3091
+    .line 3050
     .end local v0           #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_1
     iput-boolean v8, p0, Lcom/htc/server/WfdStateMachine;->mIsRequestScanning:Z
 
-    .line 3093
+    .line 3052
     const/16 v4, 0xb
 
     iput v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentPage:I
 
-    .line 3094
+    .line 3053
     const-string v4, "WfdStateMachine"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -10684,46 +10494,46 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3096
+    .line 3055
     iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
     if-nez v4, :cond_2
 
-    .line 3097
+    .line 3056
     iput-boolean v8, p0, Lcom/htc/server/WfdStateMachine;->mIsScanning:Z
 
-    .line 3099
+    .line 3058
     :cond_2
     iget-boolean v4, p0, Lcom/htc/server/WfdStateMachine;->mIsCancelConfiguring:Z
 
     if-eqz v4, :cond_3
 
-    .line 3111
+    .line 3070
     :goto_1
     return-void
 
-    .line 3103
+    .line 3062
     :cond_3
     if-eqz p1, :cond_4
 
-    .line 3104
+    .line 3063
     const/16 v4, 0x18
 
     invoke-virtual {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
     goto :goto_1
 
-    .line 3106
+    .line 3065
     :cond_4
     invoke-virtual {p0, v9}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3107
+    .line 3066
     invoke-virtual {p0, v9}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3108
+    .line 3067
     iput-boolean v8, p0, Lcom/htc/server/WfdStateMachine;->mIsShowScanning:Z
 
-    .line 3109
+    .line 3068
     const/4 v4, 0x7
 
     invoke-direct {p0, v4}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
@@ -10735,7 +10545,7 @@
     .locals 3
 
     .prologue
-    .line 3115
+    .line 3074
     const-string v0, "WfdStateMachine"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -10760,27 +10570,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3116
+    .line 3075
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/htc/server/WfdStateMachine;->mIsRequestScanning:Z
 
-    .line 3117
+    .line 3076
     const/16 v0, 0x18
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3118
+    .line 3077
     const/16 v0, 0x19
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3119
+    .line 3078
     const/16 v0, 0x46
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3120
+    .line 3079
     return-void
 .end method
 
@@ -10791,7 +10601,7 @@
     .prologue
     const/16 v8, 0xb
 
-    .line 3507
+    .line 3448
     const-string v5, "WfdStateMachine"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -10814,26 +10624,26 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3508
+    .line 3449
     const/16 v5, 0x38
 
     invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->removeMessages(I)V
 
-    .line 3509
+    .line 3450
     if-eqz p1, :cond_5
 
-    .line 3511
+    .line 3452
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
     invoke-virtual {v5}, Lcom/htc/service/WirelessDisplayManager;->getDiscoveryDongleList()Ljava/util/List;
 
     move-result-object v0
 
-    .line 3512
+    .line 3453
     .local v0, donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     const/4 v2, 0x0
 
-    .line 3516
+    .line 3457
     .local v2, found:Z
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mWDManager:Lcom/htc/service/WirelessDisplayManager;
 
@@ -10843,20 +10653,20 @@
 
     iput-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
-    .line 3517
+    .line 3458
     iget-object v5, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
 
     if-eqz v5, :cond_1
 
-    .line 3518
+    .line 3459
     const/4 v2, 0x1
 
-    .line 3535
+    .line 3476
     :cond_0
     :goto_0
     if-eqz v2, :cond_4
 
-    .line 3536
+    .line 3477
     const-string v5, "WfdStateMachine"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -10883,23 +10693,23 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3537
+    .line 3478
     const/16 v5, 0x2e
 
     invoke-direct {p0, v5}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
-    .line 3538
+    .line 3479
     const/4 v5, 0x2
 
     invoke-virtual {p0, v5}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3548
+    .line 3489
     .end local v0           #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .end local v2           #found:Z
     :goto_1
     return-void
 
-    .line 3521
+    .line 3462
     .restart local v0       #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .restart local v2       #found:Z
     :cond_1
@@ -10922,7 +10732,7 @@
 
     check-cast v4, Lcom/htc/service/DongleInfo;
 
-    .line 3522
+    .line 3463
     .local v4, info:Lcom/htc/service/DongleInfo;
     iget v5, v4, Lcom/htc/service/DongleInfo;->status:I
 
@@ -10934,7 +10744,7 @@
 
     if-eqz v5, :cond_2
 
-    .line 3523
+    .line 3464
     :cond_3
     const-string v5, "WfdStateMachine"
 
@@ -10960,37 +10770,37 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3524
+    .line 3465
     iput-object v4, p0, Lcom/htc/server/WfdStateMachine;->mCurrentDongle:Lcom/htc/service/DongleInfo;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 3525
+    .line 3466
     const/4 v2, 0x1
 
-    .line 3526
+    .line 3467
     goto :goto_0
 
-    .line 3530
+    .line 3471
     .end local v3           #i$:Ljava/util/Iterator;
     .end local v4           #info:Lcom/htc/service/DongleInfo;
     :catch_0
     move-exception v1
 
-    .line 3531
+    .line 3472
     .local v1, ex:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
 
-    .line 3540
+    .line 3481
     .end local v1           #ex:Ljava/lang/Exception;
     :cond_4
     invoke-direct {p0, v8}, Lcom/htc/server/WfdStateMachine;->sendNotificationState(I)V
 
     goto :goto_1
 
-    .line 3545
+    .line 3486
     .end local v0           #donglelist:Ljava/util/List;,"Ljava/util/List<Lcom/htc/service/DongleInfo;>;"
     .end local v2           #found:Z
     :cond_5
@@ -11003,18 +10813,18 @@
     .locals 2
 
     .prologue
-    .line 3491
+    .line 3432
     const-string v0, "WfdStateMachine"
 
     const-string v1, "wpsTimeout()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3492
+    .line 3433
     const/16 v0, 0xd
 
     invoke-virtual {p0, v0}, Lcom/htc/server/WfdStateMachine;->sendMessage(I)V
 
-    .line 3493
+    .line 3434
     return-void
 .end method

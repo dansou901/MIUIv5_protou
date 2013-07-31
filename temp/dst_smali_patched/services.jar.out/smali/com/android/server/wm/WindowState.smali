@@ -48,8 +48,6 @@
 
 .field final mAttachedWindow:Lcom/android/server/wm/WindowState;
 
-.field mAttrFlagsSaved:Z
-
 .field final mAttrs:Landroid/view/WindowManager$LayoutParams;
 
 .field final mBaseLayer:I
@@ -93,8 +91,6 @@
 
 .field mExiting:Z
 
-.field final mFloatingWindowAllowed:Z
-
 .field final mFrame:Landroid/graphics/Rect;
 
 .field final mGivenContentInsets:Landroid/graphics/Rect;
@@ -116,8 +112,6 @@
 .field private mHideStatusBarArea:Z
 
 .field mInputChannel:Landroid/view/InputChannel;
-
-.field mInputChannelSaved:Landroid/view/InputChannel;
 
 .field final mInputWindowHandle:Lcom/android/server/input/InputWindowHandle;
 
@@ -744,10 +738,6 @@
 
     iput-object v5, p0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
-    const/4 v5, 0x0
-
-    iput-boolean v5, p0, Lcom/android/server/wm/WindowState;->mFloatingWindowAllowed:Z
-
     .end local v3           #e:Landroid/os/RemoteException;
     :goto_7
     return-void
@@ -942,16 +932,6 @@
     invoke-direct {v6, v5, p0}, Lcom/android/server/input/InputWindowHandle;-><init>(Lcom/android/server/input/InputApplicationHandle;Ljava/lang/Object;)V
 
     iput-object v6, p0, Lcom/android/server/wm/WindowState;->mInputWindowHandle:Lcom/android/server/input/InputWindowHandle;
-
-    iget-object v5, p0, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
-
-    iget v5, v5, Lcom/android/server/wm/Session;->mUid:I
-
-    invoke-static {v5}, Lcom/android/server/wm/WindowManagerService$Injector;->isFloatingWindowAllowed(I)Z
-
-    move-result v5
-
-    iput-boolean v5, p0, Lcom/android/server/wm/WindowState;->mFloatingWindowAllowed:Z
 
     goto/16 :goto_7
 
@@ -3200,148 +3180,6 @@
     iget-object v0, p0, Lcom/android/server/wm/WindowState;->mVisibleFrame:Landroid/graphics/Rect;
 
     return-object v0
-.end method
-
-.method getVisibleLwString(Ljava/lang/StringBuilder;)V
-    .locals 5
-    .parameter "sb"
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    iget-object v0, p0, Lcom/android/server/wm/WindowState;->mAppToken:Lcom/android/server/wm/AppWindowToken;
-
-    .local v0, atoken:Lcom/android/server/wm/AppWindowToken;
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowState;->isVisibleLw()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "isVisibleLw()=true, atoken:"
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const-string v1, "isVisibleLw()=false, mHasSurface="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v4, p0, Lcom/android/server/wm/WindowState;->mHasSurface:Z
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v1, ", mPolicyVisibility="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v4, p0, Lcom/android/server/wm/WindowState;->mPolicyVisibility:Z
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v1, ", !mAttachedHidden="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-boolean v1, p0, Lcom/android/server/wm/WindowState;->mAttachedHidden:Z
-
-    if-nez v1, :cond_2
-
-    move v1, v2
-
-    :goto_1
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    if-eqz v0, :cond_1
-
-    const-string v1, ", atoken:"
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v1, ", !hiddenRequested="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-boolean v1, v0, Lcom/android/server/wm/AppWindowToken;->hiddenRequested:Z
-
-    if-nez v1, :cond_3
-
-    move v1, v2
-
-    :goto_2
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    :cond_1
-    const-string v1, ", !mExiting="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-boolean v1, p0, Lcom/android/server/wm/WindowState;->mExiting:Z
-
-    if-nez v1, :cond_4
-
-    move v1, v2
-
-    :goto_3
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v1, ", !mDestroying="
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v4, p0, Lcom/android/server/wm/WindowState;->mDestroying:Z
-
-    if-nez v4, :cond_5
-
-    :goto_4
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-
-    :cond_2
-    move v1, v3
-
-    goto :goto_1
-
-    :cond_3
-    move v1, v3
-
-    goto :goto_2
-
-    :cond_4
-    move v1, v3
-
-    goto :goto_3
-
-    :cond_5
-    move v2, v3
-
-    goto :goto_4
 .end method
 
 .method public hasAppShownWindows()Z

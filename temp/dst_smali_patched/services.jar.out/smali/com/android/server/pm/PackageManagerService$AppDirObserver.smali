@@ -374,8 +374,9 @@
     if-eqz v1, :cond_7
 
     :cond_6
-    #calls: Lcom/android/server/pm/PackageManagerService;->isSystemApp(Landroid/content/pm/PackageParser$Package;)Z
-    invoke-static {v13}, Lcom/android/server/pm/PackageManagerService;->access$2000(Landroid/content/pm/PackageParser$Package;)Z
+    const-string v1, "/system/app/"
+
+    invoke-virtual {v12, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -401,6 +402,14 @@
     const-string v4, "DirtyInstaller"
 
     invoke-virtual {v1, v9, v4}, Lcom/android/server/pm/Settings;->setInstallerPackageName(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService$AppDirObserver;->this$0:Lcom/android/server/pm/PackageManagerService;
+
+    iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v1}, Lcom/android/server/pm/Settings;->writeLPr()V
 
     monitor-exit v3
     :try_end_8

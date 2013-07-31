@@ -56,7 +56,7 @@
     iget-object v2, v2, Landroid/webkit/WebViewClassic$7;->val$copy:Landroid/os/Bundle;
 
     #calls: Landroid/webkit/WebViewClassic;->restoreHistoryPictureFields(Landroid/graphics/Picture;Landroid/os/Bundle;)V
-    invoke-static {v0, v1, v2}, Landroid/webkit/WebViewClassic;->access$2600(Landroid/webkit/WebViewClassic;Landroid/graphics/Picture;Landroid/os/Bundle;)V
+    invoke-static {v0, v1, v2}, Landroid/webkit/WebViewClassic;->access$2200(Landroid/webkit/WebViewClassic;Landroid/graphics/Picture;Landroid/os/Bundle;)V
 
     return-void
 .end method

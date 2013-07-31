@@ -24,15 +24,15 @@
     .parameter "looper"
 
     .prologue
-    .line 1612
+    .line 1609
     invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    .line 1609
+    .line 1606
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->msgNum:I
 
-    .line 1613
+    .line 1610
     return-void
 .end method
 
@@ -43,14 +43,14 @@
     .prologue
     const/16 v6, 0x12
 
-    .line 1638
+    .line 1635
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$800()Ljava/util/HashMap;
 
     move-result-object v4
 
     monitor-enter v4
 
-    .line 1639
+    .line 1636
     :try_start_0
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$800()Ljava/util/HashMap;
 
@@ -64,17 +64,17 @@
 
     check-cast v2, Ljava/util/HashMap;
 
-    .line 1640
+    .line 1637
     .local v2, set:Ljava/util/HashMap;
     if-nez v2, :cond_0
 
-    .line 1641
+    .line 1638
     new-instance v2, Ljava/util/HashMap;
 
     .end local v2           #set:Ljava/util/HashMap;
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    .line 1642
+    .line 1639
     .restart local v2       #set:Ljava/util/HashMap;
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$800()Ljava/util/HashMap;
 
@@ -84,7 +84,7 @@
 
     invoke-virtual {v3, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1644
+    .line 1641
     :cond_0
     iget v3, p1, Landroid/os/Message;->what:I
 
@@ -96,11 +96,11 @@
 
     move-result-object v1
 
-    .line 1645
+    .line 1642
     .local v1, oldOpObj:Ljava/lang/Object;
     if-eqz v1, :cond_2
 
-    .line 1655
+    .line 1652
     check-cast v1, Ljava/lang/Integer;
 
     .end local v1           #oldOpObj:Ljava/lang/Object;
@@ -108,31 +108,31 @@
 
     move-result v0
 
-    .line 1656
+    .line 1653
     .local v0, oldOpCode:I
     iget v3, p1, Landroid/os/Message;->arg1:I
 
     sparse-switch v3, :sswitch_data_0
 
-    .line 1675
+    .line 1672
     monitor-exit v4
 
-    .line 1688
+    .line 1685
     .end local v0           #oldOpCode:I
     :goto_0
     return-void
 
-    .line 1658
+    .line 1655
     .restart local v0       #oldOpCode:I
     :sswitch_0
     if-eq v0, v6, :cond_1
 
-    .line 1659
+    .line 1656
     const/16 v3, 0x17
 
     iput v3, p1, Landroid/os/Message;->arg1:I
 
-    .line 1686
+    .line 1683
     .end local v0           #oldOpCode:I
     :cond_1
     :goto_1
@@ -150,7 +150,7 @@
 
     invoke-virtual {v2, v3, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1687
+    .line 1684
     monitor-exit v4
 
     goto :goto_0
@@ -165,13 +165,13 @@
 
     throw v3
 
-    .line 1663
+    .line 1660
     .restart local v0       #oldOpCode:I
     .restart local v2       #set:Ljava/util/HashMap;
     :sswitch_1
     if-ne v0, v6, :cond_1
 
-    .line 1664
+    .line 1661
     const/16 v3, 0x12
 
     :try_start_1
@@ -179,11 +179,11 @@
 
     goto :goto_1
 
-    .line 1668
+    .line 1665
     :sswitch_2
     if-ne v0, v6, :cond_1
 
-    .line 1669
+    .line 1666
     iget v3, p1, Landroid/os/Message;->what:I
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -192,12 +192,12 @@
 
     invoke-virtual {v2, v3}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1670
+    .line 1667
     monitor-exit v4
 
     goto :goto_0
 
-    .line 1677
+    .line 1674
     .end local v0           #oldOpCode:I
     .restart local v1       #oldOpObj:Ljava/lang/Object;
     :cond_2
@@ -211,14 +211,14 @@
 
     if-lt v3, v5, :cond_1
 
-    .line 1684
+    .line 1681
     monitor-exit v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    .line 1656
+    .line 1653
     :sswitch_data_0
     .sparse-switch
         0x9 -> :sswitch_2
@@ -231,14 +231,14 @@
     .locals 25
 
     .prologue
-    .line 1698
+    .line 1695
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$800()Ljava/util/HashMap;
 
     move-result-object v24
 
     monitor-enter v24
 
-    .line 1699
+    .line 1696
     :try_start_0
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$800()Ljava/util/HashMap;
 
@@ -248,7 +248,7 @@
 
     move-result-object v15
 
-    .line 1700
+    .line 1697
     .local v15, entries:Ljava/util/Set;,"Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/util/HashMap;>;>;"
     invoke-interface {v15}, Ljava/util/Set;->size()I
 
@@ -256,21 +256,21 @@
 
     if-nez v3, :cond_0
 
-    .line 1701
+    .line 1698
     const-string v3, "SQLiteConnection"
 
     const-string/jumbo v5, "no any recorded row id found in sqlite change event"
 
     invoke-static {v3, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1702
+    .line 1699
     monitor-exit v24
 
-    .line 1738
+    .line 1735
     :goto_0
     return-void
 
-    .line 1705
+    .line 1702
     :cond_0
     invoke-interface {v15}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
@@ -289,13 +289,13 @@
 
     check-cast v16, Ljava/util/Map$Entry;
 
-    .line 1709
+    .line 1706
     .local v16, entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/util/HashMap;>;"
     new-instance v21, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 1710
+    .line 1707
     .local v21, idStr:Ljava/lang/StringBuilder;
     invoke-interface/range {v16 .. v16}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -303,7 +303,7 @@
 
     check-cast v23, Ljava/lang/String;
 
-    .line 1711
+    .line 1708
     .local v23, tableName:Ljava/lang/String;
     move-object/from16 v0, v21
 
@@ -317,20 +317,20 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    .line 1713
+    .line 1710
     invoke-interface/range {v16 .. v16}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v22
 
     check-cast v22, Ljava/util/HashMap;
 
-    .line 1714
+    .line 1711
     .local v22, ids:Ljava/util/HashMap;
     invoke-virtual/range {v22 .. v22}, Ljava/util/HashMap;->entrySet()Ljava/util/Set;
 
     move-result-object v20
 
-    .line 1715
+    .line 1712
     .local v20, idSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/util/Map$Entry;>;"
     invoke-interface/range {v20 .. v20}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
@@ -350,7 +350,7 @@
 
     check-cast v19, Ljava/util/Map$Entry;
 
-    .line 1716
+    .line 1713
     .local v19, id:Ljava/util/Map$Entry;
     invoke-interface/range {v19 .. v19}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -382,7 +382,7 @@
 
     goto :goto_2
 
-    .line 1736
+    .line 1733
     .end local v16           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/util/HashMap;>;"
     .end local v18           #i$:Ljava/util/Iterator;
     .end local v19           #id:Ljava/util/Map$Entry;
@@ -399,7 +399,7 @@
 
     throw v3
 
-    .line 1719
+    .line 1716
     .restart local v16       #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/util/HashMap;>;"
     .restart local v18       #i$:Ljava/util/Iterator;
     .restart local v20       #idSet:Ljava/util/Set;,"Ljava/util/Set<Ljava/util/Map$Entry;>;"
@@ -418,7 +418,7 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->deleteCharAt(I)Ljava/lang/StringBuilder;
 
-    .line 1720
+    .line 1717
     const/16 v3, 0x24
 
     move-object/from16 v0, v21
@@ -435,14 +435,14 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 1723
+    .line 1720
     new-instance v4, Landroid/content/Intent;
 
     const-string v3, "com.kii.SQLITE_CHANGE"
 
     invoke-direct {v4, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1724
+    .line 1721
     .local v4, intent:Landroid/content/Intent;
     invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -450,7 +450,7 @@
 
     invoke-virtual {v4, v3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1725
+    .line 1722
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$1000()Ljava/lang/String;
 
     move-result-object v3
@@ -463,13 +463,13 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 1727
+    .line 1724
     :try_start_2
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v2
 
-    .line 1728
+    .line 1725
     .local v2, iActivityManager:Landroid/app/IActivityManager;
     const/4 v3, 0x0
 
@@ -498,12 +498,12 @@
 
     goto/16 :goto_1
 
-    .line 1730
+    .line 1727
     .end local v2           #iActivityManager:Landroid/app/IActivityManager;
     :catch_0
     move-exception v14
 
-    .line 1731
+    .line 1728
     .local v14, e:Ljava/lang/Exception;
     :try_start_3
     const-string v3, "SQLiteConnection"
@@ -532,7 +532,7 @@
 
     goto/16 :goto_1
 
-    .line 1735
+    .line 1732
     .end local v4           #intent:Landroid/content/Intent;
     .end local v14           #e:Ljava/lang/Exception;
     .end local v16           #entry:Ljava/util/Map$Entry;,"Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/util/HashMap;>;"
@@ -548,7 +548,7 @@
 
     invoke-virtual {v3}, Ljava/util/HashMap;->clear()V
 
-    .line 1736
+    .line 1733
     monitor-exit v24
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -567,22 +567,22 @@
 
     const/4 v1, -0x1
 
-    .line 1616
+    .line 1613
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-eq v0, v1, :cond_1
 
-    .line 1617
+    .line 1614
     invoke-virtual {p0, v1}, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->hasMessages(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1618
+    .line 1615
     invoke-virtual {p0, v1, v2, v3}, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 1620
+    .line 1617
     :cond_0
     iget v0, p0, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->msgNum:I
 
@@ -590,31 +590,31 @@
 
     iput v0, p0, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->msgNum:I
 
-    .line 1621
+    .line 1618
     invoke-direct {p0, p1}, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->enqueueMessage(Landroid/os/Message;)V
 
-    .line 1632
+    .line 1629
     :goto_0
     return-void
 
-    .line 1623
+    .line 1620
     :cond_1
     iget v0, p0, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->msgNum:I
 
     if-nez v0, :cond_2
 
-    .line 1625
+    .line 1622
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->sendIntent()V
 
     goto :goto_0
 
-    .line 1628
+    .line 1625
     :cond_2
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->msgNum:I
 
-    .line 1629
+    .line 1626
     invoke-virtual {p0, v1, v2, v3}, Landroid/database/sqlite/SQLiteConnection$HookMessageHandler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
@@ -625,14 +625,14 @@
     .parameter "msg"
 
     .prologue
-    .line 1745
+    .line 1742
     new-instance v2, Landroid/content/Intent;
 
     const-string v1, "com.kii.SQLITE_CHANGE"
 
     invoke-direct {v2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1747
+    .line 1744
     .local v2, intent:Landroid/content/Intent;
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -678,7 +678,7 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1748
+    .line 1745
     invoke-static {}, Landroid/database/sqlite/SQLiteConnection;->access$1000()Ljava/lang/String;
 
     move-result-object v1
@@ -689,13 +689,13 @@
 
     invoke-virtual {v2, v1, v3}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 1750
+    .line 1747
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v0
 
-    .line 1751
+    .line 1748
     .local v0, iActivityManager:Landroid/app/IActivityManager;
     const/4 v1, 0x0
 
@@ -721,16 +721,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1755
+    .line 1752
     .end local v0           #iActivityManager:Landroid/app/IActivityManager;
     :goto_0
     return-void
 
-    .line 1752
+    .line 1749
     :catch_0
     move-exception v12
 
-    .line 1753
+    .line 1750
     .local v12, e:Ljava/lang/Exception;
     const-string v1, "SQLiteConnection"
 

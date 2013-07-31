@@ -25,8 +25,6 @@
 
 .field public static final EXTRA_NETWORK_STATE:Ljava/lang/String; = "networkState"
 
-.field public static final EXTRA_PHONE_SLOT:Ljava/lang/String; = "phone_slot"
-
 .field public static final EXTRA_PHONE_TYPE:Ljava/lang/String; = "phone_type"
 
 .field public static final EXTRA_PLMN:Ljava/lang/String; = "plmn"

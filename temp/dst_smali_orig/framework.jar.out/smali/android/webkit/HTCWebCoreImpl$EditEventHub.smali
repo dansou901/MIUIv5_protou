@@ -33,8 +33,6 @@
 
 .field static final COPY:I = 0x21c
 
-.field static final COPY_IMAGE:I = 0x281
-
 .field static final CUT:I = 0x21d
 
 .field static final DELET_SURROUNDING_TEXT:I = 0x1f7
@@ -55,21 +53,9 @@
 
 .field static final GET_BODY_NODE:I = 0x277
 
-.field static final GET_EMBED_NODES:I = 0x28b
-
-.field static final GET_HIDDEN_EMBED_NODES:I = 0x28e
-
 .field static final GET_HTML_STRING:I = 0x1f9
 
-.field static final GET_IFRAME_NODES:I = 0x28d
-
-.field static final GET_OBJECT_NODES:I = 0x28c
-
 .field static final GET_READ_MODE_CONTENT:I = 0x259
-
-.field static final GET_TITLE_DESCRIPTION:I = 0x290
-
-.field static final GET_VIDEO_ID:I = 0x28f
 
 .field static final INFORM_COLOR_CHANGED:I = 0x20a
 
@@ -113,13 +99,9 @@
 
 .field static final RESUME_FP_DOPLAY:I = 0x264
 
-.field static final SAVE_HITTEST_IMAGE:I = 0x283
-
 .field static final SELECT_ALL:I = 0x219
 
 .field static final SELECT_CJKS_WORD:I = 0x215
-
-.field static final SELECT_IMAGE_AT:I = 0x282
 
 .field static final SET_BACK_COLOR:I = 0x208
 
@@ -130,8 +112,6 @@
 .field static final SET_FORE_COLOR:I = 0x207
 
 .field static final SET_IMAGE_ATTR:I = 0x20b
-
-.field static final SET_SELETION_PARAM:I = 0x26e
 
 .field static final SWITCH_SPELL_CHECK:I = 0x230
 
@@ -2207,1091 +2187,217 @@
 .end method
 
 .method handleOtherMsg(Landroid/os/Message;)V
-    .locals 30
+    .locals 9
     .parameter "msg"
 
     .prologue
-    move-object/from16 v0, p1
+    const/4 v2, 0x1
 
-    iget v0, v0, Landroid/os/Message;->what:I
+    const/4 v6, 0x0
 
-    move/from16 v26, v0
+    iget v7, p1, Landroid/os/Message;->what:I
 
-    sparse-switch v26, :sswitch_data_0
+    sparse-switch v7, :sswitch_data_0
 
     :cond_0
     :goto_0
     return-void
 
     :sswitch_0
-    move-object/from16 v0, p1
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v7, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    check-cast v1, Landroid/os/Message;
 
-    check-cast v7, Landroid/os/Message;
+    .local v1, callback:Landroid/os/Message;
+    new-instance v0, Ljava/util/ArrayList;
 
-    .local v7, callback:Landroid/os/Message;
-    new-instance v4, Ljava/util/ArrayList;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    .local v0, arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
-    .local v4, arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
+    iget-object v7, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
+    invoke-static {v7}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
 
-    move-result v27
+    move-result v7
 
-    iget v0, v7, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
+    iget v8, v1, Landroid/os/Message;->arg2:I
 
     #calls: Landroid/webkit/HTCWebCoreImpl;->nativeGetPureReaderContents(ILjava/util/ArrayList;I)Z
-    invoke-static {v0, v1, v4, v2}, Landroid/webkit/HTCWebCoreImpl;->access$4300(Landroid/webkit/HTCWebCoreImpl;ILjava/util/ArrayList;I)Z
+    invoke-static {v6, v7, v0, v8}, Landroid/webkit/HTCWebCoreImpl;->access$4300(Landroid/webkit/HTCWebCoreImpl;ILjava/util/ArrayList;I)Z
 
-    move-result v21
+    move-result v5
 
-    .local v21, success:Z
-    iput-object v4, v7, Landroid/os/Message;->obj:Ljava/lang/Object;
+    .local v5, success:Z
+    iput-object v0, v1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
-    if-nez v21, :cond_0
+    if-nez v5, :cond_0
 
-    const-string v26, "KENLOG"
+    const-string v6, "KENLOG"
 
-    const-string v27, "[PureReader] fail to get pure contents from native layer."
+    const-string v7, "[PureReader] fail to get pure contents from native layer."
 
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    .end local v4           #arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v7           #callback:Landroid/os/Message;
-    .end local v21           #success:Z
+    .end local v0           #arrayList:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v1           #callback:Landroid/os/Message;
+    .end local v5           #success:Z
     :sswitch_1
-    move-object/from16 v0, p1
+    iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v13, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
+    check-cast v3, Ljava/lang/String;
 
-    check-cast v13, Ljava/lang/String;
+    .local v3, htmlString:Ljava/lang/String;
+    if-eqz v3, :cond_0
 
-    .local v13, htmlString:Ljava/lang/String;
-    if-eqz v13, :cond_0
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v13}, Ljava/lang/String;->length()I
+    move-result v6
 
-    move-result v26
+    if-lez v6, :cond_0
 
-    if-lez v26, :cond_0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
+    iget-object v7, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
+    invoke-static {v7}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
 
-    move-result v27
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
+    move-result v7
 
     #calls: Landroid/webkit/HTCWebCoreImpl;->nativeInsertHtmlToTheEnd(ILjava/lang/String;)V
-    invoke-static {v0, v1, v13}, Landroid/webkit/HTCWebCoreImpl;->access$100(Landroid/webkit/HTCWebCoreImpl;ILjava/lang/String;)V
+    invoke-static {v6, v7, v3}, Landroid/webkit/HTCWebCoreImpl;->access$100(Landroid/webkit/HTCWebCoreImpl;ILjava/lang/String;)V
 
     goto :goto_0
 
-    .end local v13           #htmlString:Ljava/lang/String;
+    .end local v3           #htmlString:Ljava/lang/String;
     :sswitch_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #calls: Landroid/webkit/HTCWebCoreImpl;->nativePauseFPDoPlay()V
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$4400(Landroid/webkit/HTCWebCoreImpl;)V
+    invoke-static {v6}, Landroid/webkit/HTCWebCoreImpl;->access$4400(Landroid/webkit/HTCWebCoreImpl;)V
 
     goto :goto_0
 
     :sswitch_3
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #calls: Landroid/webkit/HTCWebCoreImpl;->nativeResumeFPDoPlay()V
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$4500(Landroid/webkit/HTCWebCoreImpl;)V
+    invoke-static {v6}, Landroid/webkit/HTCWebCoreImpl;->access$4500(Landroid/webkit/HTCWebCoreImpl;)V
 
     goto :goto_0
 
     :sswitch_4
-    move-object/from16 v0, p1
+    iget v7, p1, Landroid/os/Message;->arg1:I
 
-    iget v0, v0, Landroid/os/Message;->arg1:I
+    if-ne v7, v2, :cond_1
 
-    move/from16 v26, v0
-
-    const/16 v27, 0x1
-
-    move/from16 v0, v26
-
-    move/from16 v1, v27
-
-    if-ne v0, v1, :cond_1
-
-    const/4 v11, 0x1
-
-    .local v11, createTextSelect:Z
+    .local v2, createTextSelect:Z
     :goto_1
-    move-object/from16 v0, p0
+    iget-object v7, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
+    iget-object v8, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
+    invoke-static {v8}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
 
-    move-result v27
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
+    move-result v8
 
     #calls: Landroid/webkit/HTCWebCoreImpl;->nativeUpdateTextSelection(IZ)I
-    invoke-static {v0, v1, v11}, Landroid/webkit/HTCWebCoreImpl;->access$4600(Landroid/webkit/HTCWebCoreImpl;IZ)I
+    invoke-static {v7, v8, v2}, Landroid/webkit/HTCWebCoreImpl;->access$4600(Landroid/webkit/HTCWebCoreImpl;IZ)I
 
-    move-result v20
+    move-result v4
 
-    .local v20, selectionPtr:I
-    if-eqz v11, :cond_0
+    .local v4, selectionPtr:I
+    if-eqz v2, :cond_0
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v7, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$900(Landroid/webkit/HTCWebCoreImpl;)Landroid/webkit/WebViewClassic;
+    invoke-static {v7}, Landroid/webkit/HTCWebCoreImpl;->access$900(Landroid/webkit/HTCWebCoreImpl;)Landroid/webkit/WebViewClassic;
 
-    move-result-object v26
+    move-result-object v7
 
-    move-object/from16 v0, v26
+    iget-object v7, v7, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
 
-    iget-object v0, v0, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
+    const/16 v8, 0xb7
 
-    move-object/from16 v26, v0
+    invoke-static {v7, v8, v4, v6}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
 
-    const/16 v27, 0xb7
+    move-result-object v6
 
-    const/16 v28, 0x0
+    invoke-virtual {v6}, Landroid/os/Message;->sendToTarget()V
 
-    move-object/from16 v0, v26
+    goto :goto_0
 
-    move/from16 v1, v27
-
-    move/from16 v2, v20
-
-    move/from16 v3, v28
-
-    invoke-static {v0, v1, v2, v3}, Landroid/os/Message;->obtain(Landroid/os/Handler;III)Landroid/os/Message;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v11           #createTextSelect:Z
-    .end local v20           #selectionPtr:I
+    .end local v2           #createTextSelect:Z
+    .end local v4           #selectionPtr:I
     :cond_1
-    const/4 v11, 0x0
+    move v2, v6
 
     goto :goto_1
 
     :sswitch_5
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg1:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg2:I
-
-    move/from16 v29, v0
-
-    #calls: Landroid/webkit/HTCWebCoreImpl;->nativeSetSeletionTypeAndFlag(III)V
-    invoke-static/range {v26 .. v29}, Landroid/webkit/HTCWebCoreImpl;->access$4700(Landroid/webkit/HTCWebCoreImpl;III)V
-
-    goto/16 :goto_0
-
-    :sswitch_6
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$4800(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
+    invoke-static {v6}, Landroid/webkit/HTCWebCoreImpl;->access$4700(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
 
-    move-result-object v27
+    move-result-object v7
 
-    monitor-enter v27
+    monitor-enter v7
 
     :try_start_0
-    move-object/from16 v0, p0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
+    iget v8, p1, Landroid/os/Message;->arg1:I
 
-    move-object/from16 v26, v0
+    invoke-virtual {v6, v8}, Landroid/webkit/HTCWebCoreImpl;->setBodyNode(I)V
 
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg1:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v28
-
-    invoke-virtual {v0, v1}, Landroid/webkit/HTCWebCoreImpl;->setBodyNode(I)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$4900(Landroid/webkit/HTCWebCoreImpl;)I
+    invoke-static {v6}, Landroid/webkit/HTCWebCoreImpl;->access$4800(Landroid/webkit/HTCWebCoreImpl;)I
 
-    move-result v26
+    move-result v6
 
-    if-nez v26, :cond_2
+    if-nez v6, :cond_2
 
-    move-object/from16 v0, p0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    const/16 v28, -0x1
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v28
+    const/4 v8, -0x1
 
     #setter for: Landroid/webkit/HTCWebCoreImpl;->bodyNodePtr:I
-    invoke-static {v0, v1}, Landroid/webkit/HTCWebCoreImpl;->access$4902(Landroid/webkit/HTCWebCoreImpl;I)I
+    invoke-static {v6, v8}, Landroid/webkit/HTCWebCoreImpl;->access$4802(Landroid/webkit/HTCWebCoreImpl;I)I
 
     :cond_2
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
+    iget-object v6, p0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
 
     #getter for: Landroid/webkit/HTCWebCoreImpl;->bodyNodeRect:Landroid/graphics/Rect;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$4800(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
+    invoke-static {v6}, Landroid/webkit/HTCWebCoreImpl;->access$4700(Landroid/webkit/HTCWebCoreImpl;)Landroid/graphics/Rect;
 
-    move-result-object v26
+    move-result-object v6
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/Object;->notify()V
+    invoke-virtual {v6}, Ljava/lang/Object;->notify()V
 
-    monitor-exit v27
+    monitor-exit v7
 
     goto/16 :goto_0
 
     :catchall_0
-    move-exception v26
+    move-exception v6
 
-    monitor-exit v27
+    monitor-exit v7
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v26
-
-    :sswitch_7
-    move-object/from16 v0, p1
-
-    iget-object v0, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    move-object/from16 v26, v0
-
-    check-cast v26, [Ljava/lang/String;
-
-    move-object/from16 v23, v26
-
-    check-cast v23, [Ljava/lang/String;
-
-    .local v23, urls:[Ljava/lang/String;
-    const/16 v26, 0x0
-
-    aget-object v12, v23, v26
-
-    .local v12, filePath:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$5000(Landroid/webkit/HTCWebCoreImpl;)Ljava/lang/String;
-
-    move-result-object v10
-
-    .local v10, copiedHtml:Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    const/16 v27, 0x0
-
-    #setter for: Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-    invoke-static/range {v26 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$5002(Landroid/webkit/HTCWebCoreImpl;Ljava/lang/String;)Ljava/lang/String;
-
-    const-string v16, "^(.*)<img[^>]+src\\s*=\\s*[\'\"]([^\'\"]+)[\'\"][^>]*>(.*)$"
-
-    .local v16, imgTagRegex:Ljava/lang/String;
-    invoke-static/range {v16 .. v16}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
-
-    move-result-object v15
-
-    .local v15, imgTagPatt:Ljava/util/regex/Pattern;
-    invoke-virtual {v15, v10}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v19
-
-    .local v19, m:Ljava/util/regex/Matcher;
-    invoke-virtual/range {v19 .. v19}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_4
-
-    const-string v18, "(.+)([jpg|png|gif|bmp]$)+"
-
-    .local v18, imgUrlRegex:Ljava/lang/String;
-    invoke-static/range {v18 .. v18}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
-
-    move-result-object v17
-
-    .local v17, imgUrlPatt:Ljava/util/regex/Pattern;
-    const/4 v14, 0x0
-
-    .local v14, i:I
-    :goto_2
-    invoke-virtual/range {v19 .. v19}, Ljava/util/regex/Matcher;->groupCount()I
-
-    move-result v26
-
-    move/from16 v0, v26
-
-    if-gt v14, v0, :cond_5
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v26
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v26
-
-    invoke-virtual {v0, v1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Ljava/util/regex/Matcher;->matches()Z
-
-    move-result v26
-
-    if-eqz v26, :cond_3
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    invoke-virtual {v10, v0, v12}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v10
-
-    sget-boolean v26, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v26, :cond_3
-
-    const-string v26, "Image"
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v28, "Copy Image group "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string v28, " "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v14}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string v28, " hit!"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    add-int/lit8 v14, v14, 0x1
-
-    goto :goto_2
-
-    .end local v14           #i:I
-    .end local v17           #imgUrlPatt:Ljava/util/regex/Pattern;
-    .end local v18           #imgUrlRegex:Ljava/lang/String;
-    :cond_4
-    sget-boolean v26, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v26, :cond_5
-
-    const-string v26, "Image"
-
-    const-string v27, "WebViewCore::COPY_IMAGE not match"
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    sget-boolean v26, Lcom/htc/htcjavaflag/HtcBuildFlag;->Htc_DEBUG_flag:Z
-
-    if-eqz v26, :cond_6
-
-    const-string v26, "Image"
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v28, "WebViewCore::COPY_IMAGE copiedHtml? "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    move-object/from16 v0, v27
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    if-eqz v10, :cond_0
-
-    const/16 v26, 0x2
-
-    move/from16 v0, v26
-
-    new-array v9, v0, [Ljava/lang/String;
-
-    const/16 v26, 0x0
-
-    const-string v27, "copy_image"
-
-    aput-object v27, v9, v26
-
-    const/16 v26, 0x1
-
-    aput-object v10, v9, v26
-
-    .local v9, copied:[Ljava/lang/String;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mWebView:Landroid/webkit/WebViewClassic;
-    invoke-static/range {v26 .. v26}, Landroid/webkit/HTCWebCoreImpl;->access$900(Landroid/webkit/HTCWebCoreImpl;)Landroid/webkit/WebViewClassic;
-
-    move-result-object v26
-
-    move-object/from16 v0, v26
-
-    iget-object v0, v0, Landroid/webkit/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
-
-    move-object/from16 v26, v0
-
-    const/16 v27, 0x8d
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    invoke-virtual {v0, v1, v9}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v26
-
-    invoke-virtual/range {v26 .. v26}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v9           #copied:[Ljava/lang/String;
-    .end local v10           #copiedHtml:Ljava/lang/String;
-    .end local v12           #filePath:Ljava/lang/String;
-    .end local v15           #imgTagPatt:Ljava/util/regex/Pattern;
-    .end local v16           #imgTagRegex:Ljava/lang/String;
-    .end local v19           #m:Ljava/util/regex/Matcher;
-    .end local v23           #urls:[Ljava/lang/String;
-    :sswitch_8
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg1:I
-
-    move/from16 v24, v0
-
-    .local v24, x:I
-    move-object/from16 v0, p1
-
-    iget v0, v0, Landroid/os/Message;->arg2:I
-
-    move/from16 v25, v0
-
-    .local v25, y:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v28, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mNativeClass:I
-    invoke-static/range {v28 .. v28}, Landroid/webkit/HTCWebCoreImpl;->access$5100(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v28
-
-    move-object/from16 v0, v27
-
-    move/from16 v1, v28
-
-    move/from16 v2, v24
-
-    move/from16 v3, v25
-
-    #calls: Landroid/webkit/HTCWebCoreImpl;->nativeSelectImageHTMLAt(III)Ljava/lang/String;
-    invoke-static {v0, v1, v2, v3}, Landroid/webkit/HTCWebCoreImpl;->access$5200(Landroid/webkit/HTCWebCoreImpl;III)Ljava/lang/String;
-
-    move-result-object v27
-
-    #setter for: Landroid/webkit/HTCWebCoreImpl;->imageHTML:Ljava/lang/String;
-    invoke-static/range {v26 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$5002(Landroid/webkit/HTCWebCoreImpl;Ljava/lang/String;)Ljava/lang/String;
-
-    goto/16 :goto_0
-
-    .end local v24           #x:I
-    .end local v25           #y:I
-    :sswitch_9
-    move-object/from16 v0, p1
-
-    iget-object v6, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v6, Landroid/os/Bundle;
-
-    .local v6, b:Landroid/os/Bundle;
-    const-string v26, "Image"
-
-    new-instance v27, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v28, "WebViewCore::SAVE_HITTEST_IMAGE filePath: "
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    const-string v28, "url"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v6, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v27
-
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v27
-
-    invoke-static/range {v26 .. v27}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$5100(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    const-string v28, "nodeRef"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v6, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v28
-
-    const-string v29, "url"
-
-    move-object/from16 v0, v29
-
-    invoke-virtual {v6, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v29
-
-    #calls: Landroid/webkit/HTCWebCoreImpl;->nativeSaveHitTestImage(IILjava/lang/String;)Z
-    invoke-static/range {v26 .. v29}, Landroid/webkit/HTCWebCoreImpl;->access$5300(Landroid/webkit/HTCWebCoreImpl;IILjava/lang/String;)Z
-
-    goto/16 :goto_0
-
-    .end local v6           #b:Landroid/os/Bundle;
-    :sswitch_a
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .local v8, callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .local v5, arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetEmbedNodes(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .local v22, success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v5           #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v8           #callback2:Landroid/os/Message;
-    .end local v22           #success2:Z
-    :sswitch_b
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .restart local v8       #callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v5       #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetObjectNodes(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .restart local v22       #success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v5           #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v8           #callback2:Landroid/os/Message;
-    .end local v22           #success2:Z
-    :sswitch_c
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .restart local v8       #callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v5       #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetIFrameNodes(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .restart local v22       #success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v5           #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v8           #callback2:Landroid/os/Message;
-    .end local v22           #success2:Z
-    :sswitch_d
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .restart local v8       #callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v5       #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetHiddenEmbedNodes(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .restart local v22       #success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v5           #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v8           #callback2:Landroid/os/Message;
-    .end local v22           #success2:Z
-    :sswitch_e
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .restart local v8       #callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v5       #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetVideoID(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .restart local v22       #success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
-
-    .end local v5           #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    .end local v8           #callback2:Landroid/os/Message;
-    .end local v22           #success2:Z
-    :sswitch_f
-    move-object/from16 v0, p1
-
-    iget-object v8, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v8, Landroid/os/Message;
-
-    .restart local v8       #callback2:Landroid/os/Message;
-    new-instance v5, Ljava/util/ArrayList;
-
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
-
-    .restart local v5       #arrayList2:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Ljava/lang/String;>;"
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v26, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Landroid/webkit/HTCWebCoreImpl$EditEventHub;->this$0:Landroid/webkit/HTCWebCoreImpl;
-
-    move-object/from16 v27, v0
-
-    #getter for: Landroid/webkit/HTCWebCoreImpl;->mCoreNativeClass:I
-    invoke-static/range {v27 .. v27}, Landroid/webkit/HTCWebCoreImpl;->access$000(Landroid/webkit/HTCWebCoreImpl;)I
-
-    move-result v27
-
-    iget v0, v8, Landroid/os/Message;->arg2:I
-
-    move/from16 v28, v0
-
-    move-object/from16 v0, v26
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    invoke-virtual {v0, v1, v5, v2}, Landroid/webkit/HTCWebCoreImpl;->nativeGetTitleDescription(ILjava/util/ArrayList;I)Z
-
-    move-result v22
-
-    .restart local v22       #success2:Z
-    iput-object v5, v8, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    invoke-virtual {v8}, Landroid/os/Message;->sendToTarget()V
-
-    goto/16 :goto_0
+    throw v6
 
     nop
 
@@ -3302,17 +2408,7 @@
         0x263 -> :sswitch_2
         0x264 -> :sswitch_3
         0x26d -> :sswitch_4
-        0x26e -> :sswitch_5
-        0x277 -> :sswitch_6
-        0x281 -> :sswitch_7
-        0x282 -> :sswitch_8
-        0x283 -> :sswitch_9
-        0x28b -> :sswitch_a
-        0x28c -> :sswitch_b
-        0x28d -> :sswitch_c
-        0x28e -> :sswitch_d
-        0x28f -> :sswitch_e
-        0x290 -> :sswitch_f
+        0x277 -> :sswitch_5
     .end sparse-switch
 .end method
 
