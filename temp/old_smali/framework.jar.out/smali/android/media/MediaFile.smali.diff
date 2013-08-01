@@ -1,5 +1,5 @@
-*** ./smali/android/media/MediaFile.smali	2013-08-01 13:46:49.203036263 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/MediaFile.smali	2013-08-01 13:45:36.996367256 +0000
+*** ./smali/android/media/MediaFile.smali	2013-08-01 14:28:35.996450854 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/MediaFile.smali	2013-08-01 14:27:01.456447789 +0000
 ***************
 *** 6,12 ****
   # annotations

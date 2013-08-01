@@ -1,5 +1,5 @@
-*** ./smali/android/graphics/drawable/AnimationDrawable.smali	2013-08-01 13:46:40.549702649 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable.smali	2013-08-01 13:45:28.393033644 +0000
+*** ./smali/android/graphics/drawable/AnimationDrawable.smali	2013-08-01 14:28:24.599783818 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable.smali	2013-08-01 14:26:50.123114089 +0000
 ***************
 *** 17,23 ****
   

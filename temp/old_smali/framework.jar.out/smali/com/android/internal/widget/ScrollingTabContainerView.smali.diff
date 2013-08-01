@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/ScrollingTabContainerView.smali	2013-08-01 13:46:05.066368166 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ScrollingTabContainerView.smali	2013-08-01 13:44:53.323032507 +0000
+*** ./smali/com/android/internal/widget/ScrollingTabContainerView.smali	2013-08-01 14:27:38.193115647 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ScrollingTabContainerView.smali	2013-08-01 14:26:05.373112638 +0000
 ***************
 *** 176,181 ****
 --- 176,184 ----

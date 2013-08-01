@@ -1,5 +1,5 @@
-*** ./smali/android/content/res/Resources.smali	2013-08-01 13:46:43.263036071 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Resources.smali	2013-08-01 13:45:31.103033732 +0000
+*** ./smali/android/content/res/Resources.smali	2013-08-01 14:28:28.179783934 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Resources.smali	2013-08-01 14:26:53.709780871 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

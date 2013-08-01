@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/LockPatternKeyguardView$AccountAnalyzer.smali	2013-08-01 13:47:06.309703485 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/LockPatternKeyguardView$AccountAnalyzer.smali	2013-08-01 13:45:53.966367806 +0000
+*** ./smali/com/android/internal/policy/impl/LockPatternKeyguardView$AccountAnalyzer.smali	2013-08-01 14:28:58.406451580 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/LockPatternKeyguardView$AccountAnalyzer.smali	2013-08-01 14:27:23.879781849 +0000
 ***************
 *** 32,38 ****
   

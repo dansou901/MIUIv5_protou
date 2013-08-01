@@ -1,5 +1,5 @@
-*** ./smali/android/preference/PreferenceScreen.smali	2013-08-01 13:46:27.119702214 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceScreen.smali	2013-08-01 13:45:15.093033213 +0000
+*** ./smali/android/preference/PreferenceScreen.smali	2013-08-01 14:28:06.966449913 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceScreen.smali	2013-08-01 14:26:32.509780184 +0000
 ***************
 *** 40,45 ****
 --- 40,48 ----

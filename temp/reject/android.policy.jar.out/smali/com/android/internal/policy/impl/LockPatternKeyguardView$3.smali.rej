@@ -1,11 +1,11 @@
-*** LockPatternKeyguardView$3.smali	2013-08-01 13:45:54.689701163 +0000
---- LockPatternKeyguardView$3.smali	2013-08-01 13:47:07.033036841 +0000
+*** LockPatternKeyguardView$3.smali	2013-08-01 14:28:59.396451612 +0000
+--- LockPatternKeyguardView$3.smali	2013-08-01 14:27:24.846448547 +0000
 ***************
 *** 466,472 ****
   
       .local v4, showTimeout:Z
       :goto_3
-!     #if-eqz v5, :cond_5
+!     if-eqz v5, :cond_5
   
       iget-object v8, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$3;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
   
@@ -13,7 +13,7 @@
   
       .local v4, showTimeout:Z
       :goto_3
-!     if-eqz v5, :cond_5
+!     #if-eqz v5, :cond_5
   
       iget-object v8, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$3;->this$0:Lcom/android/internal/policy/impl/LockPatternKeyguardView;
   

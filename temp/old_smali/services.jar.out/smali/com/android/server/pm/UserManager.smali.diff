@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/UserManager.smali	2013-08-01 13:46:01.643034722 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/UserManager.smali	2013-08-01 13:44:50.063032402 +0000
+*** ./smali/com/android/server/pm/UserManager.smali	2013-08-01 14:27:33.866448840 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/UserManager.smali	2013-08-01 14:26:02.076445864 +0000
 ***************
 *** 1689,1695 ****
 --- 1689,1705 ----

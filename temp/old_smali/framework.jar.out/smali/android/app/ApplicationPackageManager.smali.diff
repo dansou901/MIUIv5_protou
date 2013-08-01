@@ -1,5 +1,5 @@
-*** ./smali/android/app/ApplicationPackageManager.smali	2013-08-01 13:47:03.933036741 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ApplicationPackageManager.smali	2013-08-01 13:45:51.596367729 +0000
+*** ./smali/android/app/ApplicationPackageManager.smali	2013-08-01 14:28:55.263118145 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ApplicationPackageManager.smali	2013-08-01 14:27:20.699781746 +0000
 ***************
 *** 1394,1410 ****
       goto :goto_0

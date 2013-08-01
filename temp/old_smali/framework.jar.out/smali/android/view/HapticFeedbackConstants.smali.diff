@@ -1,5 +1,5 @@
-*** ./smali/android/view/HapticFeedbackConstants.smali	2013-08-01 13:46:54.026369753 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/HapticFeedbackConstants.smali	2013-08-01 13:45:41.743034077 +0000
+*** ./smali/android/view/HapticFeedbackConstants.smali	2013-08-01 14:28:42.356451060 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/HapticFeedbackConstants.smali	2013-08-01 14:27:07.729781326 +0000
 ***************
 *** 8,13 ****
 --- 8,19 ----

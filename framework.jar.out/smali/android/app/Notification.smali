@@ -150,6 +150,8 @@
 
 .field public deleteIntent:Landroid/app/PendingIntent;
 
+.field public extraNotification:Lmiui/app/ExtraNotification;
+
 .field private extras:Landroid/os/Bundle;
 
 .field public flags:I
@@ -210,6 +212,12 @@
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    new-instance v0, Lmiui/app/ExtraNotification;
+
+    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/app/Notification;->audioStreamType:I
@@ -243,6 +251,12 @@
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Lmiui/app/ExtraNotification;
+
+    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
 
     const/4 v0, -0x1
 
@@ -278,6 +292,12 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    new-instance v0, Lmiui/app/ExtraNotification;
+
+    invoke-direct {v0}, Lmiui/app/ExtraNotification;-><init>()V
+
+    iput-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
+
     const/4 v0, -0x1
 
     iput v0, p0, Landroid/app/Notification;->audioStreamType:I
@@ -309,6 +329,12 @@
 
     .prologue
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v1, Lmiui/app/ExtraNotification;
+
+    invoke-direct {v1}, Lmiui/app/ExtraNotification;-><init>()V
+
+    iput-object v1, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
 
     const/4 v1, -0x1
 

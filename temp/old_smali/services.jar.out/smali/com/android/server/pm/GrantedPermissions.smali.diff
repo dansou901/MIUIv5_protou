@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/GrantedPermissions.smali	2013-08-01 13:46:01.523034718 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/GrantedPermissions.smali	2013-08-01 13:44:49.933032397 +0000
+*** ./smali/com/android/server/pm/GrantedPermissions.smali	2013-08-01 14:27:33.726448835 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/GrantedPermissions.smali	2013-08-01 14:26:01.946445860 +0000
 ***************
 *** 89,97 ****
   .method setFlags(I)V

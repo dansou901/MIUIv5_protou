@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali	2013-08-01 13:47:05.919703472 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali	2013-08-01 13:45:53.579701127 +0000
+*** ./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali	2013-08-01 14:28:57.886451563 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs.smali	2013-08-01 14:27:23.359781832 +0000
 ***************
 *** 1,9 ****
 ! .class Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;

@@ -1,5 +1,5 @@
-*** ./smali/android/util/TypedValue.smali	2013-08-01 13:46:30.593035660 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/util/TypedValue.smali	2013-08-01 13:45:18.523033324 +0000
+*** ./smali/android/util/TypedValue.smali	2013-08-01 14:28:11.506450060 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/util/TypedValue.smali	2013-08-01 14:26:37.069780332 +0000
 ***************
 *** 88,93 ****
 --- 88,99 ----

@@ -1,5 +1,5 @@
-*** ./smali/android/widget/DatePicker.smali	2013-08-01 13:46:22.706368738 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/DatePicker.smali	2013-08-01 13:45:10.676366403 +0000
+*** ./smali/android/widget/DatePicker.smali	2013-08-01 14:28:01.166449725 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/DatePicker.smali	2013-08-01 14:26:26.709779996 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/BackupManagerService$PerformFullRestoreTask.smali	2013-08-01 13:46:00.859701363 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/BackupManagerService$PerformFullRestoreTask.smali	2013-08-01 13:44:49.276365709 +0000
+*** ./smali/com/android/server/BackupManagerService$PerformFullRestoreTask.smali	2013-08-01 14:27:32.866448807 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/BackupManagerService$PerformFullRestoreTask.smali	2013-08-01 14:26:01.293112506 +0000
 ***************
 *** 1460,1466 ****
       move-result v7

@@ -21,8 +21,7 @@
         Lcom/android/server/PowerManagerService$DockReceiver;,
         Lcom/android/server/PowerManagerService$BootCompletedReceiver;,
         Lcom/android/server/PowerManagerService$BatteryReceiver;,
-        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;,
-        Lcom/android/server/PowerManagerService$Injector;
+        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     }
 .end annotation
 
@@ -3371,9 +3370,6 @@
 
 .method private enableProximityLockLocked()V
     .locals 6
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     sget-boolean v2, Lcom/android/server/PowerManagerService;->mDebugProximitySensor:Z
@@ -15962,14 +15958,6 @@
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v2
-
-    .end local v0           #identity:J
-    :cond_0
-    iget-boolean v2, p0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
-
-    invoke-direct {p0, v2}, Lcom/android/server/PowerManagerService;->proximityChangedLocked(Z)V
-
-    goto :goto_0
 .end method
 
 .method noteStopWakeLocked(Lcom/android/server/PowerManagerService$WakeLock;Landroid/os/WorkSource;)V
@@ -16232,9 +16220,6 @@
 .method public reboot(Ljava/lang/String;)V
     .locals 5
     .parameter "reason"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const-string v2, "PowerManagerService"
@@ -16291,6 +16276,8 @@
     invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v2
+
+    and-int/lit8 p1, p1, -0x4
 
     :cond_1
     new-instance v2, Landroid/os/HandlerThread;
@@ -16455,9 +16442,6 @@
 .method public setAblActive(I)V
     .locals 1
     .parameter "on"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     iget-object v0, p0, Lcom/android/server/PowerManagerService;->mLcdLight:Lcom/android/server/LightsService$Light;
@@ -17323,6 +17307,10 @@
 
     goto :goto_1
 
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
+
     :cond_4
     iget v2, p0, Lcom/android/server/PowerManagerService;->mLightSensorValue:F
 
@@ -18132,9 +18120,6 @@
     .locals 8
     .parameter "lock"
     .parameter "ws"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I

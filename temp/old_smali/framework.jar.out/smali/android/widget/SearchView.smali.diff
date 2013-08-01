@@ -1,5 +1,5 @@
-*** ./smali/android/widget/SearchView.smali	2013-08-01 13:46:21.086368685 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/SearchView.smali	2013-08-01 13:45:09.053033017 +0000
+*** ./smali/android/widget/SearchView.smali	2013-08-01 14:27:59.009782988 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/SearchView.smali	2013-08-01 14:26:24.563113260 +0000
 ***************
 *** 1398,1403 ****
 --- 1398,1413 ----

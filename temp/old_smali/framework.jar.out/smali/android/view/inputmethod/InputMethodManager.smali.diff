@@ -1,5 +1,5 @@
-*** ./smali/android/view/inputmethod/InputMethodManager.smali	2013-08-01 13:46:57.556369868 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/inputmethod/InputMethodManager.smali	2013-08-01 13:45:45.293034192 +0000
+*** ./smali/android/view/inputmethod/InputMethodManager.smali	2013-08-01 14:28:46.949784542 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/inputmethod/InputMethodManager.smali	2013-08-01 14:27:12.349781476 +0000
 ***************
 *** 3352,3357 ****
 --- 3352,3359 ----

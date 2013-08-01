@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/DataConnectionTracker.smali	2013-08-01 13:46:10.926368356 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/DataConnectionTracker.smali	2013-08-01 13:44:58.999699358 +0000
+*** ./smali/com/android/internal/telephony/DataConnectionTracker.smali	2013-08-01 14:27:45.656449222 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/DataConnectionTracker.smali	2013-08-01 14:26:11.163112826 +0000
 ***************
 *** 10,16 ****
           Lcom/android/internal/telephony/DataConnectionTracker$TxRxSum;,

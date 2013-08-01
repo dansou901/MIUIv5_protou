@@ -37,9 +37,6 @@
     .locals 4
     .parameter "context"
     .parameter "intent"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;

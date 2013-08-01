@@ -1,5 +1,5 @@
-*** ./smali/android/app/ActivityThread.smali	2013-08-01 13:47:03.826370071 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ActivityThread.smali	2013-08-01 13:45:51.489701059 +0000
+*** ./smali/android/app/ActivityThread.smali	2013-08-01 14:28:55.126451474 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ActivityThread.smali	2013-08-01 14:27:20.556448408 +0000
 ***************
 *** 9271,9276 ****
 --- 9271,9279 ----

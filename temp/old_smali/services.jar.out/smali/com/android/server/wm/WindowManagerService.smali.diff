@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/wm/WindowManagerService.smali	2013-08-01 13:46:00.579701354 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/wm/WindowManagerService.smali	2013-08-01 13:44:48.996365700 +0000
+*** ./smali/com/android/server/wm/WindowManagerService.smali	2013-08-01 14:27:32.503115462 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/wm/WindowManagerService.smali	2013-08-01 14:26:01.026445830 +0000
 ***************
 *** 5403,5408 ****
 --- 5403,5417 ----

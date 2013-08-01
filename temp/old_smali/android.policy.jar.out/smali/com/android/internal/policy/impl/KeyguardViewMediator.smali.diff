@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	2013-08-01 13:47:07.403036853 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	2013-08-01 13:45:55.053034508 +0000
+*** ./smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	2013-08-01 14:28:59.873118294 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/KeyguardViewMediator.smali	2013-08-01 14:27:25.326448563 +0000
 ***************
 *** 147,152 ****
 --- 147,155 ----

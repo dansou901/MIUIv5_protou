@@ -1,23 +1,7 @@
-*** ContextImpl.smali	2013-08-01 13:45:51.233034384 +0000
---- ContextImpl.smali	2013-08-01 13:47:03.569703396 +0000
+*** ContextImpl.smali	2013-08-01 14:28:54.796451463 +0000
+--- ContextImpl.smali	2013-08-01 14:27:20.219781731 +0000
 ***************
-*** 3475,3489 ****
-  .end method
-  
-  .method final init(Landroid/app/LoadedApk;Landroid/os/IBinder;Landroid/app/ActivityThread;Landroid/content/res/Resources;Ljava/lang/String;)V
-!     .locals 3
-      .parameter "packageInfo"
-      .parameter "activityToken"
-      .parameter "mainThread"
-      .parameter "container"
-      .parameter "basePackageName"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-  
-      .prologue
-      iput-object p1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
---- 3469,3480 ----
+*** 3481,3492 ****
   .end method
   
   .method final init(Landroid/app/LoadedApk;Landroid/os/IBinder;Landroid/app/ActivityThread;Landroid/content/res/Resources;Ljava/lang/String;)V
@@ -30,8 +14,32 @@
   
       .prologue
       iput-object p1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
+--- 3487,3501 ----
+  .end method
+  
+  .method final init(Landroid/app/LoadedApk;Landroid/os/IBinder;Landroid/app/ActivityThread;Landroid/content/res/Resources;Ljava/lang/String;)V
+!     .locals 3
+      .parameter "packageInfo"
+      .parameter "activityToken"
+      .parameter "mainThread"
+      .parameter "container"
+      .parameter "basePackageName"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+      iput-object p1, p0, Landroid/app/ContextImpl;->mPackageInfo:Landroid/app/LoadedApk;
 ***************
-*** 3536,3546 ****
+*** 3539,3545 ****
+  
+      move-result-object v1
+  
+!     invoke-virtual {p3, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
+  
+      move-result-object v0
+  
+--- 3548,3558 ----
   
       move-result-object v1
   
@@ -40,14 +48,6 @@
 !     iget-object v2, v2, Landroid/app/LoadedApk;->mPackageName:Ljava/lang/String;
 ! 
 !     invoke-virtual {p3, v2, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
-  
-      move-result-object v0
-  
---- 3527,3533 ----
-  
-      move-result-object v1
-  
-!     invoke-virtual {p3, v0, v1}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
   
       move-result-object v0
   

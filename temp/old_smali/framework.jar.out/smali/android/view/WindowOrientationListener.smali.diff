@@ -1,5 +1,5 @@
-*** ./smali/android/view/WindowOrientationListener.smali	2013-08-01 13:46:56.293036493 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/WindowOrientationListener.smali	2013-08-01 13:45:44.026367484 +0000
+*** ./smali/android/view/WindowOrientationListener.smali	2013-08-01 14:28:45.309784489 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/WindowOrientationListener.smali	2013-08-01 14:27:10.686448088 +0000
 ***************
 *** 55,63 ****
   .method public constructor <init>(Landroid/content/Context;)V

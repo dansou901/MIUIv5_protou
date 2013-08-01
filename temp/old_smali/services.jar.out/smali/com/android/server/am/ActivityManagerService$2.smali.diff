@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/am/ActivityManagerService$2.smali	2013-08-01 13:45:56.703034562 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityManagerService$2.smali	2013-08-01 13:44:45.146365576 +0000
+*** ./smali/com/android/server/am/ActivityManagerService$2.smali	2013-08-01 14:27:27.456448632 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/am/ActivityManagerService$2.smali	2013-08-01 14:25:56.856445695 +0000
 ***************
 *** 164,169 ****
 --- 164,181 ----

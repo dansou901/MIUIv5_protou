@@ -8,7 +8,8 @@
     value = {
         Landroid/app/ContextImpl$ApplicationContentResolver;,
         Landroid/app/ContextImpl$StaticServiceFetcher;,
-        Landroid/app/ContextImpl$ServiceFetcher;
+        Landroid/app/ContextImpl$ServiceFetcher;,
+        Landroid/app/ContextImpl$Injector;
     }
 .end annotation
 
@@ -1422,6 +1423,9 @@
     .parameter "broadcastPermission"
     .parameter "scheduler"
     .parameter "context"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v7, 0x0
@@ -1470,6 +1474,8 @@
     .restart local v3       #rd:Landroid/content/IIntentReceiver;
     :cond_1
     :goto_0
+    invoke-static {p0, p2}, Landroid/app/ContextImpl$Injector;->checkPriority(Landroid/app/ContextImpl;Landroid/content/IntentFilter;)V
+
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 

@@ -1,57 +1,24 @@
-*** ActivityThread.smali	2013-08-01 13:47:03.826370071 +0000
---- ActivityThread.smali	2013-08-01 13:45:51.489701059 +0000
+*** ActivityThread.smali	2013-08-01 14:27:20.556448408 +0000
+--- ActivityThread.smali	2013-08-01 14:28:55.126451474 +0000
 ***************
-*** 9339,9344 ****
+*** 9336,9343 ****
+      or-int/lit16 v0, v0, 0xd00
+  
+      :cond_3
+-     invoke-static {v0}, Landroid/app/MiuiThemeHelper;->handleExtraConfigurationChanges(I)V
+- 
+      iget-object v7, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+  
+      if-eqz v7, :cond_4
+--- 9333,9338 ----
       or-int/lit16 v0, v0, 0xd00
   
       :cond_3
       iget-object v7, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
   
       if-eqz v7, :cond_4
---- 9342,9349 ----
-      or-int/lit16 v0, v0, 0xd00
-  
-      :cond_3
-+     invoke-static {v0}, Landroid/app/MiuiThemeHelper;->handleExtraConfigurationChanges(I)V
-+ 
-      iget-object v7, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-  
-      if-eqz v7, :cond_4
 ***************
-*** 10617,10622 ****
-      .locals 9
-      .parameter "resDir"
-      .parameter "compInfo"
-  
-      .prologue
-      const/4 v1, 0x0
---- 10622,10630 ----
-      .locals 9
-      .parameter "resDir"
-      .parameter "compInfo"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      const/4 v1, 0x0
-***************
-*** 10704,10717 ****
-      move-result-object v3
-  
-      .local v3, metrics:Landroid/util/DisplayMetrics;
-!     new-instance v4, Landroid/content/res/Resources;
-  
-      .end local v4           #r:Landroid/content/res/Resources;
-      invoke-virtual {p0}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
-  
-      move-result-object v6
-  
-!     invoke-direct {v4, v0, v3, v6, p2}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
-  
-      .restart local v4       #r:Landroid/content/res/Resources;
-      iget-object v7, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
---- 10712,10725 ----
+*** 10703,10716 ****
       move-result-object v3
   
       .local v3, metrics:Landroid/util/DisplayMetrics;
@@ -66,68 +33,18 @@
   
       .restart local v4       #r:Landroid/content/res/Resources;
       iget-object v7, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
-***************
-*** 10811,10816 ****
-      goto :goto_1
-  .end method
+--- 10695,10708 ----
+      move-result-object v3
   
-  .method final handleActivityConfigurationChanged(Landroid/os/IBinder;)V
-      .locals 3
-      .parameter "token"
---- 10819,10874 ----
-      goto :goto_1
-  .end method
+      .local v3, metrics:Landroid/util/DisplayMetrics;
+!     new-instance v4, Landroid/content/res/Resources;
   
-+ .method getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/app/LoadedApk;)Landroid/content/res/Resources;
-+     .locals 1
-+     .parameter "packageName"
-+     .parameter "resDir"
-+     .parameter "pkgInfo"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     iget-object v0, p3, Landroid/app/LoadedApk;->mCompatibilityInfo:Landroid/view/CompatibilityInfoHolder;
-+ 
-+     invoke-virtual {v0}, Landroid/view/CompatibilityInfoHolder;->get()Landroid/content/res/CompatibilityInfo;
-+ 
-+     move-result-object v0
-+ 
-+     invoke-virtual {p0, p1, p2, v0}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
-+ 
-+     move-result-object v0
-+ 
-+     return-object v0
-+ .end method
-+ 
-+ .method getTopLevelResources(Ljava/lang/String;Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
-+     .locals 2
-+     .parameter "packageName"
-+     .parameter "resDir"
-+     .parameter "compInfo"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     invoke-virtual {p0, p2, p3}, Landroid/app/ActivityThread;->getTopLevelResources(Ljava/lang/String;Landroid/content/res/CompatibilityInfo;)Landroid/content/res/Resources;
-+ 
-+     move-result-object v0
-+ 
-+     .local v0, r:Landroid/content/res/Resources;
-+     if-eqz v0, :cond_miui_0
-+ 
-+     move-object v1, v0
-+ 
-+     check-cast v1, Landroid/content/res/MiuiResources;
-+ 
-+     invoke-virtual {v1, p1}, Landroid/content/res/MiuiResources;->init(Ljava/lang/String;)V
-+ 
-+     :cond_miui_0
-+     return-object v0
-+ .end method
-+ 
-  .method final handleActivityConfigurationChanged(Landroid/os/IBinder;)V
-      .locals 3
-      .parameter "token"
+      .end local v4           #r:Landroid/content/res/Resources;
+      invoke-virtual {p0}, Landroid/app/ActivityThread;->getConfiguration()Landroid/content/res/Configuration;
+  
+      move-result-object v6
+  
+!     invoke-direct {v4, v0, v3, v6, p2}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;)V
+  
+      .restart local v4       #r:Landroid/content/res/Resources;
+      iget-object v7, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;

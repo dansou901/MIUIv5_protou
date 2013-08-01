@@ -1,19 +1,19 @@
-*** MediaFile.smali	2013-08-01 13:45:36.996367256 +0000
---- MediaFile.smali	2013-08-01 13:46:49.203036263 +0000
+*** MediaFile.smali	2013-08-01 14:28:35.996450854 +0000
+--- MediaFile.smali	2013-08-01 14:27:01.456447789 +0000
 ***************
-*** 403,410 ****
+*** 410,415 ****
   
       invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
   
--     invoke-static {}, Landroid/media/MediaFile$Injector;->addAPE()V
-- 
       const-string v0, "MPEG"
   
       const-string v1, "video/mpeg"
---- 396,401 ----
+--- 417,424 ----
   
       invoke-static {v0, v4, v1}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;)V
   
++     invoke-static {}, Landroid/media/MediaFile$Injector;->addAPE()V
++ 
       const-string v0, "MPEG"
   
       const-string v1, "video/mpeg"

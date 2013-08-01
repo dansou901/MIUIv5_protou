@@ -1,5 +1,5 @@
-*** ./smali/android/app/SearchDialog.smali	2013-08-01 13:47:04.189703416 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/SearchDialog.smali	2013-08-01 13:45:51.849701071 +0000
+*** ./smali/android/app/SearchDialog.smali	2013-08-01 14:28:55.606451489 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/SearchDialog.smali	2013-08-01 14:27:21.049781758 +0000
 ***************
 *** 614,619 ****
 --- 614,675 ----

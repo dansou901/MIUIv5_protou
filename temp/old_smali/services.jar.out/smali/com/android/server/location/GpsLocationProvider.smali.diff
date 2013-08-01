@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/location/GpsLocationProvider.smali	2013-08-01 13:46:02.229701407 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/location/GpsLocationProvider.smali	2013-08-01 13:44:50.643032420 +0000
+*** ./smali/com/android/server/location/GpsLocationProvider.smali	2013-08-01 14:27:34.646448865 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/location/GpsLocationProvider.smali	2013-08-01 14:26:02.663112550 +0000
 ***************
 *** 11,17 ****
       value = {

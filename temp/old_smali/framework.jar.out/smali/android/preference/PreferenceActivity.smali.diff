@@ -1,5 +1,5 @@
-*** ./smali/android/preference/PreferenceActivity.smali	2013-08-01 13:46:26.983035543 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceActivity.smali	2013-08-01 13:45:14.956366542 +0000
+*** ./smali/android/preference/PreferenceActivity.smali	2013-08-01 14:28:06.789783240 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/PreferenceActivity.smali	2013-08-01 14:26:32.333113512 +0000
 ***************
 *** 2045,2050 ****
 --- 2045,2052 ----

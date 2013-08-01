@@ -125,6 +125,9 @@
     .local v5, list:Landroid/content/pm/ParceledListSlice;
     invoke-virtual {v5, v0}, Landroid/content/pm/ParceledListSlice;->setLastSlice(Z)V
 
+    .local v5, list:Landroid/content/pm/ParceledListSlice;
+    invoke-virtual {v5, v0}, Landroid/content/pm/ParceledListSlice;->setLastSlice(Z)V
+
     goto :goto_1
 .end method
 

@@ -1,19 +1,19 @@
-*** DatePicker.smali	2013-08-01 13:45:10.676366403 +0000
---- DatePicker.smali	2013-08-01 13:46:22.706368738 +0000
+*** DatePicker.smali	2013-08-01 14:28:01.166449725 +0000
+--- DatePicker.smali	2013-08-01 14:26:26.709779996 +0000
 ***************
-*** 1151,1157 ****
-      :goto_0
-      iget v1, p0, Landroid/widget/DatePicker;->mNumberOfMonths:I
-  
-!     if-ge v0, v1, :cond_miui_0
-  
-      iget-object v1, p0, Landroid/widget/DatePicker;->mShortMonths:[Ljava/lang/String;
-  
---- 1057,1063 ----
+*** 1245,1251 ****
       :goto_0
       iget v1, p0, Landroid/widget/DatePicker;->mNumberOfMonths:I
   
 !     if-ge v0, v1, :cond_0
+  
+      iget-object v1, p0, Landroid/widget/DatePicker;->mShortMonths:[Ljava/lang/String;
+  
+--- 1339,1345 ----
+      :goto_0
+      iget v1, p0, Landroid/widget/DatePicker;->mNumberOfMonths:I
+  
+!     if-ge v0, v1, :cond_miui_0
   
       iget-object v1, p0, Landroid/widget/DatePicker;->mShortMonths:[Ljava/lang/String;
   

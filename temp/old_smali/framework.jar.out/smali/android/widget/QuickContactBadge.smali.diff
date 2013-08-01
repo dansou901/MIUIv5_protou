@@ -1,5 +1,5 @@
-*** ./smali/android/widget/QuickContactBadge.smali	2013-08-01 13:46:19.206368624 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/QuickContactBadge.smali	2013-08-01 13:45:07.203032957 +0000
+*** ./smali/android/widget/QuickContactBadge.smali	2013-08-01 14:27:56.549782908 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/QuickContactBadge.smali	2013-08-01 14:26:22.109779847 +0000
 ***************
 *** 9,15 ****
   # annotations

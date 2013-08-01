@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2013-08-01 13:46:09.596368313 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2013-08-01 13:44:57.873032655 +0000
+*** ./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2013-08-01 14:27:44.186449174 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccPhoneBookInterfaceManager.smali	2013-08-01 14:26:09.829779449 +0000
 ***************
 *** 140,145 ****
 --- 140,158 ----

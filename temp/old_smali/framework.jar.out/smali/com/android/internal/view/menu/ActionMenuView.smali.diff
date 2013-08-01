@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/view/menu/ActionMenuView.smali	2013-08-01 13:46:12.443035072 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/ActionMenuView.smali	2013-08-01 13:45:00.483032739 +0000
+*** ./smali/com/android/internal/view/menu/ActionMenuView.smali	2013-08-01 14:27:47.613115952 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/ActionMenuView.smali	2013-08-01 14:26:13.109779555 +0000
 ***************
 *** 11,17 ****
   .annotation system Ldalvik/annotation/MemberClasses;

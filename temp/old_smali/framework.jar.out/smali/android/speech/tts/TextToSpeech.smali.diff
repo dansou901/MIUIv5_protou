@@ -1,5 +1,5 @@
-*** ./smali/android/speech/tts/TextToSpeech.smali	2013-08-01 13:46:17.883035248 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/speech/tts/TextToSpeech.smali	2013-08-01 13:45:05.873032914 +0000
+*** ./smali/android/speech/tts/TextToSpeech.smali	2013-08-01 14:27:54.783116184 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/speech/tts/TextToSpeech.smali	2013-08-01 14:26:20.333113123 +0000
 ***************
 *** 1816,1818 ****
 --- 1816,1845 ----

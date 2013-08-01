@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-08-01 13:46:10.163034998 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-08-01 13:44:58.256366001 +0000
+*** ./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-08-01 14:27:44.679782524 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CDMAPhone.smali	2013-08-01 14:26:10.229779462 +0000
 ***************
 *** 1103,1108 ****
 --- 1103,1112 ----

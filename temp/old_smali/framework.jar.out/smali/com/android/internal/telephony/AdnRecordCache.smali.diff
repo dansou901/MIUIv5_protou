@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/AdnRecordCache.smali	2013-08-01 13:46:09.383034973 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/AdnRecordCache.smali	2013-08-01 13:44:57.656365981 +0000
+*** ./smali/com/android/internal/telephony/AdnRecordCache.smali	2013-08-01 14:27:43.899782498 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/AdnRecordCache.smali	2013-08-01 14:26:09.623112776 +0000
 ***************
 *** 39,44 ****
 --- 39,50 ----
