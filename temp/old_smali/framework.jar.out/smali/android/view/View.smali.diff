@@ -1,5 +1,5 @@
-*** ./smali/android/view/View.smali	2013-08-01 13:22:17.702988565 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/View.smali	2013-08-01 13:21:05.782986234 +0000
+*** ./smali/android/view/View.smali	2013-08-01 13:46:55.833036478 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/View.smali	2013-08-01 13:45:43.556367469 +0000
 ***************
 *** 36,42 ****
           Landroid/view/View$DragShadowBuilder;,

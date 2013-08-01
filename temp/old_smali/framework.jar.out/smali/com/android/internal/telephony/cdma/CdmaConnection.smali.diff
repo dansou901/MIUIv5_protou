@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/cdma/CdmaConnection.smali	2013-08-01 13:21:32.886320446 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CdmaConnection.smali	2013-08-01 13:20:21.029651450 +0000
+*** ./smali/com/android/internal/telephony/cdma/CdmaConnection.smali	2013-08-01 13:46:10.603035012 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CdmaConnection.smali	2013-08-01 13:44:58.686366014 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

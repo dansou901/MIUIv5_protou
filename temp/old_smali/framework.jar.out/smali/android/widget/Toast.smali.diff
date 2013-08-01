@@ -1,5 +1,5 @@
-*** ./smali/android/widget/Toast.smali	2013-08-01 13:21:43.622987461 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/Toast.smali	2013-08-01 13:20:31.766318465 +0000
+*** ./smali/android/widget/Toast.smali	2013-08-01 13:46:21.449702031 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/Toast.smali	2013-08-01 13:45:09.416366362 +0000
 ***************
 *** 391,396 ****
 --- 391,415 ----

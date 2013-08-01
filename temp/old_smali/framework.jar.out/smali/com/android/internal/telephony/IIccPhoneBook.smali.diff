@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/IIccPhoneBook.smali	2013-08-01 13:21:32.062987086 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IIccPhoneBook.smali	2013-08-01 13:20:20.212984757 +0000
+*** ./smali/com/android/internal/telephony/IIccPhoneBook.smali	2013-08-01 13:46:09.586368312 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IIccPhoneBook.smali	2013-08-01 13:44:57.863032654 +0000
 ***************
 *** 15,20 ****
 --- 15,28 ----

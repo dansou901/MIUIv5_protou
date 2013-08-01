@@ -1,5 +1,5 @@
-*** ./smali/android/widget/PopupWindow.smali	2013-08-01 13:21:41.459654057 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/PopupWindow.smali	2013-08-01 13:20:29.612985062 +0000
+*** ./smali/android/widget/PopupWindow.smali	2013-08-01 13:46:19.263035293 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/PopupWindow.smali	2013-08-01 13:45:07.256366293 +0000
 ***************
 *** 1400,1415 ****
       invoke-direct {v2, v4, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V

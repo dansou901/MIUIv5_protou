@@ -1,28 +1,28 @@
-*** AppWidgetService$2.smali	2013-08-01 13:21:25.646320211 +0000
---- AppWidgetService$2.smali	2013-08-01 13:20:13.822984550 +0000
+*** AppWidgetService$2.smali	2013-08-01 13:44:51.429699113 +0000
+--- AppWidgetService$2.smali	2013-08-01 13:46:03.023034767 +0000
 ***************
-*** 47,52 ****
+*** 44,60 ****
       move-result-object v0
   
       .local v0, action:Ljava/lang/String;
+-     iget-object v3, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
+- 
+-     invoke-static {v3, v0}, Lcom/android/server/AppWidgetService$Injector;->handleAction(Lcom/android/server/AppWidgetService;Ljava/lang/String;)Z
+- 
+-     move-result v3
+- 
+-     if-eqz v3, :cond_3
+- 
+-     return-void
+- 
+-     :cond_3
       const-string v3, "android.intent.action.BOOT_COMPLETED"
   
       invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
---- 50,66 ----
+--- 41,46 ----
       move-result-object v0
   
       .local v0, action:Ljava/lang/String;
-+     iget-object v3, p0, Lcom/android/server/AppWidgetService$2;->this$0:Lcom/android/server/AppWidgetService;
-+ 
-+     invoke-static {v3, v0}, Lcom/android/server/AppWidgetService$Injector;->handleAction(Lcom/android/server/AppWidgetService;Ljava/lang/String;)Z
-+ 
-+     move-result v3
-+ 
-+     if-eqz v3, :cond_3
-+ 
-+     return-void
-+ 
-+     :cond_3
       const-string v3, "android.intent.action.BOOT_COMPLETED"
   
       invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

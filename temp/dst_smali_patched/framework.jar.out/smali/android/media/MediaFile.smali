@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/media/MediaFile$MediaFileType;,
-        Landroid/media/MediaFile$Injector;
+        Landroid/media/MediaFile$MediaFileType;
     }
 .end annotation
 
@@ -20,8 +19,6 @@
 .field public static final FILE_TYPE_AAC:I = 0x8
 
 .field public static final FILE_TYPE_AMR:I = 0x4
-
-.field public static final FILE_TYPE_APE:I = 0x3e9
 
 .field public static final FILE_TYPE_ASF:I = 0x1a
 
@@ -105,8 +102,6 @@
 
 .field private static final FIRST_DRM_FILE_TYPE:I = 0x33
 
-.field private static final FIRST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
-
 .field private static final FIRST_IMAGE_FILE_TYPE:I = 0x1f
 
 .field private static final FIRST_MIDI_FILE_TYPE:I = 0xb
@@ -160,8 +155,6 @@
 .field private static final LAST_AUDIO_FILE_TYPE:I = 0xa
 
 .field private static final LAST_DRM_FILE_TYPE:I = 0x33
-
-.field private static final LAST_FFMPEG_AUDIO_FILE_TYPE:I = 0x3e9
 
 .field private static final LAST_IMAGE_FILE_TYPE:I = 0x24
 
@@ -337,7 +330,7 @@
 
     invoke-static {v2, v3, v4, v5}, Landroid/media/MediaFile;->addFileType(Ljava/lang/String;ILjava/lang/String;I)V
 
-    invoke-static {}, Landroid/media/MediaFile$Injector;->isWMAEnabled()Z
+    invoke-static {}, Landroid/media/MediaFile;->isWMAEnabled()Z
 
     move-result v2
 
@@ -1661,12 +1654,6 @@
     return v0
 
     :cond_2
-    invoke-static {p0}, Landroid/media/MediaFile$Injector;->isFFMpegAudoFileType(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
     const/4 v0, 0x0
 
     goto :goto_0

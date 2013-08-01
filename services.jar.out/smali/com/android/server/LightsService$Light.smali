@@ -67,6 +67,21 @@
     return-void
 .end method
 
+.method constructor <init>(Lcom/android/server/LightsService;II)V
+    .locals 0
+    .parameter
+    .parameter "id"
+    .parameter "unused"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Lcom/android/server/LightsService$Light;-><init>(Lcom/android/server/LightsService;I)V
+
+    return-void
+.end method
+
 .method synthetic constructor <init>(Lcom/android/server/LightsService;ILcom/android/server/LightsService$1;)V
     .locals 0
     .parameter "x0"

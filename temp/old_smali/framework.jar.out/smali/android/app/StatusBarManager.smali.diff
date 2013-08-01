@@ -1,5 +1,5 @@
-*** ./smali/android/app/StatusBarManager.smali	2013-08-01 13:22:26.992988866 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/StatusBarManager.smali	2013-08-01 13:21:15.529653217 +0000
+*** ./smali/android/app/StatusBarManager.smali	2013-08-01 13:47:05.183036781 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/StatusBarManager.smali	2013-08-01 13:45:52.846367770 +0000
 ***************
 *** 334,336 ****
 --- 334,375 ----

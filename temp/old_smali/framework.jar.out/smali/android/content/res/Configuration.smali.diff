@@ -1,5 +1,5 @@
-*** ./smali/android/content/res/Configuration.smali	2013-08-01 13:22:05.132988158 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Configuration.smali	2013-08-01 13:20:53.246319161 +0000
+*** ./smali/android/content/res/Configuration.smali	2013-08-01 13:46:43.189702735 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Configuration.smali	2013-08-01 13:45:31.023033729 +0000
 ***************
 *** 138,143 ****
 --- 138,167 ----

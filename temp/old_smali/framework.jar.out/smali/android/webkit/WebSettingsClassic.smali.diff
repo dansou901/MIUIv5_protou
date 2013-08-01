@@ -1,5 +1,5 @@
-*** ./smali/android/webkit/WebSettingsClassic.smali	2013-08-01 13:22:21.009655339 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/webkit/WebSettingsClassic.smali	2013-08-01 13:21:09.556319690 +0000
+*** ./smali/android/webkit/WebSettingsClassic.smali	2013-08-01 13:46:59.176369920 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/webkit/WebSettingsClassic.smali	2013-08-01 13:45:46.889700910 +0000
 ***************
 *** 116,121 ****
 --- 116,123 ----

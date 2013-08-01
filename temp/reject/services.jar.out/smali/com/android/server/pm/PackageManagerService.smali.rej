@@ -1,101 +1,72 @@
-*** PackageManagerService.smali	2013-08-01 13:20:12.412984504 +0000
---- PackageManagerService.smali	2013-08-01 13:21:24.242986833 +0000
+*** PackageManagerService.smali	2013-08-01 13:46:01.606368054 +0000
+--- PackageManagerService.smali	2013-08-01 13:44:50.023032400 +0000
 ***************
-*** 1627,1638 ****
-  
-      move-object/from16 v0, p0
-  
--     move-object/from16 v1, v24
-- 
--     invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService$Injector;->ignoreMiuiFrameworkRes(Lcom/android/server/pm/PackageManagerService;Ljava/util/HashSet;)V
-- 
--     move-object/from16 v0, p0
-- 
-      iget-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mFrameworkDir:Ljava/io/File;
-  
-      invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
---- 1621,1626 ----
-  
-      move-object/from16 v0, p0
-  
-      iget-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mFrameworkDir:Ljava/io/File;
-  
-      invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
-***************
-*** 2928,2935 ****
-  
-      iput-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
-  
--     invoke-static {}, Lcom/android/server/pm/ExtraPackageManagerServices;->postScanPackages()V
-- 
-      monitor-exit v43
-      :try_end_9
-      .catchall {:try_start_9 .. :try_end_9} :catchall_0
---- 2910,2915 ----
+*** 2940,2945 ****
   
       iput-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
   
       monitor-exit v43
       :try_end_9
       .catchall {:try_start_9 .. :try_end_9} :catchall_0
+--- 2958,2965 ----
+  
+      iput-object v2, v0, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
+  
++     invoke-static {}, Lcom/android/server/pm/ExtraPackageManagerServices;->postScanPackages()V
++ 
+      monitor-exit v43
+      :try_end_9
+      .catchall {:try_start_9 .. :try_end_9} :catchall_0
 ***************
-*** 8253,8270 ****
-  
-      .restart local v4       #allowed:Z
-      :goto_6
--     move-object/from16 v0, p1
-- 
--     iget-object v0, v0, Landroid/content/pm/PackageParser$Package;->mSignatures:[Landroid/content/pm/Signature;
-- 
--     move-object/from16 v19, v0
-- 
--     invoke-static/range {v19 .. v19}, Lmiui/content/pm/ExtraPackageManager;->isTrustedSystemSignature([Landroid/content/pm/Signature;)Z
-- 
--     move-result v19
-- 
--     or-int v4, v4, v19
-- 
-      if-nez v4, :cond_b
-  
-      iget v0, v6, Lcom/android/server/pm/BasePermission;->protectionLevel:I
---- 8216,8221 ----
+*** 8280,8285 ****
   
       .restart local v4       #allowed:Z
       :goto_6
       if-nez v4, :cond_b
   
       iget v0, v6, Lcom/android/server/pm/BasePermission;->protectionLevel:I
+--- 8317,8334 ----
+  
+      .restart local v4       #allowed:Z
+      :goto_6
++     move-object/from16 v0, p1
++ 
++     iget-object v0, v0, Landroid/content/pm/PackageParser$Package;->mSignatures:[Landroid/content/pm/Signature;
++ 
++     move-object/from16 v19, v0
++ 
++     invoke-static/range {v19 .. v19}, Lmiui/content/pm/ExtraPackageManager;->isTrustedSystemSignature([Landroid/content/pm/Signature;)Z
++ 
++     move-result v19
++ 
++     or-int v4, v4, v19
++ 
+      if-nez v4, :cond_b
+  
+      iget v0, v6, Lcom/android/server/pm/BasePermission;->protectionLevel:I
 ***************
-*** 9171,9182 ****
+*** 9186,9191 ****
       goto :goto_0
   
       :cond_4
--     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-- 
--     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-- 
--     invoke-static {v0, v1}, Lcom/android/server/pm/ExtraPackageManagerServices;->postProcessNewInstall(Landroid/content/pm/ApplicationInfo;Lcom/android/server/pm/Settings;)V
-- 
       invoke-direct {p0, v7, p4, p5}, Lcom/android/server/pm/PackageManagerService;->updateSettingsLI(Landroid/content/pm/PackageParser$Package;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
   
       iget v0, p5, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
---- 9122,9127 ----
+--- 9235,9246 ----
       goto :goto_0
   
       :cond_4
++     iget-object v0, p1, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
++ 
++     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
++ 
++     invoke-static {v0, v1}, Lcom/android/server/pm/ExtraPackageManagerServices;->postProcessNewInstall(Landroid/content/pm/ApplicationInfo;Lcom/android/server/pm/Settings;)V
++ 
       invoke-direct {p0, v7, p4, p5}, Lcom/android/server/pm/PackageManagerService;->updateSettingsLI(Landroid/content/pm/PackageParser$Package;Ljava/lang/String;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
   
       iget v0, p5, Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;->returnCode:I
 ***************
-*** 13646,13652 ****
-  
-      iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
-  
-!     const v10, 0x60d003e
-  
-      iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
-  
---- 13588,13594 ----
+*** 13658,13664 ****
   
       iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
   
@@ -103,68 +74,51 @@
   
       iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
   
-***************
-*** 14625,14636 ****
-      .end local v23           #i:I
-      .end local v45           #renamed:Ljava/lang/String;
-      :cond_18
--     move-object/from16 v0, p1
-- 
--     move-object/from16 v1, v41
-- 
--     invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService$Injector;->addMiuiExtendFlags(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PackageSetting;)V
-- 
-      move-object/from16 v0, v41
+--- 13716,13722 ----
   
-      iget-object v3, v0, Lcom/android/server/pm/PackageSetting;->origPackage:Lcom/android/server/pm/PackageSettingBase;
---- 14567,14572 ----
+      iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveActivity:Landroid/content/pm/ActivityInfo;
+  
+!     const v10, 0x60d003e
+  
+      iput v10, v3, Landroid/content/pm/ActivityInfo;->theme:I
+  
+***************
+*** 14637,14642 ****
       .end local v23           #i:I
       .end local v45           #renamed:Ljava/lang/String;
       :cond_18
       move-object/from16 v0, v41
   
       iget-object v3, v0, Lcom/android/server/pm/PackageSetting;->origPackage:Lcom/android/server/pm/PackageSettingBase;
+--- 14695,14706 ----
+      .end local v23           #i:I
+      .end local v45           #renamed:Ljava/lang/String;
+      :cond_18
++     move-object/from16 v0, p1
++ 
++     move-object/from16 v1, v41
++ 
++     invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService$Injector;->addMiuiExtendFlags(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/PackageSetting;)V
++ 
+      move-object/from16 v0, v41
+  
+      iget-object v3, v0, Lcom/android/server/pm/PackageSetting;->origPackage:Lcom/android/server/pm/PackageSettingBase;
 ***************
-*** 16479,16494 ****
-      :goto_14
-      move-object/from16 v0, p1
+*** 26721,26727 ****
+      :goto_3
+      if-eqz v9, :cond_5
   
--     iget-object v3, v0, Landroid/content/pm/PackageParser$Package;->applicationInfo:Landroid/content/pm/ApplicationInfo;
-- 
--     move-object/from16 v0, p0
-- 
--     iget-object v10, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
-- 
--     invoke-static {v3, v10}, Lcom/android/server/pm/ExtraPackageManagerServices;->blockAutoStartedApp(Landroid/content/pm/ApplicationInfo;Lcom/android/server/pm/Settings;)V
-- 
--     move-object/from16 v0, p1
-- 
-      iget-object v3, v0, Landroid/content/pm/PackageParser$Package;->providers:Ljava/util/ArrayList;
+!     invoke-virtual {v5, v9}, Landroid/content/pm/ParceledListSlice;->append(Landroid/os/Parcelable;)Z
   
-      invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
---- 16415,16420 ----
-      :goto_14
-      move-object/from16 v0, p1
+      move-result v12
   
-      iget-object v3, v0, Landroid/content/pm/PackageParser$Package;->providers:Ljava/util/ArrayList;
-  
-      invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-***************
-*** 26711,26719 ****
+--- 26799,26807 ----
       :goto_3
       if-eqz v9, :cond_5
   
 !     move/from16 v0, p1
 ! 
 !     invoke-static {v5, v9, v0}, Lcom/android/server/pm/PackageManagerService$Injector;->addPackageToSlice(Landroid/content/pm/ParceledListSlice;Landroid/content/pm/PackageInfo;I)Z
-  
-      move-result v12
-  
---- 26633,26639 ----
-      :goto_3
-      if-eqz v9, :cond_5
-  
-!     invoke-virtual {v5, v9}, Landroid/content/pm/ParceledListSlice;->append(Landroid/os/Parcelable;)Z
   
       move-result v12
   

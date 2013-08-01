@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/SizeAdaptiveLayout.smali	2013-08-01 13:21:27.562986940 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/SizeAdaptiveLayout.smali	2013-08-01 13:20:15.736317945 +0000
+*** ./smali/com/android/internal/widget/SizeAdaptiveLayout.smali	2013-08-01 13:46:05.096368167 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/SizeAdaptiveLayout.smali	2013-08-01 13:44:53.356365842 +0000
 ***************
 *** 429,435 ****
       :cond_1

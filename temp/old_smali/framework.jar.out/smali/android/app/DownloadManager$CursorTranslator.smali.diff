@@ -1,5 +1,5 @@
-*** ./smali/android/app/DownloadManager$CursorTranslator.smali	2013-08-01 13:22:23.399655417 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/DownloadManager$CursorTranslator.smali	2013-08-01 13:21:11.942986434 +0000
+*** ./smali/android/app/DownloadManager$CursorTranslator.smali	2013-08-01 13:47:01.583036665 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/DownloadManager$CursorTranslator.smali	2013-08-01 13:45:49.256367654 +0000
 ***************
 *** 4,15 ****
   

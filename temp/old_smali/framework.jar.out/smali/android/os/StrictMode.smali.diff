@@ -1,5 +1,5 @@
-*** ./smali/android/os/StrictMode.smali	2013-08-01 13:22:00.036321326 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/os/StrictMode.smali	2013-08-01 13:20:48.149652329 +0000
+*** ./smali/android/os/StrictMode.smali	2013-08-01 13:46:38.069702569 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/os/StrictMode.smali	2013-08-01 13:45:25.899700230 +0000
 ***************
 *** 67,72 ****
 --- 67,76 ----

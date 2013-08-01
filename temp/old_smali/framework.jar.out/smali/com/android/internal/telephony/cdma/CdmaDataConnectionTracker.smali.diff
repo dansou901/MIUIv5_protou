@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/cdma/CdmaDataConnectionTracker.smali	2013-08-01 13:21:33.006320450 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CdmaDataConnectionTracker.smali	2013-08-01 13:20:21.146318120 +0000
+*** ./smali/com/android/internal/telephony/cdma/CdmaDataConnectionTracker.smali	2013-08-01 13:46:10.726368350 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/cdma/CdmaDataConnectionTracker.smali	2013-08-01 13:44:58.806366018 +0000
 ***************
 *** 3,8 ****
 --- 3,16 ----

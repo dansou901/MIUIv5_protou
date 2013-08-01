@@ -1,5 +1,5 @@
-*** ./smali/android/view/ViewRootImpl$ViewRootHandler.smali	2013-08-01 13:22:16.002988510 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/ViewRootImpl$ViewRootHandler.smali	2013-08-01 13:21:04.079652845 +0000
+*** ./smali/android/view/ViewRootImpl$ViewRootHandler.smali	2013-08-01 13:46:54.136369757 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/ViewRootImpl$ViewRootHandler.smali	2013-08-01 13:45:41.859700747 +0000
 ***************
 *** 197,202 ****
 --- 197,205 ----

@@ -1,5 +1,5 @@
-*** ./smali/android/content/pm/PackageParser.smali	2013-08-01 13:22:07.776321577 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/PackageParser.smali	2013-08-01 13:20:55.862985912 +0000
+*** ./smali/android/content/pm/PackageParser.smali	2013-08-01 13:46:45.836369488 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/PackageParser.smali	2013-08-01 13:45:33.646367148 +0000
 ***************
 *** 21,27 ****
           Landroid/content/pm/PackageParser$ParseComponentArgs;,

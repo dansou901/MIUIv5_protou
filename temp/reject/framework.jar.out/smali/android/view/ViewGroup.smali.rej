@@ -1,5 +1,5 @@
-*** ViewGroup.smali	2013-08-01 13:22:17.462988558 +0000
---- ViewGroup.smali	2013-08-01 13:21:05.549652893 +0000
+*** ViewGroup.smali	2013-08-01 13:46:55.596369804 +0000
+--- ViewGroup.smali	2013-08-01 13:45:43.313034128 +0000
 ***************
 *** 2012,2017 ****
       .end local v2           #animateLayoutChanges:Z
@@ -22,7 +22,24 @@
   
       return-void
 ***************
-*** 3893,3899 ****
+*** 2359,2364 ****
+  
+      :cond_2
+      :goto_1
+      return-void
+  
+      :cond_3
+--- 2379,2386 ----
+  
+      :cond_2
+      :goto_1
++     invoke-static {p0}, Landroid/view/ViewGroup$Injector;->tagChildSequenceState(Landroid/view/ViewGroup;)V
++ 
+      return-void
+  
+      :cond_3
+***************
+*** 3891,3897 ****
   
       .local v2, i:I
       :goto_0
@@ -30,7 +47,7 @@
   
       aget-object v3, v0, v2
   
---- 3918,3924 ----
+--- 3916,3922 ----
   
       .local v2, i:I
       :goto_0
@@ -39,7 +56,7 @@
       aget-object v3, v0, v2
   
 ***************
-*** 3904,3918 ****
+*** 3902,3916 ****
       add-int/lit8 v2, v2, -0x1
   
       goto :goto_0
@@ -55,7 +72,7 @@
       return-void
   .end method
   
---- 3929,3954 ----
+--- 3927,3952 ----
       add-int/lit8 v2, v2, -0x1
   
       goto :goto_0
@@ -83,7 +100,7 @@
   .end method
   
 ***************
-*** 3927,3943 ****
+*** 3925,3941 ****
   
       invoke-direct {p0, v0}, Landroid/view/ViewGroup;->removeFromArray(I)V
   
@@ -101,7 +118,7 @@
       return-void
   .end method
   
---- 3963,3987 ----
+--- 3961,3985 ----
   
       invoke-direct {p0, v0}, Landroid/view/ViewGroup;->removeFromArray(I)V
   

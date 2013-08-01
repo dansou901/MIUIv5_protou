@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/PhoneWindowManager$17.smali	2013-08-01 13:22:27.686322222 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneWindowManager$17.smali	2013-08-01 13:21:16.222986573 +0000
+*** ./smali/com/android/internal/policy/impl/PhoneWindowManager$17.smali	2013-08-01 13:47:05.876370137 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneWindowManager$17.smali	2013-08-01 13:45:53.536367792 +0000
 ***************
 *** 42,51 ****
   

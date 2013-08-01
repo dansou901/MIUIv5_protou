@@ -1,7 +1,21 @@
-*** Resources.smali	2013-08-01 13:22:05.209654827 +0000
---- Resources.smali	2013-08-01 13:20:53.322985830 +0000
+*** Resources.smali	2013-08-01 13:45:31.103033732 +0000
+--- Resources.smali	2013-08-01 13:46:43.263036071 +0000
 ***************
-*** 3530,3544 ****
+*** 3446,3458 ****
+      .end local v4           #dr:Landroid/graphics/drawable/Drawable;
+      .restart local v3       #dr:Landroid/graphics/drawable/Drawable;
+      :cond_5
+!     move-object/from16 v0, p0
+  
+!     move/from16 v1, p2
+  
+!     invoke-virtual {v0, v9, v10, v1}, Landroid/content/res/Resources;->getPreloadedDrawable(JI)Landroid/graphics/drawable/Drawable$ConstantState;
+  
+!     move-result-object v2
+  
+      goto :goto_2
+  
+--- 3362,3376 ----
       .end local v4           #dr:Landroid/graphics/drawable/Drawable;
       .restart local v3       #dr:Landroid/graphics/drawable/Drawable;
       :cond_5
@@ -17,22 +31,24 @@
   
       goto :goto_2
   
---- 3614,3626 ----
-      .end local v4           #dr:Landroid/graphics/drawable/Drawable;
-      .restart local v3       #dr:Landroid/graphics/drawable/Drawable;
-      :cond_5
-!     move-object/from16 v0, p0
-  
-!     move/from16 v1, p2
-  
-!     invoke-virtual {v0, v9, v10, v1}, Landroid/content/res/Resources;->getPreloadedDrawable(JI)Landroid/graphics/drawable/Drawable$ConstantState;
-  
-!     move-result-object v2
-  
-      goto :goto_2
-  
 ***************
-*** 3702,3714 ****
+*** 3616,3630 ****
+      move-result-object v7
+  
+      .local v7, is:Ljava/io/InputStream;
+-     invoke-static/range {p2 .. p2}, Landroid/content/res/Resources$Injector;->setDrawableId(I)V
+- 
+      const/4 v13, 0x0
+  
+      move-object/from16 v0, p0
+  
+      move-object/from16 v1, p1
+  
+!     invoke-static {v0, v1, v7, v6, v13}, Landroid/content/res/Resources$Injector;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
+  
+      move-result-object v3
+  
+--- 3534,3546 ----
       move-result-object v7
   
       .local v7, is:Ljava/io/InputStream;
@@ -46,32 +62,8 @@
   
       move-result-object v3
   
---- 3784,3798 ----
-      move-result-object v7
-  
-      .local v7, is:Ljava/io/InputStream;
-+     invoke-static/range {p2 .. p2}, Landroid/content/res/Resources$Injector;->setDrawableId(I)V
-+ 
-      const/4 v13, 0x0
-  
-      move-object/from16 v0, p0
-  
-      move-object/from16 v1, p1
-  
-!     invoke-static {v0, v1, v7, v6, v13}, Landroid/content/res/Resources$Injector;->createFromResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/drawable/Drawable;
-  
-      move-result-object v3
-  
 ***************
-*** 5066,5072 ****
-  
-      invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
-  
-!     move-result v20
-  
-      :cond_5
-      move-object/from16 v0, p0
---- 5186,5198 ----
+*** 4946,4958 ****
   
       invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
   
@@ -82,6 +74,14 @@
 !     and-int v3, v3, v20
 ! 
 !     or-int v20, v2, v3
+  
+      :cond_5
+      move-object/from16 v0, p0
+--- 4826,4832 ----
+  
+      invoke-static/range {v20 .. v20}, Landroid/content/pm/ActivityInfo;->activityInfoConfigToNative(I)I
+  
+!     move-result v20
   
       :cond_5
       move-object/from16 v0, p0

@@ -15,7 +15,8 @@
     value = {
         Landroid/app/Activity$ManagedCursor;,
         Landroid/app/Activity$NonConfigurationInstances;,
-        Landroid/app/Activity$ManagedDialog;
+        Landroid/app/Activity$ManagedDialog;,
+        Landroid/app/Activity$Injector;
     }
 .end annotation
 
@@ -360,9 +361,9 @@
     return-void
 
     :cond_1
-    new-instance v1, Lcom/android/internal/app/ActionBarImpl;
+    invoke-static {p0}, Landroid/app/Activity$Injector;->generateActionBar(Landroid/app/Activity;)Lcom/android/internal/app/ActionBarImpl;
 
-    invoke-direct {v1, p0}, Lcom/android/internal/app/ActionBarImpl;-><init>(Landroid/app/Activity;)V
+    move-result-object v1
 
     iput-object v1, p0, Landroid/app/Activity;->mActionBar:Lcom/android/internal/app/ActionBarImpl;
 
@@ -2294,6 +2295,35 @@
     goto :goto_0
 .end method
 
+.method public getMiuiActionBar()Lmiui/v5/app/MiuiActionBar;
+    .locals 2
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    invoke-virtual {p0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    .local v0, bar:Landroid/app/ActionBar;
+    instance-of v1, v0, Lmiui/v5/app/MiuiActionBar;
+
+    if-eqz v1, :cond_0
+
+    check-cast v0, Lmiui/v5/app/MiuiActionBar;
+
+    .end local v0           #bar:Landroid/app/ActionBar;
+    :goto_0
+    return-object v0
+
+    .restart local v0       #bar:Landroid/app/ActionBar;
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public final getParent()Landroid/app/Activity;
     .locals 1
 
@@ -2495,6 +2525,18 @@
     iget v0, p0, Landroid/app/Activity;->mTitleColor:I
 
     return v0
+.end method
+
+.method getToken()Landroid/os/IBinder;
+    .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/app/Activity;->mToken:Landroid/os/IBinder;
+
+    return-object v0
 .end method
 
 .method public final getVolumeControlStream()I
@@ -3317,6 +3359,8 @@
     invoke-virtual {v1, p0, p1}, Landroid/app/Application;->dispatchActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
 
     iput-boolean v3, p0, Landroid/app/Activity;->mCalled:Z
+
+    invoke-static {p0}, Landroid/app/Activity$Injector;->setActivityGravity(Landroid/app/Activity;)V
 
     return-void
 
@@ -4648,7 +4692,9 @@
     return v0
 
     :cond_0
-    const/4 v0, 0x0
+    invoke-static {p0, p1}, Landroid/app/Activity$Injector;->onOptionsItemSelected(Landroid/app/Activity;Landroid/view/MenuItem;)Z
+
+    move-result v0
 
     goto :goto_0
 .end method
@@ -4893,11 +4939,16 @@
 
 .method protected onRestart()V
     .locals 1
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/app/Activity;->mCalled:Z
+
+    invoke-static {p0}, Landroid/app/Activity$Injector;->checkAccessControl(Landroid/app/Activity;)V
 
     return-void
 .end method
@@ -5429,6 +5480,8 @@
     .prologue
     const/4 v2, 0x0
 
+    invoke-static {p0}, Landroid/app/Activity$Injector;->onWindowHide(Landroid/app/Activity;)V
+
     iget-object v0, p0, Landroid/app/Activity;->mFragments:Landroid/app/FragmentManagerImpl;
 
     invoke-virtual {v0}, Landroid/app/FragmentManagerImpl;->dispatchPause()V
@@ -5507,6 +5560,8 @@
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
+    invoke-static {p0}, Landroid/app/Activity$Injector;->onWindowShow(Landroid/app/Activity;)V
+
     return-void
 .end method
 

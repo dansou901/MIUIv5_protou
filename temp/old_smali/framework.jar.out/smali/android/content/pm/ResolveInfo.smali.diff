@@ -1,5 +1,5 @@
-*** ./smali/android/content/pm/ResolveInfo.smali	2013-08-01 13:22:06.986321551 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ResolveInfo.smali	2013-08-01 13:20:55.086319221 +0000
+*** ./smali/android/content/pm/ResolveInfo.smali	2013-08-01 13:46:45.049702796 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ResolveInfo.smali	2013-08-01 13:45:32.859700455 +0000
 ***************
 *** 9,15 ****
   # annotations

@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/app/ResolverActivity.smali	2013-08-01 13:21:35.629653868 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ResolverActivity.smali	2013-08-01 13:20:23.816318207 +0000
+*** ./smali/com/android/internal/app/ResolverActivity.smali	2013-08-01 13:46:13.403035103 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/ResolverActivity.smali	2013-08-01 13:45:01.439699437 +0000
 ***************
 *** 11,17 ****
       value = {

@@ -1,4 +1,4 @@
-.class public Lcom/android/server/pm/Installer;
+.class Lcom/android/server/pm/Installer;
 .super Ljava/lang/Object;
 .source "Installer.java"
 
@@ -22,7 +22,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 1
 
     .prologue

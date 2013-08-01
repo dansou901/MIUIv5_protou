@@ -1,7 +1,23 @@
-*** KeyguardViewManager.smali	2013-08-01 13:22:28.706322255 +0000
---- KeyguardViewManager.smali	2013-08-01 13:21:17.249653272 +0000
+*** KeyguardViewManager.smali	2013-08-01 13:45:54.563034492 +0000
+--- KeyguardViewManager.smali	2013-08-01 13:47:06.906370171 +0000
 ***************
-*** 57,68 ****
+*** 56,70 ****
+  .end method
+  
+  .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewManager;Lcom/android/internal/policy/impl/KeyguardViewCallback;Lcom/android/internal/policy/impl/KeyguardViewProperties;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
+!     .locals 2
+      .parameter "context"
+      .parameter "viewManager"
+      .parameter "callback"
+      .parameter "keyguardViewProperties"
+      .parameter "updateMonitor"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      const/4 v0, 0x0
+--- 55,66 ----
   .end method
   
   .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewManager;Lcom/android/internal/policy/impl/KeyguardViewCallback;Lcom/android/internal/policy/impl/KeyguardViewProperties;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
@@ -14,83 +30,59 @@
   
       .prologue
       const/4 v0, 0x0
---- 58,72 ----
-  .end method
-  
-  .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewManager;Lcom/android/internal/policy/impl/KeyguardViewCallback;Lcom/android/internal/policy/impl/KeyguardViewProperties;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-!     .locals 2
-      .parameter "context"
-      .parameter "viewManager"
-      .parameter "callback"
-      .parameter "keyguardViewProperties"
-      .parameter "updateMonitor"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      const/4 v0, 0x0
 ***************
-*** 104,109 ****
+*** 100,141 ****
+  
+  
+  # virtual methods
+- .method getKeyguardView()Lcom/android/internal/policy/impl/KeyguardViewBase;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
+- 
+-     return-object v0
+- .end method
+- 
+- .method getKeyguardViewProperties()Lcom/android/internal/policy/impl/KeyguardViewProperties;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
+- 
+-     return-object v0
+- .end method
+- 
+- .method getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
+- 
+-     return-object v0
+- .end method
+- 
+  .method public declared-synchronized hide()V
+      .locals 5
+  
+--- 90,95 ----
   
   
   # virtual methods
   .method public declared-synchronized hide()V
       .locals 5
   
---- 114,155 ----
-  
-  
-  # virtual methods
-+ .method getKeyguardView()Lcom/android/internal/policy/impl/KeyguardViewBase;
-+     .locals 1
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
-+ 
-+     return-object v0
-+ .end method
-+ 
-+ .method getKeyguardViewProperties()Lcom/android/internal/policy/impl/KeyguardViewProperties;
-+     .locals 1
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
-+ 
-+     return-object v0
-+ .end method
-+ 
-+ .method getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
-+     .locals 1
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
-+ 
-+     return-object v0
-+ .end method
-+ 
-  .method public declared-synchronized hide()V
-      .locals 5
-  
 ***************
-*** 138,144 ****
-  
-      invoke-direct {v2, p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewManager$2;-><init>(Lcom/android/internal/policy/impl/KeyguardViewManager;Lcom/android/internal/policy/impl/KeyguardViewBase;)V
-  
-!     const-wide/16 v3, 0x1f4
-  
-      invoke-virtual {v1, v2, v3, v4}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
-      :try_end_0
---- 184,190 ----
+*** 170,176 ****
   
       invoke-direct {v2, p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewManager$2;-><init>(Lcom/android/internal/policy/impl/KeyguardViewManager;Lcom/android/internal/policy/impl/KeyguardViewBase;)V
   
@@ -98,57 +90,65 @@
   
       invoke-virtual {v1, v2, v3, v4}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
       :try_end_0
+--- 124,130 ----
+  
+      invoke-direct {v2, p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewManager$2;-><init>(Lcom/android/internal/policy/impl/KeyguardViewManager;Lcom/android/internal/policy/impl/KeyguardViewBase;)V
+  
+!     const-wide/16 v3, 0x1f4
+  
+      invoke-virtual {v1, v2, v3, v4}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
+      :try_end_0
 ***************
-*** 385,390 ****
+*** 417,425 ****
+  
+  .method public declared-synchronized show()V
+      .locals 11
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      const/high16 v10, 0x100
+--- 371,376 ----
   
   .method public declared-synchronized show()V
       .locals 11
   
       .prologue
       const/high16 v10, 0x100
---- 431,439 ----
-  
-  .method public declared-synchronized show()V
-      .locals 11
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      const/high16 v10, 0x100
 ***************
-*** 532,537 ****
+*** 567,576 ****
+      iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      :cond_4
+-     const/4 v1, 0x1
+- 
+-     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+- 
+      iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+  
+      or-int/lit8 v1, v1, 0x8
+--- 518,523 ----
       iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
   
       :cond_4
       iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
   
       or-int/lit8 v1, v1, 0x8
---- 581,590 ----
-      iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
-  
-      :cond_4
-+     const/4 v1, 0x1
-+ 
-+     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
-+ 
-      iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
-  
-      or-int/lit8 v1, v1, 0x8
 ***************
-*** 692,698 ****
-      :try_start_1
-      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
-  
-!     const/4 v2, 0x5
-  
-      iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
-      :try_end_1
---- 747,753 ----
+*** 729,735 ****
       :try_start_1
       iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
   
 !     const/4 v2, 0x1
+  
+      iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
+      :try_end_1
+--- 674,680 ----
+      :try_start_1
+      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
+  
+!     const/4 v2, 0x5
   
       iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
       :try_end_1

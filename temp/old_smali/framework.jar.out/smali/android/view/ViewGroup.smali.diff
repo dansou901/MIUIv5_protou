@@ -1,5 +1,5 @@
-*** ./smali/android/view/ViewGroup.smali	2013-08-01 13:22:17.462988558 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/ViewGroup.smali	2013-08-01 13:21:05.549652893 +0000
+*** ./smali/android/view/ViewGroup.smali	2013-08-01 13:46:55.596369804 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/view/ViewGroup.smali	2013-08-01 13:45:43.313034128 +0000
 ***************
 *** 116,121 ****
 --- 116,127 ----

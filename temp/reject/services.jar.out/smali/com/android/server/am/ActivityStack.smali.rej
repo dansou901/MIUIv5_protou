@@ -1,27 +1,27 @@
-*** ActivityStack.smali	2013-08-01 13:21:18.356319975 +0000
---- ActivityStack.smali	2013-08-01 13:20:06.542984314 +0000
+*** ActivityStack.smali	2013-08-01 13:44:44.123032209 +0000
+--- ActivityStack.smali	2013-08-01 13:45:55.676367862 +0000
 ***************
-*** 6321,6326 ****
+*** 6316,6331 ****
       if-eqz v5, :cond_c
   
       :cond_7
+-     iget-object v5, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+- 
+-     iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+- 
+-     invoke-static {v5, v0, v1}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
+- 
+-     move-result v5
+- 
+-     if-nez v5, :cond_0
+- 
       iget v5, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
   
       or-int/2addr v5, v0
---- 6326,6341 ----
+--- 6311,6316 ----
       if-eqz v5, :cond_c
   
       :cond_7
-+     iget-object v5, p1, Lcom/android/server/am/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
-+ 
-+     iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-+ 
-+     invoke-static {v5, v0, v1}, Landroid/app/MiuiThemeHelper;->needRestartActivity(Ljava/lang/String;ILandroid/content/res/Configuration;)Z
-+ 
-+     move-result v5
-+ 
-+     if-nez v5, :cond_0
-+ 
       iget v5, p1, Lcom/android/server/am/ActivityRecord;->configChangeFlags:I
   
       or-int/2addr v5, v0

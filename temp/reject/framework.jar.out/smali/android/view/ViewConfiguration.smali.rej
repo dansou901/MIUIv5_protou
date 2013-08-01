@@ -1,27 +1,27 @@
-*** ViewConfiguration.smali	2013-08-01 13:22:19.696321963 +0000
---- ViewConfiguration.smali	2013-08-01 13:21:08.039652974 +0000
+*** ViewConfiguration.smali	2013-08-01 13:45:45.576367534 +0000
+--- ViewConfiguration.smali	2013-08-01 13:46:57.843036543 +0000
 ***************
-*** 445,450 ****
+*** 437,452 ****
       .parameter "context"
   
       .prologue
+-     invoke-static {p0}, Landroid/view/ViewConfiguration$Injector;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+- 
+-     move-result-object v0
+- 
+-     if-eqz v0, :cond_miui_0
+- 
+- 
+-     return-object v0
+- 
+-     :cond_miui_0
       invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
   
       move-result-object v3
---- 453,468 ----
+--- 429,434 ----
       .parameter "context"
   
       .prologue
-+     invoke-static {p0}, Landroid/view/ViewConfiguration$Injector;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-+ 
-+     move-result-object v0
-+ 
-+     if-eqz v0, :cond_miui_0
-+ 
-+ 
-+     return-object v0
-+ 
-+     :cond_miui_0
       invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
   
       move-result-object v3

@@ -1,31 +1,31 @@
-*** StaticLayout.smali	2013-08-01 13:21:48.332987613 +0000
---- StaticLayout.smali	2013-08-01 13:20:36.506318618 +0000
+*** StaticLayout.smali	2013-08-01 13:45:14.169699850 +0000
+--- StaticLayout.smali	2013-08-01 13:46:26.206368851 +0000
 ***************
-*** 2402,2407 ****
+*** 2384,2403 ****
       move/from16 v42, v101
   
       :cond_d
+-     move/from16 v0, v94
+- 
+-     move-object/from16 v1, v27
+- 
+-     move/from16 v2, v106
+- 
+-     move/from16 v3, v120
+- 
+-     move/from16 v4, v29
+- 
+-     invoke-static {v0, v1, v2, v3, v4}, Landroid/text/StaticLayout$Injector;->validateCJKCharAsSpace(C[CIII)C
+- 
+-     move-result v94
+- 
       const/16 v5, 0x20
   
       move/from16 v0, v94
---- 2420,2439 ----
+--- 2366,2371 ----
       move/from16 v42, v101
   
       :cond_d
-+     move/from16 v0, v94
-+ 
-+     move-object/from16 v1, v27
-+ 
-+     move/from16 v2, v106
-+ 
-+     move/from16 v3, v120
-+ 
-+     move/from16 v4, v29
-+ 
-+     invoke-static {v0, v1, v2, v3, v4}, Landroid/text/StaticLayout$Injector;->validateCJKCharAsSpace(C[CIII)C
-+ 
-+     move-result v94
-+ 
       const/16 v5, 0x20
   
       move/from16 v0, v94

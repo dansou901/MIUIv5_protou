@@ -1,5 +1,5 @@
-*** ./smali/android/content/pm/ParceledListSlice$1.smali	2013-08-01 13:22:07.796321577 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ParceledListSlice$1.smali	2013-08-01 13:20:55.882985913 +0000
+*** ./smali/android/content/pm/ParceledListSlice$1.smali	2013-08-01 13:46:45.859702822 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ParceledListSlice$1.smali	2013-08-01 13:45:33.666367148 +0000
 ***************
 *** 112,117 ****
 --- 112,120 ----

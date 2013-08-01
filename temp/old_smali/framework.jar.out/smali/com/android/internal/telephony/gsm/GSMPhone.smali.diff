@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-08-01 13:21:31.182987057 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-08-01 13:20:19.332984728 +0000
+*** ./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-08-01 13:46:08.709701617 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/gsm/GSMPhone.smali	2013-08-01 13:44:56.976365959 +0000
 ***************
 *** 7,13 ****
   .annotation system Ldalvik/annotation/MemberClasses;

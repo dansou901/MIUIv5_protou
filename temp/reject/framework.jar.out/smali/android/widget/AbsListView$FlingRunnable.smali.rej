@@ -1,5 +1,5 @@
-*** AbsListView$FlingRunnable.smali	2013-08-01 13:21:42.912987437 +0000
---- AbsListView$FlingRunnable.smali	2013-08-01 13:20:31.082985109 +0000
+*** AbsListView$FlingRunnable.smali	2013-08-01 13:46:20.729702007 +0000
+--- AbsListView$FlingRunnable.smali	2013-08-01 13:45:08.716366340 +0000
 ***************
 *** 574,580 ****
   

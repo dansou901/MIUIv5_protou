@@ -1,5 +1,5 @@
-*** ./smali/android/app/ContextImpl.smali	2013-08-01 13:22:25.372988814 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ContextImpl.smali	2013-08-01 13:21:13.909653164 +0000
+*** ./smali/android/app/ContextImpl.smali	2013-08-01 13:47:03.569703396 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ContextImpl.smali	2013-08-01 13:45:51.233034384 +0000
 ***************
 *** 8,14 ****
       value = {

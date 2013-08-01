@@ -1,19 +1,19 @@
-*** WebViewClassic.smali	2013-08-01 13:21:10.209653044 +0000
---- WebViewClassic.smali	2013-08-01 13:22:21.662988694 +0000
+*** WebViewClassic.smali	2013-08-01 13:46:59.823036608 +0000
+--- WebViewClassic.smali	2013-08-01 13:45:47.526367597 +0000
 ***************
-*** 20952,20958 ****
-      goto :goto_0
-  .end method
-  
-! .method public sendOurVisibleRect()Landroid/graphics/Rect;
-      .locals 4
-  
-      .prologue
---- 20934,20940 ----
+*** 20970,20976 ****
       goto :goto_0
   .end method
   
 ! .method sendOurVisibleRect()Landroid/graphics/Rect;
+      .locals 4
+  
+      .prologue
+--- 20988,20994 ----
+      goto :goto_0
+  .end method
+  
+! .method public sendOurVisibleRect()Landroid/graphics/Rect;
       .locals 4
   
       .prologue

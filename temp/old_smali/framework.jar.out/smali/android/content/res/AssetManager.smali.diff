@@ -1,5 +1,5 @@
-*** ./smali/android/content/res/AssetManager.smali	2013-08-01 13:22:05.302988164 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/AssetManager.smali	2013-08-01 13:20:53.412985833 +0000
+*** ./smali/android/content/res/AssetManager.smali	2013-08-01 13:46:43.359702741 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/AssetManager.smali	2013-08-01 13:45:31.199700402 +0000
 ***************
 *** 94,99 ****
 --- 94,102 ----

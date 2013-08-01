@@ -1,5 +1,5 @@
-*** ./smali/android/app/Activity.smali	2013-08-01 13:22:24.579655455 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Activity.smali	2013-08-01 13:21:13.116319805 +0000
+*** ./smali/android/app/Activity.smali	2013-08-01 13:47:02.776370037 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Activity.smali	2013-08-01 13:45:50.449701026 +0000
 ***************
 *** 16,22 ****
           Landroid/app/Activity$1;,

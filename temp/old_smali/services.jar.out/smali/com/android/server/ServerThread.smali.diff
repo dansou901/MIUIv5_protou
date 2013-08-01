@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/ServerThread.smali	2013-08-01 13:21:20.259653370 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/ServerThread.smali	2013-08-01 13:20:08.436317709 +0000
+*** ./smali/com/android/server/ServerThread.smali	2013-08-01 13:45:57.599701257 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/ServerThread.smali	2013-08-01 13:44:46.043032271 +0000
 ***************
 *** 113,118 ****
 --- 113,121 ----

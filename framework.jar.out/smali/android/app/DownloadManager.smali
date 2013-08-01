@@ -11,8 +11,7 @@
     value = {
         Landroid/app/DownloadManager$CursorTranslator;,
         Landroid/app/DownloadManager$Query;,
-        Landroid/app/DownloadManager$Request;,
-        Landroid/app/DownloadManager$Injector;
+        Landroid/app/DownloadManager$Request;
     }
 .end annotation
 
@@ -653,18 +652,6 @@
 
     .local v1, id:J
     goto :goto_0
-.end method
-
-.method getBaseUri()Landroid/net/Uri;
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iget-object v0, p0, Landroid/app/DownloadManager;->mBaseUri:Landroid/net/Uri;
-
-    return-object v0
 .end method
 
 .method getDownloadUri(J)Landroid/net/Uri;

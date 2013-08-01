@@ -1,5 +1,5 @@
-*** ./smali/android/media/MediaScanner$MyMediaScannerClient.smali	2013-08-01 13:22:09.882988312 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/MediaScanner$MyMediaScannerClient.smali	2013-08-01 13:20:57.976319314 +0000
+*** ./smali/android/media/MediaScanner$MyMediaScannerClient.smali	2013-08-01 13:46:47.953036223 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/MediaScanner$MyMediaScannerClient.smali	2013-08-01 13:45:35.743033882 +0000
 ***************
 *** 211,216 ****
 --- 211,220 ----

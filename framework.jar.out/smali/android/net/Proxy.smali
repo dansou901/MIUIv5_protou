@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;,
-        Landroid/net/Proxy$Injector;
+        Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;
     }
 .end annotation
 
@@ -286,9 +285,6 @@
     .locals 6
     .parameter "context"
     .parameter "url"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     .line 223

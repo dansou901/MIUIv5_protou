@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/widget/MediaController$MediaPlayerControl;,
-        Landroid/widget/MediaController$Injector;
+        Landroid/widget/MediaController$MediaPlayerControl;
     }
 .end annotation
 
@@ -1342,17 +1341,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
 
-    :goto_1
-    iget-object v0, p0, Landroid/widget/MediaController;->mPlayer:Landroid/widget/MediaController$MediaPlayerControl;
-
-    invoke-interface {v0}, Landroid/widget/MediaController$MediaPlayerControl;->isPlaying()Z
-
-    move-result v0
-
-    iget-object v1, p0, Landroid/widget/MediaController;->mPauseButton:Landroid/widget/ImageButton;
-
-    invoke-static {v0, v1}, Landroid/widget/MediaController$Injector;->updatePausePlay(ZLandroid/widget/ImageView;)V
-
     goto :goto_0
 
     .line 508
@@ -1363,7 +1351,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 

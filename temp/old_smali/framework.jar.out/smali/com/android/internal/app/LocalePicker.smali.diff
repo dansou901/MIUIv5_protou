@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/app/LocalePicker.smali	2013-08-01 13:21:35.596320534 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/LocalePicker.smali	2013-08-01 13:20:23.782984873 +0000
+*** ./smali/com/android/internal/app/LocalePicker.smali	2013-08-01 13:46:13.373035102 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/app/LocalePicker.smali	2013-08-01 13:45:01.406366103 +0000
 ***************
 *** 64,69 ****
 --- 64,73 ----

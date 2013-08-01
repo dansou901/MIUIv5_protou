@@ -1,43 +1,7 @@
-*** Configuration.smali	2013-08-01 13:22:05.132988158 +0000
---- Configuration.smali	2013-08-01 13:20:53.246319161 +0000
+*** Configuration.smali	2013-08-01 13:45:31.023033729 +0000
+--- Configuration.smali	2013-08-01 13:46:43.189702735 +0000
 ***************
-*** 234,268 ****
-  .end method
-  
-  .method public constructor <init>()V
-!     .locals 0
-  
-      .prologue
-      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-  
-      invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
-  
-      return-void
-  .end method
-  
-  .method public constructor <init>(Landroid/content/res/Configuration;)V
-!     .locals 0
-      .parameter "o"
-  
-      .prologue
-      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-  
-      invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
-  
-      return-void
-  .end method
-  
-  .method private constructor <init>(Landroid/os/Parcel;)V
-!     .locals 0
-      .parameter "source"
-  
-      .prologue
-      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-  
-      invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
-  
-      return-void
---- 264,325 ----
+*** 204,265 ****
   .end method
   
   .method public constructor <init>()V
@@ -49,12 +13,12 @@
       .prologue
       invoke-direct {p0}, Ljava/lang/Object;-><init>()V
   
-+     new-instance v0, Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
-+ 
-+     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
+-     new-instance v0, Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+- 
+-     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
       invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
   
       return-void
@@ -63,19 +27,19 @@
   .method public constructor <init>(Landroid/content/res/Configuration;)V
 !     .locals 1
       .parameter "o"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
       .prologue
       invoke-direct {p0}, Ljava/lang/Object;-><init>()V
   
-+     new-instance v0, Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
-+ 
-+     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
+-     new-instance v0, Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+- 
+-     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
       invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
   
       return-void
@@ -84,67 +48,134 @@
   .method private constructor <init>(Landroid/os/Parcel;)V
 !     .locals 1
       .parameter "source"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
       .prologue
       invoke-direct {p0}, Ljava/lang/Object;-><init>()V
   
-+     new-instance v0, Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
-+ 
-+     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
+-     new-instance v0, Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-direct {v0}, Lmiui/content/res/ExtraConfiguration;-><init>()V
+- 
+-     iput-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+      invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
+  
+      return-void
+--- 174,208 ----
+  .end method
+  
+  .method public constructor <init>()V
+!     .locals 0
+  
+      .prologue
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+      invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
+  
+      return-void
+  .end method
+  
+  .method public constructor <init>(Landroid/content/res/Configuration;)V
+!     .locals 0
+      .parameter "o"
+  
+      .prologue
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+      invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
+  
+      return-void
+  .end method
+  
+  .method private constructor <init>(Landroid/os/Parcel;)V
+!     .locals 0
+      .parameter "source"
+  
+      .prologue
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
       invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
   
       return-void
 ***************
-*** 810,815 ****
+*** 786,801 ****
+      or-int/lit16 v0, v0, 0x800
+  
+      :cond_10
+-     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     iget-object v2, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v1, v2}, Lmiui/content/res/ExtraConfiguration;->diff(Lmiui/content/res/ExtraConfiguration;)I
+- 
+-     move-result v1
+- 
+-     or-int/2addr v0, v1
+- 
+      return v0
+  .end method
+  
+--- 708,713 ----
       or-int/lit16 v0, v0, 0x800
   
       :cond_10
       return v0
   .end method
   
---- 888,903 ----
-      or-int/lit16 v0, v0, 0x800
+***************
+*** 1067,1075 ****
+  .method public readFromParcel(Landroid/os/Parcel;)V
+      .locals 5
+      .parameter "source"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
-      :cond_10
-+     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     iget-object v2, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-virtual {v1, v2}, Lmiui/content/res/ExtraConfiguration;->diff(Lmiui/content/res/ExtraConfiguration;)I
-+ 
-+     move-result v1
-+ 
-+     or-int/2addr v0, v1
-+ 
-      return v0
+      .prologue
+      const/4 v0, 0x1
+--- 968,973 ----
+  .method public readFromParcel(Landroid/os/Parcel;)V
+      .locals 5
+      .parameter "source"
+  
+      .prologue
+      const/4 v0, 0x1
+***************
+*** 1228,1237 ****
+  
+      iput v0, p0, Landroid/content/res/Configuration;->seq:I
+  
+-     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v0, p1}, Lmiui/content/res/ExtraConfiguration;->readFromParcel(Landroid/os/Parcel;)V
+- 
+      return-void
+  
+      :cond_1
+--- 1126,1131 ----
+  
+      iput v0, p0, Landroid/content/res/Configuration;->seq:I
+  
+      return-void
+  
+      :cond_1
+***************
+*** 1241,1251 ****
   .end method
   
-***************
-*** 1092,1097 ****
-  .method public readFromParcel(Landroid/os/Parcel;)V
-      .locals 5
-      .parameter "source"
+  .method public setTo(Landroid/content/res/Configuration;)V
+!     .locals 2
+      .parameter "o"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
       .prologue
-      const/4 v0, 0x1
---- 1191,1199 ----
-  .method public readFromParcel(Landroid/os/Parcel;)V
-      .locals 5
-      .parameter "source"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      const/4 v0, 0x1
-***************
-*** 1263,1270 ****
+      iget v0, p1, Landroid/content/res/Configuration;->fontScale:F
+--- 1135,1142 ----
   .end method
   
   .method public setTo(Landroid/content/res/Configuration;)V
@@ -153,164 +184,152 @@
   
       .prologue
       iget v0, p1, Landroid/content/res/Configuration;->fontScale:F
---- 1369,1379 ----
-  .end method
-  
-  .method public setTo(Landroid/content/res/Configuration;)V
-!     .locals 2
-      .parameter "o"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      iget v0, p1, Landroid/content/res/Configuration;->fontScale:F
 ***************
-*** 1366,1376 ****
+*** 1347,1366 ****
   
       iput v0, p0, Landroid/content/res/Configuration;->seq:I
   
-      return-void
-  .end method
-  
-  .method public setToDefaults()V
-      .locals 2
-  
-      .prologue
-      const/4 v1, 0x0
---- 1475,1494 ----
-  
-      iput v0, p0, Landroid/content/res/Configuration;->seq:I
-  
-+     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     iget-object v1, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-virtual {v0, v1}, Lmiui/content/res/ExtraConfiguration;->setTo(Lmiui/content/res/ExtraConfiguration;)V
-+ 
-      return-void
-  .end method
-  
-  .method public setToDefaults()V
-      .locals 2
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      const/4 v1, 0x0
-***************
-*** 1423,1433 ****
-  
-      iput v1, p0, Landroid/content/res/Configuration;->seq:I
-  
-      return-void
-  .end method
-  
-  .method public toString()Ljava/lang/String;
-      .locals 2
-  
-      .prologue
-      new-instance v0, Ljava/lang/StringBuilder;
---- 1541,1558 ----
-  
-      iput v1, p0, Landroid/content/res/Configuration;->seq:I
-  
-+     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-virtual {v0}, Lmiui/content/res/ExtraConfiguration;->setToDefaults()V
-+ 
-      return-void
-  .end method
-  
-  .method public toString()Ljava/lang/String;
-      .locals 2
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-  
-      .prologue
-      new-instance v0, Ljava/lang/StringBuilder;
-***************
-*** 1718,1723 ****
-      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-  
-      :cond_0
-      const/16 v1, 0x7d
-  
-      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
---- 1843,1856 ----
-      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-  
-      :cond_0
-+     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-virtual {v1}, Lmiui/content/res/ExtraConfiguration;->toString()Ljava/lang/String;
-+ 
-+     move-result-object v1
-+ 
-+     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-+ 
-      const/16 v1, 0x7d
-  
-      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-***************
-*** 2043,2050 ****
-  
-      goto/16 :goto_f
-  
--     nop
+-     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
 - 
-      :pswitch_data_0
-      .packed-switch 0x0
-          :pswitch_0
---- 2176,2181 ----
+-     iget-object v1, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v0, v1}, Lmiui/content/res/ExtraConfiguration;->setTo(Lmiui/content/res/ExtraConfiguration;)V
+- 
+      return-void
+  .end method
+  
+  .method public setToDefaults()V
+      .locals 2
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      const/4 v1, 0x0
+--- 1238,1248 ----
+  
+      iput v0, p0, Landroid/content/res/Configuration;->seq:I
+  
+      return-void
+  .end method
+  
+  .method public setToDefaults()V
+      .locals 2
+  
+      .prologue
+      const/4 v1, 0x0
+***************
+*** 1413,1430 ****
+  
+      iput v1, p0, Landroid/content/res/Configuration;->seq:I
+  
+-     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v0}, Lmiui/content/res/ExtraConfiguration;->setToDefaults()V
+- 
+      return-void
+  .end method
+  
+  .method public toString()Ljava/lang/String;
+      .locals 2
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+  
+      .prologue
+      new-instance v0, Ljava/lang/StringBuilder;
+--- 1295,1305 ----
+  
+      iput v1, p0, Landroid/content/res/Configuration;->seq:I
+  
+      return-void
+  .end method
+  
+  .method public toString()Ljava/lang/String;
+      .locals 2
+  
+      .prologue
+      new-instance v0, Ljava/lang/StringBuilder;
+***************
+*** 1715,1728 ****
+      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+  
+      :cond_0
+-     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v1}, Lmiui/content/res/ExtraConfiguration;->toString()Ljava/lang/String;
+- 
+-     move-result-object v1
+- 
+-     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+- 
+      const/16 v1, 0x7d
+  
+      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+--- 1590,1595 ----
+      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+  
+      :cond_0
+      const/16 v1, 0x7d
+  
+      invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+***************
+*** 2048,2053 ****
   
       goto/16 :goto_f
   
       :pswitch_data_0
       .packed-switch 0x0
           :pswitch_0
+--- 1915,1922 ----
+  
+      goto/16 :goto_f
+  
++     nop
++ 
+      :pswitch_data_0
+      .packed-switch 0x0
+          :pswitch_0
 ***************
-*** 2536,2541 ****
+*** 2539,2554 ****
+      iput v1, p0, Landroid/content/res/Configuration;->seq:I
+  
+      :cond_17
+-     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     iget-object v2, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
+- 
+-     invoke-virtual {v1, v2}, Lmiui/content/res/ExtraConfiguration;->updateFrom(Lmiui/content/res/ExtraConfiguration;)I
+- 
+-     move-result v1
+- 
+-     or-int/2addr v0, v1
+- 
+      return v0
+  
+      :cond_18
+--- 2408,2413 ----
       iput v1, p0, Landroid/content/res/Configuration;->seq:I
   
       :cond_17
       return v0
   
       :cond_18
---- 2667,2682 ----
-      iput v1, p0, Landroid/content/res/Configuration;->seq:I
-  
-      :cond_17
-+     iget-object v1, p0, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     iget-object v2, p1, Landroid/content/res/Configuration;->extraConfig:Lmiui/content/res/ExtraConfiguration;
-+ 
-+     invoke-virtual {v1, v2}, Lmiui/content/res/ExtraConfiguration;->updateFrom(Lmiui/content/res/ExtraConfiguration;)I
-+ 
-+     move-result v1
-+ 
-+     or-int/2addr v0, v1
-+ 
-      return v0
-  
-      :cond_18
 ***************
-*** 2548,2553 ****
+*** 2561,2569 ****
       .locals 3
       .parameter "dest"
       .parameter "flags"
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
   
       .prologue
       const/4 v2, 0x1
---- 2689,2697 ----
+--- 2420,2425 ----
       .locals 3
       .parameter "dest"
       .parameter "flags"
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
   
       .prologue
       const/4 v2, 0x1

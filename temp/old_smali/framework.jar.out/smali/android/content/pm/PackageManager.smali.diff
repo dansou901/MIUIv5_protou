@@ -1,5 +1,5 @@
-*** ./smali/android/content/pm/PackageManager.smali	2013-08-01 13:22:07.726321575 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/PackageManager.smali	2013-08-01 13:20:55.819652578 +0000
+*** ./smali/android/content/pm/PackageManager.smali	2013-08-01 13:46:45.786369486 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/PackageManager.smali	2013-08-01 13:45:33.599700480 +0000
 ***************
 *** 14,27 ****
 --- 14,36 ----

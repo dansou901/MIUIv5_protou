@@ -137,6 +137,12 @@
     .end annotation
 .end field
 
+.field mChildSequenceStateTaggingListener:Landroid/view/ViewGroup$ChildSequenceStateTaggingListener;
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
+
 .field final mChildTransformation:Landroid/view/animation/Transformation;
 
 .field private mChildren:[Landroid/view/View;
@@ -226,6 +232,12 @@
 .field protected mOnHierarchyChangeListener:Landroid/view/ViewGroup$OnHierarchyChangeListener;
 
 .field protected mPersistentDrawingCache:I
+
+.field mTagChildrenSequenceState:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field mTagChildrenSequenceState:Z
     .annotation build Landroid/annotation/MiuiHook;
@@ -3677,6 +3689,8 @@
     invoke-super {p0}, Landroid/view/View;->clearFocus()V
 
     :goto_0
+    invoke-static {p0}, Landroid/view/ViewGroup$Injector;->tagChildSequenceState(Landroid/view/ViewGroup;)V
+
     return-void
 
     :cond_0
@@ -5603,6 +5617,8 @@
     :cond_1
     const/4 v0, 0x0
 
+    invoke-static {p0}, Landroid/view/ViewGroup$Injector;->tagChildSequenceState(Landroid/view/ViewGroup;)V
+
     goto :goto_0
 .end method
 
@@ -6855,6 +6871,7 @@
 
     .end local v0           #child:Landroid/view/View;
     :cond_0
+    :goto_miui_0
     return-void
 .end method
 
@@ -12687,6 +12704,8 @@
     invoke-virtual {v0, v1}, Landroid/animation/LayoutTransition;->addTransitionListener(Landroid/animation/LayoutTransition$TransitionListener;)V
 
     :cond_1
+    invoke-static {p0}, Landroid/view/ViewGroup$Injector;->tagChildSequenceState(Landroid/view/ViewGroup;)V
+
     return-void
 .end method
 
@@ -12976,6 +12995,19 @@
     .end local v1           #child:Landroid/view/View;
     :cond_0
     return v0
+.end method
+
+.method public setChildSequenceStateTaggingListener(Landroid/view/ViewGroup$ChildSequenceStateTaggingListener;)V
+    .locals 0
+    .parameter "listener"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-object p1, p0, Landroid/view/ViewGroup;->mChildSequenceStateTaggingListener:Landroid/view/ViewGroup$ChildSequenceStateTaggingListener;
+
+    return-void
 .end method
 
 .method public setChildSequenceStateTaggingListener(Landroid/view/ViewGroup$ChildSequenceStateTaggingListener;)V

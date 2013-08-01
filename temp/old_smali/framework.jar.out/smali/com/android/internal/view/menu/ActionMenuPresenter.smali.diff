@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/view/menu/ActionMenuPresenter.smali	2013-08-01 13:21:34.346320493 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/ActionMenuPresenter.smali	2013-08-01 13:20:22.556318166 +0000
+*** ./smali/com/android/internal/view/menu/ActionMenuPresenter.smali	2013-08-01 13:46:12.103035061 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/view/menu/ActionMenuPresenter.smali	2013-08-01 13:45:00.156366062 +0000
 ***************
 *** 15,21 ****
           Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;,

@@ -1,7 +1,61 @@
-*** LightsService$Light.smali	2013-08-01 13:21:24.972986856 +0000
---- LightsService$Light.smali	2013-08-01 13:20:13.152984528 +0000
+*** LightsService$Light.smali	2013-08-01 13:46:02.346368078 +0000
+--- LightsService$Light.smali	2013-08-01 13:44:50.756365757 +0000
 ***************
-*** 166,172 ****
+*** 1,15 ****
+! .class public final Lcom/android/server/LightsService$Light;
+  .super Ljava/lang/Object;
+  .source "LightsService.java"
+  
+  
+  # annotations
+  .annotation system Ldalvik/annotation/EnclosingClass;
+      value = Lcom/android/server/LightsService;
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x11
+      name = "Light"
+  .end annotation
+  
+--- 1,19 ----
+! .class public Lcom/android/server/LightsService$Light;
+  .super Ljava/lang/Object;
+  .source "LightsService.java"
+  
+  
+  # annotations
++ .annotation build Landroid/annotation/MiuiHook;
++     value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_ACCESS:Landroid/annotation/MiuiHook$MiuiHookType;
++ .end annotation
++ 
+  .annotation system Ldalvik/annotation/EnclosingClass;
+      value = Lcom/android/server/LightsService;
+  .end annotation
+  
+  .annotation system Ldalvik/annotation/InnerClass;
+!     accessFlags = 0x1
+      name = "Light"
+  .end annotation
+  
+***************
+*** 83,89 ****
+      return-void
+  .end method
+  
+! .method private setLightLocked(IIIII)V
+      .locals 7
+      .parameter "color"
+      .parameter "mode"
+--- 102,108 ----
+      return-void
+  .end method
+  
+! .method setLightLocked(IIIII)V
+      .locals 7
+      .parameter "color"
+      .parameter "mode"
+***************
+*** 162,168 ****
   
       move-object v0, p0
   
@@ -9,7 +63,7 @@
   
       monitor-exit p0
   
---- 185,191 ----
+--- 181,187 ----
   
       move-object v0, p0
   
@@ -18,7 +72,7 @@
       monitor-exit p0
   
 ***************
-*** 226,232 ****
+*** 222,228 ****
   
       move v3, p2
   
@@ -26,7 +80,7 @@
   
       iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
   
---- 245,251 ----
+--- 241,247 ----
   
       move v3, p2
   
@@ -35,7 +89,24 @@
       iget-object v0, p0, Lcom/android/server/LightsService$Light;->this$0:Lcom/android/server/LightsService;
   
 ***************
-*** 349,355 ****
+*** 309,315 ****
+      move v5, p2
+  
+      :try_start_0
+!     invoke-direct/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+--- 328,334 ----
+      move v5, p2
+  
+      :try_start_0
+!     invoke-virtual/range {v0 .. v5}, Lcom/android/server/LightsService$Light;->setLightLocked(IIIII)V
+  
+      monitor-exit p0
+  
+***************
+*** 345,351 ****
       move v1, p1
   
       :try_start_0
@@ -43,7 +114,7 @@
   
       monitor-exit p0
   
---- 368,374 ----
+--- 364,370 ----
       move v1, p1
   
       :try_start_0
@@ -52,7 +123,7 @@
       monitor-exit p0
   
 ***************
-*** 388,394 ****
+*** 384,390 ****
       move v4, p4
   
       :try_start_0
@@ -60,7 +131,7 @@
   
       monitor-exit p0
   
---- 407,413 ----
+--- 403,409 ----
       move v4, p4
   
       :try_start_0
@@ -69,7 +140,7 @@
       monitor-exit p0
   
 ***************
-*** 423,429 ****
+*** 419,425 ****
       move-object v0, p0
   
       :try_start_0
@@ -77,7 +148,7 @@
   
       monitor-exit p0
   
---- 442,448 ----
+--- 438,444 ----
       move-object v0, p0
   
       :try_start_0

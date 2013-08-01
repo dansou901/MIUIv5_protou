@@ -1,41 +1,41 @@
-*** KeyguardUpdateMonitor.smali	2013-08-01 13:22:28.472988914 +0000
---- KeyguardUpdateMonitor.smali	2013-08-01 13:21:17.006319931 +0000
+*** KeyguardUpdateMonitor.smali	2013-08-01 13:45:54.326367818 +0000
+--- KeyguardUpdateMonitor.smali	2013-08-01 13:47:06.666370163 +0000
 ***************
-*** 116,121 ****
+*** 109,116 ****
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
+-     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+- 
+      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
+  
+      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
+--- 102,107 ----
   
       invoke-direct {p0}, Ljava/lang/Object;-><init>()V
   
       sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
   
       iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
---- 123,130 ----
-  
-      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-  
-+     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
-+ 
-      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
-  
-      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 ***************
-*** 691,696 ****
+*** 686,698 ****
       .parameter "simArgs"
   
       .prologue
+-     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+- 
+-     if-eqz v2, :cond_miui_0
+- 
+-     return-void
+- 
+-     :cond_miui_0
       iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
   
       .local v1, state:Lcom/android/internal/telephony/IccCard$State;
---- 700,712 ----
+--- 677,682 ----
       .parameter "simArgs"
   
       .prologue
-+     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
-+ 
-+     if-eqz v2, :cond_miui_0
-+ 
-+     return-void
-+ 
-+     :cond_miui_0
       iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
   
       .local v1, state:Lcom/android/internal/telephony/IccCard$State;

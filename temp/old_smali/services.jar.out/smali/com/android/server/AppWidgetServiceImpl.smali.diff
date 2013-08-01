@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/AppWidgetServiceImpl.smali	2013-08-01 13:21:21.706320084 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AppWidgetServiceImpl.smali	2013-08-01 13:20:09.856317754 +0000
+*** ./smali/com/android/server/AppWidgetServiceImpl.smali	2013-08-01 13:45:59.049701305 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AppWidgetServiceImpl.smali	2013-08-01 13:44:47.503032319 +0000
 ***************
 *** 9,15 ****
           Lcom/android/server/AppWidgetServiceImpl$ServiceConnectionProxy;,
