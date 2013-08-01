@@ -1,5 +1,5 @@
-*** ./smali/android/telephony/PhoneNumberUtils.smali	2013-07-31 22:23:05.687403422 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/telephony/PhoneNumberUtils.smali	2013-07-31 22:21:45.714063413 +0000
+*** ./smali/android/telephony/PhoneNumberUtils.smali	2013-08-01 13:22:12.952988411 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/telephony/PhoneNumberUtils.smali	2013-08-01 13:21:01.026319413 +0000
 ***************
 *** 6,12 ****
   # annotations

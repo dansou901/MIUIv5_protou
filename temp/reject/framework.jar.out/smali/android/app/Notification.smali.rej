@@ -1,61 +1,61 @@
-*** Notification.smali	2013-07-31 22:21:54.814064173 +0000
---- Notification.smali	2013-07-31 22:23:23.034071536 +0000
+*** Notification.smali	2013-08-01 13:22:25.056322137 +0000
+--- Notification.smali	2013-08-01 13:21:13.582986487 +0000
 ***************
-*** 495,504 ****
-      iput-object v1, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
-  
-      :cond_9
--     iget-object v1, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
-- 
--     invoke-virtual {v1, p1}, Lmiui/app/ExtraNotification;->readFromParcel(Landroid/os/Parcel;)V
-- 
-      return-void
-  .end method
-  
---- 469,474 ----
+*** 521,526 ****
       iput-object v1, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
   
       :cond_9
       return-void
   .end method
   
-***************
-*** 756,767 ****
-      iput-object v7, v2, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
+--- 547,556 ----
+      iput-object v1, p0, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
   
-      :cond_8
--     iget-object v7, v2, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
-- 
--     iget-object v8, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
-- 
--     invoke-virtual {v7, v8}, Lmiui/app/ExtraNotification;->setTo(Lmiui/app/ExtraNotification;)V
-- 
-      return-object v2
-  .end method
-  
---- 726,731 ----
-      iput-object v7, v2, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
-  
-      :cond_8
-      return-object v2
+      :cond_9
++     iget-object v1, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
++ 
++     invoke-virtual {v1, p1}, Lmiui/app/ExtraNotification;->readFromParcel(Landroid/os/Parcel;)V
++ 
+      return-void
   .end method
   
 ***************
-*** 1373,1382 ****
+*** 778,783 ****
+      iput-object v7, v2, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
+  
+      :cond_8
+      return-object v2
+  .end method
+  
+--- 808,819 ----
+      iput-object v7, v2, Landroid/app/Notification;->bigContentView:Landroid/widget/RemoteViews;
+  
+      :cond_8
++     iget-object v7, v2, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
++ 
++     iget-object v8, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
++ 
++     invoke-virtual {v7, v8}, Lmiui/app/ExtraNotification;->setTo(Lmiui/app/ExtraNotification;)V
++ 
+      return-object v2
+  .end method
+  
+***************
+*** 1389,1394 ****
       invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
   
       :goto_9
--     iget-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
-- 
--     invoke-virtual {v0, p1, p2}, Lmiui/app/ExtraNotification;->writeToParcel(Landroid/os/Parcel;I)V
-- 
       return-void
   
       :cond_0
---- 1337,1342 ----
+--- 1425,1434 ----
       invoke-virtual {v0, p1, v2}, Landroid/widget/RemoteViews;->writeToParcel(Landroid/os/Parcel;I)V
   
       :goto_9
++     iget-object v0, p0, Landroid/app/Notification;->extraNotification:Lmiui/app/ExtraNotification;
++ 
++     invoke-virtual {v0, p1, p2}, Lmiui/app/ExtraNotification;->writeToParcel(Landroid/os/Parcel;I)V
++ 
       return-void
   
       :cond_0

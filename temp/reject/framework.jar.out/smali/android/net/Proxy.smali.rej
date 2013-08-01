@@ -1,37 +1,19 @@
-*** Proxy.smali	2013-07-31 22:21:32.494062310 +0000
---- Proxy.smali	2013-07-31 22:22:44.517401655 +0000
+*** Proxy.smali	2013-08-01 13:21:55.479654512 +0000
+--- Proxy.smali	2013-08-01 13:20:43.622985516 +0000
 ***************
-*** 257,265 ****
-      .locals 6
-      .parameter "context"
-      .parameter "url"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-  
-      .prologue
-      invoke-static {p0, p1}, Landroid/net/Proxy;->getProxy(Landroid/content/Context;Ljava/lang/String;)Ljava/net/Proxy;
---- 256,261 ----
-      .locals 6
-      .parameter "context"
-      .parameter "url"
-  
-      .prologue
-      invoke-static {p0, p1}, Landroid/net/Proxy;->getProxy(Landroid/content/Context;Ljava/lang/String;)Ljava/net/Proxy;
-***************
-*** 290,296 ****
-      .local v1, sa:Ljava/net/InetSocketAddress;
-      new-instance v2, Lorg/apache/http/HttpHost;
-  
-!     invoke-static {v1}, Landroid/net/Proxy$Injector;->getHostName(Ljava/net/InetSocketAddress;)Ljava/lang/String;
-  
-      move-result-object v3
-  
---- 286,292 ----
+*** 291,297 ****
       .local v1, sa:Ljava/net/InetSocketAddress;
       new-instance v2, Lorg/apache/http/HttpHost;
   
 !     invoke-virtual {v1}, Ljava/net/InetSocketAddress;->getHostName()Ljava/lang/String;
+  
+      move-result-object v3
+  
+--- 295,301 ----
+      .local v1, sa:Ljava/net/InetSocketAddress;
+      new-instance v2, Lorg/apache/http/HttpHost;
+  
+!     invoke-static {v1}, Landroid/net/Proxy$Injector;->getHostName(Ljava/net/InetSocketAddress;)Ljava/lang/String;
   
       move-result-object v3
   

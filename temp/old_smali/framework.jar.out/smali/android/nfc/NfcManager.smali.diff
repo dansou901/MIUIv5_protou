@@ -1,5 +1,5 @@
-*** ./smali/android/nfc/NfcManager.smali	2013-07-31 22:23:25.790738433 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/nfc/NfcManager.smali	2013-07-31 22:21:56.267397627 +0000
+*** ./smali/android/nfc/NfcManager.smali	2013-08-01 13:22:27.016322201 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/nfc/NfcManager.smali	2013-08-01 13:21:15.549653217 +0000
 ***************
 *** 64,66 ****
 --- 64,79 ----

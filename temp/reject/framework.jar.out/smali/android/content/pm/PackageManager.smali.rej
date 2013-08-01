@@ -1,5 +1,5 @@
-*** PackageManager.smali	2013-07-31 22:22:58.394069480 +0000
---- PackageManager.smali	2013-07-31 22:21:41.764063084 +0000
+*** PackageManager.smali	2013-08-01 13:22:07.726321575 +0000
+--- PackageManager.smali	2013-08-01 13:20:55.819652578 +0000
 ***************
 *** 14,27 ****
   # static fields

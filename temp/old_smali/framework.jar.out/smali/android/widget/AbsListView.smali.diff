@@ -1,5 +1,5 @@
-*** ./smali/android/widget/AbsListView.smali	2013-07-31 22:22:34.134067455 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView.smali	2013-07-31 22:21:25.270728374 +0000
+*** ./smali/android/widget/AbsListView.smali	2013-08-01 13:21:45.936320869 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView.smali	2013-08-01 13:20:34.089651873 +0000
 ***************
 *** 29,35 ****
           Landroid/widget/AbsListView$ListItemAccessibilityDelegate;,

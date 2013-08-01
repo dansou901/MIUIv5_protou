@@ -1,136 +1,87 @@
-*** KeyguardViewMediator.smali	2013-07-31 22:23:28.884072025 +0000
---- KeyguardViewMediator.smali	2013-07-31 22:21:57.914064432 +0000
+*** KeyguardViewMediator.smali	2013-08-01 13:21:17.746319955 +0000
+--- KeyguardViewMediator.smali	2013-08-01 13:22:29.196322271 +0000
 ***************
-*** 307,315 ****
-  
-      iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mCallback:Lcom/android/internal/policy/impl/PhoneWindowManager;
-  
-!     new-instance v0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-  
-!     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-  
---- 310,318 ----
-  
-      iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mCallback:Lcom/android/internal/policy/impl/PhoneWindowManager;
-  
-!     new-instance v0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
-  
-!     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-  
-***************
-*** 331,343 ****
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-  
-!     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;
-  
-      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-  
-      iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-  
-!     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/LockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
-  
---- 334,346 ----
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-  
-!     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;
-  
-      iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-  
-      iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
-  
-!     invoke-direct {v0, v1, v2}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
-  
-      iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
-  
-***************
-*** 1319,1324 ****
+*** 1311,1320 ****
       return-void
   
       :cond_0
-      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
-  
-      invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
---- 1327,1336 ----
-      return-void
-  
-      :cond_0
-+     const/4 v0, 0x1
-+ 
-+     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
-+ 
-      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
-  
-      invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
-***************
-*** 1348,1358 ****
-      .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-  
-      :goto_1
 -     const/4 v0, 0x1
 - 
-      :try_start_2
--     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+-     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
 - 
-      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
+      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
   
-      invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
---- 1360,1366 ----
-      .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+      invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
+--- 1303,1308 ----
+      return-void
   
-      :goto_1
-      :try_start_2
-      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
+      :cond_0
+      iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
   
-      invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+      invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
 ***************
-*** 1633,1639 ****
-      throw v0
-  .end method
+*** 1862,1879 ****
   
-! .method private playSounds(Z)V
-      .locals 8
-      .parameter "locked"
   
---- 1641,1647 ----
-      throw v0
-  .end method
+  # virtual methods
+- .method callNotifyScreenOffLocked()V
+-     .locals 0
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->notifyScreenOffLocked()V
+- 
+-     return-void
+- .end method
+- 
+  .method public doKeyguardTimeout()V
+      .locals 3
   
-! .method protected playSounds(Z)V
-      .locals 8
-      .parameter "locked"
-  
-***************
-*** 1866,1871 ****
+--- 1854,1859 ----
   
   
   # virtual methods
   .method public doKeyguardTimeout()V
       .locals 3
   
---- 1874,1891 ----
+***************
+*** 1898,1927 ****
+      return-void
+  .end method
   
+- .method getContext()Landroid/content/Context;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mContext:Landroid/content/Context;
+- 
+-     return-object v0
+- .end method
+- 
+- .method getStatusBarManager()Landroid/app/StatusBarManager;
+-     .locals 1
+-     .annotation build Landroid/annotation/MiuiHook;
+-         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+-     .end annotation
+- 
+-     .prologue
+-     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
+- 
+-     return-object v0
+- .end method
+- 
+  .method public isInputRestricted()Z
+      .locals 1
   
-  # virtual methods
-+ .method callNotifyScreenOffLocked()V
-+     .locals 0
-+     .annotation build Landroid/annotation/MiuiHook;
-+         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-+     .end annotation
-+ 
-+     .prologue
-+     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->notifyScreenOffLocked()V
-+ 
-+     return-void
-+ .end method
-+ 
-  .method public doKeyguardTimeout()V
-      .locals 3
+--- 1878,1883 ----
+      return-void
+  .end method
+  
+  .method public isInputRestricted()Z
+      .locals 1
   

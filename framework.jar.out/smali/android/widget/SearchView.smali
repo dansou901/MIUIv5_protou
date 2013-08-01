@@ -2679,16 +2679,6 @@
     :goto_0
     if-nez v0, :cond_0
 
-    iget-object v3, p0, Landroid/widget/SearchView;->mContext:Landroid/content/Context;
-
-    invoke-static {v3}, Lmiui/util/UiUtils;->isV5Ui(Landroid/content/Context;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_miui_0
-
-    return-object p1
-    :cond_miui_0
     iget-boolean v3, p0, Landroid/widget/SearchView;->mIconifiedByDefault:Z
 
     if-eqz v3, :cond_2
@@ -3223,8 +3213,6 @@
     iget-object v1, p0, Landroid/widget/SearchView;->mVoiceButton:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
-
-    invoke-direct {p0}, Landroid/widget/SearchView;->miuiUpdateSubmitArea()V
 
     return-void
 .end method

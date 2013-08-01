@@ -1,5 +1,5 @@
-*** ./smali/android/app/ActivityManager.smali	2013-07-31 22:23:24.977405032 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ActivityManager.smali	2013-07-31 22:21:55.830730925 +0000
+*** ./smali/android/app/ActivityManager.smali	2013-08-01 13:22:26.419655515 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ActivityManager.smali	2013-08-01 13:21:14.959653198 +0000
 ***************
 *** 256,261 ****
 --- 256,264 ----

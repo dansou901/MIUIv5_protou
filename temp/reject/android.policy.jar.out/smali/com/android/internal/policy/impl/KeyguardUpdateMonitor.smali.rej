@@ -1,116 +1,41 @@
-*** KeyguardUpdateMonitor.smali	2013-07-31 22:21:57.367397719 +0000
---- KeyguardUpdateMonitor.smali	2013-07-31 22:23:27.867405273 +0000
+*** KeyguardUpdateMonitor.smali	2013-08-01 13:22:28.472988914 +0000
+--- KeyguardUpdateMonitor.smali	2013-08-01 13:21:17.006319931 +0000
 ***************
-*** 92,103 ****
-      .end annotation
-  .end field
-  
-- .field private mSkipSimStateChange:Z
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-- .end field
-- 
-  .field private mTelephonyPlmn:Ljava/lang/CharSequence;
-  
-  .field private mTelephonySpn:Ljava/lang/CharSequence;
---- 91,96 ----
-      .end annotation
-  .end field
-  
-  .field private mTelephonyPlmn:Ljava/lang/CharSequence;
-  
-  .field private mTelephonySpn:Ljava/lang/CharSequence;
-***************
-*** 115,122 ****
-  
-      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-  
--     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
-- 
-      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
-  
-      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
---- 108,113 ----
+*** 116,121 ****
   
       invoke-direct {p0}, Ljava/lang/Object;-><init>()V
   
       sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
   
       iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
+--- 123,130 ----
+  
+      invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+  
++     iput-boolean v4, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
++ 
+      sget-object v2, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
+  
+      iput-object v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSimState:Lcom/android/internal/telephony/IccCard$State;
 ***************
-*** 692,704 ****
-      .parameter "simArgs"
-  
-      .prologue
--     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
-- 
--     if-eqz v2, :cond_miui_0
-- 
--     return-void
-- 
--     :cond_miui_0
-      iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
-  
-      .local v1, state:Lcom/android/internal/telephony/IccCard$State;
---- 683,688 ----
+*** 691,696 ****
       .parameter "simArgs"
   
       .prologue
       iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
   
       .local v1, state:Lcom/android/internal/telephony/IccCard$State;
-***************
-*** 1336,1352 ****
-      goto :goto_0
-  .end method
+--- 700,712 ----
+      .parameter "simArgs"
   
-- .method isSimPinSecure()Z
--     .locals 1
-- 
--     .prologue
--     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->isSimLocked()Z
-- 
--     move-result v0
-- 
--     return v0
-- .end method
-- 
-  .method public registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
-      .locals 3
-      .parameter "callback"
---- 1311,1316 ----
-      goto :goto_0
-  .end method
+      .prologue
++     iget-boolean v2, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
++ 
++     if-eqz v2, :cond_miui_0
++ 
++     return-void
++ 
++     :cond_miui_0
+      iget-object v1, p1, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;->simState:Lcom/android/internal/telephony/IccCard$State;
   
-  .method public registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
-      .locals 3
-      .parameter "callback"
-***************
-*** 1504,1522 ****
-      return-void
-  .end method
-  
-- .method public setSkipSimStateChange(Z)V
--     .locals 0
--     .parameter "skip"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-- 
--     .prologue
--     iput-boolean p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
-- 
--     return-void
-- .end method
-- 
-  .method public shouldShowBatteryInfo()Z
-      .locals 1
-  
---- 1468,1473 ----
-      return-void
-  .end method
-  
-  .method public shouldShowBatteryInfo()Z
-      .locals 1
-  
+      .local v1, state:Lcom/android/internal/telephony/IccCard$State;

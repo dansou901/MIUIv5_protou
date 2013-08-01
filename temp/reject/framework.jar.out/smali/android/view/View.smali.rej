@@ -1,37 +1,19 @@
-*** View.smali	2013-07-31 22:21:49.310730380 +0000
---- View.smali	2013-07-31 22:23:12.680737339 +0000
+*** View.smali	2013-08-01 13:22:17.702988565 +0000
+--- View.smali	2013-08-01 13:21:05.782986234 +0000
 ***************
-*** 22412,22420 ****
-  .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-      .locals 13
-      .parameter "event"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-  
-      .prologue
-      const/16 v12, 0x4000
---- 22339,22344 ----
-  .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-      .locals 13
-      .parameter "event"
-  
-      .prologue
-      const/16 v12, 0x4000
-***************
-*** 22577,22584 ****
+*** 22650,22655 ****
       iput-object v6, p0, Landroid/view/View;->mPerformClick:Landroid/view/View$PerformClick;
   
       :cond_a
--     invoke-static {p0}, Landroid/view/View$Injector;->performHapticFeedbackOnRelease(Landroid/view/View;)V
-- 
       iget-object v6, p0, Landroid/view/View;->mPerformClick:Landroid/view/View$PerformClick;
   
       invoke-virtual {p0, v6}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
---- 22501,22506 ----
+--- 22726,22733 ----
       iput-object v6, p0, Landroid/view/View;->mPerformClick:Landroid/view/View$PerformClick;
   
       :cond_a
++     invoke-static {p0}, Landroid/view/View$Injector;->performHapticFeedbackOnRelease(Landroid/view/View;)V
++ 
       iget-object v6, p0, Landroid/view/View;->mPerformClick:Landroid/view/View$PerformClick;
   
       invoke-virtual {p0, v6}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z

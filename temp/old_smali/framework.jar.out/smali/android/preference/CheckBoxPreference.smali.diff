@@ -1,5 +1,5 @@
-*** ./smali/android/preference/CheckBoxPreference.smali	2013-07-31 22:22:38.634067830 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/CheckBoxPreference.smali	2013-07-31 22:21:28.137395280 +0000
+*** ./smali/android/preference/CheckBoxPreference.smali	2013-08-01 13:21:49.736320992 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/preference/CheckBoxPreference.smali	2013-08-01 13:20:37.922985331 +0000
 ***************
 *** 74,84 ****
 --- 74,117 ----

@@ -1,5 +1,5 @@
-*** ./smali/android/content/pm/ResolveInfo$DisplayNameComparator.smali	2013-07-31 22:22:57.877402770 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ResolveInfo$DisplayNameComparator.smali	2013-07-31 22:21:41.490729728 +0000
+*** ./smali/android/content/pm/ResolveInfo$DisplayNameComparator.smali	2013-08-01 13:22:07.369654897 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/pm/ResolveInfo$DisplayNameComparator.smali	2013-08-01 13:20:55.459652566 +0000
 ***************
 *** 90,104 ****
       :cond_1

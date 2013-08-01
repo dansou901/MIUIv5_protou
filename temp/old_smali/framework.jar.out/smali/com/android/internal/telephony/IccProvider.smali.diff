@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/telephony/IccProvider.smali	2013-07-31 22:22:16.537399319 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccProvider.smali	2013-07-31 22:21:15.970727598 +0000
+*** ./smali/com/android/internal/telephony/IccProvider.smali	2013-08-01 13:21:33.502987132 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/telephony/IccProvider.smali	2013-08-01 13:20:21.709651472 +0000
 ***************
 *** 228,233 ****
 --- 228,245 ----

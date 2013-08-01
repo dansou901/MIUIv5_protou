@@ -17,8 +17,7 @@
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallbackImpl;,
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;,
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;,
-        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;,
-        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$Injector;
+        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;
     }
 .end annotation
 
@@ -2637,9 +2636,6 @@
 .method private static isPluggedIn(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
     .locals 3
     .parameter "status"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v0, 0x1
@@ -2655,12 +2651,6 @@
     if-ne v1, v2, :cond_1
 
     :cond_0
-    invoke-static {}, Landroid/app/MiuiThemeHelper;->isScreenshotMode()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
     :goto_0
     return v0
 
@@ -4675,12 +4665,6 @@
     if-eqz v0, :cond_1
 
     :cond_0
-    invoke-static {}, Landroid/app/MiuiThemeHelper;->isScreenshotMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
     const/4 v0, 0x1
 
     :goto_0

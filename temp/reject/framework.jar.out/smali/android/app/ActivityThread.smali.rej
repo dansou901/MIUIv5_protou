@@ -1,5 +1,5 @@
-*** ActivityThread.smali	2013-07-31 22:23:23.840738270 +0000
---- ActivityThread.smali	2013-07-31 22:21:55.240730875 +0000
+*** ActivityThread.smali	2013-08-01 13:22:25.636322156 +0000
+--- ActivityThread.smali	2013-08-01 13:21:14.166319839 +0000
 ***************
 *** 9339,9344 ****
       or-int/lit16 v0, v0, 0xd00
@@ -18,7 +18,25 @@
   
       if-eqz v7, :cond_4
 ***************
-*** 10707,10720 ****
+*** 10617,10622 ****
+      .locals 9
+      .parameter "resDir"
+      .parameter "compInfo"
+  
+      .prologue
+      const/4 v1, 0x0
+--- 10622,10630 ----
+      .locals 9
+      .parameter "resDir"
+      .parameter "compInfo"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
+  
+      .prologue
+      const/4 v1, 0x0
+***************
+*** 10704,10717 ****
       move-result-object v3
   
       .local v3, metrics:Landroid/util/DisplayMetrics;
@@ -33,7 +51,7 @@
   
       .restart local v4       #r:Landroid/content/res/Resources;
       iget-object v7, p0, Landroid/app/ActivityThread;->mPackages:Ljava/util/HashMap;
---- 10715,10728 ----
+--- 10712,10725 ----
       move-result-object v3
   
       .local v3, metrics:Landroid/util/DisplayMetrics;

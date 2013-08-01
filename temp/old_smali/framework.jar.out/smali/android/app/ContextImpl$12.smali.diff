@@ -1,5 +1,5 @@
-*** ./smali/android/app/ContextImpl$12.smali	2013-07-31 22:23:22.050738121 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ContextImpl$12.smali	2013-07-31 22:21:54.300730797 +0000
+*** ./smali/android/app/ContextImpl$12.smali	2013-08-01 13:22:24.352988781 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/ContextImpl$12.smali	2013-08-01 13:21:12.892986465 +0000
 ***************
 *** 29,37 ****
   .method public createService(Landroid/app/ContextImpl;)Ljava/lang/Object;

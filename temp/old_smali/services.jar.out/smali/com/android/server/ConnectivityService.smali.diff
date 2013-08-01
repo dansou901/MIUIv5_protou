@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/ConnectivityService.smali	2013-07-31 22:22:05.327398384 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/ConnectivityService.smali	2013-07-31 22:21:08.980727014 +0000
+*** ./smali/com/android/server/ConnectivityService.smali	2013-08-01 13:21:25.399653537 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/ConnectivityService.smali	2013-08-01 13:20:13.576317875 +0000
 ***************
 *** 10,16 ****
           Lcom/android/server/ConnectivityService$SettingsObserver;,

@@ -21,8 +21,7 @@
         Lcom/android/server/PowerManagerService$DockReceiver;,
         Lcom/android/server/PowerManagerService$BootCompletedReceiver;,
         Lcom/android/server/PowerManagerService$BatteryReceiver;,
-        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;,
-        Lcom/android/server/PowerManagerService$Injector;
+        Lcom/android/server/PowerManagerService$UnsynchronizedWakeLock;
     }
 .end annotation
 
@@ -3478,11 +3477,7 @@
 
     iget-object v1, p0, Lcom/android/server/PowerManagerService;->mScreenBrightnessAnimator:Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;
 
-    const/4 v2, 0x2
-
-    const/4 v3, 0x0
-
-    invoke-static {p0, v1, v3, v2, v3}, Lcom/android/server/PowerManagerService$Injector;->animateTo(Lcom/android/server/PowerManagerService;Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;III)V
+    invoke-virtual {v1}, Lcom/android/server/PowerManagerService$ScreenBrightnessAnimator;->cancelAnimation()V
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/PowerManagerService;->mUserActivityAllowed:Z
@@ -4610,6 +4605,8 @@
     const-string v11, "dropping lightSensorChangedLocked because screen is off"
 
     invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    and-int/lit8 p1, p1, -0x4
 
     :cond_1
     :goto_0
@@ -6457,6 +6454,10 @@
     iget-object v1, p0, Lcom/android/server/PowerManagerService;->mBroadcastWhy:[I
 
     aput p2, v1, v3
+
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
 
     :cond_4
     iget-object v4, p0, Lcom/android/server/PowerManagerService;->mBroadcastQueue:[I
@@ -12259,8 +12260,6 @@
 
     goto/16 :goto_4
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x80 -> :sswitch_0
@@ -12403,20 +12402,6 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v0
-.end method
-
-.method callGoToSleepLocked(JI)V
-    .locals 0
-    .parameter "time"
-    .parameter "reason"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/PowerManagerService;->goToSleepLocked(JI)V
-
-    return-void
 .end method
 
 .method public clearUserActivityTimeout(JJ)V
@@ -16052,9 +16037,6 @@
 .method public preventScreenOn(Z)V
     .locals 6
     .parameter "prevent"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     iget-object v1, p0, Lcom/android/server/PowerManagerService;->mContext:Landroid/content/Context;
@@ -16164,8 +16146,6 @@
     iget-object v3, p0, Lcom/android/server/PowerManagerService;->mForceReenableScreenTask:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    invoke-static {p0}, Lcom/android/server/PowerManagerService$Injector;->sleepIfProximitySensorActive(Lcom/android/server/PowerManagerService;)V
 
     iget-boolean v1, p0, Lcom/android/server/PowerManagerService;->mProximitySensorActive:Z
 
@@ -17766,19 +17746,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
-.end method
-
-.method setProxIgnoredBecauseScreenTurnedOff(Z)V
-    .locals 0
-    .parameter "value"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iput-boolean p1, p0, Lcom/android/server/PowerManagerService;->mProxIgnoredBecauseScreenTurnedOff:Z
-
-    return-void
 .end method
 
 .method public setScreenBrightnessOverride(I)V

@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/LockPatternUtils.smali	2013-07-31 22:22:07.974065271 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/LockPatternUtils.smali	2013-07-31 22:21:10.914060509 +0000
+*** ./smali/com/android/internal/widget/LockPatternUtils.smali	2013-08-01 13:21:27.302986932 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/LockPatternUtils.smali	2013-08-01 13:20:15.469651270 +0000
 ***************
 *** 84,89 ****
 --- 84,115 ----

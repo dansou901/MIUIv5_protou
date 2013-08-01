@@ -1,5 +1,5 @@
-*** ./smali/android/net/http/AndroidHttpClient.smali	2013-07-31 22:22:43.977401610 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/net/http/AndroidHttpClient.smali	2013-07-31 22:21:32.064062274 +0000
+*** ./smali/android/net/http/AndroidHttpClient.smali	2013-08-01 13:21:54.956321161 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/net/http/AndroidHttpClient.smali	2013-08-01 13:20:43.109652166 +0000
 ***************
 *** 10,16 ****
   .annotation system Ldalvik/annotation/MemberClasses;

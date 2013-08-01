@@ -98,9 +98,6 @@
 
 .method public constructor <init>()V
     .locals 2
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v1, 0x1
@@ -134,8 +131,6 @@
 
     invoke-static {}, Landroid/content/res/AssetManager;->ensureSystemAssets()V
 
-    invoke-static {p0}, Landroid/app/MiuiThemeHelper;->addExtraAssetPaths(Landroid/content/res/AssetManager;)V
-
     monitor-exit p0
 
     return-void
@@ -153,9 +148,6 @@
 .method private constructor <init>(Z)V
     .locals 2
     .parameter "isSystem"
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
 
     .prologue
     const/4 v1, 0x1
@@ -183,8 +175,6 @@
     iput-boolean v1, p0, Landroid/content/res/AssetManager;->mOpen:Z
 
     invoke-direct {p0}, Landroid/content/res/AssetManager;->init()V
-
-    invoke-static {p0}, Landroid/app/MiuiThemeHelper;->addExtraAssetPaths(Landroid/content/res/AssetManager;)V
 
     return-void
 .end method

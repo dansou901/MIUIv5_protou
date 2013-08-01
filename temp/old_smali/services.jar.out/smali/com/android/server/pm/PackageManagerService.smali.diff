@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/PackageManagerService.smali	2013-07-31 22:22:03.757398253 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/PackageManagerService.smali	2013-07-31 22:21:08.110726942 +0000
+*** ./smali/com/android/server/pm/PackageManagerService.smali	2013-08-01 13:21:24.242986833 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/PackageManagerService.smali	2013-08-01 13:20:12.412984504 +0000
 ***************
 *** 22,28 ****
           Lcom/android/server/pm/PackageManagerService$ActivityIntentResolver;,

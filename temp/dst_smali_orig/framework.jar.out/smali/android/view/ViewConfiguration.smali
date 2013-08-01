@@ -343,10 +343,6 @@
 
     float-to-int v10, v10
 
-    invoke-static {p1, v10}, Landroid/view/ViewConfiguration$Injector;->getOverScrollDistance(Landroid/content/Context;I)I
-
-    move-result v10
-
     iput v10, p0, Landroid/view/ViewConfiguration;->mOverscrollDistance:I
 
     const/high16 v10, 0x40c0
@@ -356,10 +352,6 @@
     add-float/2addr v10, v12
 
     float-to-int v10, v10
-
-    invoke-static {p1, v10}, Landroid/view/ViewConfiguration$Injector;->getOverFlingDistance(Landroid/content/Context;I)I
-
-    move-result v10
 
     iput v10, p0, Landroid/view/ViewConfiguration;->mOverflingDistance:I
 

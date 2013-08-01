@@ -6594,9 +6594,7 @@
     check-cast v3, Lcom/android/server/am/ActivityRecord;
 
     .local v3, r:Lcom/android/server/am/ActivityRecord;
-    invoke-static {p3, v3}, Lcom/android/server/am/ActivityStack$Injector;->isDestroyHomeReasonAlwaysOrFinishing(Ljava/lang/String;Lcom/android/server/am/ActivityRecord;)Z
-
-    move-result v4
+    iget-boolean v4, v3, Lcom/android/server/am/ActivityRecord;->finishing:Z
 
     if-eqz v4, :cond_1
 

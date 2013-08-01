@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/widget/ActionBarView$HomeView.smali	2013-07-31 22:22:08.117398617 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ActionBarView$HomeView.smali	2013-07-31 22:21:10.994060516 +0000
+*** ./smali/com/android/internal/widget/ActionBarView$HomeView.smali	2013-08-01 13:21:27.409653602 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/com/android/internal/widget/ActionBarView$HomeView.smali	2013-08-01 13:20:15.576317940 +0000
 ***************
 *** 15,20 ****
 --- 15,32 ----

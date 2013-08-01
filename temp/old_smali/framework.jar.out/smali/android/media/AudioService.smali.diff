@@ -1,5 +1,5 @@
-*** ./smali/android/media/AudioService.smali	2013-07-31 22:23:01.720736424 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/AudioService.smali	2013-07-31 22:21:43.557396567 +0000
+*** ./smali/android/media/AudioService.smali	2013-08-01 13:22:10.106321652 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/media/AudioService.smali	2013-08-01 13:20:58.192985988 +0000
 ***************
 *** 24,30 ****
           Landroid/media/AudioService$SoundPoolCallback;,

@@ -1,5 +1,5 @@
-*** GrantedPermissions.smali	2013-07-31 22:22:03.674064912 +0000
---- GrantedPermissions.smali	2013-07-31 22:21:08.047393603 +0000
+*** GrantedPermissions.smali	2013-08-01 13:21:24.152986829 +0000
+--- GrantedPermissions.smali	2013-08-01 13:20:12.329651168 +0000
 ***************
 *** 89,97 ****
   .method setFlags(I)V

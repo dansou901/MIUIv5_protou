@@ -1,5 +1,5 @@
-*** ./smali/android/content/res/Resources$Theme.smali	2013-07-31 22:22:55.077402536 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Resources$Theme.smali	2013-07-31 22:21:39.974062934 +0000
+*** ./smali/android/content/res/Resources$Theme.smali	2013-08-01 13:22:05.342988165 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/content/res/Resources$Theme.smali	2013-08-01 13:20:53.456319168 +0000
 ***************
 *** 136,142 ****
   

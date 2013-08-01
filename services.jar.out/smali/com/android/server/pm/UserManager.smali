@@ -1905,7 +1905,17 @@
 
     monitor-enter v1
 
+    if-nez p1, :cond_0
+
+    const/4 v0, 0x1
+
     :try_start_0
+    monitor-exit v1
+
+    :goto_0
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mUserIds:[I
 
     invoke-static {v0, p1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
@@ -1914,9 +1924,8 @@
 
     monitor-exit v1
 
-    return v0
+    goto :goto_0
 
-    .line 114
     :catchall_0
     move-exception v0
 
@@ -1932,12 +1941,10 @@
     .parameter "userId"
 
     .prologue
-    .line 105
     iget-object v2, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
     monitor-enter v2
 
-    .line 106
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
@@ -1947,13 +1954,11 @@
 
     check-cast v0, Landroid/content/pm/UserInfo;
 
-    .line 107
     .local v0, info:Landroid/content/pm/UserInfo;
     monitor-exit v2
 
     return-object v0
 
-    .line 108
     .end local v0           #info:Landroid/content/pm/UserInfo;
     :catchall_0
     move-exception v1
@@ -1969,7 +1974,6 @@
     .locals 1
 
     .prologue
-    .line 133
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mUserIds:[I
 
     return-object v0
@@ -1988,12 +1992,10 @@
     .end annotation
 
     .prologue
-    .line 95
     iget-object v3, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
     monitor-enter v3
 
-    .line 96
     :try_start_0
     new-instance v1, Ljava/util/ArrayList;
 
@@ -2005,7 +2007,6 @@
 
     invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 97
     .local v1, users:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/pm/UserInfo;>;"
     const/4 v0, 0x0
 
@@ -2019,7 +2020,6 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 98
     iget-object v2, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -2028,18 +2028,15 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 97
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 100
     :cond_0
     monitor-exit v3
 
     return-object v1
 
-    .line 101
     .end local v0           #i:I
     .end local v1           #users:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Landroid/content/pm/UserInfo;>;"
     :catchall_0
@@ -2058,7 +2055,6 @@
     .parameter "uid"
 
     .prologue
-    .line 388
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mUserIds:[I
 
     .local v0, arr$:[I
@@ -2073,17 +2069,14 @@
 
     aget v3, v0, v1
 
-    .line 390
     .local v3, userId:I
     if-nez v3, :cond_0
 
-    .line 388
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 392
     :cond_0
     iget-object v4, p0, Lcom/android/server/pm/UserManager;->mInstaller:Lcom/android/server/pm/Installer;
 
@@ -2095,7 +2088,6 @@
 
     goto :goto_1
 
-    .line 395
     .end local v3           #userId:I
     :cond_1
     return-void
@@ -2108,16 +2100,13 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 460
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mInstaller:Lcom/android/server/pm/Installer;
 
     if-nez v0, :cond_0
 
-    .line 463
     :goto_0
     return v1
 
-    .line 462
     :cond_0
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mInstaller:Lcom/android/server/pm/Installer;
 
@@ -2131,7 +2120,6 @@
     .parameter "packageName"
 
     .prologue
-    .line 407
     iget-object v0, p0, Lcom/android/server/pm/UserManager;->mUserIds:[I
 
     .local v0, arr$:[I
@@ -2146,17 +2134,14 @@
 
     aget v3, v0, v1
 
-    .line 409
     .local v3, userId:I
     if-nez v3, :cond_0
 
-    .line 407
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 411
     :cond_0
     iget-object v4, p0, Lcom/android/server/pm/UserManager;->mInstaller:Lcom/android/server/pm/Installer;
 
@@ -2164,7 +2149,6 @@
 
     goto :goto_1
 
-    .line 413
     .end local v3           #userId:I
     :cond_1
     return-void
@@ -2175,12 +2159,10 @@
     .parameter "id"
 
     .prologue
-    .line 365
     iget-object v1, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
     monitor-enter v1
 
-    .line 366
     :try_start_0
     invoke-direct {p0, p1}, Lcom/android/server/pm/UserManager;->removeUserLocked(I)Z
 
@@ -2190,7 +2172,7 @@
 
     return v0
 
-    .line 367
+    .line 114
     :catchall_0
     move-exception v0
 
@@ -2207,12 +2189,12 @@
     .parameter "name"
 
     .prologue
-    .line 118
+    .line 105
     iget-object v2, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 
     monitor-enter v2
 
-    .line 119
+    .line 106
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/UserManager;->mUsers:Landroid/util/SparseArray;
 

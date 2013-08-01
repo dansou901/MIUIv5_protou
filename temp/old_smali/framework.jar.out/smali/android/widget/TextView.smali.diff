@@ -1,5 +1,5 @@
-*** ./smali/android/widget/TextView.smali	2013-07-31 22:22:30.064067115 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/TextView.smali	2013-07-31 22:21:23.134061529 +0000
+*** ./smali/android/widget/TextView.smali	2013-08-01 13:21:43.032987441 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/TextView.smali	2013-08-01 13:20:31.186318446 +0000
 ***************
 *** 7419,7425 ****
   

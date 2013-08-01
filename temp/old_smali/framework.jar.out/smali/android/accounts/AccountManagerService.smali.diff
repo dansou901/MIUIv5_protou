@@ -1,5 +1,5 @@
-*** ./smali/android/accounts/AccountManagerService.smali	2013-07-31 22:23:05.887403439 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/accounts/AccountManagerService.smali	2013-07-31 22:21:45.840730091 +0000
+*** ./smali/android/accounts/AccountManagerService.smali	2013-08-01 13:22:13.099655083 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/accounts/AccountManagerService.smali	2013-08-01 13:21:01.182986085 +0000
 ***************
 *** 15,21 ****
           Landroid/accounts/AccountManagerService$GetAccountsByTypeAndFeatureSession;,

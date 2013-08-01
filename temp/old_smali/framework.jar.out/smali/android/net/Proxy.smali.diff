@@ -1,5 +1,5 @@
-*** ./smali/android/net/Proxy.smali	2013-07-31 22:22:44.517401655 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/net/Proxy.smali	2013-07-31 22:21:32.494062310 +0000
+*** ./smali/android/net/Proxy.smali	2013-08-01 13:21:55.479654512 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/net/Proxy.smali	2013-08-01 13:20:43.622985516 +0000
 ***************
 *** 6,12 ****
   # annotations

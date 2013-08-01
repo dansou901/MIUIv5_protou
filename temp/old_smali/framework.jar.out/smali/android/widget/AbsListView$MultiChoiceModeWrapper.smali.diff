@@ -1,5 +1,5 @@
-*** ./smali/android/widget/AbsListView$MultiChoiceModeWrapper.smali	2013-07-31 22:22:28.630733662 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView$MultiChoiceModeWrapper.smali	2013-07-31 22:21:22.367394798 +0000
+*** ./smali/android/widget/AbsListView$MultiChoiceModeWrapper.smali	2013-08-01 13:21:42.016320742 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView$MultiChoiceModeWrapper.smali	2013-08-01 13:20:30.169651746 +0000
 ***************
 *** 141,155 ****
   

@@ -1,32 +1,32 @@
-*** Installer.smali	2013-07-31 22:21:08.360726962 +0000
---- Installer.smali	2013-07-31 22:22:04.207398290 +0000
+*** Installer.smali	2013-08-01 13:21:24.569653510 +0000
+--- Installer.smali	2013-08-01 13:20:12.739651181 +0000
 ***************
-*** 586,606 ****
+*** 586,591 ****
   
   
   # virtual methods
-- .method public callExecute(Ljava/lang/String;)I
--     .locals 1
--     .parameter "cmd"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
-- 
--     .prologue
--     invoke-direct {p0, p1}, Lcom/android/server/pm/Installer;->execute(Ljava/lang/String;)I
-- 
--     move-result v0
-- 
--     return v0
-- .end method
-- 
   .method public clearUserData(Ljava/lang/String;I)I
       .locals 3
       .parameter "name"
---- 586,591 ----
+--- 586,606 ----
   
   
   # virtual methods
++ .method public callExecute(Ljava/lang/String;)I
++     .locals 1
++     .parameter "cmd"
++     .annotation build Landroid/annotation/MiuiHook;
++         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
++     .end annotation
++ 
++     .prologue
++     invoke-direct {p0, p1}, Lcom/android/server/pm/Installer;->execute(Ljava/lang/String;)I
++ 
++     move-result v0
++ 
++     return v0
++ .end method
++ 
   .method public clearUserData(Ljava/lang/String;I)I
       .locals 3
       .parameter "name"

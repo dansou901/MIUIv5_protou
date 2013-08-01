@@ -1,5 +1,5 @@
-*** ./smali/android/app/LoadedApk.smali	2013-07-31 22:23:25.474071740 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/LoadedApk.smali	2013-07-31 22:21:56.100730947 +0000
+*** ./smali/android/app/LoadedApk.smali	2013-08-01 13:22:26.779655526 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/LoadedApk.smali	2013-08-01 13:21:15.319653210 +0000
 ***************
 *** 1753,1769 ****
   .end method

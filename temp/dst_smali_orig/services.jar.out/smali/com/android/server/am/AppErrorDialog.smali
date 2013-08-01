@@ -3,14 +3,6 @@
 .source "AppErrorDialog.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/am/AppErrorDialog$Injector;
-    }
-.end annotation
-
-
 # static fields
 .field static final DISMISS_TIMEOUT:J = 0x493e0L
 
@@ -22,12 +14,6 @@
 
 
 # instance fields
-.field mCrashInfo:Landroid/app/ApplicationErrorReport$CrashInfo;
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-.end field
-
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mProc:Lcom/android/server/am/ProcessRecord;
@@ -318,20 +304,6 @@
 
     .prologue
     iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mResult:Lcom/android/server/am/AppErrorResult;
-
-    return-object v0
-.end method
-
-
-# virtual methods
-.method getProc()Lcom/android/server/am/ProcessRecord;
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iget-object v0, p0, Lcom/android/server/am/AppErrorDialog;->mProc:Lcom/android/server/am/ProcessRecord;
 
     return-object v0
 .end method

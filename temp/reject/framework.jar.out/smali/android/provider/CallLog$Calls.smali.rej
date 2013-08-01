@@ -1,25 +1,19 @@
-*** CallLog$Calls.smali	2013-07-31 22:21:19.490727891 +0000
---- CallLog$Calls.smali	2013-07-31 22:22:23.190733208 +0000
+*** CallLog$Calls.smali	2013-08-01 13:21:38.182987284 +0000
+--- CallLog$Calls.smali	2013-08-01 13:20:26.326318288 +0000
 ***************
-*** 137,145 ****
-      .parameter "callType"
-      .parameter "start"
-      .parameter "duration"
--     .annotation build Landroid/annotation/MiuiHook;
--         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
--     .end annotation
+*** 173,183 ****
   
-      .prologue
-      invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
---- 127,132 ----
-      .parameter "callType"
-      .parameter "start"
-      .parameter "duration"
+      :cond_0
+      :goto_0
+!     new-instance v12, Landroid/content/ContentValues;
   
-      .prologue
-      invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-***************
-*** 163,177 ****
+!     const/4 v2, 0x5
+  
+!     invoke-direct {v12, v2}, Landroid/content/ContentValues;-><init>(I)V
+  
+      .local v12, values:Landroid/content/ContentValues;
+      const-string v2, "number"
+--- 186,200 ----
   
       :cond_0
       :goto_0
@@ -35,32 +29,20 @@
   
       .local v12, values:Landroid/content/ContentValues;
       const-string v2, "number"
---- 150,160 ----
-  
-      :cond_0
-      :goto_0
-!     new-instance v12, Landroid/content/ContentValues;
-  
-!     const/4 v2, 0x5
-  
-!     invoke-direct {v12, v2}, Landroid/content/ContentValues;-><init>(I)V
-  
-      .local v12, values:Landroid/content/ContentValues;
-      const-string v2, "number"
 ***************
-*** 387,393 ****
-      move-result-object v11
-  
-      .local v11, result:Landroid/net/Uri;
-!     invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Injector;->removeExpiredEntries(Landroid/content/Context;)V
-  
-      return-object v11
-  
---- 370,376 ----
+*** 393,399 ****
       move-result-object v11
   
       .local v11, result:Landroid/net/Uri;
 !     invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Calls;->removeExpiredEntries(Landroid/content/Context;)V
+  
+      return-object v11
+  
+--- 410,416 ----
+      move-result-object v11
+  
+      .local v11, result:Landroid/net/Uri;
+!     invoke-static/range {p1 .. p1}, Landroid/provider/CallLog$Injector;->removeExpiredEntries(Landroid/content/Context;)V
   
       return-object v11
   

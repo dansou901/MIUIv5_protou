@@ -1,5 +1,5 @@
-*** ./smali/android/app/Notification.smali	2013-07-31 22:23:23.034071536 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Notification.smali	2013-07-31 22:21:54.814064173 +0000
+*** ./smali/android/app/Notification.smali	2013-08-01 13:22:25.056322137 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/app/Notification.smali	2013-08-01 13:21:13.582986487 +0000
 ***************
 *** 95,100 ****
 --- 95,102 ----

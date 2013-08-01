@@ -17,7 +17,8 @@
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallbackImpl;,
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;,
         Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;,
-        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;
+        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$SimArgs;,
+        Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$Injector;
     }
 .end annotation
 
@@ -251,6 +252,12 @@
 .field public mSubTelephonyPlmn:Ljava/lang/CharSequence;
 
 .field public mSubTelephonySpn:Ljava/lang/CharSequence;
+
+.field private mSkipSimStateChange:Z
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_FIELD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+.end field
 
 .field private mTelephonyPlmn:Ljava/lang/CharSequence;
 
@@ -2901,6 +2908,9 @@
 .method private static isPluggedIn(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$BatteryStatus;)Z
     .locals 3
     .parameter "status"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v0, 0x1
@@ -2917,6 +2927,12 @@
     if-ne v1, v2, :cond_1
 
     :cond_0
+    invoke-static {}, Landroid/app/MiuiThemeHelper;->isScreenshotMode()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
     :goto_0
     return v0
 
@@ -4151,6 +4167,17 @@
     goto :goto_0
 .end method
 
+.method isSimPinSecure()Z
+    .locals 1
+
+    .prologue
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->isSimLocked()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public registerInfoCallback(Lcom/android/internal/policy/impl/KeyguardUpdateMonitor$InfoCallback;)V
     .locals 3
     .parameter "callback"
@@ -5167,6 +5194,19 @@
     return-void
 .end method
 
+.method public setSkipSimStateChange(Z)V
+    .locals 0
+    .parameter "skip"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
+
+    .prologue
+    iput-boolean p1, p0, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->mSkipSimStateChange:Z
+
+    return-void
+.end method
+
 .method public shouldShowBatteryInfo()Z
     .locals 1
 
@@ -5189,6 +5229,12 @@
     if-eqz v0, :cond_1
 
     :cond_0
+    invoke-static {}, Landroid/app/MiuiThemeHelper;->isScreenshotMode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     const/4 v0, 0x1
 
     :goto_0

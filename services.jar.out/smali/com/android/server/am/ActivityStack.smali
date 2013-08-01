@@ -7458,29 +7458,26 @@
 
     check-cast v3, Lcom/android/server/am/ActivityRecord;
 
-    .line 4551
     .local v3, r:Lcom/android/server/am/ActivityRecord;
-    iget-boolean v4, v3, Lcom/android/server/am/ActivityRecord;->finishing:Z
+    invoke-static {p3, v3}, Lcom/android/server/am/ActivityStack$Injector;->isDestroyHomeReasonAlwaysOrFinishing(Ljava/lang/String;Lcom/android/server/am/ActivityRecord;)Z
+
+    move-result v4
 
     if-eqz v4, :cond_1
 
-    .line 4549
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
-    .line 4554
     :cond_1
     iget-boolean v4, v3, Lcom/android/server/am/ActivityRecord;->fullscreen:Z
 
     if-eqz v4, :cond_2
 
-    .line 4555
     const/4 v2, 0x1
 
-    .line 4557
     :cond_2
     if-eqz p1, :cond_3
 
@@ -8486,6 +8483,9 @@
     .locals 10
     .parameter "r"
     .parameter "globalChanges"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     const/4 v6, 0x1

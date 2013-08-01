@@ -1,5 +1,5 @@
-*** ./smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali	2013-07-31 22:23:27.047405205 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali	2013-07-31 22:21:56.924064349 +0000
+*** ./smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali	2013-08-01 13:22:27.902988896 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/android.policy.jar.out/./smali/com/android/internal/policy/impl/PhoneFallbackEventHandler.smali	2013-08-01 13:21:16.432986579 +0000
 ***************
 *** 253,258 ****
 --- 253,268 ----

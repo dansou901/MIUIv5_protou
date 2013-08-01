@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/AttributeCache.smali	2013-07-31 22:22:04.277398296 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AttributeCache.smali	2013-07-31 22:21:08.397393632 +0000
+*** ./smali/com/android/server/AttributeCache.smali	2013-08-01 13:21:24.619653511 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/AttributeCache.smali	2013-08-01 13:20:12.789651183 +0000
 ***************
 *** 114,125 ****
       :try_start_0

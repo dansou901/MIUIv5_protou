@@ -13,8 +13,7 @@
         Lcom/android/internal/policy/impl/LockPatternKeyguardView$IKeyguardScreenCallback;,
         Lcom/android/internal/policy/impl/LockPatternKeyguardView$AccountAnalyzer;,
         Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;,
-        Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;,
-        Lcom/android/internal/policy/impl/LockPatternKeyguardView$Injector;
+        Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
     }
 .end annotation
 
@@ -87,13 +86,13 @@
 
 .field private mShowLockBeforeUnlock:Z
 
-.field protected mSuppressBiometricUnlock:Z
+.field private mSuppressBiometricUnlock:Z
 
 .field private mTransportControlView:Lcom/android/internal/widget/TransportControlView;
 
 .field private mUnlockScreen:Landroid/view/View;
 
-.field protected mUnlockScreenMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
+.field private mUnlockScreenMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;
 
 .field private final mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
@@ -9519,8 +9518,6 @@
     .locals 4
 
     .prologue
-    const/4 v3, 0x1
-
     const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->isSecure()Z

@@ -6,8 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;,
-        Landroid/net/Proxy$Injector;
+        Landroid/net/Proxy$AndroidProxySelectorRoutePlanner;
     }
 .end annotation
 

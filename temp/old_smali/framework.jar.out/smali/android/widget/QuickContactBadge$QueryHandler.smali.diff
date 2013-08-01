@@ -1,5 +1,5 @@
-*** ./smali/android/widget/QuickContactBadge$QueryHandler.smali	2013-07-31 22:22:30.357400473 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/QuickContactBadge$QueryHandler.smali	2013-07-31 22:21:23.287394875 +0000
+*** ./smali/android/widget/QuickContactBadge$QueryHandler.smali	2013-08-01 13:21:43.242987448 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/QuickContactBadge$QueryHandler.smali	2013-08-01 13:20:31.392985119 +0000
 ***************
 *** 39,44 ****
 --- 39,47 ----

@@ -17,8 +17,7 @@
         Lcom/android/internal/policy/impl/PhoneWindow$DecorView;,
         Lcom/android/internal/policy/impl/PhoneWindow$ActionMenuPresenterCallback;,
         Lcom/android/internal/policy/impl/PhoneWindow$PanelMenuPresenterCallback;,
-        Lcom/android/internal/policy/impl/PhoneWindow$WindowManagerHolder;,
-        Lcom/android/internal/policy/impl/PhoneWindow$Injector;
+        Lcom/android/internal/policy/impl/PhoneWindow$WindowManagerHolder;
     }
 .end annotation
 
@@ -2066,12 +2065,6 @@
     iget v4, v0, Lcom/android/internal/policy/impl/PhoneWindow$PanelFeatureState;->windowAnimations:I
 
     iput v4, v2, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/PhoneWindow$Injector;->handleAppLayoutParams(Lcom/android/internal/policy/impl/PhoneWindow;Landroid/view/WindowManager;Landroid/view/WindowManager$LayoutParams;)V
 
     move-object/from16 v0, p1
 
@@ -4423,7 +4416,7 @@
 
     move/from16 v1, v38
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->addFlags(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindow;->clearFlags(I)V
 
     :goto_6
     move-object/from16 v0, p0
@@ -6360,18 +6353,6 @@
     invoke-static/range {v38 .. v39}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_16
-.end method
-
-.method getActionBarView()Lcom/android/internal/widget/ActionBarView;
-    .locals 1
-    .annotation build Landroid/annotation/MiuiHook;
-        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;
-    .end annotation
-
-    .prologue
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow;->mActionBar:Lcom/android/internal/widget/ActionBarView;
-
-    return-object v0
 .end method
 
 .method getAudioManager()Landroid/media/AudioManager;

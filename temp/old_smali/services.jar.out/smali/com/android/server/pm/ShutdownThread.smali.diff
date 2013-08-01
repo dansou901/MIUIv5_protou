@@ -1,5 +1,5 @@
-*** ./smali/com/android/server/pm/ShutdownThread.smali	2013-07-31 22:22:03.850731594 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/ShutdownThread.smali	2013-07-31 22:21:08.167393613 +0000
+*** ./smali/com/android/server/pm/ShutdownThread.smali	2013-08-01 13:21:24.312986835 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/services.jar.out/./smali/com/android/server/pm/ShutdownThread.smali	2013-08-01 13:20:12.486317840 +0000
 ***************
 *** 6,12 ****
   # annotations

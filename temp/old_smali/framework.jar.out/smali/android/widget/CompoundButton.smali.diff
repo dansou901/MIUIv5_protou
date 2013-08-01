@@ -1,5 +1,5 @@
-*** ./smali/android/widget/CompoundButton.smali	2013-07-31 22:22:30.210733794 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/CompoundButton.smali	2013-07-31 22:21:23.214061535 +0000
+*** ./smali/android/widget/CompoundButton.smali	2013-08-01 13:21:43.139654112 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/CompoundButton.smali	2013-08-01 13:20:31.292985116 +0000
 ***************
 *** 209,214 ****
 --- 209,223 ----

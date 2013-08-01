@@ -12,7 +12,8 @@
         Lcom/android/server/ConnectivityService$SettingsObserver;,
         Lcom/android/server/ConnectivityService$MyHandler;,
         Lcom/android/server/ConnectivityService$FeatureUser;,
-        Lcom/android/server/ConnectivityService$RadioAttributes;
+        Lcom/android/server/ConnectivityService$RadioAttributes;,
+        Lcom/android/server/ConnectivityService$Injector;
     }
 .end annotation
 
@@ -517,6 +518,9 @@
     .parameter "netd"
     .parameter "statsService"
     .parameter "policyManager"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 471
@@ -28519,6 +28523,9 @@
     .parameter "networkType"
     .parameter "feature"
     .parameter "binder"
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
     .line 1742

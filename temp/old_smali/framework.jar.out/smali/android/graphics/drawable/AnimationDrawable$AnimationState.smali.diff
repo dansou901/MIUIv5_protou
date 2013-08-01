@@ -1,5 +1,5 @@
-*** ./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-07-31 22:22:51.637402249 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-07-31 22:21:37.827396088 +0000
+*** ./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-08-01 13:22:02.462988071 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/graphics/drawable/AnimationDrawable$AnimationState.smali	2013-08-01 13:20:50.592985742 +0000
 ***************
 *** 1,15 ****
 ! .class final Landroid/graphics/drawable/AnimationDrawable$AnimationState;

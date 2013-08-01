@@ -1,5 +1,5 @@
-*** UiModeManagerService.smali	2013-07-31 22:21:59.167397870 +0000
---- UiModeManagerService.smali	2013-07-31 22:21:04.490726640 +0000
+*** UiModeManagerService.smali	2013-08-01 13:21:19.392986675 +0000
+--- UiModeManagerService.smali	2013-08-01 13:20:07.572984348 +0000
 ***************
 *** 143,148 ****
   

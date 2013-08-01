@@ -1,5 +1,5 @@
-*** ./smali/android/widget/AbsListView$FlingRunnable.smali	2013-07-31 22:22:29.907400435 +0000
---- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView$FlingRunnable.smali	2013-07-31 22:21:23.047394855 +0000
+*** ./smali/android/widget/AbsListView$FlingRunnable.smali	2013-08-01 13:21:42.912987437 +0000
+--- /home/daniel/patchrom/MIUIv5_protou/temp/new_smali/framework.jar.out/./smali/android/widget/AbsListView$FlingRunnable.smali	2013-08-01 13:20:31.082985109 +0000
 ***************
 *** 70,75 ****
 --- 70,131 ----
