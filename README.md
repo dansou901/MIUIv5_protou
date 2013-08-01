@@ -13,3 +13,5 @@ added temp folder after doing the make firstpatch (without MIUI smalis from xpir
 inserted new smalis from xpirts files and ran make firstpatch again
 
 ran make firstpatch again after deleting temp folder
+
+repeated last step
