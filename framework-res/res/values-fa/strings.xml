@@ -187,10 +187,10 @@
     <string name="RuacMmi">رد تماس های ناخواسته و آزار دهنده</string>
     <string name="CndMmi">تحویل شماره تماس</string>
     <string name="DndMmi">مزاحم نشوید</string>
-    <string name="CLIRDefaultOnNextCallOn">پیش‌فرض شناسه تماس گیرنده روی محدود است. تماس بعدی: محدود</string>
-    <string name="CLIRDefaultOnNextCallOff">پیش‌فرض شناسه تماس گیرنده روی محدود است. تماس بعدی: بدون محدودیت</string>
-    <string name="CLIRDefaultOffNextCallOn">پیش‌فرض شناسه تماس گیرنده روی غیر محدود است. تماس بعدی: محدود</string>
-    <string name="CLIRDefaultOffNextCallOff">پیش‌فرض شناسه تماس گیرنده روی غیر محدود است. تماس بعدی: بدون محدودیت</string>
+    <string name="CLIRDefaultOnNextCallOn">پیش فرض شناسه تماس گیرنده روی محدود است. تماس بعدی: محدود</string>
+    <string name="CLIRDefaultOnNextCallOff">پیش فرض شناسه تماس گیرنده روی محدود است. تماس بعدی: بدون محدودیت</string>
+    <string name="CLIRDefaultOffNextCallOn">پیش فرض شناسه تماس گیرنده روی غیر محدود است. تماس بعدی: محدود</string>
+    <string name="CLIRDefaultOffNextCallOff">پیش فرض شناسه تماس گیرنده روی غیر محدود است. تماس بعدی: بدون محدودیت</string>
     <string name="serviceNotProvisioned">سرویس دارای مجوز نیست.</string>
     <string name="CLIRPermanent">شما می‎توانید تنظیم شناسه تماس گیرنده را تغییر دهید.</string>
     <string name="RestrictedChangedTitle">دسترسی محدود تغییر یافت</string>
@@ -238,7 +238,7 @@
     <string name="httpErrorAuth">تأیید اعتبار انجام نشد.</string>
     <string name="httpErrorProxyAuth">تأیید اعتبار از طریق سرور پروکسی انجام نشد.</string>
     <string name="httpErrorConnect">اتصال به سرور انجام نشد.</string>
-    <string name="httpErrorIO">برقراری ارتباط با سرور ممکن نبود. بعداً دوباره تلاش کنید.</string>
+    <string name="httpErrorIO">برقراری ارتباط با سرور ممکن نبود. بعداً دوباره امتحان کنید.</string>
     <string name="httpErrorTimeout">زمان اتصال به سرور تمام شده است.</string>
     <string name="httpErrorRedirectLoop">این صفحه دارای تعداد بسیار زیادی تغییر مسیر سرور است.</string>
     <string name="httpErrorFailedSslHandshake">اتصال امن ایجاد نشد.</string>
@@ -280,7 +280,7 @@
     <string name="android_system_label">سیستم Android</string>
     <string name="permgrouplab_costMoney">سرویس های غیر رایگان</string>
     <string name="permgroupdesc_costMoney">انجام کارهایی که برای شما هزینه دارد.</string>
-    <string name="permgrouplab_messages">پیام‌های شما</string>
+    <string name="permgrouplab_messages">پیام های شما</string>
     <string name="permgroupdesc_messages">پیام کوتاه، ایمیل و دیگر پیامها را بخوانید.</string>
     <string name="permgrouplab_personalInfo">اطلاعات شخصی شما</string>
     <string name="permgroupdesc_personalInfo">دسترسی مستقیم به مخاطبین و تقویم ذخیره شده در گوشی.</string>
@@ -290,16 +290,16 @@
     <string name="permgroupdesc_network">به ویژگی‎های مختلف شبکه دسترسی داشته باشید.</string>
     <string name="permgrouplab_accounts">حساب های شما</string>
     <string name="permgroupdesc_accounts">به حساب های موجود دسترسی داشته باشید.</string>
-    <string name="permgrouplab_hardwareControls">کنترل‌های سخت‌افزار</string>
+    <string name="permgrouplab_hardwareControls">کنترل های سخت افزار</string>
     <string name="permgroupdesc_hardwareControls">دسترسی مستقیم به سخت افزار در گوشی.</string>
-    <string name="permgrouplab_phoneCalls">تماس‌های تلفنی</string>
+    <string name="permgrouplab_phoneCalls">تماس های تلفنی</string>
     <string name="permgroupdesc_phoneCalls">نظارت، ضبط و پردازش تماس های تلفنی.</string>
     <string name="permgrouplab_systemTools">ابزارهای سیستم</string>
     <string name="permgroupdesc_systemTools">دسترسی سطح پایین و کنترل سیستم.</string>
     <string name="permgrouplab_developmentTools">ابزارهای توسعه</string>
     <string name="permgroupdesc_developmentTools">ویژگیهایی که فقط مورد نیاز برنامه نویسان است.</string>
     <string name="permgrouplab_storage">ذخیره سازی</string>
-    <string name="permgroupdesc_storage">به کارت SD دسترسی داشته باشید.</string>
+    <string name="permgroupdesc_storage">به حافظه USB دسترسی پیدا کنید.</string>
     <string name="permlab_readWriteOmaDrm">دسترسی به پوشه مربوط به oma DRM</string>
     <string name="permdesc_readWriteOmaDrm">Allows an application to read or write to the folder about OMA DRM.</string>
     <string name="permlab_statusBar">غیرفعال کردن یا تغییر نوار وضعیت</string>
@@ -310,9 +310,9 @@
     <string name="permdesc_expandStatusBar">به برنامه اجازه می‎دهد تا نوار ابزار را جمع کند یا باز کند.</string>
     <string name="permlab_processOutgoingCalls">ترسیم مجدد مسیر تماس‌های خروجی</string>
     <string name="permdesc_processOutgoingCalls">به برنامه اجازه می‎دهد تماس‌های خروجی را پردازش کند و شماره‎هایی که باید گرفته شوند را تغییر دهد. این مجوز به برنامه امکان می‌دهد به کنترل، هدایت مجدد یا جلوگیری از تماس‌های خروجی بپردازد.</string>
-    <string name="permlab_receiveSms">دریافت پیام‌های متنی (پیامک)</string>
+    <string name="permlab_receiveSms">دریافت پیام‌های نوشتاری (پیامک)</string>
     <string name="permdesc_receiveSms">به برنامه اجازه می‌دهد پیامک‌ها را دریافت و پردازش کند. این یعنی برنامه می‌تواند پیام‌های ارسالی به دستگاه شما را بدون نمایش آنها به شما حذف یا کنترل کند.</string>
-    <string name="permlab_receiveMms">دریافت پیام‌های چندرسانه‌ای (MMS)</string>
+    <string name="permlab_receiveMms">دریافت پیام‌های نوشتاری (MMS)</string>
     <string name="permdesc_receiveMms">به برنامه اجازه می‌دهد پیام‌های MMS را دریافت و پردازش کند. این یعنی برنامه می‌تواند پیام‌های ارسالی به دستگاه شما را بدون نمایش آنها به شما حذف یا کنترل کند.</string>
     <string name="permlab_receiveEmergencyBroadcast">دریافت پخش های اضطراری</string>
     <string name="permdesc_receiveEmergencyBroadcast">به برنامه اجازه می‎دهد تا پیامهای پخش اضطراری را دریافت و پردازش کند. این مجوز فقط برای برنامه‎های سیستم در دسترس است.</string>
@@ -326,7 +326,7 @@
     <string name="permdesc_readSms">به برنامه اجازه می‌دهد پیامک‌های ذخیره شده در تلفن یا سیم کارت شما را بخواند. این ویژگی به برنامه امکان می‌دهد همه پیامک‌ها را صرفنظر از محتوا یا محرمانه بودن آنها بخواند.</string>
     <string name="permlab_writeSms">ویرایش پیام‌های نوشتاری شما (پیامک یا MMS)</string>
     <string name="permdesc_writeSms">به برنامه اجازه می‎دهد تا در پیامهای کوتاه ذخیره شده در تلفن یا سیم کارت بنویسد. برنامه‎های مخرب می‎توانند پیامهای شما را حذف کنند.</string>
-    <string name="permlab_receiveWapPush">دریافت پیام‌های متنی (WAP)</string>
+    <string name="permlab_receiveWapPush">دریافت پیام‌های نوشتاری (WAP)</string>
     <string name="permdesc_receiveWapPush">به برنامه اجازه می‌دهد پیام‌های WAP را دریافت و پردازش کند. این مجوز می‌تواند پیام‌های ارسالی به شما را بدون نمایش آنها به شما حذف یا کنترل کند.</string>
     <string name="permlab_getTasks">بازیابی برنامه‎های در حال اجرا</string>
     <string name="permdesc_getTasks">به برنامه امکان می‌دهد اطلاعات مربوط به کارهای در حال اجرای اخیر و کنونی را بازیابی کند. این ممکن است به برنامه امکان دهد به اطلاعات مربوط به برنامه‌هایی که در دستگاه استفاده می‌شوند دست یابد.</string>
@@ -353,7 +353,7 @@
     <string name="permlab_forceBack">بستن اجباری برنامه</string>
     <string name="permdesc_forceBack">به برنامه اجازه می‎دهد تا برنامه‌ای را که در پیش زمینه است ببندد و برگردد. برای برنامه‎های عادی مورد نیاز نیست.</string>
     <string name="permlab_dump">بازیابی وضعیت داخلی سیستم</string>
-    <string name="permdesc_dump">به برنامه اجازه می‎دهد تا وضعیت داخلی سیستم را بازیابی کند. برنامه‎های مخرب می‎توانند انواع مختلفی از اطلاعات خصوصی و امن را که معمولا به آن‌ها نیاز ندارند، بازیابی کنند.</string>
+    <string name="permdesc_dump">به برنامه اجازه می‎دهد تا وضعیت داخلی سیستم را بازیابی کند. برنامه‎های مخرب می‎توانند انواع مختلفی از اطلاعات خصوصی و امن را که معمولا به آنها نیاز ندارند، بازیابی کنند.</string>
     <string name="permlab_retrieve_window_content">بازیابی محتوای صفحه</string>
     <string name="permdesc_retrieve_window_content">به برنامه اجازه می‎دهد تا محتوای پنجره فعال را بازیابی کند. برنامه‎های مخرب می‎توانند کل محتوای پنجره را بازیابی کنند و همه متن آنرا به غیر از گذرواژه‎ها امتحان کنند.</string>
     <string name="permlab_shutdown">خاموش شدن جزئی</string>
@@ -389,7 +389,7 @@
     <string name="permlab_injectEvents">کلیدها و دکمه های کنترل را فشار دهید</string>
     <string name="permdesc_injectEvents">به برنامه اجازه می‎دهد تا رویدادهای ورودی خود را به برنامه‎های دیگر تحویل دهد (فشردن کلیدها و غیره). برنامه‎های مخرب می‎توانند از آن برای کنترل کارکرد تلفن استفاده کنند.</string>
     <string name="permlab_readInputState">مواردی که می نویسید و کارهایی که انجام می دهید را ضبط کنید</string>
-    <string name="permdesc_readInputState">به برنامه اجازه می‎دهد تا کلیدهایی را که هنگام تعامل با برنامه دیگر فشار می‎دهید ببیند (مانند تایپ‌کردن گذرواژه). برای برنامه‎های عادی مورد نیاز نیست.</string>
+    <string name="permdesc_readInputState">به برنامه اجازه می‎دهد تا کلیدهایی را که هنگام تعامل با برنامه دیگر فشار می‎دهید ببیند (مانند تایپ کردن گذرواژه). برای برنامه‎های عادی مورد نیاز نیست.</string>
     <string name="permlab_bindInputMethod">پیوند شده به روش ورودی</string>
     <string name="permdesc_bindInputMethod">به دارنده این دستگاه اجازه می‎دهد تا به رابط سطح بالای یک روش ورودی متصل شود. این ویژگی هیچگاه برای برنامه‎های معمولی ضروری نمی‎باشد.</string>
     <string name="permlab_bindAccessibilityService">اتصال به سرویس دسترسی</string>
@@ -419,7 +419,7 @@
     <string name="permlab_clearAppUserData">حذف داده‎های برنامه‎های دیگر</string>
     <string name="permdesc_clearAppUserData">به برنامه اجازه می‎دهد تا داده‎های کاربر را پاک کند.</string>
     <string name="permlab_deleteCacheFiles">حذف حافظه پنهان برنامه‎های دیگر</string>
-    <string name="permdesc_deleteCacheFiles">به برنامه اجازه می‎دهد تا فایل های حافظه پنهان را پاک کند.</string>
+    <string name="permdesc_deleteCacheFiles">به برنامه اجازه می‎دهد تا فایلهای حافظه پنهان را پاک کند.</string>
     <string name="permlab_getPackageSize">اندازه گیری فضای حافظه برنامه</string>
     <string name="permdesc_getPackageSize">به برنامه اجازه می‎دهد تا کدها، داده‎ها و اندازه‎های حافظه پنهان خود را بازیابی کند</string>
     <string name="permlab_installPackages">نصب مستقیم برنامه</string>
@@ -472,7 +472,7 @@
     <string name="permdesc_writeCalendar">به برنامه اجازه می‌دهد رویدادهایی را که می‌توانید در تلفن خود اصلاح نمایید، از جمله رویدادهای دوستان یا همکاران خود را، اضافه یا حذف کرده یا تغییر دهد. این ویژگی ممکن است به برنامه اجازه دهد پیام‌هایی را که به نظر می‌رسد از مالکین تقویم رسیده است ارسال نموده یا رویدادها را بدون اطلاع مالک اصلاح کنند.</string>
     <string name="permlab_accessMockLocation">منابع مکان کاذب برای تست</string>
     <string name="permdesc_accessMockLocation">منابع موقعیت مکانی کاذب را برای تست کردن یا نصب یک ارائه‌دهنده موقعیت مکانی جدید ایجاد نمایید. این کار به برنامه امکان می‌دهد موقعیت مکانی و/یا وضعیت گزارش داده شده توسط سایر منابع موقعیت مکانی مانند GPS یا ارائه‌دهندگان موقعیت مکانی را نادیده بگیرد.</string>
-    <string name="permlab_accessLocationExtraCommands">دسترسی به فرمان‌های بیشتر ارائه‌دهنده مکان</string>
+    <string name="permlab_accessLocationExtraCommands">دسترسی به فرمان های بیشتر ارائه دهنده مکان</string>
     <string name="permdesc_accessLocationExtraCommands">به برنامه اجازه می‎دهد تا به فرمان‌های ارائه‎دهنده موقعیت مکانی دیگری دسترسی داشته باشد. این ویژگی ممکن است باعث مختل شدن عملکرد GPS یا دیگر منابع موقعیت مکانی توسط این برنامه شود.</string>
     <string name="permlab_installLocationProvider">مجوز برای نصب یک ارائه دهنده مکان</string>
     <string name="permdesc_installLocationProvider">منابع موقعیت مکانی کاذب را برای تست کردن یا نصب یک ارائه‌دهنده موقعیت مکانی جدید ایجاد نمایید. این کار به برنامه امکان می‌دهد موقعیت مکانی و/یا وضعیت گزارش داده شده توسط سایر منابع موقعیت مکانی مانند GPS یا ارائه‌دهندگان موقعیت مکانی را نادیده بگیرد.</string>
@@ -492,11 +492,11 @@
     <string name="permdesc_camera">به برنامه اجازه می‌دهد با دوربین به عکسبرداری و فیلمبرداری بپردازد. این مجوز به برنامه اجازه می‌‌دهد از دوربین در هر زمانی بدون تأیید شما استفاده کند.</string>
     <string name="permlab_brick">تلفن بطور دائمی غیرفعال شود</string>
     <string name="permdesc_brick">به برنامه اجازه می‎دهد تا گوشی را به طور کلی و دائمی غیرفعال کند. این کار بسیار خطرناک است.</string>
-    <string name="permlab_reboot">اجبار برنامه برای راه اندازی دوباره</string>
+    <string name="permlab_reboot">اجبار برنامه برای راه اندازی مجدد</string>
     <string name="permdesc_reboot">به برنامه اجازه می‎دهد تا سبب راه اندازی مجدد گوشی شود.</string>
-    <string name="permlab_mount_unmount_filesystems">دسترسی به سیستم فایل کارت SD</string>
+    <string name="permlab_mount_unmount_filesystems">دسترسی به سیستم فایل حافظه USB</string>
     <string name="permdesc_mount_unmount_filesystems">به برنامه اجازه می‎دهد تا فایلهای سیستمی در حافظه جداشدنی نصب شود یا نصب آن لغو شود.</string>
-    <string name="permlab_mount_format_filesystems">پاک کردن کارت SD</string>
+    <string name="permlab_mount_format_filesystems">پاک کردن حافظه USB</string>
     <string name="permdesc_mount_format_filesystems">به برنامه اجازه می‎دهد تا حافظه جداشدنی را فرمت کند.</string>
     <string name="permlab_asec_access">دریافت اطلاعات مربوط به حافظه داخلی</string>
     <string name="permdesc_asec_access">به برنامه اجازه می‎دهد تا اطلاعات مربوط به حافظه داخلی را دریافت کند.</string>
@@ -518,20 +518,20 @@
     <string name="permdesc_accessMtp">دسترسی به درایور کرنل MTP جهت اعمال پروتکل MTP USB را اجازه می دهد.</string>
     <string name="permlab_hardware_test">تست سخت افزار</string>
     <string name="permdesc_hardware_test">به برنامه اجازه می‎دهد به منظور تست سخت‌افزار، قسمتهای جانبی مختلف را کنترل کنند.</string>
-    <string name="permlab_callPhone">تماس مستقیم با شماره تلفن‌ها</string>
+    <string name="permlab_callPhone">تماس مستقیم با شماره تلفن ها</string>
     <string name="permdesc_callPhone">به برنامه اجازه می‌دهد بدون دخالت شما با شماره‌های تلفن تماس بگیرد. این ممکن است باعث ایجاد هزینه یا تماس‌های پیش‌بینی نشده شود. توجه داشته باشید که این به برنامه اجازه نمی‌دهد به برقراری تماس‌های اضطراری بپردازد. برنامه‌های مخرب ممکن است با برقراری تماس بدون تأیید شما هزینه‌هایی را برای شما ایجاد کنند.</string>
     <string name="permlab_callPrivileged">تماس مستقیم با هر شماره تلفنی</string>
     <string name="permdesc_callPrivileged">به برنامه اجازه می‎دهد تا بدون دخالت با هر شماره تلفنی تماس بگیرد، از جمله شماره‎های اضطراری. برنامه‎های مخرب می‎توانند تماسهای غیرضروری و غیر قانونی با خدمات اضطراری بگیرند.</string>
     <string name="permlab_performCdmaProvisioning">شروع مستقیم راه اندازی تلفن CDMA</string>
     <string name="permdesc_performCdmaProvisioning">به برنامه اجازه می‎دهد تا شرایط مقررات CDMA را شروع کند. برنامه‎های مخرب می‎توانند شرایط مقررات CDMA را در مواقع غیرضروری شروع کند.</string>
-    <string name="permlab_locationUpdates">کنترل اعلان های به‌روزرسانی مکان</string>
+    <string name="permlab_locationUpdates">کنترل اعلان های به روز رسانی مکان</string>
     <string name="permdesc_locationUpdates">به برنامه اجازه می‎دهد اعلانهای به‎روزرسانی موقعیت مکانی را از رادیو فعال/غیرفعال کند. برای استفاده برنامه‎های عادی نیست.</string>
     <string name="permlab_checkinProperties">دسترسی به مشخصات اعلام ورود</string>
     <string name="permdesc_checkinProperties">به برنامه اجازه می‎دهد دسترسی به ویژگیهای بارگذاری شده توسط سرویسهای ورود را بخواند/بنویسد. برای استفاده برنامه‎های عادی مورد نیاز نیست.</string>
     <string name="permlab_bindGadget">انتخاب ابزارک ها</string>
     <string name="permdesc_bindGadget">به برنامه اجازه می‎دهد تا به سیستم اعلام کند کدام ویجت را کدام برنامه می‎تواند استفاده کند. برنامه‎ای که این مجوز را دارد می‎تواند به داده‎های شخصی دیگر برنامه‎ها دسترسی داشته باشد. برای استفاده برنامه‎های عادی نیست.</string>
     <string name="permlab_modifyPhoneState">اصلاح کردن حالت تلفن</string>
-    <string name="permdesc_modifyPhoneState">به برنامه اجازه می‌دهد ویژگی‌های دستگاه را کنترل کند. برنامه‎ای که این مجوز را دارد می‌تواند بدون اطلاع شما تعویض شبکه داشته باشد، رادیوی تلفن را روشن یا خاموش کند و کارهایی از این قبیل را انجام دهد.</string>
+    <string name="permdesc_modifyPhoneState">به برنامه اجازه می‎دهد ویژگیهای دستگاه را کنترل کند. برنامه‎ای که این مجوز را دارد می‎تواند بدون اطلاع شما تعویض شبکه داشته باشد، رادیوی تلفن را روشن یا خاموش کند و کارهایی از این قبیل را انجام دهد.</string>
     <string name="permlab_readPhoneState">خواندن وضعیت تلفن و شناسه</string>
     <string name="permdesc_readPhoneState">به برنامه اجازه می‌دهد به ویژگی‌های تلفن دستگاه شما دسترسی پیدا کند. این مجوز به برنامه اجازه می‌دهد شماره تلفن و شناسه‌های دستگاه، فعال بودن یک تماس و شماره راه دوری که با یک تماس متصل شده است را مشخص کند.</string>
     <string name="permlab_wakeLock">ممانعت از به خواب رفتن تلفن</string>
@@ -605,9 +605,9 @@
     <string name="permlab_writeDictionary">نوشتن در فرهنگ لغت تعریف شده از سوی کاربر</string>
     <string name="permdesc_writeDictionary">به برنامه اجازه می‎دهد تا کلمات جدید را در فهرست کاربر بنویسد.</string>
     <string name="permlab_sdcardRead">تست دسترسی به حافظه محافظت شده</string>
-    <string name="permdesc_sdcardRead">به برنامه اجازه می‌دهد یک مجوز را برای کارت SD که در دستگاه‌های آتی موجود خواهد بود تست کند.</string>
-    <string name="permlab_sdcardWrite">محتوای کارت SD شما را اصلاح کرده یا تغییر دهد</string>
-    <string name="permdesc_sdcardWrite">به برنامه اجازه می‎دهد تا در کارت SD بنویسد.</string>
+    <string name="permdesc_sdcardRead">به برنامه اجازه می‌دهد یک مجوز را برای حافظه USB که در دستگاه‌های آتی موجود خواهد بود تست کند.</string>
+    <string name="permlab_sdcardWrite">اصلاح یا حذف محتویات حافظه USB شما</string>
+    <string name="permdesc_sdcardWrite">به برنامه اجازه می‎دهد تا در حافظه USB بنویسد.</string>
     <string name="permlab_mediaStorageWrite">تغییر/حذف محتواهای حافظه رسانه داخلی</string>
     <string name="permdesc_mediaStorageWrite">به برنامه اجازه می‎دهد تا محتویات حافظه رسانه داخلی را تغییر دهد.</string>
     <string name="permlab_cache_filesystem">دسترسی به سیستم فایل حافظه پنهان</string>
@@ -727,7 +727,7 @@
     <string name="lockscreen_return_to_call">بازگشت به تماس</string>
     <string name="lockscreen_pattern_correct">صحیح است!</string>
     <string name="lockscreen_pattern_wrong">دوباره امتحان کنید</string>
-    <string name="lockscreen_password_wrong">دوباره تلاش کنید</string>
+    <string name="lockscreen_password_wrong">دوباره امتحان کنید</string>
     <string name="faceunlock_multiple_failures">دفعات تلاش برای Face Unlock از حداکثر مجاز بیشتر شد</string>
     <string name="lockscreen_plugged_in">در حال شارژ،%d%%</string>
     <string name="lockscreen_charged">شارژ شد.</string>
@@ -740,8 +740,8 @@
     <string name="lockscreen_permanent_disabled_sim_message_short">سیم کارت غیرقابل استفاده است.</string>
     <string name="lockscreen_permanent_disabled_sim_instructions">"سیم کارت شما به طور دائم غیر فعال شده است. 
 برای داشتن سیم کارت دیگر با ارائه‎دهنده سرویس بی‎سیم خود تماس بگیرید."</string>
-    <string name="lockscreen_transport_prev_description">دکمه آهنگ قبلی</string>
-    <string name="lockscreen_transport_next_description">دکمه آهنگ بعدی</string>
+    <string name="lockscreen_transport_prev_description">دکمه تراک قبلی</string>
+    <string name="lockscreen_transport_next_description">دکمه تراک بعدی</string>
     <string name="lockscreen_transport_pause_description">دکمه مکث</string>
     <string name="lockscreen_transport_play_description">دکمه پخش</string>
     <string name="lockscreen_transport_stop_description">دکمه توقف</string>
@@ -759,13 +759,13 @@
 پس از %d ثانیه دوباره امتحان کنید."</string>
     <string name="lockscreen_too_many_failed_pin_attempts_dialog_message" formatted="false">"پین را%d بار اشتباه تایپ کرده‎اید. 
 
-پس از %d ثانیه دوباره تلاش کنید."</string>
+پس از %d ثانیه دوباره امتحان کنید."</string>
     <string name="lockscreen_failed_attempts_almost_glogin" formatted="false">"شما الگوی بازگشایی قفل خود را %d بار اشتباه کشیده اید. پس از %d تلاش ناموفق دیگر از شما خواسته می‎شود که برای بازگشایی قفل گوشی خود به برنامه Google وارد شوید.
 
  لطفاً پس از %d ثانیه دوباره امتحان کنید."</string>
     <string name="lockscreen_failed_attempts_almost_at_wipe" formatted="false">شما به اشتباه %d بار اقدام به باز کردن قفل تلفن کرده‌اید. پس از%d تلاش ناموفق دیگر، تلفن به پیش فرض کارخانه بازنشانی می‌شود و تمام داده‌های کاربر از دست خواهد رفت.</string>
     <string name="lockscreen_failed_attempts_now_wiping">شما به اشتباه %d بار اقدام به باز کردن قفل تلفن کرده‌اید. این تلفن در حال حاضر به پیش فرض کارخانه بازنشانی می‌شود.</string>
-    <string name="lockscreen_too_many_failed_attempts_countdown">در %d ثانیه دوباره تلاش کنید.</string>
+    <string name="lockscreen_too_many_failed_attempts_countdown">در %d ثانیه دوباره امتحان کنید.</string>
     <string name="lockscreen_forgot_pattern_button_text">الگو را فراموش کرده اید؟</string>
     <string name="lockscreen_glogin_forgot_pattern">بازگشایی قفل حساب</string>
     <string name="lockscreen_glogin_too_many_attempts">تلاش‎های زیادی برای کشیدن الگو صورت گرفته است</string>
@@ -924,7 +924,7 @@
     <string name="capital_on">روشن</string>
     <string name="capital_off">خاموش</string>
     <string name="whichApplication">تکمیل عملکرد با استفاده از</string>
-    <string name="alwaysUse">استفاده به صورت پیش‌فرض برای این عملکرد.</string>
+    <string name="alwaysUse">استفاده به صورت پیش فرض برای این عملکرد.</string>
     <string name="clearDefaultHintMsg">پیش فرض را در تنظیمات سیستم> برنامه‎ها> مورد دانلود شده پاک کنید.</string>
     <string name="chooseActivity">انتخاب عملکرد</string>
     <string name="chooseUsbActivity">انتخاب برنامه برای دستگاه USB</string>
@@ -969,7 +969,7 @@
     <string name="old_app_description">برنامه جدید شروع نشود.</string>
     <string name="new_app_action">شروع %1$s</string>
     <string name="new_app_description">برنامه قدیمی را بدون ذخیره متوقف کنید.</string>
-    <string name="sendText">انتخاب یک عملکرد برای متن</string>
+    <string name="sendText">انتخاب یک عملکرد برای نوشتار</string>
     <string name="volume_ringtone">میزان صدای زنگ</string>
     <string name="volume_music">میزان صدای رسانه</string>
     <string name="volume_music_hint_playing_through_bluetooth">پخش از طریق بلوتوث</string>
@@ -1029,17 +1029,17 @@
     <string name="perms_description_app">ارائه شده توسط %1$s .</string>
     <string name="usb_storage_activity_title">دستگاه ذخیره سازی انبوه USB</string>
     <string name="usb_storage_title">USB متصل شد</string>
-    <string name="usb_storage_message">شما از طریق USB به رایانه خود متصل شده‎اید. اگر می‎خواهید فایل‎ها را بین رایانه خود و کارت SD در Android کپی کنید، دکمه زیر را لمس کنید.</string>
+    <string name="usb_storage_message">شما از طریق USB به رایانه خود متصل شده‎اید. اگر می‎خواهید فایل‎ها را بین رایانه خود و حافظه USB در Android کپی کنید، دکمه زیر را لمس کنید.</string>
     <string name="usb_storage_button_mount">روشن کردن دستگاه ذخیره سازی USB</string>
-    <string name="usb_storage_error_message">هنگام استفاده از کارت SD برای حافظه ذخیره انبوه USB مشکلی بوجود آمد.</string>
+    <string name="usb_storage_error_message">هنگام استفاده از حافظه USB برای حافظه انبوه USB مشکلی بوجود آمد.</string>
     <string name="usb_storage_notification_title">USB متصل شد</string>
     <string name="usb_storage_notification_message">برای کپی کردن فایلها از/به رایانه خود لمس کنید.</string>
     <string name="usb_storage_stop_notification_title">خاموش کردن دستگاه ذخیره سازی USB</string>
     <string name="usb_storage_stop_notification_message">برای غیرفعال کردن حافظه USB، لمس کنید.</string>
     <string name="usb_storage_stop_title">دستگاه ذخیره سازی USB در حال استفاده است</string>
-    <string name="usb_storage_stop_message">قبل از غیرفعال کردن حافظه USB، کارت SD مربوط به Android را در رایانه لغو نصب کنید (\"خارج کنید\").</string>
+    <string name="usb_storage_stop_message">قبل از غیرفعال کردن حافظه USB، حافظه USB مربوط به Android را در رایانه خود لغو نصب کنید (\"خارج کنید\").</string>
     <string name="usb_storage_stop_button_mount">خاموش کردن دستگاه ذخیره سازی USB</string>
-    <string name="usb_storage_stop_error_message">هنگام غیرفعال کردن حافظه USB مشکلی بوجود آمد. بررسی کنید میزبان USB را لغو نصب کرده باشید، سپس دوباره تلاش کنید.</string>
+    <string name="usb_storage_stop_error_message">هنگام غیرفعال کردن حافظه USB مشکلی بوجود آمد. بررسی کنید میزبان USB را لغو نصب کرده باشید، سپس دوباره امتحان کنید.</string>
     <string name="dlg_confirm_kill_storage_users_title">روشن کردن دستگاه ذخیره سازی USB</string>
     <string name="dlg_confirm_kill_storage_users_text">در صورت فعال کردن حافظه USB، برخی از برنامه‎هایی که از آنها استفاده می‎کنید متوقف می‎شوند و تا زمانی که حافظه USB را غیرفعال نکنید امکان استفاده از آنها وجود نخواهد داشت.</string>
     <string name="dlg_error_title">راه‌اندازی USB ناموفق بود.</string>
@@ -1049,8 +1049,8 @@
     <string name="usb_cd_installer_notification_title">متصل شده به عنوان نصب کننده</string>
     <string name="usb_accessory_notification_title">به یک وسیله جانبی USB وصل شده است</string>
     <string name="usb_notification_message">برای سایر گزینه‌های USB لمس کنید.</string>
-    <string name="extmedia_format_title">کارت SD فرمت شود؟</string>
-    <string name="extmedia_format_message">تمام اطلاعات روی کارت شما از بین می‎رود.</string>
+    <string name="extmedia_format_title">حافظه USB فرمت شود؟</string>
+    <string name="extmedia_format_message">همه فایلهای ذخیره شده در حافظه USB پاک خواهد شد. این عمل را نمی‎توان برگرداند!</string>
     <string name="extmedia_format_button_format">قالب</string>
     <string name="adb_active_notification_title">رفع عیب USB متصل شد</string>
     <string name="adb_active_notification_message">برای غیرفعال کردن اشکال زدایی USB لمس کنید.</string>
@@ -1064,18 +1064,18 @@
     <string name="fast_scroll_alphabet">" ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="fast_scroll_numeric_alphabet">" 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="candidates_style"><u>داوطلبین</u></string>
-    <string name="ext_media_checking_notification_title">آماده کردن کارت SD</string>
+    <string name="ext_media_checking_notification_title">آماده سازی حافظه USB</string>
     <string name="ext_media_checking_notification_message">بررسی خطاها.</string>
-    <string name="ext_media_nofs_notification_title">کارت SD خالی</string>
-    <string name="ext_media_nofs_notification_message">کارت SD خالی است یا دارای سیستم فایل پشتیبانی نشده است.</string>
-    <string name="ext_media_unmountable_notification_title">کارت SD آسیب دیده</string>
-    <string name="ext_media_unmountable_notification_message">کارت SD خراب است. تلاش کنید آن‌را دوباره فرمت کنید.</string>
-    <string name="ext_media_badremoval_notification_title">کارت SD به صورت غیر منتظره ای جدا شد</string>
-    <string name="ext_media_badremoval_notification_message">کارت SD را قبل از بیرون آوردن جدا کنید تا سبب از بین رفتن داده ها نشود.</string>
-    <string name="ext_media_safe_unmount_notification_title">کارت SD را می توان با امنیت کامل جدا کرد</string>
-    <string name="ext_media_safe_unmount_notification_message">کارت SD را می توانید با امنیت کامل خارج کنید.</string>
-    <string name="ext_media_nomedia_notification_title">کارت SD حذف شده</string>
-    <string name="ext_media_nomedia_notification_message">کارت SD جدا شد. یک کارت جدید وارد کنید.</string>
+    <string name="ext_media_nofs_notification_title">حافظه USB خالی</string>
+    <string name="ext_media_nofs_notification_message">حافظه USB خالی است یا دارای سیستم فایل پشتیبانی نشده است.</string>
+    <string name="ext_media_unmountable_notification_title">حافظه USB خراب شده</string>
+    <string name="ext_media_unmountable_notification_message">حافظه USB خراب است. سعی کنید آنرا دوباره فرمت کنید.</string>
+    <string name="ext_media_badremoval_notification_title">حافظه USB به صورت غیر منتظره جدا شد</string>
+    <string name="ext_media_badremoval_notification_message">اتصال حافظه USB را قبل از بیرون آوردن قطع کنید تا سبب از بین رفتن داده ها نشود.</string>
+    <string name="ext_media_safe_unmount_notification_title">حافظه USB را می توانید با ایمنی جدا کنید</string>
+    <string name="ext_media_safe_unmount_notification_message">شما می توانید حافظه USB را با اطمینان جدا کنید.</string>
+    <string name="ext_media_nomedia_notification_title">جدا کردن حافظه USB</string>
+    <string name="ext_media_nomedia_notification_message">حافظه USB جدا شد. یک رسانه جدید متصل کنید.</string>
     <string name="activity_list_empty">فعالیتی مطابق با این مورد یافت نشد.</string>
     <string name="permlab_pkgUsageStats">به روزرسانی آمار مربوط به استفاده مؤلفه</string>
     <string name="permdesc_pkgUsageStats">به برنامه اجازه می‎دهد آمار جمع‎آوری شده کاربرد قطعه را تغییر دهد. برای استفاده برنامه‎های عادی نیست.</string>
@@ -1132,13 +1132,13 @@
     <string name="no_matches">مورد منطبقی موجود نیست</string>
     <string name="find_on_page">یافتن در صفحه</string>
     <string name="action_mode_done">انجام شد</string>
-    <string name="progress_unmounting">درحال لغو نصب کارت SD...</string>
-    <string name="progress_erasing">در حال پاک کردن کارت SD...</string>
-    <string name="format_error">پاک کردن کارت SD ممکن نیست.</string>
+    <string name="progress_unmounting">درحال لغو نصب حافظه USB...</string>
+    <string name="progress_erasing">در حال پاک کردن حافظه USB...</string>
+    <string name="format_error">"پاک کردن محل ذخیره  USB ممکن نیست."</string>
     <string name="media_bad_removal">کارت SD قبل از قطع اتصال از دستگاه خارج شد.</string>
-    <string name="media_checking">کارت SD در حال حاضر در حال بررسی است.</string>
+    <string name="media_checking">حافظه USB اکنون در حال بررسی شدن است.</string>
     <string name="media_removed">کارت SD حذف شده است.</string>
-    <string name="media_shared">کارت SD در حال حاضر توسط یک رایانه در حال استفاده است.</string>
+    <string name="media_shared">حافظه در حال حاضر توسط رایانه دیگری استفاده می شود.</string>
     <string name="media_unknown_state">رسانه خارجی در حالت ناشناس است.</string>
     <string name="share">اشتراک گذاری</string>
     <string name="find">یافتن</string>

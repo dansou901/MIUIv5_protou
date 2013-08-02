@@ -7,7 +7,7 @@
     <string name="defaultVoiceMailAlphaTag">Hộp thư thoại</string>
     <string name="defaultMsisdnAlphaTag">MSISDN1</string>
     <string name="emptyPhoneNumber">(Không có số)</string>
-    <string name="httpErrorBadUrl">Không thể mở trang này vì link URL không hợp lệ.</string>
+    <string name="httpErrorBadUrl">Không thể mở trang này vì URL không hợp lệ.</string>
     <string name="httpErrorUnsupportedScheme">Không hỗ trợ giao thức này.</string>
     <string name="no">Hủy</string>
     <string name="ok">OK</string>
@@ -24,143 +24,143 @@
     <string name="VideoView_error_text_invalid_progressive_playback">Video này không hợp lệ để phát trực tuyến đến thiết bị này.</string>
     <string name="selectTextMode">Chọn văn bản</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="month_long_standalone_january">January</string>
-    <string name="month_long_standalone_february">February</string>
-    <string name="month_long_standalone_march">March</string>
-    <string name="month_long_standalone_april">April</string>
-    <string name="month_long_standalone_may">May</string>
-    <string name="month_long_standalone_june">June</string>
-    <string name="month_long_standalone_july">July</string>
-    <string name="month_long_standalone_august">August</string>
-    <string name="month_long_standalone_september">September</string>
-    <string name="month_long_standalone_october">October</string>
-    <string name="month_long_standalone_november">November</string>
-    <string name="month_long_standalone_december">December</string>
-    <string name="month_long_january">January</string>
-    <string name="month_long_february">February</string>
-    <string name="month_long_march">March</string>
-    <string name="month_long_april">April</string>
-    <string name="month_long_may">May</string>
-    <string name="month_long_june">June</string>
-    <string name="month_long_july">July</string>
-    <string name="month_long_august">August</string>
-    <string name="month_long_september">September</string>
-    <string name="month_long_october">October</string>
-    <string name="month_long_november">November</string>
-    <string name="month_long_december">December</string>
-    <string name="month_medium_january">Jan</string>
-    <string name="month_medium_february">Feb</string>
-    <string name="month_medium_march">Mar</string>
-    <string name="month_medium_april">Apr</string>
-    <string name="month_medium_may">May</string>
-    <string name="month_medium_june">Jun</string>
-    <string name="month_medium_july">Jul</string>
-    <string name="month_medium_august">Aug</string>
-    <string name="month_medium_september">Sep</string>
-    <string name="month_medium_october">Oct</string>
-    <string name="month_medium_november">Nov</string>
-    <string name="month_medium_december">Dec</string>
-    <string name="month_shortest_january">J</string>
-    <string name="month_shortest_february">F</string>
-    <string name="month_shortest_march">M</string>
-    <string name="month_shortest_april">A</string>
-    <string name="month_shortest_may">M</string>
-    <string name="month_shortest_june">J</string>
-    <string name="month_shortest_july">J</string>
-    <string name="month_shortest_august">A</string>
-    <string name="month_shortest_september">S</string>
-    <string name="month_shortest_october">O</string>
-    <string name="month_shortest_november">N</string>
-    <string name="month_shortest_december">D</string>
-    <string name="day_of_week_long_sunday">Sunday</string>
-    <string name="day_of_week_long_monday">Monday</string>
-    <string name="day_of_week_long_tuesday">Tuesday</string>
-    <string name="day_of_week_long_wednesday">Wednesday</string>
-    <string name="day_of_week_long_thursday">Thursday</string>
-    <string name="day_of_week_long_friday">Friday</string>
-    <string name="day_of_week_long_saturday">Saturday</string>
-    <string name="day_of_week_medium_sunday">Sun</string>
-    <string name="day_of_week_medium_monday">Mon</string>
-    <string name="day_of_week_medium_tuesday">Tue</string>
-    <string name="day_of_week_medium_wednesday">Wed</string>
-    <string name="day_of_week_medium_thursday">Thu</string>
-    <string name="day_of_week_medium_friday">Fri</string>
-    <string name="day_of_week_medium_saturday">Sat</string>
-    <string name="day_of_week_short_sunday">Su</string>
-    <string name="day_of_week_short_monday">Mo</string>
-    <string name="day_of_week_short_tuesday">Tu</string>
-    <string name="day_of_week_short_wednesday">We</string>
-    <string name="day_of_week_short_thursday">Th</string>
-    <string name="day_of_week_short_friday">Fr</string>
-    <string name="day_of_week_short_saturday">Sa</string>
-    <string name="day_of_week_shortest_sunday">S</string>
-    <string name="day_of_week_shortest_monday">M</string>
-    <string name="day_of_week_shortest_tuesday">T</string>
-    <string name="day_of_week_shortest_wednesday">W</string>
-    <string name="day_of_week_shortest_thursday">T</string>
-    <string name="day_of_week_shortest_friday">F</string>
-    <string name="day_of_week_shortest_saturday">S</string>
-    <string name="am">am</string>
-    <string name="pm">pm</string>
-    <string name="yesterday">Hôm qua</string>
-    <string name="today">Hôm nay</string>
-    <string name="tomorrow">Ngày mai</string>
-    <string name="hour_minute_24" formatted="false">%H:%M</string>
-    <string name="hour_minute_ampm" formatted="false">%-l:%M%p</string>
-    <string name="hour_minute_cap_ampm" formatted="false">%-l:%M%^p</string>
+    <string name="month_long_standalone_january">tháng một</string>
+    <string name="month_long_standalone_february">tháng hai</string>
+    <string name="month_long_standalone_march">tháng ba</string>
+    <string name="month_long_standalone_april">tháng tư</string>
+    <string name="month_long_standalone_may">tháng năm</string>
+    <string name="month_long_standalone_june">tháng sáu</string>
+    <string name="month_long_standalone_july">tháng bảy</string>
+    <string name="month_long_standalone_august">tháng tám</string>
+    <string name="month_long_standalone_september">tháng chín</string>
+    <string name="month_long_standalone_october">tháng mười</string>
+    <string name="month_long_standalone_november">tháng mười một</string>
+    <string name="month_long_standalone_december">tháng mười hai</string>
+    <string name="month_long_january">tháng một</string>
+    <string name="month_long_february">tháng hai</string>
+    <string name="month_long_march">tháng ba</string>
+    <string name="month_long_april">tháng tư</string>
+    <string name="month_long_may">tháng năm</string>
+    <string name="month_long_june">tháng sáu</string>
+    <string name="month_long_july">tháng bảy</string>
+    <string name="month_long_august">tháng tám</string>
+    <string name="month_long_september">tháng chín</string>
+    <string name="month_long_october">tháng mười</string>
+    <string name="month_long_november">tháng mười một</string>
+    <string name="month_long_december">tháng mười hai</string>
+    <string name="month_medium_january">thg 1</string>
+    <string name="month_medium_february">thg 2</string>
+    <string name="month_medium_march">thg 3</string>
+    <string name="month_medium_april">thg 4</string>
+    <string name="month_medium_may">thg 5</string>
+    <string name="month_medium_june">thg 6</string>
+    <string name="month_medium_july">thg 7</string>
+    <string name="month_medium_august">thg 8</string>
+    <string name="month_medium_september">thg 9</string>
+    <string name="month_medium_october">thg 10</string>
+    <string name="month_medium_november">thg 11</string>
+    <string name="month_medium_december">thg 12</string>
+    <string name="month_shortest_january">1</string>
+    <string name="month_shortest_february">2</string>
+    <string name="month_shortest_march">3</string>
+    <string name="month_shortest_april">4</string>
+    <string name="month_shortest_may">5</string>
+    <string name="month_shortest_june">6</string>
+    <string name="month_shortest_july">7</string>
+    <string name="month_shortest_august">8</string>
+    <string name="month_shortest_september">9</string>
+    <string name="month_shortest_october">10</string>
+    <string name="month_shortest_november">11</string>
+    <string name="month_shortest_december">12</string>
+    <string name="day_of_week_long_sunday">Chủ nhật</string>
+    <string name="day_of_week_long_monday">Thứ hai</string>
+    <string name="day_of_week_long_tuesday">Thứ ba</string>
+    <string name="day_of_week_long_wednesday">Thứ tư</string>
+    <string name="day_of_week_long_thursday">Thứ năm</string>
+    <string name="day_of_week_long_friday">Thứ sáu</string>
+    <string name="day_of_week_long_saturday">Thứ bảy</string>
+    <string name="day_of_week_medium_sunday">CN</string>
+    <string name="day_of_week_medium_monday">Th 2</string>
+    <string name="day_of_week_medium_tuesday">Th 3</string>
+    <string name="day_of_week_medium_wednesday">Th 4</string>
+    <string name="day_of_week_medium_thursday">Th 5</string>
+    <string name="day_of_week_medium_friday">Th 6</string>
+    <string name="day_of_week_medium_saturday">Th 7</string>
+    <string name="day_of_week_short_sunday">CN</string>
+    <string name="day_of_week_short_monday">Th 2</string>
+    <string name="day_of_week_short_tuesday">Th 3</string>
+    <string name="day_of_week_short_wednesday">Th 4</string>
+    <string name="day_of_week_short_thursday">Th 5</string>
+    <string name="day_of_week_short_friday">Th 6</string>
+    <string name="day_of_week_short_saturday">Th 7</string>
+    <string name="day_of_week_shortest_sunday">1</string>
+    <string name="day_of_week_shortest_monday">2</string>
+    <string name="day_of_week_shortest_tuesday">3</string>
+    <string name="day_of_week_shortest_wednesday">4</string>
+    <string name="day_of_week_shortest_thursday">5</string>
+    <string name="day_of_week_shortest_friday">6</string>
+    <string name="day_of_week_shortest_saturday">7</string>
+    <string name="am">SA</string>
+    <string name="pm">CH</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="hour_minute_24" formatted="false">%-k:%M</string>
+    <string name="hour_minute_ampm" formatted="false">%-l:%M %p</string>
+    <string name="hour_minute_cap_ampm" formatted="false">%-l:%M %^p</string>
     <string name="twelve_hour_time_format">h:mm a</string>
-    <string name="twenty_four_hour_time_format">HH:mm</string>
-    <string name="numeric_date" formatted="false">%-m/%-e/%Y</string>
-    <string name="numeric_date_format">M/d/yyyy</string>
+    <string name="twenty_four_hour_time_format">H:mm</string>
+    <string name="numeric_date" formatted="false">%d/%m/%Y</string>
+    <string name="numeric_date_format">dd/MM/yyyy</string>
     <string name="numeric_date_template" formatted="false">%s/%s/%s</string>
-    <string name="month_day_year" formatted="false">%B %-e, %Y</string>
-    <string name="time_of_day" formatted="false">%-l:%M:%S %p</string>
-    <string name="date_and_time" formatted="false">%b %-e, %Y, %-l:%M:%S %p</string>
-    <string name="date_time">%1$s, %2$s</string>
-    <string name="time_date">%1$s, %3$s</string>
-    <string name="abbrev_month_day_year" formatted="false">%b %-e, %Y</string>
-    <string name="month_day" formatted="false">%B %-e</string>
+    <string name="month_day_year" formatted="false">Ngày %d tháng %-m năm %Y</string>
+    <string name="time_of_day" formatted="false">%H:%M:%S</string>
+    <string name="date_and_time" formatted="false">%d-%m-%Y %H:%M:%S</string>
+    <string name="date_time">%1$s %2$s</string>
+    <string name="time_date">%3$s %1$s</string>
+    <string name="abbrev_month_day_year" formatted="false">%d-%m-%Y</string>
+    <string name="month_day" formatted="false">%-e %B</string>
     <string name="month">%-B</string>
     <string name="month_year" formatted="false">%B %Y</string>
-    <string name="abbrev_month_day" formatted="false">%b %-e</string>
-    <string name="abbrev_month">%-b</string>
+    <string name="abbrev_month_day" formatted="false">%-e %b</string>
+    <string name="abbrev_month">%b</string>
     <string name="abbrev_month_year" formatted="false">%b %Y</string>
-    <string name="time1_time2">%1$s – %2$s</string>
-    <string name="date1_date2">%2$s – %5$s</string>
-    <string name="numeric_md1_md2">%2$s/%3$s – %7$s/%8$s</string>
-    <string name="numeric_wday1_md1_wday2_md2">%1$s, %2$s/%3$s – %6$s, %7$s/%8$s</string>
-    <string name="numeric_mdy1_mdy2">%2$s/%3$s/%4$s – %7$s/%8$s/%9$s</string>
-    <string name="numeric_wday1_mdy1_wday2_mdy2">%1$s, %2$s/%3$s/%4$s – %6$s, %7$s/%8$s/%9$s</string>
-    <string name="numeric_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %2$s/%3$s/%4$s, %5$s – %6$s, %7$s/%8$s/%9$s, %10$s</string>
-    <string name="numeric_md1_time1_md2_time2">%2$s/%3$s, %5$s – %7$s/%8$s, %10$s</string>
-    <string name="numeric_wday1_md1_time1_wday2_md2_time2">%1$s, %2$s/%3$s, %5$s – %6$s, %7$s/%8$s, %10$s</string>
-    <string name="numeric_mdy1_time1_mdy2_time2">%2$s/%3$s/%4$s, %5$s – %7$s/%8$s/%9$s, %10$s</string>
-    <string name="wday1_date1_time1_wday2_date2_time2">%1$s, %2$s, %3$s – %4$s, %5$s, %6$s</string>
-    <string name="wday1_date1_wday2_date2">%1$s, %2$s – %4$s, %5$s</string>
-    <string name="date1_time1_date2_time2">%2$s, %3$s – %5$s, %6$s</string>
-    <string name="time_wday_date">%1$s, %2$s, %3$s</string>
-    <string name="wday_date">%2$s, %3$s</string>
-    <string name="time_wday">%1$s, %2$s</string>
-    <string name="same_year_md1_md2">%2$s %3$s – %7$s %8$s</string>
-    <string name="same_year_wday1_md1_wday2_md2">%1$s, %2$s %3$s – %6$s, %7$s %8$s</string>
-    <string name="same_year_md1_time1_md2_time2">%2$s %3$s, %5$s – %7$s %8$s, %10$s</string>
-    <string name="same_month_md1_time1_md2_time2">%2$s %3$s, %5$s – %7$s %8$s, %10$s</string>
-    <string name="same_year_wday1_md1_time1_wday2_md2_time2">%1$s, %2$s %3$s, %5$s – %6$s, %7$s %8$s, %10$s</string>
-    <string name="same_month_wday1_md1_time1_wday2_md2_time2">%1$s, %2$s %3$s, %5$s – %6$s, %7$s %8$s, %10$s</string>
-    <string name="same_year_mdy1_time1_mdy2_time2">%2$s %3$s, %4$s, %5$s – %7$s %8$s, %9$s, %10$s</string>
-    <string name="same_month_mdy1_time1_mdy2_time2">%2$s %3$s, %4$s, %5$s – %7$s %8$s, %9$s, %10$s</string>
-    <string name="same_year_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %2$s %3$s, %4$s, %5$s – %6$s, %7$s %8$s, %9$s, %10$s</string>
-    <string name="same_month_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %2$s %3$s, %4$s, %5$s – %6$s, %7$s %8$s, %9$s, %10$s</string>
-    <string name="same_month_wday1_mdy1_wday2_mdy2">%1$s, %2$s %3$s, %4$s – %6$s, %7$s %8$s, %9$s</string>
-    <string name="same_month_md1_md2">%2$s %3$s – %8$s</string>
-    <string name="same_month_wday1_md1_wday2_md2">%1$s, %2$s %3$s – %6$s, %7$s %8$s</string>
-    <string name="same_year_mdy1_mdy2">%2$s %3$s – %7$s %8$s, %9$s</string>
-    <string name="same_month_mdy1_mdy2">%2$s %3$s – %8$s, %9$s</string>
-    <string name="same_year_wday1_mdy1_wday2_mdy2">%1$s, %2$s %3$s – %6$s, %7$s %8$s, %9$s</string>
+    <string name="time1_time2">%1$s - %2$s</string>
+    <string name="date1_date2">%2$s - %5$s</string>
+    <string name="numeric_md1_md2">%3$s/%2$s - %8$s/%7$s</string>
+    <string name="numeric_wday1_md1_wday2_md2">%1$s, %3$s/%2$s - %6$s, %8$s/%7$s</string>
+    <string name="numeric_mdy1_mdy2">%3$s/%2$s/%4$s - %8$s/%7$s/%9$s</string>
+    <string name="numeric_wday1_mdy1_wday2_mdy2">%1$s, %3$s/%2$s/%4$s - %6$s, %8$s/%7$s/%9$s</string>
+    <string name="numeric_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %3$s-%2$s-%4$s %5$s - %6$s, %8$s-%7$s-%9$s %10$s</string>
+    <string name="numeric_md1_time1_md2_time2">%3$s-%2$s %5$s - %8$s-%7$s %10$s</string>
+    <string name="numeric_wday1_md1_time1_wday2_md2_time2">%1$s, %3$s-%2$s %5$s - %6$s, %8$s-%7$s %10$s</string>
+    <string name="numeric_mdy1_time1_mdy2_time2">%3$s/%2$s/%4$s %5$s - %8$s/%7$s/%9$s %10$s</string>
+    <string name="wday1_date1_time1_wday2_date2_time2">%1$s %2$s %3$s - %4$s %5$s %6$s</string>
+    <string name="wday1_date1_wday2_date2">%1$s %2$s - %4$s %5$s</string>
+    <string name="date1_time1_date2_time2">%2$s %3$s - %5$s %6$s</string>
+    <string name="time_wday_date">%2$s %3$s %1$s</string>
+    <string name="wday_date">%2$s %3$s</string>
+    <string name="time_wday">%2$s %1$s</string>
+    <string name="same_year_md1_md2">%3$s %2$s - %8$s %7$s</string>
+    <string name="same_year_wday1_md1_wday2_md2">%1$s %3$s %2$s - %6$s %8$s %7$s</string>
+    <string name="same_year_md1_time1_md2_time2">%3$s %2$s %5$s - %8$s %7$s %10$s</string>
+    <string name="same_month_md1_time1_md2_time2">%3$s %2$s %5$s - %8$s %7$s %10$s</string>
+    <string name="same_year_wday1_md1_time1_wday2_md2_time2">%1$s %3$s %2$s %5$s - %6$s %8$s %7$s %10$s</string>
+    <string name="same_month_wday1_md1_time1_wday2_md2_time2">%1$s %3$s %2$s %5$s - %6$s %8$s %7$s %10$s</string>
+    <string name="same_year_mdy1_time1_mdy2_time2">"Ngày %3$s tháng %2$s năm %4$s %5$s - 'Ngày %8$s tháng %7$s năm %9$s %10$s"</string>
+    <string name="same_month_mdy1_time1_mdy2_time2">"Ngày %3$s tháng %2$s năm %4$s %5$s - 'Ngày %8$s tháng %7$s năm %9$s %10$s"</string>
+    <string name="same_year_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %3$s %2$s %4$s %5$s - %6$s, %8$s %7$s %9$s %10$s</string>
+    <string name="same_month_wday1_mdy1_time1_wday2_mdy2_time2">%1$s, %3$s %2$s %4$s %5$s - %6$s, %8$s %7$s %9$s %10$s</string>
+    <string name="same_month_wday1_mdy1_wday2_mdy2">%1$s, %3$s %2$s %4$s - %6$s, %8$s %7$s %9$s</string>
+    <string name="same_month_md1_md2">Ngày %3$s tháng %2$s - Ngày %8$s tháng %7$s</string>
+    <string name="same_month_wday1_md1_wday2_md2">%1$s %3$s %2$s - %6$s %8$s %7$s</string>
+    <string name="same_year_mdy1_mdy2">Ngày %3$s tháng %2$s - Ngày %8$s tháng %7$s năm %9$s</string>
+    <string name="same_month_mdy1_mdy2">Ngày %3$s tháng %2$s - Ngày %8$s tháng M năm %9$s</string>
+    <string name="same_year_wday1_mdy1_wday2_mdy2">%1$s, ngày %3$s %2$s - %6$s, ngày %8$s %7$s năm %9$s</string>
     <string name="short_format_month">%b</string>
-    <string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
-    <string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
-    <string name="abbrev_wday_month_day_year">EEE, MMM d, yyyy</string>
+    <string name="full_wday_month_day_no_year">E d MMMM</string>
+    <string name="abbrev_wday_month_day_no_year">E d MMMM</string>
+    <string name="abbrev_wday_month_day_year">EEE, d MMM y</string>
     <string name="byteShort">B</string>
     <string name="kilobyteShort">KB</string>
     <string name="megabyteShort">MB</string>
@@ -226,7 +226,7 @@
     <string name="serviceClassPAD">PAD</string>
     <string name="roamingText0">Đang mở thông báo chuyển vùng</string>
     <string name="roamingText1">Tắt thông báo chuyển vùng</string>
-    <string name="roamingText2">Thông báo Flash khi chuyển vùng</string>
+    <string name="roamingText2">Thông báo Flash khi chuyển vùng</string>
     <string name="roamingText3">Ngoài Khu vực lân cận</string>
     <string name="roamingText4">Ngoài Cao ốc</string>
     <string name="roamingText5">Chuyển vùng - Hệ thống ưu tiên</string>
@@ -257,13 +257,13 @@
     <string name="httpErrorRedirectLoop">Trang này chứa quá nhiều địa chỉ liên kết server</string>
     <string name="httpErrorFailedSslHandshake">Không thể thiết lập kết nối an toàn.</string>
     <string name="httpErrorFile">Không thể truy cập tệp.</string>
-    <string name="httpErrorFileNotFound">Không thể tìm thấy file đã yêu cầu.</string>
+    <string name="httpErrorFileNotFound">Không thể tìm thấy tệp đã yêu cầu.</string>
     <string name="httpErrorTooManyRequests">Quá nhiều yêu cầu đang được thực hiện. Thử lại lần nữa.</string>
     <string name="notification_title">Lỗi đăng nhập của %1$s</string>
     <string name="contentServiceSync">Đồng bộ</string>
     <string name="contentServiceSyncNotificationTitle">Đồng bộ</string>
     <string name="contentServiceTooManyDeletesNotificationDesc">Quá nhiều %s xóa.</string>
-    <string name="low_memory">Bộ nhớ điện thoại đã đầy. Hãy xóa một số file để tạo thêm dung lượng.</string>
+    <string name="low_memory">Bộ nhớ điện thoại đã đầy. Hãy xóa một số tệp để tạo thêm dung lượng.</string>
     <string name="me">Tôi</string>
     <string name="power_dialog">Tùy chọn điện thoại</string>
     <string name="silent_mode">Chế độ yên lặng</string>
@@ -313,7 +313,7 @@
     <string name="permgrouplab_developmentTools">Công cụ phát triển</string>
     <string name="permgroupdesc_developmentTools">Các tính năng chỉ cần cho nhà phát triển ứng dụng.</string>
     <string name="permgrouplab_storage">Bộ nhớ</string>
-    <string name="permgroupdesc_storage">Truy cập thẻ SD.</string>
+    <string name="permgroupdesc_storage">Truy cập thẻ nhớ.</string>
     <string name="permlab_readWriteOmaDrm">truy cập thư mục về oma DRM</string>
     <string name="permdesc_readWriteOmaDrm">Allows an application to read or write to the folder about OMA DRM.</string>
     <string name="permlab_statusBar">tắt hoặc bổ sung thanh tình trạng</string>
@@ -347,12 +347,12 @@
     <string name="permlab_getDetailedTasks">truy xuất chi tiết về các ứng dụng đang chạy</string>
     <string name="permdesc_getDetailedTasks">Cho phép ứng dụng truy xuất thông tin chi tiết về các tác vụ đã và đang chạy gần đây. Ứng dụng độc hại có thể phát hiện thông tin riêng tư về các ứng dụng khác.</string>
     <string name="permlab_reorderTasks">sắp xếp lại những ứng dụng đang chạy</string>
-    <string name="permdesc_reorderTasks">Cho phép ứng dụng chuyển tác vụ sang chạy nền trước và nền sau. Ứng dụng có thể thực hiện việc này mà không cần bạn nhập.</string>
+    <string name="permdesc_reorderTasks">Cho phép ứng dụng di chuyển công việc sang nền trước và nền sau. Ứng dụng có thể thực hiện việc này mà không cần bạn nhập.</string>
     <string name="permlab_removeTasks">dừng các ứng dụng đang chạy</string>
     <string name="permdesc_removeTasks">Cho phép ứng dụng xóa công việc và loại bỏ các ứng dụng của chúng. Ứng dụng độc hại có thể làm gián đoạn hoạt động của các ứng dụng khác.</string>
     <string name="permlab_startAnyActivity">bắt đầu mọi hoạt động</string>
-    <string name="permdesc_startAnyActivity">Cho phép ứng dụng bắt đầu bất kỳ hoạt động nào, bất kể tình trạng bảo vệ quyền hay trạng thái xuất.</string>
-    <string name="permlab_setScreenCompatibility">Cài độ tương thích màn hình</string>
+    <string name="permdesc_startAnyActivity">Cho phép ứng dụng bắt đầu mọi hoạt động, bất kể tình trạng bảo vệ quyền hay trạng thái xuất.</string>
+    <string name="permlab_setScreenCompatibility">đặt độ tương thích màn hình</string>
     <string name="permdesc_setScreenCompatibility">Cho phép ứng dụng kiểm soát chế độ tương thích màn hình của ứng dụng khác. Các ứng dụng độc hại có thể phá vỡ hoạt động của các ứng dụng khác.</string>
     <string name="permlab_setDebugApp">bật gỡ lỗi ứng dụng</string>
     <string name="permdesc_setDebugApp">Cho phép ứng dụng bật gỡ lỗi cho một ứng dụng khác. Ứng dụng độc hại có thể sử dụng quyền này để loại bỏ những ứng dụng khác.</string>
@@ -443,12 +443,12 @@
     <string name="permlab_movePackage">xóa tài nguyên ứng dụng</string>
     <string name="permdesc_movePackage">Cho phép ứng dụng di chuyển các tài nguyên ứng dụng từ phương tiện nội bộ sang phương tiện bên ngoài và ngược lại.</string>
     <string name="permlab_readLogs">đọc dữ liệu nhật ký nhạy cảm</string>
-    <string name="permdesc_readLogs">Cho phép ứng dụng đọc từ nhiều file nhật ký khác nhau của hệ thống. Quyền này cho phép ứng dụng phát hiện thông tin chung về những gì bạn đang thực hiện với điện thoại, có thể bao gồm thông tin cá nhân hoặc riêng tư.</string>
+    <string name="permdesc_readLogs">Cho phép ứng dụng đọc từ nhiều tệp nhật ký khác nhau của hệ thống. Quyền này cho phép ứng dụng phát hiện thông tin chung về những gì bạn đang thực hiện với điện thoại, có thể bao gồm thông tin cá nhân hoặc riêng tư.</string>
     <string name="permlab_anyCodecForPlayback">sử dụng bất kỳ bộ giải mã giải trí đa phương tiện để phát lại</string>
     <string name="permdesc_anyCodecForPlayback">Cho phép ứng dụng sử dụng bất kỳ trình giải mã phương tiện nào đã cài đặt nhằm giải mã để phát lại.</string>
     <string name="permlab_diagnostic">đọc/ghi thêm vào các nguồn tài nguyên giữ bởi nhóm chẩn đoán</string>
     <string name="permdesc_diagnostic">Cho phép ứng dụng đọc và ghi vào bất kỳ tài nguyên nào do nhóm chẩn đoán sở hữu; ví dụ: các tệp trong /dev. Quyền này có thể ảnh hưởng đến sự ổn định và tính bảo mật của hệ thống. CHỈ nên sử dụng quyền này cho các chẩn đoán phần cứng cụ thể của nhà sản xuất hoặc nhà cung cấp.</string>
-    <string name="permlab_changeComponentState">bật hoặc tắt thành phần ứng dụng</string>
+    <string name="permlab_changeComponentState">bật hoặc tắt cấu phần ứng dụng</string>
     <string name="permdesc_changeComponentState">Cho phép ứng dụng thay đổi việc có bật cấu phần của một ứng dụng khác hay không. Ứng dụng độc hại có thể sử dụng quyền này để tắt những tính năng quan trọng của điện thoại. Phải sử dụng quyền này thận trọng vì có thể khiến các cấu phần của ứng dụng rơi vào trạng thái không thể sử dụng được, không đồng nhất hoặc không ổn định.</string>
     <string name="permlab_grantRevokePermissions">cấp hoặc thu hồi quyền</string>
     <string name="permdesc_grantRevokePermissions">Cho phép ứng dụng cấp hoặc thu hồi quyền cụ thể đối với ứng dụng đó hoặc các ứng dụng khác. Các ứng dụng độc hại có thể lợi dụng điều này để truy cập các tính năng mà bạn không cấp.</string>
@@ -463,23 +463,23 @@
     <string name="permlab_receiveBootCompleted">chạy khi khởi động</string>
     <string name="permdesc_receiveBootCompleted">Cho phép ứng dụng tự khởi chạy ngay khi hệ thống khởi động xong. Quyền này có thể khiến điện thoại mất nhiều thời gian khởi động hơn và cho phép ứng dụng làm chậm toàn bộ điện thoại do ứng dụng luôn chạy.</string>
     <string name="permlab_broadcastSticky">gửi quảng bá liên quan</string>
-    <string name="permdesc_broadcastSticky">Cho phép ứng dụng gửi nội dung quảng bá với người xem. Nội dung này sẽ vẫn còn sau khi quá trình truyền phát kết thúc. Việc sử dụng quá mức có thể làm cho điện thoại bị chậm hoặc không ổn định do khiến điện thoại sử dụng quá nhiều bộ nhớ.</string>
-    <string name="permlab_readContacts">đọc danh bạ của bạn</string>
+    <string name="permdesc_broadcastSticky">Cho phép ứng dụng gửi nội dung truyền phát hấp dẫn người xem. Nội dung này sẽ vẫn còn sau khi quá trình truyền phát kết thúc. Việc sử dụng quá mức có thể làm cho điện thoại bị chậm hoặc không ổn định do khiến điện thoại sử dụng quá nhiều bộ nhớ.</string>
+    <string name="permlab_readContacts">đọc danh sách liên hệ của bạn</string>
     <string name="permdesc_readContacts">Cho phép ứng dụng đọc dữ liệu về các liên hệ được lưu trữ trên điện thoại của bạn, bao gồm tần suất bạn đã gọi điện, gửi email hoặc liên lạc theo các cách khác với những người cụ thể. Quyền này cho phép ứng dụng lưu dữ liệu liên lạc của bạn và các ứng dụng độc hại có thể chia sẻ dữ liệu liên lạc mà bạn không biết.</string>
-    <string name="permlab_writeContacts">sửa đổi danh bạ của bạn</string>
+    <string name="permlab_writeContacts">sửa đổi danh sách liên hệ của bạn</string>
     <string name="permdesc_writeContacts">Cho phép ứng dụng sửa đổi dữ liệu về các địa chỉ liên hệ được lưu trữ trên điện thoại của bạn, bao gồm tần suất mà bạn đã gọi, gửi email hoặc liên lạc theo các cách khác với những địa chỉ liên hệ cụ thể. Quyền này cho phép ứng dụng xóa dữ liệu liên lạc.</string>
     <string name="permlab_readCallLog">đọc nhật ký cuộc gọi</string>
     <string name="permdesc_readCallLog">Cho phép ứng dụng đọc nhật ký cuộc gọi của điện thoại của bạn, bao gồm dữ liệu về các cuộc gọi đến và gọi đi. Quyền này cho phép ứng dụng lưu dữ liệu nhật ký cuộc gọi cả bạn và các ứng dụng độc hại có thể chia sẻ dữ liệu nhật ký cuộc gọi mà bạn không biết.</string>
     <string name="permlab_writeCallLog">ghi nhật ký cuộc gọi</string>
     <string name="permdesc_writeCallLog">Cho phép ứng dụng sửa đổi nhật ký cuộc gọi trên điện thoại của bạn, bao gồm dữ liệu về các cuộc gọi đến và gọi đi. Các ứng dụng độc hại có thể sử dụng quyền này để xóa hoặc sửa đổi nhật ký cuộc gọi của bạn.</string>
-    <string name="permlab_readProfile">đọc danh thiếp của riêng bạn</string>
+    <string name="permlab_readProfile">đọc thẻ liên hệ của riêng bạn</string>
     <string name="permdesc_readProfile">Cho phép ứng dụng đọc thông tin tiểu sử cá nhân được lưu trữ trên thiết bị, chẳng hạn như tên và thông tin liên hệ của bạn. Điều này có nghĩa là ứng dụng có thể xác định danh tính của bạn và gửi thông tin tiểu sử của bạn cho người khác.</string>
-    <string name="permlab_writeProfile">sửa đổi danh thiếp của riêng bạn</string>
+    <string name="permlab_writeProfile">sửa đổi thẻ liên hệ của riêng bạn</string>
     <string name="permdesc_writeProfile">Cho phép ứng dụng thay đổi hoặc thêm vào thông tin tiểu sử cá nhân được lưu trữ trên thiết bị, chẳng hạn như tên và thông tin liên hệ của bạn. Điều này có nghĩa là ứng dụng có thể xác định danh tính của bạn và gửi thông tin tiểu sử của bạn cho người khác.</string>
     <string name="permlab_readSocialStream">đọc luồng xã hội của bạn</string>
     <string name="permdesc_readSocialStream">Cho phép ứng dụng truy cập và đồng bộ hóa các cập nhật xã hội của bạn và bạn bè bạn. Hãy cẩn trọng khi chia sẻ thông tin -- việc này có thể cho phép ứng dụng đọc thông tin liên lạc giữa bạn và bạn bè bạn trên các mạng xã hội, bất kể tính bí mật là gì. Lưu ý: quyền này có thể không được thực thi trên tất cả các mạng xã hội.</string>
     <string name="permlab_writeSocialStream">ghi luồng xã hội của bạn</string>
-    <string name="permdesc_writeSocialStream">Cho phép ứng dụng hiển thị các cập nhật mới từ bạn bè của bạn. Hãy cẩn trọng khi chia sẻ thông tin -- việc này có thể cho phép ứng dụng tạo tin nhắn nạc danh đến từ một người bạn. Lưu ý: quyền này có thể không được thực thi trên tất cả các mạng xã hội.</string>
+    <string name="permdesc_writeSocialStream">Cho phép ứng dụng hiển thị các cập nhật xã hội từ bạn bè của bạn. Hãy cẩn trọng khi chia sẻ thông tin -- việc này có thể cho phép ứng dụng tạo tin nhắn dường như đến từ một người bạn. Lưu ý: quyền này có thể không được thực thi trên tất cả các mạng xã hội.</string>
     <string name="permlab_readCalendar">đọc các sự kiện lịch và thông tin bí mật</string>
     <string name="permdesc_readCalendar">Cho phép ứng dụng đọc tất cả các sự kiện trên lịch được lưu trữ trên điện thoại của bạn, bao gồm các sự kiện trên lịch của bạn bè hoặc đồng nghiệp. Việc này có thể cho phép ứng dụng chia sẻ hoặc lưu dữ liệu lịch của bạn, bất kể tính bí mật hay tính nhạy cảm là gì.</string>
     <string name="permlab_writeCalendar">thêm hoặc sửa đổi các sự kiện lịch và gửi email cho khách mà chủ sở hữu không hề biết</string>
@@ -508,9 +508,9 @@
     <string name="permdesc_brick">Cho phép ứng dụng vô hiệu hóa vĩnh viễn toàn bộ điện thoại. Điều này rất nguy hiểm.</string>
     <string name="permlab_reboot">buộc khởi động lại điện thoại</string>
     <string name="permdesc_reboot">Cho phép ứng dụng buộc điện thoại khởi động lại.</string>
-    <string name="permlab_mount_unmount_filesystems">truy cập hệ thống file Thẻ SD</string>
+    <string name="permlab_mount_unmount_filesystems">truy cập hệ thống tệp của bộ lưu trữ USB</string>
     <string name="permdesc_mount_unmount_filesystems">Cho phép ứng dụng cài và gỡ các hệ thống tệp của bộ nhớ di động.</string>
-    <string name="permlab_mount_format_filesystems">xóa Thẻ SD</string>
+    <string name="permlab_mount_format_filesystems">xóa bộ lưu trữ USB</string>
     <string name="permdesc_mount_format_filesystems">Cho phép ứng dụng định dạng bộ nhớ di động.</string>
     <string name="permlab_asec_access">lấy thông tin trên Bộ nhớ trong</string>
     <string name="permdesc_asec_access">Cho phép ứng dụng lấy thông tin trên bộ nhớ trong.</string>
@@ -619,9 +619,9 @@
     <string name="permlab_writeDictionary">ghi vào từ điển do người dùng xác định</string>
     <string name="permdesc_writeDictionary">Cho phép ứng dụng ghi từ mới vào từ điển của người dùng.</string>
     <string name="permlab_sdcardRead">kiểm tra quyền truy cập vào bộ nhớ được bảo vệ</string>
-    <string name="permdesc_sdcardRead">Cho phép ứng dụng kiểm tra quyền cho thẻ SD sẽ các thiết bị trong tương lai.</string>
-    <string name="permlab_sdcardWrite">sửa đổi hoặc xóa nội dung của thẻ SD của bạn</string>
-    <string name="permdesc_sdcardWrite">Cho phép ứng dụng ghi vào thẻ SD.</string>
+    <string name="permdesc_sdcardRead">Cho phép ứng dụng kiểm tra quyền cho bộ lưu trữ USB trên các thiết bị trong tương lai.</string>
+    <string name="permlab_sdcardWrite">sửa đổi hoặc xóa nội dung của bộ lưu trữ USB của bạn</string>
+    <string name="permdesc_sdcardWrite">Cho phép ứng dụng ghi vào bộ lưu trữ USB.</string>
     <string name="permlab_mediaStorageWrite">sửa đổi/xóa nội dung trên bộ nhớ phương tiện cục bộ</string>
     <string name="permdesc_mediaStorageWrite">Cho phép ứng dụng sửa đổi nội dung của bộ lưu trữ phương tiện nội bộ.</string>
     <string name="permlab_cache_filesystem">truy cập filesystem bộ nhớ đệm</string>
@@ -754,27 +754,27 @@
     <string name="lockscreen_permanent_disabled_sim_message_short">Thẻ SIM không sử dụng được.</string>
     <string name="lockscreen_permanent_disabled_sim_instructions">"Thẻ SIM của bạn đã bị vô hiệu hóa vĩnh viễn .
  Hãy liên hệ với nhà cung cấp dịch vụ không dây của bạn để lấy thẻ SIM khác."</string>
-    <string name="lockscreen_transport_prev_description">Phím bài hát trước</string>
-    <string name="lockscreen_transport_next_description">Phím bài hát tiếp theo</string>
-    <string name="lockscreen_transport_pause_description">Phím tạm dừng</string>
-    <string name="lockscreen_transport_play_description">Phím phát</string>
-    <string name="lockscreen_transport_stop_description">Phím dừng</string>
+    <string name="lockscreen_transport_prev_description">Nút bài hát trước</string>
+    <string name="lockscreen_transport_next_description">Nút bài hát tiếp theo</string>
+    <string name="lockscreen_transport_pause_description">Nút tạm dừng</string>
+    <string name="lockscreen_transport_play_description">Nút phát</string>
+    <string name="lockscreen_transport_stop_description">Nút dừng</string>
     <string name="emergency_calls_only">Chỉ cuộc gọi khẩn cấp</string>
     <string name="lockscreen_network_locked_message">Đã khóa mạng</string>
     <string name="lockscreen_sim_puk_locked_message">SIM card đã bị khóa PUK</string>
     <string name="lockscreen_sim_puk_locked_instructions">Vui lòng xem Hướng dẫn người dùng hoặc liên hệ với Bộ phận chăm sóc khách hàng.</string>
     <string name="lockscreen_sim_locked_message">SIM card đã bị khóa.</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Đang mở khóa SIM…</string>
-    <string name="lockscreen_too_many_failed_attempts_dialog_message" formatted="false">"Bạn đã nhập %d lần không chính xác hình vẽ mở khóa của mình. 
+    <string name="lockscreen_too_many_failed_attempts_dialog_message" formatted="false">"Bạn đã %d lần vẽ không chính xác hình mở khóa của mình. 
 
 Vui lòng thử lại sau %d giây."</string>
-    <string name="lockscreen_too_many_failed_password_attempts_dialog_message" formatted="false">"Bạn đã nhập %d lần nhập sai mật khẩu. Hãy 
+    <string name="lockscreen_too_many_failed_password_attempts_dialog_message" formatted="false">"Bạn đã %d lần nhập sai mật khẩu. Hãy 
 
-Thử lại sau %d giây."</string>
+thử lại sau %d giây."</string>
     <string name="lockscreen_too_many_failed_pin_attempts_dialog_message" formatted="false">"Bạn đã nhập sai mã PIN %d lần. 
 
 Hãy thử lại sau %d giây."</string>
-    <string name="lockscreen_failed_attempts_almost_glogin" formatted="false">"Bạn đã nhập %d lần vẽ không chính xác hình mở khóa của mình. Sau %d lần thử không thành công nữa, bạn sẽ được yêu cầu mở khóa điện thoại bằng thông tin đăng nhập Google của bạn.
+    <string name="lockscreen_failed_attempts_almost_glogin" formatted="false">"Bạn đã %d lần vẽ không chính xác hình mở khóa của mình. Sau %d lần thử không thành công nữa, bạn sẽ được yêu cầu mở khóa điện thoại bằng thông tin đăng nhập Google của bạn.
 
  Vui lòng thử lại sau %d giây."</string>
     <string name="lockscreen_failed_attempts_almost_at_wipe" formatted="false">Bạn đã mở khóa điện thoại không đúng cách %d lần. Sau %d lần mở khóa không thành công nữa, điện thoại sẽ được đặt lại về mặc định ban đầu và tất cả dữ liệu người dùng sẽ bị mất.</string>
@@ -782,7 +782,7 @@ Hãy thử lại sau %d giây."</string>
     <string name="lockscreen_too_many_failed_attempts_countdown">Thử lại trong %d giây.</string>
     <string name="lockscreen_forgot_pattern_button_text">Quên hình vẽ?</string>
     <string name="lockscreen_glogin_forgot_pattern">Mở khóa tài khoản</string>
-    <string name="lockscreen_glogin_too_many_attempts">Quá nhiều lần nhập hình sai</string>
+    <string name="lockscreen_glogin_too_many_attempts">Quá nhiều lần nhập hình</string>
     <string name="lockscreen_glogin_instructions">Để mở khóa, hãy đăng nhập bằng tài khoản Google của bạn.</string>
     <string name="lockscreen_glogin_username_hint">Tên người dùng (email)</string>
     <string name="lockscreen_glogin_password_hint">Mật khẩu</string>
@@ -811,7 +811,7 @@ Hãy truy cập "<b>google.com/accounts/recovery</b>.</string>
     <string name="factorytest_not_system">Hành động FACTORY_TEST chỉ hỗ trợ cho các gói đã cài đặt trong thư mục /system/app.</string>
     <string name="factorytest_no_action">Không tìm thấy gói chứa hành động FACTORY_TEST.</string>
     <string name="factorytest_reboot">Khởi động lại</string>
-    <string name="js_dialog_title">Trang \"%s\" cho biết:</string>
+    <string name="js_dialog_title">Trang tại \"%s\" cho biết:</string>
     <string name="js_dialog_title_default">JavaScript</string>
     <string name="js_dialog_before_unload">"Điều hướng khỏi trang này?
 
@@ -932,7 +932,7 @@ Chạm OK để tiếp tục hoặc Hủy để ở lại trang hiện tại."</
     <string name="deleteText">xóa</string>
     <string name="inputMethod">Hình thức nhập liệu</string>
     <string name="editTextMenuTitle">Tác vụ văn bản</string>
-    <string name="low_internal_storage_view_title">Sắp hết dung lượng bộ nhớ</string>
+    <string name="low_internal_storage_view_title">Sắp hết dung lượng lưu trữ</string>
     <string name="low_internal_storage_view_text">Một số chức năng hệ thống có thể không hoạt động</string>
     <string name="loading">Đang tải…</string>
     <string name="capital_on">MỞ</string>
@@ -1043,15 +1043,15 @@ Bạn có muốn đóng trang không?"</string>
     <string name="perms_description_app">Được cung cấp bởi %1$s.</string>
     <string name="usb_storage_activity_title">Lưu trữ USB</string>
     <string name="usb_storage_title">Đã kết nối USB</string>
-    <string name="usb_storage_message">Bạn đã kết nối với máy tính của mình qua USB. Hãy chạm vào nút bên dưới nếu bạn muốn sao chép các tệp giữa máy tính và thẻ SD của Android của bạn.</string>
+    <string name="usb_storage_message">Bạn đã kết nối với máy tính của mình qua USB. Hãy chạm vào nút bên dưới nếu bạn muốn sao chép các tệp giữa máy tính và bộ lưu trữ USB của Android của bạn.</string>
     <string name="usb_storage_button_mount">Mở lưu trữ USB</string>
-    <string name="usb_storage_error_message">Đã xảy ra sự cố khi sử dụng thẻ SD của bạn cho bộ nhớ dung lượng lớn USB.</string>
+    <string name="usb_storage_error_message">Đã xảy ra sự cố khi sử dụng bộ lưu trữ USB của bạn cho bộ nhớ dung lượng lớn USB.</string>
     <string name="usb_storage_notification_title">Đã kết nối USB</string>
     <string name="usb_storage_notification_message">Chạm để sao chép tệp đến/từ máy tính của bạn.</string>
     <string name="usb_storage_stop_notification_title">Tắt bộ nhớ USB</string>
     <string name="usb_storage_stop_notification_message">Chạm để tắt bộ lưu trữ USB.</string>
     <string name="usb_storage_stop_title">Đang sử dụng lưu trữ USB</string>
-    <string name="usb_storage_stop_message">Trước khi tắt bộ lưu trữ USB, hãy ngắt kết nối (\"đẩy\") thẻ SD của Android khỏi máy tính của bạn.</string>
+    <string name="usb_storage_stop_message">Trước khi tắt bộ nhớ USB, hãy ngắt kết nối (\"đẩy\") bộ lưu trữ USB của Android khỏi máy tính của bạn.</string>
     <string name="usb_storage_stop_button_mount">Tắt lưu trữ USB</string>
     <string name="usb_storage_stop_error_message">Đã có sự cố khi tắt bộ lưu trữ USB. Hãy kiểm tra rằng bạn đã ngắt kết nối thiết bị lưu trữ USB, rồi thử lại.</string>
     <string name="dlg_confirm_kill_storage_users_title">Mở lưu trữ USB</string>
@@ -1063,8 +1063,8 @@ Bạn có muốn đóng trang không?"</string>
     <string name="usb_cd_installer_notification_title">Được kết nối như trình cài đặt</string>
     <string name="usb_accessory_notification_title">Đã kết nối với phụ kiện USB</string>
     <string name="usb_notification_message">Chạm để có các tùy chọn USB khác.</string>
-    <string name="extmedia_format_title">Định dạng thẻ SD?</string>
-    <string name="extmedia_format_message">Tất cả dữ liệu trên thẻ của bạn sẽ bị mất.</string>
+    <string name="extmedia_format_title">Định dạng USB?</string>
+    <string name="extmedia_format_message">Tất cả các tệp được lưu trữ trong bộ lưu trữ USB sẽ bị xóa. Không thể hoàn nguyên tác vụ này!</string>
     <string name="extmedia_format_button_format">Định dạng</string>
     <string name="adb_active_notification_title">Đã kết nối chế độ USB debug</string>
     <string name="adb_active_notification_message">Chạm để vô hiệu hóa gỡ lỗi USB.</string>
@@ -1078,25 +1078,25 @@ Bạn có muốn đóng trang không?"</string>
     <string name="fast_scroll_alphabet">" ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="fast_scroll_numeric_alphabet">" 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
     <string name="candidates_style"><u>ứng viên</u></string>
-    <string name="ext_media_checking_notification_title">Đang chuẩn bị thẻ SD</string>
+    <string name="ext_media_checking_notification_title">Đang chuẩn bị thẻ nhớ</string>
     <string name="ext_media_checking_notification_message">Đang kiểm tra lỗi.</string>
-    <string name="ext_media_nofs_notification_title">Thẻ SD trống</string>
-    <string name="ext_media_nofs_notification_message">Thẻ SD trống hoặc có hệ thống tệp không được hỗ trợ.</string>
-    <string name="ext_media_unmountable_notification_title">Thẻ SD đã bị hỏng</string>
-    <string name="ext_media_unmountable_notification_message">Thẻ SD bị hỏng. Hãy thử định dạng lại.</string>
-    <string name="ext_media_badremoval_notification_title">Thẻ SD bị tháo đột ngột</string>
-    <string name="ext_media_badremoval_notification_message">Tháo thẻ SD trước khi gỡ nhằm tránh mất dữ liệu.</string>
-    <string name="ext_media_safe_unmount_notification_title">An toàn để tháo thẻ SD</string>
-    <string name="ext_media_safe_unmount_notification_message">Bạn có thể tháo an toàn thẻ SD.</string>
-    <string name="ext_media_nomedia_notification_title">Thẻ SD đã bị tháo</string>
-    <string name="ext_media_nomedia_notification_message">Thẻ SD đã được tháo. Hãy lắp một thẻ mới.</string>
-    <string name="activity_list_empty">Không tìm thấy hành động nào phù hợp.</string>
+    <string name="ext_media_nofs_notification_title">Thẻ nhớ trống</string>
+    <string name="ext_media_nofs_notification_message">Bộ lưu trữ USB trống hoặc có hệ thống tệp không được hỗ trợ.</string>
+    <string name="ext_media_unmountable_notification_title">Thẻ nhớ bị hỏng</string>
+    <string name="ext_media_unmountable_notification_message">Bộ lưu trữ USB bị hỏng. Hãy thử định dạng lại.</string>
+    <string name="ext_media_badremoval_notification_title">Thẻ nhớ bị rút ra đột ngột</string>
+    <string name="ext_media_badremoval_notification_message">Ngắt kết nối với thẻ nhớ trước khi rút thẻ để tránh mất dữ liệu.</string>
+    <string name="ext_media_safe_unmount_notification_title">Thẻ nhớ đã an toàn để rút ra</string>
+    <string name="ext_media_safe_unmount_notification_message">Bạn đã có thể rút thẻ nhớ ra an toàn.</string>
+    <string name="ext_media_nomedia_notification_title">Đã rút thẻ nhớ</string>
+    <string name="ext_media_nomedia_notification_message">Thẻ nhớ đã bị rút ra. Vui lòng lắp thẻ mới.</string>
+    <string name="activity_list_empty">Không tìm thấy hoạt động nào phù hợp.</string>
     <string name="permlab_pkgUsageStats">cập nhật phân tích sử dụng các thành phần</string>
     <string name="permdesc_pkgUsageStats">Cho phép ứng dụng sửa đổi các số liệu thống kê sử dụng cấu phần đã thu thập. Không dành cho ứng dụng thông thường.</string>
     <string name="permlab_copyProtectedData">nội dung sao chép</string>
     <string name="permdesc_copyProtectedData">Cho phép ứng dụng gọi ra dịch vụ bộ chứa mặc định để sao chép nội dung. Không dành cho ứng dụng thông thường.</string>
-    <string name="permlab_route_media_output">Định tuyến đầu ra cho các file giải trí</string>
-    <string name="permdesc_route_media_output">Cho phép ứng dụng định tuyến đầu ra cho các file giải trí đa phương tiện đến các thiết bị khác bên ngoài.</string>
+    <string name="permlab_route_media_output">Định tuyến thiết bị ra phương tiện</string>
+    <string name="permdesc_route_media_output">Cho phép ứng dụng định tuyến thiết bị ra phương tiện đến các thiết bị bên ngoài khác.</string>
     <string name="tutorial_double_tap_to_zoom_message_short">Chạm hai lần để kiểm soát thu phóng</string>
     <string name="gadget_host_error_inflating">Không thể thêm tiện ích.</string>
     <string name="ime_action_go">Đi đến</string>
@@ -1146,13 +1146,13 @@ cho tài khoản %s."</string>
     <string name="no_matches">Không có kết quả nào phù hợp</string>
     <string name="find_on_page">Tìm kiếm trên trang</string>
     <string name="action_mode_done">Xong</string>
-    <string name="progress_unmounting">Đang ngắt kết nối thẻ SD...</string>
-    <string name="progress_erasing">Đang xóa thẻ SD...</string>
+    <string name="progress_unmounting">Đang ngắt kết nối bộ lưu trữ USB...</string>
+    <string name="progress_erasing">Đang xóa bộ lưu trữ USB...</string>
     <string name="format_error">Không thể xóa thẻ SD.</string>
     <string name="media_bad_removal">Thẻ SD đã được gỡ bỏ trước khi được ngắt kết nối.</string>
-    <string name="media_checking">Thẻ SD hiện đang được kiểm tra.</string>
+    <string name="media_checking">Thẻ nhớ hiện đang được kiểm tra.</string>
     <string name="media_removed">Thẻ SD đã được gỡ bỏ.</string>
-    <string name="media_shared">Thẻ SD hiện đang được máy tính sử dụng.</string>
+    <string name="media_shared">Thẻ nhớ hiện đang được sử dụng bởi máy tính.</string>
     <string name="media_unknown_state">Phương tiện ngoài ở trạng thái không rõ.</string>
     <string name="share">Chia sẻ</string>
     <string name="find">Tìm</string>

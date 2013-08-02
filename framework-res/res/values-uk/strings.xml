@@ -185,7 +185,7 @@
     <string name="invalidPin">Введіть PIN-код із 4-8 цифр.</string>
     <string name="invalidPuk">Введіть PUK-код із 8 або більше цифр.</string>
     <string name="needPuk">SIM-карту заблоковано PUK-кодом. Введіть PUK-код, щоб розблокувати її.</string>
-    <string name="needPuk2">Введіть PUK2-код, щоб розблокувати SIM-карту.</string>
+    <string name="needPuk2">Введіть код PUK2, щоб розблокувати SIM-карту.</string>
     <string name="imei">IMEI</string>
     <string name="meid">MEID</string>
     <string name="ClipMmi">Вхідний ідентифікатор абонента</string>
@@ -249,7 +249,7 @@
     <string name="httpError">Сталася помилка мережі.</string>
     <string name="httpErrorLookup">Не вдалося знайти URL-адресу.</string>
     <string name="httpErrorUnsupportedAuthScheme">Схема автентифікації сайту не підтримується.</string>
-    <string name="httpErrorAuth">Не вдалося автентифікувати.</string>
+    <string name="httpErrorAuth">Не вдалось автентифікувати.</string>
     <string name="httpErrorProxyAuth">Автентифікація через проксі-сервер не вдалася.</string>
     <string name="httpErrorConnect">Не вдалося під’єднатися до сервера.</string>
     <string name="httpErrorIO">Не вдалося зв’язатися із сервером. Повторіть спробу пізніше.</string>
@@ -263,7 +263,7 @@
     <string name="contentServiceSync">Синхр.</string>
     <string name="contentServiceSyncNotificationTitle">Синхр.</string>
     <string name="contentServiceTooManyDeletesNotificationDesc">Забагато видалень %s.</string>
-    <string name="low_memory">"Пам’ять телефону заповнено. Видаліть деякі файли, щоб звільнити пам'яті."</string>
+    <string name="low_memory">Пам’ять телефону заповнено. Видаліть якісь файли, щоб звільнити місце.</string>
     <string name="me">Я</string>
     <string name="power_dialog">Параметри тел.</string>
     <string name="silent_mode">Режим без звуку</string>
@@ -295,7 +295,7 @@
     <string name="permgrouplab_costMoney">Служби, які потребують оплати</string>
     <string name="permgroupdesc_costMoney">Виконувати дії, які потребують оплати.</string>
     <string name="permgrouplab_messages">Ваші повідомлення</string>
-    <string name="permgroupdesc_messages">Читати та писати SMS, електронні листи й інші повідомлення.</string>
+    <string name="permgroupdesc_messages">Читати та писати в SMS, електронні листи й інші повідомлення.</string>
     <string name="permgrouplab_personalInfo">Ваша особиста інформація</string>
     <string name="permgroupdesc_personalInfo">Прямий доступ до ваших контактів і календаря, збереж. у телефоні.</string>
     <string name="permgrouplab_location">Ваше розташування</string>
@@ -313,7 +313,7 @@
     <string name="permgrouplab_developmentTools">Інструменти розробника</string>
     <string name="permgroupdesc_developmentTools">Функції, потрібні лише для розробників програм.</string>
     <string name="permgrouplab_storage">Зберігання</string>
-    <string name="permgroupdesc_storage">"Доступ до карти пам'яті."</string>
+    <string name="permgroupdesc_storage">Отрим. доступу до носія USB.</string>
     <string name="permlab_readWriteOmaDrm">Доступ до папки даних oma DRM</string>
     <string name="permdesc_readWriteOmaDrm">Allows an application to read or write to the folder about OMA DRM.</string>
     <string name="permlab_statusBar">вимикати чи змін. панель стану</string>
@@ -323,7 +323,7 @@
     <string name="permlab_expandStatusBar">розгорнути/згорнути панель стану</string>
     <string name="permdesc_expandStatusBar">Дозволяє програмі розгортати чи згортати рядок стану.</string>
     <string name="permlab_processOutgoingCalls">переадресовувати вихідні виклики</string>
-    <string name="permdesc_processOutgoingCalls">Дозволяє програмі обробляти вихідні виклики та змінювати номер для виклику. Такий дозвіл дає програмі змогу відстежувати, переадресовувати чи блокувати вихідні виклики.</string>
+    <string name="permdesc_processOutgoingCalls">Дозволяє програмі обробляти вихідні дзвінки та змінювати номер для виклику. Такий дозвіл дає програмі змогу відстежувати, переадресовувати чи блокувати вихідні дзвінки.</string>
     <string name="permlab_receiveSms">отримувати текстові повідомлення (SMS)</string>
     <string name="permdesc_receiveSms">Дозволяє програмі отримувати й обробляти SMS-повідомлення. Це означає, що програма може відстежувати чи видаляти повідомлення, надіслані на ваш пристрій, навіть не показуючи їх вам.</string>
     <string name="permlab_receiveMms">отримувати текстові повідомлення (MMS)</string>
@@ -331,15 +331,15 @@
     <string name="permlab_receiveEmergencyBroadcast">отримувати екстрені повідомлення</string>
     <string name="permdesc_receiveEmergencyBroadcast">Дозволяє програмі отримувати й обробляти повідомлення екстрених служб. Цей дозвіл доступний лише для системних програм.</string>
     <string name="permlab_readCellBroadcasts">читати широкомовні повідомлення мережі</string>
-    <string name="permdesc_readCellBroadcasts">Дозволяє програмі читати широкомовні повідомлення мережі, отримані пристроєм. Широкомовні сповіщення мережі надсилаються в деяких країнах для попередження про надзвичайні ситуації. Шкідливі програми можуть перешкоджати роботі пристрою під час отримання широкомовного повідомлення мережі про надзвичайну ситуацію.</string>
+    <string name="permdesc_readCellBroadcasts">Дозволяє програмі читати широкомовні повідомлення мережі, отримані пристроєм. Широкомовні сповіщення мережі надсилаються в деяких країнах для попередження про надзвичайні ситуації. Шкідливі програми можуть втручатися у швидкодію чи роботу пристрою під час отримання широкомовного повідомлення мережі про надзвичайну ситуацію.</string>
     <string name="permlab_sendSms">надсилати SMS</string>
     <string name="permdesc_sendSms">Дозволяє програмі надсилати SMS-повідомлення. Це може спричинити неочікуване стягнення плати. Шкідливі програми можуть надсилати повідомлення без вашого підтвердження, за що з вас стягуватимуться кошти.</string>
     <string name="permlab_sendSmsNoConfirmation">надсилати SMS-повідомлення без підтвердження</string>
     <string name="permdesc_sendSmsNoConfirmation">Дозволяє програмі надсилати SMS-повідомлення. Це може спричинити неочікуване стягнення плати. Шкідливі програми можуть надсилати повідомлення без вашого підтвердження, за що з вас стягуватимуться кошти.</string>
     <string name="permlab_readSms">читати текстові повідомлення (SMS або MMS)</string>
-    <string name="permdesc_readSms">Дозволяє програмі читати SMS-повідомлення, збережені в телефоні чи на SIM-карті. Це дозволяє програмі читати всі SMS-повідомлення, незалежно від вмісту чи конфіденційності.</string>
+    <string name="permdesc_readSms">Дозволяє програмі читати SMS повідомлення, збережені в телефоні чи на SIM-карті. Це дозволяє програмі читати всі SMS повідомлення, незалежно від вмісту чи конфіденційності.</string>
     <string name="permlab_writeSms">редагувати текстові повідомлення (SMS або MMS)</string>
-    <string name="permdesc_writeSms">Дозволяє програмі писати в SMS-повідомлення, збережені в телефоні чи на SIM-карті. Шкідливі програми можуть видаляти ваші повідомлення.</string>
+    <string name="permdesc_writeSms">Дозволяє програмі писати в SMS повідомлення, збережені в телефоні чи на SIM-карті. Шкідливі програми можуть видаляти ваші повідомлення.</string>
     <string name="permlab_receiveWapPush">отримувати текстові повідомлення (WAP)</string>
     <string name="permdesc_receiveWapPush">Дозволяє програмі отримувати й обробляти WAP-повідомлення. Це означає, що програма може відстежувати чи видаляти повідомлення, надіслані на ваш пристрій, навіть не показуючи їх вам.</string>
     <string name="permlab_getTasks">отримувати запущені програми</string>
@@ -357,8 +357,8 @@
     <string name="permlab_setDebugApp">вмикати налагодження програми</string>
     <string name="permdesc_setDebugApp">Дозволяє програмі вмикати налагодження для іншої програми. Шкідливі програми можуть використовувати це для примусового припинення роботи інших програм.</string>
     <string name="permlab_changeConfiguration">змінювати системні налаштування екрана</string>
-    <string name="permdesc_changeConfiguration">Дозволяє програмі змінювати поточну конфігурацію, наприклад мовний код чи розмір шрифту загалом.</string>
-    <string name="permlab_enableCarMode">увімк. режим у авто.</string>
+    <string name="permdesc_changeConfiguration">Дозволяє програмі змінювати поточну конфігурацію, як-от мовний код чи розмір шрифту загалом.</string>
+    <string name="permlab_enableCarMode">увімк. режим у автомоб.</string>
     <string name="permdesc_enableCarMode">Дозволяє програмі вмикати режим автомобіля.</string>
     <string name="permlab_killBackgroundProcesses">закривати інші програми</string>
     <string name="permdesc_killBackgroundProcesses">Дозволяє програмі припиняти фонові процеси інших програм. Це може зупиняти запущені програми.</string>
@@ -374,14 +374,14 @@
     <string name="permdesc_shutdown">Переводить диспетчер дій у стан завершення роботи. Не виконує повне завершення роботи.</string>
     <string name="permlab_stopAppSwitches">запобіг. переключенню програм</string>
     <string name="permdesc_stopAppSwitches">Запобігати переходу користувача до іншої програми.</string>
-    <string name="permlab_runSetActivityWatcher">відстежувати та контролювати запуск всіх програм</string>
+    <string name="permlab_runSetActivityWatcher">відстежувати та контролювати запуски всіх програм</string>
     <string name="permdesc_runSetActivityWatcher">Дозволяє програмі відстежувати та контролювати, як саме система запускає дії. Шкідливі програми можуть отримати повний контроль над системою. Цей дозвіл потрібний лише для розробки, а не для звичайного користування.</string>
     <string name="permlab_broadcastPackageRemoved">надсил. запис про видал. пакета</string>
     <string name="permdesc_broadcastPackageRemoved">Дозволяє програмі передавати сповіщення про видалення пакета програми. Шкідливі програми можуть використовувати це для примусового припинення роботи будь-якої іншої запущеної програми.</string>
     <string name="permlab_broadcastSmsReceived">надсил. запис, отриманий в SMS</string>
-    <string name="permdesc_broadcastSmsReceived">Дозволяє програмі передавати сповіщення про отримання SMS-повідомлення. Шкідливі програми можуть використовувати це для підробки вхідних SMS-повідомлень.</string>
+    <string name="permdesc_broadcastSmsReceived">Дозволяє програмі передавати сповіщення про отримання SMS повідомлення. Шкідливі програми можуть використовувати це для підробки вхідних SMS повідомлень.</string>
     <string name="permlab_broadcastWapPush">надсил. запис, отр. через WAP-PUSH</string>
-    <string name="permdesc_broadcastWapPush">Дозволяє програмі передавати сповіщення про отримання повідомлення WAP PUSH. Шкідливі програми можуть використовувати це для підробки отримання MMS-повідомлень або для непомітної заміни вмісту будь-якої веб-сторінки шкідливими варіантами.</string>
+    <string name="permdesc_broadcastWapPush">Дозволяє програмі передавати сповіщення про отримання повідомлення WAP PUSH. Шкідливі програми можуть використовувати це для підробки отримання MMS повідомлень або для непомітної заміни вмісту будь-якої веб-сторінки шкідливими варіантами.</string>
     <string name="permlab_setProcessLimit">обмежувати кількість запущ. процесів</string>
     <string name="permdesc_setProcessLimit">Дозволяє програмі контролювати максимальну кількість процесів, які буде запущено. Ніколи не вимагається для звичайних програм.</string>
     <string name="permlab_setAlwaysFinish">примусово закривати фонові програми</string>
@@ -403,7 +403,7 @@
     <string name="permlab_injectEvents">натиск. клавіші чи кнопки керув.</string>
     <string name="permdesc_injectEvents">Дозволяє програмі передавати власні події введення (натискання клавіш тощо) іншим програмам. Шкідливі програми можуть використовувати це для контролю над телефоном.</string>
     <string name="permlab_readInputState">записувати, що ви вводите та які дії виконуєте</string>
-    <string name="permdesc_readInputState">Дозволяє програмі бачити клавіші, які ви натискаєте, навіть під час взаємодії з іншою програмою (наприклад, під час введення пароля). Ніколи не застосовується для звичайних програм.</string>
+    <string name="permdesc_readInputState">Дозволяє програмі бачити клавіші, які ви натискаєте, навіть під час взаємодії з іншою програмою (як-от під час введення пароля). Ніколи не застосовується для звичайних програм.</string>
     <string name="permlab_bindInputMethod">"прив'яз. до методу введ."</string>
     <string name="permdesc_bindInputMethod">Дозволяє власнику прив’язуватися до інтерфейсу верхнього рівня методу введення. Ніколи не застосовується для звичайних програм.</string>
     <string name="permlab_bindAccessibilityService">прив’язуватися до служби доступності</string>
@@ -424,7 +424,7 @@
     <string name="permdesc_setPointerSpeed">Дозволяє програмі будь-коли змінювати швидкість вказівника миші чи сенсорної панелі. Ніколи не застосовується для звичайних програм.</string>
     <string name="permlab_setKeyboardLayout">змінити розкладку клавіатури</string>
     <string name="permdesc_setKeyboardLayout">Дозволяє програмі змінювати розкладку клавіатури. Ніколи не застосовується для звичайних програм.</string>
-    <string name="permlab_signalPersistentProcesses">надсилати програмам сигнали Linux</string>
+    <string name="permlab_signalPersistentProcesses">надсилати сигнали Linux програмам</string>
     <string name="permdesc_signalPersistentProcesses">Дозволяє програмі подавати запит щодо надсилання наданого сигналу всім сталим процесам.</string>
     <string name="permlab_persistentActivity">заставляти програму постійно функціонувати</string>
     <string name="permdesc_persistentActivity">Дозволяє програмі робити свої частини сталими в пам’яті. Це може зменшувати обсяг пам’яті, доступної для інших програм, і сповільнювати роботу телефону.</string>
@@ -460,20 +460,20 @@
     <string name="permdesc_writeSecureSettings">Дозволяє програмі змінювати дані налаштувань безпеки системи. Не для використання звичайними програмами.</string>
     <string name="permlab_writeGservices">змінювати карту служб Google</string>
     <string name="permdesc_writeGservices">Дозволяє програмі змінювати карту служб Google. Не для використання звичайними програмами.</string>
-    <string name="permlab_receiveBootCompleted">виконання під час запуску</string>
+    <string name="permlab_receiveBootCompleted">виконуватися під час запуску</string>
     <string name="permdesc_receiveBootCompleted">Дозволяє програмі запускатися, щойно завантаження системи закінчиться. Це може затримувати запуск телефону та дозволяє програмі сповільнювати загальну роботу телефону своїм постійним функціонуванням.</string>
     <string name="permlab_broadcastSticky">надсилати закріпл. запис</string>
     <string name="permdesc_broadcastSticky">Дозволяє програмі надсилати закріплені широкомовні повідомлення, які залишаються після відтворення широкомовного повідомлення. Надмірне використання може сповільнювати роботу телефону або порушувати її стабільність, спричиняючи завелике використання пам’яті.</string>
     <string name="permlab_readContacts">читати контакти</string>
-    <string name="permdesc_readContacts">Дозволяє програмі читати дані про контакти, які зберігаються у вашому телефоні, зокрема частоту здійснення викликів, надсилання електронної пошти або інших способів спілкування з окремими особами. Такий дозвіл дає програмам змогу змогу зберігати ваші контактні дані. Шкідливі програми можуть надсилати контактні дані без вашого відома.</string>
+    <string name="permdesc_readContacts">Дозволяє програмі читати дані про контакти, які зберігаються у вашому телефоні, зокрема частоту здійснення викликів, надсилання електронних листів або інших способів спілкування з окремими особами. Такий дозвіл дає програмам змогу змогу зберігати ваші контактні дані. Шкідливі програми можуть надсилати контактні дані без вашого відома.</string>
     <string name="permlab_writeContacts">змінювати контакти</string>
-    <string name="permdesc_writeContacts">Дозволяє програмі змінювати дані про контакти, які зберігаються у вашому телефоні, зокрема частоту здійснення викликів, надсилання електронної пошти або інших способів спілкування з окремими особами. Такий дозвіл дає програмам змогу видаляти контактні дані.</string>
+    <string name="permdesc_writeContacts">Дозволяє програмі змінювати дані про контакти, які зберігаються у вашому телефоні, зокрема частоту здійснення дзвінків, надсилання електронних листів або інших способів спілкування з окремими особами. Такий дозвіл дає програмам змогу видаляти контактні дані.</string>
     <string name="permlab_readCallLog">читати журнал викликів</string>
-    <string name="permdesc_readCallLog">Дозволяє програмі читати журнал викликів вашого телефону, включно з даними про вхідні та вихідні виклики. Такий дозвіл дає програмам змогу зберігати дані журналу викликів. Шкідливі програми можуть надсилати дані журналу викликів без вашого відома.</string>
+    <string name="permdesc_readCallLog">Дозволяє програмі читати журнал викликів вашого телефону, включно з даними про вхідні та вихідні дзвінки. Такий дозвіл дає програмам змогу зберігати дані журналу викликів. Шкідливі програми можуть надсилати дані журналу викликів без вашого відома.</string>
     <string name="permlab_writeCallLog">записувати в журнал викликів</string>
-    <string name="permdesc_writeCallLog">Дозволяє програмі змінювати журнал викликів вашого телефону, включно з даними про вхідні та вихідні виклики. Шкідливі програми можуть використовувати це для стирання або зміни вашого журналу викликів.</string>
+    <string name="permdesc_writeCallLog">Дозволяє програмі змінювати журнал викликів вашого телефону, включно з даними про вхідні та вихідні дзвінки. Шкідливі програми можуть використовувати це для стирання або зміни вашого журналу викликів.</string>
     <string name="permlab_readProfile">читати картки контактів</string>
-    <string name="permdesc_readProfile">Дозволяє програмі читати особисту інформацію профілю, збережену на пристрої (наприклад, ваше ім’я та контактну інформацію). Це означає, що програма може ідентифікувати вашу особу та надсилати дані вашого профілю іншим.</string>
+    <string name="permdesc_readProfile">Дозволяє програмі читати особисту інформацію профілю, збережену на пристрої, як-от ваше ім’я та контактну інформацію. Це означає, що програма може ідентифікувати вашу особу та надсилати дані вашого профілю іншим.</string>
     <string name="permlab_writeProfile">змінювати картки контактів</string>
     <string name="permdesc_writeProfile">Дозволяє програмі змінювати чи додавати особисту інформацію профілю, збережену на пристрої, як-от ваше ім’я та контактну інформацію. Це означає, що програма може ідентифікувати вашу особу та надсилати дані вашого профілю іншим.</string>
     <string name="permlab_readSocialStream">читати ваш соціальний потік</string>
@@ -490,16 +490,16 @@
     <string name="permdesc_accessLocationExtraCommands">Дозволяє програмі отримувати доступ до додаткових команд постачальника даних місцезнаходження. Це може дати програмі змогу втручатися в роботу GPS чи інших джерел даних про місцезнаходження.</string>
     <string name="permlab_installLocationProvider">дозвіл на встановлення провайдера розташування</string>
     <string name="permdesc_installLocationProvider">Створювати фіктивні джерела місцезнаходження для тестування або встановлювати нового постачальника даних місцезнаходження. Це може дозволити програмі замінювати місцезнаходження та/чи статус, отриманий від інших джерел даних про місцезнаходження, як-от постачальників послуг GPS або постачальників даних місцезнаходження.</string>
-    <string name="permlab_accessFineLocation">точне місцезнаходження(GPS)</string>
+    <string name="permlab_accessFineLocation">точне (GPS) місцезнаходження</string>
     <string name="permdesc_accessFineLocation">Отримувати доступ до джерел даних про точне місцезнаходження, як-от системи глобального позиціонування на телефоні. Якщо служби локації доступні й увімкнені, такий дозвіл дає програмі змогу визначати ваше точне місцезнаходження.</string>
-    <string name="permlab_accessCoarseLocation">приблизне місцезнаходження(мережа)</string>
-    <string name="permdesc_accessCoarseLocation">Отримувати доступ до приблизного місцезнаходження від постачальників даних місцезнаходження за допомогою мережевих джерел, наприклад веж мобільного зв’язку та точок доступу Wi-Fi. Якщо ці служби локації доступні й увімкнені, такий дозвіл дає програмі змогу визначати ваше приблизне місцезнаходження.</string>
+    <string name="permlab_accessCoarseLocation">приблизне (мережеве) місцезнаходження</string>
+    <string name="permdesc_accessCoarseLocation">Отримувати доступ до приблизного місцезнаходження від постачальників даних місцезнаходження за допомогою мережевих джерел, як-от веж мобільного зв’язку й точок доступу Wi-Fi. Якщо ці служби локації доступні й увімкнені, такий дозвіл дає програмі змогу визначати ваше приблизне місцезнаходження.</string>
     <string name="permlab_accessSurfaceFlinger">доступ до SurfaceFlinger</string>
     <string name="permdesc_accessSurfaceFlinger">Дозволяє програмі використовувати низькорівневі функції SurfaceFlinger.</string>
     <string name="permlab_readFrameBuffer">читати фрейм-буфер</string>
     <string name="permdesc_readFrameBuffer">Дозволяє програмі читати вміст буфера кадрів.</string>
     <string name="permlab_modifyAudioSettings">змінювати налаштування звуку</string>
-    <string name="permdesc_modifyAudioSettings">Дозволяє програмі змінювати загальні налаштування звуку, наприклад гучність і динамік, який використовується для виводу сигналу.</string>
+    <string name="permdesc_modifyAudioSettings">Дозволяє програмі змінювати загальні налаштування звуку, як-от гучність і динамік, який використовується для виводу сигналу.</string>
     <string name="permlab_recordAudio">запис аудіо</string>
     <string name="permdesc_recordAudio">Дозволяє програмі записувати звук за допомогою мікрофона. Такий дозвіл дає програмі змогу будь-коли записувати звук без вашого підтвердження.</string>
     <string name="permlab_camera">фотографувати та знімати відео</string>
@@ -508,9 +508,9 @@
     <string name="permdesc_brick">Дозволяє програмі назавжди вимикати весь телефон. Це дуже небезпечно.</string>
     <string name="permlab_reboot">примус. перезав. тел.</string>
     <string name="permdesc_reboot">Дозволяє програмі примусово перезавантажувати телефон.</string>
-    <string name="permlab_mount_unmount_filesystems">"отримувати доступ до файлової системи карти пам'яті"</string>
+    <string name="permlab_mount_unmount_filesystems">отрим.доступ до файл.сист. USB</string>
     <string name="permdesc_mount_unmount_filesystems">Дозволяє програмі підключати та відключати файлові системи для пам’яті на знімних носіях.</string>
-    <string name="permlab_mount_format_filesystems">"очищати карту пам'яті"</string>
+    <string name="permlab_mount_format_filesystems">очищати носій USB</string>
     <string name="permdesc_mount_format_filesystems">Дозволяє програмі форматувати пам’ять на знімних носіях.</string>
     <string name="permlab_asec_access">"переносити інформацію у внутрішню пам'ять"</string>
     <string name="permdesc_asec_access">Дозволяє програмі отримувати інформацію про внутрішню пам’ять.</string>
@@ -567,7 +567,7 @@
     <string name="permlab_accountManagerService">діяти як AccountManagerService</string>
     <string name="permdesc_accountManagerService">Дозволяє програмі здійснювати виклики AccountAuthenticators.</string>
     <string name="permlab_getAccounts">знаходити облікові записи на пристрої</string>
-    <string name="permdesc_getAccounts">Дозволяє програмі отримувати список облікових записів, збережених на телефоні. Також може включати всі облікові записи, створені встановленими програмами.</string>
+    <string name="permdesc_getAccounts">Дозволяє програмі отримувати список облікових записів, відомих телефону. Він може включати всі облікові записи, створені встановленими програмами.</string>
     <string name="permlab_authenticateAccounts">створювати облікові записи й установлювати паролі</string>
     <string name="permdesc_authenticateAccounts">Дозволяє програмі використовувати можливості автентифікатора облікового запису AccountManager, зокрема створювати облікові записи, а також отримувати та встановлювати паролі до них.</string>
     <string name="permlab_manageAccounts">додавати або видаляти облікові записи</string>
@@ -575,9 +575,9 @@
     <string name="permlab_useCredentials">використовувати облікові записи на пристрої</string>
     <string name="permdesc_useCredentials">Дозволяє програмі подавати запити на маркери автентифікації.</string>
     <string name="permlab_accessNetworkState">переглядати мережеві з’єднання</string>
-    <string name="permdesc_accessNetworkState">Дозволяє програмі переглядати інформацію про з’єднання з мережами, наприклад дані про наявні та під’єднані мережі.</string>
+    <string name="permdesc_accessNetworkState">Дозволяє програмі переглядати інформацію про з’єднання з мережами, як-от дані про наявні та під’єднані мережі.</string>
     <string name="permlab_createNetworkSockets">повний доступ до мережі</string>
-    <string name="permdesc_createNetworkSockets">Дозволяє програмі створювати сокети мережі та використовувати спеціальні мережеві протоколи. Браузер та інші програми надають засоби надсилання даних в Інтернет, тому цей дозвіл не потрібен для надсилання даних в Інтернет.</string>
+    <string name="permdesc_createNetworkSockets">Дозволяє програмі створювати сокети мережі та використовувати спеціальні мережеві протоколи. Веб-переглядач та інші програми надають засоби надсилання даних в Інтернет, тому цей дозвіл не потрібен для надсилання даних в Інтернет.</string>
     <string name="permlab_writeApnSettings">змінювати/перехоплювати налаштування та трафік мережі</string>
     <string name="permdesc_writeApnSettings">Дозволяє програмі змінювати налаштування мережі, а також перехоплювати та перевіряти весь мережевий трафік, наприклад, змінювати проксі-сервер і порт будь-якої точки APN. Шкідливі програми можуть контролювати, переадресовувати чи змінювати мережеві пакети без вашого відома.</string>
     <string name="permlab_changeNetworkState">змінювати підключення до мережі</string>
@@ -587,11 +587,11 @@
     <string name="permlab_changeBackgroundDataSetting">змінювати параметр використання фонових даних</string>
     <string name="permdesc_changeBackgroundDataSetting">Дозволяє програмі змінювати параметр використання фонових даних.</string>
     <string name="permlab_accessWifiState">переглядати з’єднання Wi-Fi</string>
-    <string name="permdesc_accessWifiState">Дозволяє програмі переглядати інформацію про використання мереж Wi-Fi, наприклад увімкнення/вимкнення Wi-Fi, а також назви під’єднаних до Wi-Fi пристроїв.</string>
+    <string name="permdesc_accessWifiState">Дозволяє програмі переглядати інформацію про використання мереж Wi-Fi, як-от увімкнення/вимкнення Wi-Fi, а також назви під’єднаних до Wi-Fi пристроїв.</string>
     <string name="permlab_changeWifiState">під’єднуватися й від’єднуватися від Wi-Fi</string>
     <string name="permdesc_changeWifiState">Дозволяє програмі під’єднуватися та від’єднуватися від точок доступу Wi-Fi, а також вносити зміни в налаштування пристрою для мереж Wi-Fi.</string>
     <string name="permlab_changeWifiMulticastState">дозвіл отримання багатоадр. Wi-Fi</string>
-    <string name="permdesc_changeWifiMulticastState">Дозволяє програмі отримувати пакети, надіслані за допомогою багатоадресної передачі на всі пристрої в мережі Wi-Fi, а не лише на ваш телефон. Використовує більше заряду акумулятора, ніж небагатоадресний режим.</string>
+    <string name="permdesc_changeWifiMulticastState">Дозволяє програмі отримувати пакети, надіслані за допомогою групової адресації на всі пристрої в мережі Wi-Fi, а не лише на ваш телефон. Використовує більше заряду, ніж режим небагатоадресних пакетів.</string>
     <string name="permlab_bluetoothAdmin">отримувати доступ до налаштувань Bluetooth</string>
     <string name="permdesc_bluetoothAdmin">Дозволяє програмі налаштовувати телефон із локальним Bluetooth, а також знаходити віддалені пристрої та створювати з ними пару.</string>
     <string name="permlab_accessWimaxState">Переглядати з’єднання WiMAX</string>
@@ -599,15 +599,15 @@
     <string name="permlab_changeWimaxState">змінювати стан WiMAX</string>
     <string name="permdesc_changeWimaxState">Дозволяє програмі під’єднувати телефон до мереж WiMAX і від’єднувати його від них.</string>
     <string name="permlab_bluetooth">створювати пару з пристроями Bluetooth</string>
-    <string name="permdesc_bluetooth">Дозволяє програмі переглядати конфігурацію Bluetooth на телефоні, а також створювати та приймати з’єднання з парними пристроями.</string>
+    <string name="permdesc_bluetooth">Дозволяє програмі переглядати конфігурацію Bluetooth на телефоні, а також створювати та приймати з’єднання зі спареними пристроями.</string>
     <string name="permlab_nfc">контрол. Near Field Communication</string>
     <string name="permdesc_nfc">Дозволяє програмі обмінюватися даними з тегами, картками та читачами екрана Near Field Communication (NFC).</string>
     <string name="permlab_disableKeyguard">вимикати блокування екрана</string>
-    <string name="permdesc_disableKeyguard">Дозволяє програмі вимикати блокування клавіатури та будь-який пов’язаний паролем захист. Наприклад: телефон вимикає блокування клавіатури під час отримання вхідного виклику, після закінчення якого блокування клавіатури відновлюється.</string>
+    <string name="permdesc_disableKeyguard">Дозволяє програмі вимикати блокування клавіатури та будь-який пов’язаний паролем захист. Наприклад: телефон вимикає блокування клавіатури під час отримання вхідного дзвінка, після закінчення якого блокування клавіатури відновлюється.</string>
     <string name="permlab_readSyncSettings">читати налаштування синхронізації</string>
-    <string name="permdesc_readSyncSettings">Дозволяє програмі читати налаштування синхронізації для облікового запису, наприклад, визначати, чи програма Контакти синхронізується з обліковим записом.</string>
+    <string name="permdesc_readSyncSettings">Дозволяє програмі читати налаштування синхронізації для облікового запису, наприклад, визначати, чи програма Люди синхронізується з обліковим записом.</string>
     <string name="permlab_writeSyncSettings">вмикати й вимикати синхронізацію</string>
-    <string name="permdesc_writeSyncSettings">Дозволяє програмі змінювати налаштування синхронізації для облікового запису, наприклад, вмикати синхронізацію програми Контакти з обліковим записом.</string>
+    <string name="permdesc_writeSyncSettings">Дозволяє програмі змінювати налаштування синхронізації для облікового запису, наприклад, вмикати синхронізацію програми Люди з обліковим записом.</string>
     <string name="permlab_readSyncStats">читати статистику синхронізації</string>
     <string name="permdesc_readSyncStats">Дозволяє програмі читати статистику синхронізації облікового запису, зокрема історію синхронізацій і обсяг синхронізованих даних.</string>
     <string name="permlab_subscribedFeedsRead">читати підписані канали</string>
@@ -616,18 +616,18 @@
     <string name="permdesc_subscribedFeedsWrite">Дозволяє програмі змінювати поточно синхронізовані канали. Шкідливі програми можуть змінювати ваші синхронізовані канали.</string>
     <string name="permlab_readDictionary">читати додані в словник терміни</string>
     <string name="permdesc_readDictionary">Дозволяє програмі читати всі слова, назви та фрази, які користувач міг зберегти у своєму словнику.</string>
-    <string name="permlab_writeDictionary">записувати у вказаний користувачем словник</string>
-    <string name="permdesc_writeDictionary">Дозволяє програмі записувати нові слова в словник користувача.</string>
+    <string name="permlab_writeDictionary">писати у вказаний користувачем словник</string>
+    <string name="permdesc_writeDictionary">Дозволяє програмі писати нові слова в словник користувача.</string>
     <string name="permlab_sdcardRead">тестувати доступ до захищеної пам’яті</string>
-    <string name="permdesc_sdcardRead">"Дозволяє програмі тестувати дозвіл для карти пам'яті, яка буде доступна на майбутніх пристроях."</string>
-    <string name="permlab_sdcardWrite">"змінювати чи видаляти вміст на карті пам'яті"</string>
-    <string name="permdesc_sdcardWrite">"Дозволяє програмі записувати на карту пам'яті."</string>
+    <string name="permdesc_sdcardRead">Дозволяє програмі тестувати дозвіл для носія USB, який буде доступний на майбутніх пристроях.</string>
+    <string name="permlab_sdcardWrite">змінювати чи видаляти вміст USB</string>
+    <string name="permdesc_sdcardWrite">Дозволяє програмі писати на носій USB</string>
     <string name="permlab_mediaStorageWrite">змінювати/видаляти вміст внутр. сховища даних</string>
-    <string name="permdesc_mediaStorageWrite">"Дозволяє програмі змінювати вміст внутрішньої пам'яті."</string>
+    <string name="permdesc_mediaStorageWrite">Дозволяє програмі змінювати вміст внутрішнього сховища даних.</string>
     <string name="permlab_cache_filesystem">отримати доступ до файлової системи кешу</string>
     <string name="permdesc_cache_filesystem">Дозволяє програмі читати з файлової системи кеш-пам’яті та писати в неї.</string>
     <string name="permlab_use_sip">здійсн./отрим. інтернет-викликів</string>
-    <string name="permdesc_use_sip">Дозволяє програмі використовувати протокол SIP, щоб здійснювати чи отримувати виклики через Інтернет.</string>
+    <string name="permdesc_use_sip">Дозволяє програмі використовувати протокол SIP, щоб здійснювати чи отримувати дзвінки через Інтернет.</string>
     <string name="permlab_readNetworkUsageHistory">читати історію використання мережі</string>
     <string name="permdesc_readNetworkUsageHistory">Дозволяє програмі читати історію використання мережі для певних мереж і програм.</string>
     <string name="permlab_manageNetworkPolicy">керувати політикою мережі</string>
@@ -742,7 +742,7 @@
     <string name="lockscreen_pattern_correct">Правильно!</string>
     <string name="lockscreen_pattern_wrong">Повторіть спробу</string>
     <string name="lockscreen_password_wrong">Повторіть спробу</string>
-    <string name="faceunlock_multiple_failures">Перевищено максимальну кількість спроб розблокування за допомогою функції \"Розблокування за обличчям\"</string>
+    <string name="faceunlock_multiple_failures">Перевищено максимальну кількість спроб розблокування за допомогою функції \"Фейсконтроль\"</string>
     <string name="lockscreen_plugged_in">Заряджається, %d%%</string>
     <string name="lockscreen_charged">Заряджено.</string>
     <string name="lockscreen_battery_short">%d%%</string>
@@ -765,14 +765,16 @@
     <string name="lockscreen_sim_puk_locked_instructions">Перегляньте посібник користувача чи зверніться до служби підтримки.</string>
     <string name="lockscreen_sim_locked_message">SIM-карту заблок.</string>
     <string name="lockscreen_sim_unlock_progress_dialog_message">Розблок. SIM-карти…</string>
-    <string name="lockscreen_too_many_failed_attempts_dialog_message">Ключ розблокування неправильно намальовано таку кількість разів: %d сек.</string>
-    <string name="lockscreen_too_many_failed_password_attempts_dialog_message" formatted="false">"Пароль неправильно введено таку кількість разів: %d.
+    <string name="lockscreen_too_many_failed_attempts_dialog_message" formatted="false">"Ключ розблокування неправильно намальовано стільки разів: %d. 
 
 Повторіть спробу через %d сек."</string>
-    <string name="lockscreen_too_many_failed_pin_attempts_dialog_message" formatted="false">"PIN-код неправильно введено таку кількість разів: %d.
+    <string name="lockscreen_too_many_failed_password_attempts_dialog_message" formatted="false">"Пароль неправильно введено стільки разів: %d.
 
 Повторіть спробу через %d сек."</string>
-    <string name="lockscreen_failed_attempts_almost_glogin" formatted="false">"Ключ розблокування неправильно намальовано таку кількість разів: %d. Ваш телефон потрібно буде розблокувати за допомогою входу в Google після ще стількох неуспішних спроб: %d.
+    <string name="lockscreen_too_many_failed_pin_attempts_dialog_message" formatted="false">"PIN-код неправильно введено стільки разів: %d.
+
+Повторіть спробу через %d сек."</string>
+    <string name="lockscreen_failed_attempts_almost_glogin" formatted="false">"Ключ розблокування неправильно намальовано стільки разів: %d. Ваш телефон потрібно буде розблокувати за допомогою входу в Google після ще стількох неуспішних спроб: %d.
 
  Повторіть спробу через %d сек."</string>
     <string name="lockscreen_failed_attempts_almost_at_wipe" formatted="false">Кількість невдалих спроб розблокувати телефон: %d. Налаштування телефону буде змінено на заводські за умовчанням, а всі дані користувача буде втрачено після ще стількох невдалих спроб: %d.</string>
@@ -786,7 +788,7 @@
     <string name="lockscreen_glogin_password_hint">Пароль</string>
     <string name="lockscreen_glogin_submit_button">Увійти</string>
     <string name="lockscreen_glogin_invalid_input">"Недійсне ім'я користувача чи пароль."</string>
-    <string name="lockscreen_glogin_account_recovery_hint">"Забули ім’я користувача чи пароль?
+    <string name="lockscreen_glogin_account_recovery_hint">"Не пам’ятаєте ім’я користувача чи пароль?
 Відвідайте сторінку "<b>google.com/accounts/recovery</b>.</string>
     <string name="lockscreen_glogin_checking_password">Перевірка…</string>
     <string name="lockscreen_unlock_label">Розблок.</string>
@@ -863,12 +865,12 @@
     <string name="permdesc_readHistoryBookmarks">Дозволяє програмі читати історію URL-адрес, які відкривалися у веб-переглядачі, і всі закладки веб-переглядача. Зауважте: цей дозвіл не може застосовуватися веб-переглядачами третіх сторін або іншими програмами з можливостями веб-перегляду.</string>
     <string name="permlab_writeHistoryBookmarks">писати у веб-закладки й історію</string>
     <string name="permdesc_writeHistoryBookmarks">Дозволяє програмі змінювати історію чи закладки веб-переглядача, збережені у вашому телефоні. Це може дозволити програмі стирати чи змінювати дані веб-переглядача. Зауважте: цей дозвіл не може застосовуватися веб-переглядачами третіх сторін або іншими програмами з можливостями веб-перегляду.</string>
-    <string name="permlab_setAlarm">встановлення будильника</string>
+    <string name="permlab_setAlarm">установлювати будильник</string>
     <string name="permdesc_setAlarm">Дозволяє програмі налаштовувати сигнал у встановленій програмі будильника. У деяких програмах будильника ця функція може не застосовуватися.</string>
     <string name="permlab_addVoicemail">додавати голосову пошту</string>
     <string name="permdesc_addVoicemail">Дозволяє програмі додавати повідомлення в папку \"Вхідні\" голосової пошти.</string>
     <string name="permlab_writeGeolocationPermissions">Змінити дозволи на визнач. розташування браузером</string>
-    <string name="permdesc_writeGeolocationPermissions">Дозволяє програмі змінювати дозволи географічного місцезнаходження у браузері. Шкідливі програми можуть використовувати це, щоб дозволяти надсилати інформацію про місцезнаходження довільним веб-сайтам.</string>
+    <string name="permdesc_writeGeolocationPermissions">Дозволяє програмі змінювати дозволи географічного місцезнаходження у веб-переглядачі. Шкідливі програми можуть використовувати це, щоб дозволяти надсилати інформацію про місцезнаходження довільним веб-сайтам.</string>
     <string name="permlab_packageVerificationAgent">перевіряти пакети</string>
     <string name="permdesc_packageVerificationAgent">Дозволяє програмі перевіряти можливість встановлення пакета.</string>
     <string name="permlab_bindPackageVerifier">прив’язуватися до програми перевірки пакетів</string>
@@ -930,7 +932,7 @@
     <string name="deleteText">видалити</string>
     <string name="inputMethod">Метод введення</string>
     <string name="editTextMenuTitle">Дії з текстом</string>
-    <string name="low_internal_storage_view_title">Закінчується вільна пам’ять</string>
+    <string name="low_internal_storage_view_title">Закінчується пам’ять</string>
     <string name="low_internal_storage_view_text">Деякі системні функції можуть не працювати</string>
     <string name="loading">Завантаження...</string>
     <string name="capital_on">УВІМК.</string>
@@ -950,7 +952,7 @@
 Закрити її?"</string>
     <string name="anr_activity_process">"Дія %1$s не відповідає.
 
-Завершити її?"</string>
+Закінчити її?"</string>
     <string name="anr_application_process">Програма %1$s не відповідає. Закрити її?</string>
     <string name="anr_process">"Процес %1$s не відповідає.
 
@@ -985,7 +987,7 @@
     <string name="volume_ringtone">Гучність дзвінка</string>
     <string name="volume_music">Гучність медіа</string>
     <string name="volume_music_hint_playing_through_bluetooth">Відтворення через Bluetooth</string>
-    <string name="volume_music_hint_silent_ringtone_selected">Установлено мелодію без звуку</string>
+    <string name="volume_music_hint_silent_ringtone_selected">Установлено сигнал дзвінка без звуку</string>
     <string name="volume_call">Гучність вхідного виклику</string>
     <string name="volume_bluetooth_call">Гучність вхідного виклику через Bluetooth</string>
     <string name="volume_alarm">Гучн. сповіщ.</string>
@@ -1041,17 +1043,17 @@
     <string name="perms_description_app">Надано %1$s.</string>
     <string name="usb_storage_activity_title">Накопичувач USB</string>
     <string name="usb_storage_title">Підкл. через USB</string>
-    <string name="usb_storage_message">"Ви під’єдналися до комп’ютера за допомогою USB. Торкніться кнопки нижче, якщо хочете скопіювати файли з комп’ютера на карту пам'яті вашого пристрою Android або навпаки."</string>
+    <string name="usb_storage_message">Ви під’єдналися до комп’ютера за допомогою USB. Торкніться кнопки нижче, якщо потрібно скопіювати файли з комп’ютера на носій USB вашого пристрою Android або навпаки.</string>
     <string name="usb_storage_button_mount">Увімкнути носій USB</string>
-    <string name="usb_storage_error_message">Виникла проблема з використанням карти SD замість носія USB великого обсягу.</string>
+    <string name="usb_storage_error_message">Виникла проблема з використанням носія USB замість носія USB великої ємності.</string>
     <string name="usb_storage_notification_title">"З'єднання через USB"</string>
     <string name="usb_storage_notification_message">Торкніться, щоб скопіювати файли на комп’ютер чи з нього.</string>
     <string name="usb_storage_stop_notification_title">Вимкнути носій USB</string>
     <string name="usb_storage_stop_notification_message">Торкніться, щоб вимкнути носій USB.</string>
     <string name="usb_storage_stop_title">Носій USB використовується</string>
-    <string name="usb_storage_stop_message">"Перед вимкненням носія USB відключіть від комп’ютера (\"вийміть\") карту пам'яті вашого пристрою Android."</string>
+    <string name="usb_storage_stop_message">Перед вимкненням носія USB відключіть від комп’ютера (\"вийміть\") носій USB вашого пристрою Android.</string>
     <string name="usb_storage_stop_button_mount">Вимкнути носій USB</string>
-    <string name="usb_storage_stop_error_message">Під час вимкнення носія USB виникла проблема. Перевірте, чи хост USB відключено, і повторіть спробу.</string>
+    <string name="usb_storage_stop_error_message">Під час вимкнення носія USB виникла проблема. Перевірте, чи USB-хост відключено, і повторіть спробу.</string>
     <string name="dlg_confirm_kill_storage_users_title">Увімкнути носій USB</string>
     <string name="dlg_confirm_kill_storage_users_text">Якщо ввімкнути носій USB, робота деяких програм, якими ви користуєтеся, припиниться, і вони можуть стати недоступними до вимкнення носія USB.</string>
     <string name="dlg_error_title">Помилка операції з USB</string>
@@ -1061,8 +1063,8 @@
     <string name="usb_cd_installer_notification_title">Під’єднано як програму встановлення</string>
     <string name="usb_accessory_notification_title">Під’єднано до аксесуара USB</string>
     <string name="usb_notification_message">Торкніться, щоб побачити інші параметри USB.</string>
-    <string name="extmedia_format_title">"Форматувати карту пам'яті?"</string>
-    <string name="extmedia_format_message">Усі дані на вашій карті буде втрачено.</string>
+    <string name="extmedia_format_title">Форматув. носій USB?</string>
+    <string name="extmedia_format_message">Усі файли, збережені у вашому носії USB, буде стерто. Цю дію не можна скасувати!</string>
     <string name="extmedia_format_button_format">Форматув.</string>
     <string name="adb_active_notification_title">Налагодження USB підключено</string>
     <string name="adb_active_notification_message">Торкніться, щоб вимкнути налагодження USB.</string>
@@ -1076,25 +1078,25 @@
     <string name="fast_scroll_alphabet">" АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"</string>
     <string name="fast_scroll_numeric_alphabet">" 0123456789АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ"</string>
     <string name="candidates_style"><u>кандидати</u></string>
-    <string name="ext_media_checking_notification_title">"Приготуваня карти пам'яті"</string>
+    <string name="ext_media_checking_notification_title">Підготовка носія USB</string>
     <string name="ext_media_checking_notification_message">Перевірка на наявність помилок.</string>
-    <string name="ext_media_nofs_notification_title">"Порожня карта пам'яті"</string>
-    <string name="ext_media_nofs_notification_message">"Карта пам'яті порожня або має непідтримувану файлову систему."</string>
-    <string name="ext_media_unmountable_notification_title">"Пошкодж. карта пам'яті"</string>
-    <string name="ext_media_unmountable_notification_message">"Карту пам'яті пошкоджено. Спробуйте її переформатувати."</string>
-    <string name="ext_media_badremoval_notification_title">"Карту пам'яті несподівано вилучено"</string>
-    <string name="ext_media_badremoval_notification_message">"Відключ. карту пам'яті перед її вилуч., щоб не втрат. дані."</string>
-    <string name="ext_media_safe_unmount_notification_title">"Карту пам'яті можна вилучити"</string>
-    <string name="ext_media_safe_unmount_notification_message">"Можна безпечно вилучити карту пам'яті."</string>
-    <string name="ext_media_nomedia_notification_title">"Вилучена карта пам'яті"</string>
-    <string name="ext_media_nomedia_notification_message">"Карту пам'яті вилучено. Вставте нову."</string>
+    <string name="ext_media_nofs_notification_title">Порожній носій USB</string>
+    <string name="ext_media_nofs_notification_message">Носій USB порожній або має непідтримувану файлову систему.</string>
+    <string name="ext_media_unmountable_notification_title">Пошкоджений носій USB</string>
+    <string name="ext_media_unmountable_notification_message">Носій USB пошкоджено. Спробуйте його переформатувати.</string>
+    <string name="ext_media_badremoval_notification_title">Носій USB несподівано вилучено</string>
+    <string name="ext_media_badremoval_notification_message">Відключити носій USB перед його вилученням, щоб не втратити дані.</string>
+    <string name="ext_media_safe_unmount_notification_title">Носій USB можна вилучити</string>
+    <string name="ext_media_safe_unmount_notification_message">Можна безпечно вилучити носій USB.</string>
+    <string name="ext_media_nomedia_notification_title">Вилучений носій USB</string>
+    <string name="ext_media_nomedia_notification_message">Носій USB вилучено. Вставте новий носій.</string>
     <string name="activity_list_empty">Відповідні дії не знайдено.</string>
     <string name="permlab_pkgUsageStats">оновл. статистику викор. компонентів</string>
     <string name="permdesc_pkgUsageStats">Дозволяє програмі змінювати зібрану статистику використання компонентів. Не для використання звичайними програмами.</string>
     <string name="permlab_copyProtectedData">копіювати вміст</string>
     <string name="permdesc_copyProtectedData">Дозволяє програмі викликати службу контейнерів за умовчанням для копіювання вмісту. Не для використання звичайними програмами.</string>
-    <string name="permlab_route_media_output">Спрямовувати вивід медіаданих</string>
-    <string name="permdesc_route_media_output">Дозволяє програмі спрямовувати вивід медіаданих на інші зовнішні пристрої.</string>
+    <string name="permlab_route_media_output">Скеровувати вивід медіа-даних</string>
+    <string name="permdesc_route_media_output">Дозволяє програмі скеровувати вивід медіа-даних на інші зовнішні пристрої.</string>
     <string name="tutorial_double_tap_to_zoom_message_short">Двічі торкніться, щоб керувати масштабом</string>
     <string name="gadget_host_error_inflating">Не вдалося додати віджет.</string>
     <string name="ime_action_go">Йти</string>
@@ -1130,8 +1132,8 @@
     <string name="no_file_chosen">Файл не вибрано</string>
     <string name="reset">Віднов.</string>
     <string name="submit">Надісл.</string>
-    <string name="car_mode_disable_notification_title">Режим у авто ввімк.</string>
-    <string name="car_mode_disable_notification_message">Торкніться, щоб вийти з режиму у авто.</string>
+    <string name="car_mode_disable_notification_title">Режим авто ввімкн.</string>
+    <string name="car_mode_disable_notification_message">Торкніться, щоб вийти з режиму автомобіля.</string>
     <string name="tethered_notification_title">Режим модема чи точка доступу активні</string>
     <string name="tethered_notification_message">Торкніться, щоб налаштувати.</string>
     <string name="back_button_label">Назад</string>
@@ -1144,13 +1146,13 @@
     <string name="no_matches">Немає збігів</string>
     <string name="find_on_page">Знайти на сторінці</string>
     <string name="action_mode_done">Готово</string>
-    <string name="progress_unmounting">Відключення карти SD...</string>
-    <string name="progress_erasing">"Стирання карти пам'яті..."</string>
-    <string name="format_error">"Не вдалось очистити карту пам'яті."</string>
+    <string name="progress_unmounting">Відключення носія USB...</string>
+    <string name="progress_erasing">Стирання носія USB...</string>
+    <string name="format_error">Не вдалось очистити носій USB.</string>
     <string name="media_bad_removal">"Карту пам'яті вилучено раніше, ніж її було відключено."</string>
-    <string name="media_checking">Карта SD наразі перевіряється.</string>
+    <string name="media_checking">Носій USB наразі перевіряється.</string>
     <string name="media_removed">"Карту пам'яті вилучено."</string>
-    <string name="media_shared">"Наразі комп'ютер використовує карту SD."</string>
+    <string name="media_shared">"Наразі комп'ютер використовує носій USB."</string>
     <string name="media_unknown_state">Зовнішні носії в невідомому стані.</string>
     <string name="share">Відпр.</string>
     <string name="find">Знайти</string>
@@ -1161,7 +1163,7 @@
     <string name="gpsVerifYes">Так</string>
     <string name="gpsVerifNo">Ні</string>
     <string name="sync_too_many_deletes">Перевищено обмеж. видалень</string>
-    <string name="sync_too_many_deletes_desc">Для %2$s, облікового запису %3$s, знайдено наступну кількість видалених елементів: %1$d. Що бажаєте зробити?</string>
+    <string name="sync_too_many_deletes_desc">Для %2$s, облікового запису %3$s, знайдено стільки видалених елементів: %1$d. Що робити?</string>
     <string name="sync_really_delete">Видалити елементи</string>
     <string name="sync_undo_deletes">Відмінити видалення</string>
     <string name="sync_do_nothing">Наразі нічого не робити</string>
@@ -1178,11 +1180,11 @@
     <string name="time_picker_decrement_hour_button">На годину назад</string>
     <string name="time_picker_increment_set_pm_button">Установити час \"пп\"</string>
     <string name="time_picker_decrement_set_am_button">Установити час \"дп\"</string>
-    <string name="date_picker_increment_month_button">На місяць вперед</string>
+    <string name="date_picker_increment_month_button">На місяць уперед</string>
     <string name="date_picker_decrement_month_button">На місяць назад</string>
-    <string name="date_picker_increment_day_button">На день вперед</string>
+    <string name="date_picker_increment_day_button">На день уперед</string>
     <string name="date_picker_decrement_day_button">На день назад</string>
-    <string name="date_picker_increment_year_button">На рік вперед</string>
+    <string name="date_picker_increment_year_button">На рік уперед</string>
     <string name="date_picker_decrement_year_button">На рік назад</string>
     <string name="keyboardview_keycode_alt">Alt</string>
     <string name="keyboardview_keycode_cancel">Скасувати</string>
@@ -1194,7 +1196,7 @@
     <string name="activitychooserview_choose_application">Вибрати програму</string>
     <string name="shareactionprovider_share_with">Використовувати спільно з</string>
     <string name="shareactionprovider_share_with_application">Використовувати спільно з %s</string>
-    <string name="content_description_sliding_handle">Протягніть повзунок. Торкніться й утримуйте.</string>
+    <string name="content_description_sliding_handle">Вказівник-повзунок. Торкніться й утримуйте.</string>
     <string name="description_direction_up">Проведіть пальцем угору, щоб %s.</string>
     <string name="description_direction_down">Проведіть пальцем униз, щоб %s.</string>
     <string name="description_direction_left">Проведіть пальцем ліворуч, щоб %s.</string>
@@ -1257,12 +1259,12 @@
     <string name="default_audio_route_name_dock_speakers">Динаміки док-станції</string>
     <string name="default_audio_route_name_hdmi">Аудіовихід HDMI</string>
     <string name="default_audio_route_category_name">Система</string>
-    <string name="bluetooth_a2dp_audio_route_name">Аудіо по Bluetooth</string>
+    <string name="bluetooth_a2dp_audio_route_name">Аудіо Bluetooth</string>
     <string name="media_route_chooser_grouping_done">Готово</string>
-    <string name="permlab_fm_receiver">Управляти FM-приймачем</string>
-    <string name="permdesc_fm_receiver">Дозволяє програмі отримувати доступ до FM-приймача.</string>
-    <string name="permlab_fm_transmitter">Управляти FM-передавачем</string>
-    <string name="permdesc_fm_transmitter">Дозволити програмі управляти FM-передавачем.</string>
+    <string name="permlab_fm_receiver">control FM receiver</string>
+    <string name="permdesc_fm_receiver">Allows the application to control the FM receiver.</string>
+    <string name="permlab_fm_transmitter">control FM transmitter</string>
+    <string name="permdesc_fm_transmitter">Allows the application to control the FM transmitter.</string>
     <string name="permlab_bluetooth_printer">доступ до принтерів Bluetooth</string>
     <string name="permdesc_bluetooth_printer">Дозволяє програмі доступ до функцій служби принтера Bluetooth</string>
     <string name="permlab_accessTun">повний доступ до регулюючого пристрою</string>
@@ -1277,8 +1279,8 @@
     <string name="permdesc_accessCWFolder">Надає програмі доступ до папки майстра налаштування</string>
     <string name="permlab_accessRecoveryFolder">Доступ до папки відновлення</string>
     <string name="permdesc_accessRecoveryFolder">Дозволяє програмі звертатися до папки відновлення</string>
-    <string name="permlab_accessAutoFilenode">Доступ до автобот-файлу</string>
-    <string name="permdesc_accessAutoFilenode">Дозволити програмі управляти автобот-файлом</string>
-    <string name="permlab_getpreloadpackages">Отримати видалені предзавантажені точки доступу</string>
-    <string name="permdesc_getpreloadpackages">Дозволити точкам доступу використовувати API для отримання видалених предзавантажених точок доступу.</string>
+    <string name="permlab_accessAutoFilenode">Access autobot file</string>
+    <string name="permdesc_accessAutoFilenode">Allows an application to access autobot file</string>
+    <string name="permlab_getpreloadpackages">Get uninstalled preload APs</string>
+    <string name="permdesc_getpreloadpackages">Allows the APs could use this API to get uninstalled preload APs.</string>
 </resources>

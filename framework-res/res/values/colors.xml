@@ -77,7 +77,7 @@
     <color name="dim_foreground_inverse_disabled_holo_light">#80bebebe</color>
     <color name="hint_foreground_holo_light">#ff808080</color>
     <color name="highlighted_text_holo_dark">#6633b5e5</color>
-    <color name="highlighted_text_holo_light">#6633b5e5</color>
+    <color name="highlighted_text_holo_light">#ffffc960</color>
     <color name="link_text_holo_dark">#ff5c5cff</color>
     <color name="link_text_holo_light">#ff0000ee</color>
     <color name="group_button_dialog_pressed_holo_dark">#46c5c1ff</color>
@@ -87,5 +87,11 @@
     <color name="legacy_pressed_highlight">#fffeaa0c</color>
     <color name="legacy_selected_highlight">#fff17a0a</color>
     <color name="legacy_long_pressed_highlight">#ffffffff</color>
-    <color name="config_defaultNotificationColor">#ffffffff</color>
+    <color name="config_defaultNotificationColor">#ff0000ff</color>
+    <color name="list_separator_foreground_holo_light">#ffff7e00</color>
+    <color name="statusbar_content">#ff999999</color>
+    <color name="statusbar_content_title">#ffffffff</color>
+    <color name="statusbar_content_info">#ff999999</color>
+    <color name="statusbar_content_time">#ff999999</color>
+    <color name="statusbar_content_emphasis">#ffcccccc</color>
 </resources>

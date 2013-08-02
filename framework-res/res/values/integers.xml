@@ -18,9 +18,9 @@
     <integer name="config_deskDockRotation">-1</integer>
     <integer name="config_carDockRotation">-1</integer>
     <integer name="config_defaultUiModeType">1</integer>
-    <integer name="config_deskDockKeepsScreenOn">0</integer>
+    <integer name="config_deskDockKeepsScreenOn">1</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
-    <integer name="config_lidKeyboardAccessibility">0</integer>
+    <integer name="config_lidKeyboardAccessibility">1</integer>
     <integer name="config_lidNavigationAccessibility">0</integer>
     <integer name="config_longPressOnPowerBehavior">1</integer>
     <integer name="config_criticalBatteryWarningLevel">4</integer>
@@ -33,7 +33,7 @@
     <integer name="config_notificationsBatteryFullARGB">-16711936</integer>
     <integer name="config_notificationsBatteryLedOn">125</integer>
     <integer name="config_notificationsBatteryLedOff">2875</integer>
-    <integer name="config_longPressOnHomeBehavior">2</integer>
+    <integer name="config_longPressOnHomeBehavior">0</integer>
     <integer name="config_screenBrightnessDim">20</integer>
     <integer name="config_useAutoBrightnessAlgorithm">0</integer>
     <integer name="config_lightSensorWarmupTime">0</integer>
@@ -45,12 +45,12 @@
     <integer name="db_connection_pool_size">4</integer>
     <integer name="db_journal_size_limit">524288</integer>
     <integer name="db_wal_autocheckpoint">100</integer>
-    <integer name="config_downloadDataDirSize">100</integer>
+    <integer name="config_downloadDataDirSize">256</integer>
     <integer name="config_MaxConcurrentDownloadsAllowed">5</integer>
     <integer name="config_downloadDataDirLowSpaceThreshold">10</integer>
     <integer name="config_cursorWindowSize">2048</integer>
     <integer name="config_ntpTimeout">20000</integer>
-    <integer name="config_networkPolicyDefaultWarning">2048</integer>
+    <integer name="config_networkPolicyDefaultWarning">10</integer>
     <integer name="config_maxResolverActivityColumns">2</integer>
     <integer name="max_action_buttons">2</integer>
     <integer name="preferences_left_pane_weight">4</integer>

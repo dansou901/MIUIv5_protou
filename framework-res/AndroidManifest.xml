@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:sharedUserId="android.uid.system" android:versionCode="16" android:versionName="4.1.1-eng..20130403.154856" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
+<manifest android:sharedUserId="android.uid.system" android:versionCode="16" android:versionName="4.1.1-eng..20130304.180006" android:sharedUserLabel="@string/android_system_label" package="android" coreApp="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16" />
     <eat-comment />
@@ -93,26 +93,6 @@
     <protected-broadcast android:name="android.intent.action.CLEAR_DNS_CACHE" />
     <protected-broadcast android:name="android.intent.action.PROXY_CHANGE" />
     <protected-broadcast android:name="android.os.UpdateLock.UPDATE_LOCK_CHANGED" />
-    <protected-broadcast android:name="android.intent.action.ANY_DATA_STATE" />
-    <protected-broadcast android:name="com.android.server.WifiManager.action.START_SCAN" />
-    <protected-broadcast android:name="com.android.server.WifiManager.action.DELAYED_DRIVER_STOP" />
-    <protected-broadcast android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.WIFI_AP_STATE_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.SCAN_RESULTS" />
-    <protected-broadcast android:name="android.net.wifi.RSSI_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.STATE_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.LINK_CONFIGURATION_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.CONFIGURED_NETWORKS_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.supplicant.CONNECTION_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.supplicant.STATE_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.p2p.STATE_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.p2p.DISCOVERY_STATE_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.p2p.THIS_DEVICE_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.p2p.PEERS_CHANGED" />
-    <protected-broadcast android:name="android.net.wifi.p2p.CONNECTION_STATE_CHANGE" />
-    <protected-broadcast android:name="android.net.wifi.p2p.PERSISTENT_GROUPS_CHANGED" />
-    <protected-broadcast android:name="android.net.conn.TETHER_STATE_CHANGED" />
-    <protected-broadcast android:name="android.net.conn.INET_CONDITION_ACTION" />
     <protected-broadcast android:name="com.htc.wifioffload.intent.INTERNETAPP_RESUMED" />
     <protected-broadcast android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
     <protected-broadcast android:name="com.htc.intent.action.QUICKBOOT_POWEROFF" />

@@ -5,8 +5,8 @@
     <dimen name="thumbnail_width">164.0dip</dimen>
     <item type="dimen" name="dialog_min_width_major">65.0%</item>
     <item type="dimen" name="dialog_min_width_minor">95.00001%</item>
-    <dimen name="notification_large_icon_width">64.0dip</dimen>
-    <dimen name="notification_large_icon_height">64.0dip</dimen>
+    <dimen name="notification_large_icon_width">50.0dip</dimen>
+    <dimen name="notification_large_icon_height">50.0dip</dimen>
     <dimen name="config_prefDialogWidth">320.0dip</dimen>
     <dimen name="config_viewConfigurationTouchSlop">8.0dip</dimen>
     <dimen name="toast_y_offset">64.0dip</dimen>
@@ -85,4 +85,9 @@
     <dimen name="notification_text_size">14.0dip</dimen>
     <dimen name="notification_title_text_size">18.0dip</dimen>
     <dimen name="notification_subtext_size">12.0dip</dimen>
+    <dimen name="notification_content_margin_left_to_icon">15.0dip</dimen>
+    <dimen name="notification_content_margin_left">72.5dip</dimen>
+    <dimen name="notification_height">65.0dip</dimen>
+    <dimen name="notification_padding_left">7.5dip</dimen>
+    <dimen name="notification_padding_right">7.5dip</dimen>
 </resources>
